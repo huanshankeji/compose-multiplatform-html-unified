@@ -27,7 +27,6 @@ actual fun BoxWithConstraints(
                 attrsModifier {
                     ref {
                         //console.log("Initial client size: ${it.clientWidth}, ${it.clientHeight}")
-                        // Adding this doesn't make a difference in solving the issue below.
                         //clientSize = ClientSize(it.clientWidth, it.clientHeight)
                         val resizeObserver = ResizeObserver { entries, _ ->
                             val element = entries.single().target
