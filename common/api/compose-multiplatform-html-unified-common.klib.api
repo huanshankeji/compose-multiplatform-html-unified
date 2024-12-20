@@ -11,8 +11,16 @@ open annotation class com.huanshankeji.compose.foundation/ExperimentalFoundation
     constructor <init>() // com.huanshankeji.compose.foundation/ExperimentalFoundationApi.<init>|<init>(){}[0]
 }
 
+open annotation class com.huanshankeji.compose/ExperimentalApi : kotlin/Annotation { // com.huanshankeji.compose/ExperimentalApi|null[0]
+    constructor <init>() // com.huanshankeji.compose/ExperimentalApi.<init>|<init>(){}[0]
+}
+
 open annotation class com.huanshankeji.compose/ExtRecommendedApi : kotlin/Annotation { // com.huanshankeji.compose/ExtRecommendedApi|null[0]
     constructor <init>() // com.huanshankeji.compose/ExtRecommendedApi.<init>|<init>(){}[0]
+}
+
+open annotation class com.huanshankeji.compose/LikelyInconsistentApi : kotlin/Annotation { // com.huanshankeji.compose/LikelyInconsistentApi|null[0]
+    constructor <init>() // com.huanshankeji.compose/LikelyInconsistentApi.<init>|<init>(){}[0]
 }
 
 final enum class com.huanshankeji.compose.foundation.layout/IntrinsicSize : kotlin/Enum<com.huanshankeji.compose.foundation.layout/IntrinsicSize> { // com.huanshankeji.compose.foundation.layout/IntrinsicSize|null[0]

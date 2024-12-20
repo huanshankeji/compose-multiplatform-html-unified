@@ -3,7 +3,13 @@ public final class com/huanshankeji/compose/Content_composeUiKt {
 	public static final fun toNullableContentWithoutModifier (Lkotlin/jvm/functions/Function3;)Lkotlin/jvm/functions/Function2;
 }
 
+public abstract interface annotation class com/huanshankeji/compose/ExperimentalApi : java/lang/annotation/Annotation {
+}
+
 public abstract interface annotation class com/huanshankeji/compose/ExtRecommendedApi : java/lang/annotation/Annotation {
+}
+
+public abstract interface annotation class com/huanshankeji/compose/LikelyInconsistentApi : java/lang/annotation/Annotation {
 }
 
 public abstract class com/huanshankeji/compose/ext/LoadingState {
