@@ -34,7 +34,6 @@ actual object ScrollState
 actual fun Modifier.verticalScroll(state: ScrollState): Modifier =
     platformModify { verticalScroll() }
 
-
 actual fun Modifier.horizontalScroll(state: ScrollState): Modifier =
     platformModify { horizontalScroll() }
 

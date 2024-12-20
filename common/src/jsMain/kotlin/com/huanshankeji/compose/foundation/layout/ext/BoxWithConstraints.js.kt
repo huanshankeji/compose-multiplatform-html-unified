@@ -18,6 +18,7 @@ actual fun BoxWithConstraints(
     contentAlignment: Alignment,
     content: @Composable BoxWithConstraintsScope.() -> Unit
 ) {
+    // `DpClientSize.unspecified` instead of null can be used by default to prevent the content from not rendering when `clientSize` is not set
     var clientSize by remember { mutableStateOf<ClientSize?>(null) }
     // `DivBox` doesn't work here either, so it should not be Kobweb's problem.
     Box(
@@ -25,29 +26,22 @@ actual fun BoxWithConstraints(
             .platformModify {
                 attrsModifier {
                     ref {
-                        //clientSize = ClientSize(it.clientWidth, it.clientHeight) // Adding this doesn't make a difference to solve the issue below.
+                        //console.log("Initial client size: ${it.clientWidth}, ${it.clientHeight}")
+                        // Adding this doesn't make a difference in solving the issue below.
+                        //clientSize = ClientSize(it.clientWidth, it.clientHeight)
                         val resizeObserver = ResizeObserver { entries, _ ->
-                            val element = entries.first().target
+                            val element = entries.single().target
 
                             /*
                             console.log("width: ${element.clientWidth}, height: ${element.clientHeight}")
                             console.log(entries.first().contentBoxSize.first())
                             console.log(entries.first().borderBoxSize.first())
-                            console.log(entries.first().devicePixelContentBoxSize.first())
+                            console.log(entries.first().devicePixelContentBoxSize.first()) // If there is zoom this one is different from the 2 above.
                             */
 
-                            /* FIXME The height is sometimes 0 when resizing,
-                                a non-zero size (as filtered through below) is not observed in time,
-                                and sometimes a child element doesn't show,
-                                until it's inspected with the Chrome Dev Tools.
-                            I don't know whether this is a browser bug or a bug in our implementation.
-                            Therefore, the 0 size changes are filtered out.
-                            Uncomment the commented `console.log` debug code above to debug this further. */
                             with(element) {
-                                if (clientWidth != 0 && clientHeight != 0) {
-                                    //console.log("width: ${element.clientWidth}, height: ${element.clientHeight}")
-                                    clientSize = ClientSize(clientWidth, clientHeight)
-                                }
+                                //console.log("width: $clientWidth, height: $clientHeight")
+                                clientSize = ClientSize(clientWidth, clientHeight)
                             }
                         }
                         resizeObserver.observe(it)
@@ -78,3 +72,13 @@ class BoxWithConstraintsScopeImpl(
 ) : BoxWithConstraintsScope
 
 private class ClientSize(val clientWidth: Int, val clientHeight: Int)
+
+// removed if not used
+/**
+ * Made in [Dp] so [Dp.Unspecified] can be used.
+ */
+private class DpClientSize(val clientWidth: Dp, val clientHeight: Dp) {
+    companion object {
+        val unspecified = DpClientSize(Dp.Unspecified, Dp.Unspecified)
+    }
+}
