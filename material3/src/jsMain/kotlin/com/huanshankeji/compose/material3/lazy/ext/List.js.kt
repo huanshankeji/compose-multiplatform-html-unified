@@ -90,6 +90,12 @@ actual class ListScope(val mdListScope: MdListScope) {
 
 actual class ItemScope(val mdListItemScope: MdListItemScope)
 
+/*
+@Composable
+fun PrimitiveList() =
+    TODO() as Unit
+*/
+
 @Composable
 actual fun List(
     modifier: Modifier,

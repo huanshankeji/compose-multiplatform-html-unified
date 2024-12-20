@@ -121,6 +121,8 @@ actual fun TopAppBarScaffold(
             actions,
             Modifier.weight(1f).fillMaxWidthStretch()
         ) {
+            // This part has a lot of nested `Div`s but works. Do not change unless you are sure that expected behavior is not broken.
+
             // The content gets hidden behind the top app bar if this div is not added.
             Div({
                 style {
@@ -134,9 +136,16 @@ actual fun TopAppBarScaffold(
                         //overflow(Overflow.Auto) // This seems not needed. TODO remove if confirmed to be not needed
                     }
                 }) {
-                    // see `ScaffoldLayoutWithMeasureFix`
-                    val innerPadding = PaddingValues()
-                    content(innerPadding)
+                    // This nested `Div` is here so that a child using `fillMaxSizeStretch` works properly. `fillMaxSizeStretch` seems buggy when used directly in the `position: absolute` parent.
+                    Div({
+                        style {
+                            height(100.percent)
+                        }
+                    }) {
+                        // see `ScaffoldLayoutWithMeasureFix`
+                        val innerPadding = PaddingValues()
+                        content(innerPadding)
+                    }
                 }
 
                 floatingActionButton?.let { fabWithPosition(it) }
