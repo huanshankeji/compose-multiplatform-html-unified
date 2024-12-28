@@ -42,6 +42,7 @@ actual interface ColumnScope {
         @FloatRange(from = 0.0, fromInclusive = false)
         weight: Float
     ): Modifier =
+        // `flex-basis: 0` added to be consistent with the Compose UI behavior
         with(platformValue) { platformModify { flexBasis0().weight(weight) } }
 
     @Stable
