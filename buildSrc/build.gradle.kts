@@ -3,7 +3,7 @@ plugins {
 }
 
 repositories {
-    //mavenLocal() // comment out when not needed
+    mavenLocal() // TODO comment out when not needed so the build is always reproducible by others
     gradlePluginPortal()
     google()
     mavenCentral()
