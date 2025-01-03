@@ -115,6 +115,7 @@ fun Material3(/*modifier: Modifier = Modifier*/) {
         TextFieldWithMaterialIcons(
             text,
             { text = it },
+            readOnly = true,
             label = label,
             placeholder = placeholder,
             leadingIcon = Icons.Default.Add,
