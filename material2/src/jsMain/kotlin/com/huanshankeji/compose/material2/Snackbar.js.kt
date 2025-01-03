@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.toAttrs
 import dev.petuska.kmdc.core.MDCAttrs
+import dev.petuska.kmdc.core.MDCContent
 import dev.petuska.kmdc.snackbar.*
 
 private fun Boolean.actionOnNewLineToType() =
@@ -17,13 +18,13 @@ internal fun CommonSnackbar(
     timeoutMs: Int?,
     modifier: Modifier,
     attrs: MDCAttrs<MDCSnackbarAttrsScope>?,
-    mdcSnackbarContent: @Composable MDCSnackbarScope.() -> Unit?, // `MDCContent<MDCSnackbarScope>?` not working here since Kotlin 2.0.0
-    actions: @Composable MDCSnackbarActionsScope.() -> Unit?, //MDCContent<MDCSnackbarActionsScope>?,
+    mdcSnackbarContent: MDCContent<MDCSnackbarScope>?,
+    actions: MDCContent<MDCSnackbarActionsScope>?,
 ) =
     MDCSnackbar(actionOnNewLine.actionOnNewLineToType(), open, timeoutMs, attrs = modifier.toAttrs(attrs)) {
-        mdcSnackbarContent.invoke(this)
+        mdcSnackbarContent?.invoke(this)
 
-        actions.let {
+        actions?.let {
             Actions {
                 it()
             }
