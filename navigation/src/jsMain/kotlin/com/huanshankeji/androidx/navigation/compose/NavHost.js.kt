@@ -1,6 +1,8 @@
 package com.huanshankeji.androidx.navigation.compose
 
 import androidx.compose.runtime.*
+import androidx.lifecycle.ViewModelStore
+import androidx.lifecycle.ViewModelStoreOwner
 import androidx.navigation.*
 import com.huanshankeji.compose.foundation.layout.Box
 import com.huanshankeji.compose.foundation.layout.fillMaxSize
@@ -10,10 +12,11 @@ import com.huanshankeji.compose.ui.Modifier
 // copied and adapted from "NavHost.kt" in `androidx.navigation.compose`
 
 
-/*
-private class ComposeViewModelStoreOwner: ViewModelStoreOwner {
+private class ComposeViewModelStoreOwner : ViewModelStoreOwner {
     override val viewModelStore: ViewModelStore = ViewModelStore()
-    fun dispose() { viewModelStore.clear() }
+    fun dispose() {
+        viewModelStore.clear()
+    }
 }
 
 @Composable
@@ -24,9 +27,6 @@ private fun rememberViewModelStoreOwner(): ViewModelStoreOwner {
     }
     return viewModelStoreOwner
 }
-*/
-
-
 
 @Composable
 actual fun NavHost(
@@ -56,9 +56,9 @@ actual fun NavHost(
 ) {
 
     //val lifecycleOwner = LocalLifecycleOwner.current
-    //val viewModelStoreOwner = LocalViewModelStoreOwner.current ?: rememberViewModelStoreOwner()
+    val viewModelStoreOwner = /*LocalViewModelStoreOwner.current ?:*/ rememberViewModelStoreOwner()
 
-    //navController.setViewModelStore(viewModelStoreOwner.viewModelStore)
+    navController.setViewModelStore(viewModelStoreOwner.viewModelStore)
 
     // Then set the graph
     navController.graph = graph
@@ -110,7 +110,7 @@ actual fun NavHost(
             // ViewModelStoreOwner and LifecycleOwner
             currentEntry?.LocalOwnersProvider(saveableStateHolder) {
                 (currentEntry.destination as ComposeNavigator.Destination)
-                    .content( currentEntry)
+                    .content(currentEntry)
             }
             */
             currentEntry?.let {
