@@ -4,6 +4,7 @@ import androidx.compose.runtime.*
 import androidx.lifecycle.ViewModelStore
 import androidx.lifecycle.ViewModelStoreOwner
 import androidx.navigation.*
+import com.huanshankeji.androidx.lifecycle.viewmodel.compose.LocalViewModelStoreOwner
 import com.huanshankeji.compose.foundation.layout.Box
 import com.huanshankeji.compose.foundation.layout.fillMaxSize
 import com.huanshankeji.compose.ui.Alignment
@@ -56,7 +57,7 @@ actual fun NavHost(
 ) {
 
     //val lifecycleOwner = LocalLifecycleOwner.current
-    val viewModelStoreOwner = /*LocalViewModelStoreOwner.current ?:*/ rememberViewModelStoreOwner()
+    val viewModelStoreOwner = LocalViewModelStoreOwner.current ?: rememberViewModelStoreOwner()
 
     navController.setViewModelStore(viewModelStoreOwner.viewModelStore)
 
