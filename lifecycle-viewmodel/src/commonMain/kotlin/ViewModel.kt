@@ -46,7 +46,8 @@ expect inline fun <reified VM : ViewModel> viewModel(
 @Deprecated(
     "Use the one with a `viewModelStoreOwner` parameter instead. " +
             "This function might be removed in the future. " +
-            "Make sure you call this function with named arguments please so your source still compile when this is removed."
+            "If you call this function with a `key` argument, make sure you used a named argument " +
+            "so your source still compiles when this is removed."
 )
 @Composable
 inline fun <reified VM : ViewModel> viewModel(

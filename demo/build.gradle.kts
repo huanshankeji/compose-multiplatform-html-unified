@@ -49,6 +49,7 @@ kotlin {
                 implementation(compose.runtime)
                 implementation(cpnProject(project, ":material2"))
                 implementation(cpnProject(project, ":material3"))
+                implementation(cpnProject(project, ":lifecycle-viewmodel"))
                 implementation(cpnProject(project, ":navigation"))
                 /*
                 see https://github.com/JetBrains/compose-multiplatform-core/blob/476d43b99a27696d12ef087e8028d90789645ba7/compose/ui/ui/build.gradle#L54

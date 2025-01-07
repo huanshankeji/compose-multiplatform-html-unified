@@ -2,6 +2,7 @@ package com.huanshankeji.compose.material.demo
 
 import androidx.compose.runtime.*
 import androidx.compose.ui.unit.dp
+import com.huanshankeji.androidx.lifecycle.viewmodel.compose.viewModel
 import com.huanshankeji.compose.ExtRecommendedApi
 import com.huanshankeji.compose.foundation.layout.*
 import com.huanshankeji.compose.foundation.rememberScrollState
@@ -27,10 +28,12 @@ import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.material3.Button as RowScopeButton
 
 @Composable
-fun Material3(/*modifier: Modifier = Modifier*/) {
+fun Material3(/*modifier: Modifier = Modifier*/
+              viewModel: Material3ViewModel = viewModel { Material3ViewModel() }
+) {
     Column(Modifier.verticalScroll(rememberScrollState()).innerContentPadding(), Arrangement.spacedBy(16.dp)) {
-        var count by remember { mutableStateOf(0) }
-        val onClick: () -> Unit = { count++ }
+        val count by viewModel.countState.collectAsState()
+        val onClick: () -> Unit = { viewModel.countState.value++ }
         val buttonContent: @Composable () -> Unit = {
             TaglessText(count.toString())
         }
@@ -56,7 +59,8 @@ fun Material3(/*modifier: Modifier = Modifier*/) {
             FilledTonalIconButton(onClick, content = iconButtonContent)
             OutlinedIconButton(onClick, content = iconButtonContent)
         }
-        val (checked, onCheckedChange) = remember { mutableStateOf(false) }
+        val checked = viewModel.checkedState.collectAsState().value
+        val onCheckedChange: (Boolean) -> Unit = { viewModel.checkedState.value = it }
         val iconToggleButtonContent: @Composable () -> Unit = {
             Icon(if (checked) Icons.Default.Add else Icons.Default.Remove, null)
         }

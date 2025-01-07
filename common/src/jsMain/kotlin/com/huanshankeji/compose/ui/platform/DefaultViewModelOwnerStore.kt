@@ -1,6 +1,5 @@
 package com.huanshankeji.compose.ui.platform
 
-/*
 // copied and adapted from "DefaultViewModelOwnerStore.skiko.kt" in `androidx.compose.ui.platform`
 
 import androidx.compose.runtime.Composable
@@ -22,4 +21,3 @@ internal val LocalInternalViewModelStoreOwner = staticCompositionLocalOf<ViewMod
 @Composable
 fun findComposeDefaultViewModelStoreOwner(): ViewModelStoreOwner? =
     LocalInternalViewModelStoreOwner.current
-*/
