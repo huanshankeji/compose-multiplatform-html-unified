@@ -1,0 +1,138 @@
+// Klib ABI Dump
+// Targets: [iosArm64, iosSimulatorArm64, iosX64, js, wasmJs]
+// Alias: ios => [iosArm64, iosSimulatorArm64, iosX64]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <com.huanshankeji:compose-multiplatform-html-unified-material-icons-core>
+final object com.huanshankeji.compose.material.icons/Icons { // com.huanshankeji.compose.material.icons/Icons|null[0]
+    final val Default // com.huanshankeji.compose.material.icons/Icons.Default|{}Default[0]
+        final fun <get-Default>(): com.huanshankeji.compose.material.icons/Icons.Filled // com.huanshankeji.compose.material.icons/Icons.Default.<get-Default>|<get-Default>(){}[0]
+
+    final object AutoMirrored { // com.huanshankeji.compose.material.icons/Icons.AutoMirrored|null[0]
+        final val Default // com.huanshankeji.compose.material.icons/Icons.AutoMirrored.Default|{}Default[0]
+            final fun <get-Default>(): com.huanshankeji.compose.material.icons/Icons.AutoMirrored.Filled // com.huanshankeji.compose.material.icons/Icons.AutoMirrored.Default.<get-Default>|<get-Default>(){}[0]
+
+        final object Filled // com.huanshankeji.compose.material.icons/Icons.AutoMirrored.Filled|null[0]
+
+        final object Outlined // com.huanshankeji.compose.material.icons/Icons.AutoMirrored.Outlined|null[0]
+
+        final object Rounded // com.huanshankeji.compose.material.icons/Icons.AutoMirrored.Rounded|null[0]
+
+        final object Sharp // com.huanshankeji.compose.material.icons/Icons.AutoMirrored.Sharp|null[0]
+
+        final object TwoTone // com.huanshankeji.compose.material.icons/Icons.AutoMirrored.TwoTone|null[0]
+    }
+
+    final object Filled // com.huanshankeji.compose.material.icons/Icons.Filled|null[0]
+
+    final object Outlined // com.huanshankeji.compose.material.icons/Icons.Outlined|null[0]
+
+    final object Rounded // com.huanshankeji.compose.material.icons/Icons.Rounded|null[0]
+
+    final object Sharp // com.huanshankeji.compose.material.icons/Icons.Sharp|null[0]
+
+    final object TwoTone // com.huanshankeji.compose.material.icons/Icons.TwoTone|null[0]
+}
+
+final val com.huanshankeji.compose.material.icons.automirrored.filled/ArrowBack // com.huanshankeji.compose.material.icons.automirrored.filled/ArrowBack|@com.huanshankeji.compose.material.icons.Icons.AutoMirrored.Filled{}ArrowBack[0]
+    // Targets: [ios, wasmJs]
+    final fun (com.huanshankeji.compose.material.icons/Icons.AutoMirrored.Filled).<get-ArrowBack>(): androidx.compose.ui.graphics.vector/ImageVector // com.huanshankeji.compose.material.icons.automirrored.filled/ArrowBack.<get-ArrowBack>|<get-ArrowBack>@com.huanshankeji.compose.material.icons.Icons.AutoMirrored.Filled(){}[0]
+
+    // Targets: [js]
+    final fun (com.huanshankeji.compose.material.icons/Icons.AutoMirrored.Filled).<get-ArrowBack>(): com.huanshankeji.compose.material.icons/Icon // com.huanshankeji.compose.material.icons.automirrored.filled/ArrowBack.<get-ArrowBack>|<get-ArrowBack>@com.huanshankeji.compose.material.icons.Icons.AutoMirrored.Filled(){}[0]
+final val com.huanshankeji.compose.material.icons.automirrored.filled/ArrowForward // com.huanshankeji.compose.material.icons.automirrored.filled/ArrowForward|@com.huanshankeji.compose.material.icons.Icons.AutoMirrored.Filled{}ArrowForward[0]
+    // Targets: [ios, wasmJs]
+    final fun (com.huanshankeji.compose.material.icons/Icons.AutoMirrored.Filled).<get-ArrowForward>(): androidx.compose.ui.graphics.vector/ImageVector // com.huanshankeji.compose.material.icons.automirrored.filled/ArrowForward.<get-ArrowForward>|<get-ArrowForward>@com.huanshankeji.compose.material.icons.Icons.AutoMirrored.Filled(){}[0]
+
+    // Targets: [js]
+    final fun (com.huanshankeji.compose.material.icons/Icons.AutoMirrored.Filled).<get-ArrowForward>(): com.huanshankeji.compose.material.icons/Icon // com.huanshankeji.compose.material.icons.automirrored.filled/ArrowForward.<get-ArrowForward>|<get-ArrowForward>@com.huanshankeji.compose.material.icons.Icons.AutoMirrored.Filled(){}[0]
+final val com.huanshankeji.compose.material.icons.automirrored.filled/Logout // com.huanshankeji.compose.material.icons.automirrored.filled/Logout|@com.huanshankeji.compose.material.icons.Icons.AutoMirrored.Filled{}Logout[0]
+    // Targets: [ios, wasmJs]
+    final fun (com.huanshankeji.compose.material.icons/Icons.AutoMirrored.Filled).<get-Logout>(): androidx.compose.ui.graphics.vector/ImageVector // com.huanshankeji.compose.material.icons.automirrored.filled/Logout.<get-Logout>|<get-Logout>@com.huanshankeji.compose.material.icons.Icons.AutoMirrored.Filled(){}[0]
+
+    // Targets: [js]
+    final fun (com.huanshankeji.compose.material.icons/Icons.AutoMirrored.Filled).<get-Logout>(): com.huanshankeji.compose.material.icons/Icon // com.huanshankeji.compose.material.icons.automirrored.filled/Logout.<get-Logout>|<get-Logout>@com.huanshankeji.compose.material.icons.Icons.AutoMirrored.Filled(){}[0]
+final val com.huanshankeji.compose.material.icons.filled/Add // com.huanshankeji.compose.material.icons.filled/Add|@com.huanshankeji.compose.material.icons.Icons.Filled{}Add[0]
+    // Targets: [ios, wasmJs]
+    final fun (com.huanshankeji.compose.material.icons/Icons.Filled).<get-Add>(): androidx.compose.ui.graphics.vector/ImageVector // com.huanshankeji.compose.material.icons.filled/Add.<get-Add>|<get-Add>@com.huanshankeji.compose.material.icons.Icons.Filled(){}[0]
+
+    // Targets: [js]
+    final fun (com.huanshankeji.compose.material.icons/Icons.Filled).<get-Add>(): com.huanshankeji.compose.material.icons/Icon // com.huanshankeji.compose.material.icons.filled/Add.<get-Add>|<get-Add>@com.huanshankeji.compose.material.icons.Icons.Filled(){}[0]
+final val com.huanshankeji.compose.material.icons.filled/ArrowDropDown // com.huanshankeji.compose.material.icons.filled/ArrowDropDown|@com.huanshankeji.compose.material.icons.Icons.Filled{}ArrowDropDown[0]
+    // Targets: [ios, wasmJs]
+    final fun (com.huanshankeji.compose.material.icons/Icons.Filled).<get-ArrowDropDown>(): androidx.compose.ui.graphics.vector/ImageVector // com.huanshankeji.compose.material.icons.filled/ArrowDropDown.<get-ArrowDropDown>|<get-ArrowDropDown>@com.huanshankeji.compose.material.icons.Icons.Filled(){}[0]
+
+    // Targets: [js]
+    final fun (com.huanshankeji.compose.material.icons/Icons.Filled).<get-ArrowDropDown>(): com.huanshankeji.compose.material.icons/Icon // com.huanshankeji.compose.material.icons.filled/ArrowDropDown.<get-ArrowDropDown>|<get-ArrowDropDown>@com.huanshankeji.compose.material.icons.Icons.Filled(){}[0]
+final val com.huanshankeji.compose.material.icons.filled/Done // com.huanshankeji.compose.material.icons.filled/Done|@com.huanshankeji.compose.material.icons.Icons.Filled{}Done[0]
+    // Targets: [ios, wasmJs]
+    final fun (com.huanshankeji.compose.material.icons/Icons.Filled).<get-Done>(): androidx.compose.ui.graphics.vector/ImageVector // com.huanshankeji.compose.material.icons.filled/Done.<get-Done>|<get-Done>@com.huanshankeji.compose.material.icons.Icons.Filled(){}[0]
+
+    // Targets: [js]
+    final fun (com.huanshankeji.compose.material.icons/Icons.Filled).<get-Done>(): com.huanshankeji.compose.material.icons/Icon // com.huanshankeji.compose.material.icons.filled/Done.<get-Done>|<get-Done>@com.huanshankeji.compose.material.icons.Icons.Filled(){}[0]
+final val com.huanshankeji.compose.material.icons.filled/Menu // com.huanshankeji.compose.material.icons.filled/Menu|@com.huanshankeji.compose.material.icons.Icons.Filled{}Menu[0]
+    // Targets: [ios, wasmJs]
+    final fun (com.huanshankeji.compose.material.icons/Icons.Filled).<get-Menu>(): androidx.compose.ui.graphics.vector/ImageVector // com.huanshankeji.compose.material.icons.filled/Menu.<get-Menu>|<get-Menu>@com.huanshankeji.compose.material.icons.Icons.Filled(){}[0]
+
+    // Targets: [js]
+    final fun (com.huanshankeji.compose.material.icons/Icons.Filled).<get-Menu>(): com.huanshankeji.compose.material.icons/Icon // com.huanshankeji.compose.material.icons.filled/Menu.<get-Menu>|<get-Menu>@com.huanshankeji.compose.material.icons.Icons.Filled(){}[0]
+final val com.huanshankeji.compose.material.icons.filled/Refresh // com.huanshankeji.compose.material.icons.filled/Refresh|@com.huanshankeji.compose.material.icons.Icons.Filled{}Refresh[0]
+    // Targets: [ios, wasmJs]
+    final fun (com.huanshankeji.compose.material.icons/Icons.Filled).<get-Refresh>(): androidx.compose.ui.graphics.vector/ImageVector // com.huanshankeji.compose.material.icons.filled/Refresh.<get-Refresh>|<get-Refresh>@com.huanshankeji.compose.material.icons.Icons.Filled(){}[0]
+
+    // Targets: [js]
+    final fun (com.huanshankeji.compose.material.icons/Icons.Filled).<get-Refresh>(): com.huanshankeji.compose.material.icons/Icon // com.huanshankeji.compose.material.icons.filled/Refresh.<get-Refresh>|<get-Refresh>@com.huanshankeji.compose.material.icons.Icons.Filled(){}[0]
+final val com.huanshankeji.compose.material.icons.filled/Remove // com.huanshankeji.compose.material.icons.filled/Remove|@com.huanshankeji.compose.material.icons.Icons.Filled{}Remove[0]
+    // Targets: [ios, wasmJs]
+    final fun (com.huanshankeji.compose.material.icons/Icons.Filled).<get-Remove>(): androidx.compose.ui.graphics.vector/ImageVector // com.huanshankeji.compose.material.icons.filled/Remove.<get-Remove>|<get-Remove>@com.huanshankeji.compose.material.icons.Icons.Filled(){}[0]
+
+    // Targets: [js]
+    final fun (com.huanshankeji.compose.material.icons/Icons.Filled).<get-Remove>(): com.huanshankeji.compose.material.icons/Icon // com.huanshankeji.compose.material.icons.filled/Remove.<get-Remove>|<get-Remove>@com.huanshankeji.compose.material.icons.Icons.Filled(){}[0]
+final val com.huanshankeji.compose.material.icons.filled/Search // com.huanshankeji.compose.material.icons.filled/Search|@com.huanshankeji.compose.material.icons.Icons.Filled{}Search[0]
+    // Targets: [ios, wasmJs]
+    final fun (com.huanshankeji.compose.material.icons/Icons.Filled).<get-Search>(): androidx.compose.ui.graphics.vector/ImageVector // com.huanshankeji.compose.material.icons.filled/Search.<get-Search>|<get-Search>@com.huanshankeji.compose.material.icons.Icons.Filled(){}[0]
+
+    // Targets: [js]
+    final fun (com.huanshankeji.compose.material.icons/Icons.Filled).<get-Search>(): com.huanshankeji.compose.material.icons/Icon // com.huanshankeji.compose.material.icons.filled/Search.<get-Search>|<get-Search>@com.huanshankeji.compose.material.icons.Icons.Filled(){}[0]
+final val com.huanshankeji.compose.material.icons/com_huanshankeji_compose_material_icons_Icons$stableprop // com.huanshankeji.compose.material.icons/com_huanshankeji_compose_material_icons_Icons$stableprop|#static{}com_huanshankeji_compose_material_icons_Icons$stableprop[0]
+final val com.huanshankeji.compose.material.icons/com_huanshankeji_compose_material_icons_Icons_AutoMirrored$stableprop // com.huanshankeji.compose.material.icons/com_huanshankeji_compose_material_icons_Icons_AutoMirrored$stableprop|#static{}com_huanshankeji_compose_material_icons_Icons_AutoMirrored$stableprop[0]
+final val com.huanshankeji.compose.material.icons/com_huanshankeji_compose_material_icons_Icons_AutoMirrored_Filled$stableprop // com.huanshankeji.compose.material.icons/com_huanshankeji_compose_material_icons_Icons_AutoMirrored_Filled$stableprop|#static{}com_huanshankeji_compose_material_icons_Icons_AutoMirrored_Filled$stableprop[0]
+final val com.huanshankeji.compose.material.icons/com_huanshankeji_compose_material_icons_Icons_AutoMirrored_Outlined$stableprop // com.huanshankeji.compose.material.icons/com_huanshankeji_compose_material_icons_Icons_AutoMirrored_Outlined$stableprop|#static{}com_huanshankeji_compose_material_icons_Icons_AutoMirrored_Outlined$stableprop[0]
+final val com.huanshankeji.compose.material.icons/com_huanshankeji_compose_material_icons_Icons_AutoMirrored_Rounded$stableprop // com.huanshankeji.compose.material.icons/com_huanshankeji_compose_material_icons_Icons_AutoMirrored_Rounded$stableprop|#static{}com_huanshankeji_compose_material_icons_Icons_AutoMirrored_Rounded$stableprop[0]
+final val com.huanshankeji.compose.material.icons/com_huanshankeji_compose_material_icons_Icons_AutoMirrored_Sharp$stableprop // com.huanshankeji.compose.material.icons/com_huanshankeji_compose_material_icons_Icons_AutoMirrored_Sharp$stableprop|#static{}com_huanshankeji_compose_material_icons_Icons_AutoMirrored_Sharp$stableprop[0]
+final val com.huanshankeji.compose.material.icons/com_huanshankeji_compose_material_icons_Icons_AutoMirrored_TwoTone$stableprop // com.huanshankeji.compose.material.icons/com_huanshankeji_compose_material_icons_Icons_AutoMirrored_TwoTone$stableprop|#static{}com_huanshankeji_compose_material_icons_Icons_AutoMirrored_TwoTone$stableprop[0]
+final val com.huanshankeji.compose.material.icons/com_huanshankeji_compose_material_icons_Icons_Filled$stableprop // com.huanshankeji.compose.material.icons/com_huanshankeji_compose_material_icons_Icons_Filled$stableprop|#static{}com_huanshankeji_compose_material_icons_Icons_Filled$stableprop[0]
+final val com.huanshankeji.compose.material.icons/com_huanshankeji_compose_material_icons_Icons_Outlined$stableprop // com.huanshankeji.compose.material.icons/com_huanshankeji_compose_material_icons_Icons_Outlined$stableprop|#static{}com_huanshankeji_compose_material_icons_Icons_Outlined$stableprop[0]
+final val com.huanshankeji.compose.material.icons/com_huanshankeji_compose_material_icons_Icons_Rounded$stableprop // com.huanshankeji.compose.material.icons/com_huanshankeji_compose_material_icons_Icons_Rounded$stableprop|#static{}com_huanshankeji_compose_material_icons_Icons_Rounded$stableprop[0]
+final val com.huanshankeji.compose.material.icons/com_huanshankeji_compose_material_icons_Icons_Sharp$stableprop // com.huanshankeji.compose.material.icons/com_huanshankeji_compose_material_icons_Icons_Sharp$stableprop|#static{}com_huanshankeji_compose_material_icons_Icons_Sharp$stableprop[0]
+final val com.huanshankeji.compose.material.icons/com_huanshankeji_compose_material_icons_Icons_TwoTone$stableprop // com.huanshankeji.compose.material.icons/com_huanshankeji_compose_material_icons_Icons_TwoTone$stableprop|#static{}com_huanshankeji_compose_material_icons_Icons_TwoTone$stableprop[0]
+
+final fun com.huanshankeji.compose.material.icons/com_huanshankeji_compose_material_icons_Icons$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.material.icons/com_huanshankeji_compose_material_icons_Icons$stableprop_getter|com_huanshankeji_compose_material_icons_Icons$stableprop_getter(){}[0]
+final fun com.huanshankeji.compose.material.icons/com_huanshankeji_compose_material_icons_Icons_AutoMirrored$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.material.icons/com_huanshankeji_compose_material_icons_Icons_AutoMirrored$stableprop_getter|com_huanshankeji_compose_material_icons_Icons_AutoMirrored$stableprop_getter(){}[0]
+final fun com.huanshankeji.compose.material.icons/com_huanshankeji_compose_material_icons_Icons_AutoMirrored_Filled$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.material.icons/com_huanshankeji_compose_material_icons_Icons_AutoMirrored_Filled$stableprop_getter|com_huanshankeji_compose_material_icons_Icons_AutoMirrored_Filled$stableprop_getter(){}[0]
+final fun com.huanshankeji.compose.material.icons/com_huanshankeji_compose_material_icons_Icons_AutoMirrored_Outlined$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.material.icons/com_huanshankeji_compose_material_icons_Icons_AutoMirrored_Outlined$stableprop_getter|com_huanshankeji_compose_material_icons_Icons_AutoMirrored_Outlined$stableprop_getter(){}[0]
+final fun com.huanshankeji.compose.material.icons/com_huanshankeji_compose_material_icons_Icons_AutoMirrored_Rounded$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.material.icons/com_huanshankeji_compose_material_icons_Icons_AutoMirrored_Rounded$stableprop_getter|com_huanshankeji_compose_material_icons_Icons_AutoMirrored_Rounded$stableprop_getter(){}[0]
+final fun com.huanshankeji.compose.material.icons/com_huanshankeji_compose_material_icons_Icons_AutoMirrored_Sharp$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.material.icons/com_huanshankeji_compose_material_icons_Icons_AutoMirrored_Sharp$stableprop_getter|com_huanshankeji_compose_material_icons_Icons_AutoMirrored_Sharp$stableprop_getter(){}[0]
+final fun com.huanshankeji.compose.material.icons/com_huanshankeji_compose_material_icons_Icons_AutoMirrored_TwoTone$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.material.icons/com_huanshankeji_compose_material_icons_Icons_AutoMirrored_TwoTone$stableprop_getter|com_huanshankeji_compose_material_icons_Icons_AutoMirrored_TwoTone$stableprop_getter(){}[0]
+final fun com.huanshankeji.compose.material.icons/com_huanshankeji_compose_material_icons_Icons_Filled$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.material.icons/com_huanshankeji_compose_material_icons_Icons_Filled$stableprop_getter|com_huanshankeji_compose_material_icons_Icons_Filled$stableprop_getter(){}[0]
+final fun com.huanshankeji.compose.material.icons/com_huanshankeji_compose_material_icons_Icons_Outlined$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.material.icons/com_huanshankeji_compose_material_icons_Icons_Outlined$stableprop_getter|com_huanshankeji_compose_material_icons_Icons_Outlined$stableprop_getter(){}[0]
+final fun com.huanshankeji.compose.material.icons/com_huanshankeji_compose_material_icons_Icons_Rounded$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.material.icons/com_huanshankeji_compose_material_icons_Icons_Rounded$stableprop_getter|com_huanshankeji_compose_material_icons_Icons_Rounded$stableprop_getter(){}[0]
+final fun com.huanshankeji.compose.material.icons/com_huanshankeji_compose_material_icons_Icons_Sharp$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.material.icons/com_huanshankeji_compose_material_icons_Icons_Sharp$stableprop_getter|com_huanshankeji_compose_material_icons_Icons_Sharp$stableprop_getter(){}[0]
+final fun com.huanshankeji.compose.material.icons/com_huanshankeji_compose_material_icons_Icons_TwoTone$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.material.icons/com_huanshankeji_compose_material_icons_Icons_TwoTone$stableprop_getter|com_huanshankeji_compose_material_icons_Icons_TwoTone$stableprop_getter(){}[0]
+
+// Targets: [js]
+final class com.huanshankeji.compose.material.icons/Icon { // com.huanshankeji.compose.material.icons/Icon|null[0]
+    constructor <init>(kotlin/String) // com.huanshankeji.compose.material.icons/Icon.<init>|<init>(kotlin.String){}[0]
+
+    final val name // com.huanshankeji.compose.material.icons/Icon.name|{}name[0]
+        final fun <get-name>(): kotlin/String // com.huanshankeji.compose.material.icons/Icon.name.<get-name>|<get-name>(){}[0]
+}
+
+// Targets: [js]
+final val com.huanshankeji.compose.material.icons/com_huanshankeji_compose_material_icons_Icon$stableprop // com.huanshankeji.compose.material.icons/com_huanshankeji_compose_material_icons_Icon$stableprop|#static{}com_huanshankeji_compose_material_icons_Icon$stableprop[0]
+
+// Targets: [js]
+final fun com.huanshankeji.compose.material.icons/com_huanshankeji_compose_material_icons_Icon$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.material.icons/com_huanshankeji_compose_material_icons_Icon$stableprop_getter|com_huanshankeji_compose_material_icons_Icon$stableprop_getter(){}[0]

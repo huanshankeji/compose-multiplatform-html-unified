@@ -1,0 +1,374 @@
+// Klib ABI Dump
+// Targets: [iosArm64, iosSimulatorArm64, iosX64, js, wasmJs]
+// Alias: ios => [iosArm64, iosSimulatorArm64, iosX64]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <com.huanshankeji:compose-multiplatform-html-unified-material2>
+final enum class com.huanshankeji.compose.material2.ext/ButtonType : kotlin/Enum<com.huanshankeji.compose.material2.ext/ButtonType> { // com.huanshankeji.compose.material2.ext/ButtonType|null[0]
+    enum entry Contained // com.huanshankeji.compose.material2.ext/ButtonType.Contained|null[0]
+    enum entry Outlined // com.huanshankeji.compose.material2.ext/ButtonType.Outlined|null[0]
+    enum entry Text // com.huanshankeji.compose.material2.ext/ButtonType.Text|null[0]
+
+    final val entries // com.huanshankeji.compose.material2.ext/ButtonType.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<com.huanshankeji.compose.material2.ext/ButtonType> // com.huanshankeji.compose.material2.ext/ButtonType.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): com.huanshankeji.compose.material2.ext/ButtonType // com.huanshankeji.compose.material2.ext/ButtonType.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<com.huanshankeji.compose.material2.ext/ButtonType> // com.huanshankeji.compose.material2.ext/ButtonType.values|values#static(){}[0]
+}
+
+final enum class com.huanshankeji.compose.material2.ext/FabPosition : kotlin/Enum<com.huanshankeji.compose.material2.ext/FabPosition> { // com.huanshankeji.compose.material2.ext/FabPosition|null[0]
+    enum entry Center // com.huanshankeji.compose.material2.ext/FabPosition.Center|null[0]
+    enum entry End // com.huanshankeji.compose.material2.ext/FabPosition.End|null[0]
+    enum entry Start // com.huanshankeji.compose.material2.ext/FabPosition.Start|null[0]
+
+    final val entries // com.huanshankeji.compose.material2.ext/FabPosition.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<com.huanshankeji.compose.material2.ext/FabPosition> // com.huanshankeji.compose.material2.ext/FabPosition.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): com.huanshankeji.compose.material2.ext/FabPosition // com.huanshankeji.compose.material2.ext/FabPosition.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<com.huanshankeji.compose.material2.ext/FabPosition> // com.huanshankeji.compose.material2.ext/FabPosition.values|values#static(){}[0]
+}
+
+final enum class com.huanshankeji.compose.material2/SnackbarDuration : kotlin/Enum<com.huanshankeji.compose.material2/SnackbarDuration> { // com.huanshankeji.compose.material2/SnackbarDuration|null[0]
+    enum entry Indefinite // com.huanshankeji.compose.material2/SnackbarDuration.Indefinite|null[0]
+    enum entry Long // com.huanshankeji.compose.material2/SnackbarDuration.Long|null[0]
+    enum entry Short // com.huanshankeji.compose.material2/SnackbarDuration.Short|null[0]
+
+    final val entries // com.huanshankeji.compose.material2/SnackbarDuration.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<com.huanshankeji.compose.material2/SnackbarDuration> // com.huanshankeji.compose.material2/SnackbarDuration.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): com.huanshankeji.compose.material2/SnackbarDuration // com.huanshankeji.compose.material2/SnackbarDuration.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<com.huanshankeji.compose.material2/SnackbarDuration> // com.huanshankeji.compose.material2/SnackbarDuration.values|values#static(){}[0]
+}
+
+final enum class com.huanshankeji.compose.material2/SnackbarResult : kotlin/Enum<com.huanshankeji.compose.material2/SnackbarResult> { // com.huanshankeji.compose.material2/SnackbarResult|null[0]
+    enum entry ActionPerformed // com.huanshankeji.compose.material2/SnackbarResult.ActionPerformed|null[0]
+    enum entry Dismissed // com.huanshankeji.compose.material2/SnackbarResult.Dismissed|null[0]
+
+    final val entries // com.huanshankeji.compose.material2/SnackbarResult.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<com.huanshankeji.compose.material2/SnackbarResult> // com.huanshankeji.compose.material2/SnackbarResult.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): com.huanshankeji.compose.material2/SnackbarResult // com.huanshankeji.compose.material2/SnackbarResult.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<com.huanshankeji.compose.material2/SnackbarResult> // com.huanshankeji.compose.material2/SnackbarResult.values|values#static(){}[0]
+}
+
+abstract interface com.huanshankeji.compose.material2/SnackbarDataCommonInterface { // com.huanshankeji.compose.material2/SnackbarDataCommonInterface|null[0]
+    abstract val actionLabel // com.huanshankeji.compose.material2/SnackbarDataCommonInterface.actionLabel|{}actionLabel[0]
+        abstract fun <get-actionLabel>(): kotlin/String? // com.huanshankeji.compose.material2/SnackbarDataCommonInterface.actionLabel.<get-actionLabel>|<get-actionLabel>(){}[0]
+    abstract val duration // com.huanshankeji.compose.material2/SnackbarDataCommonInterface.duration|{}duration[0]
+        abstract fun <get-duration>(): com.huanshankeji.compose.material2/SnackbarDuration // com.huanshankeji.compose.material2/SnackbarDataCommonInterface.duration.<get-duration>|<get-duration>(){}[0]
+    abstract val message // com.huanshankeji.compose.material2/SnackbarDataCommonInterface.message|{}message[0]
+        abstract fun <get-message>(): kotlin/String // com.huanshankeji.compose.material2/SnackbarDataCommonInterface.message.<get-message>|<get-message>(){}[0]
+
+    abstract fun dismiss() // com.huanshankeji.compose.material2/SnackbarDataCommonInterface.dismiss|dismiss(){}[0]
+    abstract fun performAction() // com.huanshankeji.compose.material2/SnackbarDataCommonInterface.performAction|performAction(){}[0]
+}
+
+abstract class com.huanshankeji.compose.material2/SnackbarHostStateCommonImpl { // com.huanshankeji.compose.material2/SnackbarHostStateCommonImpl|null[0]
+    constructor <init>() // com.huanshankeji.compose.material2/SnackbarHostStateCommonImpl.<init>|<init>(){}[0]
+
+    abstract val delayMillisUntilNext // com.huanshankeji.compose.material2/SnackbarHostStateCommonImpl.delayMillisUntilNext|{}delayMillisUntilNext[0]
+        abstract fun <get-delayMillisUntilNext>(): kotlin/Long // com.huanshankeji.compose.material2/SnackbarHostStateCommonImpl.delayMillisUntilNext.<get-delayMillisUntilNext>|<get-delayMillisUntilNext>(){}[0]
+    abstract val yieldUntilNext // com.huanshankeji.compose.material2/SnackbarHostStateCommonImpl.yieldUntilNext|{}yieldUntilNext[0]
+        abstract fun <get-yieldUntilNext>(): kotlin/Boolean // com.huanshankeji.compose.material2/SnackbarHostStateCommonImpl.yieldUntilNext.<get-yieldUntilNext>|<get-yieldUntilNext>(){}[0]
+
+    final var currentSnackbarData // com.huanshankeji.compose.material2/SnackbarHostStateCommonImpl.currentSnackbarData|{}currentSnackbarData[0]
+        final fun <get-currentSnackbarData>(): com.huanshankeji.compose.material2/SnackbarDataCommonInterface? // com.huanshankeji.compose.material2/SnackbarHostStateCommonImpl.currentSnackbarData.<get-currentSnackbarData>|<get-currentSnackbarData>(){}[0]
+
+    final suspend fun showSnackbar(kotlin/String, kotlin/String? = ..., com.huanshankeji.compose.material2/SnackbarDuration = ...): com.huanshankeji.compose.material2/SnackbarResult // com.huanshankeji.compose.material2/SnackbarHostStateCommonImpl.showSnackbar|showSnackbar(kotlin.String;kotlin.String?;com.huanshankeji.compose.material2.SnackbarDuration){}[0]
+}
+
+final class com.huanshankeji.compose.material2.ext/ButtonScope { // com.huanshankeji.compose.material2.ext/ButtonScope|null[0]
+    final fun Label(kotlin/String, androidx.compose.runtime/Composer?, kotlin/Int) // com.huanshankeji.compose.material2.ext/ButtonScope.Label|Label(kotlin.String;androidx.compose.runtime.Composer?;kotlin.Int){}[0]
+
+    // Targets: [ios, wasmJs]
+    constructor <init>(androidx.compose.foundation.layout/RowScope) // com.huanshankeji.compose.material2.ext/ButtonScope.<init>|<init>(androidx.compose.foundation.layout.RowScope){}[0]
+
+    // Targets: [ios, wasmJs]
+    final val rowScope // com.huanshankeji.compose.material2.ext/ButtonScope.rowScope|{}rowScope[0]
+        final fun <get-rowScope>(): androidx.compose.foundation.layout/RowScope // com.huanshankeji.compose.material2.ext/ButtonScope.rowScope.<get-rowScope>|<get-rowScope>(){}[0]
+
+    // Targets: [js]
+    constructor <init>(dev.petuska.kmdc.button/MDCButtonScope<org.w3c.dom/HTMLButtonElement>) // com.huanshankeji.compose.material2.ext/ButtonScope.<init>|<init>(dev.petuska.kmdc.button.MDCButtonScope<org.w3c.dom.HTMLButtonElement>){}[0]
+
+    // Targets: [js]
+    final val mdcButtonScope // com.huanshankeji.compose.material2.ext/ButtonScope.mdcButtonScope|{}mdcButtonScope[0]
+        final fun <get-mdcButtonScope>(): dev.petuska.kmdc.button/MDCButtonScope<org.w3c.dom/HTMLButtonElement> // com.huanshankeji.compose.material2.ext/ButtonScope.mdcButtonScope.<get-mdcButtonScope>|<get-mdcButtonScope>(){}[0]
+}
+
+final class com.huanshankeji.compose.material2.ext/NavigationIconScope { // com.huanshankeji.compose.material2.ext/NavigationIconScope|null[0]
+    final fun NavButton(kotlin/Function0<kotlin/Unit>, com.huanshankeji.compose.ui/Modifier?, kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.material2.ext/NavigationIconScope.NavButton|NavButton(kotlin.Function0<kotlin.Unit>;com.huanshankeji.compose.ui.Modifier?;kotlin.Function2<androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+
+    // Targets: [ios, wasmJs]
+    final fun MaterialIconNavButton(kotlin/Function0<kotlin/Unit>, com.huanshankeji.compose.ui/Modifier?, androidx.compose.ui.graphics.vector/ImageVector, kotlin/String?, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.material2.ext/NavigationIconScope.MaterialIconNavButton|MaterialIconNavButton(kotlin.Function0<kotlin.Unit>;com.huanshankeji.compose.ui.Modifier?;androidx.compose.ui.graphics.vector.ImageVector;kotlin.String?;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+
+    // Targets: [ios, wasmJs]
+    final object Companion { // com.huanshankeji.compose.material2.ext/NavigationIconScope.Companion|null[0]
+        final val instance // com.huanshankeji.compose.material2.ext/NavigationIconScope.Companion.instance|{}instance[0]
+            final fun <get-instance>(): com.huanshankeji.compose.material2.ext/NavigationIconScope // com.huanshankeji.compose.material2.ext/NavigationIconScope.Companion.instance.<get-instance>|<get-instance>(){}[0]
+    }
+
+    // Targets: [js]
+    constructor <init>(dev.petuska.kmdc.top.app.bar/MDCTopAppBarSectionScope) // com.huanshankeji.compose.material2.ext/NavigationIconScope.<init>|<init>(dev.petuska.kmdc.top.app.bar.MDCTopAppBarSectionScope){}[0]
+
+    // Targets: [js]
+    final val mdcTopAppBarSectionScope // com.huanshankeji.compose.material2.ext/NavigationIconScope.mdcTopAppBarSectionScope|{}mdcTopAppBarSectionScope[0]
+        final fun <get-mdcTopAppBarSectionScope>(): dev.petuska.kmdc.top.app.bar/MDCTopAppBarSectionScope // com.huanshankeji.compose.material2.ext/NavigationIconScope.mdcTopAppBarSectionScope.<get-mdcTopAppBarSectionScope>|<get-mdcTopAppBarSectionScope>(){}[0]
+
+    // Targets: [js]
+    final fun MaterialIconNavButton(kotlin/Function0<kotlin/Unit>, com.huanshankeji.compose.ui/Modifier?, com.huanshankeji.compose.material.icons/Icon, kotlin/String?, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.material2.ext/NavigationIconScope.MaterialIconNavButton|MaterialIconNavButton(kotlin.Function0<kotlin.Unit>;com.huanshankeji.compose.ui.Modifier?;com.huanshankeji.compose.material.icons.Icon;kotlin.String?;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+}
+
+final class com.huanshankeji.compose.material2.ext/TopAppBarActionsScope { // com.huanshankeji.compose.material2.ext/TopAppBarActionsScope|null[0]
+    final fun ActionButton(kotlin/Function0<kotlin/Unit>, com.huanshankeji.compose.ui/Modifier?, kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.material2.ext/TopAppBarActionsScope.ActionButton|ActionButton(kotlin.Function0<kotlin.Unit>;com.huanshankeji.compose.ui.Modifier?;kotlin.Function2<androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+
+    // Targets: [ios, wasmJs]
+    constructor <init>(androidx.compose.foundation.layout/RowScope) // com.huanshankeji.compose.material2.ext/TopAppBarActionsScope.<init>|<init>(androidx.compose.foundation.layout.RowScope){}[0]
+
+    // Targets: [ios, wasmJs]
+    final val rowScope // com.huanshankeji.compose.material2.ext/TopAppBarActionsScope.rowScope|{}rowScope[0]
+        final fun <get-rowScope>(): androidx.compose.foundation.layout/RowScope // com.huanshankeji.compose.material2.ext/TopAppBarActionsScope.rowScope.<get-rowScope>|<get-rowScope>(){}[0]
+
+    // Targets: [ios, wasmJs]
+    final fun MaterialIconActionButton(kotlin/Function0<kotlin/Unit>, com.huanshankeji.compose.ui/Modifier?, androidx.compose.ui.graphics.vector/ImageVector, kotlin/String?, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.material2.ext/TopAppBarActionsScope.MaterialIconActionButton|MaterialIconActionButton(kotlin.Function0<kotlin.Unit>;com.huanshankeji.compose.ui.Modifier?;androidx.compose.ui.graphics.vector.ImageVector;kotlin.String?;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+
+    // Targets: [js]
+    constructor <init>(dev.petuska.kmdc.top.app.bar/MDCTopAppBarSectionScope) // com.huanshankeji.compose.material2.ext/TopAppBarActionsScope.<init>|<init>(dev.petuska.kmdc.top.app.bar.MDCTopAppBarSectionScope){}[0]
+
+    // Targets: [js]
+    final val mdcTopAppBarSectionScope // com.huanshankeji.compose.material2.ext/TopAppBarActionsScope.mdcTopAppBarSectionScope|{}mdcTopAppBarSectionScope[0]
+        final fun <get-mdcTopAppBarSectionScope>(): dev.petuska.kmdc.top.app.bar/MDCTopAppBarSectionScope // com.huanshankeji.compose.material2.ext/TopAppBarActionsScope.mdcTopAppBarSectionScope.<get-mdcTopAppBarSectionScope>|<get-mdcTopAppBarSectionScope>(){}[0]
+
+    // Targets: [js]
+    final fun MaterialIconActionButton(kotlin/Function0<kotlin/Unit>, com.huanshankeji.compose.ui/Modifier?, com.huanshankeji.compose.material.icons/Icon, kotlin/String?, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.material2.ext/TopAppBarActionsScope.MaterialIconActionButton|MaterialIconActionButton(kotlin.Function0<kotlin.Unit>;com.huanshankeji.compose.ui.Modifier?;com.huanshankeji.compose.material.icons.Icon;kotlin.String?;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+}
+
+final class com.huanshankeji.compose.material2.lazy.ext/ItemScope { // com.huanshankeji.compose.material2.lazy.ext/ItemScope|null[0]
+    // Targets: [ios, wasmJs]
+    constructor <init>(androidx.compose.foundation.lazy/LazyItemScope) // com.huanshankeji.compose.material2.lazy.ext/ItemScope.<init>|<init>(androidx.compose.foundation.lazy.LazyItemScope){}[0]
+
+    // Targets: [ios, wasmJs]
+    final val platformValue // com.huanshankeji.compose.material2.lazy.ext/ItemScope.platformValue|{}platformValue[0]
+        final fun <get-platformValue>(): androidx.compose.foundation.lazy/LazyItemScope // com.huanshankeji.compose.material2.lazy.ext/ItemScope.platformValue.<get-platformValue>|<get-platformValue>(){}[0]
+
+    // Targets: [js]
+    constructor <init>(dev.petuska.kmdc.list.item/MDCListItemScope<org.w3c.dom/HTMLLIElement>) // com.huanshankeji.compose.material2.lazy.ext/ItemScope.<init>|<init>(dev.petuska.kmdc.list.item.MDCListItemScope<org.w3c.dom.HTMLLIElement>){}[0]
+
+    // Targets: [js]
+    final val mdcListItemScope // com.huanshankeji.compose.material2.lazy.ext/ItemScope.mdcListItemScope|{}mdcListItemScope[0]
+        final fun <get-mdcListItemScope>(): dev.petuska.kmdc.list.item/MDCListItemScope<org.w3c.dom/HTMLLIElement> // com.huanshankeji.compose.material2.lazy.ext/ItemScope.mdcListItemScope.<get-mdcListItemScope>|<get-mdcListItemScope>(){}[0]
+}
+
+final class com.huanshankeji.compose.material2.lazy.ext/ListItemComponents { // com.huanshankeji.compose.material2.lazy.ext/ListItemComponents|null[0]
+    constructor <init>(kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>, kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>? = ...) // com.huanshankeji.compose.material2.lazy.ext/ListItemComponents.<init>|<init>(kotlin.Function2<androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>;kotlin.Function2<androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>?){}[0]
+    constructor <init>(kotlin/String, kotlin/String? = ...) // com.huanshankeji.compose.material2.lazy.ext/ListItemComponents.<init>|<init>(kotlin.String;kotlin.String?){}[0]
+
+    final val secondaryText // com.huanshankeji.compose.material2.lazy.ext/ListItemComponents.secondaryText|{}secondaryText[0]
+        final fun <get-secondaryText>(): kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>? // com.huanshankeji.compose.material2.lazy.ext/ListItemComponents.secondaryText.<get-secondaryText>|<get-secondaryText>(){}[0]
+    final val text // com.huanshankeji.compose.material2.lazy.ext/ListItemComponents.text|{}text[0]
+        final fun <get-text>(): kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit> // com.huanshankeji.compose.material2.lazy.ext/ListItemComponents.text.<get-text>|<get-text>(){}[0]
+}
+
+final class com.huanshankeji.compose.material2.lazy.ext/ListScope { // com.huanshankeji.compose.material2.lazy.ext/ListScope|null[0]
+    final fun (com.huanshankeji.compose.material2.lazy.ext/ItemScope).ListItemContent(com.huanshankeji.compose.material2.lazy.ext/ListItemComponents, androidx.compose.runtime/Composer?, kotlin/Int) // com.huanshankeji.compose.material2.lazy.ext/ListScope.ListItemContent|ListItemContent@com.huanshankeji.compose.material2.lazy.ext.ItemScope(com.huanshankeji.compose.material2.lazy.ext.ListItemComponents;androidx.compose.runtime.Composer?;kotlin.Int){}[0]
+    final fun item(kotlin/Any? = ..., kotlin/Any? = ..., kotlin/Function3<com.huanshankeji.compose.material2.lazy.ext/ItemScope, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>) // com.huanshankeji.compose.material2.lazy.ext/ListScope.item|item(kotlin.Any?;kotlin.Any?;kotlin.Function3<com.huanshankeji.compose.material2.lazy.ext.ItemScope,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>){}[0]
+    final fun items(kotlin/Int, kotlin/Function1<kotlin/Int, kotlin/Any>? = ..., kotlin/Function1<kotlin/Int, kotlin/Any?> = ..., kotlin/Function4<com.huanshankeji.compose.material2.lazy.ext/ItemScope, kotlin/Int, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>) // com.huanshankeji.compose.material2.lazy.ext/ListScope.items|items(kotlin.Int;kotlin.Function1<kotlin.Int,kotlin.Any>?;kotlin.Function1<kotlin.Int,kotlin.Any?>;kotlin.Function4<com.huanshankeji.compose.material2.lazy.ext.ItemScope,kotlin.Int,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>){}[0]
+
+    // Targets: [ios, wasmJs]
+    constructor <init>(androidx.compose.foundation.lazy/LazyListScope) // com.huanshankeji.compose.material2.lazy.ext/ListScope.<init>|<init>(androidx.compose.foundation.lazy.LazyListScope){}[0]
+
+    // Targets: [ios, wasmJs]
+    final val platformValue // com.huanshankeji.compose.material2.lazy.ext/ListScope.platformValue|{}platformValue[0]
+        final fun <get-platformValue>(): androidx.compose.foundation.lazy/LazyListScope // com.huanshankeji.compose.material2.lazy.ext/ListScope.platformValue.<get-platformValue>|<get-platformValue>(){}[0]
+
+    // Targets: [ios, wasmJs]
+    final fun group(kotlin/Any? = ..., kotlin/Any? = ..., kotlin/Function3<com.huanshankeji.compose.material2.lazy.ext/ItemScope, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>, kotlin/Function1<com.huanshankeji.compose.material2.lazy.ext/ListScope, kotlin/Unit>) // com.huanshankeji.compose.material2.lazy.ext/ListScope.group|group(kotlin.Any?;kotlin.Any?;kotlin.Function3<com.huanshankeji.compose.material2.lazy.ext.ItemScope,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>;kotlin.Function1<com.huanshankeji.compose.material2.lazy.ext.ListScope,kotlin.Unit>){}[0]
+
+    // Targets: [js]
+    constructor <init>(dev.petuska.kmdc.list/MDCListScope<org.w3c.dom/HTMLUListElement>) // com.huanshankeji.compose.material2.lazy.ext/ListScope.<init>|<init>(dev.petuska.kmdc.list.MDCListScope<org.w3c.dom.HTMLUListElement>){}[0]
+
+    // Targets: [js]
+    final val mdcListScope // com.huanshankeji.compose.material2.lazy.ext/ListScope.mdcListScope|{}mdcListScope[0]
+        final fun <get-mdcListScope>(): dev.petuska.kmdc.list/MDCListScope<org.w3c.dom/HTMLUListElement> // com.huanshankeji.compose.material2.lazy.ext/ListScope.mdcListScope.<get-mdcListScope>|<get-mdcListScope>(){}[0]
+
+    // Targets: [js]
+    final fun group(kotlin/Any? = ..., kotlin/Any? = ..., kotlin/Function3<com.huanshankeji.compose.material2.lazy.ext/HeaderScope, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>, kotlin/Function1<com.huanshankeji.compose.material2.lazy.ext/ListScope, kotlin/Unit>) // com.huanshankeji.compose.material2.lazy.ext/ListScope.group|group(kotlin.Any?;kotlin.Any?;kotlin.Function3<com.huanshankeji.compose.material2.lazy.ext.HeaderScope,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>;kotlin.Function1<com.huanshankeji.compose.material2.lazy.ext.ListScope,kotlin.Unit>){}[0]
+}
+
+final class com.huanshankeji.compose.material2/SnackbarData { // com.huanshankeji.compose.material2/SnackbarData|null[0]
+    final val actionLabel // com.huanshankeji.compose.material2/SnackbarData.actionLabel|{}actionLabel[0]
+        final fun <get-actionLabel>(): kotlin/String? // com.huanshankeji.compose.material2/SnackbarData.actionLabel.<get-actionLabel>|<get-actionLabel>(){}[0]
+    final val duration // com.huanshankeji.compose.material2/SnackbarData.duration|{}duration[0]
+        final fun <get-duration>(): com.huanshankeji.compose.material2/SnackbarDuration // com.huanshankeji.compose.material2/SnackbarData.duration.<get-duration>|<get-duration>(){}[0]
+    final val message // com.huanshankeji.compose.material2/SnackbarData.message|{}message[0]
+        final fun <get-message>(): kotlin/String // com.huanshankeji.compose.material2/SnackbarData.message.<get-message>|<get-message>(){}[0]
+    final val platformValue // com.huanshankeji.compose.material2/SnackbarData.platformValue|{}platformValue[0]
+        // Targets: [ios, wasmJs]
+        final fun <get-platformValue>(): androidx.compose.material/SnackbarData // com.huanshankeji.compose.material2/SnackbarData.platformValue.<get-platformValue>|<get-platformValue>(){}[0]
+
+        // Targets: [js]
+        final fun <get-platformValue>(): com.huanshankeji.compose.material2/SnackbarDataCommonInterface // com.huanshankeji.compose.material2/SnackbarData.platformValue.<get-platformValue>|<get-platformValue>(){}[0]
+
+    final fun dismiss() // com.huanshankeji.compose.material2/SnackbarData.dismiss|dismiss(){}[0]
+    final fun performAction() // com.huanshankeji.compose.material2/SnackbarData.performAction|performAction(){}[0]
+
+    // Targets: [ios, wasmJs]
+    constructor <init>(androidx.compose.material/SnackbarData) // com.huanshankeji.compose.material2/SnackbarData.<init>|<init>(androidx.compose.material.SnackbarData){}[0]
+
+    // Targets: [js]
+    constructor <init>(com.huanshankeji.compose.material2/SnackbarDataCommonInterface) // com.huanshankeji.compose.material2/SnackbarData.<init>|<init>(com.huanshankeji.compose.material2.SnackbarDataCommonInterface){}[0]
+}
+
+final class com.huanshankeji.compose.material2/SnackbarHostState { // com.huanshankeji.compose.material2/SnackbarHostState|null[0]
+    constructor <init>() // com.huanshankeji.compose.material2/SnackbarHostState.<init>|<init>(){}[0]
+
+    final val currentSnackbarData // com.huanshankeji.compose.material2/SnackbarHostState.currentSnackbarData|{}currentSnackbarData[0]
+        final fun <get-currentSnackbarData>(): com.huanshankeji.compose.material2/SnackbarData? // com.huanshankeji.compose.material2/SnackbarHostState.currentSnackbarData.<get-currentSnackbarData>|<get-currentSnackbarData>(){}[0]
+    final val platformValue // com.huanshankeji.compose.material2/SnackbarHostState.platformValue|{}platformValue[0]
+        // Targets: [ios, wasmJs]
+        final fun <get-platformValue>(): androidx.compose.material/SnackbarHostState // com.huanshankeji.compose.material2/SnackbarHostState.platformValue.<get-platformValue>|<get-platformValue>(){}[0]
+
+        // Targets: [js]
+        final fun <get-platformValue>(): com.huanshankeji.compose.material2/SnackbarHostStateCommonImpl // com.huanshankeji.compose.material2/SnackbarHostState.platformValue.<get-platformValue>|<get-platformValue>(){}[0]
+
+    final suspend fun showSnackbar(kotlin/String, kotlin/String? = ..., com.huanshankeji.compose.material2/SnackbarDuration = ...): com.huanshankeji.compose.material2/SnackbarResult // com.huanshankeji.compose.material2/SnackbarHostState.showSnackbar|showSnackbar(kotlin.String;kotlin.String?;com.huanshankeji.compose.material2.SnackbarDuration){}[0]
+
+    // Targets: [ios, wasmJs]
+    constructor <init>(androidx.compose.material/SnackbarHostState) // com.huanshankeji.compose.material2/SnackbarHostState.<init>|<init>(androidx.compose.material.SnackbarHostState){}[0]
+
+    // Targets: [js]
+    constructor <init>(com.huanshankeji.compose.material2/SnackbarHostStateCommonImpl) // com.huanshankeji.compose.material2/SnackbarHostState.<init>|<init>(com.huanshankeji.compose.material2.SnackbarHostStateCommonImpl){}[0]
+}
+
+final val com.huanshankeji.compose.material2.ext/com_huanshankeji_compose_material2_ext_ButtonScope$stableprop // com.huanshankeji.compose.material2.ext/com_huanshankeji_compose_material2_ext_ButtonScope$stableprop|#static{}com_huanshankeji_compose_material2_ext_ButtonScope$stableprop[0]
+final val com.huanshankeji.compose.material2.ext/com_huanshankeji_compose_material2_ext_NavigationIconScope$stableprop // com.huanshankeji.compose.material2.ext/com_huanshankeji_compose_material2_ext_NavigationIconScope$stableprop|#static{}com_huanshankeji_compose_material2_ext_NavigationIconScope$stableprop[0]
+final val com.huanshankeji.compose.material2.ext/com_huanshankeji_compose_material2_ext_TopAppBarActionsScope$stableprop // com.huanshankeji.compose.material2.ext/com_huanshankeji_compose_material2_ext_TopAppBarActionsScope$stableprop|#static{}com_huanshankeji_compose_material2_ext_TopAppBarActionsScope$stableprop[0]
+final val com.huanshankeji.compose.material2.lazy.ext/com_huanshankeji_compose_material2_lazy_ext_ItemScope$stableprop // com.huanshankeji.compose.material2.lazy.ext/com_huanshankeji_compose_material2_lazy_ext_ItemScope$stableprop|#static{}com_huanshankeji_compose_material2_lazy_ext_ItemScope$stableprop[0]
+final val com.huanshankeji.compose.material2.lazy.ext/com_huanshankeji_compose_material2_lazy_ext_ListItemComponents$stableprop // com.huanshankeji.compose.material2.lazy.ext/com_huanshankeji_compose_material2_lazy_ext_ListItemComponents$stableprop|#static{}com_huanshankeji_compose_material2_lazy_ext_ListItemComponents$stableprop[0]
+final val com.huanshankeji.compose.material2.lazy.ext/com_huanshankeji_compose_material2_lazy_ext_ListScope$stableprop // com.huanshankeji.compose.material2.lazy.ext/com_huanshankeji_compose_material2_lazy_ext_ListScope$stableprop|#static{}com_huanshankeji_compose_material2_lazy_ext_ListScope$stableprop[0]
+final val com.huanshankeji.compose.material2/com_huanshankeji_compose_material2_SnackbarData$stableprop // com.huanshankeji.compose.material2/com_huanshankeji_compose_material2_SnackbarData$stableprop|#static{}com_huanshankeji_compose_material2_SnackbarData$stableprop[0]
+final val com.huanshankeji.compose.material2/com_huanshankeji_compose_material2_SnackbarHostState$stableprop // com.huanshankeji.compose.material2/com_huanshankeji_compose_material2_SnackbarHostState$stableprop|#static{}com_huanshankeji_compose_material2_SnackbarHostState$stableprop[0]
+final val com.huanshankeji.compose.material2/com_huanshankeji_compose_material2_SnackbarHostStateCommonImpl$stableprop // com.huanshankeji.compose.material2/com_huanshankeji_compose_material2_SnackbarHostStateCommonImpl$stableprop|#static{}com_huanshankeji_compose_material2_SnackbarHostStateCommonImpl$stableprop[0]
+
+final fun (com.huanshankeji.compose.material2.lazy.ext/ListScope).com.huanshankeji.compose.material2.lazy.ext/conventionalItem(kotlin/Any? = ..., kotlin/Any? = ..., com.huanshankeji.compose.material2.lazy.ext/ListItemComponents) // com.huanshankeji.compose.material2.lazy.ext/conventionalItem|conventionalItem@com.huanshankeji.compose.material2.lazy.ext.ListScope(kotlin.Any?;kotlin.Any?;com.huanshankeji.compose.material2.lazy.ext.ListItemComponents){}[0]
+final fun (com.huanshankeji.compose.material2.lazy.ext/ListScope).com.huanshankeji.compose.material2.lazy.ext/conventionalItems(kotlin/Int, kotlin/Function1<kotlin/Int, kotlin/Any>? = ..., kotlin/Function1<kotlin/Int, kotlin/Any?> = ..., kotlin/Function1<kotlin/Int, com.huanshankeji.compose.material2.lazy.ext/ListItemComponents>) // com.huanshankeji.compose.material2.lazy.ext/conventionalItems|conventionalItems@com.huanshankeji.compose.material2.lazy.ext.ListScope(kotlin.Int;kotlin.Function1<kotlin.Int,kotlin.Any>?;kotlin.Function1<kotlin.Int,kotlin.Any?>;kotlin.Function1<kotlin.Int,com.huanshankeji.compose.material2.lazy.ext.ListItemComponents>){}[0]
+final fun com.huanshankeji.compose.material2.ext/Button(kotlin/Function0<kotlin/Unit>, com.huanshankeji.compose.material2.ext/ButtonType?, com.huanshankeji.compose.ui/Modifier?, kotlin/Function3<com.huanshankeji.compose.material2.ext/ButtonScope, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.material2.ext/Button|Button(kotlin.Function0<kotlin.Unit>;com.huanshankeji.compose.material2.ext.ButtonType?;com.huanshankeji.compose.ui.Modifier?;kotlin.Function3<com.huanshankeji.compose.material2.ext.ButtonScope,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun com.huanshankeji.compose.material2.ext/InlineText(kotlin/String, androidx.compose.runtime/Composer?, kotlin/Int) // com.huanshankeji.compose.material2.ext/InlineText|InlineText(kotlin.String;androidx.compose.runtime.Composer?;kotlin.Int){}[0]
+final fun com.huanshankeji.compose.material2.ext/OutlinedTextField(kotlin/String, kotlin/Function1<kotlin/String, kotlin/Unit>, com.huanshankeji.compose.ui/Modifier?, kotlin/Boolean, kotlin/String?, kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>?, kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>?, com.huanshankeji.compose.foundation.text/KeyboardOptions?, com.huanshankeji.compose.foundation.text/KeyboardActions?, kotlin/Boolean, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.material2.ext/OutlinedTextField|OutlinedTextField(kotlin.String;kotlin.Function1<kotlin.String,kotlin.Unit>;com.huanshankeji.compose.ui.Modifier?;kotlin.Boolean;kotlin.String?;kotlin.Function2<androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>?;kotlin.Function2<androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>?;com.huanshankeji.compose.foundation.text.KeyboardOptions?;com.huanshankeji.compose.foundation.text.KeyboardActions?;kotlin.Boolean;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun com.huanshankeji.compose.material2.ext/PrimitiveTopAppBarScaffold(kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>, com.huanshankeji.compose.ui/Modifier?, kotlin/Function3<com.huanshankeji.compose.material2.ext/NavigationIconScope, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>?, kotlin/Function3<com.huanshankeji.compose.material2.ext/TopAppBarActionsScope, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>?, com.huanshankeji.compose.ui/Modifier?, kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.material2.ext/PrimitiveTopAppBarScaffold|PrimitiveTopAppBarScaffold(kotlin.Function2<androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>;com.huanshankeji.compose.ui.Modifier?;kotlin.Function3<com.huanshankeji.compose.material2.ext.NavigationIconScope,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>?;kotlin.Function3<com.huanshankeji.compose.material2.ext.TopAppBarActionsScope,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>?;com.huanshankeji.compose.ui.Modifier?;kotlin.Function2<androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun com.huanshankeji.compose.material2.ext/RadioGroupColumn(com.huanshankeji.compose.ui/Modifier?, kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.material2.ext/RadioGroupColumn|RadioGroupColumn(com.huanshankeji.compose.ui.Modifier?;kotlin.Function2<androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun com.huanshankeji.compose.material2.ext/RadioGroupRow(com.huanshankeji.compose.ui/Modifier?, kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.material2.ext/RadioGroupRow|RadioGroupRow(com.huanshankeji.compose.ui.Modifier?;kotlin.Function2<androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun com.huanshankeji.compose.material2.ext/RadioRow(kotlin/Boolean, kotlin/String, kotlin/Function0<kotlin/Unit>, com.huanshankeji.compose.ui/Modifier?, kotlin/Boolean, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.material2.ext/RadioRow|RadioRow(kotlin.Boolean;kotlin.String;kotlin.Function0<kotlin.Unit>;com.huanshankeji.compose.ui.Modifier?;kotlin.Boolean;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun com.huanshankeji.compose.material2.ext/SpanText(kotlin/String, com.huanshankeji.compose.ui/Modifier?, com.huanshankeji.compose.ui.graphics/Color?, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.material2.ext/SpanText|SpanText(kotlin.String;com.huanshankeji.compose.ui.Modifier?;com.huanshankeji.compose.ui.graphics.Color?;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun com.huanshankeji.compose.material2.ext/SwitchWithLabel(kotlin/Boolean, kotlin/Function1<kotlin/Boolean, kotlin/Unit>?, kotlin/String, com.huanshankeji.compose.ui/Modifier?, kotlin/Boolean, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.material2.ext/SwitchWithLabel|SwitchWithLabel(kotlin.Boolean;kotlin.Function1<kotlin.Boolean,kotlin.Unit>?;kotlin.String;com.huanshankeji.compose.ui.Modifier?;kotlin.Boolean;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun com.huanshankeji.compose.material2.ext/TaglessText(kotlin/String, androidx.compose.runtime/Composer?, kotlin/Int) // com.huanshankeji.compose.material2.ext/TaglessText|TaglessText(kotlin.String;androidx.compose.runtime.Composer?;kotlin.Int){}[0]
+final fun com.huanshankeji.compose.material2.ext/TextArea(kotlin/String, kotlin/Function1<kotlin/String, kotlin/Unit>, com.huanshankeji.compose.ui/Modifier?, kotlin/Boolean, kotlin/String?, com.huanshankeji.compose.foundation.text/KeyboardOptions?, com.huanshankeji.compose.foundation.text/KeyboardActions?, kotlin/Int, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.material2.ext/TextArea|TextArea(kotlin.String;kotlin.Function1<kotlin.String,kotlin.Unit>;com.huanshankeji.compose.ui.Modifier?;kotlin.Boolean;kotlin.String?;com.huanshankeji.compose.foundation.text.KeyboardOptions?;com.huanshankeji.compose.foundation.text.KeyboardActions?;kotlin.Int;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun com.huanshankeji.compose.material2.ext/TextField(kotlin/String, kotlin/Function1<kotlin/String, kotlin/Unit>, com.huanshankeji.compose.ui/Modifier?, kotlin/Boolean, kotlin/String?, kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>?, kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>?, com.huanshankeji.compose.foundation.text/KeyboardOptions?, com.huanshankeji.compose.foundation.text/KeyboardActions?, kotlin/Boolean, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.material2.ext/TextField|TextField(kotlin.String;kotlin.Function1<kotlin.String,kotlin.Unit>;com.huanshankeji.compose.ui.Modifier?;kotlin.Boolean;kotlin.String?;kotlin.Function2<androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>?;kotlin.Function2<androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>?;com.huanshankeji.compose.foundation.text.KeyboardOptions?;com.huanshankeji.compose.foundation.text.KeyboardActions?;kotlin.Boolean;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun com.huanshankeji.compose.material2.ext/TopAppBarScaffold(kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>, com.huanshankeji.compose.ui/Modifier?, kotlin/Function3<com.huanshankeji.compose.material2.ext/NavigationIconScope, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>?, kotlin/Function3<com.huanshankeji.compose.material2.ext/TopAppBarActionsScope, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>?, kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>?, kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>?, kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>?, com.huanshankeji.compose.material2.ext/FabPosition?, kotlin/Boolean, kotlin/Function3<com.huanshankeji.compose.foundation.layout/PaddingValues, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.material2.ext/TopAppBarScaffold|TopAppBarScaffold(kotlin.Function2<androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>;com.huanshankeji.compose.ui.Modifier?;kotlin.Function3<com.huanshankeji.compose.material2.ext.NavigationIconScope,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>?;kotlin.Function3<com.huanshankeji.compose.material2.ext.TopAppBarActionsScope,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>?;kotlin.Function2<androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>?;kotlin.Function2<androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>?;kotlin.Function2<androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>?;com.huanshankeji.compose.material2.ext.FabPosition?;kotlin.Boolean;kotlin.Function3<com.huanshankeji.compose.foundation.layout.PaddingValues,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun com.huanshankeji.compose.material2.ext/com_huanshankeji_compose_material2_ext_ButtonScope$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.material2.ext/com_huanshankeji_compose_material2_ext_ButtonScope$stableprop_getter|com_huanshankeji_compose_material2_ext_ButtonScope$stableprop_getter(){}[0]
+final fun com.huanshankeji.compose.material2.ext/com_huanshankeji_compose_material2_ext_NavigationIconScope$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.material2.ext/com_huanshankeji_compose_material2_ext_NavigationIconScope$stableprop_getter|com_huanshankeji_compose_material2_ext_NavigationIconScope$stableprop_getter(){}[0]
+final fun com.huanshankeji.compose.material2.ext/com_huanshankeji_compose_material2_ext_TopAppBarActionsScope$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.material2.ext/com_huanshankeji_compose_material2_ext_TopAppBarActionsScope$stableprop_getter|com_huanshankeji_compose_material2_ext_TopAppBarActionsScope$stableprop_getter(){}[0]
+final fun com.huanshankeji.compose.material2.lazy.ext/LazyColumnList(com.huanshankeji.compose.ui/Modifier?, kotlin/Function1<com.huanshankeji.compose.material2.lazy.ext/ListScope, kotlin/Unit>, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.material2.lazy.ext/LazyColumnList|LazyColumnList(com.huanshankeji.compose.ui.Modifier?;kotlin.Function1<com.huanshankeji.compose.material2.lazy.ext.ListScope,kotlin.Unit>;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun com.huanshankeji.compose.material2.lazy.ext/List(com.huanshankeji.compose.ui/Modifier?, kotlin/Function1<com.huanshankeji.compose.material2.lazy.ext/ListScope, kotlin/Unit>, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.material2.lazy.ext/List|List(com.huanshankeji.compose.ui.Modifier?;kotlin.Function1<com.huanshankeji.compose.material2.lazy.ext.ListScope,kotlin.Unit>;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun com.huanshankeji.compose.material2.lazy.ext/com_huanshankeji_compose_material2_lazy_ext_ItemScope$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.material2.lazy.ext/com_huanshankeji_compose_material2_lazy_ext_ItemScope$stableprop_getter|com_huanshankeji_compose_material2_lazy_ext_ItemScope$stableprop_getter(){}[0]
+final fun com.huanshankeji.compose.material2.lazy.ext/com_huanshankeji_compose_material2_lazy_ext_ListItemComponents$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.material2.lazy.ext/com_huanshankeji_compose_material2_lazy_ext_ListItemComponents$stableprop_getter|com_huanshankeji_compose_material2_lazy_ext_ListItemComponents$stableprop_getter(){}[0]
+final fun com.huanshankeji.compose.material2.lazy.ext/com_huanshankeji_compose_material2_lazy_ext_ListScope$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.material2.lazy.ext/com_huanshankeji_compose_material2_lazy_ext_ListScope$stableprop_getter|com_huanshankeji_compose_material2_lazy_ext_ListScope$stableprop_getter(){}[0]
+final fun com.huanshankeji.compose.material2/Button(kotlin/Function0<kotlin/Unit>, com.huanshankeji.compose.ui/Modifier?, kotlin/Function3<com.huanshankeji.compose.foundation.layout/RowScope, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.material2/Button|Button(kotlin.Function0<kotlin.Unit>;com.huanshankeji.compose.ui.Modifier?;kotlin.Function3<com.huanshankeji.compose.foundation.layout.RowScope,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun com.huanshankeji.compose.material2/Card(com.huanshankeji.compose.ui/Modifier?, kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.material2/Card|Card(com.huanshankeji.compose.ui.Modifier?;kotlin.Function2<androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun com.huanshankeji.compose.material2/Checkbox(kotlin/Boolean, kotlin/Function1<kotlin/Boolean, kotlin/Unit>?, com.huanshankeji.compose.ui/Modifier?, kotlin/Boolean, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.material2/Checkbox|Checkbox(kotlin.Boolean;kotlin.Function1<kotlin.Boolean,kotlin.Unit>?;com.huanshankeji.compose.ui.Modifier?;kotlin.Boolean;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun com.huanshankeji.compose.material2/Divider(com.huanshankeji.compose.ui/Modifier?, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.material2/Divider|Divider(com.huanshankeji.compose.ui.Modifier?;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun com.huanshankeji.compose.material2/IconButton(kotlin/Function0<kotlin/Unit>, com.huanshankeji.compose.ui/Modifier?, kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.material2/IconButton|IconButton(kotlin.Function0<kotlin.Unit>;com.huanshankeji.compose.ui.Modifier?;kotlin.Function2<androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun com.huanshankeji.compose.material2/OutlinedButton(kotlin/Function0<kotlin/Unit>, com.huanshankeji.compose.ui/Modifier?, kotlin/Function3<com.huanshankeji.compose.foundation.layout/RowScope, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.material2/OutlinedButton|OutlinedButton(kotlin.Function0<kotlin.Unit>;com.huanshankeji.compose.ui.Modifier?;kotlin.Function3<com.huanshankeji.compose.foundation.layout.RowScope,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun com.huanshankeji.compose.material2/Snackbar(com.huanshankeji.compose.material2/SnackbarData, com.huanshankeji.compose.ui/Modifier?, kotlin/Boolean, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.material2/Snackbar|Snackbar(com.huanshankeji.compose.material2.SnackbarData;com.huanshankeji.compose.ui.Modifier?;kotlin.Boolean;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun com.huanshankeji.compose.material2/Snackbar(com.huanshankeji.compose.ui/Modifier?, kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>?, kotlin/Boolean, kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.material2/Snackbar|Snackbar(com.huanshankeji.compose.ui.Modifier?;kotlin.Function2<androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>?;kotlin.Boolean;kotlin.Function2<androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun com.huanshankeji.compose.material2/SnackbarHost(com.huanshankeji.compose.material2/SnackbarHostState, com.huanshankeji.compose.ui/Modifier?, kotlin/Boolean, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.material2/SnackbarHost|SnackbarHost(com.huanshankeji.compose.material2.SnackbarHostState;com.huanshankeji.compose.ui.Modifier?;kotlin.Boolean;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun com.huanshankeji.compose.material2/Switch(kotlin/Boolean, kotlin/Function1<kotlin/Boolean, kotlin/Unit>?, com.huanshankeji.compose.ui/Modifier?, kotlin/Boolean, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.material2/Switch|Switch(kotlin.Boolean;kotlin.Function1<kotlin.Boolean,kotlin.Unit>?;com.huanshankeji.compose.ui.Modifier?;kotlin.Boolean;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun com.huanshankeji.compose.material2/Text(kotlin/String, com.huanshankeji.compose.ui/Modifier?, com.huanshankeji.compose.ui.graphics/Color?, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.material2/Text|Text(kotlin.String;com.huanshankeji.compose.ui.Modifier?;com.huanshankeji.compose.ui.graphics.Color?;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun com.huanshankeji.compose.material2/TextButton(kotlin/Function0<kotlin/Unit>, com.huanshankeji.compose.ui/Modifier?, kotlin/Function3<com.huanshankeji.compose.foundation.layout/RowScope, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.material2/TextButton|TextButton(kotlin.Function0<kotlin.Unit>;com.huanshankeji.compose.ui.Modifier?;kotlin.Function3<com.huanshankeji.compose.foundation.layout.RowScope,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun com.huanshankeji.compose.material2/com_huanshankeji_compose_material2_SnackbarData$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.material2/com_huanshankeji_compose_material2_SnackbarData$stableprop_getter|com_huanshankeji_compose_material2_SnackbarData$stableprop_getter(){}[0]
+final fun com.huanshankeji.compose.material2/com_huanshankeji_compose_material2_SnackbarHostState$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.material2/com_huanshankeji_compose_material2_SnackbarHostState$stableprop_getter|com_huanshankeji_compose_material2_SnackbarHostState$stableprop_getter(){}[0]
+final fun com.huanshankeji.compose.material2/com_huanshankeji_compose_material2_SnackbarHostStateCommonImpl$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.material2/com_huanshankeji_compose_material2_SnackbarHostStateCommonImpl$stableprop_getter|com_huanshankeji_compose_material2_SnackbarHostStateCommonImpl$stableprop_getter(){}[0]
+final inline fun com.huanshankeji.compose.material2.ext/MaterialText(kotlin/String, com.huanshankeji.compose.ui/Modifier?, com.huanshankeji.compose.ui.graphics/Color?, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.material2.ext/MaterialText|MaterialText(kotlin.String;com.huanshankeji.compose.ui.Modifier?;com.huanshankeji.compose.ui.graphics.Color?;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+
+// Targets: [ios, wasmJs]
+final fun (androidx.compose.material/SnackbarData).com.huanshankeji.compose.material2/toCommonValue(): com.huanshankeji.compose.material2/SnackbarData // com.huanshankeji.compose.material2/toCommonValue|toCommonValue@androidx.compose.material.SnackbarData(){}[0]
+
+// Targets: [ios, wasmJs]
+final fun (androidx.compose.material/SnackbarDuration).com.huanshankeji.compose.material2/toCommonValue(): com.huanshankeji.compose.material2/SnackbarDuration // com.huanshankeji.compose.material2/toCommonValue|toCommonValue@androidx.compose.material.SnackbarDuration(){}[0]
+
+// Targets: [ios, wasmJs]
+final fun (androidx.compose.material/SnackbarHostState).com.huanshankeji.compose.material2/toCommonValue(): com.huanshankeji.compose.material2/SnackbarHostState // com.huanshankeji.compose.material2/toCommonValue|toCommonValue@androidx.compose.material.SnackbarHostState(){}[0]
+
+// Targets: [ios, wasmJs]
+final fun (androidx.compose.material/SnackbarResult).com.huanshankeji.compose.material2/toCommonValue(): com.huanshankeji.compose.material2/SnackbarResult // com.huanshankeji.compose.material2/toCommonValue|toCommonValue@androidx.compose.material.SnackbarResult(){}[0]
+
+// Targets: [ios, wasmJs]
+final fun (com.huanshankeji.compose.material2.ext/FabPosition).com.huanshankeji.compose.material2.ext/toPlatformValue(): androidx.compose.material/FabPosition // com.huanshankeji.compose.material2.ext/toPlatformValue|toPlatformValue@com.huanshankeji.compose.material2.ext.FabPosition(){}[0]
+
+// Targets: [ios, wasmJs]
+final fun (com.huanshankeji.compose.material2/SnackbarDuration).com.huanshankeji.compose.material2/toPlatformValue(): androidx.compose.material/SnackbarDuration // com.huanshankeji.compose.material2/toPlatformValue|toPlatformValue@com.huanshankeji.compose.material2.SnackbarDuration(){}[0]
+
+// Targets: [ios, wasmJs]
+final fun com.huanshankeji.compose.material2.ext/IconButton(kotlin/Function0<kotlin/Unit>, com.huanshankeji.compose.ui/Modifier?, androidx.compose.ui.graphics.vector/ImageVector, kotlin/String?, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.material2.ext/IconButton|IconButton(kotlin.Function0<kotlin.Unit>;com.huanshankeji.compose.ui.Modifier?;androidx.compose.ui.graphics.vector.ImageVector;kotlin.String?;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+
+// Targets: [ios, wasmJs]
+final fun com.huanshankeji.compose.material2.ext/OutlinedTextFieldWithMaterialIcons(kotlin/String, kotlin/Function1<kotlin/String, kotlin/Unit>, com.huanshankeji.compose.ui/Modifier?, kotlin/Boolean, kotlin/String?, androidx.compose.ui.graphics.vector/ImageVector?, androidx.compose.ui.graphics.vector/ImageVector?, com.huanshankeji.compose.foundation.text/KeyboardOptions?, com.huanshankeji.compose.foundation.text/KeyboardActions?, kotlin/Boolean, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.material2.ext/OutlinedTextFieldWithMaterialIcons|OutlinedTextFieldWithMaterialIcons(kotlin.String;kotlin.Function1<kotlin.String,kotlin.Unit>;com.huanshankeji.compose.ui.Modifier?;kotlin.Boolean;kotlin.String?;androidx.compose.ui.graphics.vector.ImageVector?;androidx.compose.ui.graphics.vector.ImageVector?;com.huanshankeji.compose.foundation.text.KeyboardOptions?;com.huanshankeji.compose.foundation.text.KeyboardActions?;kotlin.Boolean;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+
+// Targets: [ios, wasmJs]
+final fun com.huanshankeji.compose.material2.ext/TextFieldWithMaterialIcons(kotlin/String, kotlin/Function1<kotlin/String, kotlin/Unit>, com.huanshankeji.compose.ui/Modifier?, kotlin/Boolean, kotlin/String?, androidx.compose.ui.graphics.vector/ImageVector?, androidx.compose.ui.graphics.vector/ImageVector?, com.huanshankeji.compose.foundation.text/KeyboardOptions?, com.huanshankeji.compose.foundation.text/KeyboardActions?, kotlin/Boolean, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.material2.ext/TextFieldWithMaterialIcons|TextFieldWithMaterialIcons(kotlin.String;kotlin.Function1<kotlin.String,kotlin.Unit>;com.huanshankeji.compose.ui.Modifier?;kotlin.Boolean;kotlin.String?;androidx.compose.ui.graphics.vector.ImageVector?;androidx.compose.ui.graphics.vector.ImageVector?;com.huanshankeji.compose.foundation.text.KeyboardOptions?;com.huanshankeji.compose.foundation.text.KeyboardActions?;kotlin.Boolean;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+
+// Targets: [ios, wasmJs]
+final fun com.huanshankeji.compose.material2/Icon(androidx.compose.ui.graphics.vector/ImageVector, kotlin/String?, com.huanshankeji.compose.ui/Modifier?, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.material2/Icon|Icon(androidx.compose.ui.graphics.vector.ImageVector;kotlin.String?;com.huanshankeji.compose.ui.Modifier?;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+
+// Targets: [js]
+final class com.huanshankeji.compose.material2.lazy.ext/HeaderScope { // com.huanshankeji.compose.material2.lazy.ext/HeaderScope|null[0]
+    constructor <init>(org.jetbrains.compose.web.dom/ElementScope<org.w3c.dom/HTMLHeadingElement>) // com.huanshankeji.compose.material2.lazy.ext/HeaderScope.<init>|<init>(org.jetbrains.compose.web.dom.ElementScope<org.w3c.dom.HTMLHeadingElement>){}[0]
+
+    final val headingElementScope // com.huanshankeji.compose.material2.lazy.ext/HeaderScope.headingElementScope|{}headingElementScope[0]
+        final fun <get-headingElementScope>(): org.jetbrains.compose.web.dom/ElementScope<org.w3c.dom/HTMLHeadingElement> // com.huanshankeji.compose.material2.lazy.ext/HeaderScope.headingElementScope.<get-headingElementScope>|<get-headingElementScope>(){}[0]
+}
+
+// Targets: [js]
+final val com.huanshankeji.compose.material2.icons/mdcIconMap // com.huanshankeji.compose.material2.icons/mdcIconMap|{}mdcIconMap[0]
+    final fun <get-mdcIconMap>(): kotlin.collections/Map<kotlin/String, dev.petuska.kmdcx.icons/MDCIcon> // com.huanshankeji.compose.material2.icons/mdcIconMap.<get-mdcIconMap>|<get-mdcIconMap>(){}[0]
+
+// Targets: [js]
+final val com.huanshankeji.compose.material2.lazy.ext/com_huanshankeji_compose_material2_lazy_ext_HeaderScope$stableprop // com.huanshankeji.compose.material2.lazy.ext/com_huanshankeji_compose_material2_lazy_ext_HeaderScope$stableprop|#static{}com_huanshankeji_compose_material2_lazy_ext_HeaderScope$stableprop[0]
+
+// Targets: [js]
+final fun (com.huanshankeji.compose.material.icons/Icon).com.huanshankeji.compose.material2.icons/toMDCIcon(): dev.petuska.kmdcx.icons/MDCIcon // com.huanshankeji.compose.material2.icons/toMDCIcon|toMDCIcon@com.huanshankeji.compose.material.icons.Icon(){}[0]
+
+// Targets: [js]
+final fun (com.huanshankeji.compose.material2.ext/ButtonType).com.huanshankeji.compose.material2.ext/toMDCButtonType(): dev.petuska.kmdc.button/MDCButtonType // com.huanshankeji.compose.material2.ext/toMDCButtonType|toMDCButtonType@com.huanshankeji.compose.material2.ext.ButtonType(){}[0]
+
+// Targets: [js]
+final fun (com.huanshankeji.compose.material2/SnackbarDataCommonInterface).com.huanshankeji.compose.material2/toCommonValue(): com.huanshankeji.compose.material2/SnackbarData // com.huanshankeji.compose.material2/toCommonValue|toCommonValue@com.huanshankeji.compose.material2.SnackbarDataCommonInterface(){}[0]
+
+// Targets: [js]
+final fun (org.jetbrains.compose.web.attributes/AttrsScope<*>).com.huanshankeji.compose.material2.icons/mdcIconWithStyle(dev.petuska.kmdcx.icons/MDCIconType = ...) // com.huanshankeji.compose.material2.icons/mdcIconWithStyle|mdcIconWithStyle@org.jetbrains.compose.web.attributes.AttrsScope<*>(dev.petuska.kmdcx.icons.MDCIconType){}[0]
+
+// Targets: [js]
+final fun com.huanshankeji.compose.material2.ext/CommonTextFieldWithIconsLikeComposeUi(kotlin/String, dev.petuska.kmdc.textfield/MDCTextFieldType, kotlin/Function1<kotlin/String, kotlin/Unit>, com.huanshankeji.compose.ui/Modifier, kotlin/Boolean, kotlin/String?, kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>?, kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>?, com.huanshankeji.compose.foundation.text/KeyboardOptions, com.huanshankeji.compose.foundation.text/KeyboardActions, androidx.compose.runtime/Composer?, kotlin/Int) // com.huanshankeji.compose.material2.ext/CommonTextFieldWithIconsLikeComposeUi|CommonTextFieldWithIconsLikeComposeUi(kotlin.String;dev.petuska.kmdc.textfield.MDCTextFieldType;kotlin.Function1<kotlin.String,kotlin.Unit>;com.huanshankeji.compose.ui.Modifier;kotlin.Boolean;kotlin.String?;kotlin.Function2<androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>?;kotlin.Function2<androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>?;com.huanshankeji.compose.foundation.text.KeyboardOptions;com.huanshankeji.compose.foundation.text.KeyboardActions;androidx.compose.runtime.Composer?;kotlin.Int){}[0]
+
+// Targets: [js]
+final fun com.huanshankeji.compose.material2.ext/CommonTextFieldWithMDCContentIcons(kotlin/String, dev.petuska.kmdc.textfield/MDCTextFieldType, kotlin/Function1<kotlin/String, kotlin/Unit>, com.huanshankeji.compose.ui/Modifier, kotlin/Boolean, kotlin/String?, kotlin/Function3<dev.petuska.kmdc.textfield/MDCTextFieldScope, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>?, kotlin/Function3<dev.petuska.kmdc.textfield/MDCTextFieldScope, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>?, com.huanshankeji.compose.foundation.text/KeyboardOptions, com.huanshankeji.compose.foundation.text/KeyboardActions, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.material2.ext/CommonTextFieldWithMDCContentIcons|CommonTextFieldWithMDCContentIcons(kotlin.String;dev.petuska.kmdc.textfield.MDCTextFieldType;kotlin.Function1<kotlin.String,kotlin.Unit>;com.huanshankeji.compose.ui.Modifier;kotlin.Boolean;kotlin.String?;kotlin.Function3<dev.petuska.kmdc.textfield.MDCTextFieldScope,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>?;kotlin.Function3<dev.petuska.kmdc.textfield.MDCTextFieldScope,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>?;com.huanshankeji.compose.foundation.text.KeyboardOptions;com.huanshankeji.compose.foundation.text.KeyboardActions;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+
+// Targets: [js]
+final fun com.huanshankeji.compose.material2.ext/CommonTextFieldWithMaterialIcons(kotlin/String, dev.petuska.kmdc.textfield/MDCTextFieldType, kotlin/Function1<kotlin/String, kotlin/Unit>, com.huanshankeji.compose.ui/Modifier, kotlin/Boolean, kotlin/String?, com.huanshankeji.compose.material.icons/Icon?, com.huanshankeji.compose.material.icons/Icon?, com.huanshankeji.compose.foundation.text/KeyboardOptions, com.huanshankeji.compose.foundation.text/KeyboardActions, androidx.compose.runtime/Composer?, kotlin/Int) // com.huanshankeji.compose.material2.ext/CommonTextFieldWithMaterialIcons|CommonTextFieldWithMaterialIcons(kotlin.String;dev.petuska.kmdc.textfield.MDCTextFieldType;kotlin.Function1<kotlin.String,kotlin.Unit>;com.huanshankeji.compose.ui.Modifier;kotlin.Boolean;kotlin.String?;com.huanshankeji.compose.material.icons.Icon?;com.huanshankeji.compose.material.icons.Icon?;com.huanshankeji.compose.foundation.text.KeyboardOptions;com.huanshankeji.compose.foundation.text.KeyboardActions;androidx.compose.runtime.Composer?;kotlin.Int){}[0]
+
+// Targets: [js]
+final fun com.huanshankeji.compose.material2.ext/IconButton(kotlin/Function0<kotlin/Unit>, com.huanshankeji.compose.ui/Modifier?, com.huanshankeji.compose.material.icons/Icon, kotlin/String?, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.material2.ext/IconButton|IconButton(kotlin.Function0<kotlin.Unit>;com.huanshankeji.compose.ui.Modifier?;com.huanshankeji.compose.material.icons.Icon;kotlin.String?;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+
+// Targets: [js]
+final fun com.huanshankeji.compose.material2.ext/OutlinedTextFieldWithMaterialIcons(kotlin/String, kotlin/Function1<kotlin/String, kotlin/Unit>, com.huanshankeji.compose.ui/Modifier?, kotlin/Boolean, kotlin/String?, com.huanshankeji.compose.material.icons/Icon?, com.huanshankeji.compose.material.icons/Icon?, com.huanshankeji.compose.foundation.text/KeyboardOptions?, com.huanshankeji.compose.foundation.text/KeyboardActions?, kotlin/Boolean, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.material2.ext/OutlinedTextFieldWithMaterialIcons|OutlinedTextFieldWithMaterialIcons(kotlin.String;kotlin.Function1<kotlin.String,kotlin.Unit>;com.huanshankeji.compose.ui.Modifier?;kotlin.Boolean;kotlin.String?;com.huanshankeji.compose.material.icons.Icon?;com.huanshankeji.compose.material.icons.Icon?;com.huanshankeji.compose.foundation.text.KeyboardOptions?;com.huanshankeji.compose.foundation.text.KeyboardActions?;kotlin.Boolean;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+
+// Targets: [js]
+final fun com.huanshankeji.compose.material2.ext/TextFieldWithMaterialIcons(kotlin/String, kotlin/Function1<kotlin/String, kotlin/Unit>, com.huanshankeji.compose.ui/Modifier?, kotlin/Boolean, kotlin/String?, com.huanshankeji.compose.material.icons/Icon?, com.huanshankeji.compose.material.icons/Icon?, com.huanshankeji.compose.foundation.text/KeyboardOptions?, com.huanshankeji.compose.foundation.text/KeyboardActions?, kotlin/Boolean, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.material2.ext/TextFieldWithMaterialIcons|TextFieldWithMaterialIcons(kotlin.String;kotlin.Function1<kotlin.String,kotlin.Unit>;com.huanshankeji.compose.ui.Modifier?;kotlin.Boolean;kotlin.String?;com.huanshankeji.compose.material.icons.Icon?;com.huanshankeji.compose.material.icons.Icon?;com.huanshankeji.compose.foundation.text.KeyboardOptions?;com.huanshankeji.compose.foundation.text.KeyboardActions?;kotlin.Boolean;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+
+// Targets: [js]
+final fun com.huanshankeji.compose.material2.lazy.ext/com_huanshankeji_compose_material2_lazy_ext_HeaderScope$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.material2.lazy.ext/com_huanshankeji_compose_material2_lazy_ext_HeaderScope$stableprop_getter|com_huanshankeji_compose_material2_lazy_ext_HeaderScope$stableprop_getter(){}[0]
+
+// Targets: [js]
+final fun com.huanshankeji.compose.material2/Icon(com.huanshankeji.compose.material.icons/Icon, kotlin/String?, com.huanshankeji.compose.ui/Modifier?, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.material2/Icon|Icon(com.huanshankeji.compose.material.icons.Icon;kotlin.String?;com.huanshankeji.compose.ui.Modifier?;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]

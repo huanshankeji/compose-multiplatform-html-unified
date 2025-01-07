@@ -1,5 +1,26 @@
 # Change log
 
+## v0.5.0 / 2024-12-05
+
+Important changes:
+
+* This library is renamed from **Compose Multiplatform Material** to **Compose Multiplatform HTML Unified** which better describes its purpose since this release. The **Maven coordinates** have changed accordingly. Please adapt to these changes following the updated README.md.
+* replace the terms "Androidx"/"androidx"/"AndroidxCommon"/"androidxCommon" with Compose UI / "ComposeUi" / "composeUi" at appropriate places, both in docs and in code
+  
+  This introduces some breaking changes. Please adapt accordingly. We are sorry for the inconvenience.
+
+Functional change:
+
+* delegate `Spacer` just to `DivBox` on JS DOM because the Kobweb `Spacer` has a different semantic from the Compose UI one
+
+Miscellaneous changes:
+
+* bump Kotlin to 2.1.0, Compose Multiplatform to 1.7.1, and Kobweb to 0.20.0
+* add a "side by side" demo hosted at <https://huanshankeji.github.io/compose-multiplatform-html-unified/>
+* add CODE_OF_CONDUCT.md and CONTRIBUTING.md
+* use the Kotlin binary compatibility validator
+* run IntelliJ IDEA Code Cleanup and Reformat Code for the whole project
+
 ## v0.4.0 / 2024-10-24
 
 * fix a bug that a dependent project might crash on Android and add the Android target explicitly for all modules

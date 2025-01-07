@@ -1,15 +1,20 @@
-rootProject.name = "compose-multiplatform-material"
+rootProject.name = "compose-multiplatform-html-unified"
 
-include("compose-multiplatform-common") // TODO consider splitting into several modules including `foundation`, `ui`, etc.
-include("compose-multiplatform-common:legacy")
-project(":compose-multiplatform-common:legacy").name = "compose-multiplatform-common-legacy"
-include("compose-multiplatform-material-icons-core")
-include("compose-multiplatform-material2")
-include("compose-multiplatform-material3")
-include("compose-multiplatform-navigation")
-include("compose-multiplatform-lifecycle-viewmodel")
+include("common") // TODO consider splitting into several modules including `foundation`, `ui`, etc. (#45)
+include("common:legacy")
+include("material-icons-core")
+include("material2")
+include("material3")
+include("navigation")
+include("lifecycle-viewmodel")
 include("demo")
 
+fun ProjectDescriptor.setProjectConcatenatedNames(prefix: String) {
+    name = prefix + name
+    for (child in children)
+        child.setProjectConcatenatedNames("$name-")
+}
+rootProject.setProjectConcatenatedNames("")
 
 /*
 // This seems not needed.

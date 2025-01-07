@@ -1,0 +1,1140 @@
+// Klib ABI Dump
+// Targets: [iosArm64, iosSimulatorArm64, iosX64, js, wasmJs]
+// Alias: ios => [iosArm64, iosSimulatorArm64, iosX64]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <com.huanshankeji:compose-multiplatform-html-unified-common>
+open annotation class com.huanshankeji.compose.foundation/ExperimentalFoundationApi : kotlin/Annotation { // com.huanshankeji.compose.foundation/ExperimentalFoundationApi|null[0]
+    constructor <init>() // com.huanshankeji.compose.foundation/ExperimentalFoundationApi.<init>|<init>(){}[0]
+}
+
+open annotation class com.huanshankeji.compose/ExperimentalApi : kotlin/Annotation { // com.huanshankeji.compose/ExperimentalApi|null[0]
+    constructor <init>() // com.huanshankeji.compose/ExperimentalApi.<init>|<init>(){}[0]
+}
+
+open annotation class com.huanshankeji.compose/ExtRecommendedApi : kotlin/Annotation { // com.huanshankeji.compose/ExtRecommendedApi|null[0]
+    constructor <init>() // com.huanshankeji.compose/ExtRecommendedApi.<init>|<init>(){}[0]
+}
+
+open annotation class com.huanshankeji.compose/LikelyInconsistentApi : kotlin/Annotation { // com.huanshankeji.compose/LikelyInconsistentApi|null[0]
+    constructor <init>() // com.huanshankeji.compose/LikelyInconsistentApi.<init>|<init>(){}[0]
+}
+
+final enum class com.huanshankeji.compose.foundation.layout/IntrinsicSize : kotlin/Enum<com.huanshankeji.compose.foundation.layout/IntrinsicSize> { // com.huanshankeji.compose.foundation.layout/IntrinsicSize|null[0]
+    enum entry Max // com.huanshankeji.compose.foundation.layout/IntrinsicSize.Max|null[0]
+    enum entry Min // com.huanshankeji.compose.foundation.layout/IntrinsicSize.Min|null[0]
+
+    final val entries // com.huanshankeji.compose.foundation.layout/IntrinsicSize.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<com.huanshankeji.compose.foundation.layout/IntrinsicSize> // com.huanshankeji.compose.foundation.layout/IntrinsicSize.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): com.huanshankeji.compose.foundation.layout/IntrinsicSize // com.huanshankeji.compose.foundation.layout/IntrinsicSize.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<com.huanshankeji.compose.foundation.layout/IntrinsicSize> // com.huanshankeji.compose.foundation.layout/IntrinsicSize.values|values#static(){}[0]
+}
+
+abstract fun interface com.huanshankeji.compose.ui.graphics/ColorProducer { // com.huanshankeji.compose.ui.graphics/ColorProducer|null[0]
+    abstract fun invoke(): com.huanshankeji.compose.ui.graphics/Color // com.huanshankeji.compose.ui.graphics/ColorProducer.invoke|invoke(){}[0]
+}
+
+abstract interface com.huanshankeji.compose.foundation.layout.ext/BoxWithConstraintsScope : com.huanshankeji.compose.foundation.layout/BoxScope { // com.huanshankeji.compose.foundation.layout.ext/BoxWithConstraintsScope|null[0]
+    abstract val maxHeight // com.huanshankeji.compose.foundation.layout.ext/BoxWithConstraintsScope.maxHeight|{}maxHeight[0]
+        abstract fun <get-maxHeight>(): androidx.compose.ui.unit/Dp // com.huanshankeji.compose.foundation.layout.ext/BoxWithConstraintsScope.maxHeight.<get-maxHeight>|<get-maxHeight>(){}[0]
+    abstract val maxWidth // com.huanshankeji.compose.foundation.layout.ext/BoxWithConstraintsScope.maxWidth|{}maxWidth[0]
+        abstract fun <get-maxWidth>(): androidx.compose.ui.unit/Dp // com.huanshankeji.compose.foundation.layout.ext/BoxWithConstraintsScope.maxWidth.<get-maxWidth>|<get-maxWidth>(){}[0]
+}
+
+abstract interface com.huanshankeji.compose.foundation.layout/BoxScope { // com.huanshankeji.compose.foundation.layout/BoxScope|null[0]
+    abstract val platformBoxScope // com.huanshankeji.compose.foundation.layout/BoxScope.platformBoxScope|{}platformBoxScope[0]
+        // Targets: [ios, wasmJs]
+        abstract fun <get-platformBoxScope>(): androidx.compose.foundation.layout/BoxScope // com.huanshankeji.compose.foundation.layout/BoxScope.platformBoxScope.<get-platformBoxScope>|<get-platformBoxScope>(){}[0]
+
+        // Targets: [js]
+        abstract fun <get-platformBoxScope>(): com.varabyte.kobweb.compose.foundation.layout/BoxScope // com.huanshankeji.compose.foundation.layout/BoxScope.platformBoxScope.<get-platformBoxScope>|<get-platformBoxScope>(){}[0]
+
+    open fun (com.huanshankeji.compose.ui/Modifier).align(com.huanshankeji.compose.ui/Alignment): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.layout/BoxScope.align|align@com.huanshankeji.compose.ui.Modifier(com.huanshankeji.compose.ui.Alignment){}[0]
+
+    final value class Impl : com.huanshankeji.compose.foundation.layout/BoxScope { // com.huanshankeji.compose.foundation.layout/BoxScope.Impl|null[0]
+        final val platformBoxScope // com.huanshankeji.compose.foundation.layout/BoxScope.Impl.platformBoxScope|{}platformBoxScope[0]
+            // Targets: [ios, wasmJs]
+            final fun <get-platformBoxScope>(): androidx.compose.foundation.layout/BoxScope // com.huanshankeji.compose.foundation.layout/BoxScope.Impl.platformBoxScope.<get-platformBoxScope>|<get-platformBoxScope>(){}[0]
+
+            // Targets: [js]
+            final fun <get-platformBoxScope>(): com.varabyte.kobweb.compose.foundation.layout/BoxScope // com.huanshankeji.compose.foundation.layout/BoxScope.Impl.platformBoxScope.<get-platformBoxScope>|<get-platformBoxScope>(){}[0]
+
+        final fun equals(kotlin/Any?): kotlin/Boolean // com.huanshankeji.compose.foundation.layout/BoxScope.Impl.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // com.huanshankeji.compose.foundation.layout/BoxScope.Impl.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // com.huanshankeji.compose.foundation.layout/BoxScope.Impl.toString|toString(){}[0]
+
+        // Targets: [ios, wasmJs]
+        constructor <init>(androidx.compose.foundation.layout/BoxScope) // com.huanshankeji.compose.foundation.layout/BoxScope.Impl.<init>|<init>(androidx.compose.foundation.layout.BoxScope){}[0]
+
+        // Targets: [js]
+        constructor <init>(com.varabyte.kobweb.compose.foundation.layout/BoxScope) // com.huanshankeji.compose.foundation.layout/BoxScope.Impl.<init>|<init>(com.varabyte.kobweb.compose.foundation.layout.BoxScope){}[0]
+    }
+}
+
+abstract interface com.huanshankeji.compose.foundation.layout/ColumnScope { // com.huanshankeji.compose.foundation.layout/ColumnScope|null[0]
+    abstract val platformValue // com.huanshankeji.compose.foundation.layout/ColumnScope.platformValue|{}platformValue[0]
+        // Targets: [ios, wasmJs]
+        abstract fun <get-platformValue>(): androidx.compose.foundation.layout/ColumnScope // com.huanshankeji.compose.foundation.layout/ColumnScope.platformValue.<get-platformValue>|<get-platformValue>(){}[0]
+
+        // Targets: [js]
+        abstract fun <get-platformValue>(): com.varabyte.kobweb.compose.foundation.layout/ColumnScope // com.huanshankeji.compose.foundation.layout/ColumnScope.platformValue.<get-platformValue>|<get-platformValue>(){}[0]
+
+    open fun (com.huanshankeji.compose.ui/Modifier).align(com.huanshankeji.compose.ui/Alignment.Horizontal): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.layout/ColumnScope.align|align@com.huanshankeji.compose.ui.Modifier(com.huanshankeji.compose.ui.Alignment.Horizontal){}[0]
+    open fun (com.huanshankeji.compose.ui/Modifier).weight(kotlin/Float): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.layout/ColumnScope.weight|weight@com.huanshankeji.compose.ui.Modifier(kotlin.Float){}[0]
+
+    final value class Impl : com.huanshankeji.compose.foundation.layout/ColumnScope { // com.huanshankeji.compose.foundation.layout/ColumnScope.Impl|null[0]
+        final val platformValue // com.huanshankeji.compose.foundation.layout/ColumnScope.Impl.platformValue|{}platformValue[0]
+            // Targets: [ios, wasmJs]
+            final fun <get-platformValue>(): androidx.compose.foundation.layout/ColumnScope // com.huanshankeji.compose.foundation.layout/ColumnScope.Impl.platformValue.<get-platformValue>|<get-platformValue>(){}[0]
+
+            // Targets: [js]
+            final fun <get-platformValue>(): com.varabyte.kobweb.compose.foundation.layout/ColumnScope // com.huanshankeji.compose.foundation.layout/ColumnScope.Impl.platformValue.<get-platformValue>|<get-platformValue>(){}[0]
+
+        final fun equals(kotlin/Any?): kotlin/Boolean // com.huanshankeji.compose.foundation.layout/ColumnScope.Impl.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // com.huanshankeji.compose.foundation.layout/ColumnScope.Impl.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // com.huanshankeji.compose.foundation.layout/ColumnScope.Impl.toString|toString(){}[0]
+
+        // Targets: [ios, wasmJs]
+        constructor <init>(androidx.compose.foundation.layout/ColumnScope) // com.huanshankeji.compose.foundation.layout/ColumnScope.Impl.<init>|<init>(androidx.compose.foundation.layout.ColumnScope){}[0]
+
+        // Targets: [js]
+        constructor <init>(com.varabyte.kobweb.compose.foundation.layout/ColumnScope) // com.huanshankeji.compose.foundation.layout/ColumnScope.Impl.<init>|<init>(com.varabyte.kobweb.compose.foundation.layout.ColumnScope){}[0]
+    }
+}
+
+abstract interface com.huanshankeji.compose.foundation.layout/RowScope { // com.huanshankeji.compose.foundation.layout/RowScope|null[0]
+    abstract val platformValue // com.huanshankeji.compose.foundation.layout/RowScope.platformValue|{}platformValue[0]
+        // Targets: [ios, wasmJs]
+        abstract fun <get-platformValue>(): androidx.compose.foundation.layout/RowScope // com.huanshankeji.compose.foundation.layout/RowScope.platformValue.<get-platformValue>|<get-platformValue>(){}[0]
+
+        // Targets: [js]
+        abstract fun <get-platformValue>(): com.varabyte.kobweb.compose.foundation.layout/RowScope // com.huanshankeji.compose.foundation.layout/RowScope.platformValue.<get-platformValue>|<get-platformValue>(){}[0]
+
+    open fun (com.huanshankeji.compose.ui/Modifier).align(com.huanshankeji.compose.ui/Alignment.Vertical): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.layout/RowScope.align|align@com.huanshankeji.compose.ui.Modifier(com.huanshankeji.compose.ui.Alignment.Vertical){}[0]
+    open fun (com.huanshankeji.compose.ui/Modifier).weight(kotlin/Float): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.layout/RowScope.weight|weight@com.huanshankeji.compose.ui.Modifier(kotlin.Float){}[0]
+
+    final value class Impl : com.huanshankeji.compose.foundation.layout/RowScope { // com.huanshankeji.compose.foundation.layout/RowScope.Impl|null[0]
+        final val platformValue // com.huanshankeji.compose.foundation.layout/RowScope.Impl.platformValue|{}platformValue[0]
+            // Targets: [ios, wasmJs]
+            final fun <get-platformValue>(): androidx.compose.foundation.layout/RowScope // com.huanshankeji.compose.foundation.layout/RowScope.Impl.platformValue.<get-platformValue>|<get-platformValue>(){}[0]
+
+            // Targets: [js]
+            final fun <get-platformValue>(): com.varabyte.kobweb.compose.foundation.layout/RowScope // com.huanshankeji.compose.foundation.layout/RowScope.Impl.platformValue.<get-platformValue>|<get-platformValue>(){}[0]
+
+        final fun equals(kotlin/Any?): kotlin/Boolean // com.huanshankeji.compose.foundation.layout/RowScope.Impl.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // com.huanshankeji.compose.foundation.layout/RowScope.Impl.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // com.huanshankeji.compose.foundation.layout/RowScope.Impl.toString|toString(){}[0]
+
+        // Targets: [ios, wasmJs]
+        constructor <init>(androidx.compose.foundation.layout/RowScope) // com.huanshankeji.compose.foundation.layout/RowScope.Impl.<init>|<init>(androidx.compose.foundation.layout.RowScope){}[0]
+
+        // Targets: [js]
+        constructor <init>(com.varabyte.kobweb.compose.foundation.layout/RowScope) // com.huanshankeji.compose.foundation.layout/RowScope.Impl.<init>|<init>(com.varabyte.kobweb.compose.foundation.layout.RowScope){}[0]
+    }
+}
+
+abstract interface com.huanshankeji.compose.foundation.text/KeyboardActionScope { // com.huanshankeji.compose.foundation.text/KeyboardActionScope|null[0]
+    abstract fun defaultKeyboardAction(com.huanshankeji.compose.foundation.text.input/ImeAction) // com.huanshankeji.compose.foundation.text/KeyboardActionScope.defaultKeyboardAction|defaultKeyboardAction(com.huanshankeji.compose.foundation.text.input.ImeAction){}[0]
+
+    final object DoNothingInstance : com.huanshankeji.compose.foundation.text/KeyboardActionScope { // com.huanshankeji.compose.foundation.text/KeyboardActionScope.DoNothingInstance|null[0]
+        final fun defaultKeyboardAction(com.huanshankeji.compose.foundation.text.input/ImeAction) // com.huanshankeji.compose.foundation.text/KeyboardActionScope.DoNothingInstance.defaultKeyboardAction|defaultKeyboardAction(com.huanshankeji.compose.foundation.text.input.ImeAction){}[0]
+    }
+}
+
+abstract interface com.huanshankeji.compose.ui/Alignment { // com.huanshankeji.compose.ui/Alignment|null[0]
+    abstract interface Horizontal { // com.huanshankeji.compose.ui/Alignment.Horizontal|null[0]
+        final value class Impl : com.huanshankeji.compose.ui/Alignment.Horizontal { // com.huanshankeji.compose.ui/Alignment.Horizontal.Impl|null[0]
+            final fun equals(kotlin/Any?): kotlin/Boolean // com.huanshankeji.compose.ui/Alignment.Horizontal.Impl.equals|equals(kotlin.Any?){}[0]
+            final fun hashCode(): kotlin/Int // com.huanshankeji.compose.ui/Alignment.Horizontal.Impl.hashCode|hashCode(){}[0]
+            final fun toString(): kotlin/String // com.huanshankeji.compose.ui/Alignment.Horizontal.Impl.toString|toString(){}[0]
+
+            // Targets: [ios, wasmJs]
+            constructor <init>(androidx.compose.ui/Alignment.Horizontal) // com.huanshankeji.compose.ui/Alignment.Horizontal.Impl.<init>|<init>(androidx.compose.ui.Alignment.Horizontal){}[0]
+
+            // Targets: [ios, wasmJs]
+            final val platformHorizontal // com.huanshankeji.compose.ui/Alignment.Horizontal.Impl.platformHorizontal|{}platformHorizontal[0]
+                final fun <get-platformHorizontal>(): androidx.compose.ui/Alignment.Horizontal // com.huanshankeji.compose.ui/Alignment.Horizontal.Impl.platformHorizontal.<get-platformHorizontal>|<get-platformHorizontal>(){}[0]
+
+            // Targets: [js]
+            constructor <init>(com.varabyte.kobweb.compose.ui/Alignment.Horizontal) // com.huanshankeji.compose.ui/Alignment.Horizontal.Impl.<init>|<init>(com.varabyte.kobweb.compose.ui.Alignment.Horizontal){}[0]
+
+            // Targets: [js]
+            final val platformValue // com.huanshankeji.compose.ui/Alignment.Horizontal.Impl.platformValue|{}platformValue[0]
+                final fun <get-platformValue>(): com.varabyte.kobweb.compose.ui/Alignment.Horizontal // com.huanshankeji.compose.ui/Alignment.Horizontal.Impl.platformValue.<get-platformValue>|<get-platformValue>(){}[0]
+        }
+
+        // Targets: [ios, wasmJs]
+        abstract val platformHorizontal // com.huanshankeji.compose.ui/Alignment.Horizontal.platformHorizontal|{}platformHorizontal[0]
+            abstract fun <get-platformHorizontal>(): androidx.compose.ui/Alignment.Horizontal // com.huanshankeji.compose.ui/Alignment.Horizontal.platformHorizontal.<get-platformHorizontal>|<get-platformHorizontal>(){}[0]
+
+        // Targets: [js]
+        abstract val platformValue // com.huanshankeji.compose.ui/Alignment.Horizontal.platformValue|{}platformValue[0]
+            abstract fun <get-platformValue>(): com.varabyte.kobweb.compose.ui/Alignment.Horizontal // com.huanshankeji.compose.ui/Alignment.Horizontal.platformValue.<get-platformValue>|<get-platformValue>(){}[0]
+    }
+
+    abstract interface Vertical { // com.huanshankeji.compose.ui/Alignment.Vertical|null[0]
+        final value class Impl : com.huanshankeji.compose.ui/Alignment.Vertical { // com.huanshankeji.compose.ui/Alignment.Vertical.Impl|null[0]
+            final fun equals(kotlin/Any?): kotlin/Boolean // com.huanshankeji.compose.ui/Alignment.Vertical.Impl.equals|equals(kotlin.Any?){}[0]
+            final fun hashCode(): kotlin/Int // com.huanshankeji.compose.ui/Alignment.Vertical.Impl.hashCode|hashCode(){}[0]
+            final fun toString(): kotlin/String // com.huanshankeji.compose.ui/Alignment.Vertical.Impl.toString|toString(){}[0]
+
+            // Targets: [ios, wasmJs]
+            constructor <init>(androidx.compose.ui/Alignment.Vertical) // com.huanshankeji.compose.ui/Alignment.Vertical.Impl.<init>|<init>(androidx.compose.ui.Alignment.Vertical){}[0]
+
+            // Targets: [ios, wasmJs]
+            final val platformHorizontal // com.huanshankeji.compose.ui/Alignment.Vertical.Impl.platformHorizontal|{}platformHorizontal[0]
+                final fun <get-platformHorizontal>(): androidx.compose.ui/Alignment.Vertical // com.huanshankeji.compose.ui/Alignment.Vertical.Impl.platformHorizontal.<get-platformHorizontal>|<get-platformHorizontal>(){}[0]
+
+            // Targets: [js]
+            constructor <init>(com.varabyte.kobweb.compose.ui/Alignment.Vertical) // com.huanshankeji.compose.ui/Alignment.Vertical.Impl.<init>|<init>(com.varabyte.kobweb.compose.ui.Alignment.Vertical){}[0]
+
+            // Targets: [js]
+            final val platformValue // com.huanshankeji.compose.ui/Alignment.Vertical.Impl.platformValue|{}platformValue[0]
+                final fun <get-platformValue>(): com.varabyte.kobweb.compose.ui/Alignment.Vertical // com.huanshankeji.compose.ui/Alignment.Vertical.Impl.platformValue.<get-platformValue>|<get-platformValue>(){}[0]
+        }
+
+        // Targets: [ios, wasmJs]
+        abstract val platformHorizontal // com.huanshankeji.compose.ui/Alignment.Vertical.platformHorizontal|{}platformHorizontal[0]
+            abstract fun <get-platformHorizontal>(): androidx.compose.ui/Alignment.Vertical // com.huanshankeji.compose.ui/Alignment.Vertical.platformHorizontal.<get-platformHorizontal>|<get-platformHorizontal>(){}[0]
+
+        // Targets: [js]
+        abstract val platformValue // com.huanshankeji.compose.ui/Alignment.Vertical.platformValue|{}platformValue[0]
+            abstract fun <get-platformValue>(): com.varabyte.kobweb.compose.ui/Alignment.Vertical // com.huanshankeji.compose.ui/Alignment.Vertical.platformValue.<get-platformValue>|<get-platformValue>(){}[0]
+    }
+
+    final value class Impl : com.huanshankeji.compose.ui/Alignment { // com.huanshankeji.compose.ui/Alignment.Impl|null[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // com.huanshankeji.compose.ui/Alignment.Impl.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // com.huanshankeji.compose.ui/Alignment.Impl.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // com.huanshankeji.compose.ui/Alignment.Impl.toString|toString(){}[0]
+
+        // Targets: [ios, wasmJs]
+        constructor <init>(androidx.compose.ui/Alignment) // com.huanshankeji.compose.ui/Alignment.Impl.<init>|<init>(androidx.compose.ui.Alignment){}[0]
+
+        // Targets: [ios, wasmJs]
+        final val platformAlignment // com.huanshankeji.compose.ui/Alignment.Impl.platformAlignment|{}platformAlignment[0]
+            final fun <get-platformAlignment>(): androidx.compose.ui/Alignment // com.huanshankeji.compose.ui/Alignment.Impl.platformAlignment.<get-platformAlignment>|<get-platformAlignment>(){}[0]
+
+        // Targets: [js]
+        constructor <init>(com.varabyte.kobweb.compose.ui/Alignment) // com.huanshankeji.compose.ui/Alignment.Impl.<init>|<init>(com.varabyte.kobweb.compose.ui.Alignment){}[0]
+
+        // Targets: [js]
+        final val platformValue // com.huanshankeji.compose.ui/Alignment.Impl.platformValue|{}platformValue[0]
+            final fun <get-platformValue>(): com.varabyte.kobweb.compose.ui/Alignment // com.huanshankeji.compose.ui/Alignment.Impl.platformValue.<get-platformValue>|<get-platformValue>(){}[0]
+    }
+
+    final object Companion { // com.huanshankeji.compose.ui/Alignment.Companion|null[0]
+        final val Bottom // com.huanshankeji.compose.ui/Alignment.Companion.Bottom|{}Bottom[0]
+            final fun <get-Bottom>(): com.huanshankeji.compose.ui/Alignment.Vertical // com.huanshankeji.compose.ui/Alignment.Companion.Bottom.<get-Bottom>|<get-Bottom>(){}[0]
+        final val BottomCenter // com.huanshankeji.compose.ui/Alignment.Companion.BottomCenter|{}BottomCenter[0]
+            final fun <get-BottomCenter>(): com.huanshankeji.compose.ui/Alignment // com.huanshankeji.compose.ui/Alignment.Companion.BottomCenter.<get-BottomCenter>|<get-BottomCenter>(){}[0]
+        final val BottomEnd // com.huanshankeji.compose.ui/Alignment.Companion.BottomEnd|{}BottomEnd[0]
+            final fun <get-BottomEnd>(): com.huanshankeji.compose.ui/Alignment // com.huanshankeji.compose.ui/Alignment.Companion.BottomEnd.<get-BottomEnd>|<get-BottomEnd>(){}[0]
+        final val BottomStart // com.huanshankeji.compose.ui/Alignment.Companion.BottomStart|{}BottomStart[0]
+            final fun <get-BottomStart>(): com.huanshankeji.compose.ui/Alignment // com.huanshankeji.compose.ui/Alignment.Companion.BottomStart.<get-BottomStart>|<get-BottomStart>(){}[0]
+        final val Center // com.huanshankeji.compose.ui/Alignment.Companion.Center|{}Center[0]
+            final fun <get-Center>(): com.huanshankeji.compose.ui/Alignment // com.huanshankeji.compose.ui/Alignment.Companion.Center.<get-Center>|<get-Center>(){}[0]
+        final val CenterEnd // com.huanshankeji.compose.ui/Alignment.Companion.CenterEnd|{}CenterEnd[0]
+            final fun <get-CenterEnd>(): com.huanshankeji.compose.ui/Alignment // com.huanshankeji.compose.ui/Alignment.Companion.CenterEnd.<get-CenterEnd>|<get-CenterEnd>(){}[0]
+        final val CenterHorizontally // com.huanshankeji.compose.ui/Alignment.Companion.CenterHorizontally|{}CenterHorizontally[0]
+            final fun <get-CenterHorizontally>(): com.huanshankeji.compose.ui/Alignment.Horizontal // com.huanshankeji.compose.ui/Alignment.Companion.CenterHorizontally.<get-CenterHorizontally>|<get-CenterHorizontally>(){}[0]
+        final val CenterStart // com.huanshankeji.compose.ui/Alignment.Companion.CenterStart|{}CenterStart[0]
+            final fun <get-CenterStart>(): com.huanshankeji.compose.ui/Alignment // com.huanshankeji.compose.ui/Alignment.Companion.CenterStart.<get-CenterStart>|<get-CenterStart>(){}[0]
+        final val CenterVertically // com.huanshankeji.compose.ui/Alignment.Companion.CenterVertically|{}CenterVertically[0]
+            final fun <get-CenterVertically>(): com.huanshankeji.compose.ui/Alignment.Vertical // com.huanshankeji.compose.ui/Alignment.Companion.CenterVertically.<get-CenterVertically>|<get-CenterVertically>(){}[0]
+        final val End // com.huanshankeji.compose.ui/Alignment.Companion.End|{}End[0]
+            final fun <get-End>(): com.huanshankeji.compose.ui/Alignment.Horizontal // com.huanshankeji.compose.ui/Alignment.Companion.End.<get-End>|<get-End>(){}[0]
+        final val Start // com.huanshankeji.compose.ui/Alignment.Companion.Start|{}Start[0]
+            final fun <get-Start>(): com.huanshankeji.compose.ui/Alignment.Horizontal // com.huanshankeji.compose.ui/Alignment.Companion.Start.<get-Start>|<get-Start>(){}[0]
+        final val Top // com.huanshankeji.compose.ui/Alignment.Companion.Top|{}Top[0]
+            final fun <get-Top>(): com.huanshankeji.compose.ui/Alignment.Vertical // com.huanshankeji.compose.ui/Alignment.Companion.Top.<get-Top>|<get-Top>(){}[0]
+        final val TopCenter // com.huanshankeji.compose.ui/Alignment.Companion.TopCenter|{}TopCenter[0]
+            final fun <get-TopCenter>(): com.huanshankeji.compose.ui/Alignment // com.huanshankeji.compose.ui/Alignment.Companion.TopCenter.<get-TopCenter>|<get-TopCenter>(){}[0]
+        final val TopEnd // com.huanshankeji.compose.ui/Alignment.Companion.TopEnd|{}TopEnd[0]
+            final fun <get-TopEnd>(): com.huanshankeji.compose.ui/Alignment // com.huanshankeji.compose.ui/Alignment.Companion.TopEnd.<get-TopEnd>|<get-TopEnd>(){}[0]
+        final val TopStart // com.huanshankeji.compose.ui/Alignment.Companion.TopStart|{}TopStart[0]
+            final fun <get-TopStart>(): com.huanshankeji.compose.ui/Alignment // com.huanshankeji.compose.ui/Alignment.Companion.TopStart.<get-TopStart>|<get-TopStart>(){}[0]
+    }
+
+    // Targets: [ios, wasmJs]
+    abstract val platformAlignment // com.huanshankeji.compose.ui/Alignment.platformAlignment|{}platformAlignment[0]
+        abstract fun <get-platformAlignment>(): androidx.compose.ui/Alignment // com.huanshankeji.compose.ui/Alignment.platformAlignment.<get-platformAlignment>|<get-platformAlignment>(){}[0]
+
+    // Targets: [js]
+    abstract val platformValue // com.huanshankeji.compose.ui/Alignment.platformValue|{}platformValue[0]
+        abstract fun <get-platformValue>(): com.varabyte.kobweb.compose.ui/Alignment // com.huanshankeji.compose.ui/Alignment.platformValue.<get-platformValue>|<get-platformValue>(){}[0]
+}
+
+abstract interface com.huanshankeji.compose.ui/Modifier { // com.huanshankeji.compose.ui/Modifier|null[0]
+    abstract val platformModifier // com.huanshankeji.compose.ui/Modifier.platformModifier|{}platformModifier[0]
+        // Targets: [ios, wasmJs]
+        abstract fun <get-platformModifier>(): androidx.compose.ui/Modifier // com.huanshankeji.compose.ui/Modifier.platformModifier.<get-platformModifier>|<get-platformModifier>(){}[0]
+
+        // Targets: [js]
+        abstract fun <get-platformModifier>(): com.varabyte.kobweb.compose.ui/Modifier // com.huanshankeji.compose.ui/Modifier.platformModifier.<get-platformModifier>|<get-platformModifier>(){}[0]
+
+    open fun <#A1: kotlin/Any?> foldIn(#A1, kotlin/Function2<#A1, com.huanshankeji.compose.ui/Modifier.Element, #A1>): #A1 // com.huanshankeji.compose.ui/Modifier.foldIn|foldIn(0:0;kotlin.Function2<0:0,com.huanshankeji.compose.ui.Modifier.Element,0:0>){0§<kotlin.Any?>}[0]
+    open fun then(com.huanshankeji.compose.ui/Modifier): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.ui/Modifier.then|then(com.huanshankeji.compose.ui.Modifier){}[0]
+
+    abstract interface Element : com.huanshankeji.compose.ui/Modifier { // com.huanshankeji.compose.ui/Modifier.Element|null[0]
+        abstract val platformElement // com.huanshankeji.compose.ui/Modifier.Element.platformElement|{}platformElement[0]
+            // Targets: [ios, wasmJs]
+            abstract fun <get-platformElement>(): androidx.compose.ui/Modifier.Element // com.huanshankeji.compose.ui/Modifier.Element.platformElement.<get-platformElement>|<get-platformElement>(){}[0]
+
+            // Targets: [js]
+            abstract fun <get-platformElement>(): com.varabyte.kobweb.compose.ui/Modifier.Element // com.huanshankeji.compose.ui/Modifier.Element.platformElement.<get-platformElement>|<get-platformElement>(){}[0]
+
+        final value class Impl : com.huanshankeji.compose.ui/Modifier.Element { // com.huanshankeji.compose.ui/Modifier.Element.Impl|null[0]
+            final val platformElement // com.huanshankeji.compose.ui/Modifier.Element.Impl.platformElement|{}platformElement[0]
+                // Targets: [ios, wasmJs]
+                final fun <get-platformElement>(): androidx.compose.ui/Modifier.Element // com.huanshankeji.compose.ui/Modifier.Element.Impl.platformElement.<get-platformElement>|<get-platformElement>(){}[0]
+
+                // Targets: [js]
+                final fun <get-platformElement>(): com.varabyte.kobweb.compose.ui/Modifier.Element // com.huanshankeji.compose.ui/Modifier.Element.Impl.platformElement.<get-platformElement>|<get-platformElement>(){}[0]
+            final val platformModifier // com.huanshankeji.compose.ui/Modifier.Element.Impl.platformModifier|{}platformModifier[0]
+                // Targets: [ios, wasmJs]
+                final fun <get-platformModifier>(): androidx.compose.ui/Modifier.Element // com.huanshankeji.compose.ui/Modifier.Element.Impl.platformModifier.<get-platformModifier>|<get-platformModifier>(){}[0]
+
+                // Targets: [js]
+                final fun <get-platformModifier>(): com.varabyte.kobweb.compose.ui/Modifier.Element // com.huanshankeji.compose.ui/Modifier.Element.Impl.platformModifier.<get-platformModifier>|<get-platformModifier>(){}[0]
+
+            final fun equals(kotlin/Any?): kotlin/Boolean // com.huanshankeji.compose.ui/Modifier.Element.Impl.equals|equals(kotlin.Any?){}[0]
+            final fun hashCode(): kotlin/Int // com.huanshankeji.compose.ui/Modifier.Element.Impl.hashCode|hashCode(){}[0]
+            final fun toString(): kotlin/String // com.huanshankeji.compose.ui/Modifier.Element.Impl.toString|toString(){}[0]
+
+            // Targets: [ios, wasmJs]
+            constructor <init>(androidx.compose.ui/Modifier.Element) // com.huanshankeji.compose.ui/Modifier.Element.Impl.<init>|<init>(androidx.compose.ui.Modifier.Element){}[0]
+
+            // Targets: [js]
+            constructor <init>(com.varabyte.kobweb.compose.ui/Modifier.Element) // com.huanshankeji.compose.ui/Modifier.Element.Impl.<init>|<init>(com.varabyte.kobweb.compose.ui.Modifier.Element){}[0]
+        }
+    }
+
+    final value class Impl : com.huanshankeji.compose.ui/Modifier { // com.huanshankeji.compose.ui/Modifier.Impl|null[0]
+        final val platformModifier // com.huanshankeji.compose.ui/Modifier.Impl.platformModifier|{}platformModifier[0]
+            // Targets: [ios, wasmJs]
+            final fun <get-platformModifier>(): androidx.compose.ui/Modifier // com.huanshankeji.compose.ui/Modifier.Impl.platformModifier.<get-platformModifier>|<get-platformModifier>(){}[0]
+
+            // Targets: [js]
+            final fun <get-platformModifier>(): com.varabyte.kobweb.compose.ui/Modifier // com.huanshankeji.compose.ui/Modifier.Impl.platformModifier.<get-platformModifier>|<get-platformModifier>(){}[0]
+
+        final fun equals(kotlin/Any?): kotlin/Boolean // com.huanshankeji.compose.ui/Modifier.Impl.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // com.huanshankeji.compose.ui/Modifier.Impl.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // com.huanshankeji.compose.ui/Modifier.Impl.toString|toString(){}[0]
+
+        // Targets: [ios, wasmJs]
+        constructor <init>(androidx.compose.ui/Modifier) // com.huanshankeji.compose.ui/Modifier.Impl.<init>|<init>(androidx.compose.ui.Modifier){}[0]
+
+        // Targets: [js]
+        constructor <init>(com.varabyte.kobweb.compose.ui/Modifier) // com.huanshankeji.compose.ui/Modifier.Impl.<init>|<init>(com.varabyte.kobweb.compose.ui.Modifier){}[0]
+    }
+
+    final object Companion : com.huanshankeji.compose.ui/Modifier { // com.huanshankeji.compose.ui/Modifier.Companion|null[0]
+        final val platformModifier // com.huanshankeji.compose.ui/Modifier.Companion.platformModifier|{}platformModifier[0]
+            // Targets: [ios, wasmJs]
+            final fun <get-platformModifier>(): androidx.compose.ui/Modifier.Companion // com.huanshankeji.compose.ui/Modifier.Companion.platformModifier.<get-platformModifier>|<get-platformModifier>(){}[0]
+
+            // Targets: [js]
+            final fun <get-platformModifier>(): com.varabyte.kobweb.compose.ui/Modifier.Companion // com.huanshankeji.compose.ui/Modifier.Companion.platformModifier.<get-platformModifier>|<get-platformModifier>(){}[0]
+    }
+
+    // Targets: [ios, wasmJs]
+    open fun platformModify(kotlin/Function1<androidx.compose.ui/Modifier, androidx.compose.ui/Modifier>): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.ui/Modifier.platformModify|platformModify(kotlin.Function1<androidx.compose.ui.Modifier,androidx.compose.ui.Modifier>){}[0]
+
+    // Targets: [js]
+    open fun platformModify(kotlin/Function1<com.varabyte.kobweb.compose.ui/Modifier, com.varabyte.kobweb.compose.ui/Modifier>): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.ui/Modifier.platformModify|platformModify(kotlin.Function1<com.varabyte.kobweb.compose.ui.Modifier,com.varabyte.kobweb.compose.ui.Modifier>){}[0]
+}
+
+abstract class com.huanshankeji.compose.foundation.layout/PaddingValues { // com.huanshankeji.compose.foundation.layout/PaddingValues|null[0]
+    final class Absolute : com.huanshankeji.compose.foundation.layout/PaddingValues { // com.huanshankeji.compose.foundation.layout/PaddingValues.Absolute|null[0]
+        constructor <init>(androidx.compose.ui.unit/Dp = ..., androidx.compose.ui.unit/Dp = ..., androidx.compose.ui.unit/Dp = ..., androidx.compose.ui.unit/Dp = ...) // com.huanshankeji.compose.foundation.layout/PaddingValues.Absolute.<init>|<init>(androidx.compose.ui.unit.Dp;androidx.compose.ui.unit.Dp;androidx.compose.ui.unit.Dp;androidx.compose.ui.unit.Dp){}[0]
+
+        // Targets: [ios, wasmJs]
+        constructor <init>(androidx.compose.foundation.layout/PaddingValues.Absolute) // com.huanshankeji.compose.foundation.layout/PaddingValues.Absolute.<init>|<init>(androidx.compose.foundation.layout.PaddingValues.Absolute){}[0]
+
+        // Targets: [js]
+        final val bottom // com.huanshankeji.compose.foundation.layout/PaddingValues.Absolute.bottom|{}bottom[0]
+            final fun <get-bottom>(): androidx.compose.ui.unit/Dp // com.huanshankeji.compose.foundation.layout/PaddingValues.Absolute.bottom.<get-bottom>|<get-bottom>(){}[0]
+
+        // Targets: [js]
+        final val left // com.huanshankeji.compose.foundation.layout/PaddingValues.Absolute.left|{}left[0]
+            final fun <get-left>(): androidx.compose.ui.unit/Dp // com.huanshankeji.compose.foundation.layout/PaddingValues.Absolute.left.<get-left>|<get-left>(){}[0]
+
+        // Targets: [js]
+        final val right // com.huanshankeji.compose.foundation.layout/PaddingValues.Absolute.right|{}right[0]
+            final fun <get-right>(): androidx.compose.ui.unit/Dp // com.huanshankeji.compose.foundation.layout/PaddingValues.Absolute.right.<get-right>|<get-right>(){}[0]
+
+        // Targets: [js]
+        final val top // com.huanshankeji.compose.foundation.layout/PaddingValues.Absolute.top|{}top[0]
+            final fun <get-top>(): androidx.compose.ui.unit/Dp // com.huanshankeji.compose.foundation.layout/PaddingValues.Absolute.top.<get-top>|<get-top>(){}[0]
+    }
+
+    // Targets: [ios, wasmJs]
+    constructor <init>(androidx.compose.foundation.layout/PaddingValues) // com.huanshankeji.compose.foundation.layout/PaddingValues.<init>|<init>(androidx.compose.foundation.layout.PaddingValues){}[0]
+
+    // Targets: [ios, wasmJs]
+    final val platformValue // com.huanshankeji.compose.foundation.layout/PaddingValues.platformValue|{}platformValue[0]
+        final fun <get-platformValue>(): androidx.compose.foundation.layout/PaddingValues // com.huanshankeji.compose.foundation.layout/PaddingValues.platformValue.<get-platformValue>|<get-platformValue>(){}[0]
+}
+
+final class com.huanshankeji.compose.foundation.layout.ext/BoxWithConstraintsScopeImpl : com.huanshankeji.compose.foundation.layout.ext/BoxWithConstraintsScope { // com.huanshankeji.compose.foundation.layout.ext/BoxWithConstraintsScopeImpl|null[0]
+    final val maxHeight // com.huanshankeji.compose.foundation.layout.ext/BoxWithConstraintsScopeImpl.maxHeight|{}maxHeight[0]
+        final fun <get-maxHeight>(): androidx.compose.ui.unit/Dp // com.huanshankeji.compose.foundation.layout.ext/BoxWithConstraintsScopeImpl.maxHeight.<get-maxHeight>|<get-maxHeight>(){}[0]
+    final val maxWidth // com.huanshankeji.compose.foundation.layout.ext/BoxWithConstraintsScopeImpl.maxWidth|{}maxWidth[0]
+        final fun <get-maxWidth>(): androidx.compose.ui.unit/Dp // com.huanshankeji.compose.foundation.layout.ext/BoxWithConstraintsScopeImpl.maxWidth.<get-maxWidth>|<get-maxWidth>(){}[0]
+    final val platformBoxScope // com.huanshankeji.compose.foundation.layout.ext/BoxWithConstraintsScopeImpl.platformBoxScope|{}platformBoxScope[0]
+        // Targets: [ios, wasmJs]
+        final fun <get-platformBoxScope>(): androidx.compose.foundation.layout/BoxScope // com.huanshankeji.compose.foundation.layout.ext/BoxWithConstraintsScopeImpl.platformBoxScope.<get-platformBoxScope>|<get-platformBoxScope>(){}[0]
+
+        // Targets: [js]
+        final fun <get-platformBoxScope>(): com.varabyte.kobweb.compose.foundation.layout/BoxScope // com.huanshankeji.compose.foundation.layout.ext/BoxWithConstraintsScopeImpl.platformBoxScope.<get-platformBoxScope>|<get-platformBoxScope>(){}[0]
+
+    // Targets: [ios, wasmJs]
+    constructor <init>(androidx.compose.foundation.layout/BoxScope, androidx.compose.ui.unit/Dp, androidx.compose.ui.unit/Dp) // com.huanshankeji.compose.foundation.layout.ext/BoxWithConstraintsScopeImpl.<init>|<init>(androidx.compose.foundation.layout.BoxScope;androidx.compose.ui.unit.Dp;androidx.compose.ui.unit.Dp){}[0]
+
+    // Targets: [js]
+    constructor <init>(com.varabyte.kobweb.compose.foundation.layout/BoxScope, androidx.compose.ui.unit/Dp, androidx.compose.ui.unit/Dp) // com.huanshankeji.compose.foundation.layout.ext/BoxWithConstraintsScopeImpl.<init>|<init>(com.varabyte.kobweb.compose.foundation.layout.BoxScope;androidx.compose.ui.unit.Dp;androidx.compose.ui.unit.Dp){}[0]
+}
+
+final class com.huanshankeji.compose.foundation.lazy/LazyListScope { // com.huanshankeji.compose.foundation.lazy/LazyListScope|null[0]
+    final fun item(kotlin/Any? = ..., kotlin/Any? = ..., kotlin/Function3<com.huanshankeji.compose.foundation.lazy/LazyItemScope, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>) // com.huanshankeji.compose.foundation.lazy/LazyListScope.item|item(kotlin.Any?;kotlin.Any?;kotlin.Function3<com.huanshankeji.compose.foundation.lazy.LazyItemScope,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>){}[0]
+    final fun items(kotlin/Int, kotlin/Function1<kotlin/Int, kotlin/Any>? = ..., kotlin/Function1<kotlin/Int, kotlin/Any?> = ..., kotlin/Function4<com.huanshankeji.compose.foundation.lazy/LazyItemScope, kotlin/Int, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>) // com.huanshankeji.compose.foundation.lazy/LazyListScope.items|items(kotlin.Int;kotlin.Function1<kotlin.Int,kotlin.Any>?;kotlin.Function1<kotlin.Int,kotlin.Any?>;kotlin.Function4<com.huanshankeji.compose.foundation.lazy.LazyItemScope,kotlin.Int,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>){}[0]
+
+    // Targets: [ios, wasmJs]
+    constructor <init>(androidx.compose.foundation.lazy/LazyListScope) // com.huanshankeji.compose.foundation.lazy/LazyListScope.<init>|<init>(androidx.compose.foundation.lazy.LazyListScope){}[0]
+
+    // Targets: [ios, wasmJs]
+    final val platformValue // com.huanshankeji.compose.foundation.lazy/LazyListScope.platformValue|{}platformValue[0]
+        final fun <get-platformValue>(): androidx.compose.foundation.lazy/LazyListScope // com.huanshankeji.compose.foundation.lazy/LazyListScope.platformValue.<get-platformValue>|<get-platformValue>(){}[0]
+
+    // Targets: [js]
+    constructor <init>() // com.huanshankeji.compose.foundation.lazy/LazyListScope.<init>|<init>(){}[0]
+}
+
+final class com.huanshankeji.compose.foundation.text.input/PlatformImeOptions { // com.huanshankeji.compose.foundation.text.input/PlatformImeOptions|null[0]
+    // Targets: [ios, wasmJs]
+    constructor <init>(androidx.compose.ui.text.input/PlatformImeOptions) // com.huanshankeji.compose.foundation.text.input/PlatformImeOptions.<init>|<init>(androidx.compose.ui.text.input.PlatformImeOptions){}[0]
+
+    // Targets: [ios, wasmJs]
+    final val platformValue // com.huanshankeji.compose.foundation.text.input/PlatformImeOptions.platformValue|{}platformValue[0]
+        final fun <get-platformValue>(): androidx.compose.ui.text.input/PlatformImeOptions // com.huanshankeji.compose.foundation.text.input/PlatformImeOptions.platformValue.<get-platformValue>|<get-platformValue>(){}[0]
+
+    // Targets: [js]
+    constructor <init>() // com.huanshankeji.compose.foundation.text.input/PlatformImeOptions.<init>|<init>(){}[0]
+}
+
+final class com.huanshankeji.compose.foundation.text/KeyboardOptions { // com.huanshankeji.compose.foundation.text/KeyboardOptions|null[0]
+    constructor <init>(com.huanshankeji.compose.foundation.text.input/KeyboardCapitalization? = ..., kotlin/Boolean? = ..., com.huanshankeji.compose.foundation.text.input/KeyboardType? = ..., com.huanshankeji.compose.foundation.text.input/ImeAction? = ..., com.huanshankeji.compose.foundation.text.input/PlatformImeOptions? = ...) // com.huanshankeji.compose.foundation.text/KeyboardOptions.<init>|<init>(com.huanshankeji.compose.foundation.text.input.KeyboardCapitalization?;kotlin.Boolean?;com.huanshankeji.compose.foundation.text.input.KeyboardType?;com.huanshankeji.compose.foundation.text.input.ImeAction?;com.huanshankeji.compose.foundation.text.input.PlatformImeOptions?){}[0]
+
+    final val autoCorrect // com.huanshankeji.compose.foundation.text/KeyboardOptions.autoCorrect|{}autoCorrect[0]
+        final fun <get-autoCorrect>(): kotlin/Boolean? // com.huanshankeji.compose.foundation.text/KeyboardOptions.autoCorrect.<get-autoCorrect>|<get-autoCorrect>(){}[0]
+    final val capitalization // com.huanshankeji.compose.foundation.text/KeyboardOptions.capitalization|{}capitalization[0]
+        final fun <get-capitalization>(): com.huanshankeji.compose.foundation.text.input/KeyboardCapitalization? // com.huanshankeji.compose.foundation.text/KeyboardOptions.capitalization.<get-capitalization>|<get-capitalization>(){}[0]
+    final val imeAction // com.huanshankeji.compose.foundation.text/KeyboardOptions.imeAction|{}imeAction[0]
+        final fun <get-imeAction>(): com.huanshankeji.compose.foundation.text.input/ImeAction? // com.huanshankeji.compose.foundation.text/KeyboardOptions.imeAction.<get-imeAction>|<get-imeAction>(){}[0]
+    final val keyboardType // com.huanshankeji.compose.foundation.text/KeyboardOptions.keyboardType|{}keyboardType[0]
+        final fun <get-keyboardType>(): com.huanshankeji.compose.foundation.text.input/KeyboardType? // com.huanshankeji.compose.foundation.text/KeyboardOptions.keyboardType.<get-keyboardType>|<get-keyboardType>(){}[0]
+    final val platformImeOptions // com.huanshankeji.compose.foundation.text/KeyboardOptions.platformImeOptions|{}platformImeOptions[0]
+        final fun <get-platformImeOptions>(): com.huanshankeji.compose.foundation.text.input/PlatformImeOptions? // com.huanshankeji.compose.foundation.text/KeyboardOptions.platformImeOptions.<get-platformImeOptions>|<get-platformImeOptions>(){}[0]
+
+    final object Companion { // com.huanshankeji.compose.foundation.text/KeyboardOptions.Companion|null[0]
+        final val Default // com.huanshankeji.compose.foundation.text/KeyboardOptions.Companion.Default|{}Default[0]
+            final fun <get-Default>(): com.huanshankeji.compose.foundation.text/KeyboardOptions // com.huanshankeji.compose.foundation.text/KeyboardOptions.Companion.Default.<get-Default>|<get-Default>(){}[0]
+    }
+}
+
+final class com.huanshankeji.compose.foundation/BorderStroke { // com.huanshankeji.compose.foundation/BorderStroke|null[0]
+    constructor <init>(androidx.compose.ui.unit/Dp, com.huanshankeji.compose.ui.graphics/Brush) // com.huanshankeji.compose.foundation/BorderStroke.<init>|<init>(androidx.compose.ui.unit.Dp;com.huanshankeji.compose.ui.graphics.Brush){}[0]
+
+    final val brush // com.huanshankeji.compose.foundation/BorderStroke.brush|{}brush[0]
+        final fun <get-brush>(): com.huanshankeji.compose.ui.graphics/Brush // com.huanshankeji.compose.foundation/BorderStroke.brush.<get-brush>|<get-brush>(){}[0]
+    final val width // com.huanshankeji.compose.foundation/BorderStroke.width|{}width[0]
+        final fun <get-width>(): androidx.compose.ui.unit/Dp // com.huanshankeji.compose.foundation/BorderStroke.width.<get-width>|<get-width>(){}[0]
+
+    final fun component1(): androidx.compose.ui.unit/Dp // com.huanshankeji.compose.foundation/BorderStroke.component1|component1(){}[0]
+    final fun component2(): com.huanshankeji.compose.ui.graphics/Brush // com.huanshankeji.compose.foundation/BorderStroke.component2|component2(){}[0]
+    final fun copy(androidx.compose.ui.unit/Dp = ..., com.huanshankeji.compose.ui.graphics/Brush = ...): com.huanshankeji.compose.foundation/BorderStroke // com.huanshankeji.compose.foundation/BorderStroke.copy|copy(androidx.compose.ui.unit.Dp;com.huanshankeji.compose.ui.graphics.Brush){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // com.huanshankeji.compose.foundation/BorderStroke.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // com.huanshankeji.compose.foundation/BorderStroke.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // com.huanshankeji.compose.foundation/BorderStroke.toString|toString(){}[0]
+}
+
+final class com.huanshankeji.compose.runtime/DeferredComposableRunner { // com.huanshankeji.compose.runtime/DeferredComposableRunner|null[0]
+    constructor <init>() // com.huanshankeji.compose.runtime/DeferredComposableRunner.<init>|<init>(){}[0]
+
+    final fun ComposableRun(kotlin/Function0<kotlin/Unit>, androidx.compose.runtime/Composer?, kotlin/Int) // com.huanshankeji.compose.runtime/DeferredComposableRunner.ComposableRun|ComposableRun(kotlin.Function0<kotlin.Unit>;androidx.compose.runtime.Composer?;kotlin.Int){}[0]
+    final fun addComposable(kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>) // com.huanshankeji.compose.runtime/DeferredComposableRunner.addComposable|addComposable(kotlin.Function2<androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>){}[0]
+}
+
+final class com.huanshankeji.compose.ui.graphics/Brush { // com.huanshankeji.compose.ui.graphics/Brush|null[0]
+    // Targets: [ios, wasmJs]
+    constructor <init>(androidx.compose.ui.graphics/Brush) // com.huanshankeji.compose.ui.graphics/Brush.<init>|<init>(androidx.compose.ui.graphics.Brush){}[0]
+
+    // Targets: [ios, wasmJs]
+    final val platformValue // com.huanshankeji.compose.ui.graphics/Brush.platformValue|{}platformValue[0]
+        final fun <get-platformValue>(): androidx.compose.ui.graphics/Brush // com.huanshankeji.compose.ui.graphics/Brush.platformValue.<get-platformValue>|<get-platformValue>(){}[0]
+
+    // Targets: [js]
+    constructor <init>(org.jetbrains.compose.web.css/LineStyle, com.huanshankeji.compose.ui.graphics/Color) // com.huanshankeji.compose.ui.graphics/Brush.<init>|<init>(org.jetbrains.compose.web.css.LineStyle;com.huanshankeji.compose.ui.graphics.Color){}[0]
+
+    // Targets: [js]
+    final val color // com.huanshankeji.compose.ui.graphics/Brush.color|{}color[0]
+        final fun <get-color>(): com.huanshankeji.compose.ui.graphics/Color // com.huanshankeji.compose.ui.graphics/Brush.color.<get-color>|<get-color>(){}[0]
+
+    // Targets: [js]
+    final val lineStyle // com.huanshankeji.compose.ui.graphics/Brush.lineStyle|{}lineStyle[0]
+        final fun <get-lineStyle>(): org.jetbrains.compose.web.css/LineStyle // com.huanshankeji.compose.ui.graphics/Brush.lineStyle.<get-lineStyle>|<get-lineStyle>(){}[0]
+}
+
+final class com.huanshankeji.compose.ui.graphics/Color { // com.huanshankeji.compose.ui.graphics/Color|null[0]
+    final val platformValue // com.huanshankeji.compose.ui.graphics/Color.platformValue|{}platformValue[0]
+        // Targets: [ios, wasmJs]
+        final fun <get-platformValue>(): androidx.compose.ui.graphics/Color // com.huanshankeji.compose.ui.graphics/Color.platformValue.<get-platformValue>|<get-platformValue>(){}[0]
+
+        // Targets: [js]
+        final fun <get-platformValue>(): com.varabyte.kobweb.compose.ui.graphics/Color // com.huanshankeji.compose.ui.graphics/Color.platformValue.<get-platformValue>|<get-platformValue>(){}[0]
+
+    final fun toString(): kotlin/String // com.huanshankeji.compose.ui.graphics/Color.toString|toString(){}[0]
+
+    final object Companion { // com.huanshankeji.compose.ui.graphics/Color.Companion|null[0]
+        final val Black // com.huanshankeji.compose.ui.graphics/Color.Companion.Black|{}Black[0]
+            final fun <get-Black>(): com.huanshankeji.compose.ui.graphics/Color // com.huanshankeji.compose.ui.graphics/Color.Companion.Black.<get-Black>|<get-Black>(){}[0]
+        final val Blue // com.huanshankeji.compose.ui.graphics/Color.Companion.Blue|{}Blue[0]
+            final fun <get-Blue>(): com.huanshankeji.compose.ui.graphics/Color // com.huanshankeji.compose.ui.graphics/Color.Companion.Blue.<get-Blue>|<get-Blue>(){}[0]
+        final val Cyan // com.huanshankeji.compose.ui.graphics/Color.Companion.Cyan|{}Cyan[0]
+            final fun <get-Cyan>(): com.huanshankeji.compose.ui.graphics/Color // com.huanshankeji.compose.ui.graphics/Color.Companion.Cyan.<get-Cyan>|<get-Cyan>(){}[0]
+        final val DarkGray // com.huanshankeji.compose.ui.graphics/Color.Companion.DarkGray|{}DarkGray[0]
+            final fun <get-DarkGray>(): com.huanshankeji.compose.ui.graphics/Color // com.huanshankeji.compose.ui.graphics/Color.Companion.DarkGray.<get-DarkGray>|<get-DarkGray>(){}[0]
+        final val Gray // com.huanshankeji.compose.ui.graphics/Color.Companion.Gray|{}Gray[0]
+            final fun <get-Gray>(): com.huanshankeji.compose.ui.graphics/Color // com.huanshankeji.compose.ui.graphics/Color.Companion.Gray.<get-Gray>|<get-Gray>(){}[0]
+        final val Green // com.huanshankeji.compose.ui.graphics/Color.Companion.Green|{}Green[0]
+            final fun <get-Green>(): com.huanshankeji.compose.ui.graphics/Color // com.huanshankeji.compose.ui.graphics/Color.Companion.Green.<get-Green>|<get-Green>(){}[0]
+        final val LightGray // com.huanshankeji.compose.ui.graphics/Color.Companion.LightGray|{}LightGray[0]
+            final fun <get-LightGray>(): com.huanshankeji.compose.ui.graphics/Color // com.huanshankeji.compose.ui.graphics/Color.Companion.LightGray.<get-LightGray>|<get-LightGray>(){}[0]
+        final val Magenta // com.huanshankeji.compose.ui.graphics/Color.Companion.Magenta|{}Magenta[0]
+            final fun <get-Magenta>(): com.huanshankeji.compose.ui.graphics/Color // com.huanshankeji.compose.ui.graphics/Color.Companion.Magenta.<get-Magenta>|<get-Magenta>(){}[0]
+        final val Red // com.huanshankeji.compose.ui.graphics/Color.Companion.Red|{}Red[0]
+            final fun <get-Red>(): com.huanshankeji.compose.ui.graphics/Color // com.huanshankeji.compose.ui.graphics/Color.Companion.Red.<get-Red>|<get-Red>(){}[0]
+        final val Transparent // com.huanshankeji.compose.ui.graphics/Color.Companion.Transparent|{}Transparent[0]
+            final fun <get-Transparent>(): com.huanshankeji.compose.ui.graphics/Color // com.huanshankeji.compose.ui.graphics/Color.Companion.Transparent.<get-Transparent>|<get-Transparent>(){}[0]
+        final val White // com.huanshankeji.compose.ui.graphics/Color.Companion.White|{}White[0]
+            final fun <get-White>(): com.huanshankeji.compose.ui.graphics/Color // com.huanshankeji.compose.ui.graphics/Color.Companion.White.<get-White>|<get-White>(){}[0]
+        final val Yellow // com.huanshankeji.compose.ui.graphics/Color.Companion.Yellow|{}Yellow[0]
+            final fun <get-Yellow>(): com.huanshankeji.compose.ui.graphics/Color // com.huanshankeji.compose.ui.graphics/Color.Companion.Yellow.<get-Yellow>|<get-Yellow>(){}[0]
+
+        final fun hsl(kotlin/Float, kotlin/Float, kotlin/Float, kotlin/Float = ...): com.huanshankeji.compose.ui.graphics/Color // com.huanshankeji.compose.ui.graphics/Color.Companion.hsl|hsl(kotlin.Float;kotlin.Float;kotlin.Float;kotlin.Float){}[0]
+    }
+
+    // Targets: [ios, wasmJs]
+    constructor <init>(androidx.compose.ui.graphics/Color) // com.huanshankeji.compose.ui.graphics/Color.<init>|<init>(androidx.compose.ui.graphics.Color){}[0]
+
+    // Targets: [js]
+    constructor <init>(com.varabyte.kobweb.compose.ui.graphics/Color) // com.huanshankeji.compose.ui.graphics/Color.<init>|<init>(com.varabyte.kobweb.compose.ui.graphics.Color){}[0]
+}
+
+final value class com.huanshankeji.compose.foundation.text.input/ImeAction { // com.huanshankeji.compose.foundation.text.input/ImeAction|null[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // com.huanshankeji.compose.foundation.text.input/ImeAction.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // com.huanshankeji.compose.foundation.text.input/ImeAction.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // com.huanshankeji.compose.foundation.text.input/ImeAction.toString|toString(){}[0]
+
+    final object Companion { // com.huanshankeji.compose.foundation.text.input/ImeAction.Companion|null[0]
+        final val Default // com.huanshankeji.compose.foundation.text.input/ImeAction.Companion.Default|{}Default[0]
+            final fun <get-Default>(): com.huanshankeji.compose.foundation.text.input/ImeAction // com.huanshankeji.compose.foundation.text.input/ImeAction.Companion.Default.<get-Default>|<get-Default>(){}[0]
+        final val Done // com.huanshankeji.compose.foundation.text.input/ImeAction.Companion.Done|{}Done[0]
+            final fun <get-Done>(): com.huanshankeji.compose.foundation.text.input/ImeAction // com.huanshankeji.compose.foundation.text.input/ImeAction.Companion.Done.<get-Done>|<get-Done>(){}[0]
+        final val Go // com.huanshankeji.compose.foundation.text.input/ImeAction.Companion.Go|{}Go[0]
+            final fun <get-Go>(): com.huanshankeji.compose.foundation.text.input/ImeAction // com.huanshankeji.compose.foundation.text.input/ImeAction.Companion.Go.<get-Go>|<get-Go>(){}[0]
+        final val Next // com.huanshankeji.compose.foundation.text.input/ImeAction.Companion.Next|{}Next[0]
+            final fun <get-Next>(): com.huanshankeji.compose.foundation.text.input/ImeAction // com.huanshankeji.compose.foundation.text.input/ImeAction.Companion.Next.<get-Next>|<get-Next>(){}[0]
+        final val None // com.huanshankeji.compose.foundation.text.input/ImeAction.Companion.None|{}None[0]
+            final fun <get-None>(): com.huanshankeji.compose.foundation.text.input/ImeAction // com.huanshankeji.compose.foundation.text.input/ImeAction.Companion.None.<get-None>|<get-None>(){}[0]
+        final val Previous // com.huanshankeji.compose.foundation.text.input/ImeAction.Companion.Previous|{}Previous[0]
+            final fun <get-Previous>(): com.huanshankeji.compose.foundation.text.input/ImeAction // com.huanshankeji.compose.foundation.text.input/ImeAction.Companion.Previous.<get-Previous>|<get-Previous>(){}[0]
+        final val Search // com.huanshankeji.compose.foundation.text.input/ImeAction.Companion.Search|{}Search[0]
+            final fun <get-Search>(): com.huanshankeji.compose.foundation.text.input/ImeAction // com.huanshankeji.compose.foundation.text.input/ImeAction.Companion.Search.<get-Search>|<get-Search>(){}[0]
+        final val Send // com.huanshankeji.compose.foundation.text.input/ImeAction.Companion.Send|{}Send[0]
+            final fun <get-Send>(): com.huanshankeji.compose.foundation.text.input/ImeAction // com.huanshankeji.compose.foundation.text.input/ImeAction.Companion.Send.<get-Send>|<get-Send>(){}[0]
+    }
+}
+
+final value class com.huanshankeji.compose.foundation.text.input/KeyboardCapitalization { // com.huanshankeji.compose.foundation.text.input/KeyboardCapitalization|null[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // com.huanshankeji.compose.foundation.text.input/KeyboardCapitalization.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // com.huanshankeji.compose.foundation.text.input/KeyboardCapitalization.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // com.huanshankeji.compose.foundation.text.input/KeyboardCapitalization.toString|toString(){}[0]
+
+    final object Companion { // com.huanshankeji.compose.foundation.text.input/KeyboardCapitalization.Companion|null[0]
+        final val Characters // com.huanshankeji.compose.foundation.text.input/KeyboardCapitalization.Companion.Characters|{}Characters[0]
+            final fun <get-Characters>(): com.huanshankeji.compose.foundation.text.input/KeyboardCapitalization // com.huanshankeji.compose.foundation.text.input/KeyboardCapitalization.Companion.Characters.<get-Characters>|<get-Characters>(){}[0]
+        final val None // com.huanshankeji.compose.foundation.text.input/KeyboardCapitalization.Companion.None|{}None[0]
+            final fun <get-None>(): com.huanshankeji.compose.foundation.text.input/KeyboardCapitalization // com.huanshankeji.compose.foundation.text.input/KeyboardCapitalization.Companion.None.<get-None>|<get-None>(){}[0]
+        final val Sentences // com.huanshankeji.compose.foundation.text.input/KeyboardCapitalization.Companion.Sentences|{}Sentences[0]
+            final fun <get-Sentences>(): com.huanshankeji.compose.foundation.text.input/KeyboardCapitalization // com.huanshankeji.compose.foundation.text.input/KeyboardCapitalization.Companion.Sentences.<get-Sentences>|<get-Sentences>(){}[0]
+        final val Words // com.huanshankeji.compose.foundation.text.input/KeyboardCapitalization.Companion.Words|{}Words[0]
+            final fun <get-Words>(): com.huanshankeji.compose.foundation.text.input/KeyboardCapitalization // com.huanshankeji.compose.foundation.text.input/KeyboardCapitalization.Companion.Words.<get-Words>|<get-Words>(){}[0]
+    }
+}
+
+final value class com.huanshankeji.compose.foundation.text.input/KeyboardType { // com.huanshankeji.compose.foundation.text.input/KeyboardType|null[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // com.huanshankeji.compose.foundation.text.input/KeyboardType.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // com.huanshankeji.compose.foundation.text.input/KeyboardType.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // com.huanshankeji.compose.foundation.text.input/KeyboardType.toString|toString(){}[0]
+
+    final object Companion { // com.huanshankeji.compose.foundation.text.input/KeyboardType.Companion|null[0]
+        final val Ascii // com.huanshankeji.compose.foundation.text.input/KeyboardType.Companion.Ascii|{}Ascii[0]
+            final fun <get-Ascii>(): com.huanshankeji.compose.foundation.text.input/KeyboardType // com.huanshankeji.compose.foundation.text.input/KeyboardType.Companion.Ascii.<get-Ascii>|<get-Ascii>(){}[0]
+        final val Decimal // com.huanshankeji.compose.foundation.text.input/KeyboardType.Companion.Decimal|{}Decimal[0]
+            final fun <get-Decimal>(): com.huanshankeji.compose.foundation.text.input/KeyboardType // com.huanshankeji.compose.foundation.text.input/KeyboardType.Companion.Decimal.<get-Decimal>|<get-Decimal>(){}[0]
+        final val Email // com.huanshankeji.compose.foundation.text.input/KeyboardType.Companion.Email|{}Email[0]
+            final fun <get-Email>(): com.huanshankeji.compose.foundation.text.input/KeyboardType // com.huanshankeji.compose.foundation.text.input/KeyboardType.Companion.Email.<get-Email>|<get-Email>(){}[0]
+        final val Number // com.huanshankeji.compose.foundation.text.input/KeyboardType.Companion.Number|{}Number[0]
+            final fun <get-Number>(): com.huanshankeji.compose.foundation.text.input/KeyboardType // com.huanshankeji.compose.foundation.text.input/KeyboardType.Companion.Number.<get-Number>|<get-Number>(){}[0]
+        final val NumberPassword // com.huanshankeji.compose.foundation.text.input/KeyboardType.Companion.NumberPassword|{}NumberPassword[0]
+            final fun <get-NumberPassword>(): com.huanshankeji.compose.foundation.text.input/KeyboardType // com.huanshankeji.compose.foundation.text.input/KeyboardType.Companion.NumberPassword.<get-NumberPassword>|<get-NumberPassword>(){}[0]
+        final val Password // com.huanshankeji.compose.foundation.text.input/KeyboardType.Companion.Password|{}Password[0]
+            final fun <get-Password>(): com.huanshankeji.compose.foundation.text.input/KeyboardType // com.huanshankeji.compose.foundation.text.input/KeyboardType.Companion.Password.<get-Password>|<get-Password>(){}[0]
+        final val Phone // com.huanshankeji.compose.foundation.text.input/KeyboardType.Companion.Phone|{}Phone[0]
+            final fun <get-Phone>(): com.huanshankeji.compose.foundation.text.input/KeyboardType // com.huanshankeji.compose.foundation.text.input/KeyboardType.Companion.Phone.<get-Phone>|<get-Phone>(){}[0]
+        final val Text // com.huanshankeji.compose.foundation.text.input/KeyboardType.Companion.Text|{}Text[0]
+            final fun <get-Text>(): com.huanshankeji.compose.foundation.text.input/KeyboardType // com.huanshankeji.compose.foundation.text.input/KeyboardType.Companion.Text.<get-Text>|<get-Text>(){}[0]
+        final val Uri // com.huanshankeji.compose.foundation.text.input/KeyboardType.Companion.Uri|{}Uri[0]
+            final fun <get-Uri>(): com.huanshankeji.compose.foundation.text.input/KeyboardType // com.huanshankeji.compose.foundation.text.input/KeyboardType.Companion.Uri.<get-Uri>|<get-Uri>(){}[0]
+    }
+}
+
+final value class com.huanshankeji.compose.foundation.text/KeyboardActions { // com.huanshankeji.compose.foundation.text/KeyboardActions|null[0]
+    constructor <init>(kotlin/Function1<com.huanshankeji.compose.foundation.text/KeyboardActionScope, kotlin/Unit>? = ...) // com.huanshankeji.compose.foundation.text/KeyboardActions.<init>|<init>(kotlin.Function1<com.huanshankeji.compose.foundation.text.KeyboardActionScope,kotlin.Unit>?){}[0]
+
+    final val onAny // com.huanshankeji.compose.foundation.text/KeyboardActions.onAny|{}onAny[0]
+        final fun <get-onAny>(): kotlin/Function1<com.huanshankeji.compose.foundation.text/KeyboardActionScope, kotlin/Unit>? // com.huanshankeji.compose.foundation.text/KeyboardActions.onAny.<get-onAny>|<get-onAny>(){}[0]
+
+    final fun equals(kotlin/Any?): kotlin/Boolean // com.huanshankeji.compose.foundation.text/KeyboardActions.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // com.huanshankeji.compose.foundation.text/KeyboardActions.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // com.huanshankeji.compose.foundation.text/KeyboardActions.toString|toString(){}[0]
+
+    final object Companion { // com.huanshankeji.compose.foundation.text/KeyboardActions.Companion|null[0]
+        final val Default // com.huanshankeji.compose.foundation.text/KeyboardActions.Companion.Default|{}Default[0]
+            final fun <get-Default>(): com.huanshankeji.compose.foundation.text/KeyboardActions // com.huanshankeji.compose.foundation.text/KeyboardActions.Companion.Default.<get-Default>|<get-Default>(){}[0]
+    }
+}
+
+sealed class <#A: out kotlin/Any?, #B: out kotlin/Any?> com.huanshankeji.compose.ext/LoadingState { // com.huanshankeji.compose.ext/LoadingState|null[0]
+    final class <#A1: out kotlin/Any?> Error : com.huanshankeji.compose.ext/LoadingState<kotlin/Nothing, #A1> { // com.huanshankeji.compose.ext/LoadingState.Error|null[0]
+        constructor <init>(#A1) // com.huanshankeji.compose.ext/LoadingState.Error.<init>|<init>(1:0){}[0]
+
+        final val error // com.huanshankeji.compose.ext/LoadingState.Error.error|{}error[0]
+            final fun <get-error>(): #A1 // com.huanshankeji.compose.ext/LoadingState.Error.error.<get-error>|<get-error>(){}[0]
+    }
+
+    final class <#A1: out kotlin/Any?> Loaded : com.huanshankeji.compose.ext/LoadingState<#A1, kotlin/Nothing> { // com.huanshankeji.compose.ext/LoadingState.Loaded|null[0]
+        constructor <init>(#A1) // com.huanshankeji.compose.ext/LoadingState.Loaded.<init>|<init>(1:0){}[0]
+
+        final val value // com.huanshankeji.compose.ext/LoadingState.Loaded.value|{}value[0]
+            final fun <get-value>(): #A1 // com.huanshankeji.compose.ext/LoadingState.Loaded.value.<get-value>|<get-value>(){}[0]
+    }
+
+    final object Loading : com.huanshankeji.compose.ext/LoadingState<kotlin/Nothing, kotlin/Nothing> // com.huanshankeji.compose.ext/LoadingState.Loading|null[0]
+}
+
+sealed class com.huanshankeji.compose.ui.unit.ext/DpOrPercentage { // com.huanshankeji.compose.ui.unit.ext/DpOrPercentage|null[0]
+    final class Dp : com.huanshankeji.compose.ui.unit.ext/DpOrPercentage { // com.huanshankeji.compose.ui.unit.ext/DpOrPercentage.Dp|null[0]
+        constructor <init>(androidx.compose.ui.unit/Dp) // com.huanshankeji.compose.ui.unit.ext/DpOrPercentage.Dp.<init>|<init>(androidx.compose.ui.unit.Dp){}[0]
+
+        final val dp // com.huanshankeji.compose.ui.unit.ext/DpOrPercentage.Dp.dp|{}dp[0]
+            final fun <get-dp>(): androidx.compose.ui.unit/Dp // com.huanshankeji.compose.ui.unit.ext/DpOrPercentage.Dp.dp.<get-dp>|<get-dp>(){}[0]
+    }
+
+    final class Percentage : com.huanshankeji.compose.ui.unit.ext/DpOrPercentage { // com.huanshankeji.compose.ui.unit.ext/DpOrPercentage.Percentage|null[0]
+        constructor <init>(kotlin/Int) // com.huanshankeji.compose.ui.unit.ext/DpOrPercentage.Percentage.<init>|<init>(kotlin.Int){}[0]
+
+        final val percentage // com.huanshankeji.compose.ui.unit.ext/DpOrPercentage.Percentage.percentage|{}percentage[0]
+            final fun <get-percentage>(): kotlin/Int // com.huanshankeji.compose.ui.unit.ext/DpOrPercentage.Percentage.percentage.<get-percentage>|<get-percentage>(){}[0]
+    }
+}
+
+final object com.huanshankeji.compose.foundation.layout/Arrangement { // com.huanshankeji.compose.foundation.layout/Arrangement|null[0]
+    final val Bottom // com.huanshankeji.compose.foundation.layout/Arrangement.Bottom|{}Bottom[0]
+        final fun <get-Bottom>(): com.huanshankeji.compose.foundation.layout/Arrangement.Vertical // com.huanshankeji.compose.foundation.layout/Arrangement.Bottom.<get-Bottom>|<get-Bottom>(){}[0]
+    final val Center // com.huanshankeji.compose.foundation.layout/Arrangement.Center|{}Center[0]
+        final fun <get-Center>(): com.huanshankeji.compose.foundation.layout/Arrangement.HorizontalOrVertical // com.huanshankeji.compose.foundation.layout/Arrangement.Center.<get-Center>|<get-Center>(){}[0]
+    final val End // com.huanshankeji.compose.foundation.layout/Arrangement.End|{}End[0]
+        final fun <get-End>(): com.huanshankeji.compose.foundation.layout/Arrangement.Horizontal // com.huanshankeji.compose.foundation.layout/Arrangement.End.<get-End>|<get-End>(){}[0]
+    final val SpaceAround // com.huanshankeji.compose.foundation.layout/Arrangement.SpaceAround|{}SpaceAround[0]
+        final fun <get-SpaceAround>(): com.huanshankeji.compose.foundation.layout/Arrangement.HorizontalOrVertical // com.huanshankeji.compose.foundation.layout/Arrangement.SpaceAround.<get-SpaceAround>|<get-SpaceAround>(){}[0]
+    final val SpaceBetween // com.huanshankeji.compose.foundation.layout/Arrangement.SpaceBetween|{}SpaceBetween[0]
+        final fun <get-SpaceBetween>(): com.huanshankeji.compose.foundation.layout/Arrangement.HorizontalOrVertical // com.huanshankeji.compose.foundation.layout/Arrangement.SpaceBetween.<get-SpaceBetween>|<get-SpaceBetween>(){}[0]
+    final val SpaceEvenly // com.huanshankeji.compose.foundation.layout/Arrangement.SpaceEvenly|{}SpaceEvenly[0]
+        final fun <get-SpaceEvenly>(): com.huanshankeji.compose.foundation.layout/Arrangement.HorizontalOrVertical // com.huanshankeji.compose.foundation.layout/Arrangement.SpaceEvenly.<get-SpaceEvenly>|<get-SpaceEvenly>(){}[0]
+    final val Start // com.huanshankeji.compose.foundation.layout/Arrangement.Start|{}Start[0]
+        final fun <get-Start>(): com.huanshankeji.compose.foundation.layout/Arrangement.Horizontal // com.huanshankeji.compose.foundation.layout/Arrangement.Start.<get-Start>|<get-Start>(){}[0]
+    final val Top // com.huanshankeji.compose.foundation.layout/Arrangement.Top|{}Top[0]
+        final fun <get-Top>(): com.huanshankeji.compose.foundation.layout/Arrangement.Vertical // com.huanshankeji.compose.foundation.layout/Arrangement.Top.<get-Top>|<get-Top>(){}[0]
+
+    final fun spacedBy(androidx.compose.ui.unit/Dp): com.huanshankeji.compose.foundation.layout/Arrangement.HorizontalOrVertical // com.huanshankeji.compose.foundation.layout/Arrangement.spacedBy|spacedBy(androidx.compose.ui.unit.Dp){}[0]
+
+    abstract interface HorizontalOrVertical : com.huanshankeji.compose.foundation.layout/Arrangement.Horizontal, com.huanshankeji.compose.foundation.layout/Arrangement.Vertical { // com.huanshankeji.compose.foundation.layout/Arrangement.HorizontalOrVertical|null[0]
+        abstract val platformValue // com.huanshankeji.compose.foundation.layout/Arrangement.HorizontalOrVertical.platformValue|{}platformValue[0]
+            // Targets: [ios, wasmJs]
+            abstract fun <get-platformValue>(): androidx.compose.foundation.layout/Arrangement.HorizontalOrVertical // com.huanshankeji.compose.foundation.layout/Arrangement.HorizontalOrVertical.platformValue.<get-platformValue>|<get-platformValue>(){}[0]
+
+            // Targets: [js]
+            abstract fun <get-platformValue>(): com.varabyte.kobweb.compose.foundation.layout/Arrangement.HorizontalOrVertical // com.huanshankeji.compose.foundation.layout/Arrangement.HorizontalOrVertical.platformValue.<get-platformValue>|<get-platformValue>(){}[0]
+
+        final class Impl : com.huanshankeji.compose.foundation.layout/Arrangement.HorizontalOrVertical { // com.huanshankeji.compose.foundation.layout/Arrangement.HorizontalOrVertical.Impl|null[0]
+            final val platformValue // com.huanshankeji.compose.foundation.layout/Arrangement.HorizontalOrVertical.Impl.platformValue|{}platformValue[0]
+                // Targets: [ios, wasmJs]
+                final fun <get-platformValue>(): androidx.compose.foundation.layout/Arrangement.HorizontalOrVertical // com.huanshankeji.compose.foundation.layout/Arrangement.HorizontalOrVertical.Impl.platformValue.<get-platformValue>|<get-platformValue>(){}[0]
+
+                // Targets: [js]
+                final fun <get-platformValue>(): com.varabyte.kobweb.compose.foundation.layout/Arrangement.HorizontalOrVertical // com.huanshankeji.compose.foundation.layout/Arrangement.HorizontalOrVertical.Impl.platformValue.<get-platformValue>|<get-platformValue>(){}[0]
+
+            // Targets: [ios, wasmJs]
+            constructor <init>(androidx.compose.foundation.layout/Arrangement.HorizontalOrVertical) // com.huanshankeji.compose.foundation.layout/Arrangement.HorizontalOrVertical.Impl.<init>|<init>(androidx.compose.foundation.layout.Arrangement.HorizontalOrVertical){}[0]
+
+            // Targets: [js]
+            constructor <init>(com.varabyte.kobweb.compose.foundation.layout/Arrangement.HorizontalOrVertical) // com.huanshankeji.compose.foundation.layout/Arrangement.HorizontalOrVertical.Impl.<init>|<init>(com.varabyte.kobweb.compose.foundation.layout.Arrangement.HorizontalOrVertical){}[0]
+        }
+
+        // Targets: [js]
+        abstract class FromStyleImpl : com.huanshankeji.compose.foundation.layout/Arrangement.HorizontalOrVertical { // com.huanshankeji.compose.foundation.layout/Arrangement.HorizontalOrVertical.FromStyleImpl|null[0]
+            constructor <init>() // com.huanshankeji.compose.foundation.layout/Arrangement.HorizontalOrVertical.FromStyleImpl.<init>|<init>(){}[0]
+
+            open val platformValue // com.huanshankeji.compose.foundation.layout/Arrangement.HorizontalOrVertical.FromStyleImpl.platformValue|{}platformValue[0]
+                open fun <get-platformValue>(): com.varabyte.kobweb.compose.foundation.layout/Arrangement.HorizontalOrVertical // com.huanshankeji.compose.foundation.layout/Arrangement.HorizontalOrVertical.FromStyleImpl.platformValue.<get-platformValue>|<get-platformValue>(){}[0]
+
+            abstract fun (org.jetbrains.compose.web.css/StyleScope).styles() // com.huanshankeji.compose.foundation.layout/Arrangement.HorizontalOrVertical.FromStyleImpl.styles|styles@org.jetbrains.compose.web.css.StyleScope(){}[0]
+        }
+    }
+
+    // Targets: [ios, wasmJs]
+    abstract interface Horizontal { // com.huanshankeji.compose.foundation.layout/Arrangement.Horizontal|null[0]
+        abstract val platformValue // com.huanshankeji.compose.foundation.layout/Arrangement.Horizontal.platformValue|{}platformValue[0]
+            abstract fun <get-platformValue>(): androidx.compose.foundation.layout/Arrangement.Horizontal // com.huanshankeji.compose.foundation.layout/Arrangement.Horizontal.platformValue.<get-platformValue>|<get-platformValue>(){}[0]
+
+        final class Impl : com.huanshankeji.compose.foundation.layout/Arrangement.Horizontal { // com.huanshankeji.compose.foundation.layout/Arrangement.Horizontal.Impl|null[0]
+            constructor <init>(androidx.compose.foundation.layout/Arrangement.Horizontal) // com.huanshankeji.compose.foundation.layout/Arrangement.Horizontal.Impl.<init>|<init>(androidx.compose.foundation.layout.Arrangement.Horizontal){}[0]
+
+            final val platformValue // com.huanshankeji.compose.foundation.layout/Arrangement.Horizontal.Impl.platformValue|{}platformValue[0]
+                final fun <get-platformValue>(): androidx.compose.foundation.layout/Arrangement.Horizontal // com.huanshankeji.compose.foundation.layout/Arrangement.Horizontal.Impl.platformValue.<get-platformValue>|<get-platformValue>(){}[0]
+        }
+    }
+
+    // Targets: [ios, wasmJs]
+    abstract interface Vertical { // com.huanshankeji.compose.foundation.layout/Arrangement.Vertical|null[0]
+        abstract val platformValue // com.huanshankeji.compose.foundation.layout/Arrangement.Vertical.platformValue|{}platformValue[0]
+            abstract fun <get-platformValue>(): androidx.compose.foundation.layout/Arrangement.Vertical // com.huanshankeji.compose.foundation.layout/Arrangement.Vertical.platformValue.<get-platformValue>|<get-platformValue>(){}[0]
+
+        final class Impl : com.huanshankeji.compose.foundation.layout/Arrangement.Vertical { // com.huanshankeji.compose.foundation.layout/Arrangement.Vertical.Impl|null[0]
+            constructor <init>(androidx.compose.foundation.layout/Arrangement.Vertical) // com.huanshankeji.compose.foundation.layout/Arrangement.Vertical.Impl.<init>|<init>(androidx.compose.foundation.layout.Arrangement.Vertical){}[0]
+
+            final val platformValue // com.huanshankeji.compose.foundation.layout/Arrangement.Vertical.Impl.platformValue|{}platformValue[0]
+                final fun <get-platformValue>(): androidx.compose.foundation.layout/Arrangement.Vertical // com.huanshankeji.compose.foundation.layout/Arrangement.Vertical.Impl.platformValue.<get-platformValue>|<get-platformValue>(){}[0]
+        }
+    }
+
+    // Targets: [js]
+    abstract interface CommonArrangement { // com.huanshankeji.compose.foundation.layout/Arrangement.CommonArrangement|null[0]
+        open fun (org.jetbrains.compose.web.css/StyleScope).styles() // com.huanshankeji.compose.foundation.layout/Arrangement.CommonArrangement.styles|styles@org.jetbrains.compose.web.css.StyleScope(){}[0]
+    }
+
+    // Targets: [js]
+    abstract interface Horizontal : com.huanshankeji.compose.foundation.layout/Arrangement.CommonArrangement { // com.huanshankeji.compose.foundation.layout/Arrangement.Horizontal|null[0]
+        abstract val platformValue // com.huanshankeji.compose.foundation.layout/Arrangement.Horizontal.platformValue|{}platformValue[0]
+            abstract fun <get-platformValue>(): com.varabyte.kobweb.compose.foundation.layout/Arrangement.Horizontal // com.huanshankeji.compose.foundation.layout/Arrangement.Horizontal.platformValue.<get-platformValue>|<get-platformValue>(){}[0]
+
+        final class Impl : com.huanshankeji.compose.foundation.layout/Arrangement.Horizontal { // com.huanshankeji.compose.foundation.layout/Arrangement.Horizontal.Impl|null[0]
+            constructor <init>(com.varabyte.kobweb.compose.foundation.layout/Arrangement.Horizontal) // com.huanshankeji.compose.foundation.layout/Arrangement.Horizontal.Impl.<init>|<init>(com.varabyte.kobweb.compose.foundation.layout.Arrangement.Horizontal){}[0]
+
+            final val platformValue // com.huanshankeji.compose.foundation.layout/Arrangement.Horizontal.Impl.platformValue|{}platformValue[0]
+                final fun <get-platformValue>(): com.varabyte.kobweb.compose.foundation.layout/Arrangement.Horizontal // com.huanshankeji.compose.foundation.layout/Arrangement.Horizontal.Impl.platformValue.<get-platformValue>|<get-platformValue>(){}[0]
+        }
+    }
+
+    // Targets: [js]
+    abstract interface Vertical : com.huanshankeji.compose.foundation.layout/Arrangement.CommonArrangement { // com.huanshankeji.compose.foundation.layout/Arrangement.Vertical|null[0]
+        abstract val platformValue // com.huanshankeji.compose.foundation.layout/Arrangement.Vertical.platformValue|{}platformValue[0]
+            abstract fun <get-platformValue>(): com.varabyte.kobweb.compose.foundation.layout/Arrangement.Vertical // com.huanshankeji.compose.foundation.layout/Arrangement.Vertical.platformValue.<get-platformValue>|<get-platformValue>(){}[0]
+
+        final class Impl : com.huanshankeji.compose.foundation.layout/Arrangement.Vertical { // com.huanshankeji.compose.foundation.layout/Arrangement.Vertical.Impl|null[0]
+            constructor <init>(com.varabyte.kobweb.compose.foundation.layout/Arrangement.Vertical) // com.huanshankeji.compose.foundation.layout/Arrangement.Vertical.Impl.<init>|<init>(com.varabyte.kobweb.compose.foundation.layout.Arrangement.Vertical){}[0]
+
+            final val platformValue // com.huanshankeji.compose.foundation.layout/Arrangement.Vertical.Impl.platformValue|{}platformValue[0]
+                final fun <get-platformValue>(): com.varabyte.kobweb.compose.foundation.layout/Arrangement.Vertical // com.huanshankeji.compose.foundation.layout/Arrangement.Vertical.Impl.platformValue.<get-platformValue>|<get-platformValue>(){}[0]
+        }
+    }
+}
+
+final const val com.huanshankeji.compose.foundation.text.ext/INLINE_TEXT_DEPRECATED_MESSAGE // com.huanshankeji.compose.foundation.text.ext/INLINE_TEXT_DEPRECATED_MESSAGE|{}INLINE_TEXT_DEPRECATED_MESSAGE[0]
+    final fun <get-INLINE_TEXT_DEPRECATED_MESSAGE>(): kotlin/String // com.huanshankeji.compose.foundation.text.ext/INLINE_TEXT_DEPRECATED_MESSAGE.<get-INLINE_TEXT_DEPRECATED_MESSAGE>|<get-INLINE_TEXT_DEPRECATED_MESSAGE>(){}[0]
+
+final val com.huanshankeji.compose.ext/com_huanshankeji_compose_ext_LoadingState$stableprop // com.huanshankeji.compose.ext/com_huanshankeji_compose_ext_LoadingState$stableprop|#static{}com_huanshankeji_compose_ext_LoadingState$stableprop[0]
+final val com.huanshankeji.compose.ext/com_huanshankeji_compose_ext_LoadingState_Error$stableprop // com.huanshankeji.compose.ext/com_huanshankeji_compose_ext_LoadingState_Error$stableprop|#static{}com_huanshankeji_compose_ext_LoadingState_Error$stableprop[0]
+final val com.huanshankeji.compose.ext/com_huanshankeji_compose_ext_LoadingState_Loaded$stableprop // com.huanshankeji.compose.ext/com_huanshankeji_compose_ext_LoadingState_Loaded$stableprop|#static{}com_huanshankeji_compose_ext_LoadingState_Loaded$stableprop[0]
+final val com.huanshankeji.compose.ext/com_huanshankeji_compose_ext_LoadingState_Loading$stableprop // com.huanshankeji.compose.ext/com_huanshankeji_compose_ext_LoadingState_Loading$stableprop|#static{}com_huanshankeji_compose_ext_LoadingState_Loading$stableprop[0]
+final val com.huanshankeji.compose.foundation.layout.ext/com_huanshankeji_compose_foundation_layout_ext_BoxWithConstraintsScopeImpl$stableprop // com.huanshankeji.compose.foundation.layout.ext/com_huanshankeji_compose_foundation_layout_ext_BoxWithConstraintsScopeImpl$stableprop|#static{}com_huanshankeji_compose_foundation_layout_ext_BoxWithConstraintsScopeImpl$stableprop[0]
+final val com.huanshankeji.compose.foundation.layout/com_huanshankeji_compose_foundation_layout_Arrangement$stableprop // com.huanshankeji.compose.foundation.layout/com_huanshankeji_compose_foundation_layout_Arrangement$stableprop|#static{}com_huanshankeji_compose_foundation_layout_Arrangement$stableprop[0]
+final val com.huanshankeji.compose.foundation.layout/com_huanshankeji_compose_foundation_layout_Arrangement_HorizontalOrVertical_Impl$stableprop // com.huanshankeji.compose.foundation.layout/com_huanshankeji_compose_foundation_layout_Arrangement_HorizontalOrVertical_Impl$stableprop|#static{}com_huanshankeji_compose_foundation_layout_Arrangement_HorizontalOrVertical_Impl$stableprop[0]
+final val com.huanshankeji.compose.foundation.layout/com_huanshankeji_compose_foundation_layout_Arrangement_Horizontal_Impl$stableprop // com.huanshankeji.compose.foundation.layout/com_huanshankeji_compose_foundation_layout_Arrangement_Horizontal_Impl$stableprop|#static{}com_huanshankeji_compose_foundation_layout_Arrangement_Horizontal_Impl$stableprop[0]
+final val com.huanshankeji.compose.foundation.layout/com_huanshankeji_compose_foundation_layout_Arrangement_Vertical_Impl$stableprop // com.huanshankeji.compose.foundation.layout/com_huanshankeji_compose_foundation_layout_Arrangement_Vertical_Impl$stableprop|#static{}com_huanshankeji_compose_foundation_layout_Arrangement_Vertical_Impl$stableprop[0]
+final val com.huanshankeji.compose.foundation.layout/com_huanshankeji_compose_foundation_layout_PaddingValues$stableprop // com.huanshankeji.compose.foundation.layout/com_huanshankeji_compose_foundation_layout_PaddingValues$stableprop|#static{}com_huanshankeji_compose_foundation_layout_PaddingValues$stableprop[0]
+final val com.huanshankeji.compose.foundation.layout/com_huanshankeji_compose_foundation_layout_PaddingValuesImpl$stableprop // com.huanshankeji.compose.foundation.layout/com_huanshankeji_compose_foundation_layout_PaddingValuesImpl$stableprop|#static{}com_huanshankeji_compose_foundation_layout_PaddingValuesImpl$stableprop[0]
+final val com.huanshankeji.compose.foundation.layout/com_huanshankeji_compose_foundation_layout_PaddingValues_Absolute$stableprop // com.huanshankeji.compose.foundation.layout/com_huanshankeji_compose_foundation_layout_PaddingValues_Absolute$stableprop|#static{}com_huanshankeji_compose_foundation_layout_PaddingValues_Absolute$stableprop[0]
+final val com.huanshankeji.compose.foundation.lazy/com_huanshankeji_compose_foundation_lazy_LazyItemScope$stableprop // com.huanshankeji.compose.foundation.lazy/com_huanshankeji_compose_foundation_lazy_LazyItemScope$stableprop|#static{}com_huanshankeji_compose_foundation_lazy_LazyItemScope$stableprop[0]
+final val com.huanshankeji.compose.foundation.lazy/com_huanshankeji_compose_foundation_lazy_LazyListScope$stableprop // com.huanshankeji.compose.foundation.lazy/com_huanshankeji_compose_foundation_lazy_LazyListScope$stableprop|#static{}com_huanshankeji_compose_foundation_lazy_LazyListScope$stableprop[0]
+final val com.huanshankeji.compose.foundation.text.input/com_huanshankeji_compose_foundation_text_input_PlatformImeOptions$stableprop // com.huanshankeji.compose.foundation.text.input/com_huanshankeji_compose_foundation_text_input_PlatformImeOptions$stableprop|#static{}com_huanshankeji_compose_foundation_text_input_PlatformImeOptions$stableprop[0]
+final val com.huanshankeji.compose.foundation.text/com_huanshankeji_compose_foundation_text_KeyboardActionScope_DoNothingInstance$stableprop // com.huanshankeji.compose.foundation.text/com_huanshankeji_compose_foundation_text_KeyboardActionScope_DoNothingInstance$stableprop|#static{}com_huanshankeji_compose_foundation_text_KeyboardActionScope_DoNothingInstance$stableprop[0]
+final val com.huanshankeji.compose.foundation.text/com_huanshankeji_compose_foundation_text_KeyboardOptions$stableprop // com.huanshankeji.compose.foundation.text/com_huanshankeji_compose_foundation_text_KeyboardOptions$stableprop|#static{}com_huanshankeji_compose_foundation_text_KeyboardOptions$stableprop[0]
+final val com.huanshankeji.compose.foundation/com_huanshankeji_compose_foundation_BorderStroke$stableprop // com.huanshankeji.compose.foundation/com_huanshankeji_compose_foundation_BorderStroke$stableprop|#static{}com_huanshankeji_compose_foundation_BorderStroke$stableprop[0]
+final val com.huanshankeji.compose.runtime/com_huanshankeji_compose_runtime_DeferredComposableRunner$stableprop // com.huanshankeji.compose.runtime/com_huanshankeji_compose_runtime_DeferredComposableRunner$stableprop|#static{}com_huanshankeji_compose_runtime_DeferredComposableRunner$stableprop[0]
+final val com.huanshankeji.compose.ui.graphics/com_huanshankeji_compose_ui_graphics_Brush$stableprop // com.huanshankeji.compose.ui.graphics/com_huanshankeji_compose_ui_graphics_Brush$stableprop|#static{}com_huanshankeji_compose_ui_graphics_Brush$stableprop[0]
+final val com.huanshankeji.compose.ui.graphics/com_huanshankeji_compose_ui_graphics_Color$stableprop // com.huanshankeji.compose.ui.graphics/com_huanshankeji_compose_ui_graphics_Color$stableprop|#static{}com_huanshankeji_compose_ui_graphics_Color$stableprop[0]
+final val com.huanshankeji.compose.ui.unit.ext/com_huanshankeji_compose_ui_unit_ext_DpOrPercentage$stableprop // com.huanshankeji.compose.ui.unit.ext/com_huanshankeji_compose_ui_unit_ext_DpOrPercentage$stableprop|#static{}com_huanshankeji_compose_ui_unit_ext_DpOrPercentage$stableprop[0]
+final val com.huanshankeji.compose.ui.unit.ext/com_huanshankeji_compose_ui_unit_ext_DpOrPercentage_Dp$stableprop // com.huanshankeji.compose.ui.unit.ext/com_huanshankeji_compose_ui_unit_ext_DpOrPercentage_Dp$stableprop|#static{}com_huanshankeji_compose_ui_unit_ext_DpOrPercentage_Dp$stableprop[0]
+final val com.huanshankeji.compose.ui.unit.ext/com_huanshankeji_compose_ui_unit_ext_DpOrPercentage_Percentage$stableprop // com.huanshankeji.compose.ui.unit.ext/com_huanshankeji_compose_ui_unit_ext_DpOrPercentage_Percentage$stableprop|#static{}com_huanshankeji_compose_ui_unit_ext_DpOrPercentage_Percentage$stableprop[0]
+
+final fun (com.huanshankeji.compose.ui.graphics/Color).com.huanshankeji.compose.ui.graphics/luminance(): kotlin/Float // com.huanshankeji.compose.ui.graphics/luminance|luminance@com.huanshankeji.compose.ui.graphics.Color(){}[0]
+final fun (com.huanshankeji.compose.ui.graphics/Color).com.huanshankeji.compose.ui.graphics/toArgb(): kotlin/Int // com.huanshankeji.compose.ui.graphics/toArgb|toArgb@com.huanshankeji.compose.ui.graphics.Color(){}[0]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.foundation.ext/matchPositionRelativeParentJsDom(): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.ext/matchPositionRelativeParentJsDom|matchPositionRelativeParentJsDom@com.huanshankeji.compose.ui.Modifier(){}[0]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.foundation.ext/outerBorder(androidx.compose.ui.unit/Dp, com.huanshankeji.compose.ui.graphics/Color): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.ext/outerBorder|outerBorder@com.huanshankeji.compose.ui.Modifier(androidx.compose.ui.unit.Dp;com.huanshankeji.compose.ui.graphics.Color){}[0]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.foundation.ext/outerBorder(com.huanshankeji.compose.foundation/BorderStroke): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.ext/outerBorder|outerBorder@com.huanshankeji.compose.ui.Modifier(com.huanshankeji.compose.foundation.BorderStroke){}[0]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.foundation.ext/roundedCornerBackgroundAndOuterBorder(androidx.compose.ui.unit/Dp, com.huanshankeji.compose.ui.graphics/Color, androidx.compose.ui.unit/Dp, com.huanshankeji.compose.ui.graphics/Color): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.ext/roundedCornerBackgroundAndOuterBorder|roundedCornerBackgroundAndOuterBorder@com.huanshankeji.compose.ui.Modifier(androidx.compose.ui.unit.Dp;com.huanshankeji.compose.ui.graphics.Color;androidx.compose.ui.unit.Dp;com.huanshankeji.compose.ui.graphics.Color){}[0]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.foundation.ext/roundedCornerBackgroundAndOuterBorder(androidx.compose.ui.unit/Dp, com.huanshankeji.compose.ui.graphics/Color, kotlin/Int, com.huanshankeji.compose.ui.graphics/Color): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.ext/roundedCornerBackgroundAndOuterBorder|roundedCornerBackgroundAndOuterBorder@com.huanshankeji.compose.ui.Modifier(androidx.compose.ui.unit.Dp;com.huanshankeji.compose.ui.graphics.Color;kotlin.Int;com.huanshankeji.compose.ui.graphics.Color){}[0]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.foundation.ext/roundedCornerBackgroundAndOuterBorder(com.huanshankeji.compose.foundation/BorderStroke, androidx.compose.ui.unit/Dp, com.huanshankeji.compose.ui.graphics/Color): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.ext/roundedCornerBackgroundAndOuterBorder|roundedCornerBackgroundAndOuterBorder@com.huanshankeji.compose.ui.Modifier(com.huanshankeji.compose.foundation.BorderStroke;androidx.compose.ui.unit.Dp;com.huanshankeji.compose.ui.graphics.Color){}[0]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.foundation.ext/roundedCornerBackgroundAndOuterBorder(com.huanshankeji.compose.foundation/BorderStroke, kotlin/Int, com.huanshankeji.compose.ui.graphics/Color): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.ext/roundedCornerBackgroundAndOuterBorder|roundedCornerBackgroundAndOuterBorder@com.huanshankeji.compose.ui.Modifier(com.huanshankeji.compose.foundation.BorderStroke;kotlin.Int;com.huanshankeji.compose.ui.graphics.Color){}[0]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.foundation.ext/roundedCornerOuterBorder(androidx.compose.ui.unit/Dp, com.huanshankeji.compose.ui.graphics/Color, androidx.compose.ui.unit/Dp): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.ext/roundedCornerOuterBorder|roundedCornerOuterBorder@com.huanshankeji.compose.ui.Modifier(androidx.compose.ui.unit.Dp;com.huanshankeji.compose.ui.graphics.Color;androidx.compose.ui.unit.Dp){}[0]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.foundation.ext/roundedCornerOuterBorder(androidx.compose.ui.unit/Dp, com.huanshankeji.compose.ui.graphics/Color, kotlin/Int): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.ext/roundedCornerOuterBorder|roundedCornerOuterBorder@com.huanshankeji.compose.ui.Modifier(androidx.compose.ui.unit.Dp;com.huanshankeji.compose.ui.graphics.Color;kotlin.Int){}[0]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.foundation.ext/roundedCornerOuterBorder(com.huanshankeji.compose.foundation/BorderStroke, androidx.compose.ui.unit/Dp): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.ext/roundedCornerOuterBorder|roundedCornerOuterBorder@com.huanshankeji.compose.ui.Modifier(com.huanshankeji.compose.foundation.BorderStroke;androidx.compose.ui.unit.Dp){}[0]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.foundation.ext/roundedCornerOuterBorder(com.huanshankeji.compose.foundation/BorderStroke, kotlin/Int): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.ext/roundedCornerOuterBorder|roundedCornerOuterBorder@com.huanshankeji.compose.ui.Modifier(com.huanshankeji.compose.foundation.BorderStroke;kotlin.Int){}[0]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.foundation.layout.ext/absoluteInnerPadding(androidx.compose.ui.unit/Dp = ..., androidx.compose.ui.unit/Dp = ..., androidx.compose.ui.unit/Dp = ..., androidx.compose.ui.unit/Dp = ...): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.layout.ext/absoluteInnerPadding|absoluteInnerPadding@com.huanshankeji.compose.ui.Modifier(androidx.compose.ui.unit.Dp;androidx.compose.ui.unit.Dp;androidx.compose.ui.unit.Dp;androidx.compose.ui.unit.Dp){}[0]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.foundation.layout.ext/absoluteOuterPadding(androidx.compose.ui.unit/Dp = ..., androidx.compose.ui.unit/Dp = ..., androidx.compose.ui.unit/Dp = ..., androidx.compose.ui.unit/Dp = ...): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.layout.ext/absoluteOuterPadding|absoluteOuterPadding@com.huanshankeji.compose.ui.Modifier(androidx.compose.ui.unit.Dp;androidx.compose.ui.unit.Dp;androidx.compose.ui.unit.Dp;androidx.compose.ui.unit.Dp){}[0]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.foundation.layout.ext/fillMaxHeightStretch(): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.layout.ext/fillMaxHeightStretch|fillMaxHeightStretch@com.huanshankeji.compose.ui.Modifier(){}[0]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.foundation.layout.ext/fillMaxSizeStretch(): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.layout.ext/fillMaxSizeStretch|fillMaxSizeStretch@com.huanshankeji.compose.ui.Modifier(){}[0]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.foundation.layout.ext/fillMaxWidthStretch(): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.layout.ext/fillMaxWidthStretch|fillMaxWidthStretch@com.huanshankeji.compose.ui.Modifier(){}[0]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.foundation.layout.ext/innerPadding(androidx.compose.ui.unit/Dp = ..., androidx.compose.ui.unit/Dp = ...): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.layout.ext/innerPadding|innerPadding@com.huanshankeji.compose.ui.Modifier(androidx.compose.ui.unit.Dp;androidx.compose.ui.unit.Dp){}[0]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.foundation.layout.ext/innerPadding(androidx.compose.ui.unit/Dp = ..., androidx.compose.ui.unit/Dp = ..., androidx.compose.ui.unit/Dp = ..., androidx.compose.ui.unit/Dp = ...): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.layout.ext/innerPadding|innerPadding@com.huanshankeji.compose.ui.Modifier(androidx.compose.ui.unit.Dp;androidx.compose.ui.unit.Dp;androidx.compose.ui.unit.Dp;androidx.compose.ui.unit.Dp){}[0]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.foundation.layout.ext/innerPadding(androidx.compose.ui.unit/Dp): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.layout.ext/innerPadding|innerPadding@com.huanshankeji.compose.ui.Modifier(androidx.compose.ui.unit.Dp){}[0]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.foundation.layout.ext/innerPadding(com.huanshankeji.compose.foundation.layout/PaddingValues): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.layout.ext/innerPadding|innerPadding@com.huanshankeji.compose.ui.Modifier(com.huanshankeji.compose.foundation.layout.PaddingValues){}[0]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.foundation.layout.ext/outerPadding(androidx.compose.ui.unit/Dp = ..., androidx.compose.ui.unit/Dp = ...): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.layout.ext/outerPadding|outerPadding@com.huanshankeji.compose.ui.Modifier(androidx.compose.ui.unit.Dp;androidx.compose.ui.unit.Dp){}[0]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.foundation.layout.ext/outerPadding(androidx.compose.ui.unit/Dp = ..., androidx.compose.ui.unit/Dp = ..., androidx.compose.ui.unit/Dp = ..., androidx.compose.ui.unit/Dp = ...): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.layout.ext/outerPadding|outerPadding@com.huanshankeji.compose.ui.Modifier(androidx.compose.ui.unit.Dp;androidx.compose.ui.unit.Dp;androidx.compose.ui.unit.Dp;androidx.compose.ui.unit.Dp){}[0]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.foundation.layout.ext/outerPadding(androidx.compose.ui.unit/Dp): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.layout.ext/outerPadding|outerPadding@com.huanshankeji.compose.ui.Modifier(androidx.compose.ui.unit.Dp){}[0]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.foundation.layout.ext/outerPadding(com.huanshankeji.compose.foundation.layout/PaddingValues): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.layout.ext/outerPadding|outerPadding@com.huanshankeji.compose.ui.Modifier(com.huanshankeji.compose.foundation.layout.PaddingValues){}[0]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.foundation.layout/absolutePadding(androidx.compose.ui.unit/Dp = ..., androidx.compose.ui.unit/Dp = ..., androidx.compose.ui.unit/Dp = ..., androidx.compose.ui.unit/Dp = ...): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.layout/absolutePadding|absolutePadding@com.huanshankeji.compose.ui.Modifier(androidx.compose.ui.unit.Dp;androidx.compose.ui.unit.Dp;androidx.compose.ui.unit.Dp;androidx.compose.ui.unit.Dp){}[0]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.foundation.layout/fillMaxHeight(kotlin/Float = ...): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.layout/fillMaxHeight|fillMaxHeight@com.huanshankeji.compose.ui.Modifier(kotlin.Float){}[0]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.foundation.layout/fillMaxSize(kotlin/Float = ...): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.layout/fillMaxSize|fillMaxSize@com.huanshankeji.compose.ui.Modifier(kotlin.Float){}[0]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.foundation.layout/fillMaxWidth(kotlin/Float = ...): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.layout/fillMaxWidth|fillMaxWidth@com.huanshankeji.compose.ui.Modifier(kotlin.Float){}[0]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.foundation.layout/height(androidx.compose.ui.unit/Dp): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.layout/height|height@com.huanshankeji.compose.ui.Modifier(androidx.compose.ui.unit.Dp){}[0]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.foundation.layout/height(com.huanshankeji.compose.foundation.layout/IntrinsicSize): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.layout/height|height@com.huanshankeji.compose.ui.Modifier(com.huanshankeji.compose.foundation.layout.IntrinsicSize){}[0]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.foundation.layout/heightIn(androidx.compose.ui.unit/Dp = ..., androidx.compose.ui.unit/Dp = ...): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.layout/heightIn|heightIn@com.huanshankeji.compose.ui.Modifier(androidx.compose.ui.unit.Dp;androidx.compose.ui.unit.Dp){}[0]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.foundation.layout/padding(androidx.compose.ui.unit/Dp = ..., androidx.compose.ui.unit/Dp = ...): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.layout/padding|padding@com.huanshankeji.compose.ui.Modifier(androidx.compose.ui.unit.Dp;androidx.compose.ui.unit.Dp){}[0]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.foundation.layout/padding(androidx.compose.ui.unit/Dp = ..., androidx.compose.ui.unit/Dp = ..., androidx.compose.ui.unit/Dp = ..., androidx.compose.ui.unit/Dp = ...): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.layout/padding|padding@com.huanshankeji.compose.ui.Modifier(androidx.compose.ui.unit.Dp;androidx.compose.ui.unit.Dp;androidx.compose.ui.unit.Dp;androidx.compose.ui.unit.Dp){}[0]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.foundation.layout/padding(androidx.compose.ui.unit/Dp): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.layout/padding|padding@com.huanshankeji.compose.ui.Modifier(androidx.compose.ui.unit.Dp){}[0]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.foundation.layout/padding(com.huanshankeji.compose.foundation.layout/PaddingValues): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.layout/padding|padding@com.huanshankeji.compose.ui.Modifier(com.huanshankeji.compose.foundation.layout.PaddingValues){}[0]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.foundation.layout/size(androidx.compose.ui.unit/Dp): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.layout/size|size@com.huanshankeji.compose.ui.Modifier(androidx.compose.ui.unit.Dp){}[0]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.foundation.layout/size(androidx.compose.ui.unit/Dp, androidx.compose.ui.unit/Dp): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.layout/size|size@com.huanshankeji.compose.ui.Modifier(androidx.compose.ui.unit.Dp;androidx.compose.ui.unit.Dp){}[0]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.foundation.layout/size(androidx.compose.ui.unit/DpSize): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.layout/size|size@com.huanshankeji.compose.ui.Modifier(androidx.compose.ui.unit.DpSize){}[0]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.foundation.layout/sizeIn(androidx.compose.ui.unit/Dp = ..., androidx.compose.ui.unit/Dp = ..., androidx.compose.ui.unit/Dp = ..., androidx.compose.ui.unit/Dp = ...): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.layout/sizeIn|sizeIn@com.huanshankeji.compose.ui.Modifier(androidx.compose.ui.unit.Dp;androidx.compose.ui.unit.Dp;androidx.compose.ui.unit.Dp;androidx.compose.ui.unit.Dp){}[0]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.foundation.layout/width(androidx.compose.ui.unit/Dp): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.layout/width|width@com.huanshankeji.compose.ui.Modifier(androidx.compose.ui.unit.Dp){}[0]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.foundation.layout/width(com.huanshankeji.compose.foundation.layout/IntrinsicSize): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.layout/width|width@com.huanshankeji.compose.ui.Modifier(com.huanshankeji.compose.foundation.layout.IntrinsicSize){}[0]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.foundation.layout/widthIn(androidx.compose.ui.unit/Dp = ..., androidx.compose.ui.unit/Dp = ...): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.layout/widthIn|widthIn@com.huanshankeji.compose.ui.Modifier(androidx.compose.ui.unit.Dp;androidx.compose.ui.unit.Dp){}[0]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.foundation.layout/wrapContentHeight(): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.layout/wrapContentHeight|wrapContentHeight@com.huanshankeji.compose.ui.Modifier(){}[0]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.foundation.layout/wrapContentSize(): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.layout/wrapContentSize|wrapContentSize@com.huanshankeji.compose.ui.Modifier(){}[0]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.foundation.layout/wrapContentWidth(): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.layout/wrapContentWidth|wrapContentWidth@com.huanshankeji.compose.ui.Modifier(){}[0]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.foundation/background(com.huanshankeji.compose.ui.graphics/Color): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation/background|background@com.huanshankeji.compose.ui.Modifier(com.huanshankeji.compose.ui.graphics.Color){}[0]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.foundation/border(androidx.compose.ui.unit/Dp, com.huanshankeji.compose.ui.graphics/Color): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation/border|border@com.huanshankeji.compose.ui.Modifier(androidx.compose.ui.unit.Dp;com.huanshankeji.compose.ui.graphics.Color){}[0]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.foundation/border(com.huanshankeji.compose.foundation/BorderStroke): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation/border|border@com.huanshankeji.compose.ui.Modifier(com.huanshankeji.compose.foundation.BorderStroke){}[0]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.foundation/clickable(kotlin/Function0<kotlin/Unit>): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation/clickable|clickable@com.huanshankeji.compose.ui.Modifier(kotlin.Function0<kotlin.Unit>){}[0]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.foundation/onClick(kotlin/Function0<kotlin/Unit>): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation/onClick|onClick@com.huanshankeji.compose.ui.Modifier(kotlin.Function0<kotlin.Unit>){}[0]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.layout.ext/hidden(): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.layout.ext/hidden|hidden@com.huanshankeji.compose.ui.Modifier(){}[0]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.layout.ext/invisible(): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.layout.ext/invisible|invisible@com.huanshankeji.compose.ui.Modifier(){}[0]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.layout.ext/reserveSpace(): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.layout.ext/reserveSpace|reserveSpace@com.huanshankeji.compose.ui.Modifier(){}[0]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.ui.draw/alpha(kotlin/Float): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.ui.draw/alpha|alpha@com.huanshankeji.compose.ui.Modifier(kotlin.Float){}[0]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.ui.draw/rotate(kotlin/Float): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.ui.draw/rotate|rotate@com.huanshankeji.compose.ui.Modifier(kotlin.Float){}[0]
+final fun com.huanshankeji.compose.ext/com_huanshankeji_compose_ext_LoadingState$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.ext/com_huanshankeji_compose_ext_LoadingState$stableprop_getter|com_huanshankeji_compose_ext_LoadingState$stableprop_getter(){}[0]
+final fun com.huanshankeji.compose.ext/com_huanshankeji_compose_ext_LoadingState_Error$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.ext/com_huanshankeji_compose_ext_LoadingState_Error$stableprop_getter|com_huanshankeji_compose_ext_LoadingState_Error$stableprop_getter(){}[0]
+final fun com.huanshankeji.compose.ext/com_huanshankeji_compose_ext_LoadingState_Loaded$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.ext/com_huanshankeji_compose_ext_LoadingState_Loaded$stableprop_getter|com_huanshankeji_compose_ext_LoadingState_Loaded$stableprop_getter(){}[0]
+final fun com.huanshankeji.compose.ext/com_huanshankeji_compose_ext_LoadingState_Loading$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.ext/com_huanshankeji_compose_ext_LoadingState_Loading$stableprop_getter|com_huanshankeji_compose_ext_LoadingState_Loading$stableprop_getter(){}[0]
+final fun com.huanshankeji.compose.foundation.layout.ext/BoxWithConstraints(com.huanshankeji.compose.ui/Modifier?, com.huanshankeji.compose.ui/Alignment?, kotlin/Function3<com.huanshankeji.compose.foundation.layout.ext/BoxWithConstraintsScope, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.foundation.layout.ext/BoxWithConstraints|BoxWithConstraints(com.huanshankeji.compose.ui.Modifier?;com.huanshankeji.compose.ui.Alignment?;kotlin.Function3<com.huanshankeji.compose.foundation.layout.ext.BoxWithConstraintsScope,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun com.huanshankeji.compose.foundation.layout.ext/com_huanshankeji_compose_foundation_layout_ext_BoxWithConstraintsScopeImpl$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.foundation.layout.ext/com_huanshankeji_compose_foundation_layout_ext_BoxWithConstraintsScopeImpl$stableprop_getter|com_huanshankeji_compose_foundation_layout_ext_BoxWithConstraintsScopeImpl$stableprop_getter(){}[0]
+final fun com.huanshankeji.compose.foundation.layout/Box(com.huanshankeji.compose.ui/Modifier, androidx.compose.runtime/Composer?, kotlin/Int) // com.huanshankeji.compose.foundation.layout/Box|Box(com.huanshankeji.compose.ui.Modifier;androidx.compose.runtime.Composer?;kotlin.Int){}[0]
+final fun com.huanshankeji.compose.foundation.layout/Box(com.huanshankeji.compose.ui/Modifier?, com.huanshankeji.compose.ui/Alignment?, kotlin/Function3<com.huanshankeji.compose.foundation.layout/BoxScope, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.foundation.layout/Box|Box(com.huanshankeji.compose.ui.Modifier?;com.huanshankeji.compose.ui.Alignment?;kotlin.Function3<com.huanshankeji.compose.foundation.layout.BoxScope,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun com.huanshankeji.compose.foundation.layout/Column(com.huanshankeji.compose.ui/Modifier?, com.huanshankeji.compose.foundation.layout/Arrangement.Vertical?, com.huanshankeji.compose.ui/Alignment.Horizontal?, kotlin/Function3<com.huanshankeji.compose.foundation.layout/ColumnScope, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.foundation.layout/Column|Column(com.huanshankeji.compose.ui.Modifier?;com.huanshankeji.compose.foundation.layout.Arrangement.Vertical?;com.huanshankeji.compose.ui.Alignment.Horizontal?;kotlin.Function3<com.huanshankeji.compose.foundation.layout.ColumnScope,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun com.huanshankeji.compose.foundation.layout/PaddingValues(androidx.compose.ui.unit/Dp = ..., androidx.compose.ui.unit/Dp = ...): com.huanshankeji.compose.foundation.layout/PaddingValues // com.huanshankeji.compose.foundation.layout/PaddingValues|PaddingValues(androidx.compose.ui.unit.Dp;androidx.compose.ui.unit.Dp){}[0]
+final fun com.huanshankeji.compose.foundation.layout/PaddingValues(androidx.compose.ui.unit/Dp = ..., androidx.compose.ui.unit/Dp = ..., androidx.compose.ui.unit/Dp = ..., androidx.compose.ui.unit/Dp = ...): com.huanshankeji.compose.foundation.layout/PaddingValues // com.huanshankeji.compose.foundation.layout/PaddingValues|PaddingValues(androidx.compose.ui.unit.Dp;androidx.compose.ui.unit.Dp;androidx.compose.ui.unit.Dp;androidx.compose.ui.unit.Dp){}[0]
+final fun com.huanshankeji.compose.foundation.layout/PaddingValues(androidx.compose.ui.unit/Dp): com.huanshankeji.compose.foundation.layout/PaddingValues // com.huanshankeji.compose.foundation.layout/PaddingValues|PaddingValues(androidx.compose.ui.unit.Dp){}[0]
+final fun com.huanshankeji.compose.foundation.layout/Row(com.huanshankeji.compose.ui/Modifier?, com.huanshankeji.compose.foundation.layout/Arrangement.Horizontal?, com.huanshankeji.compose.ui/Alignment.Vertical?, kotlin/Function3<com.huanshankeji.compose.foundation.layout/RowScope, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.foundation.layout/Row|Row(com.huanshankeji.compose.ui.Modifier?;com.huanshankeji.compose.foundation.layout.Arrangement.Horizontal?;com.huanshankeji.compose.ui.Alignment.Vertical?;kotlin.Function3<com.huanshankeji.compose.foundation.layout.RowScope,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun com.huanshankeji.compose.foundation.layout/Spacer(com.huanshankeji.compose.ui/Modifier, androidx.compose.runtime/Composer?, kotlin/Int) // com.huanshankeji.compose.foundation.layout/Spacer|Spacer(com.huanshankeji.compose.ui.Modifier;androidx.compose.runtime.Composer?;kotlin.Int){}[0]
+final fun com.huanshankeji.compose.foundation.layout/com_huanshankeji_compose_foundation_layout_Arrangement$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.foundation.layout/com_huanshankeji_compose_foundation_layout_Arrangement$stableprop_getter|com_huanshankeji_compose_foundation_layout_Arrangement$stableprop_getter(){}[0]
+final fun com.huanshankeji.compose.foundation.layout/com_huanshankeji_compose_foundation_layout_Arrangement_HorizontalOrVertical_Impl$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.foundation.layout/com_huanshankeji_compose_foundation_layout_Arrangement_HorizontalOrVertical_Impl$stableprop_getter|com_huanshankeji_compose_foundation_layout_Arrangement_HorizontalOrVertical_Impl$stableprop_getter(){}[0]
+final fun com.huanshankeji.compose.foundation.layout/com_huanshankeji_compose_foundation_layout_Arrangement_Horizontal_Impl$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.foundation.layout/com_huanshankeji_compose_foundation_layout_Arrangement_Horizontal_Impl$stableprop_getter|com_huanshankeji_compose_foundation_layout_Arrangement_Horizontal_Impl$stableprop_getter(){}[0]
+final fun com.huanshankeji.compose.foundation.layout/com_huanshankeji_compose_foundation_layout_Arrangement_Vertical_Impl$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.foundation.layout/com_huanshankeji_compose_foundation_layout_Arrangement_Vertical_Impl$stableprop_getter|com_huanshankeji_compose_foundation_layout_Arrangement_Vertical_Impl$stableprop_getter(){}[0]
+final fun com.huanshankeji.compose.foundation.layout/com_huanshankeji_compose_foundation_layout_PaddingValues$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.foundation.layout/com_huanshankeji_compose_foundation_layout_PaddingValues$stableprop_getter|com_huanshankeji_compose_foundation_layout_PaddingValues$stableprop_getter(){}[0]
+final fun com.huanshankeji.compose.foundation.layout/com_huanshankeji_compose_foundation_layout_PaddingValuesImpl$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.foundation.layout/com_huanshankeji_compose_foundation_layout_PaddingValuesImpl$stableprop_getter|com_huanshankeji_compose_foundation_layout_PaddingValuesImpl$stableprop_getter(){}[0]
+final fun com.huanshankeji.compose.foundation.layout/com_huanshankeji_compose_foundation_layout_PaddingValues_Absolute$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.foundation.layout/com_huanshankeji_compose_foundation_layout_PaddingValues_Absolute$stableprop_getter|com_huanshankeji_compose_foundation_layout_PaddingValues_Absolute$stableprop_getter(){}[0]
+final fun com.huanshankeji.compose.foundation.lazy/LazyColumn(com.huanshankeji.compose.ui/Modifier?, com.huanshankeji.compose.foundation.layout/PaddingValues?, kotlin/Boolean, com.huanshankeji.compose.foundation.layout/Arrangement.Vertical?, com.huanshankeji.compose.ui/Alignment.Horizontal?, kotlin/Function1<com.huanshankeji.compose.foundation.lazy/LazyListScope, kotlin/Unit>, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.foundation.lazy/LazyColumn|LazyColumn(com.huanshankeji.compose.ui.Modifier?;com.huanshankeji.compose.foundation.layout.PaddingValues?;kotlin.Boolean;com.huanshankeji.compose.foundation.layout.Arrangement.Vertical?;com.huanshankeji.compose.ui.Alignment.Horizontal?;kotlin.Function1<com.huanshankeji.compose.foundation.lazy.LazyListScope,kotlin.Unit>;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun com.huanshankeji.compose.foundation.lazy/LazyRow(com.huanshankeji.compose.ui/Modifier?, com.huanshankeji.compose.foundation.layout/PaddingValues?, kotlin/Boolean, com.huanshankeji.compose.foundation.layout/Arrangement.Horizontal?, com.huanshankeji.compose.ui/Alignment.Vertical?, kotlin/Function1<com.huanshankeji.compose.foundation.lazy/LazyListScope, kotlin/Unit>, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.foundation.lazy/LazyRow|LazyRow(com.huanshankeji.compose.ui.Modifier?;com.huanshankeji.compose.foundation.layout.PaddingValues?;kotlin.Boolean;com.huanshankeji.compose.foundation.layout.Arrangement.Horizontal?;com.huanshankeji.compose.ui.Alignment.Vertical?;kotlin.Function1<com.huanshankeji.compose.foundation.lazy.LazyListScope,kotlin.Unit>;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun com.huanshankeji.compose.foundation.lazy/com_huanshankeji_compose_foundation_lazy_LazyItemScope$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.foundation.lazy/com_huanshankeji_compose_foundation_lazy_LazyItemScope$stableprop_getter|com_huanshankeji_compose_foundation_lazy_LazyItemScope$stableprop_getter(){}[0]
+final fun com.huanshankeji.compose.foundation.lazy/com_huanshankeji_compose_foundation_lazy_LazyListScope$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.foundation.lazy/com_huanshankeji_compose_foundation_lazy_LazyListScope$stableprop_getter|com_huanshankeji_compose_foundation_lazy_LazyListScope$stableprop_getter(){}[0]
+final fun com.huanshankeji.compose.foundation.text.ext/InlineBasicText(kotlin/String, androidx.compose.runtime/Composer?, kotlin/Int) // com.huanshankeji.compose.foundation.text.ext/InlineBasicText|InlineBasicText(kotlin.String;androidx.compose.runtime.Composer?;kotlin.Int){}[0]
+final fun com.huanshankeji.compose.foundation.text.ext/SpanBasicText(kotlin/String, com.huanshankeji.compose.ui/Modifier?, com.huanshankeji.compose.ui.graphics/ColorProducer?, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.foundation.text.ext/SpanBasicText|SpanBasicText(kotlin.String;com.huanshankeji.compose.ui.Modifier?;com.huanshankeji.compose.ui.graphics.ColorProducer?;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun com.huanshankeji.compose.foundation.text.ext/TaglessBasicText(kotlin/String, androidx.compose.runtime/Composer?, kotlin/Int) // com.huanshankeji.compose.foundation.text.ext/TaglessBasicText|TaglessBasicText(kotlin.String;androidx.compose.runtime.Composer?;kotlin.Int){}[0]
+final fun com.huanshankeji.compose.foundation.text.input/com_huanshankeji_compose_foundation_text_input_PlatformImeOptions$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.foundation.text.input/com_huanshankeji_compose_foundation_text_input_PlatformImeOptions$stableprop_getter|com_huanshankeji_compose_foundation_text_input_PlatformImeOptions$stableprop_getter(){}[0]
+final fun com.huanshankeji.compose.foundation.text/BasicText(kotlin/String, androidx.compose.runtime/Composer?, kotlin/Int) // com.huanshankeji.compose.foundation.text/BasicText|BasicText(kotlin.String;androidx.compose.runtime.Composer?;kotlin.Int){}[0]
+final fun com.huanshankeji.compose.foundation.text/BasicText(kotlin/String, com.huanshankeji.compose.ui/Modifier?, com.huanshankeji.compose.ui.graphics/ColorProducer?, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.foundation.text/BasicText|BasicText(kotlin.String;com.huanshankeji.compose.ui.Modifier?;com.huanshankeji.compose.ui.graphics.ColorProducer?;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun com.huanshankeji.compose.foundation.text/com_huanshankeji_compose_foundation_text_KeyboardActionScope_DoNothingInstance$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.foundation.text/com_huanshankeji_compose_foundation_text_KeyboardActionScope_DoNothingInstance$stableprop_getter|com_huanshankeji_compose_foundation_text_KeyboardActionScope_DoNothingInstance$stableprop_getter(){}[0]
+final fun com.huanshankeji.compose.foundation.text/com_huanshankeji_compose_foundation_text_KeyboardOptions$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.foundation.text/com_huanshankeji_compose_foundation_text_KeyboardOptions$stableprop_getter|com_huanshankeji_compose_foundation_text_KeyboardOptions$stableprop_getter(){}[0]
+final fun com.huanshankeji.compose.foundation/HorizontalScrollBox(com.huanshankeji.compose.ui/Modifier?, com.huanshankeji.compose.ui/Modifier?, com.huanshankeji.compose.ui/Alignment?, kotlin/Function3<com.huanshankeji.compose.foundation.layout/BoxScope, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.foundation/HorizontalScrollBox|HorizontalScrollBox(com.huanshankeji.compose.ui.Modifier?;com.huanshankeji.compose.ui.Modifier?;com.huanshankeji.compose.ui.Alignment?;kotlin.Function3<com.huanshankeji.compose.foundation.layout.BoxScope,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun com.huanshankeji.compose.foundation/VerticalScrollBox(com.huanshankeji.compose.ui/Modifier?, com.huanshankeji.compose.ui/Modifier?, com.huanshankeji.compose.ui/Alignment?, kotlin/Function3<com.huanshankeji.compose.foundation.layout/BoxScope, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.foundation/VerticalScrollBox|VerticalScrollBox(com.huanshankeji.compose.ui.Modifier?;com.huanshankeji.compose.ui.Modifier?;com.huanshankeji.compose.ui.Alignment?;kotlin.Function3<com.huanshankeji.compose.foundation.layout.BoxScope,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+final fun com.huanshankeji.compose.foundation/com_huanshankeji_compose_foundation_BorderStroke$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.foundation/com_huanshankeji_compose_foundation_BorderStroke$stableprop_getter|com_huanshankeji_compose_foundation_BorderStroke$stableprop_getter(){}[0]
+final fun com.huanshankeji.compose.runtime/com_huanshankeji_compose_runtime_DeferredComposableRunner$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.runtime/com_huanshankeji_compose_runtime_DeferredComposableRunner$stableprop_getter|com_huanshankeji_compose_runtime_DeferredComposableRunner$stableprop_getter(){}[0]
+final fun com.huanshankeji.compose.ui.graphics/Color(kotlin/Float, kotlin/Float, kotlin/Float, kotlin/Float = ...): com.huanshankeji.compose.ui.graphics/Color // com.huanshankeji.compose.ui.graphics/Color|Color(kotlin.Float;kotlin.Float;kotlin.Float;kotlin.Float){}[0]
+final fun com.huanshankeji.compose.ui.graphics/Color(kotlin/Int): com.huanshankeji.compose.ui.graphics/Color // com.huanshankeji.compose.ui.graphics/Color|Color(kotlin.Int){}[0]
+final fun com.huanshankeji.compose.ui.graphics/Color(kotlin/Int, kotlin/Int, kotlin/Int, kotlin/Int = ...): com.huanshankeji.compose.ui.graphics/Color // com.huanshankeji.compose.ui.graphics/Color|Color(kotlin.Int;kotlin.Int;kotlin.Int;kotlin.Int){}[0]
+final fun com.huanshankeji.compose.ui.graphics/Color(kotlin/Long): com.huanshankeji.compose.ui.graphics/Color // com.huanshankeji.compose.ui.graphics/Color|Color(kotlin.Long){}[0]
+final fun com.huanshankeji.compose.ui.graphics/com_huanshankeji_compose_ui_graphics_Brush$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.ui.graphics/com_huanshankeji_compose_ui_graphics_Brush$stableprop_getter|com_huanshankeji_compose_ui_graphics_Brush$stableprop_getter(){}[0]
+final fun com.huanshankeji.compose.ui.graphics/com_huanshankeji_compose_ui_graphics_Color$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.ui.graphics/com_huanshankeji_compose_ui_graphics_Color$stableprop_getter|com_huanshankeji_compose_ui_graphics_Color$stableprop_getter(){}[0]
+final fun com.huanshankeji.compose.ui.unit.ext/com_huanshankeji_compose_ui_unit_ext_DpOrPercentage$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.ui.unit.ext/com_huanshankeji_compose_ui_unit_ext_DpOrPercentage$stableprop_getter|com_huanshankeji_compose_ui_unit_ext_DpOrPercentage$stableprop_getter(){}[0]
+final fun com.huanshankeji.compose.ui.unit.ext/com_huanshankeji_compose_ui_unit_ext_DpOrPercentage_Dp$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.ui.unit.ext/com_huanshankeji_compose_ui_unit_ext_DpOrPercentage_Dp$stableprop_getter|com_huanshankeji_compose_ui_unit_ext_DpOrPercentage_Dp$stableprop_getter(){}[0]
+final fun com.huanshankeji.compose.ui.unit.ext/com_huanshankeji_compose_ui_unit_ext_DpOrPercentage_Percentage$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.ui.unit.ext/com_huanshankeji_compose_ui_unit_ext_DpOrPercentage_Percentage$stableprop_getter|com_huanshankeji_compose_ui_unit_ext_DpOrPercentage_Percentage$stableprop_getter(){}[0]
+final inline fun <#A: kotlin/Any?> (com.huanshankeji.compose.foundation.lazy/LazyListScope).com.huanshankeji.compose.foundation.lazy/items(kotlin.collections/List<#A>, noinline kotlin/Function1<#A, kotlin/Any>? = ..., noinline kotlin/Function1<#A, kotlin/Any?> = ..., crossinline kotlin/Function4<com.huanshankeji.compose.foundation.lazy/LazyItemScope, #A, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>) // com.huanshankeji.compose.foundation.lazy/items|items@com.huanshankeji.compose.foundation.lazy.LazyListScope(kotlin.collections.List<0:0>;kotlin.Function1<0:0,kotlin.Any>?;kotlin.Function1<0:0,kotlin.Any?>;kotlin.Function4<com.huanshankeji.compose.foundation.lazy.LazyItemScope,0:0,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>){0§<kotlin.Any?>}[0]
+final inline fun <#A: kotlin/Any?> (com.huanshankeji.compose.foundation.lazy/LazyListScope).com.huanshankeji.compose.foundation.lazy/items(kotlin/Array<#A>, noinline kotlin/Function1<#A, kotlin/Any>? = ..., noinline kotlin/Function1<#A, kotlin/Any?> = ..., crossinline kotlin/Function4<com.huanshankeji.compose.foundation.lazy/LazyItemScope, #A, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>) // com.huanshankeji.compose.foundation.lazy/items|items@com.huanshankeji.compose.foundation.lazy.LazyListScope(kotlin.Array<0:0>;kotlin.Function1<0:0,kotlin.Any>?;kotlin.Function1<0:0,kotlin.Any?>;kotlin.Function4<com.huanshankeji.compose.foundation.lazy.LazyItemScope,0:0,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>){0§<kotlin.Any?>}[0]
+final inline fun <#A: kotlin/Any?> (com.huanshankeji.compose.foundation.lazy/LazyListScope).com.huanshankeji.compose.foundation.lazy/itemsIndexed(kotlin.collections/List<#A>, noinline kotlin/Function2<kotlin/Int, #A, kotlin/Any>? = ..., crossinline kotlin/Function2<kotlin/Int, #A, kotlin/Any?> = ..., crossinline kotlin/Function5<com.huanshankeji.compose.foundation.lazy/LazyItemScope, kotlin/Int, #A, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>) // com.huanshankeji.compose.foundation.lazy/itemsIndexed|itemsIndexed@com.huanshankeji.compose.foundation.lazy.LazyListScope(kotlin.collections.List<0:0>;kotlin.Function2<kotlin.Int,0:0,kotlin.Any>?;kotlin.Function2<kotlin.Int,0:0,kotlin.Any?>;kotlin.Function5<com.huanshankeji.compose.foundation.lazy.LazyItemScope,kotlin.Int,0:0,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>){0§<kotlin.Any?>}[0]
+final inline fun <#A: kotlin/Any?> (com.huanshankeji.compose.foundation.lazy/LazyListScope).com.huanshankeji.compose.foundation.lazy/itemsIndexed(kotlin/Array<#A>, noinline kotlin/Function2<kotlin/Int, #A, kotlin/Any>? = ..., crossinline kotlin/Function2<kotlin/Int, #A, kotlin/Any?> = ..., crossinline kotlin/Function5<com.huanshankeji.compose.foundation.lazy/LazyItemScope, kotlin/Int, #A, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>) // com.huanshankeji.compose.foundation.lazy/itemsIndexed|itemsIndexed@com.huanshankeji.compose.foundation.lazy.LazyListScope(kotlin.Array<0:0>;kotlin.Function2<kotlin.Int,0:0,kotlin.Any>?;kotlin.Function2<kotlin.Int,0:0,kotlin.Any?>;kotlin.Function5<com.huanshankeji.compose.foundation.lazy.LazyItemScope,kotlin.Int,0:0,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>){0§<kotlin.Any?>}[0]
+
+// Targets: [ios, wasmJs]
+final class com.huanshankeji.compose.foundation.lazy/LazyItemScope { // com.huanshankeji.compose.foundation.lazy/LazyItemScope|null[0]
+    constructor <init>(androidx.compose.foundation.lazy/LazyItemScope) // com.huanshankeji.compose.foundation.lazy/LazyItemScope.<init>|<init>(androidx.compose.foundation.lazy.LazyItemScope){}[0]
+
+    final val platformValue // com.huanshankeji.compose.foundation.lazy/LazyItemScope.platformValue|{}platformValue[0]
+        final fun <get-platformValue>(): androidx.compose.foundation.lazy/LazyItemScope // com.huanshankeji.compose.foundation.lazy/LazyItemScope.platformValue.<get-platformValue>|<get-platformValue>(){}[0]
+
+    final fun (com.huanshankeji.compose.ui/Modifier).fillParentMaxHeight(kotlin/Float = ...): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.lazy/LazyItemScope.fillParentMaxHeight|fillParentMaxHeight@com.huanshankeji.compose.ui.Modifier(kotlin.Float){}[0]
+    final fun (com.huanshankeji.compose.ui/Modifier).fillParentMaxSize(kotlin/Float = ...): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.lazy/LazyItemScope.fillParentMaxSize|fillParentMaxSize@com.huanshankeji.compose.ui.Modifier(kotlin.Float){}[0]
+    final fun (com.huanshankeji.compose.ui/Modifier).fillParentMaxWidth(kotlin/Float = ...): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.lazy/LazyItemScope.fillParentMaxWidth|fillParentMaxWidth@com.huanshankeji.compose.ui.Modifier(kotlin.Float){}[0]
+}
+
+// Targets: [ios, wasmJs]
+final fun (androidx.compose.foundation.layout/PaddingValues).com.huanshankeji.compose.foundation.layout/toCommonValue(): com.huanshankeji.compose.foundation.layout/PaddingValues // com.huanshankeji.compose.foundation.layout/toCommonValue|toCommonValue@androidx.compose.foundation.layout.PaddingValues(){}[0]
+
+// Targets: [ios, wasmJs]
+final fun (androidx.compose.foundation.text/KeyboardActionScope).com.huanshankeji.compose.foundation.text/toCommonValue(): com.huanshankeji.compose.foundation.text/KeyboardActionScope // com.huanshankeji.compose.foundation.text/toCommonValue|toCommonValue@androidx.compose.foundation.text.KeyboardActionScope(){}[0]
+
+// Targets: [ios, wasmJs]
+final fun (com.huanshankeji.compose.foundation.layout/IntrinsicSize).com.huanshankeji.compose.foundation.layout/toPlatformValue(): androidx.compose.foundation.layout/IntrinsicSize // com.huanshankeji.compose.foundation.layout/toPlatformValue|toPlatformValue@com.huanshankeji.compose.foundation.layout.IntrinsicSize(){}[0]
+
+// Targets: [ios, wasmJs]
+final fun (com.huanshankeji.compose.foundation.text.input/ImeAction).com.huanshankeji.compose.foundation.text.input/toPlatformValue(): androidx.compose.ui.text.input/ImeAction // com.huanshankeji.compose.foundation.text.input/toPlatformValue|toPlatformValue@com.huanshankeji.compose.foundation.text.input.ImeAction(){}[0]
+
+// Targets: [ios, wasmJs]
+final fun (com.huanshankeji.compose.foundation.text.input/ImeAction?).com.huanshankeji.compose.foundation.text.input/toPlatformValue(): androidx.compose.ui.text.input/ImeAction // com.huanshankeji.compose.foundation.text.input/toPlatformValue|toPlatformValue@com.huanshankeji.compose.foundation.text.input.ImeAction?(){}[0]
+
+// Targets: [ios, wasmJs]
+final fun (com.huanshankeji.compose.foundation.text.input/KeyboardCapitalization).com.huanshankeji.compose.foundation.text.input/toPlatformValue(): androidx.compose.ui.text.input/KeyboardCapitalization // com.huanshankeji.compose.foundation.text.input/toPlatformValue|toPlatformValue@com.huanshankeji.compose.foundation.text.input.KeyboardCapitalization(){}[0]
+
+// Targets: [ios, wasmJs]
+final fun (com.huanshankeji.compose.foundation.text.input/KeyboardCapitalization?).com.huanshankeji.compose.foundation.text.input/toPlatformValue(): androidx.compose.ui.text.input/KeyboardCapitalization // com.huanshankeji.compose.foundation.text.input/toPlatformValue|toPlatformValue@com.huanshankeji.compose.foundation.text.input.KeyboardCapitalization?(){}[0]
+
+// Targets: [ios, wasmJs]
+final fun (com.huanshankeji.compose.foundation.text.input/KeyboardType).com.huanshankeji.compose.foundation.text.input/toPlatformValue(): androidx.compose.ui.text.input/KeyboardType // com.huanshankeji.compose.foundation.text.input/toPlatformValue|toPlatformValue@com.huanshankeji.compose.foundation.text.input.KeyboardType(){}[0]
+
+// Targets: [ios, wasmJs]
+final fun (com.huanshankeji.compose.foundation.text.input/KeyboardType?).com.huanshankeji.compose.foundation.text.input/toPlatformValue(): androidx.compose.ui.text.input/KeyboardType // com.huanshankeji.compose.foundation.text.input/toPlatformValue|toPlatformValue@com.huanshankeji.compose.foundation.text.input.KeyboardType?(){}[0]
+
+// Targets: [ios, wasmJs]
+final fun (com.huanshankeji.compose.foundation.text/KeyboardActions).com.huanshankeji.compose.foundation.text/toPlatformValue(): androidx.compose.foundation.text/KeyboardActions // com.huanshankeji.compose.foundation.text/toPlatformValue|toPlatformValue@com.huanshankeji.compose.foundation.text.KeyboardActions(){}[0]
+
+// Targets: [ios, wasmJs]
+final fun (com.huanshankeji.compose.foundation.text/KeyboardOptions).com.huanshankeji.compose.foundation.text/toPlatformValue(): androidx.compose.foundation.text/KeyboardOptions // com.huanshankeji.compose.foundation.text/toPlatformValue|toPlatformValue@com.huanshankeji.compose.foundation.text.KeyboardOptions(){}[0]
+
+// Targets: [ios, wasmJs]
+final fun (com.huanshankeji.compose.foundation/BorderStroke).com.huanshankeji.compose.foundation/toPlatformValue(): androidx.compose.foundation/BorderStroke // com.huanshankeji.compose.foundation/toPlatformValue|toPlatformValue@com.huanshankeji.compose.foundation.BorderStroke(){}[0]
+
+// Targets: [ios, wasmJs]
+final fun (com.huanshankeji.compose.ui.graphics/Color?).com.huanshankeji.compose.ui.graphics/toPlatformValue(): androidx.compose.ui.graphics/Color // com.huanshankeji.compose.ui.graphics/toPlatformValue|toPlatformValue@com.huanshankeji.compose.ui.graphics.Color?(){}[0]
+
+// Targets: [ios, wasmJs]
+final fun (com.huanshankeji.compose.ui.graphics/ColorProducer).com.huanshankeji.compose.ui.graphics/toPlatformValue(): androidx.compose.ui.graphics/ColorProducer // com.huanshankeji.compose.ui.graphics/toPlatformValue|toPlatformValue@com.huanshankeji.compose.ui.graphics.ColorProducer(){}[0]
+
+// Targets: [ios, wasmJs]
+final fun (com.huanshankeji.compose.ui.graphics/ColorProducer?).com.huanshankeji.compose.ui.graphics/toNullablePlatformValue(): androidx.compose.ui.graphics/ColorProducer? // com.huanshankeji.compose.ui.graphics/toNullablePlatformValue|toNullablePlatformValue@com.huanshankeji.compose.ui.graphics.ColorProducer?(){}[0]
+
+// Targets: [ios, wasmJs]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.foundation/horizontalScroll(androidx.compose.foundation/ScrollState): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation/horizontalScroll|horizontalScroll@com.huanshankeji.compose.ui.Modifier(androidx.compose.foundation.ScrollState){}[0]
+
+// Targets: [ios, wasmJs]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.foundation/verticalScroll(androidx.compose.foundation/ScrollState): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation/verticalScroll|verticalScroll@com.huanshankeji.compose.ui.Modifier(androidx.compose.foundation.ScrollState){}[0]
+
+// Targets: [ios, wasmJs]
+final fun (kotlin/Function3<com.huanshankeji.compose.foundation.layout/ColumnScope, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>).com.huanshankeji.compose.foundation.layout/toCommonColumnScopeContent(): kotlin/Function3<androidx.compose.foundation.layout/ColumnScope, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit> // com.huanshankeji.compose.foundation.layout/toCommonColumnScopeContent|toCommonColumnScopeContent@kotlin.Function3<com.huanshankeji.compose.foundation.layout.ColumnScope,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>(){}[0]
+
+// Targets: [ios, wasmJs]
+final fun (kotlin/Function3<com.huanshankeji.compose.foundation.layout/RowScope, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>).com.huanshankeji.compose.foundation.layout/toPlatformRowScopeContent(): kotlin/Function3<androidx.compose.foundation.layout/RowScope, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit> // com.huanshankeji.compose.foundation.layout/toPlatformRowScopeContent|toPlatformRowScopeContent@kotlin.Function3<com.huanshankeji.compose.foundation.layout.RowScope,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>(){}[0]
+
+// Targets: [ios, wasmJs]
+final fun (kotlin/Function3<com.huanshankeji.compose.ui/Modifier, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>).com.huanshankeji.compose/toContentWithoutModifier(): kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit> // com.huanshankeji.compose/toContentWithoutModifier|toContentWithoutModifier@kotlin.Function3<com.huanshankeji.compose.ui.Modifier,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>(){}[0]
+
+// Targets: [ios, wasmJs]
+final fun (kotlin/Function3<com.huanshankeji.compose.ui/Modifier, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>?).com.huanshankeji.compose/toNullableContentWithoutModifier(): kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>? // com.huanshankeji.compose/toNullableContentWithoutModifier|toNullableContentWithoutModifier@kotlin.Function3<com.huanshankeji.compose.ui.Modifier,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>?(){}[0]
+
+// Targets: [ios, wasmJs]
+final fun com.huanshankeji.compose.foundation/rememberScrollState(kotlin/Int, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int): androidx.compose.foundation/ScrollState // com.huanshankeji.compose.foundation/rememberScrollState|rememberScrollState(kotlin.Int;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+
+// Targets: [js]
+final enum class com.huanshankeji.browser/Browser : kotlin/Enum<com.huanshankeji.browser/Browser> { // com.huanshankeji.browser/Browser|null[0]
+    enum entry Mozilla // com.huanshankeji.browser/Browser.Mozilla|null[0]
+    enum entry Webkit // com.huanshankeji.browser/Browser.Webkit|null[0]
+
+    final val entries // com.huanshankeji.browser/Browser.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<com.huanshankeji.browser/Browser> // com.huanshankeji.browser/Browser.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): com.huanshankeji.browser/Browser // com.huanshankeji.browser/Browser.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<com.huanshankeji.browser/Browser> // com.huanshankeji.browser/Browser.values|values#static(){}[0]
+}
+
+// Targets: [js]
+final object com.huanshankeji.compose.foundation.lazy/LazyItemScope { // com.huanshankeji.compose.foundation.lazy/LazyItemScope|null[0]
+    final fun (com.huanshankeji.compose.ui/Modifier).fillParentMaxHeight(kotlin/Float = ...): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.lazy/LazyItemScope.fillParentMaxHeight|fillParentMaxHeight@com.huanshankeji.compose.ui.Modifier(kotlin.Float){}[0]
+    final fun (com.huanshankeji.compose.ui/Modifier).fillParentMaxSize(kotlin/Float = ...): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.lazy/LazyItemScope.fillParentMaxSize|fillParentMaxSize@com.huanshankeji.compose.ui.Modifier(kotlin.Float){}[0]
+    final fun (com.huanshankeji.compose.ui/Modifier).fillParentMaxWidth(kotlin/Float = ...): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.lazy/LazyItemScope.fillParentMaxWidth|fillParentMaxWidth@com.huanshankeji.compose.ui.Modifier(kotlin.Float){}[0]
+}
+
+// Targets: [js]
+final object com.huanshankeji.compose.foundation/ScrollState // com.huanshankeji.compose.foundation/ScrollState|null[0]
+
+// Targets: [js]
+final val com.huanshankeji.browser/browser // com.huanshankeji.browser/browser|{}browser[0]
+    final fun <get-browser>(): com.huanshankeji.browser/Browser? // com.huanshankeji.browser/browser.<get-browser>|<get-browser>(){}[0]
+
+// Targets: [js]
+final val com.huanshankeji.compose.foundation.layout.ext/cssHeightStretchValueBrowserDependent // com.huanshankeji.compose.foundation.layout.ext/cssHeightStretchValueBrowserDependent|{}cssHeightStretchValueBrowserDependent[0]
+    final fun <get-cssHeightStretchValueBrowserDependent>(): kotlin/String // com.huanshankeji.compose.foundation.layout.ext/cssHeightStretchValueBrowserDependent.<get-cssHeightStretchValueBrowserDependent>|<get-cssHeightStretchValueBrowserDependent>(){}[0]
+
+// Targets: [js]
+final val com.huanshankeji.compose.foundation.layout.ext/cssWidthStretchValueBrowserDependent // com.huanshankeji.compose.foundation.layout.ext/cssWidthStretchValueBrowserDependent|{}cssWidthStretchValueBrowserDependent[0]
+    final fun <get-cssWidthStretchValueBrowserDependent>(): kotlin/String // com.huanshankeji.compose.foundation.layout.ext/cssWidthStretchValueBrowserDependent.<get-cssWidthStretchValueBrowserDependent>|<get-cssWidthStretchValueBrowserDependent>(){}[0]
+
+// Targets: [js]
+final val com.huanshankeji.compose.foundation.layout/com_huanshankeji_compose_foundation_layout_Arrangement_HorizontalOrVertical_FromStyleImpl$stableprop // com.huanshankeji.compose.foundation.layout/com_huanshankeji_compose_foundation_layout_Arrangement_HorizontalOrVertical_FromStyleImpl$stableprop|#static{}com_huanshankeji_compose_foundation_layout_Arrangement_HorizontalOrVertical_FromStyleImpl$stableprop[0]
+
+// Targets: [js]
+final val com.huanshankeji.compose.foundation/com_huanshankeji_compose_foundation_ScrollState$stableprop // com.huanshankeji.compose.foundation/com_huanshankeji_compose_foundation_ScrollState$stableprop|#static{}com_huanshankeji_compose_foundation_ScrollState$stableprop[0]
+
+// Targets: [js]
+final val com.huanshankeji.compose.foundation/imitateComposeUiLayoutHorizontalScrollPlatformModifier // com.huanshankeji.compose.foundation/imitateComposeUiLayoutHorizontalScrollPlatformModifier|{}imitateComposeUiLayoutHorizontalScrollPlatformModifier[0]
+    final fun <get-imitateComposeUiLayoutHorizontalScrollPlatformModifier>(): com.varabyte.kobweb.compose.ui/Modifier // com.huanshankeji.compose.foundation/imitateComposeUiLayoutHorizontalScrollPlatformModifier.<get-imitateComposeUiLayoutHorizontalScrollPlatformModifier>|<get-imitateComposeUiLayoutHorizontalScrollPlatformModifier>(){}[0]
+
+// Targets: [js]
+final val com.huanshankeji.compose.foundation/imitateComposeUiLayoutVerticalScrollPlatformModifier // com.huanshankeji.compose.foundation/imitateComposeUiLayoutVerticalScrollPlatformModifier|{}imitateComposeUiLayoutVerticalScrollPlatformModifier[0]
+    final fun <get-imitateComposeUiLayoutVerticalScrollPlatformModifier>(): com.varabyte.kobweb.compose.ui/Modifier // com.huanshankeji.compose.foundation/imitateComposeUiLayoutVerticalScrollPlatformModifier.<get-imitateComposeUiLayoutVerticalScrollPlatformModifier>|<get-imitateComposeUiLayoutVerticalScrollPlatformModifier>(){}[0]
+
+// Targets: [js]
+final fun (androidx.compose.ui.unit/Dp).com.huanshankeji.compose.ui.unit/toPx(): org.jetbrains.compose.web.css/CSSSizeValue<org.jetbrains.compose.web.css/CSSUnit.px> // com.huanshankeji.compose.ui.unit/toPx|toPx@androidx.compose.ui.unit.Dp(){}[0]
+
+// Targets: [js]
+final fun (com.huanshankeji.compose.foundation.text.input/KeyboardCapitalization).com.huanshankeji.compose.foundation.text.input/toAutoCapitalizeAttrValue(): kotlin/String // com.huanshankeji.compose.foundation.text.input/toAutoCapitalizeAttrValue|toAutoCapitalizeAttrValue@com.huanshankeji.compose.foundation.text.input.KeyboardCapitalization(){}[0]
+
+// Targets: [js]
+final fun (com.huanshankeji.compose.foundation.text.input/KeyboardType).com.huanshankeji.compose.foundation.text.input/toInputMode(): org.jetbrains.compose.web.attributes/InputMode? // com.huanshankeji.compose.foundation.text.input/toInputMode|toInputMode@com.huanshankeji.compose.foundation.text.input.KeyboardType(){}[0]
+
+// Targets: [js]
+final fun (com.huanshankeji.compose.ui.graphics/ColorProducer?).com.huanshankeji.compose.ui.graphics/toNullableAttrs(): kotlin/Function1<org.jetbrains.compose.web.attributes/AttrsScope<*>, kotlin/Unit>? // com.huanshankeji.compose.ui.graphics/toNullableAttrs|toNullableAttrs@com.huanshankeji.compose.ui.graphics.ColorProducer?(){}[0]
+
+// Targets: [js]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.foundation/horizontalScroll(com.huanshankeji.compose.foundation/ScrollState): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation/horizontalScroll|horizontalScroll@com.huanshankeji.compose.ui.Modifier(com.huanshankeji.compose.foundation.ScrollState){}[0]
+
+// Targets: [js]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.foundation/verticalScroll(com.huanshankeji.compose.foundation/ScrollState): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation/verticalScroll|verticalScroll@com.huanshankeji.compose.ui.Modifier(com.huanshankeji.compose.foundation.ScrollState){}[0]
+
+// Targets: [js]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.ui.graphics/toAttrsWithColor(com.huanshankeji.compose.ui.graphics/Color?): kotlin/Function1<org.jetbrains.compose.web.attributes/AttrsScope<*>, kotlin/Unit> // com.huanshankeji.compose.ui.graphics/toAttrsWithColor|toAttrsWithColor@com.huanshankeji.compose.ui.Modifier(com.huanshankeji.compose.ui.graphics.Color?){}[0]
+
+// Targets: [js]
+final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.ui.graphics/toAttrsWithColor(com.huanshankeji.compose.ui.graphics/ColorProducer?): kotlin/Function1<org.jetbrains.compose.web.attributes/AttrsScope<*>, kotlin/Unit> // com.huanshankeji.compose.ui.graphics/toAttrsWithColor|toAttrsWithColor@com.huanshankeji.compose.ui.Modifier(com.huanshankeji.compose.ui.graphics.ColorProducer?){}[0]
+
+// Targets: [js]
+final fun (com.varabyte.kobweb.compose.ui/Modifier).com.huanshankeji.compose.foundation.layout/flexBasis0(): com.varabyte.kobweb.compose.ui/Modifier // com.huanshankeji.compose.foundation.layout/flexBasis0|flexBasis0@com.varabyte.kobweb.compose.ui.Modifier(){}[0]
+
+// Targets: [js]
+final fun (com.varabyte.kobweb.compose.ui/Modifier).com.huanshankeji.compose.foundation.layout/stylesFrom(com.huanshankeji.compose.foundation.layout/Arrangement.CommonArrangement): com.varabyte.kobweb.compose.ui/Modifier // com.huanshankeji.compose.foundation.layout/stylesFrom|stylesFrom@com.varabyte.kobweb.compose.ui.Modifier(com.huanshankeji.compose.foundation.layout.Arrangement.CommonArrangement){}[0]
+
+// Targets: [js]
+final fun (com.varabyte.kobweb.compose.ui/Modifier).com.huanshankeji.compose.foundation/horizontalScroll(): com.varabyte.kobweb.compose.ui/Modifier // com.huanshankeji.compose.foundation/horizontalScroll|horizontalScroll@com.varabyte.kobweb.compose.ui.Modifier(){}[0]
+
+// Targets: [js]
+final fun (com.varabyte.kobweb.compose.ui/Modifier).com.huanshankeji.compose.foundation/verticalScroll(): com.varabyte.kobweb.compose.ui/Modifier // com.huanshankeji.compose.foundation/verticalScroll|verticalScroll@com.varabyte.kobweb.compose.ui.Modifier(){}[0]
+
+// Targets: [js]
+final fun (com.varabyte.kobweb.compose.ui/Modifier).com.huanshankeji.compose.ui/toCommonModifier(): com.huanshankeji.compose.ui/Modifier.Impl // com.huanshankeji.compose.ui/toCommonModifier|toCommonModifier@com.varabyte.kobweb.compose.ui.Modifier(){}[0]
+
+// Targets: [js]
+final fun (com.varabyte.kobweb.compose.ui/Modifier).com.huanshankeji.kobweb.compose.ui.modifiers/imitateComposeUiLayout(): com.varabyte.kobweb.compose.ui/Modifier // com.huanshankeji.kobweb.compose.ui.modifiers/imitateComposeUiLayout|imitateComposeUiLayout@com.varabyte.kobweb.compose.ui.Modifier(){}[0]
+
+// Targets: [js]
+final fun (com.varabyte.kobweb.compose.ui/Modifier).com.huanshankeji.kobweb.compose.ui.modifiers/size(com.varabyte.kobweb.compose.css/Width, com.varabyte.kobweb.compose.css/Height): com.varabyte.kobweb.compose.ui/Modifier // com.huanshankeji.kobweb.compose.ui.modifiers/size|size@com.varabyte.kobweb.compose.ui.Modifier(com.varabyte.kobweb.compose.css.Width;com.varabyte.kobweb.compose.css.Height){}[0]
+
+// Targets: [js]
+final fun (com.varabyte.kobweb.compose.ui/Modifier).com.huanshankeji.kobweb.compose.ui.modifiers/sizeFitContent(): com.varabyte.kobweb.compose.ui/Modifier // com.huanshankeji.kobweb.compose.ui.modifiers/sizeFitContent|sizeFitContent@com.varabyte.kobweb.compose.ui.Modifier(){}[0]
+
+// Targets: [js]
+final fun (kotlin/Float).com.huanshankeji.compose.ui.unit/toPercent(): org.jetbrains.compose.web.css/CSSSizeValue<org.jetbrains.compose.web.css/CSSUnit.percent> // com.huanshankeji.compose.ui.unit/toPercent|toPercent@kotlin.Float(){}[0]
+
+// Targets: [js]
+final fun (kotlin/Function3<com.huanshankeji.compose.foundation.layout/ColumnScope, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>).com.huanshankeji.compose.foundation.layout/toCommonColumnScopeContent(): kotlin/Function3<com.varabyte.kobweb.compose.foundation.layout/ColumnScope, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit> // com.huanshankeji.compose.foundation.layout/toCommonColumnScopeContent|toCommonColumnScopeContent@kotlin.Function3<com.huanshankeji.compose.foundation.layout.ColumnScope,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>(){}[0]
+
+// Targets: [js]
+final fun (kotlin/Function3<com.huanshankeji.compose.foundation.layout/RowScope, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>).com.huanshankeji.compose.foundation.layout/toPlatformRowScopeContent(): kotlin/Function3<com.varabyte.kobweb.compose.foundation.layout/RowScope, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit> // com.huanshankeji.compose.foundation.layout/toPlatformRowScopeContent|toPlatformRowScopeContent@kotlin.Function3<com.huanshankeji.compose.foundation.layout.RowScope,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>(){}[0]
+
+// Targets: [js]
+final fun (org.jetbrains.compose.web.attributes/AttrsScope<*>).com.huanshankeji.compose.foundation.text/attrsFrom(com.huanshankeji.compose.foundation.text/KeyboardOptions) // com.huanshankeji.compose.foundation.text/attrsFrom|attrsFrom@org.jetbrains.compose.web.attributes.AttrsScope<*>(com.huanshankeji.compose.foundation.text.KeyboardOptions){}[0]
+
+// Targets: [js]
+final fun (org.jetbrains.compose.web.attributes/AttrsScope<*>).com.huanshankeji.compose.ui.graphics/applyAttrs(com.huanshankeji.compose.ui.graphics/ColorProducer) // com.huanshankeji.compose.ui.graphics/applyAttrs|applyAttrs@org.jetbrains.compose.web.attributes.AttrsScope<*>(com.huanshankeji.compose.ui.graphics.ColorProducer){}[0]
+
+// Targets: [js]
+final fun (org.jetbrains.compose.web.attributes/AttrsScope<*>).com.huanshankeji.compose/contentDescription(kotlin/String?): org.jetbrains.compose.web.attributes/AttrsScope<org.w3c.dom/Element>? // com.huanshankeji.compose/contentDescription|contentDescription@org.jetbrains.compose.web.attributes.AttrsScope<*>(kotlin.String?){}[0]
+
+// Targets: [js]
+final fun (org.jetbrains.compose.web.attributes/AttrsScope<org.w3c.dom/HTMLElement>).com.huanshankeji.compose.foundation.text/attrsFrom(com.huanshankeji.compose.foundation.text/KeyboardOptions, com.huanshankeji.compose.foundation.text/KeyboardActions) // com.huanshankeji.compose.foundation.text/attrsFrom|attrsFrom@org.jetbrains.compose.web.attributes.AttrsScope<org.w3c.dom.HTMLElement>(com.huanshankeji.compose.foundation.text.KeyboardOptions;com.huanshankeji.compose.foundation.text.KeyboardActions){}[0]
+
+// Targets: [js]
+final fun (org.jetbrains.compose.web.css/StyleScope).com.huanshankeji.compose.foundation.ext.css/horizontalScroll() // com.huanshankeji.compose.foundation.ext.css/horizontalScroll|horizontalScroll@org.jetbrains.compose.web.css.StyleScope(){}[0]
+
+// Targets: [js]
+final fun (org.jetbrains.compose.web.css/StyleScope).com.huanshankeji.compose.foundation.ext.css/verticalScroll() // com.huanshankeji.compose.foundation.ext.css/verticalScroll|verticalScroll@org.jetbrains.compose.web.css.StyleScope(){}[0]
+
+// Targets: [js]
+final fun (org.jetbrains.compose.web.css/StyleScope).com.huanshankeji.compose.foundation.ext/matchPositionRelativeParent() // com.huanshankeji.compose.foundation.ext/matchPositionRelativeParent|matchPositionRelativeParent@org.jetbrains.compose.web.css.StyleScope(){}[0]
+
+// Targets: [js]
+final fun (org.jetbrains.compose.web.css/StyleScope).com.huanshankeji.compose.foundation.layout.ext/heightStretch() // com.huanshankeji.compose.foundation.layout.ext/heightStretch|heightStretch@org.jetbrains.compose.web.css.StyleScope(){}[0]
+
+// Targets: [js]
+final fun (org.jetbrains.compose.web.css/StyleScope).com.huanshankeji.compose.foundation.layout.ext/widthStretch() // com.huanshankeji.compose.foundation.layout.ext/widthStretch|widthStretch@org.jetbrains.compose.web.css.StyleScope(){}[0]
+
+// Targets: [js]
+final fun (org.jetbrains.compose.web.css/StyleScope).com.huanshankeji.compose.ui.graphics/applyStyle(com.huanshankeji.compose.ui.graphics/ColorProducer) // com.huanshankeji.compose.ui.graphics/applyStyle|applyStyle@org.jetbrains.compose.web.css.StyleScope(com.huanshankeji.compose.ui.graphics.ColorProducer){}[0]
+
+// Targets: [js]
+final fun <#A: org.jetbrains.compose.web.attributes/AttrsScope<org.w3c.dom/Element>> (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.ui/toAttrs(kotlin/Function1<#A, kotlin/Unit>? = ...): kotlin/Function1<#A, kotlin/Unit> // com.huanshankeji.compose.ui/toAttrs|toAttrs@com.huanshankeji.compose.ui.Modifier(kotlin.Function1<0:0,kotlin.Unit>?){0§<org.jetbrains.compose.web.attributes.AttrsScope<org.w3c.dom.Element>>}[0]
+
+// Targets: [js]
+final fun com.huanshankeji.compose.foundation.layout.ext/DivBox(com.varabyte.kobweb.compose.ui/Modifier?, kotlin/Function3<org.jetbrains.compose.web.dom/ElementScope<org.w3c.dom/HTMLDivElement>, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>?, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.foundation.layout.ext/DivBox|DivBox(com.varabyte.kobweb.compose.ui.Modifier?;kotlin.Function3<org.jetbrains.compose.web.dom.ElementScope<org.w3c.dom.HTMLDivElement>,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>?;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+
+// Targets: [js]
+final fun com.huanshankeji.compose.foundation.layout.ext/KobwebBox(com.huanshankeji.compose.ui/Modifier?, com.huanshankeji.compose.ui/Alignment, kotlin/Function3<com.huanshankeji.compose.foundation.layout/BoxScope, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>?, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.foundation.layout.ext/KobwebBox|KobwebBox(com.huanshankeji.compose.ui.Modifier?;com.huanshankeji.compose.ui.Alignment;kotlin.Function3<com.huanshankeji.compose.foundation.layout.BoxScope,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>?;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+
+// Targets: [js]
+final fun com.huanshankeji.compose.foundation.layout.ext/KobwebBox(com.varabyte.kobweb.compose.ui/Modifier?, com.varabyte.kobweb.compose.ui/Alignment?, com.varabyte.kobweb.compose.dom/ElementRefScope<org.w3c.dom/HTMLElement>?, kotlin/Function3<com.varabyte.kobweb.compose.foundation.layout/BoxScope, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>?, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.foundation.layout.ext/KobwebBox|KobwebBox(com.varabyte.kobweb.compose.ui.Modifier?;com.varabyte.kobweb.compose.ui.Alignment?;com.varabyte.kobweb.compose.dom.ElementRefScope<org.w3c.dom.HTMLElement>?;kotlin.Function3<com.varabyte.kobweb.compose.foundation.layout.BoxScope,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>?;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+
+// Targets: [js]
+final fun com.huanshankeji.compose.foundation.layout/com_huanshankeji_compose_foundation_layout_Arrangement_HorizontalOrVertical_FromStyleImpl$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.foundation.layout/com_huanshankeji_compose_foundation_layout_Arrangement_HorizontalOrVertical_FromStyleImpl$stableprop_getter|com_huanshankeji_compose_foundation_layout_Arrangement_HorizontalOrVertical_FromStyleImpl$stableprop_getter(){}[0]
+
+// Targets: [js]
+final fun com.huanshankeji.compose.foundation.text.ext/CommonBasicText(kotlin/String, com.huanshankeji.compose.ui/Modifier, com.huanshankeji.compose.ui.graphics/Color?, androidx.compose.runtime/Composer?, kotlin/Int) // com.huanshankeji.compose.foundation.text.ext/CommonBasicText|CommonBasicText(kotlin.String;com.huanshankeji.compose.ui.Modifier;com.huanshankeji.compose.ui.graphics.Color?;androidx.compose.runtime.Composer?;kotlin.Int){}[0]
+
+// Targets: [js]
+final fun com.huanshankeji.compose.foundation/com_huanshankeji_compose_foundation_ScrollState$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.foundation/com_huanshankeji_compose_foundation_ScrollState$stableprop_getter|com_huanshankeji_compose_foundation_ScrollState$stableprop_getter(){}[0]
+
+// Targets: [js]
+final fun com.huanshankeji.compose.foundation/rememberScrollState(kotlin/Int, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int): com.huanshankeji.compose.foundation/ScrollState // com.huanshankeji.compose.foundation/rememberScrollState|rememberScrollState(kotlin.Int;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]

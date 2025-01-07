@@ -41,7 +41,7 @@ jobs:
         uses: gradle/actions/setup-gradle@v4
 
       - name: Build the distribution with Gradle Wrapper
-        run: ./gradlew :demo:sideBySideBrowserDistribution
+        run: ./gradlew :compose-multiplatform-html-unified-demo:sideBySideBrowserDistribution
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

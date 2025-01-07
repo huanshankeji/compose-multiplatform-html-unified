@@ -5,6 +5,7 @@ import androidx.compose.ui.unit.dp
 import com.huanshankeji.compose.foundation.VerticalScrollBox
 import com.huanshankeji.compose.foundation.background
 import com.huanshankeji.compose.foundation.layout.*
+import com.huanshankeji.compose.foundation.layout.ext.outerPadding
 import com.huanshankeji.compose.foundation.text.KeyboardActions
 import com.huanshankeji.compose.foundation.text.KeyboardOptions
 import com.huanshankeji.compose.foundation.text.input.ImeAction
@@ -31,7 +32,7 @@ fun Material2(/*modifier: Modifier = Modifier*/) {
     val snackbarHostState = remember { SnackbarHostState() }
     // It seems the modifier can't be set on `TopAppBarScaffold` or a box wrapping it
     TopAppBarScaffold({
-        Text("Compose Multiplatform Material demo")
+        Text("Compose Multiplatform HTML Unified demo")
     }, navigationIcon = {
         MaterialIconNavButton({}, icon = Icons.Default.Menu, contentDescription = "menu")
     }, actions = {
@@ -73,7 +74,7 @@ fun Material2(/*modifier: Modifier = Modifier*/) {
                         IconButton(onClick, icon = Icons.Default.Add, contentDescription = "increment count")
                     }
 
-                    val listModifier = Modifier.padding(16.dp).height(listSize)
+                    val listModifier = Modifier.outerPadding(16.dp).height(listSize)
                     List(listModifier) {
                         item {
                             Text("Ungrouped item")

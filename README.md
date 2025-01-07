@@ -1,17 +1,27 @@
-# Compose Multiplatform Material (better name pending): unified Compose Multiplatform common extensions and Material wrappers for `androidx.compose` and Compose HTML
+# Compose Multiplatform HTML Unified
 
-[![Maven Central](https://img.shields.io/maven-central/v/com.huanshankeji/compose-multiplatform-material3)](https://search.maven.org/search?q=g:com.huanshankeji%20AND%20a:compose-multiplatform-*)
-![Kotlin version](https://kotlin-version.aws.icerock.dev/kotlin-version?group=com.huanshankeji&name=compose-multiplatform-material3)
+[![Maven Central](https://img.shields.io/maven-central/v/com.huanshankeji/compose-multiplatform-html-unified-common)](https://search.maven.org/search?q=g:com.huanshankeji%20AND%20a:compose-multiplatform-html-unified-*)
+![Kotlin version](https://kotlin-version.aws.icerock.dev/kotlin-version?group=com.huanshankeji&name=compose-multiplatform-html-unified-common)
 
-Unified Compose Multiplatform wrappers of common components, layouts, and Material Design components for `androidx.compose` (officially supported on Android, desktop (JVM), iOS, and web (Kotlin/Wasm)) and Compose HTML (mainly based on [Kobweb Silk](https://github.com/varabyte/kobweb?tab=readme-ov-file#silk) [Compose](https://github.com/varabyte/kobweb/tree/main/frontend/kobweb-compose), [KMDC](https://github.com/mpetuska/kmdc), and [Compose HTML Material](https://github.com/huanshankeji/compose-html-material) (which is then based on [Material Web](https://github.com/material-components/material-web)))
+Unified Compose Multiplatform wrappers of common and **Material Design** APIs for **rendering-based Compose UI** (officially supported on Android, desktop (JVM), iOS, and web (Kotlin/Wasm)) and **DOM-based Compose HTML**
 
-We try to provide a set of common extensions and composable component APIs akin to those in `androidx.compose` (`androidx.compose.foundation`, `androidx.compose.material`, and `androidx.compose.material3`), meanwhile making them compatible with the Compose HTML APIs. However, only subsets of the composables and composable parameters are supported due to the API differences, limitations of the JS (web) platform and the Compose HTML composables this project depends on, and our limited effort.
+This library was previously named "Compose Multiplatform Material".
 
-Complete visual consistency across different platforms is not guaranteed. See the [the side-by-side demo site](https://huanshankeji.github.io/compose-multiplatform-material/) for the visual effects and their differences.
+## The scope and implementations of the APIs provided
 
-This project is still in development and has not reached the stable state yet. Some APIs are likely to be changed and there is no detailed documentation yet. Check out [the demo project source](demo) on how to use the components in addition to the information below.
+We try to provide a set of common APIs including composable component APIs akin to those in `androidx.compose` (`androidx.compose.foundation`, `androidx.compose.material`, and `androidx.compose.material3`), meanwhile making them compatible with the Compose HTML APIs. However, only subsets of the composables and composable parameters are supported due to the underlying API differences, limitations of the JS platform and the available Compose HTML composables this project depends on, and our limited effort.
 
-## Supported features
+The modules of this library correspond to the Compose Multiplatform modules (or Compose modules in AndroidX) that are not available for Compose HTML, aka those that depend on [the UI module](https://github.com/JetBrains/compose-multiplatform-core/tree/jb-main/compose/ui), more specifically [`ui-graphics`](https://github.com/JetBrains/compose-multiplatform-core/tree/jb-main/compose/ui/ui-graphics). The `common` module of this library corresponds to the `ui` and `foundation` modules, offering UI components (including layouts), modifiers, UI configuration classes, etc.
+
+The Compose HTML / JS DOM source is mainly based on [Kobweb Silk](https://github.com/varabyte/kobweb?tab=readme-ov-file#silk) [Compose](https://github.com/varabyte/kobweb/tree/main/frontend/kobweb-compose), [KMDC](https://github.com/mpetuska/kmdc), and [Compose HTML Material](https://github.com/huanshankeji/compose-html-material) (which is then based on [Material Web](https://github.com/material-components/material-web)).
+
+## References and limitations
+
+Complete visual consistency across different platforms is not guaranteed. See [the side-by-side demo site](https://huanshankeji.github.io/compose-multiplatform-html-unified/) for the visual effects and their differences.
+
+This project is still in development and has not reached a stable state. Some APIs are subject to change and there is no detailed documentation yet. Check out [the demo project source](demo) on how to use the components in addition to the sections below.
+
+## Supported API catalog
 
 ### Components
 
@@ -32,7 +42,7 @@ This project is still in development and has not reached the stable state yet. S
 
 ###### `ext` layouts
 
- - `BoxWithConstraints`
+- `BoxWithConstraints`
 
 ##### Lazy
 
@@ -82,7 +92,7 @@ This project is still in development and has not reached the stable state yet. S
 - `Button` (`FilledButton`), `ElevatedButton`, `FilledTonalButton`, `OutlinedButton`, `TextButton`
 - `Card` (`FilledCard`), `ElevatedCard`, `OutlinedCard`
 - `DropdownMenu`, `DropdownMenuItem`
-   - `ExposedDropdownMenuBox`, `ExposedDropdownMenuBoxScope.ExposedDropdownMenuBoxTextField`, `ExposedDropdownMenuBoxScope.ExposedDropdownMenu`, `ExposedDropdownMenuWithTextField`
+  - `ExposedDropdownMenuBox`, `ExposedDropdownMenuBoxScope.ExposedDropdownMenuBoxTextField`, `ExposedDropdownMenuBoxScope.ExposedDropdownMenu`, `ExposedDropdownMenuWithTextField`
 - `FloatingActionButton`, `SmallFloatingActionButton`, `LargeFloatingActionButton`, `ExtendedFloatingActionButton`
 - `IconButton`, `IconToggleButton`, `FilledIconButton`, `FilledIconToggleButton`, `FilledTonalIconButton`, `FilledTonalIconToggleButton`, `OutlinedIconButton`, `OutlinedIconToggleButton`
 - `NavigationBar`, `NavigationBarItem`
@@ -95,12 +105,11 @@ This project is still in development and has not reached the stable state yet. S
 
 #### About `ext` components (components in the `ext` packages)
 
-The components in the `ext` packages don't follow the `androidx.compose` APIs exactly, but rather provide wrappers are more idiomatic and conventional on both kinds of targets, wrapping different APIs which can't be unified following the `androidx.compose` APIs.
+The components in the `ext` packages don't follow the `androidx.compose` APIs exactly, but rather provide wrappers that are more idiomatic and conventional on both kinds of targets, wrapping different APIs that can't be unified following the `androidx.compose` APIs.
 
 #### About parameter names
 
-The parameter names with suffixes such as "JsDom" or "AndroidxCommon" are platform-specific, and only apply on their respective platform(s), Compose HTML / JS DOM or
-`androidx.compose` platforms.
+The parameter names with suffixes such as "JsDom" or "ComposeUi" are platform-specific, and only apply on their respective platform(s), Compose HTML / JS DOM or Compose UI platforms.
 
 #### Material Icons
 
@@ -144,23 +153,24 @@ transition or animation on Compose HTML / JS DOM. These APIs are also highly exp
 See [CMP-4966](https://youtrack.jetbrains.com/issue/CMP-4966) for a bug to avoid. Also, ViewModel-related functions
 are not implemented yet on Compose HTML / JS DOM.
 
-## Add the libraries to your dependency
+## Add to your dependencies
 
 Maven coordinate:
 
 ```kotlin
-"com.huanshankeji:compose-multiplatform-$module:$version"
+"com.huanshankeji:compose-multiplatform-html-unified-$module:$version"
 ```
 
 More specifically:
+
 ```kotlin
-"com.huanshankeji:compose-multiplatform-common:$version"
-"com.huanshankeji:compose-multiplatform-material-icons-core:$version"
-"com.huanshankeji:compose-multiplatform-material2:$version"
-"com.huanshankeji:compose-multiplatform-material3:$version"
+"com.huanshankeji:compose-multiplatform-html-unified-common:$version"
+"com.huanshankeji:compose-multiplatform-html-unified-material-icons-core:$version"
+"com.huanshankeji:compose-multiplatform-html-unified-material2:$version"
+"com.huanshankeji:compose-multiplatform-html-unified-material3:$version"
 ```
 
-For example, depend on the Material 3 module with Gradle:
+For example, to depend on the Material 3 module with Gradle:
 
 ```kotlin
 kotlin {
@@ -168,7 +178,7 @@ kotlin {
         commonMain {
             dependencies {
                 // ...
-                implementation("com.huanshankeji:compose-multiplatform-material3:$version")
+                implementation("com.huanshankeji:compose-multiplatform-html-unified-material3:$version")
             }
         }
     }

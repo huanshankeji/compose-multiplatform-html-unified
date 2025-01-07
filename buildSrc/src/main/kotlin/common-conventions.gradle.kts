@@ -1,5 +1,5 @@
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
-import org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl
+import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 
 plugins {
     kotlin("multiplatform")
@@ -18,7 +18,7 @@ group = "com.huanshankeji"
 version = projectVersion
 
 kotlin {
-    // for `androidx.compose`
+    // for Compose UI
 
     jvm() // TODO: `jvm("desktop")`?
     jvmToolchain(8)
@@ -38,7 +38,21 @@ kotlin {
     js()
 
 
+
     @OptIn(ExperimentalKotlinGradlePluginApi::class)
+    applyDefaultHierarchyTemplate {
+        common {
+            group("composeUi") {
+                withJvm()
+                withAndroidTarget()
+                group("ios")
+                withWasmJs()
+            }
+        }
+    }
+
+
+
     compilerOptions {
         freeCompilerArgs.add("-Xexpect-actual-classes")
     }
