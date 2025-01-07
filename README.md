@@ -132,6 +132,7 @@ The `com.huanshankeji.compose.material.icons.Icon` class delegates to both kinds
 
 - `outerBorder`
 - `roundedCornerBackgroundAndOuterBorder`
+- `outerPadding`, `innerPadding`
 
 ### Other APIs
 
