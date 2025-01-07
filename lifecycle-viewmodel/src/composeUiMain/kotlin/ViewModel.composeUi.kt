@@ -29,6 +29,8 @@ actual fun <VM : ViewModel> viewModel(
 
 @Composable
 actual inline fun <reified VM : ViewModel> viewModel(
-    viewModelStoreOwner: ViewModelStoreOwner, key: String?, noinline initializer: CreationExtras.() -> VM
+    viewModelStoreOwner: ViewModelStoreOwner,
+    key: String?,
+    noinline initializer: CreationExtras.() -> VM
 ): VM =
     composeUiViewModel(viewModelStoreOwner, key, initializer)

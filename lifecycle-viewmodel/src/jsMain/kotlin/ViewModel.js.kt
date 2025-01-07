@@ -44,15 +44,6 @@ actual inline fun <reified VM : ViewModel> viewModel(
     viewModelStoreOwner.defaultCreationExtras()
 )
 
-// TODO remove
-/*
-@Composable
-actual inline fun <reified VM : ViewModel> viewModel(
-    viewModelStoreOwner: ViewModelStoreOwner, key: String?, noinline initializer: CreationExtras.() -> VM
-): VM =
-    remember(key) { CreationExtras.Empty.initializer() }
-*/
-
 internal fun <VM : ViewModel> ViewModelStoreOwner.get(
     modelClass: KClass<VM>,
     key: String?,
