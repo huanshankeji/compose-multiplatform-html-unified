@@ -64,15 +64,18 @@ actual fun NavHost(
     // Then set the graph
     navController.graph = graph
 
+    // This seems not needed here since it seems also related to animations and transitions. (comment added when adapting from Compose UI `NavHost)
+    /*
     // Find the ComposeNavigator, returning early if it isn't found
     // (such as is the case when using TestNavHostController)
     val composeNavigator =
         navController.navigatorProvider.get<Navigator<out NavDestination>>(ComposeNavigator.NAME)
                 as? ComposeNavigator ?: return
+    */
 
     //val currentBackStack by composeNavigator.backStack.collectAsState()
 
-    // `progress`, `isPredictiveBack`, etc.
+    // `progress`, `isPredictiveBack`, etc. (comment added when adapting from Compose UI `NavHost)
 
     /*
     DisposableEffect(lifecycleOwner) {
@@ -98,12 +101,13 @@ actual fun NavHost(
     val backStackEntry: NavBackStackEntry? = visibleEntries.lastOrNull()
 
     if (backStackEntry != null) {
-        // TODO remove this if not needed
+        /*
         DisposableEffect(true) {
             onDispose {
                 visibleEntries.forEach { entry -> composeNavigator.onTransitionComplete(entry) }
             }
         }
+        */
 
         // `fillMaxSize` is added here to make the Box align to the size of its parent
         // TODO consider adding a version of `NavHost` without `modifier` and `contentAlignment`
@@ -126,12 +130,13 @@ actual fun NavHost(
             }
         }
 
-        // TODO remove this if not needed
+        /*
         DisposableEffect(true) {
             onDispose {
                 visibleEntries.forEach { entry -> composeNavigator.onTransitionComplete(entry) }
             }
         }
+        */
     }
 
     /*
