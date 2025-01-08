@@ -20,6 +20,8 @@ kotlin {
                 //implementation("org.jetbrains.compose.annotation-internal:annotation:${DependencyVersions.composeMultiplatform}")
                 api(cpnProject(project, ":common")) // for `Modifier` and `Alignment`
                 //implementation("org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose:2.8.0") // This depends on Compose target '[jscanvas]'.
+                // https://github.com/JetBrains/compose-multiplatform-core/blob/f6d989a1ae9cd5895b4fba7821946ead389c4848/navigation/navigation-compose/build.gradle#L58
+                api(cpnProject(project, ":lifecycle-viewmodel"))
             }
         }
         composeUiMain {

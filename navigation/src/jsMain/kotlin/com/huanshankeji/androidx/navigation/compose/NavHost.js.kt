@@ -1,7 +1,10 @@
 package com.huanshankeji.androidx.navigation.compose
 
 import androidx.compose.runtime.*
+import androidx.lifecycle.ViewModelStore
+import androidx.lifecycle.ViewModelStoreOwner
 import androidx.navigation.*
+import com.huanshankeji.androidx.lifecycle.viewmodel.compose.LocalViewModelStoreOwner
 import com.huanshankeji.compose.foundation.layout.Box
 import com.huanshankeji.compose.foundation.layout.fillMaxSize
 import com.huanshankeji.compose.ui.Alignment
@@ -10,10 +13,11 @@ import com.huanshankeji.compose.ui.Modifier
 // copied and adapted from "NavHost.kt" in `androidx.navigation.compose`
 
 
-/*
-private class ComposeViewModelStoreOwner: ViewModelStoreOwner {
+private class ComposeViewModelStoreOwner : ViewModelStoreOwner {
     override val viewModelStore: ViewModelStore = ViewModelStore()
-    fun dispose() { viewModelStore.clear() }
+    fun dispose() {
+        viewModelStore.clear()
+    }
 }
 
 @Composable
@@ -24,9 +28,6 @@ private fun rememberViewModelStoreOwner(): ViewModelStoreOwner {
     }
     return viewModelStoreOwner
 }
-*/
-
-
 
 @Composable
 actual fun NavHost(
@@ -56,30 +57,31 @@ actual fun NavHost(
 ) {
 
     //val lifecycleOwner = LocalLifecycleOwner.current
-    //val viewModelStoreOwner = LocalViewModelStoreOwner.current ?: rememberViewModelStoreOwner()
+    val viewModelStoreOwner = LocalViewModelStoreOwner.current ?: rememberViewModelStoreOwner()
 
-    //navController.setViewModelStore(viewModelStoreOwner.viewModelStore)
+    navController.setViewModelStore(viewModelStoreOwner.viewModelStore)
 
     // Then set the graph
     navController.graph = graph
 
+    // This seems not needed here since it seems also related to animations and transitions. (comment added when adapting from Compose UI `NavHost`)
+    /*
     // Find the ComposeNavigator, returning early if it isn't found
     // (such as is the case when using TestNavHostController)
-    val composeNavigator = navController.navigatorProvider.get<Navigator<out NavDestination>>(
-        ComposeNavigator.NAME
-    ) as? ComposeNavigator ?: return
+    val composeNavigator =
+        navController.navigatorProvider.get<Navigator<out NavDestination>>(ComposeNavigator.NAME)
+                as? ComposeNavigator ?: return
+    */
 
     //val currentBackStack by composeNavigator.backStack.collectAsState()
 
-//    BackHandler(currentBackStack.size > 1) {
-//        navController.popBackStack()
-//    }
+    // `progress`, `isPredictiveBack`, etc. (comment added when adapting from Compose UI `NavHost`)
 
     /*
     DisposableEffect(lifecycleOwner) {
         // Setup the navController with proper owners
         navController.setLifecycleOwner(lifecycleOwner)
-        onDispose { }
+        onDispose {}
     }
     */
 
@@ -99,6 +101,14 @@ actual fun NavHost(
     val backStackEntry: NavBackStackEntry? = visibleEntries.lastOrNull()
 
     if (backStackEntry != null) {
+        /*
+        DisposableEffect(true) {
+            onDispose {
+                visibleEntries.forEach { entry -> composeNavigator.onTransitionComplete(entry) }
+            }
+        }
+        */
+
         // `fillMaxSize` is added here to make the Box align to the size of its parent
         // TODO consider adding a version of `NavHost` without `modifier` and `contentAlignment`
         // Originally it was `transition.AnimatedContent` here.
@@ -109,8 +119,9 @@ actual fun NavHost(
             // while in the scope of the composable, we provide the navBackStackEntry as the
             // ViewModelStoreOwner and LifecycleOwner
             currentEntry?.LocalOwnersProvider(saveableStateHolder) {
-                (currentEntry.destination as ComposeNavigator.Destination)
-                    .content( currentEntry)
+                (currentEntry.destination as ComposeNavigator.Destination).content(
+                    currentEntry
+                )
             }
             */
             currentEntry?.let {
@@ -119,19 +130,19 @@ actual fun NavHost(
             }
         }
 
+        /*
         DisposableEffect(true) {
             onDispose {
-                visibleEntries.forEach { entry ->
-                    composeNavigator.onTransitionComplete(entry)
-                }
+                visibleEntries.forEach { entry -> composeNavigator.onTransitionComplete(entry) }
             }
         }
+        */
     }
 
     /*
-    val dialogNavigator = navController.navigatorProvider.get<Navigator<out NavDestination>>(
-        DialogNavigator.NAME
-    ) as? DialogNavigator ?: return
+    val dialogNavigator =
+        navController.navigatorProvider.get<Navigator<out NavDestination>>(DialogNavigator.NAME)
+                as? DialogNavigator ?: return
 
     // Show any dialog destinations
     DialogHost(dialogNavigator)
