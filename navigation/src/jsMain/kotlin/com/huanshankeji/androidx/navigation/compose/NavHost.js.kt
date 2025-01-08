@@ -64,7 +64,7 @@ actual fun NavHost(
     // Then set the graph
     navController.graph = graph
 
-    // This seems not needed here since it seems also related to animations and transitions. (comment added when adapting from Compose UI `NavHost)
+    // This seems not needed here since it seems also related to animations and transitions. (comment added when adapting from Compose UI `NavHost`)
     /*
     // Find the ComposeNavigator, returning early if it isn't found
     // (such as is the case when using TestNavHostController)
@@ -75,7 +75,7 @@ actual fun NavHost(
 
     //val currentBackStack by composeNavigator.backStack.collectAsState()
 
-    // `progress`, `isPredictiveBack`, etc. (comment added when adapting from Compose UI `NavHost)
+    // `progress`, `isPredictiveBack`, etc. (comment added when adapting from Compose UI `NavHost`)
 
     /*
     DisposableEffect(lifecycleOwner) {
