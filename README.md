@@ -147,9 +147,7 @@ The ViewModel module currently supports a subset of the Compose ViewModel APIs. 
 
 ### Navigation
 
-The navigation module currently supports a small subset of the Compose Navigation APIs, which does not support
-transition or animation on Compose HTML / JS DOM. These APIs are also experimental now.
-See [CMP-4966](https://youtrack.jetbrains.com/issue/CMP-4966) for a bug to avoid.
+The navigation module currently supports a small subset of the Compose Navigation APIs, which does not support transition or animation on Compose HTML / JS DOM. These APIs are also experimental now. See [CMP-4966](https://youtrack.jetbrains.com/issue/CMP-4966) for a bug to avoid.
 
 ## Add to your dependencies
 
