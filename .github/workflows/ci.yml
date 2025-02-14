@@ -45,7 +45,4 @@ jobs:
       contents: write
 
     steps:
-      - uses: huanshankeji/.github/workflow-templates/dependency-submission@refactor-common-actions
-        with:
-          jdk-version: '17'
-          jdk-distribution: 'temurin'
+      - uses: huanshankeji/.github/workflow-templates/dependency-submission@refactor-common-actions-possible-improvements
