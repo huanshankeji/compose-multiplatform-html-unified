@@ -19,7 +19,7 @@ kotlin {
         }
         composeUiMain {
             dependencies {
-//                api("org.jetbrains.compose.material:material-icons-extended:${DependencyVersions.composeMultiplatform}")
+                api("org.jetbrains.compose.material:material-icons-extended:${DependencyVersions.composeMultiplatformMaterialIconsExtended}")
             }
         }
     }
