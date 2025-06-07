@@ -30,12 +30,17 @@ kotlin {
     iosSimulatorArm64()
 
     @OptIn(ExperimentalWasmDsl::class)
-    wasmJs()
+    wasmJs {
+        browser()
+    }
 
 
     // for JS and HTML wrappers
 
-    js()
+    js {
+        // The project works without this, but it can be added to avoid potential issues.
+        browser()
+    }
 
 
 
