@@ -19,7 +19,7 @@ jobs:
     steps:
       - uses: huanshankeji/.github/actions/gradle-test-and-check@v0.1.0
         with:
-          jdk-versions: 8-zulu, 17-temurin
+          jdk-versions: 17-temurin
 
   dependency-submission:
     strategy:
