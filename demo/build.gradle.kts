@@ -113,8 +113,8 @@ android {
     }
 }
 
-val jsBrowserDistribution by tasks.getting(Copy::class)
-val wasmJsBrowserDistribution by tasks.getting(Copy::class)
+val jsBrowserDistribution by tasks.getting(Sync::class)
+val wasmJsBrowserDistribution by tasks.getting(Sync::class)
 
 tasks.register<Sync>("sideBySideBrowserDistribution") {
     group = "kotlin browser"
