@@ -21,7 +21,7 @@ kotlin {
     // for Compose UI
 
     jvm() // TODO: `jvm("desktop")`?
-    jvmToolchain(11)
+    jvmToolchain(17)
 
     //androidTarget()
 
