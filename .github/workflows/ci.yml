@@ -17,7 +17,7 @@ jobs:
       contents: read
 
     steps:
-      - uses: huanshankeji/.github/actions/gradle-test-and-check@v0.1.0
+      - uses: huanshankeji/.github/actions/gradle-test-and-check@v0.2.0
         with:
           jdk-versions: 17-temurin
 
@@ -30,7 +30,6 @@ jobs:
       contents: write
 
     steps:
-      - uses: huanshankeji/.github/actions/dependency-submission@v0.1.0
+      - uses: huanshankeji/.github/actions/gradle-dependency-submission@v0.2.0
         with:
-          java-version: 17
-          distribution: temurin
+          jdk-versions: 17-temurin
