@@ -56,6 +56,13 @@ kotlin {
                 // see: https://github.com/varabyte/kobweb/blob/main/frontend/kobweb-compose/build.gradle.kts
                 api("com.varabyte.kobweb:kobweb-compose:${DependencyVersions.kobweb}")
                 implementation("com.huanshankeji:compose-html-common:${DependencyVersions.huanshankejiComposeHtml}")
+
+                /*
+                The UI module depends on the lifecycle module to use `androidx.lifecycle.ViewModelStoreOwner`.
+                See https://github.com/JetBrains/compose-multiplatform-core/blob/jb-main/compose/ui/ui/build.gradle#L87.
+                This is actually only needed for JS DOM.
+                 */
+                implementation(commonDependencies.jetbrainsAndroidx.lifecycle.viewmodel())
             }
         }
     }

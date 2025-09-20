@@ -11,8 +11,16 @@ open annotation class com.huanshankeji.compose.foundation/ExperimentalFoundation
     constructor <init>() // com.huanshankeji.compose.foundation/ExperimentalFoundationApi.<init>|<init>(){}[0]
 }
 
+open annotation class com.huanshankeji.compose/ExperimentalApi : kotlin/Annotation { // com.huanshankeji.compose/ExperimentalApi|null[0]
+    constructor <init>() // com.huanshankeji.compose/ExperimentalApi.<init>|<init>(){}[0]
+}
+
 open annotation class com.huanshankeji.compose/ExtRecommendedApi : kotlin/Annotation { // com.huanshankeji.compose/ExtRecommendedApi|null[0]
     constructor <init>() // com.huanshankeji.compose/ExtRecommendedApi.<init>|<init>(){}[0]
+}
+
+open annotation class com.huanshankeji.compose/LikelyInconsistentApi : kotlin/Annotation { // com.huanshankeji.compose/LikelyInconsistentApi|null[0]
+    constructor <init>() // com.huanshankeji.compose/LikelyInconsistentApi.<init>|<init>(){}[0]
 }
 
 final enum class com.huanshankeji.compose.foundation.layout/IntrinsicSize : kotlin/Enum<com.huanshankeji.compose.foundation.layout/IntrinsicSize> { // com.huanshankeji.compose.foundation.layout/IntrinsicSize|null[0]
@@ -985,6 +993,14 @@ final enum class com.huanshankeji.browser/Browser : kotlin/Enum<com.huanshankeji
 }
 
 // Targets: [js]
+final class com.huanshankeji.compose.ui.window/SimpleViewModelStoreOwner : androidx.lifecycle/ViewModelStoreOwner { // com.huanshankeji.compose.ui.window/SimpleViewModelStoreOwner|null[0]
+    constructor <init>() // com.huanshankeji.compose.ui.window/SimpleViewModelStoreOwner.<init>|<init>(){}[0]
+
+    final val viewModelStore // com.huanshankeji.compose.ui.window/SimpleViewModelStoreOwner.viewModelStore|{}viewModelStore[0]
+        final fun <get-viewModelStore>(): androidx.lifecycle/ViewModelStore // com.huanshankeji.compose.ui.window/SimpleViewModelStoreOwner.viewModelStore.<get-viewModelStore>|<get-viewModelStore>(){}[0]
+}
+
+// Targets: [js]
 final object com.huanshankeji.compose.foundation.lazy/LazyItemScope { // com.huanshankeji.compose.foundation.lazy/LazyItemScope|null[0]
     final fun (com.huanshankeji.compose.ui/Modifier).fillParentMaxHeight(kotlin/Float = ...): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.lazy/LazyItemScope.fillParentMaxHeight|fillParentMaxHeight@com.huanshankeji.compose.ui.Modifier(kotlin.Float){}[0]
     final fun (com.huanshankeji.compose.ui/Modifier).fillParentMaxSize(kotlin/Float = ...): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.lazy/LazyItemScope.fillParentMaxSize|fillParentMaxSize@com.huanshankeji.compose.ui.Modifier(kotlin.Float){}[0]
@@ -1019,6 +1035,9 @@ final val com.huanshankeji.compose.foundation/imitateComposeUiLayoutHorizontalSc
 // Targets: [js]
 final val com.huanshankeji.compose.foundation/imitateComposeUiLayoutVerticalScrollPlatformModifier // com.huanshankeji.compose.foundation/imitateComposeUiLayoutVerticalScrollPlatformModifier|{}imitateComposeUiLayoutVerticalScrollPlatformModifier[0]
     final fun <get-imitateComposeUiLayoutVerticalScrollPlatformModifier>(): com.varabyte.kobweb.compose.ui/Modifier // com.huanshankeji.compose.foundation/imitateComposeUiLayoutVerticalScrollPlatformModifier.<get-imitateComposeUiLayoutVerticalScrollPlatformModifier>|<get-imitateComposeUiLayoutVerticalScrollPlatformModifier>(){}[0]
+
+// Targets: [js]
+final val com.huanshankeji.compose.ui.window/com_huanshankeji_compose_ui_window_SimpleViewModelStoreOwner$stableprop // com.huanshankeji.compose.ui.window/com_huanshankeji_compose_ui_window_SimpleViewModelStoreOwner$stableprop|#static{}com_huanshankeji_compose_ui_window_SimpleViewModelStoreOwner$stableprop[0]
 
 // Targets: [js]
 final fun (androidx.compose.ui.unit/Dp).com.huanshankeji.compose.ui.unit/toPx(): org.jetbrains.compose.web.css/CSSSizeValue<org.jetbrains.compose.web.css/CSSUnit.px> // com.huanshankeji.compose.ui.unit/toPx|toPx@androidx.compose.ui.unit.Dp(){}[0]
@@ -1130,3 +1149,12 @@ final fun com.huanshankeji.compose.foundation/com_huanshankeji_compose_foundatio
 
 // Targets: [js]
 final fun com.huanshankeji.compose.foundation/rememberScrollState(kotlin/Int, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int): com.huanshankeji.compose.foundation/ScrollState // com.huanshankeji.compose.foundation/rememberScrollState|rememberScrollState(kotlin.Int;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+
+// Targets: [js]
+final fun com.huanshankeji.compose.ui.platform/findComposeDefaultViewModelStoreOwner(androidx.compose.runtime/Composer?, kotlin/Int): androidx.lifecycle/ViewModelStoreOwner? // com.huanshankeji.compose.ui.platform/findComposeDefaultViewModelStoreOwner|findComposeDefaultViewModelStoreOwner(androidx.compose.runtime.Composer?;kotlin.Int){}[0]
+
+// Targets: [js]
+final fun com.huanshankeji.compose.ui.window/com_huanshankeji_compose_ui_window_SimpleViewModelStoreOwner$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.ui.window/com_huanshankeji_compose_ui_window_SimpleViewModelStoreOwner$stableprop_getter|com_huanshankeji_compose_ui_window_SimpleViewModelStoreOwner$stableprop_getter(){}[0]
+
+// Targets: [js]
+final fun com.huanshankeji.compose.ui.window/renderComposableInBodyWithViewModelStoreOwner(kotlin/Function3<org.jetbrains.compose.web.dom/DOMScope<org.w3c.dom/HTMLBodyElement>, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>): androidx.compose.runtime/Composition // com.huanshankeji.compose.ui.window/renderComposableInBodyWithViewModelStoreOwner|renderComposableInBodyWithViewModelStoreOwner(kotlin.Function3<org.jetbrains.compose.web.dom.DOMScope<org.w3c.dom.HTMLBodyElement>,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>){}[0]

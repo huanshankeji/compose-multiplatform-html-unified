@@ -4,6 +4,8 @@ import androidx.annotation.FloatRange
 import androidx.compose.runtime.Stable
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.DpSize
+import com.huanshankeji.compose.ExperimentalApi
+import com.huanshankeji.compose.LikelyInconsistentApi
 import com.huanshankeji.compose.foundation.layout.ext.fillMaxHeightStretch
 import com.huanshankeji.compose.foundation.layout.ext.fillMaxSizeStretch
 import com.huanshankeji.compose.foundation.layout.ext.fillMaxWidthStretch
@@ -57,11 +59,17 @@ expect fun Modifier.fillMaxHeight(@FloatRange(from = 0.0, to = 1.0) fraction: Fl
 @Stable
 expect fun Modifier.fillMaxSize(@FloatRange(from = 0.0, to = 1.0) fraction: Float = 1f): Modifier
 
+@ExperimentalApi
+@LikelyInconsistentApi
 @Stable
 expect fun Modifier.wrapContentWidth(): Modifier
 
+@ExperimentalApi
+@LikelyInconsistentApi
 @Stable
 expect fun Modifier.wrapContentHeight(): Modifier
 
+@ExperimentalApi
+@LikelyInconsistentApi
 @Stable
 expect fun Modifier.wrapContentSize(): Modifier
