@@ -1,5 +1,5 @@
 import com.huanshankeji.cpnProject
-import com.huanshankeji.team.`Shreck Ye`
+import com.huanshankeji.team.ShreckYe
 import com.huanshankeji.team.pomForTeamDefaultOpenSource
 
 plugins {
@@ -48,6 +48,6 @@ publishing.publications.withType<MavenPublication> {
         "Unified Compose Material 3 wrappers $FOR_COMPOSE_TARGETS_IN_TITLE",
         "Unified Material Design 3 component wrappers $FOR_COMPOSE_TARGETS_IN_DESCRIPTION"
     ) {
-        `Shreck Ye`()
+        ShreckYe()
     }
 }

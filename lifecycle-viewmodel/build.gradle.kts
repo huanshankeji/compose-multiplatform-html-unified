@@ -1,5 +1,5 @@
 import com.huanshankeji.cpnProject
-import com.huanshankeji.team.`Shreck Ye`
+import com.huanshankeji.team.ShreckYe
 import com.huanshankeji.team.pomForTeamDefaultOpenSource
 
 plugins {
@@ -36,6 +36,6 @@ publishing.publications.withType<MavenPublication> {
         "Unified Compose Multiplatform ViewModel $FOR_COMPOSE_TARGETS_IN_TITLE",
         "Unified wrappers of Compose Multiplatform ViewModel for $FOR_COMPOSE_TARGETS_IN_DESCRIPTION"
     ) {
-        `Shreck Ye`()
+        ShreckYe()
     }
 }
