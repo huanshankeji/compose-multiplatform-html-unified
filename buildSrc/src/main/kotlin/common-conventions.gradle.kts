@@ -11,7 +11,6 @@ repositories {
     mavenLocal() // TODO comment out when not needed so the build is always reproducible by others
     mavenCentral()
     google()
-    maven("https://us-central1-maven.pkg.dev/varabyte-repos/public") // for Kobweb
 }
 
 group = "com.huanshankeji"
