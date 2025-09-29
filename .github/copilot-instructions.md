@@ -178,7 +178,7 @@ settings.gradle.kts     # Project structure and dependency management
 
 ## Validation Steps for Changes
 
-1. **Build Validation**: Run `./gradlew publishToMavenLocal` or `./gradlew build` to ensure libraries compile
+1. **Build Validation**: Run `./gradlew build` or `./gradlew publishToMavenLocal` to ensure libraries compile
 2. **Test Validation**: Run `./gradlew check` to validate existing tests pass  
 3. **Demo Validation**: Build demo with `./gradlew :compose-multiplatform-html-unified-demo:sideBySideBrowserDistribution`
 4. **CI Simulation**: Test on multiple platforms if possible (the CI runs on Ubuntu, macOS, Windows)
