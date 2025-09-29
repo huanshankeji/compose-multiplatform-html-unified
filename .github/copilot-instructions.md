@@ -133,7 +133,7 @@ repositories {
 - **Android Gradle Plugin**: 8.11.2  
 - **Kobweb**: 0.23.3 (now on Maven Central)
 - **Compose HTML Material**: 0.4.1-SNAPSHOT
-- **Binary Compatibility Validator**: 0.16.3 (enabled)
+- **Binary Compatibility Validator**: 0.18.1 (enabled)
 
 ### Platform-Specific Implementation Patterns
 
