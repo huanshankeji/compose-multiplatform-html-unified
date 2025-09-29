@@ -17,20 +17,19 @@
 ### Prerequisites
 - **JDK 17**: Required (as specified in GitHub Actions workflows)
 - **Network Access**: Required for initial builds to download Android Gradle Plugin and Kobweb dependencies
-- **Gradle 9.0.0**: Automatically handled by wrapper
+- **Gradle 9.1.0**: Automatically handled by wrapper
 
 ### Essential Repository Setup
 ```bash
-# The project depends on Kobweb which requires a specific Maven repository
-# This is automatically configured in buildSrc/src/main/kotlin/common-conventions.gradle.kts
-# Maven repository: https://us-central1-maven.pkg.dev/varabyte-repos/public
+# The project no longer requires external repositories for Kobweb as of version 0.23.3
+# All dependencies are now available from standard repositories (mavenCentral, google)
 ```
 
 ### Build Commands (In Order)
 
 #### 1. Basic Project Setup
 ```bash
-./gradlew --version  # Verify Gradle 9.0.0 and JDK 17
+./gradlew --version  # Verify Gradle 9.1.0 and JDK 17
 ```
 
 #### 2. Publishing to Local Maven (Primary Development Command)
@@ -62,7 +61,7 @@
 
 #### Common Build Issues and Workarounds
 
-1. **Network Connectivity**: Initial builds require internet access for Android Gradle Plugin (8.10.1) and Kobweb dependencies. If build fails with network errors, ensure internet connectivity.
+1. **Network Connectivity**: Initial builds require internet access for Android Gradle Plugin (8.11.2) and other dependencies. If build fails with network errors, ensure internet connectivity.
 
 2. **Memory Issues**: If Wasm compilation fails with OOM, the memory is already optimized in gradle.properties.
 
@@ -125,16 +124,15 @@ src/
 repositories {
     mavenCentral()
     google()  // For Android components
-    maven("https://us-central1-maven.pkg.dev/varabyte-repos/public")  // For Kobweb
 }
 ```
 
 #### Key Dependencies
-- **Kotlin**: 2.2.0-RC2 with Compose Compiler
-- **Compose Multiplatform**: 1.8.1
-- **Android Gradle Plugin**: 8.10.1  
-- **Kobweb**: 0.19.2 (not on Maven Central)
-- **Compose HTML Material**: 0.4.0
+- **Kotlin**: 2.2.20 with Compose Compiler
+- **Compose Multiplatform**: 1.9.0
+- **Android Gradle Plugin**: 8.11.2  
+- **Kobweb**: 0.23.3 (now on Maven Central)
+- **Compose HTML Material**: 0.4.1-SNAPSHOT
 - **Binary Compatibility Validator**: 0.16.3 (enabled)
 
 ### Platform-Specific Implementation Patterns
@@ -188,6 +186,6 @@ settings.gradle.kts     # Project structure and dependency management
 - **Trust These Instructions**: Only perform additional searches if information here is incomplete or incorrect
 - **Network Dependency**: Initial builds require internet access - cannot work in fully offline environments
 - **Memory Requirements**: Ensure adequate memory for Wasm compilation (2GB JVM heap configured)
-- **Kobweb Dependency**: This is the main external dependency not on Maven Central - builds will fail without access to their repository
+- **Kobweb Dependency**: As of version 0.23.3, Kobweb is now published to Maven Central
 - **Limited Test Coverage**: Don't expect comprehensive test suites - focus on build and demo validation
 - **Platform Complexity**: This is a sophisticated multiplatform project with 6+ target platforms and complex expect/actual patterns
