@@ -10,7 +10,6 @@
 - **Build System**: Gradle with Kotlin DSL
 - **Target Platforms**: JVM, Android, iOS, JS (DOM), Wasm-JS (Canvas)
 - **Key Dependencies**: Compose Multiplatform, Kobweb Silk, Material Web Components
-- **Current Version**: 0.6.0-SNAPSHOT
 
 ## Build Instructions and Environment Setup
 
@@ -63,7 +62,7 @@
 
 2. **Memory Issues**: If Wasm compilation fails with OOM, the memory is already optimized in gradle.properties.
 
-3. **Kotlin/JS Store**: The `kotlin-js-store` directory may be generated during JS builds - this should not be committed.
+3. **Kotlin/JS Store**: The `kotlin-js-store` directory may be generated during JS builds - this should be committed when updated automatically by Gradle commands.
 
 4. **Gradle Daemon**: May timeout on first runs. Use `--no-daemon` flag if needed: `./gradlew check --no-daemon`
 
@@ -99,7 +98,7 @@
 - **buildSrc/src/main/kotlin/VersionsAndDependencies.kt**: All dependency versions
 - **buildSrc/src/main/kotlin/common-conventions.gradle.kts**: Shared build configuration
 - **buildSrc/src/main/kotlin/lib-conventions.gradle.kts**: Library-specific configuration
-- **gradle.properties**: JVM memory settings and Kotlin MPP configuration
+- **gradle.properties**: JVM memory settings for Gradle (increase if OOM occurs) and Kotlin MPP configuration
 - **settings.gradle.kts**: Project structure and repository configuration
 
 ### Source Set Structure (Per Module)
@@ -113,21 +112,6 @@ src/
 ├── jvmMain/              # Desktop JVM implementations
 └── iosMain/              # iOS-specific implementations
 ```
-
-### CI/CD Workflows
-
-#### `.github/workflows/ci.yml`
-- **Trigger**: Push to any branch, manual dispatch
-- **Platforms**: ubuntu-latest, macos-latest, windows-latest  
-- **JDK**: 17-temurin
-- **Commands**: Uses `huanshankeji/.github/actions/gradle-test-and-check@v0.2.0`
-
-#### `.github/workflows/demo-gh-pages.yml`
-- **Trigger**: Push/PR to `release` branch, manual dispatch
-- **Platform**: ubuntu-latest
-- **Purpose**: Builds and deploys demo to GitHub Pages
-- **Build Command**: `./gradlew :compose-multiplatform-html-unified-demo:sideBySideBrowserDistribution`
-- **Artifact Path**: `demo/build/dist/sideBySide/productionExecutable/`
 
 ### Dependencies and External Integration
 
@@ -169,8 +153,7 @@ repositories {
 - **Parameter Naming**: Parameters with "JsDom" or "ComposeUi" suffixes are platform-specific
 
 #### Code Quality and Validation
-- **Binary Compatibility**: Enforced via kotlinx.validation plugin
-- **Code Style**: IntelliJ IDEA Code Cleanup and Reformat Code applied project-wide
+- **Binary Compatibility**: Enforced via org.jetbrains.kotlinx.binary-compatibility-validator plugin
 - **Limited Testing**: Project acknowledges "limited number of tests"
 
 #### Architecture Notes
@@ -195,7 +178,7 @@ settings.gradle.kts     # Project structure and dependency management
 
 ## Validation Steps for Changes
 
-1. **Build Validation**: Run `./gradlew publishToMavenLocal` to ensure libraries compile
+1. **Build Validation**: Run `./gradlew publishToMavenLocal` or `./gradlew build` to ensure libraries compile
 2. **Test Validation**: Run `./gradlew check` to validate existing tests pass  
 3. **Demo Validation**: Build demo with `./gradlew :compose-multiplatform-html-unified-demo:sideBySideBrowserDistribution`
 4. **CI Simulation**: Test on multiple platforms if possible (the CI runs on Ubuntu, macOS, Windows)
