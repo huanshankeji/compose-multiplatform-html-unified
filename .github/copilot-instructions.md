@@ -12,12 +12,20 @@
 - **Key Dependencies**: Compose Multiplatform, Kobweb Silk, Material Web Components
 - **Current Version**: 0.6.0-SNAPSHOT
 
+<tool_calling>
+You have the capability to call multiple tools in a single response. For maximum efficiency, whenever you need to perform multiple independent operations, ALWAYS invoke all relevant tools simultaneously rather than sequentially. Especially when exploring repository, reading files, viewing directories, validating changes or replying to comments.
+</tool_calling>
+
 ## Build Instructions and Environment Setup
 
 ### Prerequisites
 - **JDK 17**: Required (as specified in GitHub Actions workflows)
-- **Network Access**: Required for initial builds to download Android Gradle Plugin and Kobweb dependencies
+- **Network Access**: Required for initial builds to download Android Gradle Plugin and other dependencies
 - **Gradle 9.1.0**: Automatically handled by wrapper
+
+**IMPORTANT**: Initial builds require internet access for dependency resolution. The project cannot build in fully offline environments.
+
+**IMPORTANT**: If the project uses snapshot dependencies of other `com.huanshankeji` libraries, especially in a branch other than `main` such as `dev`, refer to the setup instructions at <https://github.com/huanshankeji/.github/blob/main/dev-instructions.md#about-snapshot-dependencies-of-our-library-projects>.
 
 ### Essential Repository Setup
 
@@ -36,7 +44,7 @@ No special repository setup is required - all dependencies are available from st
 ```
 **Important**: Always run `publishToMavenLocal` first when making changes, as mentioned in CONTRIBUTING.md. This publishes libraries to your local Maven repository so dependent projects can use your changes.
 
-#### 3. Running Tests and Checks
+#### 3. Running Tests and Checks (Essential Commands - validated and working)
 ```bash
 ./gradlew check
 ```
@@ -66,6 +74,20 @@ No special repository setup is required - all dependencies are available from st
 3. **Kotlin/JS Store**: The `kotlin-js-store` directory may be generated during JS builds - this should not be committed.
 
 4. **Gradle Daemon**: May timeout on first runs. Use `--no-daemon` flag if needed: `./gradlew check --no-daemon`
+
+### Build Timing and Known Issues
+
+**Timing Expectations**:
+- First build: 5-10 minutes (includes dependency resolution and Wasm compilation)
+- Subsequent builds: 1-3 minutes
+- `publishToMavenLocal`: 3-5 minutes
+- `check` execution: 2-5 minutes (limited tests)
+- Demo builds: 2-4 minutes
+
+**Common Issues**:
+- **Wasm Compilation**: Requires 2GB+ heap memory (pre-configured in gradle.properties)
+- **Network Dependencies**: Cannot build offline, requires internet for initial setup
+- **Platform-specific builds**: Some targets may be disabled on certain OS (use `--continue` flag)
 
 ## Project Architecture and Layout
 
@@ -125,6 +147,8 @@ repositories {
 }
 ```
 
+**Note**: All dependencies are available from standard repositories. If working with snapshot dependencies of other `com.huanshankeji` libraries, additional setup may be required as per organization instructions.
+
 #### Key Dependencies
 - **Kotlin**: 2.2.20 with Compose Compiler
 - **Compose Multiplatform**: 1.9.0
@@ -157,6 +181,12 @@ repositories {
 - **Code Style**: IntelliJ IDEA Code Cleanup and Reformat Code applied project-wide
 - **Limited Testing**: Project acknowledges "limited number of tests"
 
+#### Architecture Notes
+- **Multi-module**: Each feature area is a separate Gradle subproject
+- **Expect/Actual Pattern**: Platform-specific implementations using Kotlin Multiplatform patterns
+- **Convention Plugins**: Custom build logic in `buildSrc` for consistency across modules
+- **Target Platforms**: Sophisticated setup targeting 6+ platforms with different implementation strategies
+
 ### Root Directory Files
 ```
 .gitignore              # Standard exclusions plus .kotlin, local.properties  
@@ -186,3 +216,5 @@ settings.gradle.kts     # Project structure and dependency management
 - **Memory Requirements**: Ensure adequate memory for Wasm compilation (2GB JVM heap configured)
 - **Limited Test Coverage**: Don't expect comprehensive test suites - focus on build and demo validation
 - **Platform Complexity**: This is a sophisticated multiplatform project with 6+ target platforms and complex expect/actual patterns
+
+**Trust these instructions**: This information has been validated through actual command execution and file inspection. Only search for additional information if these instructions are incomplete or found to be incorrect.
