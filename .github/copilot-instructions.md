@@ -12,10 +12,6 @@
 - **Key Dependencies**: Compose Multiplatform, Kobweb Silk, Material Web Components
 - **Current Version**: 0.6.0-SNAPSHOT
 
-<tool_calling>
-You have the capability to call multiple tools in a single response. For maximum efficiency, whenever you need to perform multiple independent operations, ALWAYS invoke all relevant tools simultaneously rather than sequentially. Especially when exploring repository, reading files, viewing directories, validating changes or replying to comments.
-</tool_calling>
-
 ## Build Instructions and Environment Setup
 
 ### Prerequisites
@@ -23,7 +19,7 @@ You have the capability to call multiple tools in a single response. For maximum
 - **Network Access**: Required for initial builds to download Android Gradle Plugin and other dependencies
 - **Gradle 9.1.0**: Automatically handled by wrapper
 
-**IMPORTANT**: Initial builds require internet access for dependency resolution. The project cannot build in fully offline environments.
+**IMPORTANT**: Initial builds require internet access for dependency resolution. Once dependencies are cached, subsequent builds can use `--offline` flag if needed.
 
 **IMPORTANT**: If the project uses snapshot dependencies of other `com.huanshankeji` libraries, especially in a branch other than `main` such as `dev`, refer to the setup instructions at <https://github.com/huanshankeji/.github/blob/main/dev-instructions.md#about-snapshot-dependencies-of-our-library-projects>.
 
@@ -82,7 +78,7 @@ You have the capability to call multiple tools in a single response. For maximum
 
 **Common Issues**:
 - **Wasm Compilation**: Requires 2GB+ heap memory (pre-configured in gradle.properties)
-- **Network Dependencies**: Cannot build offline, requires internet for initial setup
+- **Network Dependencies**: Initial builds require internet access for dependency resolution
 - **Platform-specific builds**: Some targets may be disabled on certain OS (use `--continue` flag)
 
 ## Project Architecture and Layout
@@ -208,7 +204,7 @@ settings.gradle.kts     # Project structure and dependency management
 ## Important Notes for Agents
 
 - **Trust These Instructions**: Only perform additional searches if information here is incomplete or incorrect
-- **Network Dependency**: Initial builds require internet access - cannot work in fully offline environments
+- **Network Dependency**: Initial builds require internet access for dependency resolution
 - **Memory Requirements**: Ensure adequate memory for Wasm compilation (2GB JVM heap configured)
 - **Limited Test Coverage**: Don't expect comprehensive test suites - focus on build and demo validation
 - **Platform Complexity**: This is a sophisticated multiplatform project with 6+ target platforms and complex expect/actual patterns
