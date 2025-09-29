@@ -20,10 +20,8 @@
 - **Gradle 9.1.0**: Automatically handled by wrapper
 
 ### Essential Repository Setup
-```bash
-# The project no longer requires external repositories for Kobweb as of version 0.23.3
-# All dependencies are now available from standard repositories (mavenCentral, google)
-```
+
+No special repository setup is required - all dependencies are available from standard repositories (mavenCentral, google).
 
 ### Build Commands (In Order)
 
@@ -186,6 +184,5 @@ settings.gradle.kts     # Project structure and dependency management
 - **Trust These Instructions**: Only perform additional searches if information here is incomplete or incorrect
 - **Network Dependency**: Initial builds require internet access - cannot work in fully offline environments
 - **Memory Requirements**: Ensure adequate memory for Wasm compilation (2GB JVM heap configured)
-- **Kobweb Dependency**: As of version 0.23.3, Kobweb is now published to Maven Central
 - **Limited Test Coverage**: Don't expect comprehensive test suites - focus on build and demo validation
 - **Platform Complexity**: This is a sophisticated multiplatform project with 6+ target platforms and complex expect/actual patterns
