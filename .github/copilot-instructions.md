@@ -33,7 +33,7 @@
 ```bash
 ./gradlew publishToMavenLocal
 ```
-**Important**: Always run `publishToMavenLocal` first when making changes, as mentioned in CONTRIBUTING.md. This publishes libraries to your local Maven repository so dependent projects can use your changes.
+**Important**: Always run `publishToMavenLocal` first when making changes, as mentioned in CONTRIBUTING.md. This ensures libraries compile correctly and validates the build process.
 
 #### 3. Running Tests and Checks (Essential Commands - validated and working)
 ```bash
