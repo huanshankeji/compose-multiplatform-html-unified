@@ -27,10 +27,6 @@ You have the capability to call multiple tools in a single response. For maximum
 
 **IMPORTANT**: If the project uses snapshot dependencies of other `com.huanshankeji` libraries, especially in a branch other than `main` such as `dev`, refer to the setup instructions at <https://github.com/huanshankeji/.github/blob/main/dev-instructions.md#about-snapshot-dependencies-of-our-library-projects>.
 
-### Essential Repository Setup
-
-No special repository setup is required - all dependencies are available from standard repositories (mavenCentral, google).
-
 ### Build Commands (In Order)
 
 #### 1. Basic Project Setup
