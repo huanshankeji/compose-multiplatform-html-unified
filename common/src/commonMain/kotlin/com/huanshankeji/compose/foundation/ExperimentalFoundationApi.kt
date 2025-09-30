@@ -1,5 +1,7 @@
 package com.huanshankeji.compose.foundation
 
+import kotlin.RequiresOptIn
+
 @RequiresOptIn(
     "This foundation API is experimental and is likely to change or be removed in the " +
             "future. See `androidx.compose.foundation.ExperimentalFoundationApi`."

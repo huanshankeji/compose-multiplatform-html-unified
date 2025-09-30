@@ -1,5 +1,7 @@
 package com.huanshankeji.compose
 
+import kotlin.RequiresOptIn
+
 @RequiresOptIn(
     "This API is likely to be inconsistent now on Compose UI and Compose HTML, which could affect the final visual effect. " +
             "Please verify on both kinds of targets to make sure it works as expected. " +
