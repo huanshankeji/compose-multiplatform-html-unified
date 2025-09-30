@@ -12,7 +12,7 @@ object DependencyVersions {
     // https://github.com/JetBrains/compose-multiplatform/releases/tag/v1.8.0-rc01
     const val composeMultiplatformMaterialIconsExtended = "1.7.3"
     val kobweb = "0.23.3"
-    val huanshankejiComposeHtml = "0.4.0" // Temporarily using release version due to network restrictions
+    val huanshankejiComposeHtml = "0.4.1-SNAPSHOT" // TODO don't use a snapshot version in a main branch
     val kmdc = "0.1.2"
     val materialSymbols = "0.35.2"
 }
