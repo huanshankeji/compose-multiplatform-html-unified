@@ -3,11 +3,11 @@ import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 
 plugins {
     `common-conventions`
-    id("com.android.application")
+    // id("com.android.application") // Temporarily commented out due to network restrictions
 }
 
 kotlin {
-    androidTarget()
+    // androidTarget() // Temporarily commented out due to network restrictions
 
     listOf(
         iosX64(),
@@ -67,12 +67,12 @@ kotlin {
                 implementation(compose.desktop.currentOs)
             }
         }
-        androidMain {
-            dependencies {
-                implementation(commonDependencies.androidx.activity.compose())
-                implementation(commonDependencies.androidx.compose.ui.module("tooling-preview"))
-            }
-        }
+        // androidMain { // Temporarily commented out due to network restrictions
+        //     dependencies {
+        //         implementation(commonDependencies.androidx.activity.compose())
+        //         implementation(commonDependencies.androidx.compose.ui.module("tooling-preview"))
+        //     }
+        // }
         jsMain {
             dependencies {
                 implementation(compose.html.core)
@@ -92,26 +92,26 @@ compose {
     }
 }
 
-android {
-    namespace = `package`
-
-    val sdk = androidSdkVersion
-    compileSdk = sdk
-
-    defaultConfig {
-        applicationId = `package`
-        minSdk = 24
-        targetSdk = sdk
-        versionName = version as String
-    }
-
-    buildFeatures {
-        compose = true
-    }
-    dependencies {
-        debugImplementation(compose.uiTooling)
-    }
-}
+// android { // Temporarily commented out due to network restrictions
+//     namespace = `package`
+// 
+//     val sdk = androidSdkVersion
+//     compileSdk = sdk
+// 
+//     defaultConfig {
+//         applicationId = `package`
+//         minSdk = 24
+//         targetSdk = sdk
+//         versionName = version as String
+//     }
+// 
+//     buildFeatures {
+//         compose = true
+//     }
+//     dependencies {
+//         debugImplementation(compose.uiTooling)
+//     }
+// }
 
 val jsBrowserDistribution by tasks.getting(Sync::class)
 val wasmJsBrowserDistribution by tasks.getting(Sync::class)

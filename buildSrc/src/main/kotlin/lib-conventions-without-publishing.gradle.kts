@@ -1,13 +1,13 @@
 plugins {
     id("common-conventions")
     id("com.huanshankeji.kotlin-multiplatform-conventional-targets")
-    id("com.android.library")
+    // id("com.android.library") // Temporarily commented out due to network restrictions
 }
 
 kotlin {
-    androidTarget {
-        publishLibraryVariants("release", "debug")
-    }
+    // androidTarget { // Temporarily commented out due to network restrictions
+    //     publishLibraryVariants("release", "debug")
+    // }
 
     /*
     sourceSets {
@@ -19,8 +19,8 @@ kotlin {
     */
 }
 
-android {
-    namespace = group as String
-
-    compileSdk = androidSdkVersion
-}
+// android { // Temporarily commented out due to network restrictions
+//     namespace = group as String
+// 
+//     compileSdk = androidSdkVersion
+// }

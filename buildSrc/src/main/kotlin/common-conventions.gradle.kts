@@ -48,7 +48,7 @@ kotlin {
         common {
             group("composeUi") {
                 withJvm()
-                withAndroidTarget()
+                // withAndroidTarget() // Temporarily commented out due to network restrictions
                 group("ios")
                 withWasmJs()
             }
