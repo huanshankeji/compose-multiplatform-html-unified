@@ -156,6 +156,9 @@ repositories {
 - **Binary Compatibility**: Enforced via org.jetbrains.kotlinx.binary-compatibility-validator plugin
 - **Limited Testing**: Project acknowledges "limited number of tests"
 
+**Code Style:**
+- Follow [our Kotlin code style guide](https://github.com/huanshankeji/.github/blob/main/kotlin-code-style.md) for all Kotlin code contributions
+
 #### Architecture Notes
 - **Multi-module**: Each feature area is a separate Gradle subproject
 - **Expect/Actual Pattern**: Platform-specific implementations using Kotlin Multiplatform patterns
