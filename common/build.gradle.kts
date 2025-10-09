@@ -7,21 +7,6 @@ plugins {
 }
 
 kotlin {
-    @OptIn(ExperimentalKotlinGradlePluginApi::class)
-    applyDefaultHierarchyTemplate {
-        common {
-            group("composeUi") {
-                group("composeUiExceptAndroid") {
-                    withJvm()
-                    group("ios")
-                    withWasmJs()
-                }
-            }
-            withAndroidTarget()
-        }
-    }
-
-
     sourceSets {
         /*
         Use `api`. See:

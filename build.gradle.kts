@@ -11,8 +11,4 @@ apiValidation {
     klib {
         enabled = true
     }
-
-    ignoredProjects += "compose-multiplatform-html-unified".let {
-        listOf("$it-demo", "$it-common-legacy")
-    }
 }
