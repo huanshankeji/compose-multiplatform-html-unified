@@ -6,5 +6,5 @@ import kotlin.jvm.JvmInline
 value class Impl(val any: Any)
 
 fun test() {
-    mutableListOf()
+    mutableListOf<Int>()
 }
