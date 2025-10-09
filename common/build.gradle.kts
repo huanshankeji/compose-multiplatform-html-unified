@@ -54,8 +54,8 @@ kotlin {
             dependencies {
                 api(compose.html.core)
                 // see: https://github.com/varabyte/kobweb/blob/main/frontend/kobweb-compose/build.gradle.kts
-                api("com.varabyte.kobweb:kobweb-compose:${DependencyVersions.kobweb}")
-                implementation("com.huanshankeji:compose-html-common:${DependencyVersions.huanshankejiComposeHtml}")
+                api("com.varabyte.kobweb:kobweb-compose:${DependencyVersions.kobweb}") { exclude("org.jetbrains.kotlin") }
+                implementation("com.huanshankeji:compose-html-common:${DependencyVersions.huanshankejiComposeHtml}") { exclude("org.jetbrains.kotlin") }
 
                 /*
                 The UI module depends on the lifecycle module to use `androidx.lifecycle.ViewModelStoreOwner`.
