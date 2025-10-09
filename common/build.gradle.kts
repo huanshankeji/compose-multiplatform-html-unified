@@ -1,3 +1,3 @@
 plugins {
-    `lib-conventions`
+    `common-conventions`
 }
