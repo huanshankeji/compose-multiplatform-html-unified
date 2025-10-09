@@ -13,6 +13,6 @@ apiValidation {
     }
 
     ignoredProjects += "compose-multiplatform-html-unified".let {
-        listOf("$it-demo", "$it-common-legacy")
+        listOf("$it-demo")
     }
 }

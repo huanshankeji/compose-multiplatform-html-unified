@@ -35,8 +35,10 @@ kotlin {
         }
         jsMain {
             dependencies {
-                api("com.huanshankeji:compose-html-material3:${DependencyVersions.huanshankejiComposeHtml}")
-                implementation("com.huanshankeji:compose-html-common:${DependencyVersions.huanshankejiComposeHtml}")
+                api("com.huanshankeji:compose-html-material3:${DependencyVersions.huanshankejiComposeHtml}") { exclude("org.jetbrains.kotlin") }
+                implementation("com.huanshankeji:compose-html-common:${DependencyVersions.huanshankejiComposeHtml}") {
+                    exclude("org.jetbrains.kotlin")
+                }
             }
         }
     }
