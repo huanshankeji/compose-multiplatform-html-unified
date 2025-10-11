@@ -16,8 +16,8 @@ kotlin {
                     group("ios")
                     withWasmJs()
                 }
+                withAndroidTarget()
             }
-            withAndroidTarget()
         }
     }
 
