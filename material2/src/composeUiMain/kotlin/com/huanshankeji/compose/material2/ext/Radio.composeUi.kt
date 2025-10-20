@@ -15,7 +15,7 @@ import com.huanshankeji.compose.ui.PlatformModifier
 
 @Composable
 actual fun RadioRow(selected: Boolean, label: String, onClick: () -> Unit, modifier: Modifier, enabled: Boolean) =
-    Row(Modifier.platformModifier.selectable(selected, enabled, Role.RadioButton, onClick)) {
+    Row(Modifier.platformModifier.selectable(selected, enabled, Role.RadioButton, null, onClick)) {
         RadioButton(selected, null)
         Text(label)
     }

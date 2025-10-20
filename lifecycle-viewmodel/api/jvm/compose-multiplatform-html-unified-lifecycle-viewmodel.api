@@ -1,0 +1,9 @@
+public final class com/huanshankeji/androidx/lifecycle/viewmodel/compose/ViewModelKt {
+	public static final fun defaultCreationExtras (Landroidx/lifecycle/ViewModelStoreOwner;)Landroidx/lifecycle/viewmodel/CreationExtras;
+}
+
+public final class com/huanshankeji/androidx/lifecycle/viewmodel/compose/ViewModel_composeUiKt {
+	public static final fun defaultViewModelStoreOwner (Landroidx/compose/runtime/Composer;I)Landroidx/lifecycle/ViewModelStoreOwner;
+	public static final fun viewModel (Lkotlin/reflect/KClass;Landroidx/lifecycle/ViewModelStoreOwner;Ljava/lang/String;Landroidx/lifecycle/ViewModelProvider$Factory;Landroidx/lifecycle/viewmodel/CreationExtras;Landroidx/compose/runtime/Composer;II)Landroidx/lifecycle/ViewModel;
+}
+

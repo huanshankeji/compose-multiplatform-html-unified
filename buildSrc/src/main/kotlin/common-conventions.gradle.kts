@@ -8,10 +8,9 @@ plugins {
 }
 
 repositories {
-    //mavenLocal() // commented out so the build is always reproducible by others // put back if needed when depending on a snapshot
+    mavenLocal() // TODO comment out when not needed so the build is always reproducible by others
     mavenCentral()
     google()
-    maven("https://us-central1-maven.pkg.dev/varabyte-repos/public") // for Kobweb
 }
 
 group = "com.huanshankeji"
@@ -21,21 +20,25 @@ kotlin {
     // for Compose UI
 
     jvm() // TODO: `jvm("desktop")`?
-    jvmToolchain(8)
+    jvmToolchain(17)
 
     //androidTarget()
 
-    iosX64()
     iosArm64()
     iosSimulatorArm64()
 
     @OptIn(ExperimentalWasmDsl::class)
-    wasmJs()
+    wasmJs {
+        browser()
+    }
 
 
     // for JS and HTML wrappers
 
-    js()
+    js {
+        // The project works without this, but it can be added to avoid potential issues.
+        browser()
+    }
 
 
 

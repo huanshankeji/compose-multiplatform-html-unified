@@ -1,4 +1,4 @@
-import com.huanshankeji.team.`Shreck Ye`
+import com.huanshankeji.team.ShreckYe
 import com.huanshankeji.team.pomForTeamDefaultOpenSource
 
 plugins {
@@ -19,7 +19,7 @@ kotlin {
         }
         composeUiMain {
             dependencies {
-                api("org.jetbrains.compose.material:material-icons-extended:${DependencyVersions.composeMultiplatform}")
+                api("org.jetbrains.compose.material:material-icons-extended:${DependencyVersions.composeMultiplatformMaterialIconsExtended}")
             }
         }
     }
@@ -31,6 +31,6 @@ publishing.publications.withType<MavenPublication> {
         "Compose Multiplatform HTML Unified core Icon wrappers",
         "Compose Multiplatform HTML Unified Design core Icon wrappers for `androidx.compose` and Compose HTML"
     ) {
-        `Shreck Ye`()
+        ShreckYe()
     }
 }

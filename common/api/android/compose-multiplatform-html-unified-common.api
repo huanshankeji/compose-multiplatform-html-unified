@@ -146,7 +146,7 @@ public final class com/huanshankeji/compose/foundation/layout/Arrangement$Vertic
 }
 
 public abstract interface class com/huanshankeji/compose/foundation/layout/BoxScope {
-	public abstract fun align (Lcom/huanshankeji/compose/ui/Modifier;Lcom/huanshankeji/compose/ui/Alignment;)Lcom/huanshankeji/compose/ui/Modifier;
+	public fun align (Lcom/huanshankeji/compose/ui/Modifier;Lcom/huanshankeji/compose/ui/Alignment;)Lcom/huanshankeji/compose/ui/Modifier;
 	public abstract fun getPlatformBoxScope ()Landroidx/compose/foundation/layout/BoxScope;
 }
 
@@ -180,9 +180,9 @@ public final class com/huanshankeji/compose/foundation/layout/ColumnKt {
 }
 
 public abstract interface class com/huanshankeji/compose/foundation/layout/ColumnScope {
-	public abstract fun align (Lcom/huanshankeji/compose/ui/Modifier;Lcom/huanshankeji/compose/ui/Alignment$Horizontal;)Lcom/huanshankeji/compose/ui/Modifier;
+	public fun align (Lcom/huanshankeji/compose/ui/Modifier;Lcom/huanshankeji/compose/ui/Alignment$Horizontal;)Lcom/huanshankeji/compose/ui/Modifier;
 	public abstract fun getPlatformValue ()Landroidx/compose/foundation/layout/ColumnScope;
-	public abstract fun weight (Lcom/huanshankeji/compose/ui/Modifier;F)Lcom/huanshankeji/compose/ui/Modifier;
+	public fun weight (Lcom/huanshankeji/compose/ui/Modifier;F)Lcom/huanshankeji/compose/ui/Modifier;
 }
 
 public final class com/huanshankeji/compose/foundation/layout/ColumnScope$DefaultImpls {
@@ -261,9 +261,9 @@ public final class com/huanshankeji/compose/foundation/layout/RowKt {
 }
 
 public abstract interface class com/huanshankeji/compose/foundation/layout/RowScope {
-	public abstract fun align (Lcom/huanshankeji/compose/ui/Modifier;Lcom/huanshankeji/compose/ui/Alignment$Vertical;)Lcom/huanshankeji/compose/ui/Modifier;
+	public fun align (Lcom/huanshankeji/compose/ui/Modifier;Lcom/huanshankeji/compose/ui/Alignment$Vertical;)Lcom/huanshankeji/compose/ui/Modifier;
 	public abstract fun getPlatformValue ()Landroidx/compose/foundation/layout/RowScope;
-	public abstract fun weight (Lcom/huanshankeji/compose/ui/Modifier;F)Lcom/huanshankeji/compose/ui/Modifier;
+	public fun weight (Lcom/huanshankeji/compose/ui/Modifier;F)Lcom/huanshankeji/compose/ui/Modifier;
 }
 
 public final class com/huanshankeji/compose/foundation/layout/RowScope$DefaultImpls {
@@ -665,10 +665,10 @@ public final class com/huanshankeji/compose/ui/Alignment$Vertical$Impl : com/hua
 
 public abstract interface class com/huanshankeji/compose/ui/Modifier {
 	public static final field Companion Lcom/huanshankeji/compose/ui/Modifier$Companion;
-	public abstract fun foldIn (Ljava/lang/Object;Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
+	public fun foldIn (Ljava/lang/Object;Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;
 	public abstract fun getPlatformModifier ()Landroidx/compose/ui/Modifier;
-	public abstract fun platformModify (Lkotlin/jvm/functions/Function1;)Lcom/huanshankeji/compose/ui/Modifier;
-	public abstract fun then (Lcom/huanshankeji/compose/ui/Modifier;)Lcom/huanshankeji/compose/ui/Modifier;
+	public fun platformModify (Lkotlin/jvm/functions/Function1;)Lcom/huanshankeji/compose/ui/Modifier;
+	public fun then (Lcom/huanshankeji/compose/ui/Modifier;)Lcom/huanshankeji/compose/ui/Modifier;
 }
 
 public final class com/huanshankeji/compose/ui/Modifier$Companion : com/huanshankeji/compose/ui/Modifier {

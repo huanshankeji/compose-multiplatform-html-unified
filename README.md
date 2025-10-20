@@ -132,6 +132,7 @@ The `com.huanshankeji.compose.material.icons.Icon` class delegates to both kinds
 
 - `outerBorder`
 - `roundedCornerBackgroundAndOuterBorder`
+- `outerPadding`, `innerPadding`
 
 ### Other APIs
 
@@ -143,15 +144,11 @@ The `com.huanshankeji.compose.material.icons.Icon` class delegates to both kinds
 
 ### ViewModel
 
-The ViewModel module currently supports a small subset of the Compose ViewModel APIs, and delegates to raw UI state on
-Compose HTML / JS DOM. These APIs are highly experimental now.
+The ViewModel module currently supports a subset of the Compose ViewModel APIs. For ViewModel to work properly on Compose HTML / JS DOM, call `com.huanshankeji.compose.ui.window.renderComposableInBodyWithViewModelStoreOwner` instead of `org.jetbrains.compose.web.renderComposableInBody` on JS. These APIs are experimental now.
 
 ### Navigation
 
-The navigation module currently supports a small subset of the Compose Navigation APIs, which does not support
-transition or animation on Compose HTML / JS DOM. These APIs are also highly experimental now.
-See [CMP-4966](https://youtrack.jetbrains.com/issue/CMP-4966) for a bug to avoid. Also, ViewModel-related functions
-are not implemented yet on Compose HTML / JS DOM.
+The navigation module currently supports a small subset of the Compose Navigation APIs, which does not support transition or animation on Compose HTML / JS DOM. These APIs are also experimental now. See [CMP-4966](https://youtrack.jetbrains.com/issue/CMP-4966) for a bug to avoid.
 
 ## Add to your dependencies
 
@@ -186,15 +183,6 @@ kotlin {
 ```
 
 View [all the artifacts on Maven Central](https://search.maven.org/search?q=g:com.huanshankeji%20AND%20a:compose-multiplatform-*).
-
-This project depends on [Kobweb](https://github.com/varabyte/kobweb) which is not published to Maven Central yet, so you have to add the following Maven repository:
-
-```kotlin
-repositories {
-    mavenCentral()
-    maven("https://us-central1-maven.pkg.dev/varabyte-repos/public")
-}
-```
 
 ### Material Symbols & Icons on JS
 

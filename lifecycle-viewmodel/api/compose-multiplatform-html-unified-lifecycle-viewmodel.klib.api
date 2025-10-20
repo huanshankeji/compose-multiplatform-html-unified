@@ -1,9 +1,27 @@
 // Klib ABI Dump
-// Targets: [iosArm64, iosSimulatorArm64, iosX64, js, wasmJs]
+// Targets: [iosArm64, iosSimulatorArm64, js, wasmJs]
 // Rendering settings:
 // - Signature version: 2
 // - Show manifest properties: true
 // - Show declarations: true
 
 // Library unique name: <com.huanshankeji:compose-multiplatform-html-unified-lifecycle-viewmodel>
+final fun (androidx.lifecycle/ViewModelStoreOwner).com.huanshankeji.androidx.lifecycle.viewmodel.compose/defaultCreationExtras(): androidx.lifecycle.viewmodel/CreationExtras // com.huanshankeji.androidx.lifecycle.viewmodel.compose/defaultCreationExtras|defaultCreationExtras@androidx.lifecycle.ViewModelStoreOwner(){}[0]
+final fun <#A: androidx.lifecycle/ViewModel> com.huanshankeji.androidx.lifecycle.viewmodel.compose/viewModel(kotlin.reflect/KClass<#A>, androidx.lifecycle/ViewModelStoreOwner?, kotlin/String?, androidx.lifecycle/ViewModelProvider.Factory?, androidx.lifecycle.viewmodel/CreationExtras?, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int): #A // com.huanshankeji.androidx.lifecycle.viewmodel.compose/viewModel|viewModel(kotlin.reflect.KClass<0:0>;androidx.lifecycle.ViewModelStoreOwner?;kotlin.String?;androidx.lifecycle.ViewModelProvider.Factory?;androidx.lifecycle.viewmodel.CreationExtras?;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){0§<androidx.lifecycle.ViewModel>}[0]
+final fun com.huanshankeji.androidx.lifecycle.viewmodel.compose/defaultViewModelStoreOwner(androidx.compose.runtime/Composer?, kotlin/Int): androidx.lifecycle/ViewModelStoreOwner // com.huanshankeji.androidx.lifecycle.viewmodel.compose/defaultViewModelStoreOwner|defaultViewModelStoreOwner(androidx.compose.runtime.Composer?;kotlin.Int){}[0]
+final inline fun <#A: reified androidx.lifecycle/ViewModel> com.huanshankeji.androidx.lifecycle.viewmodel.compose/viewModel(androidx.lifecycle/ViewModelStoreOwner?, kotlin/String?, noinline kotlin/Function1<androidx.lifecycle.viewmodel/CreationExtras, #A>, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int): #A // com.huanshankeji.androidx.lifecycle.viewmodel.compose/viewModel|viewModel(androidx.lifecycle.ViewModelStoreOwner?;kotlin.String?;kotlin.Function1<androidx.lifecycle.viewmodel.CreationExtras,0:0>;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){0§<androidx.lifecycle.ViewModel>}[0]
 final inline fun <#A: reified androidx.lifecycle/ViewModel> com.huanshankeji.androidx.lifecycle.viewmodel.compose/viewModel(kotlin/String?, noinline kotlin/Function1<androidx.lifecycle.viewmodel/CreationExtras, #A>, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int): #A // com.huanshankeji.androidx.lifecycle.viewmodel.compose/viewModel|viewModel(kotlin.String?;kotlin.Function1<androidx.lifecycle.viewmodel.CreationExtras,0:0>;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){0§<androidx.lifecycle.ViewModel>}[0]
+
+// Targets: [js]
+final object com.huanshankeji.androidx.lifecycle.viewmodel.compose/LocalViewModelStoreOwner { // com.huanshankeji.androidx.lifecycle.viewmodel.compose/LocalViewModelStoreOwner|null[0]
+    final val current // com.huanshankeji.androidx.lifecycle.viewmodel.compose/LocalViewModelStoreOwner.current|{}current[0]
+        final fun <get-current>(androidx.compose.runtime/Composer?, kotlin/Int): androidx.lifecycle/ViewModelStoreOwner? // com.huanshankeji.androidx.lifecycle.viewmodel.compose/LocalViewModelStoreOwner.current.<get-current>|<get-current>(androidx.compose.runtime.Composer?;kotlin.Int){}[0]
+
+    final fun provides(androidx.lifecycle/ViewModelStoreOwner): androidx.compose.runtime/ProvidedValue<androidx.lifecycle/ViewModelStoreOwner?> // com.huanshankeji.androidx.lifecycle.viewmodel.compose/LocalViewModelStoreOwner.provides|provides(androidx.lifecycle.ViewModelStoreOwner){}[0]
+}
+
+// Targets: [js]
+final val com.huanshankeji.androidx.lifecycle.viewmodel.compose/com_huanshankeji_androidx_lifecycle_viewmodel_compose_LocalViewModelStoreOwner$stableprop // com.huanshankeji.androidx.lifecycle.viewmodel.compose/com_huanshankeji_androidx_lifecycle_viewmodel_compose_LocalViewModelStoreOwner$stableprop|#static{}com_huanshankeji_androidx_lifecycle_viewmodel_compose_LocalViewModelStoreOwner$stableprop[0]
+
+// Targets: [js]
+final fun com.huanshankeji.androidx.lifecycle.viewmodel.compose/com_huanshankeji_androidx_lifecycle_viewmodel_compose_LocalViewModelStoreOwner$stableprop_getter(): kotlin/Int // com.huanshankeji.androidx.lifecycle.viewmodel.compose/com_huanshankeji_androidx_lifecycle_viewmodel_compose_LocalViewModelStoreOwner$stableprop_getter|com_huanshankeji_androidx_lifecycle_viewmodel_compose_LocalViewModelStoreOwner$stableprop_getter(){}[0]

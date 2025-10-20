@@ -1,4 +1,5 @@
-import com.huanshankeji.team.`Shreck Ye`
+import com.huanshankeji.cpnProject
+import com.huanshankeji.team.ShreckYe
 import com.huanshankeji.team.pomForTeamDefaultOpenSource
 
 plugins {
@@ -16,6 +17,9 @@ kotlin {
                 */
                 api(compose.runtime)
                 api(commonDependencies.jetbrainsAndroidx.lifecycle.viewmodel())
+                // only needed on JS DOM actually
+                // https://github.com/JetBrains/compose-multiplatform-core/blob/f1e03d0784631a88201931a6a6a708cdd090be57/lifecycle/lifecycle-viewmodel-compose/build.gradle#L58
+                api(cpnProject(project, ":common"))
             }
         }
         composeUiMain {
@@ -32,6 +36,6 @@ publishing.publications.withType<MavenPublication> {
         "Unified Compose Multiplatform ViewModel $FOR_COMPOSE_TARGETS_IN_TITLE",
         "Unified wrappers of Compose Multiplatform ViewModel for $FOR_COMPOSE_TARGETS_IN_DESCRIPTION"
     ) {
-        `Shreck Ye`()
+        ShreckYe()
     }
 }

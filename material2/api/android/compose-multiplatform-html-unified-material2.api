@@ -125,11 +125,11 @@ public final class com/huanshankeji/compose/material2/ext/Button_composeUiKt {
 public final class com/huanshankeji/compose/material2/ext/ComposableSingletons$TopAppBarScaffold_composeUiKt {
 	public static final field INSTANCE Lcom/huanshankeji/compose/material2/ext/ComposableSingletons$TopAppBarScaffold_composeUiKt;
 	public fun <init> ()V
-	public final fun getLambda-1$compose_multiplatform_html_unified_material2_release ()Lkotlin/jvm/functions/Function3;
-	public final fun getLambda-2$compose_multiplatform_html_unified_material2_release ()Lkotlin/jvm/functions/Function3;
-	public final fun getLambda-3$compose_multiplatform_html_unified_material2_release ()Lkotlin/jvm/functions/Function2;
-	public final fun getLambda-4$compose_multiplatform_html_unified_material2_release ()Lkotlin/jvm/functions/Function3;
-	public final fun getLambda-5$compose_multiplatform_html_unified_material2_release ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-1450702390$compose_multiplatform_html_unified_material2_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda$-352489237$compose_multiplatform_html_unified_material2_release ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$1058686746$compose_multiplatform_html_unified_material2_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda$337690754$compose_multiplatform_html_unified_material2_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda$591505581$compose_multiplatform_html_unified_material2_release ()Lkotlin/jvm/functions/Function2;
 }
 
 public final class com/huanshankeji/compose/material2/ext/FabPosition : java/lang/Enum {
