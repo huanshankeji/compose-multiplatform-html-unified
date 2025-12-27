@@ -34,7 +34,7 @@ publishing.publications.withType<MavenPublication> {
                 "This legacy module depends on `com.huanshankeji:compose-html-common` instead of Kobweb Silk " +
                 "and its components use the `ModifierOrAttrsScope` class to configure styles."
     ) {
-        `Shreck Ye`()
+        ShreckYe()
     }
 }
 */
