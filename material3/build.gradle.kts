@@ -1,5 +1,5 @@
 import com.huanshankeji.cpnProject
-import com.huanshankeji.team.`Shreck Ye`
+import com.huanshankeji.team.ShreckYe
 import com.huanshankeji.team.pomForTeamDefaultOpenSource
 
 plugins {
@@ -35,8 +35,10 @@ kotlin {
         }
         jsMain {
             dependencies {
-                api("com.huanshankeji:compose-html-material3:${DependencyVersions.huanshankejiComposeHtml}")
-                implementation("com.huanshankeji:compose-html-common:${DependencyVersions.huanshankejiComposeHtml}")
+                api("com.huanshankeji:compose-html-material3:${DependencyVersions.huanshankejiComposeHtml}") { exclude("org.jetbrains.kotlin") }
+                implementation("com.huanshankeji:compose-html-common:${DependencyVersions.huanshankejiComposeHtml}") {
+                    exclude("org.jetbrains.kotlin")
+                }
             }
         }
     }
@@ -48,6 +50,6 @@ publishing.publications.withType<MavenPublication> {
         "Unified Compose Material 3 wrappers $FOR_COMPOSE_TARGETS_IN_TITLE",
         "Unified Material Design 3 component wrappers $FOR_COMPOSE_TARGETS_IN_DESCRIPTION"
     ) {
-        `Shreck Ye`()
+        ShreckYe()
     }
 }
