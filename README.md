@@ -184,15 +184,6 @@ kotlin {
 
 View [all the artifacts on Maven Central](https://search.maven.org/search?q=g:com.huanshankeji%20AND%20a:compose-multiplatform-*).
 
-This project depends on [Kobweb](https://github.com/varabyte/kobweb) which is not published to Maven Central yet, so you have to add the following Maven repository:
-
-```kotlin
-repositories {
-    mavenCentral()
-    maven("https://us-central1-maven.pkg.dev/varabyte-repos/public")
-}
-```
-
 ### Material Symbols & Icons on JS
 
 See [the corresponding section in Compose HTML Material](https://github.com/huanshankeji/compose-html-material?tab=readme-ov-file#material-symbols--icons) for configuring Material Icons on JS.
