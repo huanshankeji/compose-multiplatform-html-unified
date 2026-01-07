@@ -46,7 +46,8 @@ publishing.publications.withType<MavenPublication> {
     pomForTeamDefaultOpenSource(
         project,
         "Unified Compose Material 2 wrappers $FOR_COMPOSE_TARGETS_IN_TITLE",
-        "Unified Material Design 2 component wrappers $FOR_COMPOSE_TARGETS_IN_DESCRIPTION"
+        "Unified Material Design 2 component wrappers $FOR_COMPOSE_TARGETS_IN_DESCRIPTION",
+        "2023"
     ) {
         ShreckYe()
     }

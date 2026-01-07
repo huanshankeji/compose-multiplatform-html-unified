@@ -34,7 +34,8 @@ publishing.publications.withType<MavenPublication> {
     pomForTeamDefaultOpenSource(
         project,
         "Unified Compose Multiplatform ViewModel $FOR_COMPOSE_TARGETS_IN_TITLE",
-        "Unified wrappers of Compose Multiplatform ViewModel for $FOR_COMPOSE_TARGETS_IN_DESCRIPTION"
+        "Unified wrappers of Compose Multiplatform ViewModel for $FOR_COMPOSE_TARGETS_IN_DESCRIPTION",
+        "2024"
     ) {
         ShreckYe()
     }

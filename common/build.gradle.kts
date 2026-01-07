@@ -74,7 +74,8 @@ publishing.publications.withType<MavenPublication> {
     pomForTeamDefaultOpenSource(
         project,
         "Unified Compose Multiplatform common wrappers $FOR_COMPOSE_TARGETS_IN_TITLE",
-        "Common wrappers of components (including layouts) and modifiers $FOR_COMPOSE_TARGETS_IN_DESCRIPTION"
+        "Common wrappers of components (including layouts) and modifiers $FOR_COMPOSE_TARGETS_IN_DESCRIPTION",
+        "2023"
     ) {
         ShreckYe()
     }
