@@ -1,5 +1,5 @@
 import com.huanshankeji.cpnProject
-import com.huanshankeji.team.`Shreck Ye`
+import com.huanshankeji.team.ShreckYe
 import com.huanshankeji.team.pomForTeamDefaultOpenSource
 
 plugins {
@@ -36,8 +36,9 @@ publishing.publications.withType<MavenPublication> {
     pomForTeamDefaultOpenSource(
         project,
         "Unified Compose Multiplatform navigation $FOR_COMPOSE_TARGETS_IN_TITLE",
-        "Unified wrappers of Compose Multiplatform navigation for $FOR_COMPOSE_TARGETS_IN_DESCRIPTION"
+        "Unified wrappers of Compose Multiplatform navigation for $FOR_COMPOSE_TARGETS_IN_DESCRIPTION",
+        "2024"
     ) {
-        `Shreck Ye`()
+        ShreckYe()
     }
 }
