@@ -38,7 +38,7 @@ fun App() {
         composable(Screen.Home.name) { Home(navController) }
         //fun subDemoModifier()
         composable(Screen.Common.name) { Common() }
-        composable(Screen.Material2.name) { Material2() }
+        //composable(Screen.Material2.name) { Material2() }
         composable(Screen.Material3.name) { Material3() }
     }
 }

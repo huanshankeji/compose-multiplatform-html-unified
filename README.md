@@ -51,6 +51,8 @@ This project is still in development and has not reached a stable state. Some AP
 
 #### Material 2 components
 
+**Deprecation notice:** The Material 2 components are no longer maintained and published for release since v0.6.0, due to its decreasing popularity and the underlying KMDC library's incompatible Kotlin and Compose versions.
+
 - `Button`
 - `Card`
 - `Checkbox`
