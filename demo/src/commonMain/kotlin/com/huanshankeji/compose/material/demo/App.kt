@@ -28,7 +28,7 @@ fun Modifier.innerContentPadding() = innerPadding(16.dp)
 val contentPaddingModifier = Modifier.outerContentPadding()
 
 enum class Screen {
-    Home, Common, Material2, Material3
+    Home, Common, /*Material2,*/ Material3
 }
 
 @Composable
@@ -50,9 +50,11 @@ fun Home(navController: NavHostController) {
             Button({ navController.navigate(Screen.Common.name) }) {
                 TaglessText("Common")
             }
+            /*
             Button({ navController.navigate(Screen.Material2.name) }) {
                 TaglessText("Material 2")
             }
+            */
             Button({ navController.navigate(Screen.Material3.name) }) {
                 TaglessText("Material 3")
             }
