@@ -22,6 +22,7 @@ import com.huanshankeji.compose.material3.ext.*
 import com.huanshankeji.compose.material3.ext.Card
 import com.huanshankeji.compose.material3.ext.ElevatedCard
 import com.huanshankeji.compose.material3.ext.OutlinedCard
+import com.huanshankeji.compose.material3.labs.*
 import com.huanshankeji.compose.material3.lazy.ext.List
 import com.huanshankeji.compose.material3.lazy.ext.ListItemComponents
 import com.huanshankeji.compose.ui.Modifier
@@ -232,5 +233,197 @@ fun Material3(/*modifier: Modifier = Modifier*/
         LinearProgressIndicator({ 0.5f })
         CircularProgressIndicator()
         CircularProgressIndicator({ 0.5f })
+
+        // New components added
+        
+        // RadioButton
+        Row {
+            RadioButton(
+                selected = checked,
+                onClick = { viewModel.checkedState.value = true }
+            )
+            RadioButton(
+                selected = !checked,
+                onClick = { viewModel.checkedState.value = false }
+            )
+        }
+
+        // HorizontalDivider
+        HorizontalDivider()
+
+        // Slider
+        var sliderValue by remember { mutableStateOf(0.5f) }
+        Column {
+            Text("Slider value: ${(sliderValue * 100).toInt()}%")
+            Slider(
+                value = sliderValue,
+                onValueChange = { sliderValue = it },
+                valueRange = 0f..1f
+            )
+        }
+
+        // Badge
+        Row {
+            Badge {
+                Text("3")
+            }
+            Badge {
+                Text("New")
+            }
+        }
+
+        // Chips
+        Row {
+            AssistChip(
+                onClick = { println("Assist chip clicked") },
+                label = { Text("Assist") }
+            )
+            FilterChip(
+                selected = checked,
+                onClick = onCheckedChange.let { { it(!checked) } },
+                label = { Text("Filter") }
+            )
+            InputChip(
+                selected = checked,
+                onClick = onCheckedChange.let { { it(!checked) } },
+                label = { Text("Input") }
+            )
+            SuggestionChip(
+                onClick = { println("Suggestion chip clicked") },
+                label = { Text("Suggest") }
+            )
+        }
+
+        // Chips with icons
+        Row {
+            AssistChip(
+                onClick = { println("Assist chip with icon clicked") },
+                label = { Text("Assist") },
+                leadingIcon = { Icon(Icons.Default.Add, null) }
+            )
+            FilterChip(
+                selected = checked,
+                onClick = onCheckedChange.let { { it(!checked) } },
+                label = { Text("Filter") },
+                leadingIcon = { Icon(Icons.Default.Add, null) }
+            )
+        }
+
+        // Dialog
+        var showDialog by remember { mutableStateOf(false) }
+        Button(onClick = { showDialog = true }) {
+            Text("Show Dialog")
+        }
+        if (showDialog) {
+            AlertDialog(
+                onDismissRequest = { showDialog = false },
+                confirmButton = {
+                    Button(onClick = { showDialog = false }) {
+                        Text("OK")
+                    }
+                },
+                dismissButton = {
+                    Button(onClick = { showDialog = false }) {
+                        Text("Cancel")
+                    }
+                },
+                title = { Text("Alert Dialog") },
+                text = { Text("This is a demo alert dialog with headline, content, and action buttons.") }
+            )
+        }
+
+        // Tabs
+        var selectedTabIndex by remember { mutableStateOf(0) }
+        Column {
+            TabRow(selectedTabIndex = selectedTabIndex) {
+                Tab(
+                    selected = selectedTabIndex == 0,
+                    onClick = { selectedTabIndex = 0 },
+                    text = { Text("Tab 1") }
+                )
+                Tab(
+                    selected = selectedTabIndex == 1,
+                    onClick = { selectedTabIndex = 1 },
+                    text = { Text("Tab 2") },
+                    icon = { Icon(Icons.Default.Add, null) }
+                )
+                Tab(
+                    selected = selectedTabIndex == 2,
+                    onClick = { selectedTabIndex = 2 },
+                    text = { Text("Tab 3") }
+                )
+            }
+            Text("Selected tab: ${selectedTabIndex + 1}", Modifier.padding(16.dp))
+        }
+
+        // Select components
+        var selectedValue by remember { mutableStateOf("Option 1") }
+        Column {
+            Text("Selected: $selectedValue")
+            FilledSelect(
+                value = selectedValue,
+                onValueChange = { selectedValue = it },
+                label = "Choose option"
+            ) {
+                SelectOption("Option 1", "Option 1")
+                SelectOption("Option 2", "Option 2")
+                SelectOption("Option 3", "Option 3")
+            }
+        }
+        Column {
+            OutlinedSelect(
+                value = selectedValue,
+                onValueChange = { selectedValue = it },
+                label = "Choose option"
+            ) {
+                SelectOption("Option 1", "Option 1")
+                SelectOption("Option 2", "Option 2")
+                SelectOption("Option 3", "Option 3")
+            }
+        }
+
+        // Labs components - SegmentedButton
+        var selectedSegment by remember { mutableStateOf(0) }
+        SegmentedButtonSet {
+            SegmentedButton(
+                selected = selectedSegment == 0,
+                onClick = { selectedSegment = 0 },
+                label = { Text("Day") }
+            )
+            SegmentedButton(
+                selected = selectedSegment == 1,
+                onClick = { selectedSegment = 1 },
+                label = { Text("Week") }
+            )
+            SegmentedButton(
+                selected = selectedSegment == 2,
+                onClick = { selectedSegment = 2 },
+                label = { Text("Month") }
+            )
+        }
+
+        // ListItem
+        ListItem {
+            Text("This is a list item")
+        }
+        ListItem(multiline = true) {
+            Text("This is a multiline list item with more content")
+        }
+
+        // NavigationDrawer (simplified demo)
+        var drawerOpened by remember { mutableStateOf(false) }
+        Button(onClick = { drawerOpened = !drawerOpened }) {
+            Text(if (drawerOpened) "Close Drawer" else "Open Drawer")
+        }
+        if (drawerOpened) {
+            NavigationDrawer(opened = drawerOpened) {
+                Column(Modifier.padding(16.dp)) {
+                    Text("Drawer Content")
+                    Button(onClick = { drawerOpened = false }) {
+                        Text("Close")
+                    }
+                }
+            }
+        }
     }
 }
