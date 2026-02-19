@@ -19,10 +19,11 @@ actual fun SegmentedButton(
     enabled: Boolean,
     icon: @Composable (() -> Unit)?,
     label: @Composable () -> Unit
-) =
+) {
     MdOutlinedSegmentedButton(
         disabled = enabled.isFalseOrNull(),
         selected = selected.isTrueOrNull(),
+        hasIcon = (icon != null).isTrueOrNull(),
         attrs = modifier.toAttrs {
             this.onClick { onClick() }
         }
@@ -34,8 +35,10 @@ actual fun SegmentedButton(
                 iconContent()
             }
         }
+        // Render label in the default slot
         label()
     }
+}
 
 @MaterialWebLabsApi
 @Composable

@@ -374,24 +374,34 @@ fun Material3(/*modifier: Modifier = Modifier*/
             }
         }
 
-        // Labs components - SegmentedButton
-        var selectedSegment by remember { mutableStateOf(0) }
+        // Segmented Buttons - Single select with Selection enum
+        var selectedSegment by remember { mutableStateOf(Selection.A) }
         SegmentedButtonSet {
-            SegmentedButton(
-                selected = selectedSegment == 0,
-                onClick = { selectedSegment = 0 },
-                label = { Text("Day") }
-            )
-            SegmentedButton(
-                selected = selectedSegment == 1,
-                onClick = { selectedSegment = 1 },
-                label = { Text("Week") }
-            )
-            SegmentedButton(
-                selected = selectedSegment == 2,
-                onClick = { selectedSegment = 2 },
-                label = { Text("Month") }
-            )
+            Selection.entries.forEach { selection ->
+                SegmentedButton(
+                    selected = selectedSegment == selection,
+                    onClick = { selectedSegment = selection },
+                    label = { Text(selection.name) }
+                )
+            }
+        }
+        
+        // Segmented Buttons - Multi-select
+        var selectedOptions by remember { mutableStateOf(setOf<Selection>()) }
+        SegmentedButtonSet(multiselect = true) {
+            Selection.entries.forEach { selection ->
+                SegmentedButton(
+                    selected = selection in selectedOptions,
+                    onClick = {
+                        selectedOptions = if (selection in selectedOptions) {
+                            selectedOptions - selection
+                        } else {
+                            selectedOptions + selection
+                        }
+                    },
+                    label = { Text(selection.name) }
+                )
+            }
         }
 
         // List with ListItem (using existing ListScope.ListItem implementation)
