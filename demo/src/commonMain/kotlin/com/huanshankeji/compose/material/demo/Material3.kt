@@ -394,12 +394,17 @@ fun Material3(/*modifier: Modifier = Modifier*/
             )
         }
 
-        // ListItem
-        ListItem {
-            Text("This is a list item")
-        }
-        ListItem(multiline = true) {
-            Text("This is a multiline list item with more content")
+        // List with ListItem (using existing ListScope.ListItem implementation)
+        List(Modifier.height(120.dp)) {
+            conventionalItem(content = ListItemComponents(
+                isInteractiveJsDom = false,
+                headline = "List Item 1"
+            ))
+            conventionalItem(content = ListItemComponents(
+                isInteractiveJsDom = false,
+                headline = "List Item 2",
+                supportingText = "This is supporting text"
+            ))
         }
 
         // NavigationDrawer (simplified demo)
