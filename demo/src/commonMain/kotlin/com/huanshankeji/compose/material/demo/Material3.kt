@@ -237,15 +237,17 @@ fun Material3(/*modifier: Modifier = Modifier*/
         // New components added
         
         // RadioButton
+        var radioSelection by remember { mutableStateOf(Selection.A) }
         Row {
-            RadioButton(
-                selected = checked,
-                onClick = { viewModel.checkedState.value = true }
-            )
-            RadioButton(
-                selected = !checked,
-                onClick = { viewModel.checkedState.value = false }
-            )
+            Selection.entries.forEach { selection ->
+                Row {
+                    RadioButton(
+                        selected = radioSelection == selection,
+                        onClick = { radioSelection = selection }
+                    )
+                    TaglessText(selection.name)
+                }
+            }
         }
 
         // HorizontalDivider
@@ -265,47 +267,37 @@ fun Material3(/*modifier: Modifier = Modifier*/
         // Badge
         Row {
             Badge {
-                Text("3")
+                TaglessText("3")
             }
             Badge {
-                Text("New")
+                TaglessText("New")
             }
         }
 
-        // Chips
+        // Chips - showing all 4 types as per M3 design
+        var filterChipSelected by remember { mutableStateOf(false) }
+        var inputChipSelected by remember { mutableStateOf(false) }
         Row {
             AssistChip(
                 onClick = { println("Assist chip clicked") },
-                label = { Text("Assist") }
-            )
-            FilterChip(
-                selected = checked,
-                onClick = onCheckedChange.let { { it(!checked) } },
-                label = { Text("Filter") }
-            )
-            InputChip(
-                selected = checked,
-                onClick = onCheckedChange.let { { it(!checked) } },
-                label = { Text("Input") }
-            )
-            SuggestionChip(
-                onClick = { println("Suggestion chip clicked") },
-                label = { Text("Suggest") }
-            )
-        }
-
-        // Chips with icons
-        Row {
-            AssistChip(
-                onClick = { println("Assist chip with icon clicked") },
                 label = { Text("Assist") },
                 leadingIcon = { Icon(Icons.Default.Add, null) }
             )
             FilterChip(
-                selected = checked,
-                onClick = onCheckedChange.let { { it(!checked) } },
+                selected = filterChipSelected,
+                onClick = { filterChipSelected = !filterChipSelected },
                 label = { Text("Filter") },
                 leadingIcon = { Icon(Icons.Default.Add, null) }
+            )
+            InputChip(
+                selected = inputChipSelected,
+                onClick = { inputChipSelected = !inputChipSelected },
+                label = { Text("Input") },
+                leadingIcon = { Icon(Icons.Default.Add, null) }
+            )
+            SuggestionChip(
+                onClick = { println("Suggestion chip clicked") },
+                label = { Text("Suggestion") }
             )
         }
 

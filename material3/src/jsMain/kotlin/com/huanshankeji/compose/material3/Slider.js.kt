@@ -28,9 +28,9 @@ actual fun Slider(
         attrs = modifier.toAttrs {
             onInput { event ->
                 // MdSlider uses input event for value changes
-                ((event.target as? HTMLElement)?.asDynamic()?.value as? String)?.toFloatOrNull()?.let { newValue ->
-                    onValueChange(newValue)
-                }
+                val target = event.target.asDynamic()
+                val newValue = (target.value as? Number)?.toFloat() ?: (target.value as? String)?.toFloatOrNull()
+                newValue?.let { onValueChange(it) }
             }
             // Note: onValueChangeFinished is not currently supported in the JS implementation
             // TODO: Add support for onValueChangeFinished using appropriate event listener
