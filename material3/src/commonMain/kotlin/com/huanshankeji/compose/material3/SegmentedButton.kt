@@ -19,7 +19,7 @@ import com.huanshankeji.compose.ui.Modifier
 @Composable
 expect fun SingleChoiceSegmentedButtonRow(
     modifier: Modifier = Modifier,
-    content: @Composable SegmentedButtonRowScope.() -> Unit
+    content: @Composable SingleChoiceSegmentedButtonRowScope.() -> Unit
 )
 
 /**
@@ -38,13 +38,13 @@ expect fun SingleChoiceSegmentedButtonRow(
 @Composable
 expect fun MultiChoiceSegmentedButtonRow(
     modifier: Modifier = Modifier,
-    content: @Composable SegmentedButtonRowScope.() -> Unit
+    content: @Composable MultiChoiceSegmentedButtonRowScope.() -> Unit
 )
 
 /**
- * Scope for the content of a segmented button row.
+ * Scope for the content of a single-choice segmented button row.
  */
-expect class SegmentedButtonRowScope {
+expect class SingleChoiceSegmentedButtonRowScope {
     /**
      * Material Design segmented button.
      *
@@ -57,6 +57,21 @@ expect class SegmentedButtonRowScope {
      * @param icon optional icon for this segmented button, typically an [Icon]
      * @param label the label content for this segmented button
      */
+    @Composable
+    fun SegmentedButton(
+        selected: Boolean,
+        onClick: () -> Unit,
+        modifier: Modifier = Modifier,
+        enabled: Boolean = true,
+        icon: @Composable (() -> Unit)? = null,
+        label: @Composable () -> Unit
+    )
+}
+
+/**
+ * Scope for the content of a multi-choice segmented button row.
+ */
+expect class MultiChoiceSegmentedButtonRowScope {
     @Composable
     fun SegmentedButton(
         selected: Boolean,

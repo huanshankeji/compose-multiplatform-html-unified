@@ -1,20 +1,18 @@
 package com.huanshankeji.compose.material3.ext
 
-import androidx.compose.runtime.*
-import com.huanshankeji.compose.material3.DropdownMenuItem
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.compositionLocalOf
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import com.huanshankeji.compose.material3.Text
-import com.huanshankeji.compose.material3.TextField
-import com.huanshankeji.compose.material3.OutlinedTextField
 import com.huanshankeji.compose.ui.Modifier
 
-private class SelectOptionsCollector {
-    val options = mutableListOf<Pair<String, String>>() // value to text
-    
-    @Composable
-    fun collectOption(value: String, text: String) {
-        options.add(value to text)
-    }
-}
+private data class SelectContext(val onSelect: (String) -> Unit)
+
+private val LocalSelectContext = compositionLocalOf<SelectContext?> { null }
 
 @Composable
 actual fun FilledSelect(
@@ -25,40 +23,30 @@ actual fun FilledSelect(
     label: String?,
     options: @Composable () -> Unit
 ) {
-    val collector = remember { SelectOptionsCollector() }
-    collector.options.clear()
-    
-    // Collect options
-    val composition = rememberCompositionContext()
-    SideEffect {
-        // Options will be collected during composition
-    }
-    
     var expanded by remember { mutableStateOf(false) }
-    
-    ExposedDropdownMenuBox(
+    ExposedDropdownMenuBoxWithTextField(
         expanded = expanded,
-        onExpandedChange = { expanded = it },
-        modifier = modifier
-    ) {
-        TextField(
+        onExpandedChange = { if (enabled) expanded = it },
+        modifier = modifier,
+        textFieldArgs = ExposedDropdownMenuBoxTextFieldArgs(
             value = value,
-            onValueChange = {},
             readOnly = true,
-            enabled = enabled,
-            label = label?.let { { Text(it) } },
-            modifier = Modifier.menuAnchor()
-        )
-        
-        ExposedDropdownMenu(
+            singleLine = true,
+            label = label ?: ""
+        ),
+        exposedDropdownMenuArgs = ExposedDropdownMenuArgs(
             expanded = expanded,
             onDismissRequestComposeUi = { expanded = false },
             onCloseJsDom = { expanded = false }
         ) {
-            // Render collected options
-            options()
+            CompositionLocalProvider(LocalSelectContext provides SelectContext { selectedValue ->
+                onValueChange(selectedValue)
+                expanded = false
+            }) {
+                options()
+            }
         }
-    }
+    )
 }
 
 @Composable
@@ -69,32 +57,8 @@ actual fun OutlinedSelect(
     enabled: Boolean,
     label: String?,
     options: @Composable () -> Unit
-) {
-    var expanded by remember { mutableStateOf(false) }
-    
-    ExposedDropdownMenuBox(
-        expanded = expanded,
-        onExpandedChange = { expanded = it },
-        modifier = modifier
-    ) {
-        OutlinedTextField(
-            value = value,
-            onValueChange = {},
-            readOnly = true,
-            enabled = enabled,
-            label = label?.let { { Text(it) } },
-            modifier = Modifier.menuAnchor()
-        )
-        
-        ExposedDropdownMenu(
-            expanded = expanded,
-            onDismissRequestComposeUi = { expanded = false },
-            onCloseJsDom = { expanded = false }
-        ) {
-            options()
-        }
-    }
-}
+) =
+    FilledSelect(value, onValueChange, modifier, enabled, label, options)
 
 @Composable
 actual fun SelectOption(
@@ -102,9 +66,10 @@ actual fun SelectOption(
     text: String,
     modifier: Modifier
 ) {
+    val context = LocalSelectContext.current
     DropdownMenuItem(
         text = { Text(text) },
-        onClick = { /* TODO: handle selection */ },
+        onClick = { context?.onSelect?.invoke(value) },
         modifier = modifier
     )
 }
