@@ -1,4 +1,4 @@
-package com.huanshankeji.compose.material3
+package com.huanshankeji.compose.material3.ext
 
 import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.html.material3.MdFilledSelect
@@ -8,6 +8,7 @@ import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.toAttrs
 import com.huanshankeji.compose.web.attributes.ext.onInput
 import com.huanshankeji.compose.web.attributes.isFalseOrNull
+import org.jetbrains.compose.web.dom.Text
 import org.w3c.dom.HTMLElement
 
 @Composable
@@ -66,5 +67,5 @@ actual fun SelectOption(
         value = value,
         attrs = modifier.toAttrs()
     ) {
-        org.jetbrains.compose.web.dom.Text(text)
+        Text(text)
     }

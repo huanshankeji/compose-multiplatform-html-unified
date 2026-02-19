@@ -22,7 +22,6 @@ import com.huanshankeji.compose.material3.ext.*
 import com.huanshankeji.compose.material3.ext.Card
 import com.huanshankeji.compose.material3.ext.ElevatedCard
 import com.huanshankeji.compose.material3.ext.OutlinedCard
-import com.huanshankeji.compose.material3.labs.*
 import com.huanshankeji.compose.material3.lazy.ext.List
 import com.huanshankeji.compose.material3.lazy.ext.ListItemComponents
 import com.huanshankeji.compose.ui.Modifier
@@ -376,7 +375,7 @@ fun Material3(/*modifier: Modifier = Modifier*/
 
         // Segmented Buttons - Single select with Selection enum
         var selectedSegment by remember { mutableStateOf(Selection.A) }
-        SegmentedButtonSet {
+        SingleChoiceSegmentedButtonRow {
             Selection.entries.forEach { selection ->
                 SegmentedButton(
                     selected = selectedSegment == selection,
@@ -388,7 +387,7 @@ fun Material3(/*modifier: Modifier = Modifier*/
         
         // Segmented Buttons - Multi-select
         var selectedOptions by remember { mutableStateOf(setOf<Selection>()) }
-        SegmentedButtonSet(multiselect = true) {
+        MultiChoiceSegmentedButtonRow {
             Selection.entries.forEach { selection ->
                 SegmentedButton(
                     selected = selection in selectedOptions,

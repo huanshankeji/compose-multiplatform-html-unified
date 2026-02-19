@@ -1,4 +1,4 @@
-package com.huanshankeji.compose.material3.labs
+package com.huanshankeji.compose.material3
 
 import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.html.material3.MaterialWebLabsApi
