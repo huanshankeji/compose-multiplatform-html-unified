@@ -1,36 +1,43 @@
 package com.huanshankeji.compose.material3
 
 import androidx.compose.runtime.Composable
-import com.huanshankeji.compose.foundation.layout.Row
+import androidx.compose.ui.unit.Dp
 import com.huanshankeji.compose.html.material3.MaterialWebLabsApi
 import com.huanshankeji.compose.html.material3.MdOutlinedSegmentedButton
+import com.huanshankeji.compose.html.material3.MdSegmentedButtonSet
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.toAttrs
 import com.huanshankeji.compose.web.attributes.isFalseOrNull
 import com.huanshankeji.compose.web.attributes.isTrueOrNull
 import org.jetbrains.compose.web.dom.Div
+import org.jetbrains.compose.web.dom.ElementScope
+import org.w3c.dom.HTMLElement
 
 @MaterialWebLabsApi
 @Composable
 actual fun SingleChoiceSegmentedButtonRow(
     modifier: Modifier,
+    space: Dp?,
     content: @Composable SingleChoiceSegmentedButtonRowScope.() -> Unit
 ) =
-    Row(modifier) {
-        SingleChoiceSegmentedButtonRowScope().content()
+    MdSegmentedButtonSet(false, modifier.toAttrs()) {
+        SingleChoiceSegmentedButtonRowScope(this).content()
     }
 
 @MaterialWebLabsApi
 @Composable
 actual fun MultiChoiceSegmentedButtonRow(
     modifier: Modifier,
+    space: Dp?,
     content: @Composable MultiChoiceSegmentedButtonRowScope.() -> Unit
 ) =
-    Row(modifier) {
-        MultiChoiceSegmentedButtonRowScope().content()
+    MdSegmentedButtonSet(true, modifier.toAttrs()) {
+        MultiChoiceSegmentedButtonRowScope(this).content()
     }
 
-actual class SingleChoiceSegmentedButtonRowScope {
+// TODO check their implementations and consider unifying their duplicate implementations
+
+actual class SingleChoiceSegmentedButtonRowScope(val elementScope: ElementScope<HTMLElement>) {
     @MaterialWebLabsApi
     @Composable
     actual fun SegmentedButton(
@@ -62,7 +69,7 @@ actual class SingleChoiceSegmentedButtonRowScope {
     }
 }
 
-actual class MultiChoiceSegmentedButtonRowScope {
+actual class MultiChoiceSegmentedButtonRowScope(val elementScope: ElementScope<HTMLElement>) {
     @MaterialWebLabsApi
     @Composable
     actual fun SegmentedButton(
