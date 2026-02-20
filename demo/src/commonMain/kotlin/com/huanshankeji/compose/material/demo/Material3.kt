@@ -234,7 +234,7 @@ fun Material3(/*modifier: Modifier = Modifier*/
         CircularProgressIndicator({ 0.5f })
 
         // New components added
-        
+
         // RadioButton
         var radioSelection by remember { mutableStateOf(Selection.A) }
         Row {
@@ -384,7 +384,7 @@ fun Material3(/*modifier: Modifier = Modifier*/
                 )
             }
         }
-        
+
         // Segmented Buttons - Multi-select
         var selectedOptions by remember { mutableStateOf(setOf<Selection>()) }
         MultiChoiceSegmentedButtonRow {
@@ -401,19 +401,6 @@ fun Material3(/*modifier: Modifier = Modifier*/
                     label = { Text(selection.name) }
                 )
             }
-        }
-
-        // List with ListItem (using existing ListScope.ListItem implementation)
-        List(Modifier.height(120.dp)) {
-            conventionalItem(content = ListItemComponents(
-                isInteractiveJsDom = false,
-                headline = "List Item 1"
-            ))
-            conventionalItem(content = ListItemComponents(
-                isInteractiveJsDom = false,
-                headline = "List Item 2",
-                supportingText = "This is supporting text"
-            ))
         }
 
         // NavigationDrawer (simplified demo)
