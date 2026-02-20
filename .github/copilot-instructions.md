@@ -149,6 +149,8 @@ repositories {
 
 Not all components of Material Web are supported yet. Here is a list of supported unified component APIs:
 
+When adding or aligning components, you can search in <https://m3.material.io/> to find the component first. On each component's overview page, you can usually find links or references to both its Jetpack Compose implementation (almost identical to Compose Multiplatform's Compose UI APIs) and its web/Material Web implementation.
+
 - Buttons: `Button` (wraps `MdElevatedButton`, `MdFilledButton`, `MdFilledTonalButton`, `MdOutlinedButton`, `MdTextButton`)
 - `Checkbox`
 - Chips: `AssistChip`, `FilterChip`, `InputChip`, `SuggestionChip` (wrap `MdAssistChip`, `MdFilterChip`, `MdInputChip`, `MdSuggestionChip`, `MdChipSet`)
