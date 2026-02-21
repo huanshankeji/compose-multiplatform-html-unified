@@ -42,6 +42,7 @@ expect class ExposedDropdownMenuBoxScope {
 }
 
 
+// TODO rename to `ExposedDropdownMenuBoxWithFilledTextField`
 @Composable
 fun ExposedDropdownMenuBoxWithTextField(
     expanded: Boolean,

@@ -232,5 +232,191 @@ fun Material3(/*modifier: Modifier = Modifier*/
         LinearProgressIndicator({ 0.5f })
         CircularProgressIndicator()
         CircularProgressIndicator({ 0.5f })
+
+        // New components added
+
+        // RadioButton
+        var radioSelection by remember { mutableStateOf(Selection.A) }
+        Row {
+            Selection.entries.forEach { selection ->
+                Row {
+                    RadioButton(
+                        selected = radioSelection == selection,
+                        onClick = { radioSelection = selection }
+                    )
+                    TaglessText(selection.name)
+                }
+            }
+        }
+
+        // HorizontalDivider
+        HorizontalDivider()
+
+        // Slider
+        var sliderValue by remember { mutableStateOf(0.5f) }
+        Column {
+            Text("Slider value: ${(sliderValue * 100).toInt()}%")
+            Slider(
+                value = sliderValue,
+                onValueChange = { sliderValue = it },
+                valueRange = 0f..1f
+            )
+        }
+
+        // Badge
+        Row {
+            Badge {
+                TaglessText("3")
+            }
+            Badge {
+                TaglessText("New")
+            }
+        }
+
+        // Chips - showing all 4 types as per M3 design
+        var filterChipSelected by remember { mutableStateOf(false) }
+        var inputChipSelected by remember { mutableStateOf(false) }
+        Row {
+            AssistChip(
+                onClick = { println("Assist chip clicked") },
+                label = { Text("Assist") },
+                leadingIcon = { Icon(Icons.Default.Add, null) }
+            )
+            FilterChip(
+                selected = filterChipSelected,
+                onClick = { filterChipSelected = !filterChipSelected },
+                label = { Text("Filter") },
+                leadingIcon = { Icon(Icons.Default.Add, null) }
+            )
+            InputChip(
+                selected = inputChipSelected,
+                onClick = { inputChipSelected = !inputChipSelected },
+                label = { Text("Input") },
+                leadingIcon = { Icon(Icons.Default.Add, null) }
+            )
+            SuggestionChip(
+                onClick = { println("Suggestion chip clicked") },
+                label = { Text("Suggestion") }
+            )
+        }
+
+        // Dialog
+        var showDialog by remember { mutableStateOf(false) }
+        Button(onClick = { showDialog = true }) {
+            Text("Show Dialog")
+        }
+        if (showDialog) {
+            AlertDialog(
+                onDismissRequest = { showDialog = false },
+                confirmButton = {
+                    Button(onClick = { showDialog = false }) {
+                        Text("OK")
+                    }
+                },
+                dismissButton = {
+                    Button(onClick = { showDialog = false }) {
+                        Text("Cancel")
+                    }
+                },
+                title = { Text("Alert Dialog") },
+                text = { Text("This is a demo alert dialog with headline, content, and action buttons.") }
+            )
+        }
+
+        // Tabs
+        var selectedTabIndex by remember { mutableStateOf(0) }
+        Column {
+            TabRow(selectedTabIndex = selectedTabIndex) {
+                Tab(
+                    selected = selectedTabIndex == 0,
+                    onClick = { selectedTabIndex = 0 },
+                    text = { Text("Tab 1") }
+                )
+                Tab(
+                    selected = selectedTabIndex == 1,
+                    onClick = { selectedTabIndex = 1 },
+                    text = { Text("Tab 2") },
+                    icon = { Icon(Icons.Default.Add, null) }
+                )
+                Tab(
+                    selected = selectedTabIndex == 2,
+                    onClick = { selectedTabIndex = 2 },
+                    text = { Text("Tab 3") }
+                )
+            }
+            Text("Selected tab: ${selectedTabIndex + 1}", Modifier.padding(16.dp))
+        }
+
+        // Select components
+        var selectedValue by remember { mutableStateOf("Option 1") }
+        Column {
+            Text("Selected: $selectedValue")
+            FilledSelect(
+                value = selectedValue,
+                onValueChange = { selectedValue = it },
+                label = "Choose option"
+            ) {
+                SelectOption("Option 1", "Option 1")
+                SelectOption("Option 2", "Option 2")
+                SelectOption("Option 3", "Option 3")
+            }
+        }
+        Column {
+            OutlinedSelect(
+                value = selectedValue,
+                onValueChange = { selectedValue = it },
+                label = "Choose option"
+            ) {
+                SelectOption("Option 1", "Option 1")
+                SelectOption("Option 2", "Option 2")
+                SelectOption("Option 3", "Option 3")
+            }
+        }
+
+        // Segmented Buttons - Single select with Selection enum
+        var selectedSegment by remember { mutableStateOf(Selection.A) }
+        SingleChoiceSegmentedButtonRow {
+            Selection.entries.forEach { selection ->
+                SegmentedButton(
+                    selected = selectedSegment == selection,
+                    onClick = { selectedSegment = selection },
+                    label = { Text(selection.name) }
+                )
+            }
+        }
+
+        // Segmented Buttons - Multi-select
+        var selectedOptions by remember { mutableStateOf(setOf<Selection>()) }
+        MultiChoiceSegmentedButtonRow {
+            Selection.entries.forEach { selection ->
+                SegmentedButton(
+                    selected = selection in selectedOptions,
+                    onClick = {
+                        selectedOptions = if (selection in selectedOptions) {
+                            selectedOptions - selection
+                        } else {
+                            selectedOptions + selection
+                        }
+                    },
+                    label = { Text(selection.name) }
+                )
+            }
+        }
+
+        // NavigationDrawer (simplified demo)
+        var drawerOpened by remember { mutableStateOf(false) }
+        Button(onClick = { drawerOpened = !drawerOpened }) {
+            Text(if (drawerOpened) "Close Drawer" else "Open Drawer")
+        }
+        if (drawerOpened) {
+            NavigationDrawer(opened = drawerOpened) {
+                Column(Modifier.padding(16.dp)) {
+                    Text("Drawer Content")
+                    Button(onClick = { drawerOpened = false }) {
+                        Text("Close")
+                    }
+                }
+            }
+        }
     }
 }

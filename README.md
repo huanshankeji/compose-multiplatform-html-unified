@@ -82,11 +82,19 @@ This project is still in development and has not reached a stable state. Some AP
 - `Button` (`FilledButton`), `ElevatedButton`, `FilledTonalButton`, `OutlinedButton`, `TextButton`
 - `Card` (`FilledCard`), `ElevatedCard`, `OutlinedCard`
 - `Checkbox`
+- `AssistChip`, `FilterChip`, `InputChip`, `SuggestionChip`
+- `AlertDialog`
+- `HorizontalDivider`
 - `FloatingActionButton`, `SmallFloatingActionButton`, `LargeFloatingActionButton`, `ExtendedFloatingActionButton`
 - `Icon`
 - `IconButton`, `IconToggleButton`, `FilledIconButton`, `FilledIconToggleButton`, `FilledTonalIconButton`, `FilledTonalIconToggleButton`, `OutlinedIconButton`, `OutlinedIconToggleButton`
 - `LinearProgressIndicator`, `CircularProgressIndicator`
+- `RadioButton`
+- `NavigationDrawer`, `ModalNavigationDrawer`
+- `SingleChoiceSegmentedButtonRow`, `MultiChoiceSegmentedButtonRow`, `SegmentedButton`
+- `Slider`
 - `Switch`
+- `TabRow`, `Tab`
 - `Text`
 
 ##### `ext` components
@@ -94,10 +102,11 @@ This project is still in development and has not reached a stable state. Some AP
 - `Button` (`FilledButton`), `ElevatedButton`, `FilledTonalButton`, `OutlinedButton`, `TextButton`
 - `Card` (`FilledCard`), `ElevatedCard`, `OutlinedCard`
 - `DropdownMenu`, `DropdownMenuItem`
-  - `ExposedDropdownMenuBox`, `ExposedDropdownMenuBoxScope.ExposedDropdownMenuBoxTextField`, `ExposedDropdownMenuBoxScope.ExposedDropdownMenu`, `ExposedDropdownMenuWithTextField`
+  - `ExposedDropdownMenuBox`, `ExposedDropdownMenuBoxScope.ExposedDropdownMenuBoxTextField`, `ExposedDropdownMenuBoxScope.ExposedDropdownMenu`, `ExposedDropdownMenuBoxWithTextField`
 - `FloatingActionButton`, `SmallFloatingActionButton`, `LargeFloatingActionButton`, `ExtendedFloatingActionButton`
 - `IconButton`, `IconToggleButton`, `FilledIconButton`, `FilledIconToggleButton`, `FilledTonalIconButton`, `FilledTonalIconToggleButton`, `OutlinedIconButton`, `OutlinedIconToggleButton`
 - `NavigationBar`, `NavigationBarItem`
+- `FilledSelect`, `OutlinedSelect`, `SelectOption`
 - `MaterialText`, `TaglessText`
 - `TextField`, `OutlinedTextField`
 
