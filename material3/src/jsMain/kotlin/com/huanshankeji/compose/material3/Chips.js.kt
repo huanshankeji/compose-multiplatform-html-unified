@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.foundation.layout.RowScope
 import com.huanshankeji.compose.html.material3.MdAssistChip
 import com.huanshankeji.compose.html.material3.MdChipScope
+import com.huanshankeji.compose.html.material3.MdChipScope.Slot
 import com.huanshankeji.compose.html.material3.MdFilterChip
 import com.huanshankeji.compose.html.material3.MdInputChip
 import com.huanshankeji.compose.html.material3.MdSuggestionChip
@@ -29,7 +30,7 @@ actual fun AssistChip(
     ) {
         leadingIcon?.let { icon ->
             Div({
-                slotEqIcon()
+                slot(Slot.Icon)
             }) {
                 icon()
             }
@@ -55,7 +56,7 @@ actual fun FilterChip(
     ) {
         leadingIcon?.let { icon ->
             Div({
-                slotEqIcon()
+                slot(Slot.Icon)
             }) {
                 icon()
             }
@@ -81,7 +82,7 @@ actual fun InputChip(
     ) {
         leadingIcon?.let { icon ->
             Div({
-                slotEqIcon()
+                slot(Slot.Icon)
             }) {
                 icon()
             }
@@ -105,7 +106,7 @@ actual fun SuggestionChip(
     ) {
         icon?.let { iconContent ->
             Div({
-                slotEqIcon()
+                slot(Slot.Icon)
             }) {
                 iconContent()
             }

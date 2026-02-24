@@ -6,6 +6,7 @@ import com.huanshankeji.compose.html.material3.MdOutlinedSelect
 import com.huanshankeji.compose.html.material3.MdSelectOption
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.toAttrs
+import com.huanshankeji.compose.web.attributes.ext.disabled
 import com.huanshankeji.compose.web.attributes.ext.onInput
 import com.huanshankeji.compose.web.attributes.isFalseOrNull
 import org.jetbrains.compose.web.dom.Text
@@ -21,9 +22,9 @@ actual fun FilledSelect(
     options: @Composable () -> Unit
 ) =
     MdFilledSelect(
-        disabled = enabled.isFalseOrNull(),
         label = label,
         attrs = modifier.toAttrs {
+            disabled(enabled.isFalseOrNull())
             onInput { event ->
                 ((event.target as? HTMLElement)?.asDynamic()?.value as? String)?.let { newValue ->
                     onValueChange(newValue)
@@ -44,9 +45,9 @@ actual fun OutlinedSelect(
     options: @Composable () -> Unit
 ) =
     MdOutlinedSelect(
-        disabled = enabled.isFalseOrNull(),
         label = label,
         attrs = modifier.toAttrs {
+            disabled(enabled.isFalseOrNull())
             onInput { event ->
                 ((event.target as? HTMLElement)?.asDynamic()?.value as? String)?.let { newValue ->
                     onValueChange(newValue)

@@ -4,7 +4,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.Dp
 import com.huanshankeji.compose.html.material3.MaterialWebLabsApi
 import com.huanshankeji.compose.html.material3.MdOutlinedSegmentedButton
-import com.huanshankeji.compose.html.material3.MdSegmentedButtonSet
+import com.huanshankeji.compose.html.material3.MdOutlinedSegmentedButtonSet
+import com.huanshankeji.compose.html.material3.MdSegmentedButtonScope
+import com.huanshankeji.compose.html.material3.MdSegmentedButtonScope.Slot
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.toAttrs
 import com.huanshankeji.compose.web.attributes.isFalseOrNull
@@ -20,7 +22,7 @@ actual fun SingleChoiceSegmentedButtonRow(
     space: Dp?,
     content: @Composable SingleChoiceSegmentedButtonRowScope.() -> Unit
 ) =
-    MdSegmentedButtonSet(false, modifier.toAttrs()) {
+    MdOutlinedSegmentedButtonSet(attrs = modifier.toAttrs()) {
         SingleChoiceSegmentedButtonRowScope(this).content()
     }
 
@@ -31,7 +33,7 @@ actual fun MultiChoiceSegmentedButtonRow(
     space: Dp?,
     content: @Composable MultiChoiceSegmentedButtonRowScope.() -> Unit
 ) =
-    MdSegmentedButtonSet(true, modifier.toAttrs()) {
+    MdOutlinedSegmentedButtonSet(multiselect = true, attrs = modifier.toAttrs()) {
         MultiChoiceSegmentedButtonRowScope(this).content()
     }
 
@@ -58,7 +60,7 @@ actual class SingleChoiceSegmentedButtonRowScope(val elementScope: ElementScope<
         ) {
             icon?.let { iconContent ->
                 Div({
-                    slotEqIcon()
+                    slot(Slot.Icon)
                 }) {
                     iconContent()
                 }
@@ -90,7 +92,7 @@ actual class MultiChoiceSegmentedButtonRowScope(val elementScope: ElementScope<H
         ) {
             icon?.let { iconContent ->
                 Div({
-                    slotEqIcon()
+                    slot(Slot.Icon)
                 }) {
                     iconContent()
                 }

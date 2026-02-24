@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.html.material3.MdSlider
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.toAttrs
+import com.huanshankeji.compose.web.attributes.ext.disabled
 import com.huanshankeji.compose.web.attributes.ext.onInput
 import com.huanshankeji.compose.web.attributes.isFalseOrNull
 import org.w3c.dom.HTMLElement
@@ -20,12 +21,12 @@ actual fun Slider(
     onValueChangeFinished: (() -> Unit)?
 ) =
     MdSlider(
-        disabled = enabled.isFalseOrNull(),
         min = valueRange.start,
         max = valueRange.endInclusive,
         value = value,
         step = if (steps > 0) (valueRange.endInclusive - valueRange.start) / (steps + 1) else null,
         attrs = modifier.toAttrs {
+            disabled(enabled.isFalseOrNull())
             onInput { event ->
                 // MdSlider uses input event for value changes
                 val target = event.target.asDynamic()

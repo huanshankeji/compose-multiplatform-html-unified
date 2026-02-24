@@ -14,7 +14,7 @@ private fun (@Composable () -> Unit).toMdButtonScopeContent(
     // see https://github.com/material-components/material-web/blob/main/docs/components/button.md#icon
 
     this@toMdButtonScopeContent()
-    icon?.invoke(PlatformModifier.attrsModifier { slotEqIcon() }.toCommonModifier())
+    icon?.invoke(PlatformModifier.attrsModifier { slot(MdButtonScope.Slot.Icon) }.toCommonModifier())
 }
 
 
