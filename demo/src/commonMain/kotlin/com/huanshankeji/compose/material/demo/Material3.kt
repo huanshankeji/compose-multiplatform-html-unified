@@ -227,6 +227,27 @@ fun Material3(/*modifier: Modifier = Modifier*/
                 DropdownMenuContent(setSelection, close)
             }
         }
+        // Select components
+        var selectedValue by remember { mutableStateOf("Option 1") }
+        Text("Selected: $selectedValue")
+        FilledSelect(
+            value = selectedValue,
+            onValueChange = { selectedValue = it },
+            label = "Choose option"
+        ) {
+            SelectOption("Option 1", "Option 1")
+            SelectOption("Option 2", "Option 2")
+            SelectOption("Option 3", "Option 3")
+        }
+        OutlinedSelect(
+            value = selectedValue,
+            onValueChange = { selectedValue = it },
+            label = "Choose option"
+        ) {
+            SelectOption("Option 1", "Option 1")
+            SelectOption("Option 2", "Option 2")
+            SelectOption("Option 3", "Option 3")
+        }
 
         LinearProgressIndicator()
         LinearProgressIndicator({ 0.5f })
@@ -345,32 +366,6 @@ fun Material3(/*modifier: Modifier = Modifier*/
                 )
             }
             Text("Selected tab: ${selectedTabIndex + 1}", Modifier.padding(16.dp))
-        }
-
-        // Select components
-        var selectedValue by remember { mutableStateOf("Option 1") }
-        Column {
-            Text("Selected: $selectedValue")
-            FilledSelect(
-                value = selectedValue,
-                onValueChange = { selectedValue = it },
-                label = "Choose option"
-            ) {
-                SelectOption("Option 1", "Option 1")
-                SelectOption("Option 2", "Option 2")
-                SelectOption("Option 3", "Option 3")
-            }
-        }
-        Column {
-            OutlinedSelect(
-                value = selectedValue,
-                onValueChange = { selectedValue = it },
-                label = "Choose option"
-            ) {
-                SelectOption("Option 1", "Option 1")
-                SelectOption("Option 2", "Option 2")
-                SelectOption("Option 3", "Option 3")
-            }
         }
 
         // Segmented Buttons - Single select with Selection enum
