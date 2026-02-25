@@ -30,7 +30,9 @@ expect fun SingleChoiceSegmentedButtonRowScope.SegmentedButton(
     label: String //@Composable () -> Unit
 )
 
-// TODO add KDoc
+/**
+ * @see SingleChoiceSegmentedButtonRowScope.SegmentedButton
+ */
 @Composable
 expect fun MultiChoiceSegmentedButtonRowScope.SegmentedButton(
     checked: Boolean,

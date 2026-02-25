@@ -18,7 +18,7 @@ import org.jetbrains.compose.web.dom.Div
 private fun CommonSegmentedButton(
     selected: Boolean,
     onClick: () -> Unit,
-    defaultShapeArgs: SegmentedButtonDefaultShapeArgs, // not used here
+    defaultShapeArgs: SegmentedButtonDefaultShapeArgs, // not used on JS DOM
     modifier: Modifier,
     enabled: Boolean,
     icon: @Composable (() -> Unit)?,
@@ -53,7 +53,7 @@ private fun CommonSegmentedButton(
 actual fun SingleChoiceSegmentedButtonRowScope.SegmentedButton(
     selected: Boolean,
     onClick: () -> Unit,
-    defaultShapeArgs: SegmentedButtonDefaultShapeArgs, // not used here
+    defaultShapeArgs: SegmentedButtonDefaultShapeArgs, // not used on JS DOM
     modifier: Modifier,
     enabled: Boolean,
     icon: @Composable (() -> Unit)?,
@@ -66,7 +66,7 @@ actual fun SingleChoiceSegmentedButtonRowScope.SegmentedButton(
 actual fun MultiChoiceSegmentedButtonRowScope.SegmentedButton(
     checked: Boolean,
     onCheckedChange: (Boolean) -> Unit,
-    defaultShapeArgs: SegmentedButtonDefaultShapeArgs, // not used here
+    defaultShapeArgs: SegmentedButtonDefaultShapeArgs, // not used on JS DOM
     modifier: Modifier,
     enabled: Boolean,
     icon: @Composable (() -> Unit)?,
