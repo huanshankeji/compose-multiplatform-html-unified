@@ -12,7 +12,7 @@ import com.huanshankeji.compose.ui.toCommonModifier
 import com.varabyte.kobweb.compose.ui.attrsModifier
 
 internal val MdFabScope.slotEqIconModifier
-    get() = PlatformModifier.attrsModifier { slotEqIcon() }.toCommonModifier()
+    get() = PlatformModifier.attrsModifier { slot(MdFabScope.Slot.Icon) }.toCommonModifier()
 
 private fun (@Composable () -> Unit).toBoxedContentWithModifier(): @Composable (Modifier) -> Unit =
     { modifier ->

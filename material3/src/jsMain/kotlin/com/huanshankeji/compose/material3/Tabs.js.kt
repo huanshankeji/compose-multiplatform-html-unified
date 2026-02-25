@@ -3,6 +3,7 @@ package com.huanshankeji.compose.material3
 import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.foundation.layout.RowScope
 import com.huanshankeji.compose.html.material3.MdPrimaryTab
+import com.huanshankeji.compose.html.material3.MdTabScope.Slot
 import com.huanshankeji.compose.html.material3.MdTabs
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.toAttrs
@@ -39,7 +40,7 @@ actual fun Tab(
     ) {
         icon?.let { iconContent ->
             Div({
-                slotEqIcon()
+                slot(Slot.Icon)
             }) {
                 iconContent()
             }
