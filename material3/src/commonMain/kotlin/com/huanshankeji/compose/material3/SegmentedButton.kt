@@ -45,9 +45,15 @@ expect fun MultiChoiceSegmentedButtonRow(
 )
 
 /**
+ * For `SegmentedButtonDefaults.itemShape` on Compose UI.
+ */
+class SegmentedButtonDefaultShapeArgs(val index: Int, val count: Int)
+
+/**
  * Scope for the content of a single-choice segmented button row.
  */
 expect class SingleChoiceSegmentedButtonRowScope {
+
     /**
      * Material Design segmented button.
      *
@@ -64,10 +70,11 @@ expect class SingleChoiceSegmentedButtonRowScope {
     fun SegmentedButton(
         selected: Boolean,
         onClick: () -> Unit,
+        defaultShapeArgs: SegmentedButtonDefaultShapeArgs,
         modifier: Modifier = Modifier,
         enabled: Boolean = true,
         icon: @Composable (() -> Unit)? = null,
-        label: @Composable () -> Unit
+        label: String //@Composable () -> Unit
     )
 }
 
@@ -77,11 +84,12 @@ expect class SingleChoiceSegmentedButtonRowScope {
 expect class MultiChoiceSegmentedButtonRowScope {
     @Composable
     fun SegmentedButton(
-        selected: Boolean,
-        onClick: () -> Unit,
+        checked: Boolean,
+        onCheckedChange: (Boolean) -> Unit,
+        defaultShapeArgs: SegmentedButtonDefaultShapeArgs,
         modifier: Modifier = Modifier,
         enabled: Boolean = true,
         icon: @Composable (() -> Unit)? = null,
-        label: @Composable () -> Unit
+        label: String //@Composable () -> Unit
     )
 }

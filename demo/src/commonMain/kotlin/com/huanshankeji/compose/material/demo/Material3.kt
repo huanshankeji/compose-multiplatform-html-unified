@@ -376,29 +376,25 @@ fun Material3(/*modifier: Modifier = Modifier*/
         // Segmented Buttons - Single select with Selection enum
         var selectedSegment by remember { mutableStateOf(Selection.A) }
         SingleChoiceSegmentedButtonRow {
-            Selection.entries.forEach { selection ->
+            Selection.entries.forEachIndexed { index, selection ->
                 SegmentedButton(
-                    selected = selectedSegment == selection,
-                    onClick = { selectedSegment = selection },
-                    label = { Text(selection.name) }
+                    selectedSegment == selection,
+                    { selectedSegment = selection },
+                    SegmentedButtonDefaultShapeArgs(index, Selection.entries.size),
+                    label = selection.name
                 )
             }
         }
 
         // Segmented Buttons - Multi-select
-        var selectedOptions by remember { mutableStateOf(setOf<Selection>()) }
+        val isIndexSelected = remember { mutableStateListOf(false, false, false) }
         MultiChoiceSegmentedButtonRow {
-            Selection.entries.forEach { selection ->
+            Selection.entries.forEachIndexed { index, selection ->
                 SegmentedButton(
-                    selected = selection in selectedOptions,
-                    onClick = {
-                        selectedOptions = if (selection in selectedOptions) {
-                            selectedOptions - selection
-                        } else {
-                            selectedOptions + selection
-                        }
-                    },
-                    label = { Text(selection.name) }
+                    isIndexSelected[index],
+                    { isIndexSelected[index] = it },
+                    SegmentedButtonDefaultShapeArgs(index, Selection.entries.size),
+                    label = selection.name
                 )
             }
         }

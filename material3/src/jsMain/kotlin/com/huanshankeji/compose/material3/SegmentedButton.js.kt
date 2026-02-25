@@ -5,7 +5,6 @@ import androidx.compose.ui.unit.Dp
 import com.huanshankeji.compose.html.material3.MaterialWebLabsApi
 import com.huanshankeji.compose.html.material3.MdOutlinedSegmentedButton
 import com.huanshankeji.compose.html.material3.MdOutlinedSegmentedButtonSet
-import com.huanshankeji.compose.html.material3.MdSegmentedButtonScope
 import com.huanshankeji.compose.html.material3.MdSegmentedButtonScope.Slot
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.toAttrs
@@ -37,7 +36,40 @@ actual fun MultiChoiceSegmentedButtonRow(
         MultiChoiceSegmentedButtonRowScope(this).content()
     }
 
-// TODO check their implementations and consider unifying their duplicate implementations
+@MaterialWebLabsApi
+@Composable
+private fun CommonSegmentedButton(
+    selected: Boolean,
+    onClick: () -> Unit,
+    defaultShapeArgs: SegmentedButtonDefaultShapeArgs, // not used here
+    modifier: Modifier,
+    enabled: Boolean,
+    icon: @Composable (() -> Unit)?,
+    label: String //@Composable () -> Unit
+) {
+    val hasIcon = (icon != null).isTrueOrNull()
+    MdOutlinedSegmentedButton(
+        enabled.isFalseOrNull(),
+        selected.isTrueOrNull(),
+        label,
+        hasIcon,
+        hasIcon,
+        modifier.toAttrs {
+            onClick { onClick() }
+        }
+    ) {
+        icon?.let { iconContent ->
+            Div({ slot(Slot.Icon) }) {
+                iconContent()
+            }
+        }
+        /*
+        // For `label: @Composable () -> Unit` by Copilot. Might not work.
+        // Render label in the default slot
+        label()
+        */
+    }
+}
 
 actual class SingleChoiceSegmentedButtonRowScope(val elementScope: ElementScope<HTMLElement>) {
     @MaterialWebLabsApi
@@ -45,59 +77,29 @@ actual class SingleChoiceSegmentedButtonRowScope(val elementScope: ElementScope<
     actual fun SegmentedButton(
         selected: Boolean,
         onClick: () -> Unit,
+        defaultShapeArgs: SegmentedButtonDefaultShapeArgs, // not used here
         modifier: Modifier,
         enabled: Boolean,
         icon: @Composable (() -> Unit)?,
-        label: @Composable () -> Unit
-    ) {
-        MdOutlinedSegmentedButton(
-            disabled = enabled.isFalseOrNull(),
-            selected = selected.isTrueOrNull(),
-            hasIcon = (icon != null).isTrueOrNull(),
-            attrs = modifier.toAttrs {
-                this.onClick { onClick() }
-            }
-        ) {
-            icon?.let { iconContent ->
-                Div({
-                    slot(Slot.Icon)
-                }) {
-                    iconContent()
-                }
-            }
-            // Render label in the default slot
-            label()
-        }
-    }
+        label: String //@Composable () -> Unit
+    ) =
+        CommonSegmentedButton(selected, onClick, defaultShapeArgs, modifier, enabled, icon, label)
 }
 
 actual class MultiChoiceSegmentedButtonRowScope(val elementScope: ElementScope<HTMLElement>) {
     @MaterialWebLabsApi
     @Composable
     actual fun SegmentedButton(
-        selected: Boolean,
-        onClick: () -> Unit,
+        checked: Boolean,
+        onCheckedChange: (Boolean) -> Unit,
+        defaultShapeArgs: SegmentedButtonDefaultShapeArgs, // not used here
         modifier: Modifier,
         enabled: Boolean,
         icon: @Composable (() -> Unit)?,
-        label: @Composable () -> Unit
-    ) {
-        MdOutlinedSegmentedButton(
-            disabled = enabled.isFalseOrNull(),
-            selected = selected.isTrueOrNull(),
-            hasIcon = (icon != null).isTrueOrNull(),
-            attrs = modifier.toAttrs {
-                this.onClick { onClick() }
-            }
-        ) {
-            icon?.let { iconContent ->
-                Div({
-                    slot(Slot.Icon)
-                }) {
-                    iconContent()
-                }
-            }
-            label()
-        }
-    }
+        label: String //@Composable () -> Unit
+    ) =
+        CommonSegmentedButton(
+            checked, { onCheckedChange(!checked) },
+            defaultShapeArgs, modifier, enabled, icon, label
+        )
 }
