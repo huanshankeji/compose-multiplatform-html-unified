@@ -52,44 +52,9 @@ class SegmentedButtonDefaultShapeArgs(val index: Int, val count: Int)
 /**
  * Scope for the content of a single-choice segmented button row.
  */
-expect class SingleChoiceSegmentedButtonRowScope {
-
-    /**
-     * Material Design segmented button.
-     *
-     * A segmented button represents a single option in a segmented button row.
-     *
-     * @param selected whether this segmented button is selected
-     * @param onClick called when this segmented button is clicked
-     * @param modifier the [Modifier] to be applied to this segmented button
-     * @param enabled controls the enabled state of this segmented button
-     * @param icon optional icon for this segmented button, typically an [Icon]
-     * @param label the label content for this segmented button
-     */
-    @Composable
-    fun SegmentedButton(
-        selected: Boolean,
-        onClick: () -> Unit,
-        defaultShapeArgs: SegmentedButtonDefaultShapeArgs,
-        modifier: Modifier = Modifier,
-        enabled: Boolean = true,
-        icon: @Composable (() -> Unit)? = null,
-        label: String //@Composable () -> Unit
-    )
-}
+expect class SingleChoiceSegmentedButtonRowScope
 
 /**
  * Scope for the content of a multi-choice segmented button row.
  */
-expect class MultiChoiceSegmentedButtonRowScope {
-    @Composable
-    fun SegmentedButton(
-        checked: Boolean,
-        onCheckedChange: (Boolean) -> Unit,
-        defaultShapeArgs: SegmentedButtonDefaultShapeArgs,
-        modifier: Modifier = Modifier,
-        enabled: Boolean = true,
-        icon: @Composable (() -> Unit)? = null,
-        label: String //@Composable () -> Unit
-    )
-}
+expect class MultiChoiceSegmentedButtonRowScope
