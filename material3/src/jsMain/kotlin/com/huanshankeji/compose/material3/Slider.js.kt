@@ -10,9 +10,9 @@ import com.huanshankeji.compose.web.attributes.isFalseOrNull
 /**
  * Calculate the step to match the Compose UI behavior.
  */
-private fun calculateStep(steps: Int, valueRange: ClosedFloatingPointRange<Float>): Float =
-    // We can also use `Double.MIN_VALUE` and change the return type to `Number`, but `Float.MIN_VALUE` should be sufficient here.
-    if (steps > 0) (valueRange.endInclusive - valueRange.start) / (steps + 1) else Float.MIN_VALUE
+private fun calculateStep(steps: Int, valueRange: ClosedFloatingPointRange<Float>): Number =
+    // JavaScript doesn't have a 32-bit float type so we just use `Double.MIN_VALUE` here.
+    if (steps > 0) (valueRange.endInclusive - valueRange.start) / (steps + 1) else Double.MIN_VALUE
 
 @Composable
 actual fun Slider(
