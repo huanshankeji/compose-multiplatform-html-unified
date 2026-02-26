@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.html.material3.MdSlider
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.toAttrs
+import com.huanshankeji.compose.web.attributes.ext.onChange
 import com.huanshankeji.compose.web.attributes.ext.onInput
 import com.huanshankeji.compose.web.attributes.isFalseOrNull
 
@@ -31,6 +32,8 @@ actual fun Slider(
         step = calculateStep(steps, valueRange),
         disabled = enabled.isFalseOrNull(),
         attrs = modifier.toAttrs {
+            //https://github.com/material-components/material-web/blob/main/docs/components/slider.md#events
+
             onInput { event ->
                 // MdSlider uses input event for value changes
                 //console.log("Slider input event: ", event)
@@ -39,8 +42,8 @@ actual fun Slider(
                 val value = target.value as Float
                 onValueChange(value)
             }
-            // Note: onValueChangeFinished is not currently supported in the JS implementation
-            // TODO: Add support for onValueChangeFinished using appropriate event listener
+
+            onValueChangeFinished?.let { onChange { it() } }
         }
     )
 
@@ -70,4 +73,6 @@ actual fun RangeSlider(
                 val newEnd = target.valueEnd as Float
                 onValueChange(newStart..newEnd)
             }
+
+            onValueChangeFinished?.let { onChange { it() } }
         })

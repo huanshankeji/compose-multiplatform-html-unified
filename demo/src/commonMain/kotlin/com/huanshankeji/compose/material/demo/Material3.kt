@@ -277,9 +277,17 @@ fun Material3(/*modifier: Modifier = Modifier*/
         Column {
             var sliderPosition by remember { mutableStateOf(0.5f) }
             Text("Slider position: $sliderPosition")
+            var sliderChanging by remember { mutableStateOf(false) }
+            Text("Slider changing: $sliderChanging")
             Slider(
                 value = sliderPosition,
-                onValueChange = { sliderPosition = it }
+                onValueChange = {
+                    sliderChanging = true
+                    sliderPosition = it
+                },
+                onValueChangeFinished = {
+                    sliderChanging = false
+                }
             )
             var discreteSliderPosition by remember { mutableStateOf(0.5f) }
             Text("Discrete slider position: $discreteSliderPosition")
