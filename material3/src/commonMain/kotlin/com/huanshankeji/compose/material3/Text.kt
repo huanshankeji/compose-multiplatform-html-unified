@@ -6,9 +6,9 @@ import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.graphics.Color
 
 /**
- * The `com.huanshankeji.compose.material.Text` function
+ * The `com.huanshankeji.compose.material3.Text` function
  * can be easily confused with other Composable functions named `Text`
- * such as `androidx.compose.material.Text` and `org.jetbrains.compose.web.dom.Text`
+ * such as `androidx.compose.material3.Text` and `org.jetbrains.compose.web.dom.Text`
  * if not careful.
  * [TaglessText] is recommended over this one when there is no custom [modifier].
  * @see com.huanshankeji.compose.material3.ext.MaterialText

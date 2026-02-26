@@ -274,13 +274,25 @@ fun Material3(/*modifier: Modifier = Modifier*/
         HorizontalDivider()
 
         // Slider
-        var sliderValue by remember { mutableStateOf(0.5f) }
         Column {
-            Text("Slider value: ${(sliderValue * 100).toInt()}%")
+            var sliderPosition by remember { mutableStateOf(0.5f) }
+            Text("Slider position: $sliderPosition")
             Slider(
-                value = sliderValue,
-                onValueChange = { sliderValue = it },
-                valueRange = 0f..1f
+                value = sliderPosition,
+                onValueChange = { sliderPosition = it }
+            )
+            var discreteSliderPosition by remember { mutableStateOf(0.5f) }
+            Text("Discrete slider position: $discreteSliderPosition")
+            Slider(
+                value = discreteSliderPosition,
+                onValueChange = { discreteSliderPosition = it },
+                steps = 3
+            )
+            var rangeSliderPosition by remember { mutableStateOf(0.25f..0.75f) }
+            Text("Range slider position: $rangeSliderPosition")
+            RangeSlider(
+                value = rangeSliderPosition,
+                onValueChange = { rangeSliderPosition = it }
             )
         }
 
