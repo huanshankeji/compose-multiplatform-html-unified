@@ -306,12 +306,9 @@ fun Material3(/*modifier: Modifier = Modifier*/
 
         // Badge
         Row {
-            Badge {
-                TaglessText("3")
-            }
-            Badge {
-                TaglessText("New")
-            }
+            // not shown at the right position
+            Badge(content = "3")
+            Badge(content = "New")
         }
 
         // Chips - showing all 4 types as per M3 design
