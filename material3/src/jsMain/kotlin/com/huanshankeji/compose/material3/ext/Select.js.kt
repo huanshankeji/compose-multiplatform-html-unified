@@ -40,6 +40,7 @@ actual fun FilledSelect(
     menuArgs: SelectMenuArgs
 ) =
     MdFilledSelect(
+        value = textFieldArgs.valueComposeUi,
         label = textFieldArgs.label,
         supportingText = textFieldArgs.supportingText,
         error = textFieldArgs.isError.isTrueOrNull(),
@@ -59,6 +60,7 @@ actual fun OutlinedSelect(
     menuArgs: SelectMenuArgs
 ) =
     MdOutlinedSelect(
+        value = textFieldArgs.valueComposeUi,
         label = textFieldArgs.label,
         supportingText = textFieldArgs.supportingText,
         error = textFieldArgs.isError.isTrueOrNull(),

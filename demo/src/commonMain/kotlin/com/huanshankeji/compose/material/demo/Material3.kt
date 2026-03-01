@@ -205,15 +205,16 @@ fun Material3(/*modifier: Modifier = Modifier*/
         @Composable
         fun SelectMenuContent(selection: Selection?, setSelection: (Selection?) -> Unit, close: () -> Unit) =
             (listOf(null) + Selection.entries).forEach {
-                SelectOptionWithMaterialIcons(
+                SelectOption(
                     { modifier -> it?.let { Text(it.name, modifier) } },
                     {
                         setSelection(it)
                         close()
                     },
-                    it == selection,
-                    leadingIcon = Icons.Filled.Add,
-                    trailingIcon = Icons.Filled.Remove
+                    selectedJsDom = it == selection,
+                    leadingIcon = Icons.Filled.Add.toNullableContentWithModifier(),
+                    trailingIcon = Icons.Filled.Remove.toNullableContentWithModifier(),
+                    valueJsDom = it?.name ?: ""
                 )
             }
 
