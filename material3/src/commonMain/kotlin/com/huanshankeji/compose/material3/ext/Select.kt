@@ -110,7 +110,8 @@ fun SelectOptionWithMaterialIcons(
     modifier: Modifier = Modifier,
     leadingIcon: Icon? = null,
     trailingIcon: Icon? = null,
-    enabled: Boolean = true
+    enabled: Boolean = true,
+    valueJsDom: String? = null
 ) =
     SelectOption(
         text,
@@ -119,5 +120,6 @@ fun SelectOptionWithMaterialIcons(
         modifier,
         leadingIcon.toNullableContentWithModifier(),
         trailingIcon.toNullableContentWithModifier(),
-        enabled
+        enabled,
+        valueJsDom
     )

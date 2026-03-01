@@ -213,7 +213,8 @@ fun Material3(/*modifier: Modifier = Modifier*/
                     },
                     it == selection,
                     leadingIcon = Icons.Filled.Add,
-                    trailingIcon = Icons.Filled.Remove
+                    trailingIcon = Icons.Filled.Remove,
+                    valueJsDom = it?.name ?: ""
                 )
             }
 
