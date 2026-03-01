@@ -52,8 +52,12 @@ expect fun FilledSelect(
     expandedComposeUi: Boolean,
     onExpandedChangeComposeUi: (Boolean) -> Unit,
     /*
-    Note that the `value` here comes from `MdFilledSelect` and serves as the key,
-    which differs from `value` in `ExposedDropdownMenuBoxTextFieldArgs` that serves as the text field value.
+    Note that `valueJsDom` is the HTML form key for the `md-filled-select` element,
+    used internally to identify which option is selected. By convention it should be
+    a code-like identifier string (no spaces, e.g. "OPTION_A" or "option_a"), NOT a
+    natural-language display string. This is semantically different from
+    `SelectTextFieldArgs.valueComposeUi`, which is the text shown in the text field
+    (may contain spaces, e.g. "Option A").
     */
     valueJsDom: String,
     //onValueChangeJsDom: (String) -> Unit,
@@ -71,6 +75,7 @@ expect fun FilledSelect(
 expect fun OutlinedSelect(
     expandedComposeUi: Boolean,
     onExpandedChangeComposeUi: (Boolean) -> Unit,
+    // See the comment in [FilledSelect] for the semantics of this parameter.
     valueJsDom: String,
     //onValueChangeJsDom: (String) -> Unit,
     modifier: Modifier = Modifier,
@@ -86,7 +91,8 @@ expect fun OutlinedSelect(
  *
  * @see DropdownMenuItem
  * @param text corresponds to the `headline` slot on JS DOM in Material Web.
- * @param valueJsDom the `value` attribute for an HTML form.
+ * @param valueJsDom the HTML form key `value` attribute. By convention this should be a code-like
+ *   identifier (no spaces), distinct from any natural-language display string.
  */
 @Composable
 expect fun SelectOption(
