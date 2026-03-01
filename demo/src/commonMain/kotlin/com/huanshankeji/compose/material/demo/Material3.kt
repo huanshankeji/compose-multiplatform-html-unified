@@ -252,6 +252,7 @@ fun Material3(/*modifier: Modifier = Modifier*/
                 val close = { setExpanded(false) }
                 FilledSelect(
                     expanded, setExpanded,
+                    value,
                     textFieldArgs = SelectTextFieldArgs(value, label = label),
                     menuArgs = SelectMenuArgs(expanded, close, close) {
                         SelectMenuContent(selection, setSelection, close)
@@ -263,6 +264,7 @@ fun Material3(/*modifier: Modifier = Modifier*/
                 val close = { setExpanded(false) }
                 OutlinedSelect(
                     expanded, setExpanded,
+                    value,
                     textFieldArgs = SelectTextFieldArgs(value, label = label),
                     menuArgs = SelectMenuArgs(expanded, close, close) {
                         SelectMenuContent(selection, setSelection, close)

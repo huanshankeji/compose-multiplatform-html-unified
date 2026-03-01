@@ -35,6 +35,7 @@ private fun mdSelectAttrs(
 actual fun FilledSelect(
     expandedComposeUi: Boolean,
     onExpandedChangeComposeUi: (Boolean) -> Unit,
+    valueJsDom: String,
     modifier: Modifier,
     textFieldArgs: SelectTextFieldArgs,
     menuArgs: SelectMenuArgs
@@ -44,7 +45,7 @@ actual fun FilledSelect(
         supportingText = textFieldArgs.supportingText,
         error = textFieldArgs.isError.isTrueOrNull(),
         disabled = textFieldArgs.enabled.isFalseOrNull(),
-        value = textFieldArgs.valueComposeUi,
+        value = valueJsDom,
         clampMenuWidth = menuArgs.matchAnchorWidth,
         attrs = mdSelectAttrs(modifier, menuArgs)
     ) {
@@ -55,6 +56,7 @@ actual fun FilledSelect(
 actual fun OutlinedSelect(
     expandedComposeUi: Boolean,
     onExpandedChangeComposeUi: (Boolean) -> Unit,
+    valueJsDom: String,
     modifier: Modifier,
     textFieldArgs: SelectTextFieldArgs,
     menuArgs: SelectMenuArgs
@@ -64,7 +66,7 @@ actual fun OutlinedSelect(
         supportingText = textFieldArgs.supportingText,
         error = textFieldArgs.isError.isTrueOrNull(),
         disabled = textFieldArgs.enabled.isFalseOrNull(),
-        value = textFieldArgs.valueComposeUi,
+        value = valueJsDom,
         attrs = mdSelectAttrs(modifier, menuArgs)
     ) {
         menuArgs.content()

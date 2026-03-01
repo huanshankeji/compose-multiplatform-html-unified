@@ -52,14 +52,11 @@ expect fun FilledSelect(
     expandedComposeUi: Boolean,
     onExpandedChangeComposeUi: (Boolean) -> Unit,
     /*
-    These 2 params are temporarily not supported because their API style differ too much from Compose.
-    Also note that the `value` here comes from `MdFilledSelect` and serves as the key,
+    Note that the `value` here comes from `MdFilledSelect` and serves as the key,
     which differs from `value` in `ExposedDropdownMenuBoxTextFieldArgs` that serves as the text field value.
     */
-    /*
     valueJsDom: String,
-    onValueChangeJsDom: (String) -> Unit,
-    */
+    //onValueChangeJsDom: (String) -> Unit,
     modifier: Modifier = Modifier,
     textFieldArgs: SelectTextFieldArgs,
     //scrollState: ScrollState = rememberScrollState(),
@@ -74,6 +71,8 @@ expect fun FilledSelect(
 expect fun OutlinedSelect(
     expandedComposeUi: Boolean,
     onExpandedChangeComposeUi: (Boolean) -> Unit,
+    valueJsDom: String,
+    //onValueChangeJsDom: (String) -> Unit,
     modifier: Modifier = Modifier,
     textFieldArgs: SelectTextFieldArgs,
     //scrollState: ScrollState = rememberScrollState(),
