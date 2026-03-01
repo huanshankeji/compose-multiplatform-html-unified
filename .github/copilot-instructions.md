@@ -147,38 +147,9 @@ repositories {
 
 #### Supported Material 3 Components
 
-Not all components of Material Web are supported yet. Here is a list of supported unified component APIs:
+For an up-to-date list of supported unified component APIs, refer to README.md.
 
 When adding or aligning components, you can search in <https://m3.material.io/> to find the component first. On each component's overview page, you can usually find links or references to both its Jetpack Compose implementation (almost identical to Compose Multiplatform's Compose UI APIs) and its web/Material Web implementation.
-
-- Buttons: `Button` (wraps `MdElevatedButton`, `MdFilledButton`, `MdFilledTonalButton`, `MdOutlinedButton`, `MdTextButton`)
-- `Checkbox`
-- Chips: `AssistChip`, `FilterChip`, `InputChip`, `SuggestionChip` (wrap `MdAssistChip`, `MdFilterChip`, `MdInputChip`, `MdSuggestionChip`, `MdChipSet`)
-- `AlertDialog` (wraps `MdDialog`)
-- `HorizontalDivider` (wraps `MdDivider`)
-- FABs: `FloatingActionButton` (wraps `MdFab`, `MdBrandedFab`)
-- `Icon` (wraps `MdIcon`)
-- Icon Buttons: `IconButton` (wraps `MdIconButton`, `MdFilledIconButton`, `MdFilledTonalIconButton`, `MdOutlinedIconButton`)
-- Lists: LazyColumn with `ListItem` (wraps `MdList`, `MdListItem`)
-- Progress Indicators: `LinearProgressIndicator`, `CircularProgressIndicator` (wrap `MdLinearProgress`, `MdCircularProgress`)
-- `RadioButton` (wraps `MdRadio`)
-- `Slider` (wraps `MdSlider`)
-- `Switch` (wraps `MdSwitch`)
-- Tabs: `TabRow`, `Tab` (wrap `MdTabs`, `MdPrimaryTab`, `MdSecondaryTab`)
-- Text Fields: `TextField`, `OutlinedTextField` (wrap `MdFilledTextField`, `MdOutlinedTextField`)
-- Segmented Buttons: `SingleChoiceSegmentedButtonRow`, `MultiChoiceSegmentedButtonRow`, `SegmentedButton` (wrap `MdSegmentedButtonSet`, `MdOutlinedSegmentedButton`)
-- Navigation Drawer: `NavigationDrawer`, `ModalNavigationDrawer` (wrap `MdNavigationDrawer`, `MdNavigationDrawerModal`)
-- `Badge` (wraps `MdBadge`)
-
-**Components in `ext` package** (platform-specific APIs):
-- `FilledSelect`, `OutlinedSelect`, `SelectOption` (wrap `MdFilledSelect`, `MdOutlinedSelect`, `MdSelectOption` on JS)
-
-**Note:** Some Material Web components like `elevation`, `focus-ring`, and `ripple` are not wrapped as they are styling/utility components typically used internally by other components, not directly in application code.
-
-**Labs Components:** Some components use Material Web "labs" features (experimental, not recommended for production). These are marked with `@MaterialWebLabsApi` annotation on their JS implementations:
-- `Badge`
-- `SegmentedButton` family
-- `NavigationDrawer` (non-modal variant)
 
 ### Development Patterns and Conventions
 
@@ -208,13 +179,12 @@ When adding or aligning components, you can search in <https://m3.material.io/> 
 
 2. **Ext package** (`com.huanshankeji.compose.material3.ext`): Components with platform-specific APIs
    - Use when unification would compromise usability or when platforms have fundamentally different UX patterns
+   - Especially when the JS DOM component only supports taking a text in an HTML attribute such as `value` as its content, while the Compose one takes a `@Composable` content block
    - Example: `FilledSelect`, `OutlinedSelect` (different interaction models between ExposedDropdownMenuBox on Compose UI and native select on JS)
 
 3. **Labs annotations** instead of labs package:
-   - Don't put components in separate `labs` package
    - Mark JS implementations with `@MaterialWebLabsApi` when they depend on Material Web labs components
    - Opt-in to `@MaterialWebLabsApi` if Compose UI visual effects can already be achieved with consistency on JS DOM
-   - Mark otherwise (leave the annotation on the JS implementation only)
 
 ### Root Directory Files
 ```
