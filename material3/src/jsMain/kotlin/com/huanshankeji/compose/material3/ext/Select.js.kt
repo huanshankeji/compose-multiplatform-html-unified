@@ -1,72 +1,96 @@
 package com.huanshankeji.compose.material3.ext
 
 import androidx.compose.runtime.Composable
-import com.huanshankeji.compose.html.material3.MdFilledSelect
-import com.huanshankeji.compose.html.material3.MdOutlinedSelect
-import com.huanshankeji.compose.html.material3.MdSelectOption
+import androidx.compose.web.events.SyntheticEvent
+import com.huanshankeji.compose.html.material3.*
+import com.huanshankeji.compose.material3.contentFromComponents
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.toAttrs
-import com.huanshankeji.compose.web.attributes.ext.disabled
-import com.huanshankeji.compose.web.attributes.ext.onInput
 import com.huanshankeji.compose.web.attributes.isFalseOrNull
-import org.jetbrains.compose.web.dom.Text
-import org.w3c.dom.HTMLElement
+import com.huanshankeji.compose.web.attributes.isTrueOrNull
+import org.jetbrains.compose.web.attributes.AttrsScope
 
+private fun mdSelectAttrs(
+    modifier: Modifier,
+    menuArgs: SelectMenuArgs
+): AttrsScope<InternalSelectElement>.() -> Unit =
+    modifier.toAttrs {
+        /*
+        onInput { event ->
+            console.log("onInput: ", event)
+            console.log("value: ", event.target.value)
+        }
+        onChange { event ->
+            console.log("onChange: ", event, event.target.value)
+            console.log("value: ", event.target.value)
+        }
+        */
+        onClosing<SyntheticEvent<*>> { menuArgs.onCloseJsDom() }
+    }
+
+/**
+ * @see CommonDropdownMenu
+ */
 @Composable
 actual fun FilledSelect(
-    value: String,
-    onValueChange: (String) -> Unit,
+    expandedComposeUi: Boolean,
+    onExpandedChangeComposeUi: (Boolean) -> Unit,
     modifier: Modifier,
-    enabled: Boolean,
-    label: String?,
-    options: @Composable () -> Unit
+    textFieldArgs: SelectTextFieldArgs,
+    menuArgs: SelectMenuArgs
 ) =
     MdFilledSelect(
-        label = label,
-        attrs = modifier.toAttrs {
-            disabled(enabled.isFalseOrNull())
-            onInput { event ->
-                ((event.target as? HTMLElement)?.asDynamic()?.value as? String)?.let { newValue ->
-                    onValueChange(newValue)
-                }
-            }
-        }
+        label = textFieldArgs.label,
+        supportingText = textFieldArgs.supportingText,
+        error = textFieldArgs.isError.isTrueOrNull(),
+        disabled = textFieldArgs.enabled.isFalseOrNull(),
+        clampMenuWidth = menuArgs.matchAnchorWidth,
+        attrs = mdSelectAttrs(modifier, menuArgs)
     ) {
-        options()
+        menuArgs.content()
     }
 
 @Composable
 actual fun OutlinedSelect(
-    value: String,
-    onValueChange: (String) -> Unit,
+    expandedComposeUi: Boolean,
+    onExpandedChangeComposeUi: (Boolean) -> Unit,
     modifier: Modifier,
-    enabled: Boolean,
-    label: String?,
-    options: @Composable () -> Unit
+    textFieldArgs: SelectTextFieldArgs,
+    menuArgs: SelectMenuArgs
 ) =
     MdOutlinedSelect(
-        label = label,
-        attrs = modifier.toAttrs {
-            disabled(enabled.isFalseOrNull())
-            onInput { event ->
-                ((event.target as? HTMLElement)?.asDynamic()?.value as? String)?.let { newValue ->
-                    onValueChange(newValue)
-                }
-            }
-        }
+        label = textFieldArgs.label,
+        supportingText = textFieldArgs.supportingText,
+        error = textFieldArgs.isError.isTrueOrNull(),
+        disabled = textFieldArgs.enabled.isFalseOrNull(),
+        attrs = mdSelectAttrs(modifier, menuArgs)
     ) {
-        options()
+        menuArgs.content()
     }
 
+/**
+ * @see DropdownMenuItem
+ * @see MdSelectOption
+ */
 @Composable
 actual fun SelectOption(
-    value: String,
-    text: String,
-    modifier: Modifier
+    text: @Composable ((Modifier) -> Unit),
+    onClick: () -> Unit,
+    selectedJsDom: Boolean,
+    modifier: Modifier,
+    leadingIcon: @Composable ((Modifier) -> Unit)?,
+    trailingIcon: @Composable ((Modifier) -> Unit)?,
+    enabled: Boolean,
+    valueJsDom: String?
 ) =
+    // copied and adapted from `DropdownMenuItem`
     MdSelectOption(
-        value = value,
-        attrs = modifier.toAttrs()
-    ) {
-        Text(text)
+        enabled.isFalseOrNull(),
+        // `selected` has to be passed to update the selection from Compose data. This doesn't work properly now when syncing states, however.
+        selected = selectedJsDom.isTrueOrNull(),
+        value = valueJsDom,
+        attrs = modifier.toAttrs {
+            onClick { onClick() }
+        }) {
+        contentFromComponents(text, leadingIcon, trailingIcon)
     }

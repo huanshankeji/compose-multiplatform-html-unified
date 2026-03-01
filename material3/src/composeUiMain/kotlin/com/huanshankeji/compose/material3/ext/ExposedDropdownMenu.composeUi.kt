@@ -1,9 +1,6 @@
 package com.huanshankeji.compose.material3.ext
 
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.ExposedDropdownMenuDefaults
-import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.PlatformModifier
@@ -23,7 +20,7 @@ actual fun ExposedDropdownMenuBox(
 @OptIn(ExperimentalMaterial3Api::class)
 actual class ExposedDropdownMenuBoxScope(val platformValue: androidx.compose.material3.ExposedDropdownMenuBoxScope) {
     actual fun Modifier.menuAnchor(): Modifier =
-        platformModify { with(platformValue) { menuAnchor() } } // TODO add `type`
+        platformModify { with(platformValue) { menuAnchor() } } // TODO add `type` and `disabled` and try to unify the behavior with JS
 
     @Composable
     actual fun ExposedDropdownMenu(
@@ -31,12 +28,14 @@ actual class ExposedDropdownMenuBoxScope(val platformValue: androidx.compose.mat
         onDismissRequestComposeUi: () -> Unit,
         onCloseJsDom: () -> Unit,
         modifier: Modifier,
+        matchAnchorWidthComposeUi: Boolean,
         content: @Composable () -> Unit
     ) =
         platformValue.ExposedDropdownMenu(
             expanded,
             onDismissRequestComposeUi,
-            modifier.platformModifier
+            modifier.platformModifier,
+            matchAnchorWidth = matchAnchorWidthComposeUi
         ) { content() }
 }
 
@@ -49,14 +48,40 @@ actual fun ExposedDropdownMenuBoxScope.ExposedDropdownMenuBoxTextField(
         @OptIn(ExperimentalMaterial3Api::class)
         TextField(
             // TODO add `type`
-            modifier = with(platformValue) { PlatformModifier.menuAnchor(/*MenuAnchorType.PrimaryNotEditable*/) }, // `MenuAnchorType` seems to be not supported in the latest version of Compose Multiplatform yet
+            modifier = with(platformValue) { PlatformModifier.menuAnchor(/*MenuAnchorType.PrimaryNotEditable*/) },
             value = value,
             onValueChange = onValueChange,
+            enabled = enabled,
             readOnly = readOnly,
             singleLine = singleLine,
             label = { Text(label) },
             trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
-            colors = ExposedDropdownMenuDefaults.textFieldColors(),
+            supportingText = supportingText.toNullableTaglessText(),
+            isError = isError,
+            colors = ExposedDropdownMenuDefaults.textFieldColors()
+        )
+    }
+
+@Composable
+actual fun ExposedDropdownMenuBoxScope.ExposedDropdownMenuBoxOutlinedTextField(
+    expanded: Boolean,
+    args: ExposedDropdownMenuBoxTextFieldArgs
+) =
+    with(args) {
+        @OptIn(ExperimentalMaterial3Api::class)
+        OutlinedTextField(
+            // TODO add `type`
+            modifier = with(platformValue) { PlatformModifier.menuAnchor(/*MenuAnchorType.PrimaryNotEditable*/) },
+            value = value,
+            onValueChange = onValueChange,
+            enabled = enabled,
+            readOnly = readOnly,
+            singleLine = singleLine,
+            label = { Text(label) },
+            trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
+            supportingText = supportingText.toNullableTaglessText(),
+            isError = isError,
+            colors = ExposedDropdownMenuDefaults.textFieldColors()
         )
     }
 

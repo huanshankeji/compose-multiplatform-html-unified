@@ -202,51 +202,83 @@ fun Material3(/*modifier: Modifier = Modifier*/
                 )
             }
 
+        @Composable
+        fun SelectMenuContent(selection: Selection?, setSelection: (Selection?) -> Unit, close: () -> Unit) =
+            (listOf(null) + Selection.entries).forEach {
+                SelectOptionWithMaterialIcons(
+                    { modifier -> it?.let { Text(it.name, modifier) } },
+                    {
+                        setSelection(it)
+                        close()
+                    },
+                    it == selection,
+                    leadingIcon = Icons.Filled.Add,
+                    trailingIcon = Icons.Filled.Remove
+                )
+            }
+
+
         run {
-            val (expanded, setExpanded) = remember { mutableStateOf(false) }
-            val close = { setExpanded(false) }
             val (selection, setSelection) = remember { mutableStateOf<Selection?>(null) }
-            ExposedDropdownMenuBoxWithTextField(
-                expanded, setExpanded,
-                textFieldArgs = ExposedDropdownMenuBoxTextFieldArgs(
-                    selection?.name ?: "", label = "Please select"
-                ),
-                exposedDropdownMenuArgs = ExposedDropdownMenuArgs(expanded, close, close) {
+            val value = selection?.name ?: ""
+            Text("Selected: $value")
+            val label = "Please select"
+            run {
+                val (expanded, setExpanded) = remember { mutableStateOf(false) }
+                val close = { setExpanded(false) }
+                ExposedDropdownMenuBoxWithTextField(
+                    expanded, setExpanded,
+                    textFieldArgs = ExposedDropdownMenuBoxTextFieldArgs(value, label = label),
+                    exposedDropdownMenuArgs = ExposedDropdownMenuArgs(expanded, close, close) {
+                        DropdownMenuContent(setSelection, close)
+                    }
+                )
+            }
+            run {
+                val (expanded, setExpanded) = remember { mutableStateOf(false) }
+                val close = { setExpanded(false) }
+                ExposedDropdownMenuBoxWithOutlinedTextField(
+                    expanded, setExpanded,
+                    textFieldArgs = ExposedDropdownMenuBoxTextFieldArgs(value, label = label),
+                    exposedDropdownMenuArgs = ExposedDropdownMenuArgs(expanded, close, close) {
+                        DropdownMenuContent(setSelection, close)
+                    }
+                )
+            }
+
+            run {
+                val (expanded, setExpanded) = remember { mutableStateOf(false) }
+                val close = { setExpanded(false) }
+                FilledSelect(
+                    expanded, setExpanded,
+                    textFieldArgs = SelectTextFieldArgs(value, label = label),
+                    menuArgs = SelectMenuArgs(expanded, close, close) {
+                        SelectMenuContent(selection, setSelection, close)
+                    }
+                )
+            }
+            run {
+                val (expanded, setExpanded) = remember { mutableStateOf(false) }
+                val close = { setExpanded(false) }
+                OutlinedSelect(
+                    expanded, setExpanded,
+                    textFieldArgs = SelectTextFieldArgs(value, label = label),
+                    menuArgs = SelectMenuArgs(expanded, close, close) {
+                        SelectMenuContent(selection, setSelection, close)
+                    }
+                )
+            }
+
+            DropdownMenuBox {
+                var expanded by remember { mutableStateOf(false) }
+                val close = { expanded = false }
+                IconButton({ expanded = true }, Modifier.menuAnchorJsDom()) {
+                    Icon(Icons.Filled.ArrowDropDown, "Please select")
+                }
+                DropdownMenu(expanded, close, close) {
                     DropdownMenuContent(setSelection, close)
                 }
-            )
-        }
-        DropdownMenuBox {
-            var expanded by remember { mutableStateOf(false) }
-            val close = { expanded = false }
-            val (_, setSelection) = remember { mutableStateOf<Selection?>(null) }
-            IconButton({ expanded = true }, Modifier.menuAnchorJsDom()) {
-                Icon(Icons.Filled.ArrowDropDown, "Please select")
             }
-            DropdownMenu(expanded, close, close) {
-                DropdownMenuContent(setSelection, close)
-            }
-        }
-        // Select components
-        var selectedValue by remember { mutableStateOf("Option 1") }
-        Text("Selected: $selectedValue")
-        FilledSelect(
-            value = selectedValue,
-            onValueChange = { selectedValue = it },
-            label = "Choose option"
-        ) {
-            SelectOption("Option 1", "Option 1")
-            SelectOption("Option 2", "Option 2")
-            SelectOption("Option 3", "Option 3")
-        }
-        OutlinedSelect(
-            value = selectedValue,
-            onValueChange = { selectedValue = it },
-            label = "Choose option"
-        ) {
-            SelectOption("Option 1", "Option 1")
-            SelectOption("Option 2", "Option 2")
-            SelectOption("Option 3", "Option 3")
         }
 
         LinearProgressIndicator()

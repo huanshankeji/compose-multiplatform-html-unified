@@ -47,6 +47,7 @@ expect class DropdownMenuBoxScope {
 expect fun DropdownMenuBox(content: @Composable DropdownMenuBoxScope.() -> Unit)
 
 /**
+ * @param text corresponds to the `headline` slot on JS DOM in Material Web.
  * @param keepOpenJsDom set to `true` for completely consistent behavior on JS to `androidx.compose`. However, if you set the `expanded` state to false in [onClick], doing this is unnecessary.
  */
 @Composable
@@ -58,6 +59,7 @@ expect fun DropdownMenuItem(
     trailingIcon: @Composable ((Modifier) -> Unit)? = null,
     enabled: Boolean = true,
     keepOpenJsDom: Boolean = false
+    //selectedJsDom: Boolean = false
 )
 
 @Composable

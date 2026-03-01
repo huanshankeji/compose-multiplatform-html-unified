@@ -3,10 +3,13 @@ package com.huanshankeji.compose.material3.ext
 import androidx.compose.runtime.*
 import androidx.compose.ui.unit.DpOffset
 import androidx.compose.web.events.SyntheticEvent
-import com.huanshankeji.compose.html.material3.*
+import com.huanshankeji.compose.html.material3.MdMenu
+import com.huanshankeji.compose.html.material3.MdMenuElement
+import com.huanshankeji.compose.html.material3.MdMenuItem
+import com.huanshankeji.compose.html.material3.onClosing
+import com.huanshankeji.compose.material3.contentFromComponents
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.toAttrs
-import com.huanshankeji.compose.web.attributes.Attrs
 import com.huanshankeji.compose.web.attributes.isFalseOrNull
 import com.huanshankeji.compose.web.attributes.isTrueOrNull
 import com.varabyte.kobweb.compose.ui.attrsModifier
@@ -14,6 +17,7 @@ import com.varabyte.kobweb.compose.ui.toAttrs
 import org.jetbrains.compose.web.attributes.AttrsScope
 import org.jetbrains.compose.web.css.Position
 import org.jetbrains.compose.web.css.position
+import org.jetbrains.compose.web.dom.AttrBuilderContext
 import org.jetbrains.compose.web.dom.Div
 import org.jetbrains.compose.web.dom.ElementScope
 import org.w3c.dom.HTMLDivElement
@@ -25,7 +29,7 @@ internal fun CommonDropdownMenu(
     expanded: Boolean,
     onCloseJsDom: () -> Unit,
     //onDismissRequest: () -> Unit,
-    attrs: Attrs<MdMenuElement>?,
+    attrs: AttrBuilderContext<MdMenuElement>?,
     offset: DpOffset = defaultDpOffset,
     content: @Composable ElementScope<MdMenuElement>.() -> Unit
     //onExpandedChange: ((Boolean) -> Unit)? = null
@@ -155,7 +159,5 @@ actual fun DropdownMenuItem(
                 onClick()
             }
         }) {
-        text(Modifier.platformModify { attrsModifier { slot(MdMenuItemScope.Slot.Headline) } })
-        leadingIcon?.let { it(Modifier.platformModify { attrsModifier { slot(MdMenuItemScope.Slot.Start) } }) }
-        trailingIcon?.let { it(Modifier.platformModify { attrsModifier { slot(MdMenuItemScope.Slot.End) } }) }
+        contentFromComponents(text, leadingIcon, trailingIcon)
     }

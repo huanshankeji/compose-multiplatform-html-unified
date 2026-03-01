@@ -1,70 +1,67 @@
 package com.huanshankeji.compose.material3.ext
 
-import androidx.compose.runtime.*
-import com.huanshankeji.compose.material3.Text
+import androidx.compose.runtime.Composable
+import com.huanshankeji.compose.ExperimentalApi
 import com.huanshankeji.compose.ui.Modifier
 
-private data class SelectContext(val onSelect: (String) -> Unit)
+@ExperimentalApi
+fun SelectTextFieldArgs.toExposedDropdownMenuBoxTextFieldArgs() =
+    ExposedDropdownMenuBoxTextFieldArgs(
+        valueComposeUi, onValueChangeComposeUi, enabled, true, true, label, supportingText, isError
+    )
 
-private val LocalSelectContext = compositionLocalOf<SelectContext?> { null }
+@ExperimentalApi
+fun SelectMenuArgs.toComposeUiExposedDropdownMenuArgs() =
+    ExposedDropdownMenuArgs(
+        expandedComposeUi,
+        onDismissRequestComposeUi,
+        onCloseJsDom,
+        Modifier,
+        matchAnchorWidth ?: true,
+        content
+    )
 
 @Composable
 actual fun FilledSelect(
-    value: String,
-    onValueChange: (String) -> Unit,
+    expandedComposeUi: Boolean,
+    onExpandedChangeComposeUi: (Boolean) -> Unit,
     modifier: Modifier,
-    enabled: Boolean,
-    label: String?,
-    options: @Composable () -> Unit
-) {
-    var expanded by remember { mutableStateOf(false) }
-    ExposedDropdownMenuBoxWithTextField(
-        expanded = expanded,
-        onExpandedChange = { if (enabled) expanded = it },
-        modifier = modifier,
-        textFieldArgs = ExposedDropdownMenuBoxTextFieldArgs(
-            value = value,
-            readOnly = true,
-            singleLine = true,
-            label = label ?: ""
-        ),
-        exposedDropdownMenuArgs = ExposedDropdownMenuArgs(
-            expanded = expanded,
-            onDismissRequestComposeUi = { expanded = false },
-            onCloseJsDom = { expanded = false }
-        ) {
-            CompositionLocalProvider(LocalSelectContext provides SelectContext { selectedValue ->
-                onValueChange(selectedValue)
-                expanded = false
-            }) {
-                options()
-            }
-        }
+    textFieldArgs: SelectTextFieldArgs,
+    menuArgs: SelectMenuArgs
+) =
+    ExposedDropdownMenuBoxWithFilledTextField(
+        expandedComposeUi,
+        onExpandedChangeComposeUi,
+        modifier,
+        textFieldArgs.toExposedDropdownMenuBoxTextFieldArgs(),
+        menuArgs.toComposeUiExposedDropdownMenuArgs()
     )
-}
 
 @Composable
 actual fun OutlinedSelect(
-    value: String,
-    onValueChange: (String) -> Unit,
+    expandedComposeUi: Boolean,
+    onExpandedChangeComposeUi: (Boolean) -> Unit,
     modifier: Modifier,
-    enabled: Boolean,
-    label: String?,
-    options: @Composable () -> Unit
+    textFieldArgs: SelectTextFieldArgs,
+    menuArgs: SelectMenuArgs
 ) =
-    // TODO use `ExposedDropdownMenuBoxWithOutlinedTextField`
-    FilledSelect(value, onValueChange, modifier, enabled, label, options)
+    ExposedDropdownMenuBoxWithOutlinedTextField(
+        expandedComposeUi,
+        onExpandedChangeComposeUi,
+        modifier,
+        textFieldArgs.toExposedDropdownMenuBoxTextFieldArgs(),
+        menuArgs.toComposeUiExposedDropdownMenuArgs()
+    )
 
 @Composable
 actual fun SelectOption(
-    value: String,
-    text: String,
-    modifier: Modifier
-) {
-    val context = LocalSelectContext.current
-    DropdownMenuItem(
-        text = { Text(text) },
-        onClick = { context?.onSelect?.invoke(value) },
-        modifier = modifier
-    )
-}
+    text: @Composable ((Modifier) -> Unit),
+    onClick: () -> Unit,
+    selectedJsDom: Boolean,
+    modifier: Modifier,
+    leadingIcon: @Composable ((Modifier) -> Unit)?,
+    trailingIcon: @Composable ((Modifier) -> Unit)?,
+    enabled: Boolean,
+    valueJsDom: String?
+) =
+    CommonDropdownMenuItem(text, onClick, modifier, leadingIcon, trailingIcon, enabled)

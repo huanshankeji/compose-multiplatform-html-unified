@@ -6,27 +6,11 @@ import com.huanshankeji.compose.html.material3.MdList
 import com.huanshankeji.compose.html.material3.MdListItemScope
 import com.huanshankeji.compose.html.material3.MdListItemType
 import com.huanshankeji.compose.html.material3.MdListScope
+import com.huanshankeji.compose.material3.contentFromComponents
 import com.huanshankeji.compose.runtime.DeferredComposableRunner
 import com.huanshankeji.compose.ui.Modifier
-import com.huanshankeji.compose.ui.PlatformModifier
 import com.huanshankeji.compose.ui.toAttrs
-import com.huanshankeji.compose.ui.toCommonModifier
-import com.varabyte.kobweb.compose.ui.attrsModifier
 import com.varabyte.kobweb.compose.ui.toAttrs
-
-@Composable
-private fun MdListItemScope.contentFromComponents(listItemComponents: ListItemComponents) = with(listItemComponents) {
-    headline.invoke(PlatformModifier.attrsModifier { slot(MdListItemScope.Slot.Headline) }.toCommonModifier())
-    start?.invoke(PlatformModifier.attrsModifier { slot(MdListItemScope.Slot.Start) }.toCommonModifier())
-    end?.invoke(PlatformModifier.attrsModifier { slot(MdListItemScope.Slot.End) }.toCommonModifier())
-    supportingText?.invoke(
-        PlatformModifier.attrsModifier { slot(MdListItemScope.Slot.SupportingText) }.toCommonModifier()
-    )
-    trailingSupportingText?.invoke(
-        PlatformModifier.attrsModifier { slot(MdListItemScope.Slot.TrailingSupportingText) }.toCommonModifier()
-    )
-    overline?.invoke(PlatformModifier.attrsModifier { slot(MdListItemScope.Slot.Overline) }.toCommonModifier())
-}
 
 actual class ListScope(val mdListScope: MdListScope) {
     private val deferredComposableRunner = DeferredComposableRunner()

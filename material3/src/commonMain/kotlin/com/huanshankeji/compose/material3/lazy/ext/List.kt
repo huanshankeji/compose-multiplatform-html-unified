@@ -3,6 +3,7 @@ package com.huanshankeji.compose.material3.lazy.ext
 import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.foundation.ext.matchPositionRelativeParentJsDom
 import com.huanshankeji.compose.material.icons.Icon
+import com.huanshankeji.compose.material3.ItemComponents
 import com.huanshankeji.compose.material3.ext.toNullableContentWithModifier
 import com.huanshankeji.compose.material3.ext.toNullableTextWithModifier
 import com.huanshankeji.compose.material3.ext.toTextWithModifier
@@ -40,13 +41,13 @@ expect class ItemScope
 class ListItemComponents(
     val contentModifier: Modifier = Modifier,
     val isInteractiveJsDom: Boolean,
-    val headline: @Composable (Modifier) -> Unit,
-    val start: @Composable ((Modifier) -> Unit)? = null,
-    val end: @Composable ((Modifier) -> Unit)? = null,
-    val supportingText: @Composable ((Modifier) -> Unit)? = null,
-    val trailingSupportingText: @Composable ((Modifier) -> Unit)? = null,
-    val overline: @Composable ((Modifier) -> Unit)? = null
-) {
+    override val headline: @Composable (Modifier) -> Unit,
+    override val start: @Composable ((Modifier) -> Unit)? = null,
+    override val end: @Composable ((Modifier) -> Unit)? = null,
+    override val supportingText: @Composable ((Modifier) -> Unit)? = null,
+    override val trailingSupportingText: @Composable ((Modifier) -> Unit)? = null,
+    override val overline: @Composable ((Modifier) -> Unit)? = null
+) : ItemComponents {
     constructor(
         contentModifier: Modifier = Modifier,
         isInteractiveJsDom: Boolean,
@@ -66,6 +67,9 @@ class ListItemComponents(
         trailingSupportingText.toNullableTextWithModifier(),
         overline.toNullableTextWithModifier()
     )
+
+    // temporarily not added to the property list
+    override val container: @Composable ((Modifier) -> Unit)? get() = null
 }
 
 /**

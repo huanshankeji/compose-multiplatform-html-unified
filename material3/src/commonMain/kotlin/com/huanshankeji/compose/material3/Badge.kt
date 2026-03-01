@@ -14,7 +14,7 @@ import com.huanshankeji.compose.ui.Modifier
 @Deprecated(
     "This component is not displayed correctly on JS DOM. " +
             "It seems to be displayed with absolute position. " +
-            "See https://github.com/material-components/material-web/blob/main/labs/badge/internal/_badge.scss#L40."
+            "See https://github.com/material-components/material-web/blob/516cbc02bf770b7c3c5c6b546f1e5d81939b9f23/labs/badge/internal/_badge.scss#L40 ."
 )
 @Composable
 expect fun Badge(
