@@ -80,17 +80,18 @@ actual fun OutlinedSelect(
 actual fun SelectOption(
     text: @Composable ((Modifier) -> Unit),
     onClick: () -> Unit,
-    selectedJsDom: Boolean,
+    //selectedJsDom: Boolean,
+    valueJsDom: String,
     modifier: Modifier,
     leadingIcon: @Composable ((Modifier) -> Unit)?,
     trailingIcon: @Composable ((Modifier) -> Unit)?,
     enabled: Boolean,
-    valueJsDom: String?
 ) =
     // copied and adapted from `DropdownMenuItem`
     // Selection is controlled via the `value` attribute on the parent select element, not via `selected` here.
     MdSelectOption(
         enabled.isFalseOrNull(),
+        //selected = selectedJsDom.isTrueOrNull(),
         value = valueJsDom,
         attrs = modifier.toAttrs {
             onClick { onClick() }

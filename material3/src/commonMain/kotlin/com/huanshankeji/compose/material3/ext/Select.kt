@@ -53,11 +53,12 @@ expect fun FilledSelect(
     onExpandedChangeComposeUi: (Boolean) -> Unit,
     /*
     Note that `valueJsDom` is the HTML form key for the `md-filled-select` element,
-    used internally to identify which option is selected. By convention it should be
+    used internally to identify which option is selected. By convention, it should be
     a code-like identifier string (no spaces, e.g. "OPTION_A" or "option_a"), NOT a
     natural-language display string. This is semantically different from
     `SelectTextFieldArgs.valueComposeUi`, which is the text shown in the text field
     (may contain spaces, e.g. "Option A").
+    Also, it can't be null. The `md-filled-select` component doesn't react to the `null` value change in JS DOM.
     */
     valueJsDom: String,
     //onValueChangeJsDom: (String) -> Unit,
@@ -93,38 +94,41 @@ expect fun OutlinedSelect(
  * @param text corresponds to the `headline` slot on JS DOM in Material Web.
  * @param valueJsDom the HTML form key `value` attribute. By convention this should be a code-like
  *   identifier (no spaces), distinct from any natural-language display string.
+ *   Also see the `valueJsDom` parameter in [FilledSelect] and [OutlinedSelect],
+ *   which is used to identify the currently selected option.
  */
 @Composable
 expect fun SelectOption(
     text: @Composable (Modifier) -> Unit,
     onClick: () -> Unit,
-    selectedJsDom: Boolean,
+    // An alternative parameter to identify the currently selected option on JS DOM. This doesn't work properly when syncing states on JS DOM, however.
+    //selectedJsDom: Boolean,
+    valueJsDom: String,
     modifier: Modifier = Modifier,
     leadingIcon: @Composable ((Modifier) -> Unit)? = null,
     trailingIcon: @Composable ((Modifier) -> Unit)? = null,
     enabled: Boolean = true,
-    valueJsDom: String? = null,
-    //keepOpenJsDom: Boolean = false
+    //keepOpenJsDom: Boolean = false,
 )
 
 @Composable
 fun SelectOptionWithMaterialIcons(
     text: @Composable (Modifier) -> Unit,
     onClick: () -> Unit,
-    selectedJsDom: Boolean,
+    //selectedJsDom: Boolean,
+    valueJsDom: String,
     modifier: Modifier = Modifier,
     leadingIcon: Icon? = null,
     trailingIcon: Icon? = null,
     enabled: Boolean = true,
-    valueJsDom: String? = null
 ) =
     SelectOption(
         text,
         onClick,
-        selectedJsDom,
+        //selectedJsDom,
+        valueJsDom,
         modifier,
         leadingIcon.toNullableContentWithModifier(),
         trailingIcon.toNullableContentWithModifier(),
         enabled,
-        valueJsDom
     )
