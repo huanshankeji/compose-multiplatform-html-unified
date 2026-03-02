@@ -88,9 +88,9 @@ actual fun SelectOption(
     enabled: Boolean,
 ) =
     // copied and adapted from `DropdownMenuItem`
-    // Selection is controlled via the `value` attribute on the parent select element, not via `selected` here.
     MdSelectOption(
         enabled.isFalseOrNull(),
+        // Selection is controlled via the `value` attribute on the parent select element, not via `selected` here.
         //selected = selectedJsDom.isTrueOrNull(),
         value = valueJsDom,
         attrs = modifier.toAttrs {

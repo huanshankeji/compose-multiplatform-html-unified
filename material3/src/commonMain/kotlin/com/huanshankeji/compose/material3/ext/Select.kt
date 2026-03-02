@@ -35,12 +35,13 @@ class SelectMenuArgs(
  * - On Compose UI: Uses [ExposedDropdownMenuBoxWithTextField] with a filled text field
  * - On JS: Uses native Material Web `MdFilledSelect` component
  *
- * @param value the currently selected value
- * @param onValueChange called when the selected value changes
  * @param modifier the [Modifier] to be applied to this select
- * @param enabled controls the enabled state of this select
- * @param label optional label for this select
- * @param options the options to display in the dropdown, typically [SelectOption] calls
+ * @param valueJsDom the HTML form key for the `md-filled-select` element, used internally to
+ *   identify which option is selected. By convention, it should be a code-like identifier string
+ *   (no spaces, e.g. `"OPTION_A"` or `"option_a"`), NOT a natural-language display string. This is
+ *   semantically different from [SelectTextFieldArgs.valueComposeUi], which is the text shown in
+ *   the text field (may contain spaces, e.g. `"Option A"`). Also, it can't be null — the
+ *   `md-filled-select` component doesn't react to a `null` value change on JS DOM.
  *
  * @see <a href="https://m3.material.io/components/menus/overview">Material Design select menus</a>
  *
@@ -51,15 +52,6 @@ class SelectMenuArgs(
 expect fun FilledSelect(
     expandedComposeUi: Boolean,
     onExpandedChangeComposeUi: (Boolean) -> Unit,
-    /*
-    Note that `valueJsDom` is the HTML form key for the `md-filled-select` element,
-    used internally to identify which option is selected. By convention, it should be
-    a code-like identifier string (no spaces, e.g. "OPTION_A" or "option_a"), NOT a
-    natural-language display string. This is semantically different from
-    `SelectTextFieldArgs.valueComposeUi`, which is the text shown in the text field
-    (may contain spaces, e.g. "Option A").
-    Also, it can't be null. The `md-filled-select` component doesn't react to the `null` value change in JS DOM.
-    */
     valueJsDom: String,
     //onValueChangeJsDom: (String) -> Unit,
     modifier: Modifier = Modifier,
@@ -70,13 +62,14 @@ expect fun FilledSelect(
 
 /**
  * The outlined variant of [FilledSelect].
+ *
+ * @param valueJsDom see the `valueJsDom` parameter in [FilledSelect] for the semantics.
  */
 @ExperimentalApi
 @Composable
 expect fun OutlinedSelect(
     expandedComposeUi: Boolean,
     onExpandedChangeComposeUi: (Boolean) -> Unit,
-    // See the comment in [FilledSelect] for the semantics of this parameter.
     valueJsDom: String,
     //onValueChangeJsDom: (String) -> Unit,
     modifier: Modifier = Modifier,
