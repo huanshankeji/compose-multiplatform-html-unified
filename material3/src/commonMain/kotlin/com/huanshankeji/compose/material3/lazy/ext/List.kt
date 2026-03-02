@@ -3,7 +3,7 @@ package com.huanshankeji.compose.material3.lazy.ext
 import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.foundation.ext.matchPositionRelativeParentJsDom
 import com.huanshankeji.compose.material.icons.Icon
-import com.huanshankeji.compose.material3.ItemComponents
+import com.huanshankeji.compose.material3.ext.ItemComponents
 import com.huanshankeji.compose.material3.ext.toNullableContentWithModifier
 import com.huanshankeji.compose.material3.ext.toNullableTextWithModifier
 import com.huanshankeji.compose.material3.ext.toTextWithModifier

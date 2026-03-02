@@ -6,7 +6,7 @@ import com.huanshankeji.compose.html.material3.MdList
 import com.huanshankeji.compose.html.material3.MdListItemScope
 import com.huanshankeji.compose.html.material3.MdListItemType
 import com.huanshankeji.compose.html.material3.MdListScope
-import com.huanshankeji.compose.material3.contentFromComponents
+import com.huanshankeji.compose.material3.ext.contentFromComponents
 import com.huanshankeji.compose.runtime.DeferredComposableRunner
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.toAttrs

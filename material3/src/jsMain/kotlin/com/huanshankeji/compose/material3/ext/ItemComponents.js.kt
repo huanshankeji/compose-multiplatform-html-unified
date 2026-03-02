@@ -1,13 +1,12 @@
-package com.huanshankeji.compose.material3
+// Also consider moving this file to the `ext` package because it involves `@Composable (Modifier) -> Unit`.
+
+package com.huanshankeji.compose.material3.ext
 
 import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.ExperimentalApi
 import com.huanshankeji.compose.html.material3.IMdItemScope
 import com.huanshankeji.compose.html.material3.IMdItemScope.Slot
 import com.huanshankeji.compose.ui.Modifier
-import com.huanshankeji.compose.ui.PlatformModifier
-import com.huanshankeji.compose.ui.toCommonModifier
-import com.varabyte.kobweb.compose.ui.attrsModifier
 
 /**
  * @see ItemComponents
@@ -23,17 +22,13 @@ fun IMdItemScope.contentFromComponents(
     container: @Composable ((Modifier) -> Unit)? = null,
     overline: @Composable ((Modifier) -> Unit)? = null
 ) {
-    headline(PlatformModifier.attrsModifier { slot(Slot.Headline) }.toCommonModifier())
-    start?.invoke(PlatformModifier.attrsModifier { slot(Slot.Start) }.toCommonModifier())
-    end?.invoke(PlatformModifier.attrsModifier { slot(Slot.End) }.toCommonModifier())
-    supportingText?.invoke(
-        PlatformModifier.attrsModifier { slot(Slot.SupportingText) }.toCommonModifier()
-    )
-    trailingSupportingText?.invoke(
-        PlatformModifier.attrsModifier { slot(Slot.TrailingSupportingText) }.toCommonModifier()
-    )
-    container?.invoke(PlatformModifier.attrsModifier { slot(Slot.Container) }.toCommonModifier())
-    overline?.invoke(PlatformModifier.attrsModifier { slot(Slot.Overline) }.toCommonModifier())
+    contentWithSlot(headline, Slot.Headline)
+    nullableContentWithSlot(start, Slot.Start)
+    nullableContentWithSlot(end, Slot.End)
+    nullableContentWithSlot(supportingText, Slot.SupportingText)
+    nullableContentWithSlot(trailingSupportingText, Slot.TrailingSupportingText)
+    nullableContentWithSlot(container, Slot.Container)
+    nullableContentWithSlot(overline, Slot.Overline)
 }
 
 @ExperimentalApi

@@ -7,7 +7,6 @@ import com.huanshankeji.compose.html.material3.MdMenu
 import com.huanshankeji.compose.html.material3.MdMenuElement
 import com.huanshankeji.compose.html.material3.MdMenuItem
 import com.huanshankeji.compose.html.material3.onClosing
-import com.huanshankeji.compose.material3.contentFromComponents
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.toAttrs
 import com.huanshankeji.compose.web.attributes.isFalseOrNull

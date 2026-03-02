@@ -3,7 +3,6 @@ package com.huanshankeji.compose.material3.ext
 import androidx.compose.runtime.Composable
 import androidx.compose.web.events.SyntheticEvent
 import com.huanshankeji.compose.html.material3.*
-import com.huanshankeji.compose.material3.contentFromComponents
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.toAttrs
 import com.huanshankeji.compose.web.attributes.isFalseOrNull

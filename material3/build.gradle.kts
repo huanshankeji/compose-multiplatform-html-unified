@@ -42,6 +42,10 @@ kotlin {
             }
         }
     }
+
+    compilerOptions {
+        optIn.add("com.huanshankeji.compose.html.material3.ExperimentalComposeHtmlMaterialApi")
+    }
 }
 
 publishing.publications.withType<MavenPublication> {

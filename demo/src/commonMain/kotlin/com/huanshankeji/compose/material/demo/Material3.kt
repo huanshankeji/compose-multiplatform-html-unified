@@ -13,10 +13,7 @@ import com.huanshankeji.compose.foundation.text.input.KeyboardCapitalization
 import com.huanshankeji.compose.foundation.text.input.KeyboardType
 import com.huanshankeji.compose.foundation.verticalScroll
 import com.huanshankeji.compose.material.icons.Icons
-import com.huanshankeji.compose.material.icons.filled.Add
-import com.huanshankeji.compose.material.icons.filled.ArrowDropDown
-import com.huanshankeji.compose.material.icons.filled.Menu
-import com.huanshankeji.compose.material.icons.filled.Remove
+import com.huanshankeji.compose.material.icons.filled.*
 import com.huanshankeji.compose.material3.*
 import com.huanshankeji.compose.material3.ext.*
 import com.huanshankeji.compose.material3.ext.Card
@@ -26,6 +23,8 @@ import com.huanshankeji.compose.material3.lazy.ext.List
 import com.huanshankeji.compose.material3.lazy.ext.ListItemComponents
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.material3.Button as RowScopeButton
+
+// TODO replace `println`s with snackbars when available
 
 @Composable
 fun Material3(/*modifier: Modifier = Modifier*/
@@ -166,7 +165,7 @@ fun Material3(/*modifier: Modifier = Modifier*/
             }
         }
 
-        Row {
+        Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
             Card { Text("card", contentPaddingModifier) }
             ElevatedCard { Text("elevated card", contentPaddingModifier) }
             OutlinedCard { Text("outlined card", contentPaddingModifier) }
@@ -343,30 +342,53 @@ fun Material3(/*modifier: Modifier = Modifier*/
             Badge(content = "New")
         }
 
-        // Chips - showing all 4 types as per M3 design
+        // Chips - showing all types as per M3 design
         var filterChipSelected by remember { mutableStateOf(false) }
         var inputChipSelected by remember { mutableStateOf(false) }
-        Row {
+        Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
             AssistChip(
                 onClick = { println("Assist chip clicked") },
-                label = { Text("Assist") },
-                leadingIcon = { Icon(Icons.Default.Add, null) }
+                label = "Assist",
+                leadingIcon = { modifier -> Icon(Icons.Default.Add, null, modifier) }
             )
             FilterChip(
                 selected = filterChipSelected,
                 onClick = { filterChipSelected = !filterChipSelected },
-                label = { Text("Filter") },
-                leadingIcon = { Icon(Icons.Default.Add, null) }
+                label = "Filter",
+                leadingIcon = if (filterChipSelected) { modifier -> Icon(Icons.Filled.Done, null, modifier) } else null
             )
-            InputChip(
-                selected = inputChipSelected,
-                onClick = { inputChipSelected = !inputChipSelected },
-                label = { Text("Input") },
-                leadingIcon = { Icon(Icons.Default.Add, null) }
-            )
+            var showInputChip by remember { mutableStateOf(true) }
+            if (showInputChip)
+                InputChip(
+                    selected = inputChipSelected,
+                    onClick = { inputChipSelected = !inputChipSelected },
+                    label = "Input",
+                    avatar = { modifier -> Icon(Icons.Default.Person, null, modifier) },
+                    onRemove = {
+                        showInputChip = false
+                        println("Input chip removed")
+                    }
+                )
             SuggestionChip(
                 onClick = { println("Suggestion chip clicked") },
-                label = { Text("Suggestion") }
+                label = "Suggestion"
+            )
+        }
+        Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
+            ElevatedAssistChip(
+                onClick = { println("Elevated assist chip clicked") },
+                label = "Elevated Assist",
+                leadingIcon = { modifier -> Icon(Icons.Default.Add, null, modifier) }
+            )
+            ElevatedFilterChip(
+                selected = filterChipSelected,
+                onClick = { filterChipSelected = !filterChipSelected },
+                label = "Elevated Filter",
+                leadingIcon = if (filterChipSelected) { modifier -> Icon(Icons.Filled.Done, null, modifier) } else null
+            )
+            ElevatedSuggestionChip(
+                onClick = { println("Elevated suggestion chip clicked") },
+                label = "Elevated Suggestion"
             )
         }
 

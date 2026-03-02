@@ -1,4 +1,4 @@
-package com.huanshankeji.compose.material3
+package com.huanshankeji.compose.material3.ext
 
 import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.ui.Modifier

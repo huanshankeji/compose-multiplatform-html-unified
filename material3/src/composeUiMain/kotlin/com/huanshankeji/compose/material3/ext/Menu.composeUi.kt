@@ -3,8 +3,8 @@ package com.huanshankeji.compose.material3.ext
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.DpOffset
-import com.huanshankeji.compose.toContentWithoutModifier
-import com.huanshankeji.compose.toNullableContentWithoutModifier
+import com.huanshankeji.compose.ext.toContentWithoutModifier
+import com.huanshankeji.compose.ext.toNullableContentWithoutModifier
 import com.huanshankeji.compose.ui.Modifier
 
 @Composable
