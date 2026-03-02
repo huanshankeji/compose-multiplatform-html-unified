@@ -25,6 +25,7 @@ fun SelectMenuArgs.toComposeUiExposedDropdownMenuArgs() =
 actual fun FilledSelect(
     expandedComposeUi: Boolean,
     onExpandedChangeComposeUi: (Boolean) -> Unit,
+    @Suppress("UNUSED_PARAMETER") valueJsDom: String,
     modifier: Modifier,
     textFieldArgs: SelectTextFieldArgs,
     menuArgs: SelectMenuArgs
@@ -41,6 +42,7 @@ actual fun FilledSelect(
 actual fun OutlinedSelect(
     expandedComposeUi: Boolean,
     onExpandedChangeComposeUi: (Boolean) -> Unit,
+    @Suppress("UNUSED_PARAMETER") valueJsDom: String,
     modifier: Modifier,
     textFieldArgs: SelectTextFieldArgs,
     menuArgs: SelectMenuArgs
@@ -57,11 +59,11 @@ actual fun OutlinedSelect(
 actual fun SelectOption(
     text: @Composable ((Modifier) -> Unit),
     onClick: () -> Unit,
-    selectedJsDom: Boolean,
+    //selectedJsDom: Boolean,
+    valueJsDom: String,
     modifier: Modifier,
     leadingIcon: @Composable ((Modifier) -> Unit)?,
     trailingIcon: @Composable ((Modifier) -> Unit)?,
     enabled: Boolean,
-    valueJsDom: String?
 ) =
     CommonDropdownMenuItem(text, onClick, modifier, leadingIcon, trailingIcon, enabled)

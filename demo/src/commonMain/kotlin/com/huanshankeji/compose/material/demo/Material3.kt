@@ -202,7 +202,7 @@ fun Material3(/*modifier: Modifier = Modifier*/
             }
 
         @Composable
-        fun SelectMenuContent(selection: Selection?, setSelection: (Selection?) -> Unit, close: () -> Unit) =
+        fun SelectMenuContent(setSelection: (Selection?) -> Unit, close: () -> Unit) =
             (listOf(null) + Selection.entries).forEach {
                 SelectOptionWithMaterialIcons(
                     { modifier -> it?.let { Text(it.name, modifier) } },
@@ -210,9 +210,9 @@ fun Material3(/*modifier: Modifier = Modifier*/
                         setSelection(it)
                         close()
                     },
-                    it == selection,
+                    it?.name ?: "",
                     leadingIcon = Icons.Filled.Add,
-                    trailingIcon = Icons.Filled.Remove
+                    trailingIcon = Icons.Filled.Remove,
                 )
             }
 
@@ -245,14 +245,19 @@ fun Material3(/*modifier: Modifier = Modifier*/
                 )
             }
 
+            // `valueJsDom` doesn't necessarily need to be the same as `value`. See its KDoc for details.
+            val valueJsDom = selection?.name ?: ""
+            // an alternative using `ordinal`
+            //val valueJsDom = selection?.run { ordinal.toString() } ?: ""
             run {
                 val (expanded, setExpanded) = remember { mutableStateOf(false) }
                 val close = { setExpanded(false) }
                 FilledSelect(
                     expanded, setExpanded,
+                    valueJsDom,
                     textFieldArgs = SelectTextFieldArgs(value, label = label),
                     menuArgs = SelectMenuArgs(expanded, close, close) {
-                        SelectMenuContent(selection, setSelection, close)
+                        SelectMenuContent(setSelection, close)
                     }
                 )
             }
@@ -261,9 +266,10 @@ fun Material3(/*modifier: Modifier = Modifier*/
                 val close = { setExpanded(false) }
                 OutlinedSelect(
                     expanded, setExpanded,
+                    valueJsDom,
                     textFieldArgs = SelectTextFieldArgs(value, label = label),
                     menuArgs = SelectMenuArgs(expanded, close, close) {
-                        SelectMenuContent(selection, setSelection, close)
+                        SelectMenuContent(setSelection, close)
                     }
                 )
             }

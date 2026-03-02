@@ -34,6 +34,7 @@ private fun mdSelectAttrs(
 actual fun FilledSelect(
     expandedComposeUi: Boolean,
     onExpandedChangeComposeUi: (Boolean) -> Unit,
+    valueJsDom: String,
     modifier: Modifier,
     textFieldArgs: SelectTextFieldArgs,
     menuArgs: SelectMenuArgs
@@ -43,6 +44,7 @@ actual fun FilledSelect(
         supportingText = textFieldArgs.supportingText,
         error = textFieldArgs.isError.isTrueOrNull(),
         disabled = textFieldArgs.enabled.isFalseOrNull(),
+        value = valueJsDom,
         clampMenuWidth = menuArgs.matchAnchorWidth,
         attrs = mdSelectAttrs(modifier, menuArgs)
     ) {
@@ -53,6 +55,7 @@ actual fun FilledSelect(
 actual fun OutlinedSelect(
     expandedComposeUi: Boolean,
     onExpandedChangeComposeUi: (Boolean) -> Unit,
+    valueJsDom: String,
     modifier: Modifier,
     textFieldArgs: SelectTextFieldArgs,
     menuArgs: SelectMenuArgs
@@ -62,6 +65,7 @@ actual fun OutlinedSelect(
         supportingText = textFieldArgs.supportingText,
         error = textFieldArgs.isError.isTrueOrNull(),
         disabled = textFieldArgs.enabled.isFalseOrNull(),
+        value = valueJsDom,
         attrs = mdSelectAttrs(modifier, menuArgs)
     ) {
         menuArgs.content()
@@ -75,18 +79,18 @@ actual fun OutlinedSelect(
 actual fun SelectOption(
     text: @Composable ((Modifier) -> Unit),
     onClick: () -> Unit,
-    selectedJsDom: Boolean,
+    //selectedJsDom: Boolean,
+    valueJsDom: String,
     modifier: Modifier,
     leadingIcon: @Composable ((Modifier) -> Unit)?,
     trailingIcon: @Composable ((Modifier) -> Unit)?,
     enabled: Boolean,
-    valueJsDom: String?
 ) =
     // copied and adapted from `DropdownMenuItem`
     MdSelectOption(
         enabled.isFalseOrNull(),
-        // `selected` has to be passed to update the selection from Compose data. This doesn't work properly now when syncing states, however.
-        selected = selectedJsDom.isTrueOrNull(),
+        // Selection is controlled via the `value` attribute on the parent select element, not via `selected` here.
+        //selected = selectedJsDom.isTrueOrNull(),
         value = valueJsDom,
         attrs = modifier.toAttrs {
             onClick { onClick() }

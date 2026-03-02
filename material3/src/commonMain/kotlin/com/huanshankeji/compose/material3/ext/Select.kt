@@ -35,12 +35,13 @@ class SelectMenuArgs(
  * - On Compose UI: Uses [ExposedDropdownMenuBoxWithTextField] with a filled text field
  * - On JS: Uses native Material Web `MdFilledSelect` component
  *
- * @param value the currently selected value
- * @param onValueChange called when the selected value changes
  * @param modifier the [Modifier] to be applied to this select
- * @param enabled controls the enabled state of this select
- * @param label optional label for this select
- * @param options the options to display in the dropdown, typically [SelectOption] calls
+ * @param valueJsDom the HTML form key for the `md-filled-select` element, used internally to
+ *   identify which option is selected. By convention, it should be a code-like identifier string
+ *   (no spaces, e.g. `"OPTION_A"` or `"option_a"`), NOT a natural-language display string. This is
+ *   semantically different from [SelectTextFieldArgs.valueComposeUi], which is the text shown in
+ *   the text field (may contain spaces, e.g. `"Option A"`). Also, it can't be null — the
+ *   `md-filled-select` component doesn't react to a `null` value change on JS DOM.
  *
  * @see <a href="https://m3.material.io/components/menus/overview">Material Design select menus</a>
  *
@@ -51,15 +52,8 @@ class SelectMenuArgs(
 expect fun FilledSelect(
     expandedComposeUi: Boolean,
     onExpandedChangeComposeUi: (Boolean) -> Unit,
-    /*
-    These 2 params are temporarily not supported because their API style differ too much from Compose.
-    Also note that the `value` here comes from `MdFilledSelect` and serves as the key,
-    which differs from `value` in `ExposedDropdownMenuBoxTextFieldArgs` that serves as the text field value.
-    */
-    /*
     valueJsDom: String,
-    onValueChangeJsDom: (String) -> Unit,
-    */
+    //onValueChangeJsDom: (String) -> Unit,
     modifier: Modifier = Modifier,
     textFieldArgs: SelectTextFieldArgs,
     //scrollState: ScrollState = rememberScrollState(),
@@ -68,12 +62,16 @@ expect fun FilledSelect(
 
 /**
  * The outlined variant of [FilledSelect].
+ *
+ * @param valueJsDom see the `valueJsDom` parameter in [FilledSelect] for the semantics.
  */
 @ExperimentalApi
 @Composable
 expect fun OutlinedSelect(
     expandedComposeUi: Boolean,
     onExpandedChangeComposeUi: (Boolean) -> Unit,
+    valueJsDom: String,
+    //onValueChangeJsDom: (String) -> Unit,
     modifier: Modifier = Modifier,
     textFieldArgs: SelectTextFieldArgs,
     //scrollState: ScrollState = rememberScrollState(),
@@ -87,37 +85,43 @@ expect fun OutlinedSelect(
  *
  * @see DropdownMenuItem
  * @param text corresponds to the `headline` slot on JS DOM in Material Web.
- * @param valueJsDom the `value` attribute for an HTML form.
+ * @param valueJsDom the HTML form key `value` attribute. By convention this should be a code-like
+ *   identifier (no spaces), distinct from any natural-language display string.
+ *   Also see the `valueJsDom` parameter in [FilledSelect] and [OutlinedSelect],
+ *   which is used to identify the currently selected option.
  */
 @Composable
 expect fun SelectOption(
     text: @Composable (Modifier) -> Unit,
     onClick: () -> Unit,
-    selectedJsDom: Boolean,
+    // An alternative parameter to identify the currently selected option on JS DOM. This doesn't work properly when syncing states on JS DOM, however.
+    //selectedJsDom: Boolean,
+    valueJsDom: String,
     modifier: Modifier = Modifier,
     leadingIcon: @Composable ((Modifier) -> Unit)? = null,
     trailingIcon: @Composable ((Modifier) -> Unit)? = null,
     enabled: Boolean = true,
-    valueJsDom: String? = null,
-    //keepOpenJsDom: Boolean = false
+    //keepOpenJsDom: Boolean = false,
 )
 
 @Composable
 fun SelectOptionWithMaterialIcons(
     text: @Composable (Modifier) -> Unit,
     onClick: () -> Unit,
-    selectedJsDom: Boolean,
+    //selectedJsDom: Boolean,
+    valueJsDom: String,
     modifier: Modifier = Modifier,
     leadingIcon: Icon? = null,
     trailingIcon: Icon? = null,
-    enabled: Boolean = true
+    enabled: Boolean = true,
 ) =
     SelectOption(
         text,
         onClick,
-        selectedJsDom,
+        //selectedJsDom,
+        valueJsDom,
         modifier,
         leadingIcon.toNullableContentWithModifier(),
         trailingIcon.toNullableContentWithModifier(),
-        enabled
+        enabled,
     )
