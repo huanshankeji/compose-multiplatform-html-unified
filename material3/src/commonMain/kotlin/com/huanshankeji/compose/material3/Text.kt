@@ -1,6 +1,7 @@
 package com.huanshankeji.compose.material3
 
 import androidx.compose.runtime.Composable
+import com.huanshankeji.compose.material3.ext.MaterialText
 import com.huanshankeji.compose.material3.ext.TaglessText
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.graphics.Color
@@ -11,7 +12,8 @@ import com.huanshankeji.compose.ui.graphics.Color
  * such as `androidx.compose.material3.Text` and `org.jetbrains.compose.web.dom.Text`
  * if not careful.
  * [TaglessText] is recommended over this one when there is no custom [modifier].
- * @see com.huanshankeji.compose.material3.ext.MaterialText
+ * @see TaglessText
+ * @see MaterialText
  */
 @Composable
 expect fun Text(text: String, modifier: Modifier = Modifier, color: Color? = null)

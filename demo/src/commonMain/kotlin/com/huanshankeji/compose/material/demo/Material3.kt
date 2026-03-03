@@ -399,26 +399,33 @@ fun Material3(/*modifier: Modifier = Modifier*/
         }
 
         // Dialog
-        var showDialog by remember { mutableStateOf(false) }
-        Button(onClick = { showDialog = true }) {
+        var isAlertDialogOpen by remember { mutableStateOf(false) }
+        Button(onClick = { isAlertDialogOpen = true }) {
+            Text("Show Alert Dialog")
+        }
+        AlertDialog(
+            isAlertDialogOpen,
+            { isAlertDialogOpen = false },
+            {
+                Button(onClick = { isAlertDialogOpen = false }) {
+                    Text("OK")
+                }
+            },
+            dismissButton = {
+                Button(onClick = { isAlertDialogOpen = false }) {
+                    Text("Cancel")
+                }
+            },
+            icon = { Icon(Icons.Default.Add, null, it) },
+            title = { Text("Alert Dialog", it) },
+            text = { Text("This is a demo alert dialog with headline, content, and action buttons.", it) }
+        )
+        var isSimpleDialogOpen by remember { mutableStateOf(false) }
+        Button(onClick = { isSimpleDialogOpen = true }) {
             Text("Show Dialog")
         }
-        if (showDialog) {
-            AlertDialog(
-                onDismissRequest = { showDialog = false },
-                confirmButton = {
-                    Button(onClick = { showDialog = false }) {
-                        Text("OK")
-                    }
-                },
-                dismissButton = {
-                    Button(onClick = { showDialog = false }) {
-                        Text("Cancel")
-                    }
-                },
-                title = { Text("Alert Dialog") },
-                text = { Text("This is a demo alert dialog with headline, content, and action buttons.") }
-            )
+        SimpleDialog(isSimpleDialogOpen, { isSimpleDialogOpen = false }) {
+            TaglessText("Dialog")
         }
 
         // Tabs
