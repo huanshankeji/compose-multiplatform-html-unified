@@ -4,6 +4,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.unit.dp
 import com.huanshankeji.androidx.lifecycle.viewmodel.compose.viewModel
 import com.huanshankeji.compose.ExtRecommendedApi
+import com.huanshankeji.compose.foundation.background
 import com.huanshankeji.compose.foundation.layout.*
 import com.huanshankeji.compose.foundation.rememberScrollState
 import com.huanshankeji.compose.foundation.text.KeyboardActions
@@ -22,6 +23,8 @@ import com.huanshankeji.compose.material3.ext.OutlinedCard
 import com.huanshankeji.compose.material3.lazy.ext.List
 import com.huanshankeji.compose.material3.lazy.ext.ListItemComponents
 import com.huanshankeji.compose.ui.Modifier
+import com.huanshankeji.compose.ui.graphics.Color
+import kotlinx.coroutines.launch
 import com.huanshankeji.compose.material3.Button as RowScopeButton
 
 // TODO replace `println`s with snackbars when available
@@ -479,19 +482,32 @@ fun Material3(/*modifier: Modifier = Modifier*/
         }
 
         // NavigationDrawer (simplified demo)
-        var drawerOpened by remember { mutableStateOf(false) }
-        Button(onClick = { drawerOpened = !drawerOpened }) {
-            Text(if (drawerOpened) "Close Drawer" else "Open Drawer")
+        val drawerState = rememberDrawerState(DrawerValue.Closed)
+        val scope = rememberCoroutineScope()
+        Button(onClick = { scope.launch { drawerState.open() } }) {
+            Text("Open Drawer")
         }
-        if (drawerOpened) {
-            NavigationDrawer(opened = drawerOpened) {
-                Column(Modifier.padding(16.dp)) {
-                    Text("Drawer Content")
-                    Button(onClick = { drawerOpened = false }) {
+        ModalNavigationDrawer({
+                // copied and adapted from https://developer.android.com/develop/ui/compose/components/drawer#example
+                ModalDrawerSheet {
+                    Text("Drawer title", modifier = Modifier.padding(16.dp))
+                    HorizontalDivider()
+                    /*
+                    NavigationDrawerItem(
+                        label = { Text(text = "Drawer Item") },
+                        selected = false,
+                        onClick = { TODO }
+                    )
+                    */
+                    // ...other drawer items
+                    Button(onClick = { scope.launch { drawerState.close() } }) {
                         Text("Close")
                     }
                 }
-            }
+            },
+            drawerState = drawerState
+        ) {
+            Text("Main Content", Modifier.fillMaxWidth().height(160.dp).background(Color.Gray))
         }
     }
 }
