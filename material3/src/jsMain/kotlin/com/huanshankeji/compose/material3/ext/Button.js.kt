@@ -4,9 +4,6 @@ import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.html.material3.MdButtonScope
 import com.huanshankeji.compose.material3.*
 import com.huanshankeji.compose.ui.Modifier
-import com.huanshankeji.compose.ui.PlatformModifier
-import com.huanshankeji.compose.ui.toCommonModifier
-import com.varabyte.kobweb.compose.ui.attrsModifier
 
 private fun (@Composable () -> Unit).toMdButtonScopeContent(
     icon: @Composable ((Modifier) -> Unit)?

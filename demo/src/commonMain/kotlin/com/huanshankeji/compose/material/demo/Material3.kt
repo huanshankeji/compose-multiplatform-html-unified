@@ -194,7 +194,7 @@ fun Material3(/*modifier: Modifier = Modifier*/
         fun DropdownMenuContent(setSelection: (Selection?) -> Unit, close: () -> Unit) =
             (listOf(null) + Selection.entries).forEach {
                 DropdownMenuItemWithMaterialIcons(
-                    { modifier -> it?.let { Text(it.name, modifier) } },
+                    { modifier -> it?.let { Text(it.displayText(), modifier) } },
                     {
                         setSelection(it)
                         close()
@@ -204,16 +204,19 @@ fun Material3(/*modifier: Modifier = Modifier*/
                 )
             }
 
+        fun Selection?.valueJsDom(): String =
+            this?.name?.lowercase() ?: ""
+
         @Composable
         fun SelectMenuContent(setSelection: (Selection?) -> Unit, close: () -> Unit) =
             (listOf(null) + Selection.entries).forEach {
                 SelectOptionWithMaterialIcons(
-                    { modifier -> it?.let { Text(it.name, modifier) } },
+                    { modifier -> it?.let { Text(it.displayText(), modifier) } },
                     {
                         setSelection(it)
                         close()
                     },
-                    it?.name ?: "",
+                    it.valueJsDom(),
                     leadingIcon = Icons.Filled.Add,
                     trailingIcon = Icons.Filled.Remove,
                 )
@@ -222,7 +225,7 @@ fun Material3(/*modifier: Modifier = Modifier*/
 
         run {
             val (selection, setSelection) = remember { mutableStateOf<Selection?>(null) }
-            val value = selection?.name ?: ""
+            val value = selection?.displayText() ?: ""
             Text("Selected: $value")
             val label = "Please select"
             run {
@@ -298,17 +301,25 @@ fun Material3(/*modifier: Modifier = Modifier*/
 
         // RadioButton
         var radioSelection by remember { mutableStateOf(Selection.A) }
-        Row {
+
+        @Composable
+        fun RadioGroupContent() {
             Selection.entries.forEach { selection ->
-                Row {
-                    RadioButton(
-                        selected = radioSelection == selection,
-                        onClick = { radioSelection = selection }
-                    )
-                    TaglessText(selection.name)
+                // TODO inconsistent padding
+                RadioButtonRow(
+                    selection.name.lowercase(),
+                    radioSelection == selection,
+                    { radioSelection = selection },
+                    enabled = selection != Selection.C
+                ) {
+                    TaglessText(selection.displayText())
+                    //Text(selection.displayText(), Modifier.outerPadding(start = 16.dp))
                 }
             }
         }
+
+        Row(Modifier.radioGroup()) { RadioGroupContent() }
+        Column(Modifier.radioGroup(), verticalArrangement = Arrangement.spacedBy(16.dp)) { RadioGroupContent() }
 
         // HorizontalDivider
         HorizontalDivider()
@@ -463,7 +474,7 @@ fun Material3(/*modifier: Modifier = Modifier*/
                     selectedSegment == selection,
                     { selectedSegment = selection },
                     SegmentedButtonDefaultShapeArgs(index, Selection.entries.size),
-                    label = selection.name
+                    label = selection.displayText()
                 )
             }
         }
@@ -476,7 +487,7 @@ fun Material3(/*modifier: Modifier = Modifier*/
                     isIndexSelected[index],
                     { isIndexSelected[index] = it },
                     SegmentedButtonDefaultShapeArgs(index, Selection.entries.size),
-                    label = selection.name
+                    label = selection.displayText()
                 )
             }
         }
@@ -487,7 +498,8 @@ fun Material3(/*modifier: Modifier = Modifier*/
         Button(onClick = { scope.launch { drawerState.open() } }) {
             Text("Open Drawer")
         }
-        ModalNavigationDrawer({
+        ModalNavigationDrawer(
+            {
                 // copied and adapted from https://developer.android.com/develop/ui/compose/components/drawer#example
                 ModalDrawerSheet {
                     Text("Drawer title", modifier = Modifier.padding(16.dp))

@@ -3,7 +3,7 @@ package com.huanshankeji.compose.ui.unit.ext
 import androidx.annotation.IntRange
 import com.huanshankeji.compose.ExperimentalApi
 
-// not used yet
+@Deprecated("not used for now")
 @ExperimentalApi
 sealed class DpOrPercentage {
     class Dp(val dp: androidx.compose.ui.unit.Dp) : DpOrPercentage()
