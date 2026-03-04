@@ -43,17 +43,20 @@ actual fun RadioButtonRow(
     content: @Composable () -> Unit,
 ) =
     // https://github.com/material-components/material-web/blob/main/docs/components/radio.md#accessibility
-    Div(modifier.toAttrs {
-        if (enabled) onClick { onClick() }
-        else disabled()
-    }) {
+    Div(
+        modifier
+            .run {
+                if (conventionalPadding !== null) outerPadding(horizontal = conventionalPadding) else this
+            }
+            .toAttrs {
+                if (enabled) onClick { onClick() }
+                else disabled()
+            }) {
         MdRadio(
             radioButtonIdJsDom,
             checked = selected.isTrueOrNull(),
             disabled = enabled.isFalseOrNull(),
-            attrs = radioButtonModifier.run {
-                if (conventionalPadding !== null) outerPadding(horizontal = conventionalPadding) else this
-            }.toAttrs()
+            attrs = radioButtonModifier.toAttrs()
         )
         Label(
             radioButtonIdJsDom,
