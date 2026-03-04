@@ -39,6 +39,7 @@ kotlin {
                 implementation("com.huanshankeji:compose-html-common:${DependencyVersions.huanshankejiComposeHtml}") {
                     exclude("org.jetbrains.kotlin")
                 }
+                implementation(compose.html.core)
             }
         }
     }

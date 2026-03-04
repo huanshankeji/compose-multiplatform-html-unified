@@ -305,7 +305,6 @@ fun Material3(/*modifier: Modifier = Modifier*/
         @Composable
         fun RadioGroupContent() {
             Selection.entries.forEach { selection ->
-                // TODO inconsistent padding
                 RadioButtonRow(
                     selection.name.lowercase(),
                     radioSelection == selection,
@@ -313,12 +312,12 @@ fun Material3(/*modifier: Modifier = Modifier*/
                     enabled = selection != Selection.C
                 ) {
                     TaglessText(selection.displayText())
-                    //Text(selection.displayText(), Modifier.outerPadding(start = 16.dp))
                 }
             }
         }
 
-        Row(Modifier.radioGroup()) { RadioGroupContent() }
+        // This is only for the demo. Avoid using `Row`. See https://m3.material.io/components/radio-button/guidelines for details.
+        Row(Modifier.radioGroup(), horizontalArrangement = Arrangement.spacedBy(16.dp)) { RadioGroupContent() }
         Column(Modifier.radioGroup(), verticalArrangement = Arrangement.spacedBy(16.dp)) { RadioGroupContent() }
 
         // HorizontalDivider

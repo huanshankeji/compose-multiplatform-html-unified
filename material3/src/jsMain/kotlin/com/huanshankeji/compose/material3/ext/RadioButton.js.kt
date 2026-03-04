@@ -1,15 +1,17 @@
 package com.huanshankeji.compose.material3.ext
 
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.unit.Dp
-import com.huanshankeji.compose.foundation.layout.ext.outerPadding
 import com.huanshankeji.compose.html.material3.MdRadio
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.toAttrs
 import com.huanshankeji.compose.web.attributes.isFalseOrNull
 import com.huanshankeji.compose.web.attributes.isTrueOrNull
 import com.varabyte.kobweb.compose.css.disabled
+import com.varabyte.kobweb.compose.css.marginInlineStart
+import com.varabyte.kobweb.compose.ui.attrsModifier
 import com.varabyte.kobweb.compose.ui.modifiers.role
+import com.varabyte.kobweb.compose.ui.toAttrs
+import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.dom.Div
 import org.jetbrains.compose.web.dom.Label
 
@@ -37,32 +39,32 @@ actual fun RadioButtonRow(
     selected: Boolean,
     onClick: () -> Unit,
     modifier: Modifier,
+    modifierAfterSelectable: Modifier,
     radioButtonModifier: Modifier,
-    conventionalPadding: Dp?,
     enabled: Boolean,
-    content: @Composable () -> Unit,
+    label: @Composable () -> Unit,
 ) =
-    // https://github.com/material-components/material-web/blob/main/docs/components/radio.md#accessibility
     Div(
-        modifier
-            .run {
-                if (conventionalPadding !== null) outerPadding(horizontal = conventionalPadding) else this
-            }
-            .toAttrs {
+        modifier.platformModifier
+            .attrsModifier {
                 if (enabled) onClick { onClick() }
                 else disabled()
-            }) {
+            }
+            .then(modifierAfterSelectable.platformModifier)
+            .toAttrs()
+    ) {
         MdRadio(
             radioButtonIdJsDom,
             checked = selected.isTrueOrNull(),
             disabled = enabled.isFalseOrNull(),
             attrs = radioButtonModifier.toAttrs()
         )
-        Label(
-            radioButtonIdJsDom,
-            if (conventionalPadding !== null) Modifier.outerPadding(start = conventionalPadding).toAttrs() else null
-        ) {
-            content()
+        Label(radioButtonIdJsDom, {
+            style {
+                marginInlineStart(16.px)
+            }
+        }) {
+            label()
         }
     }
 

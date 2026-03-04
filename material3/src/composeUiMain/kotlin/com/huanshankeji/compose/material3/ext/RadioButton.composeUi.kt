@@ -1,14 +1,15 @@
 package com.huanshankeji.compose.material3.ext
 
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.selection.selectableGroup
 import androidx.compose.material3.RadioButton
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.semantics.Role
-import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.PlatformModifier
 
@@ -27,17 +28,16 @@ actual fun RadioButton(
 ) =
     RadioButton(selected, onClick, modifier.platformModifier, enabled)
 
-
 @Composable
 actual fun RadioButtonRow(
     radioButtonIdJsDom: String,
     selected: Boolean,
     onClick: () -> Unit,
     modifier: Modifier,
+    modifierAfterSelectable: Modifier,
     radioButtonModifier: Modifier,
-    conventionalPadding: Dp?,
     enabled: Boolean,
-    content: @Composable () -> Unit,
+    label: @Composable () -> Unit,
 ) =
     Row(
         modifier.platformModifier.selectable(
@@ -45,15 +45,12 @@ actual fun RadioButtonRow(
             enabled = enabled,
             role = Role.RadioButton,
             onClick = onClick
-        ).run {
-            if (conventionalPadding !== null) padding(horizontal = conventionalPadding) else this
-        }
+        ).then(modifierAfterSelectable.platformModifier),
+        verticalAlignment = Alignment.CenterVertically
     ) {
         RadioButton(selected, null, radioButtonModifier.platformModifier) // no need to pass `enabled` here
-        if (conventionalPadding !== null)
-            Box(PlatformModifier.padding(start = conventionalPadding)) { content() }
-        else
-            content()
+        Spacer(PlatformModifier.width(16.dp))
+        label()
     }
 
 actual fun Modifier.radioGroup(): Modifier =
