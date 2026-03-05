@@ -7,7 +7,7 @@ import com.huanshankeji.compose.ui.Modifier
  * Material Design tab row.
  *
  * @see <a href="https://m3.material.io/components/tabs/overview">Material Design tabs</a>
- * @see androidx.compose.material3.TabRow
+ * @see androidx.compose.material3.PrimaryTabRow
  */
 @Composable
 expect fun PrimaryTabRow(
