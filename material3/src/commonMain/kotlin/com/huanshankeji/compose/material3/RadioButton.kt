@@ -15,4 +15,4 @@ fun RadioButton(
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
 ) =
-    RadioButton(null, selected, onClick, modifier, enabled)
+    RadioButton(selected, onClick, modifier, enabled)

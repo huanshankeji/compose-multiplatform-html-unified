@@ -17,15 +17,16 @@ import org.jetbrains.compose.web.dom.Label
 
 @Composable
 actual fun RadioButton(
-    idJsDom: String?,
     selected: Boolean,
     onClick: (() -> Unit)?,
     modifier: Modifier,
     enabled: Boolean,
+    idJsDom: String?,
 ) =
     MdRadio(
         checked = selected.isTrueOrNull(),
         disabled = enabled.isFalseOrNull(),
+        id = idJsDom,
         attrs = modifier.toAttrs {
             onClick?.let { onClick { it() } }
             // or use `input` and `change` events from https://github.com/material-components/material-web/blob/main/docs/components/radio.md#events?
@@ -35,13 +36,13 @@ actual fun RadioButton(
 
 @Composable
 actual fun RadioButtonRow(
-    radioButtonIdJsDom: String,
     selected: Boolean,
     onClick: () -> Unit,
     modifier: Modifier,
     modifierAfterSelectable: Modifier,
     radioButtonModifier: Modifier,
     enabled: Boolean,
+    radioButtonIdJsDom: String,
     label: @Composable () -> Unit,
 ) =
     Div(
@@ -54,9 +55,9 @@ actual fun RadioButtonRow(
             .toAttrs()
     ) {
         MdRadio(
-            radioButtonIdJsDom,
             checked = selected.isTrueOrNull(),
             disabled = enabled.isFalseOrNull(),
+            id = radioButtonIdJsDom,
             attrs = radioButtonModifier.toAttrs()
         )
         Label(radioButtonIdJsDom, {

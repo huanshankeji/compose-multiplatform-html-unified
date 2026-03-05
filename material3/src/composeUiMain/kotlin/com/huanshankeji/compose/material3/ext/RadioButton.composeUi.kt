@@ -20,23 +20,23 @@ https://developer.android.com/develop/ui/compose/components/radio-button#create-
 
 @Composable
 actual fun RadioButton(
-    idJsDom: String?,
     selected: Boolean,
     onClick: (() -> Unit)?,
     modifier: Modifier,
     enabled: Boolean,
+    idJsDom: String?,
 ) =
     RadioButton(selected, onClick, modifier.platformModifier, enabled)
 
 @Composable
 actual fun RadioButtonRow(
-    radioButtonIdJsDom: String,
     selected: Boolean,
     onClick: () -> Unit,
     modifier: Modifier,
     modifierAfterSelectable: Modifier,
     radioButtonModifier: Modifier,
     enabled: Boolean,
+    radioButtonIdJsDom: String,
     label: @Composable () -> Unit,
 ) =
     Row(

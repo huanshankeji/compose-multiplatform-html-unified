@@ -13,6 +13,8 @@ actual fun PrimaryTab(
     enabled: Boolean,
     text: @Composable (() -> Unit)?,
     icon: @Composable ((Modifier) -> Unit)?,
+    idJsDom: String?,
+    ariaControlsJsDom: String?,
 ) =
     Tab(
         selected,
@@ -30,7 +32,9 @@ actual fun SecondaryTab(
     modifier: Modifier,
     enabled: Boolean,
     text: @Composable (() -> Unit)?,
-    icon: @Composable ((Modifier) -> Unit)?
+    icon: @Composable ((Modifier) -> Unit)?,
+    idJsDom: String?,
+    ariaControlsJsDom: String?,
 ) =
     Tab(
         selected,
@@ -40,3 +44,8 @@ actual fun SecondaryTab(
         text,
         icon.toNullableContentWithoutModifier()
     )
+
+@Composable
+internal actual fun TabPanels(tabAndPanelArgss: List<TabAndPanelArgs>) {
+    throw NotImplementedError()
+}

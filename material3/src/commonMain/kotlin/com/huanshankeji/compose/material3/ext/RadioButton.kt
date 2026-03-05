@@ -17,11 +17,11 @@ https://developer.android.com/develop/ui/compose/components/radio-button
  */
 @Composable
 expect fun RadioButton(
-    idJsDom: String? = null,
     selected: Boolean,
     onClick: (() -> Unit)?,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
+    idJsDom: String? = null,
 )
 
 /**
@@ -35,7 +35,6 @@ expect fun RadioButton(
  */
 @Composable
 expect fun RadioButtonRow(
-    radioButtonIdJsDom: String,
     selected: Boolean,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
@@ -43,6 +42,7 @@ expect fun RadioButtonRow(
     radioButtonModifier: Modifier = Modifier,
     //labelModifier
     enabled: Boolean = true,
+    radioButtonIdJsDom: String,
     label: @Composable () -> Unit,
 )
 
