@@ -1,49 +1,67 @@
 package com.huanshankeji.compose.material3
 
 import androidx.compose.runtime.Composable
-import com.huanshankeji.compose.foundation.layout.RowScope
-import com.huanshankeji.compose.html.material3.MdPrimaryTab
-import com.huanshankeji.compose.html.material3.MdTabScope.Slot
 import com.huanshankeji.compose.html.material3.MdTabs
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.toAttrs
-import com.huanshankeji.compose.web.attributes.isFalseOrNull
-import com.huanshankeji.compose.web.attributes.isTrueOrNull
-import org.jetbrains.compose.web.dom.Div
+import org.jetbrains.compose.web.attributes.AttrsScope
 
 @Composable
-actual fun TabRow(
+private fun CommonTabRow(
     selectedTabIndex: Int,
     modifier: Modifier,
-    tabs: @Composable () -> Unit
-) =
+    finalHandler: (AttrsScope<*>.() -> Unit)? = null,
+    tabs: @Composable (() -> Unit),
+) {
     MdTabs(
-        attrs = modifier.toAttrs()
+        activeTabIndex = selectedTabIndex,
+        attrs = modifier.toAttrs(finalHandler)
     ) {
         tabs()
     }
+}
 
 @Composable
-actual fun Tab(
-    selected: Boolean,
-    onClick: () -> Unit,
+actual fun PrimaryTabRow(
+    selectedTabIndex: Int,
     modifier: Modifier,
-    enabled: Boolean,
-    text: @Composable (() -> Unit)?,
-    icon: @Composable (() -> Unit)?
+    tabs: @Composable () -> Unit,
 ) =
-    MdPrimaryTab(
-        active = selected.isTrueOrNull(),
-        attrs = modifier.toAttrs {
-            this.onClick { onClick() }
-        }
-    ) {
-        icon?.let { iconContent ->
-            Div({
-                slot(Slot.Icon)
-            }) {
-                iconContent()
-            }
-        }
-        text?.let { textContent -> textContent() }
-    }
+    CommonTabRow(selectedTabIndex, modifier, tabs = tabs)
+
+@Composable
+private fun CommonScrollableTabRow(
+    selectedTabIndex: Int,
+    modifier: Modifier,
+    tabs: @Composable (() -> Unit)
+) {
+    CommonTabRow(selectedTabIndex, modifier, {
+        // from https://material-web.dev/components/tabs/stories/
+        classes("scrolling")
+    }, tabs)
+}
+
+@Composable
+actual fun SecondaryTabRow(
+    selectedTabIndex: Int,
+    modifier: Modifier,
+    tabs: @Composable (() -> Unit),
+) =
+    CommonTabRow(selectedTabIndex, modifier, tabs = tabs)
+
+@Composable
+actual fun PrimaryScrollableTabRow(
+    selectedTabIndex: Int,
+    modifier: Modifier,
+    tabs: @Composable (() -> Unit),
+) =
+    CommonScrollableTabRow(selectedTabIndex, modifier, tabs)
+
+
+@Composable
+actual fun SecondaryScrollableTabRow(
+    selectedTabIndex: Int,
+    modifier: Modifier,
+    tabs: @Composable (() -> Unit),
+) =
+    CommonScrollableTabRow(selectedTabIndex, modifier, tabs)

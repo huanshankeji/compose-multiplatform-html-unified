@@ -443,27 +443,44 @@ fun Material3(/*modifier: Modifier = Modifier*/
 
         // Tabs
         var selectedTabIndex by remember { mutableStateOf(0) }
-        Column {
-            TabRow(selectedTabIndex = selectedTabIndex) {
-                Tab(
-                    selected = selectedTabIndex == 0,
-                    onClick = { selectedTabIndex = 0 },
-                    text = { Text("Tab 1") }
-                )
-                Tab(
-                    selected = selectedTabIndex == 1,
-                    onClick = { selectedTabIndex = 1 },
-                    text = { Text("Tab 2") },
-                    icon = { Icon(Icons.Default.Add, null) }
-                )
-                Tab(
-                    selected = selectedTabIndex == 2,
-                    onClick = { selectedTabIndex = 2 },
-                    text = { Text("Tab 3") }
-                )
-            }
-            Text("Selected tab: ${selectedTabIndex + 1}", Modifier.padding(16.dp))
+        PrimaryTabRow(selectedTabIndex) {
+            PrimaryTab(
+                selectedTabIndex == 0,
+                { selectedTabIndex = 0 },
+                text = { Text("Tab 1") }
+            )
+            PrimaryTab(
+                selectedTabIndex == 1,
+                { selectedTabIndex = 1 },
+                text = { Text("Tab 2") },
+                icon = { modifier -> Icon(Icons.Default.Add, null, modifier) }
+            )
+            PrimaryTab(
+                selectedTabIndex == 2,
+                { selectedTabIndex = 2 },
+                text = { Text("Tab 3") }
+            )
         }
+        SecondaryTabRow(selectedTabIndex) {
+            SecondaryTab(
+                selectedTabIndex == 0,
+                { selectedTabIndex = 0 },
+                text = { Text("Tab 1") }
+            )
+            SecondaryTab(
+                selectedTabIndex == 1,
+                { selectedTabIndex = 1 },
+                text = { Text("Tab 2") },
+                icon = { modifier -> Icon(Icons.Default.Add, null, modifier) }
+            )
+            SecondaryTab(
+                selectedTabIndex == 2,
+                { selectedTabIndex = 2 },
+                text = { Text("Tab 3") }
+            )
+        }
+        Text("Selected tab: ${selectedTabIndex + 1}", Modifier.padding(16.dp))
+
 
         // Segmented Buttons - Single select with Selection enum
         var selectedSegment by remember { mutableStateOf(Selection.A) }

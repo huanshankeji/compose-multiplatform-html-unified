@@ -1,7 +1,6 @@
 package com.huanshankeji.compose.material3
 
 import androidx.compose.runtime.Composable
-import com.huanshankeji.compose.foundation.layout.RowScope
 import com.huanshankeji.compose.ui.Modifier
 
 /**
@@ -11,24 +10,31 @@ import com.huanshankeji.compose.ui.Modifier
  * @see androidx.compose.material3.TabRow
  */
 @Composable
-expect fun TabRow(
+expect fun PrimaryTabRow(
     selectedTabIndex: Int,
     modifier: Modifier = Modifier,
-    tabs: @Composable () -> Unit
+    tabs: @Composable () -> Unit,
 )
 
-/**
- * Material Design tab.
- *
- * @see <a href="https://m3.material.io/components/tabs/overview">Material Design tabs</a>
- * @see androidx.compose.material3.Tab
- */
 @Composable
-expect fun Tab(
-    selected: Boolean,
-    onClick: () -> Unit,
+expect fun SecondaryTabRow(
+    selectedTabIndex: Int,
     modifier: Modifier = Modifier,
-    enabled: Boolean = true,
-    text: @Composable (() -> Unit)? = null,
-    icon: @Composable (() -> Unit)? = null
+    tabs: @Composable () -> Unit,
 )
+
+@Composable
+expect fun PrimaryScrollableTabRow(
+    selectedTabIndex: Int,
+    modifier: Modifier = Modifier,
+    tabs: @Composable () -> Unit,
+)
+
+@Composable
+expect fun SecondaryScrollableTabRow(
+    selectedTabIndex: Int,
+    modifier: Modifier = Modifier,
+    tabs: @Composable () -> Unit,
+)
+
+// Tabs are in the `ext` package.

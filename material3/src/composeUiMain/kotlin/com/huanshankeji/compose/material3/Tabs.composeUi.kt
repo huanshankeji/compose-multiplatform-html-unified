@@ -1,34 +1,56 @@
 package com.huanshankeji.compose.material3
 
+import androidx.compose.material3.PrimaryScrollableTabRow
+import androidx.compose.material3.PrimaryTabRow
+import androidx.compose.material3.SecondaryScrollableTabRow
+import androidx.compose.material3.SecondaryTabRow
 import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.ui.Modifier
 
 @Composable
-actual fun TabRow(
+actual fun PrimaryTabRow(
     selectedTabIndex: Int,
     modifier: Modifier,
-    tabs: @Composable () -> Unit
+    tabs: @Composable () -> Unit,
 ) =
-    androidx.compose.material3.TabRow(
+    PrimaryTabRow(
         selectedTabIndex,
         modifier.platformModifier,
         tabs = tabs
     )
 
 @Composable
-actual fun Tab(
-    selected: Boolean,
-    onClick: () -> Unit,
+actual fun SecondaryTabRow(
+    selectedTabIndex: Int,
     modifier: Modifier,
-    enabled: Boolean,
-    text: @Composable (() -> Unit)?,
-    icon: @Composable (() -> Unit)?
+    tabs: @Composable () -> Unit,
 ) =
-    androidx.compose.material3.Tab(
-        selected,
-        onClick,
+    SecondaryTabRow(
+        selectedTabIndex,
         modifier.platformModifier,
-        enabled,
-        text,
-        icon
+        tabs = tabs
+    )
+
+@Composable
+actual fun PrimaryScrollableTabRow(
+    selectedTabIndex: Int,
+    modifier: Modifier,
+    tabs: @Composable (() -> Unit),
+) =
+    PrimaryScrollableTabRow(
+        selectedTabIndex,
+        modifier.platformModifier,
+        tabs = tabs
+    )
+
+@Composable
+actual fun SecondaryScrollableTabRow(
+    selectedTabIndex: Int,
+    modifier: Modifier,
+    tabs: @Composable (() -> Unit),
+) =
+    SecondaryScrollableTabRow(
+        selectedTabIndex,
+        modifier.platformModifier,
+        tabs = tabs
     )
