@@ -11,9 +11,6 @@ import com.huanshankeji.compose.ui.Modifier
  *
  * Note: This component uses experimental Material Web labs APIs on the JS platform.
  *
- * @param modifier the [Modifier] to be applied to this segmented button row
- * @param content the content of this segmented button row, typically a sequence of [SegmentedButtonRowScope.SegmentedButton] calls
- *
  * @see <a href="https://m3.material.io/components/segmented-buttons/overview">Material Design segmented buttons</a>
  * @see <a href="https://developer.android.com/develop/ui/compose/components/segmented-button">Compose segmented buttons</a>
  */
@@ -30,9 +27,6 @@ expect fun SingleChoiceSegmentedButtonRow(
  * A segmented button row provides a set of options where multiple can be selected at the same time.
  *
  * Note: This component uses experimental Material Web labs APIs on the JS platform.
- *
- * @param modifier the [Modifier] to be applied to this segmented button row
- * @param content the content of this segmented button row, typically a sequence of [SegmentedButtonRowScope.SegmentedButton] calls
  *
  * @see <a href="https://m3.material.io/components/segmented-buttons/overview">Material Design segmented buttons</a>
  * @see <a href="https://developer.android.com/develop/ui/compose/components/segmented-button">Compose segmented buttons</a>

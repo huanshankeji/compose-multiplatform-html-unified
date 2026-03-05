@@ -11,13 +11,6 @@ import com.huanshankeji.compose.ui.Modifier
  * Material Design segmented button.
  *
  * A segmented button represents a single option in a segmented button row.
- *
- * @param selected whether this segmented button is selected
- * @param onClick called when this segmented button is clicked
- * @param modifier the [Modifier] to be applied to this segmented button
- * @param enabled controls the enabled state of this segmented button
- * @param icon optional icon for this segmented button, typically an [Icon]
- * @param label the label content for this segmented button
  */
 @Composable
 expect fun SingleChoiceSegmentedButtonRowScope.SegmentedButton(

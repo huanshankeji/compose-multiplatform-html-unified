@@ -82,7 +82,6 @@ This project is still in development and has not reached a stable state. Some AP
 - `Button` (`FilledButton`), `ElevatedButton`, `FilledTonalButton`, `OutlinedButton`, `TextButton`
 - `Card` (`FilledCard`), `ElevatedCard`, `OutlinedCard`
 - `Checkbox`
-- `AssistChip`, `FilterChip`, `InputChip`, `SuggestionChip`
 - `AlertDialog`
 - `HorizontalDivider`
 - `FloatingActionButton`, `SmallFloatingActionButton`, `LargeFloatingActionButton`, `ExtendedFloatingActionButton`
@@ -90,8 +89,8 @@ This project is still in development and has not reached a stable state. Some AP
 - `IconButton`, `IconToggleButton`, `FilledIconButton`, `FilledIconToggleButton`, `FilledTonalIconButton`, `FilledTonalIconToggleButton`, `OutlinedIconButton`, `OutlinedIconToggleButton`
 - `LinearProgressIndicator`, `CircularProgressIndicator`
 - `RadioButton`
-- `NavigationDrawer`, `ModalNavigationDrawer`
-- `SingleChoiceSegmentedButtonRow`, `MultiChoiceSegmentedButtonRow`, `SegmentedButton`
+- `NavigationDrawer`, `ModalNavigationDrawer` (deprecated)
+- `SingleChoiceSegmentedButtonRow`, `MultiChoiceSegmentedButtonRow`
 - `Slider`
 - `Switch`
 - `TabRow`, `Tab`
@@ -101,11 +100,13 @@ This project is still in development and has not reached a stable state. Some AP
 
 - `Button` (`FilledButton`), `ElevatedButton`, `FilledTonalButton`, `OutlinedButton`, `TextButton`
 - `Card` (`FilledCard`), `ElevatedCard`, `OutlinedCard`
+- `AssistChip`, `ElevatedAssistChip`, `FilterChip`, `ElevatedFilterChip`, `InputChip`, `SuggestionChip`, `ElevatedSuggestionChip`
 - `DropdownMenu`, `DropdownMenuItem`
   - `ExposedDropdownMenuBox`, `ExposedDropdownMenuBoxScope.ExposedDropdownMenuBoxTextField`, `ExposedDropdownMenuBoxScope.ExposedDropdownMenu`, `ExposedDropdownMenuBoxWithTextField`
 - `FloatingActionButton`, `SmallFloatingActionButton`, `LargeFloatingActionButton`, `ExtendedFloatingActionButton`
 - `IconButton`, `IconToggleButton`, `FilledIconButton`, `FilledIconToggleButton`, `FilledTonalIconButton`, `FilledTonalIconToggleButton`, `OutlinedIconButton`, `OutlinedIconToggleButton`
 - `NavigationBar`, `NavigationBarItem`
+- `SingleChoiceSegmentedButtonRowScope.SegmentedButton`, `MultiChoiceSegmentedButtonRowScope.SegmentedButton`
 - `FilledSelect`, `OutlinedSelect`, `SelectOption`
 - `MaterialText`, `TaglessText`
 - `TextField`, `OutlinedTextField`

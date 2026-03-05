@@ -35,7 +35,6 @@ class SelectMenuArgs(
  * - On Compose UI: Uses [ExposedDropdownMenuBoxWithTextField] with a filled text field
  * - On JS: Uses native Material Web `MdFilledSelect` component
  *
- * @param modifier the [Modifier] to be applied to this select
  * @param valueJsDom the HTML form key for the `md-filled-select` element, used internally to
  *   identify which option is selected. By convention, it should be a code-like identifier string
  *   (no spaces, e.g. `"OPTION_A"` or `"option_a"`), NOT a natural-language display string. This is
