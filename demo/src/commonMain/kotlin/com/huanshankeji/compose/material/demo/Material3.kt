@@ -479,7 +479,6 @@ fun Material3(/*modifier: Modifier = Modifier*/
         }
         Text("Selected tab: ${selectedTabIndex + 1}", Modifier.padding(16.dp))
 
-
         // Segmented Buttons - Single select with Selection enum
         var selectedSegment by remember { mutableStateOf(Selection.A) }
         SingleChoiceSegmentedButtonRow {
