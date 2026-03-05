@@ -297,8 +297,6 @@ fun Material3(/*modifier: Modifier = Modifier*/
         CircularProgressIndicator()
         CircularProgressIndicator({ 0.5f })
 
-        // New components added
-
         // RadioButton
         var radioSelection by remember { mutableStateOf(Selection.A) }
 
