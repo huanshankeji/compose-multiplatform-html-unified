@@ -68,7 +68,7 @@ class ListItemComponents(
         overline.toNullableTextWithModifier()
     )
 
-    // temporarily not added to the property list
+    // temporarily not added to the property list because I didn't see its conventional usages in the Material Web docs
     override val container: @Composable ((Modifier) -> Unit)? get() = null
 }
 
