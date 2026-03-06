@@ -2,11 +2,7 @@ package com.huanshankeji.compose.material3.ext
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.RowScope
-import androidx.compose.material3.CenterAlignedTopAppBar
-import androidx.compose.material3.LargeTopAppBar
-import androidx.compose.material3.MediumTopAppBar
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.foundation.layout.PaddingValues
 import com.huanshankeji.compose.foundation.layout.toCommonValue
@@ -51,6 +47,7 @@ fun FabPosition.toPlatformValue() =
         FabPosition.EndOverlay -> PlatformFabPosition.EndOverlay
     }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun topBar(
     title: @Composable () -> Unit,
