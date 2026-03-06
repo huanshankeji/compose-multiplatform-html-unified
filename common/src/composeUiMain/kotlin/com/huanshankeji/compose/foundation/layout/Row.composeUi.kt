@@ -12,7 +12,7 @@ actual fun Row(
     modifier: Modifier,
     horizontalArrangement: Arrangement.Horizontal,
     verticalAlignment: Alignment.Vertical,
-    content: @Composable RowScope.() -> Unit
+    content: @Composable RowScope.() -> Unit,
 ) =
     androidx.compose.foundation.layout.Row(
         modifier.platformModifier,
@@ -34,7 +34,7 @@ actual interface RowScope {
     @Stable
     actual fun Modifier.weight(
         @FloatRange(from = 0.0, fromInclusive = false)
-        weight: Float
+        weight: Float,
     ): Modifier =
         with(platformValue) { platformModify { weight(weight) } }
 

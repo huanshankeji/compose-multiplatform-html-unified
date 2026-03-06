@@ -19,7 +19,7 @@ actual fun ExposedDropdownMenuBox(
     expanded: Boolean,
     onExpandedChange: (Boolean) -> Unit,
     modifier: Modifier,
-    content: @Composable ExposedDropdownMenuBoxScope.() -> Unit
+    content: @Composable ExposedDropdownMenuBoxScope.() -> Unit,
 ) =
     MdMenuBox(modifier) {
         ExposedDropdownMenuBoxScope(remember { mutableStateOf(null) }, expanded, onExpandedChange).content()
@@ -63,7 +63,7 @@ actual class ExposedDropdownMenuBoxScope(
         onCloseJsDom: () -> Unit,
         modifier: Modifier,
         matchAnchorWidthComposeUi: Boolean,
-        content: @Composable () -> Unit
+        content: @Composable () -> Unit,
     ) =
         CommonDropdownMenu(
             //ANCHOR_ID, // An alternative approach by setting IDs. Duplicate IDs are semantically incorrect, however.
@@ -85,7 +85,7 @@ actual class ExposedDropdownMenuBoxScope(
 
 @Composable
 actual fun ExposedDropdownMenuBoxScope.ExposedDropdownMenuBoxTextField(
-    expanded: Boolean, args: ExposedDropdownMenuBoxTextFieldArgs
+    expanded: Boolean, args: ExposedDropdownMenuBoxTextFieldArgs,
 ) =
     with(args) {
         // adapted from the `composeUi` one
@@ -101,14 +101,14 @@ actual fun ExposedDropdownMenuBoxScope.ExposedDropdownMenuBoxTextField(
                 Icon(Icons.Filled.ArrowDropDown, null, if (expanded) modifier.rotate(180f) else modifier)
             },
             supportingText = supportingText,
-            isError = isError
+            isError = isError,
         )
     }
 
 @Composable
 actual fun ExposedDropdownMenuBoxScope.ExposedDropdownMenuBoxOutlinedTextField(
     expanded: Boolean,
-    args: ExposedDropdownMenuBoxTextFieldArgs
+    args: ExposedDropdownMenuBoxTextFieldArgs,
 ) =
     with(args) {
         // adapted from the `composeUi` one
@@ -124,6 +124,6 @@ actual fun ExposedDropdownMenuBoxScope.ExposedDropdownMenuBoxOutlinedTextField(
                 Icon(Icons.Filled.ArrowDropDown, null, if (expanded) modifier.rotate(180f) else modifier)
             },
             supportingText = supportingText,
-            isError = isError
+            isError = isError,
         )
     }

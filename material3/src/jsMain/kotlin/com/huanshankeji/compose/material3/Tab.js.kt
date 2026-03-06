@@ -15,7 +15,7 @@ private fun CommonTabRow(
 ) {
     MdTabs(
         activeTabIndex = selectedTabIndex,
-        attrs = modifier.toAttrs(finalHandler)
+        attrs = modifier.toAttrs(finalHandler),
     ) {
         tabs()
     }
@@ -33,7 +33,7 @@ actual fun PrimaryTabRow(
 private fun CommonScrollableTabRow(
     selectedTabIndex: Int,
     modifier: Modifier,
-    tabs: @Composable (() -> Unit)
+    tabs: @Composable (() -> Unit),
 ) {
     CommonTabRow(selectedTabIndex, modifier, {
         // from https://material-web.dev/components/tabs/stories/

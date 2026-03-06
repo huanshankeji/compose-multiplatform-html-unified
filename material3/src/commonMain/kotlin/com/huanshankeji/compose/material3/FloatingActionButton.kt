@@ -10,7 +10,7 @@ import com.huanshankeji.compose.ui.Modifier
 expect fun FloatingActionButton(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 )
 
 @ExtRecommendedApi
@@ -18,7 +18,7 @@ expect fun FloatingActionButton(
 expect fun SmallFloatingActionButton(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 )
 
 @ExtRecommendedApi
@@ -26,7 +26,7 @@ expect fun SmallFloatingActionButton(
 expect fun LargeFloatingActionButton(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 )
 
 @ExtRecommendedApi
@@ -34,5 +34,5 @@ expect fun LargeFloatingActionButton(
 expect fun ExtendedFloatingActionButton(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
-    content: @Composable RowScope.() -> Unit
+    content: @Composable RowScope.() -> Unit,
 )

@@ -11,7 +11,7 @@ expect fun Row(
     modifier: Modifier = Modifier,
     horizontalArrangement: Arrangement.Horizontal = Arrangement.Start,
     verticalAlignment: Alignment.Vertical = Alignment.Top,
-    content: @Composable RowScope.() -> Unit
+    content: @Composable RowScope.() -> Unit,
 )
 
 
@@ -26,7 +26,7 @@ expect interface RowScope {
     @Stable
     open fun Modifier.weight(
         @FloatRange(from = 0.0, fromInclusive = false)
-        weight: Float
+        weight: Float,
     ): Modifier
 
     @Stable

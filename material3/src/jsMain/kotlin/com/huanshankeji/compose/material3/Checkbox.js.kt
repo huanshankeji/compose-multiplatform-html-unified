@@ -13,7 +13,7 @@ actual fun Checkbox(
     checked: Boolean,
     onCheckedChange: ((Boolean) -> Unit)?,
     modifier: Modifier,
-    enabled: Boolean
+    enabled: Boolean,
 ) =
     MdCheckbox(
         checked.isTrueOrNull(),

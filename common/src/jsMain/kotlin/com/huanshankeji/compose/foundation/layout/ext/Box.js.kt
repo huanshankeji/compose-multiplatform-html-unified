@@ -48,6 +48,6 @@ fun KobwebBox(
 @Composable
 fun DivBox(
     modifier: PlatformModifier = PlatformModifier,
-    content: ContentBuilder<HTMLDivElement>? = null
+    content: ContentBuilder<HTMLDivElement>? = null,
 ) =
     Div(modifier.toAttrs(), content)

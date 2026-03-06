@@ -33,25 +33,25 @@ expect fun <VM : ViewModel> viewModel(
     viewModelStoreOwner: ViewModelStoreOwner = defaultViewModelStoreOwner(),
     key: String? = null,
     factory: ViewModelProvider.Factory? = null,
-    extras: CreationExtras = viewModelStoreOwner.defaultCreationExtras()
+    extras: CreationExtras = viewModelStoreOwner.defaultCreationExtras(),
 ): VM
 
 @Composable
 expect inline fun <reified VM : ViewModel> viewModel(
     viewModelStoreOwner: ViewModelStoreOwner = defaultViewModelStoreOwner(),
     key: String? = null,
-    noinline initializer: CreationExtras.() -> VM
+    noinline initializer: CreationExtras.() -> VM,
 ): VM
 
 @Deprecated(
     "Use the one with a `viewModelStoreOwner` parameter instead. " +
             "This function might be removed in the future. " +
             "If you call this function with a `key` argument, make sure you used a named argument " +
-            "so your source still compiles when this is removed."
+            "so your source still compiles when this is removed.",
 )
 @Composable
 inline fun <reified VM : ViewModel> viewModel(
     key: String? = null,
-    noinline initializer: CreationExtras.() -> VM
+    noinline initializer: CreationExtras.() -> VM,
 ): VM =
     viewModel(defaultViewModelStoreOwner(), key, initializer)

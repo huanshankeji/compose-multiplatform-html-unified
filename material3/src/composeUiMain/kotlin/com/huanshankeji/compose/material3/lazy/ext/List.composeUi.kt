@@ -39,14 +39,14 @@ actual class ListScope(val lazyListScope: LazyListScope) {
     actual fun item(
         key: Any?,
         contentType: Any?,
-        content: @Composable ItemScope.() -> Unit
+        content: @Composable ItemScope.() -> Unit,
     ) =
         lazyListScope.item(key, contentType) { ItemScope(this).content() }
 
     actual fun conventionalItem(
         key: Any?,
         contentType: Any?,
-        content: ListItemComponents
+        content: ListItemComponents,
     ) =
         item(key, contentType) { ListItem(content) }
 
@@ -54,7 +54,7 @@ actual class ListScope(val lazyListScope: LazyListScope) {
         count: Int,
         key: ((index: Int) -> Any)?,
         contentType: (index: Int) -> Any?,
-        itemContent: @Composable ItemScope.(index: Int) -> Unit
+        itemContent: @Composable ItemScope.(index: Int) -> Unit,
     ) =
         lazyListScope.items(count, key, contentType) { index -> ItemScope(this).itemContent(index) }
 
@@ -62,7 +62,7 @@ actual class ListScope(val lazyListScope: LazyListScope) {
         count: Int,
         key: ((index: Int) -> Any)?,
         contentType: (index: Int) -> Any?,
-        itemContent: (index: Int) -> ListItemComponents
+        itemContent: (index: Int) -> ListItemComponents,
     ) =
         items(count, key, contentType) { index ->
             ListItem(itemContent(index))
@@ -74,7 +74,7 @@ actual class ItemScope(val lazyItemScope: LazyItemScope)
 @Composable
 actual fun List(
     modifier: Modifier,
-    content: ListScope.() -> Unit
+    content: ListScope.() -> Unit,
 ) =
     LazyColumn(modifier.platformModifier) {
         ListScope(this).content()

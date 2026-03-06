@@ -17,7 +17,7 @@ actual fun SingleChoiceSegmentedButtonRowScope.SegmentedButton(
     modifier: Modifier,
     enabled: Boolean,
     icon: @Composable (() -> Unit)?,
-    label: String //@Composable () -> Unit
+    label: String //@Composable () -> Unit,
 ) =
     platformScope.SegmentedButton(
         selected,
@@ -41,7 +41,7 @@ actual fun MultiChoiceSegmentedButtonRowScope.SegmentedButton(
     modifier: Modifier,
     enabled: Boolean,
     icon: @Composable (() -> Unit)?,
-    label: String //@Composable () -> Unit
+    label: String //@Composable () -> Unit,
 ) =
     platformScope.SegmentedButton(
         checked,

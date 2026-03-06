@@ -1,7 +1,8 @@
 package com.huanshankeji.compose.material2.lazy.ext
 
 import androidx.compose.runtime.Composable
-import com.huanshankeji.compose.material2.ext.TaglessText
+import com.huanshankeji.compose.material2.ext.toNullableTaglessText
+import com.huanshankeji.compose.material2.ext.toTaglessText
 import com.huanshankeji.compose.ui.Modifier
 
 expect class ListScope {
@@ -11,14 +12,14 @@ expect class ListScope {
         count: Int,
         key: ((index: Int) -> Any)? = null,
         contentType: (index: Int) -> Any? = { null },
-        itemContent: @Composable ItemScope.(index: Int) -> Unit
+        itemContent: @Composable ItemScope.(index: Int) -> Unit,
     )
 
     fun group(
         key: Any? = null,
         contentType: Any? = null,
         headerContent: @Composable HeaderScope.() -> Unit,
-        content: ListScope.() -> Unit
+        content: ListScope.() -> Unit,
     )
 
     @Composable
@@ -31,11 +32,11 @@ expect class HeaderScope
 
 class ListItemComponents(
     val text: @Composable () -> Unit,
-    val secondaryText: @Composable (() -> Unit)? = null
+    val secondaryText: @Composable (() -> Unit)? = null,
 ) {
     constructor(text: String, secondaryText: String? = null) : this(
-        { TaglessText(text) },
-        secondaryText?.let { { TaglessText(it) } }
+        text.toTaglessText(),
+        secondaryText.toNullableTaglessText(),
     )
 }
 
@@ -50,7 +51,7 @@ fun ListScope.conventionalItems(
     count: Int,
     key: ((index: Int) -> Any)? = null,
     contentType: (index: Int) -> Any? = { null },
-    itemContent: (index: Int) -> ListItemComponents
+    itemContent: (index: Int) -> ListItemComponents,
 ) =
     items(count, key, contentType) { index ->
         ListItemContent(itemContent(index))

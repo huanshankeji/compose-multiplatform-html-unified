@@ -37,7 +37,7 @@ actual abstract class PaddingValues(val platformValue: PlatformPaddingValues) {
             left: Dp,
             top: Dp,
             right: Dp,
-            bottom: Dp
+            bottom: Dp,
         ) : this(PlatformPaddingValues.Absolute(left, top, right, bottom))
     }
 }
@@ -56,7 +56,7 @@ actual fun PaddingValues(start: Dp, top: Dp, end: Dp, bottom: Dp): PaddingValues
 
 @Immutable
 internal class PaddingValuesImpl(
-    platformValue: PlatformPaddingValues
+    platformValue: PlatformPaddingValues,
 ) : PaddingValues(platformValue)
 
 fun PlatformPaddingValues.toCommonValue(): PaddingValues =

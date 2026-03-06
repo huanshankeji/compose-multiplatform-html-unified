@@ -52,13 +52,13 @@ actual fun RadioButtonRow(
                 else disabled()
             }
             .then(modifierAfterSelectable.platformModifier)
-            .toAttrs()
+            .toAttrs(),
     ) {
         MdRadio(
             checked = selected.isTrueOrNull(),
             disabled = enabled.isFalseOrNull(),
             id = radioButtonIdJsDom,
-            attrs = radioButtonModifier.toAttrs()
+            attrs = radioButtonModifier.toAttrs(),
         )
         Label(radioButtonIdJsDom, {
             style {

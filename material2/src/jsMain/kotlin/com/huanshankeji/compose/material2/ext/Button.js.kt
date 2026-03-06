@@ -14,7 +14,7 @@ actual fun Button(
     onClick: () -> Unit,
     buttonType: ButtonType,
     modifier: Modifier,
-    content: @Composable ButtonScope.() -> Unit
+    content: @Composable ButtonScope.() -> Unit,
 ) =
     CommonButton(onClick, buttonType, modifier) {
         ButtonScope(this).content()

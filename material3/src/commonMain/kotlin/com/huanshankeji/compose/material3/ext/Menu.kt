@@ -20,7 +20,7 @@ expect fun DropdownMenu(
     modifier: Modifier = Modifier,
     offset: DpOffset = defaultDpOffset,
     //scrollState: ScrollState = rememberScrollState(),
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 )
 
 expect class DropdownMenuBoxScope {
@@ -39,7 +39,7 @@ expect class DropdownMenuBoxScope {
         modifier: Modifier = Modifier,
         offset: DpOffset = defaultDpOffset,
         //scrollState: ScrollState = rememberScrollState(),
-        content: @Composable () -> Unit
+        content: @Composable () -> Unit,
     )
 }
 
@@ -69,7 +69,7 @@ fun DropdownMenuItemWithMaterialIcons(
     modifier: Modifier = Modifier,
     leadingIcon: Icon? = null,
     trailingIcon: Icon? = null,
-    enabled: Boolean = true
+    enabled: Boolean = true,
 ) =
     DropdownMenuItem(
         text,
@@ -77,5 +77,5 @@ fun DropdownMenuItemWithMaterialIcons(
         modifier,
         leadingIcon.toNullableContentWithModifier(),
         trailingIcon.toNullableContentWithModifier(),
-        enabled
+        enabled,
     )

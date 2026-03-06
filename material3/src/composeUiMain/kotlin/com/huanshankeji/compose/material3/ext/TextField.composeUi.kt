@@ -25,7 +25,7 @@ actual fun TextField(
     keyboardOptions: KeyboardOptions,
     keyboardActions: KeyboardActions,
     singleLine: Boolean,
-    lines: Int
+    lines: Int,
 ) =
     androidx.compose.material3.TextField(
         value,
@@ -45,7 +45,7 @@ actual fun TextField(
         keyboardActions = keyboardActions.toPlatformValue(),
         singleLine = singleLine,
         maxLines = lines,
-        minLines = lines
+        minLines = lines,
     )
 
 
@@ -67,7 +67,7 @@ actual fun OutlinedTextField(
     keyboardOptions: KeyboardOptions,
     keyboardActions: KeyboardActions,
     singleLine: Boolean,
-    lines: Int
+    lines: Int,
 ) =
     androidx.compose.material3.OutlinedTextField(
         value,
@@ -87,5 +87,5 @@ actual fun OutlinedTextField(
         keyboardActions = keyboardActions.toPlatformValue(),
         singleLine = singleLine,
         maxLines = lines,
-        minLines = lines
+        minLines = lines,
     )

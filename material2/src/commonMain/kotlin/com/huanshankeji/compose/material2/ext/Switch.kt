@@ -9,5 +9,5 @@ expect fun SwitchWithLabel(
     onCheckedChange: ((Boolean) -> Unit)?,
     label: String,
     modifier: Modifier = Modifier,
-    enabled: Boolean = true
+    enabled: Boolean = true,
 )

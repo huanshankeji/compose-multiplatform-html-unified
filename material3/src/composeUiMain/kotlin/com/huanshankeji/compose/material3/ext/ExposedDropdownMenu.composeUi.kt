@@ -10,7 +10,7 @@ actual fun ExposedDropdownMenuBox(
     expanded: Boolean,
     onExpandedChange: (Boolean) -> Unit,
     modifier: Modifier,
-    content: @Composable ExposedDropdownMenuBoxScope.() -> Unit
+    content: @Composable ExposedDropdownMenuBoxScope.() -> Unit,
 ) =
     @OptIn(ExperimentalMaterial3Api::class)
     androidx.compose.material3.ExposedDropdownMenuBox(expanded, onExpandedChange, modifier.platformModifier) {
@@ -29,20 +29,20 @@ actual class ExposedDropdownMenuBoxScope(val platformValue: androidx.compose.mat
         onCloseJsDom: () -> Unit,
         modifier: Modifier,
         matchAnchorWidthComposeUi: Boolean,
-        content: @Composable () -> Unit
+        content: @Composable () -> Unit,
     ) =
         platformValue.ExposedDropdownMenu(
             expanded,
             onDismissRequestComposeUi,
             modifier.platformModifier,
-            matchAnchorWidth = matchAnchorWidthComposeUi
+            matchAnchorWidth = matchAnchorWidthComposeUi,
         ) { content() }
 }
 
 
 @Composable
 actual fun ExposedDropdownMenuBoxScope.ExposedDropdownMenuBoxTextField(
-    expanded: Boolean, args: ExposedDropdownMenuBoxTextFieldArgs
+    expanded: Boolean, args: ExposedDropdownMenuBoxTextFieldArgs,
 ) =
     with(args) {
         @OptIn(ExperimentalMaterial3Api::class)
@@ -58,14 +58,14 @@ actual fun ExposedDropdownMenuBoxScope.ExposedDropdownMenuBoxTextField(
             trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
             supportingText = supportingText.toNullableTaglessText(),
             isError = isError,
-            colors = ExposedDropdownMenuDefaults.textFieldColors()
+            colors = ExposedDropdownMenuDefaults.textFieldColors(),
         )
     }
 
 @Composable
 actual fun ExposedDropdownMenuBoxScope.ExposedDropdownMenuBoxOutlinedTextField(
     expanded: Boolean,
-    args: ExposedDropdownMenuBoxTextFieldArgs
+    args: ExposedDropdownMenuBoxTextFieldArgs,
 ) =
     with(args) {
         @OptIn(ExperimentalMaterial3Api::class)
@@ -81,7 +81,7 @@ actual fun ExposedDropdownMenuBoxScope.ExposedDropdownMenuBoxOutlinedTextField(
             trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded) },
             supportingText = supportingText.toNullableTaglessText(),
             isError = isError,
-            colors = ExposedDropdownMenuDefaults.textFieldColors()
+            colors = ExposedDropdownMenuDefaults.textFieldColors(),
         )
     }
 

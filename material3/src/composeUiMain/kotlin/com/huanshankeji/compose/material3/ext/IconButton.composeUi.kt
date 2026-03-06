@@ -6,7 +6,7 @@ import com.huanshankeji.compose.ui.Modifier
 private fun commonIconToggleButtonContent(
     checked: Boolean,
     checkedContent: @Composable (Modifier) -> Unit,
-    uncheckedContent: @Composable () -> Unit
+    uncheckedContent: @Composable () -> Unit,
 ): @Composable () -> Unit = {
     if (checked) checkedContent(Modifier) else uncheckedContent()
 }
@@ -18,14 +18,14 @@ actual fun IconToggleButton(
     modifier: Modifier,
     enabled: Boolean,
     uncheckedContent: @Composable () -> Unit,
-    checkedContent: @Composable (Modifier) -> Unit
+    checkedContent: @Composable (Modifier) -> Unit,
 ) =
     com.huanshankeji.compose.material3.IconToggleButton(
         checked,
         onCheckedChange,
         modifier,
         enabled,
-        commonIconToggleButtonContent(checked, checkedContent, uncheckedContent)
+        commonIconToggleButtonContent(checked, checkedContent, uncheckedContent),
     )
 
 @Composable
@@ -35,14 +35,14 @@ actual fun FilledIconToggleButton(
     modifier: Modifier,
     enabled: Boolean,
     uncheckedContent: @Composable () -> Unit,
-    checkedContent: @Composable (Modifier) -> Unit
+    checkedContent: @Composable (Modifier) -> Unit,
 ) =
     com.huanshankeji.compose.material3.FilledIconToggleButton(
         checked,
         onCheckedChange,
         modifier,
         enabled,
-        commonIconToggleButtonContent(checked, checkedContent, uncheckedContent)
+        commonIconToggleButtonContent(checked, checkedContent, uncheckedContent),
     )
 
 @Composable
@@ -52,14 +52,14 @@ actual fun FilledTonalIconToggleButton(
     modifier: Modifier,
     enabled: Boolean,
     uncheckedContent: @Composable () -> Unit,
-    checkedContent: @Composable (Modifier) -> Unit
+    checkedContent: @Composable (Modifier) -> Unit,
 ) =
     com.huanshankeji.compose.material3.FilledTonalIconToggleButton(
         checked,
         onCheckedChange,
         modifier,
         enabled,
-        commonIconToggleButtonContent(checked, checkedContent, uncheckedContent)
+        commonIconToggleButtonContent(checked, checkedContent, uncheckedContent),
     )
 
 @Composable
@@ -69,12 +69,12 @@ actual fun OutlinedIconToggleButton(
     modifier: Modifier,
     enabled: Boolean,
     uncheckedContent: @Composable () -> Unit,
-    checkedContent: @Composable (Modifier) -> Unit
+    checkedContent: @Composable (Modifier) -> Unit,
 ) =
     com.huanshankeji.compose.material3.OutlinedIconToggleButton(
         checked,
         onCheckedChange,
         modifier,
         enabled,
-        commonIconToggleButtonContent(checked, checkedContent, uncheckedContent)
+        commonIconToggleButtonContent(checked, checkedContent, uncheckedContent),
     )

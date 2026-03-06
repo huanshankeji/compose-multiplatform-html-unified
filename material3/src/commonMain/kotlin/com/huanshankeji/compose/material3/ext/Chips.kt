@@ -15,7 +15,7 @@ expect fun AssistChip(
     label: String,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
-    leadingIcon: @Composable ((Modifier) -> Unit)? = null
+    leadingIcon: @Composable ((Modifier) -> Unit)? = null,
 )
 
 /**
@@ -30,7 +30,7 @@ expect fun ElevatedAssistChip(
     label: String,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
-    leadingIcon: @Composable ((Modifier) -> Unit)? = null
+    leadingIcon: @Composable ((Modifier) -> Unit)? = null,
 )
 
 /**
@@ -46,7 +46,7 @@ expect fun FilterChip(
     label: String,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
-    leadingIcon: @Composable ((Modifier) -> Unit)? = null
+    leadingIcon: @Composable ((Modifier) -> Unit)? = null,
 )
 
 /**
@@ -62,7 +62,7 @@ expect fun ElevatedFilterChip(
     label: String,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
-    leadingIcon: @Composable ((Modifier) -> Unit)? = null
+    leadingIcon: @Composable ((Modifier) -> Unit)? = null,
 )
 
 /**
@@ -100,7 +100,7 @@ expect fun SuggestionChip(
     label: String,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
-    icon: @Composable ((Modifier) -> Unit)? = null
+    icon: @Composable ((Modifier) -> Unit)? = null,
 )
 
 /**
@@ -115,5 +115,5 @@ expect fun ElevatedSuggestionChip(
     label: String,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
-    icon: @Composable ((Modifier) -> Unit)? = null
+    icon: @Composable ((Modifier) -> Unit)? = null,
 )

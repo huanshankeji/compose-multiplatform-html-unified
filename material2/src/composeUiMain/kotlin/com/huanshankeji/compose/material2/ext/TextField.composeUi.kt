@@ -20,19 +20,19 @@ actual fun TextField(
     trailingIcon: @Composable (() -> Unit)?,
     keyboardOptions: KeyboardOptions,
     keyboardActions: KeyboardActions,
-    singleLine: Boolean
+    singleLine: Boolean,
 ) =
     androidx.compose.material.TextField(
         value,
         onValueChange,
         modifier.platformModifier,
         enabled = enabled,
-        label = label?.let { { Text(it) } },
+        label = label.toNullableTextComposable(),
         leadingIcon = leadingIcon,
         trailingIcon = trailingIcon,
         keyboardOptions = keyboardOptions.toPlatformValue(),
         keyboardActions = keyboardActions.toPlatformValue(),
-        singleLine = singleLine
+        singleLine = singleLine,
     )
 
 @Composable
@@ -46,7 +46,7 @@ actual fun TextFieldWithMaterialIcons(
     trailingIcon: Icon?,
     keyboardOptions: KeyboardOptions,
     keyboardActions: KeyboardActions,
-    singleLine: Boolean
+    singleLine: Boolean,
 ) =
     TextField(
         value,
@@ -56,7 +56,7 @@ actual fun TextFieldWithMaterialIcons(
         label,
         leadingIcon?.let { { Icon(it, null) } },
         trailingIcon?.let { { Icon(it, null) } },
-        keyboardOptions, keyboardActions, singleLine
+        keyboardOptions, keyboardActions, singleLine,
     )
 
 
@@ -71,19 +71,19 @@ actual fun OutlinedTextField(
     trailingIcon: @Composable (() -> Unit)?,
     keyboardOptions: KeyboardOptions,
     keyboardActions: KeyboardActions,
-    singleLine: Boolean
+    singleLine: Boolean,
 ) =
     androidx.compose.material.OutlinedTextField(
         value,
         onValueChange,
         modifier.platformModifier,
         enabled = enabled,
-        label = label?.let { { Text(it) } },
+        label = label.toNullableTextComposable(),
         leadingIcon = leadingIcon,
         trailingIcon = trailingIcon,
         keyboardOptions = keyboardOptions.toPlatformValue(),
         keyboardActions = keyboardActions.toPlatformValue(),
-        singleLine = singleLine
+        singleLine = singleLine,
     )
 
 @Composable
@@ -97,7 +97,7 @@ actual fun OutlinedTextFieldWithMaterialIcons(
     trailingIcon: Icon?,
     keyboardOptions: KeyboardOptions,
     keyboardActions: KeyboardActions,
-    singleLine: Boolean
+    singleLine: Boolean,
 ) =
     OutlinedTextField(
         value,
@@ -107,7 +107,7 @@ actual fun OutlinedTextFieldWithMaterialIcons(
         label,
         leadingIcon?.let { { Icon(it, null) } },
         trailingIcon?.let { { Icon(it, null) } },
-        keyboardOptions, keyboardActions, singleLine
+        keyboardOptions, keyboardActions, singleLine,
     )
 
 
@@ -120,16 +120,16 @@ actual fun TextArea(
     label: String?,
     keyboardOptions: KeyboardOptions,
     keyboardActions: KeyboardActions,
-    lines: Int
+    lines: Int,
 ) =
     androidx.compose.material.TextField(
         value,
         onValueChange,
         modifier.platformModifier,
         enabled = enabled,
-        label = label?.let { { Text(it) } },
+        label = label.toNullableTextComposable(),
         keyboardOptions = keyboardOptions.toPlatformValue(),
         keyboardActions = keyboardActions.toPlatformValue(),
         maxLines = lines,
-        minLines = lines
+        minLines = lines,
     )

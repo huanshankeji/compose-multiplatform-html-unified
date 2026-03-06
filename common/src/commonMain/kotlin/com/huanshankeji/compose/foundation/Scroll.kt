@@ -47,7 +47,7 @@ expect fun VerticalScrollBox(
     boxModifier: Modifier = Modifier,
     contentModifier: Modifier = Modifier,
     contentAlignment: Alignment = Alignment.TopStart,
-    content: @Composable BoxScope.() -> Unit
+    content: @Composable BoxScope.() -> Unit,
 )
 
 @Composable
@@ -55,5 +55,5 @@ expect fun HorizontalScrollBox(
     boxModifier: Modifier = Modifier,
     contentModifier: Modifier = Modifier,
     contentAlignment: Alignment = Alignment.TopStart,
-    content: @Composable BoxScope.() -> Unit
+    content: @Composable BoxScope.() -> Unit,
 )

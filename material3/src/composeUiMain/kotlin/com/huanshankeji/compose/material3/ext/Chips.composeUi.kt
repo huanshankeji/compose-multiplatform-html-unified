@@ -15,14 +15,14 @@ actual fun AssistChip(
     label: String,
     modifier: Modifier,
     enabled: Boolean,
-    leadingIcon: @Composable ((Modifier) -> Unit)?
+    leadingIcon: @Composable ((Modifier) -> Unit)?,
 ) =
     AssistChip(
         onClick,
         { Text(label) },
         modifier.platformModifier,
         enabled,
-        leadingIcon.toNullableContentWithoutModifier()
+        leadingIcon.toNullableContentWithoutModifier(),
     )
 
 @Composable
@@ -31,14 +31,14 @@ actual fun ElevatedAssistChip(
     label: String,
     modifier: Modifier,
     enabled: Boolean,
-    leadingIcon: @Composable ((Modifier) -> Unit)?
+    leadingIcon: @Composable ((Modifier) -> Unit)?,
 ) =
     ElevatedAssistChip(
         onClick,
         { Text(label) },
         modifier.platformModifier,
         enabled,
-        leadingIcon.toNullableContentWithoutModifier()
+        leadingIcon.toNullableContentWithoutModifier(),
     )
 
 @Composable
@@ -48,7 +48,7 @@ actual fun FilterChip(
     label: String,
     modifier: Modifier,
     enabled: Boolean,
-    leadingIcon: @Composable ((Modifier) -> Unit)?
+    leadingIcon: @Composable ((Modifier) -> Unit)?,
 ) =
     FilterChip(
         selected,
@@ -56,7 +56,7 @@ actual fun FilterChip(
         { Text(label) },
         modifier.platformModifier,
         enabled,
-        leadingIcon = leadingIcon.toNullableContentWithoutModifier()
+        leadingIcon = leadingIcon.toNullableContentWithoutModifier(),
     )
 
 @Composable
@@ -66,7 +66,7 @@ actual fun ElevatedFilterChip(
     label: String,
     modifier: Modifier,
     enabled: Boolean,
-    leadingIcon: @Composable ((Modifier) -> Unit)?
+    leadingIcon: @Composable ((Modifier) -> Unit)?,
 ) =
     ElevatedFilterChip(
         selected,
@@ -74,7 +74,7 @@ actual fun ElevatedFilterChip(
         { Text(label) },
         modifier.platformModifier,
         enabled,
-        leadingIcon = leadingIcon.toNullableContentWithoutModifier()
+        leadingIcon = leadingIcon.toNullableContentWithoutModifier(),
     )
 
 @Composable
@@ -103,11 +103,11 @@ actual fun InputChip(
                     Icons.Default.Close,
                     null,
                     onRemove?.let { PlatformModifier.clickable(onClick = it) }
-                        ?: PlatformModifier
+                        ?: PlatformModifier,
                 ) // The API might change if this module no longer depends on the icons module in the future.
             }
         } else null,
-        avatar = avatar.toNullableContentWithoutModifier()
+        avatar = avatar.toNullableContentWithoutModifier(),
     )
 
 @Composable
@@ -116,14 +116,14 @@ actual fun SuggestionChip(
     label: String,
     modifier: Modifier,
     enabled: Boolean,
-    icon: @Composable ((Modifier) -> Unit)?
+    icon: @Composable ((Modifier) -> Unit)?,
 ) =
     SuggestionChip(
         onClick,
         { Text(label) },
         modifier.platformModifier,
         enabled,
-        icon = icon.toNullableContentWithoutModifier()
+        icon = icon.toNullableContentWithoutModifier(),
     )
 
 @Composable
@@ -132,12 +132,12 @@ actual fun ElevatedSuggestionChip(
     label: String,
     modifier: Modifier,
     enabled: Boolean,
-    icon: @Composable ((Modifier) -> Unit)?
+    icon: @Composable ((Modifier) -> Unit)?,
 ) =
     ElevatedSuggestionChip(
         onClick,
         { Text(label) },
         modifier.platformModifier,
         enabled,
-        icon = icon.toNullableContentWithoutModifier()
+        icon = icon.toNullableContentWithoutModifier(),
     )

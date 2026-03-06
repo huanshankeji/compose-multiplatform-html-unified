@@ -19,7 +19,7 @@ private const val ABSOLUTE_OUTER_PADDING_REPLACE_WITH_IMPORT = "$REPLACE_WITH_PA
  */
 @Deprecated(
     PADDING_DEPRECATED_MESSAGE,
-    ReplaceWith("this.outerPadding(start, top, end, bottom)", OUTER_PADDING_REPLACE_WITH_IMPORT)
+    ReplaceWith("this.outerPadding(start, top, end, bottom)", OUTER_PADDING_REPLACE_WITH_IMPORT),
 )
 @Stable
 expect fun Modifier.padding(start: Dp = 0.dp, top: Dp = 0.dp, end: Dp = 0.dp, bottom: Dp = 0.dp): Modifier
@@ -29,7 +29,7 @@ expect fun Modifier.padding(start: Dp = 0.dp, top: Dp = 0.dp, end: Dp = 0.dp, bo
  */
 @Deprecated(
     PADDING_DEPRECATED_MESSAGE,
-    ReplaceWith("this.outerPadding(horizontal, vertical)", OUTER_PADDING_REPLACE_WITH_IMPORT)
+    ReplaceWith("this.outerPadding(horizontal, vertical)", OUTER_PADDING_REPLACE_WITH_IMPORT),
 )
 @Stable
 expect fun Modifier.padding(horizontal: Dp = 0.dp, vertical: Dp = 0.dp): Modifier
@@ -50,7 +50,7 @@ expect fun Modifier.padding(all: Dp): Modifier
  */
 @Deprecated(
     PADDING_DEPRECATED_MESSAGE,
-    ReplaceWith("this.outerPadding(paddingValues)", OUTER_PADDING_REPLACE_WITH_IMPORT)
+    ReplaceWith("this.outerPadding(paddingValues)", OUTER_PADDING_REPLACE_WITH_IMPORT),
 )
 @Stable
 expect fun Modifier.padding(paddingValues: PaddingValues): Modifier
@@ -60,7 +60,7 @@ expect fun Modifier.padding(paddingValues: PaddingValues): Modifier
  */
 @Deprecated(
     PADDING_DEPRECATED_MESSAGE,
-    ReplaceWith("this.absoluteOuterPadding(left, top, right, bottom)", ABSOLUTE_OUTER_PADDING_REPLACE_WITH_IMPORT)
+    ReplaceWith("this.absoluteOuterPadding(left, top, right, bottom)", ABSOLUTE_OUTER_PADDING_REPLACE_WITH_IMPORT),
 )
 @Stable
 expect fun Modifier.absolutePadding(left: Dp = 0.dp, top: Dp = 0.dp, right: Dp = 0.dp, bottom: Dp = 0.dp): Modifier
@@ -78,7 +78,7 @@ expect abstract class PaddingValues {
         /*@Stable*/
         right: Dp = 0.dp,
         /*@Stable*/
-        bottom: Dp = 0.dp
+        bottom: Dp = 0.dp,
     ) : PaddingValues
 }
 
@@ -90,5 +90,5 @@ expect fun PaddingValues(horizontal: Dp = 0.dp, vertical: Dp = 0.dp): PaddingVal
 
 @Stable
 expect fun PaddingValues(
-    start: Dp = 0.dp, top: Dp = 0.dp, end: Dp = 0.dp, bottom: Dp = 0.dp
+    start: Dp = 0.dp, top: Dp = 0.dp, end: Dp = 0.dp, bottom: Dp = 0.dp,
 ): PaddingValues

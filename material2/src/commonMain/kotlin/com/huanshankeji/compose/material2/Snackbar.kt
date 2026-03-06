@@ -16,7 +16,7 @@ expect fun Snackbar(
     contentColor: Color = MaterialTheme.colors.surface,
     elevation: Dp = 6.dp,
     */
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 )
 
 // consider removing `expect` and copying the code from `Snackbar.kt` directly

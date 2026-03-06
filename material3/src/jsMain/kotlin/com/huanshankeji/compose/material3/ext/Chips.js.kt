@@ -17,12 +17,12 @@ actual fun AssistChip(
     label: String,
     modifier: Modifier,
     enabled: Boolean,
-    leadingIcon: @Composable ((Modifier) -> Unit)?
+    leadingIcon: @Composable ((Modifier) -> Unit)?,
 ) =
     MdAssistChip(
         disabled = enabled.isFalseOrNull(),
         label = label,
-        hasIcon = leadingIcon !== null,
+        hasIcon = leadingIcon != null,
         attrs = modifier.toAttrs {
             onClick { onClick() }
         }
@@ -34,13 +34,13 @@ actual fun ElevatedAssistChip(
     label: String,
     modifier: Modifier,
     enabled: Boolean,
-    leadingIcon: @Composable ((Modifier) -> Unit)?
+    leadingIcon: @Composable ((Modifier) -> Unit)?,
 ) =
     MdAssistChip(
         elevated = true,
         disabled = enabled.isFalseOrNull(),
         label = label,
-        hasIcon = leadingIcon !== null,
+        hasIcon = leadingIcon != null,
         attrs = modifier.toAttrs {
             onClick { onClick() }
         }
@@ -53,13 +53,13 @@ actual fun FilterChip(
     label: String,
     modifier: Modifier,
     enabled: Boolean,
-    leadingIcon: @Composable ((Modifier) -> Unit)?
+    leadingIcon: @Composable ((Modifier) -> Unit)?,
 ) =
     MdFilterChip(
         disabled = enabled.isFalseOrNull(),
         selected = selected.isTrueOrNull(),
         label = label,
-        hasIcon = leadingIcon !== null,
+        hasIcon = leadingIcon != null,
         attrs = modifier.toAttrs {
             onClick { onClick() }
         }
@@ -72,14 +72,14 @@ actual fun ElevatedFilterChip(
     label: String,
     modifier: Modifier,
     enabled: Boolean,
-    leadingIcon: @Composable ((Modifier) -> Unit)?
+    leadingIcon: @Composable ((Modifier) -> Unit)?,
 ) =
     MdFilterChip(
         elevated = true,
         disabled = enabled.isFalseOrNull(),
         selected = selected.isTrueOrNull(),
         label = label,
-        hasIcon = leadingIcon !== null,
+        hasIcon = leadingIcon != null,
         attrs = modifier.toAttrs {
             onClick { onClick() }
         }
@@ -118,12 +118,12 @@ actual fun SuggestionChip(
     label: String,
     modifier: Modifier,
     enabled: Boolean,
-    icon: @Composable ((Modifier) -> Unit)?
+    icon: @Composable ((Modifier) -> Unit)?,
 ) =
     MdSuggestionChip(
         disabled = enabled.isFalseOrNull(),
         label = label,
-        hasIcon = icon !== null,
+        hasIcon = icon != null,
         attrs = modifier.toAttrs {
             onClick { onClick() }
         }
@@ -135,13 +135,13 @@ actual fun ElevatedSuggestionChip(
     label: String,
     modifier: Modifier,
     enabled: Boolean,
-    icon: @Composable ((Modifier) -> Unit)?
+    icon: @Composable ((Modifier) -> Unit)?,
 ) =
     MdSuggestionChip(
         elevated = true,
         disabled = enabled.isFalseOrNull(),
         label = label,
-        hasIcon = icon !== null,
+        hasIcon = icon != null,
         attrs = modifier.toAttrs {
             onClick { onClick() }
         }

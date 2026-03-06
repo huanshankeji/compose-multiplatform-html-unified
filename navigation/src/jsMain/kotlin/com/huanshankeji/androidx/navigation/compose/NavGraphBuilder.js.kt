@@ -9,7 +9,7 @@ actual fun NavGraphBuilder.composable(
     route: String,
     arguments: List<NamedNavArgument>,
     deepLinks: List<NavDeepLink>,
-    content: @Composable (NavBackStackEntry) -> Unit
+    content: @Composable (NavBackStackEntry) -> Unit,
 ) {
     addDestination(
         ComposeNavigator.Destination(

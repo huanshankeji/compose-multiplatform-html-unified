@@ -19,7 +19,7 @@ expect class ListScope {
         count: Int,
         key: ((index: Int) -> Any)? = null,
         contentType: (index: Int) -> Any? = { null },
-        itemContent: @Composable ItemScope.(index: Int) -> Unit
+        itemContent: @Composable ItemScope.(index: Int) -> Unit,
     )
 
     // the word "conventional" added to avoid clashing with `items`
@@ -27,7 +27,7 @@ expect class ListScope {
         count: Int,
         key: ((index: Int) -> Any)? = null,
         contentType: (index: Int) -> Any? = { null },
-        itemContent: (index: Int) -> ListItemComponents
+        itemContent: (index: Int) -> ListItemComponents,
     )
 }
 
@@ -46,7 +46,7 @@ class ListItemComponents(
     override val end: @Composable ((Modifier) -> Unit)? = null,
     override val supportingText: @Composable ((Modifier) -> Unit)? = null,
     override val trailingSupportingText: @Composable ((Modifier) -> Unit)? = null,
-    override val overline: @Composable ((Modifier) -> Unit)? = null
+    override val overline: @Composable ((Modifier) -> Unit)? = null,
 ) : ItemComponents {
     constructor(
         contentModifier: Modifier = Modifier,
@@ -56,7 +56,7 @@ class ListItemComponents(
         end: Icon? = null,
         supportingText: String? = null,
         trailingSupportingText: String? = null,
-        overline: String? = null
+        overline: String? = null,
     ) : this(
         contentModifier,
         isInteractiveJsDom,
@@ -65,7 +65,7 @@ class ListItemComponents(
         end.toNullableContentWithModifier(),
         supportingText.toNullableTextWithModifier(),
         trailingSupportingText.toNullableTextWithModifier(),
-        overline.toNullableTextWithModifier()
+        overline.toNullableTextWithModifier(),
     )
 
     // temporarily not added to the property list because I didn't see its conventional usages in the Material Web docs

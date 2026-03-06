@@ -7,8 +7,8 @@ import com.huanshankeji.compose.ui.toAttrs
 
 @Composable
 actual fun HorizontalDivider(
-    modifier: Modifier
+    modifier: Modifier,
 ) =
     MdDivider(
-        attrs = modifier.toAttrs()
+        attrs = modifier.toAttrs(),
     )

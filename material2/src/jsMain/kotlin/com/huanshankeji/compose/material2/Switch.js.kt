@@ -14,7 +14,7 @@ internal fun CommonSwitch(
     onCheckedChange: ((Boolean) -> Unit)?,
     label: String?,
     modifier: Modifier,
-    enabled: Boolean
+    enabled: Boolean,
 ) =
     MDCSwitch(checked, label, modifier.toAttrs {
         if (!enabled) disabled()
@@ -26,6 +26,6 @@ actual fun Switch(
     checked: Boolean,
     onCheckedChange: ((Boolean) -> Unit)?,
     modifier: Modifier,
-    enabled: Boolean
+    enabled: Boolean,
 ) =
     CommonSwitch(checked, onCheckedChange, null, modifier, enabled)

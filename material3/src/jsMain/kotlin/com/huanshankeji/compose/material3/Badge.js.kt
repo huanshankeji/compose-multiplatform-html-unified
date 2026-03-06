@@ -10,9 +10,9 @@ import com.huanshankeji.compose.ui.toAttrs
 @Composable
 actual fun Badge(
     modifier: Modifier,
-    content: String
+    content: String,
 ) =
     MdBadge(
         content,
-        modifier.toAttrs()
+        modifier.toAttrs(),
     )

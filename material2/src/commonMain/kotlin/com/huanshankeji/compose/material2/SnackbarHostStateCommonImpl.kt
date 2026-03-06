@@ -26,7 +26,7 @@ abstract class SnackbarHostStateCommonImpl {
     suspend fun showSnackbar(
         message: String,
         actionLabel: String? = null,
-        duration: SnackbarDuration = SnackbarDuration.Short
+        duration: SnackbarDuration = SnackbarDuration.Short,
     ): SnackbarResult = mutex.withLock {
         try {
             return suspendCancellableCoroutine { continuation ->
@@ -46,7 +46,7 @@ abstract class SnackbarHostStateCommonImpl {
         override val message: String,
         override val actionLabel: String?,
         override val duration: SnackbarDuration,
-        private val continuation: CancellableContinuation<SnackbarResult>
+        private val continuation: CancellableContinuation<SnackbarResult>,
     ) : SnackbarDataCommonInterface {
 
         override fun performAction() {

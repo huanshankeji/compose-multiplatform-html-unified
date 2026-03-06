@@ -28,37 +28,37 @@ private fun (@Composable () -> Unit).toBoxedContentWithModifier(): @Composable (
 actual fun FloatingActionButton(
     onClick: () -> Unit,
     modifier: Modifier,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) =
     com.huanshankeji.compose.material3.ext.FloatingActionButton(
-        onClick, modifier, content.toBoxedContentWithModifier()
+        onClick, modifier, content.toBoxedContentWithModifier(),
     )
 
 @Composable
 actual fun SmallFloatingActionButton(
     onClick: () -> Unit,
     modifier: Modifier,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) =
     com.huanshankeji.compose.material3.ext.SmallFloatingActionButton(
-        onClick, modifier, content.toBoxedContentWithModifier()
+        onClick, modifier, content.toBoxedContentWithModifier(),
     )
 
 @Composable
 actual fun LargeFloatingActionButton(
     onClick: () -> Unit,
     modifier: Modifier,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) =
     com.huanshankeji.compose.material3.ext.LargeFloatingActionButton(
-        onClick, modifier, content.toBoxedContentWithModifier()
+        onClick, modifier, content.toBoxedContentWithModifier(),
     )
 
 @Composable
 actual fun ExtendedFloatingActionButton(
     onClick: () -> Unit,
     modifier: Modifier,
-    content: @Composable RowScope.() -> Unit
+    content: @Composable RowScope.() -> Unit,
 ) =
     MdFab(attrs = modifier.toCommonButtonAttrs(onClick)) {
         // TODO consider using the Kobweb `Row` after resolving the issue whether `fit-content` is needed on the components

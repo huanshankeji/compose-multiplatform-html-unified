@@ -8,7 +8,7 @@ expect fun Button(
     onClick: () -> Unit,
     buttonType: ButtonType = ButtonType.Contained,
     modifier: Modifier = Modifier,
-    content: @Composable ButtonScope.() -> Unit
+    content: @Composable ButtonScope.() -> Unit,
 )
 
 expect /*value*/ class ButtonScope {

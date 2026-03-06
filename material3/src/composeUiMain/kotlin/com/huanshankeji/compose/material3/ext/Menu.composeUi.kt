@@ -14,13 +14,13 @@ actual fun DropdownMenu(
     onCloseJsDom: () -> Unit,
     modifier: Modifier,
     offset: DpOffset,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) =
     androidx.compose.material3.DropdownMenu(
         expanded,
         onDismissRequestComposeUi,
         modifier.platformModifier,
-        offset
+        offset,
     ) {
         content()
     }
@@ -36,10 +36,10 @@ actual class DropdownMenuBoxScope {
         onCloseJsDom: () -> Unit,
         modifier: Modifier,
         offset: DpOffset,
-        content: @Composable () -> Unit
+        content: @Composable () -> Unit,
     ) =
         androidx.compose.material3.DropdownMenu(
-            expanded, onDismissRequestComposeUi, modifier.platformModifier, offset
+            expanded, onDismissRequestComposeUi, modifier.platformModifier, offset,
         ) { content() }
 }
 
@@ -55,7 +55,7 @@ internal fun CommonDropdownMenuItem(
     modifier: Modifier,
     leadingIcon: @Composable ((Modifier) -> Unit)?,
     trailingIcon: @Composable ((Modifier) -> Unit)?,
-    enabled: Boolean
+    enabled: Boolean,
 ) =
     DropdownMenuItem(
         text.toContentWithoutModifier(),
@@ -63,7 +63,7 @@ internal fun CommonDropdownMenuItem(
         modifier.platformModifier,
         leadingIcon.toNullableContentWithoutModifier(),
         trailingIcon.toNullableContentWithoutModifier(),
-        enabled
+        enabled,
     )
 
 /**
@@ -77,7 +77,7 @@ actual fun DropdownMenuItem(
     leadingIcon: @Composable ((Modifier) -> Unit)?,
     trailingIcon: @Composable ((Modifier) -> Unit)?,
     enabled: Boolean,
-    keepOpenJsDom: Boolean
+    keepOpenJsDom: Boolean,
 ) =
     CommonDropdownMenuItem(text, onClick, modifier, leadingIcon, trailingIcon, enabled)
 

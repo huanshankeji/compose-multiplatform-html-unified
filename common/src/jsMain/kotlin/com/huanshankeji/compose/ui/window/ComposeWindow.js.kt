@@ -17,7 +17,7 @@ class SimpleViewModelStoreOwner : ViewModelStoreOwner {
 }
 
 fun renderComposableInBodyWithViewModelStoreOwner(
-    content: @Composable DOMScope<HTMLBodyElement>.() -> Unit
+    content: @Composable DOMScope<HTMLBodyElement>.() -> Unit,
 ): Composition =
     renderComposableInBody {
         // copied and adapted from `ComposeWindow` in "ComposeWindow.web.kt" in `androidx.compose.ui.window`

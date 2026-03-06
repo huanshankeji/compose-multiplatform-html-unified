@@ -13,7 +13,7 @@ actual fun IconButton(
     onClick: () -> Unit,
     modifier: Modifier,
     icon: Icon,
-    contentDescription: String?
+    contentDescription: String?,
 ) {
     MDCIconButton(attrs = modifier.toAttrs {
         mdcIconWithStyle()
