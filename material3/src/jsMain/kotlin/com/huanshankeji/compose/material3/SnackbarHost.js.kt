@@ -42,23 +42,29 @@ actual fun SnackbarHost(
 ) {
     val currentSnackbarData = hostState.currentSnackbarData
 
-    val duration: Long?
-    if (currentSnackbarData !== null) {
-        duration = currentSnackbarData.visuals.duration.toMillis()
+    val durationMillis: Long?
+    if (currentSnackbarData != null) {
+        durationMillis = currentSnackbarData.visuals.duration.toMillis()
 
         // Make sure the snackbar is dismissed after its duration, similar to the M2 approach.
         LaunchedEffect(currentSnackbarData) {
-            delay(duration)
+            delay(durationMillis)
             currentSnackbarData.dismiss()
         }
-    } else
-        duration = null
+    } else {
+        durationMillis = null
+    }
+
+    // Use null timeout for Indefinite duration to avoid Long.MAX_VALUE overflow when converting to Int.
+    val timeoutMs =
+        if (currentSnackbarData?.visuals?.duration == SnackbarDuration.Indefinite) null
+        else durationMillis?.toInt()
 
     // not put in a conditional block to reduce DOM recomposition
     MdSnackbar(
-        open = if (currentSnackbarData !== null) true else null,
+        open = if (currentSnackbarData != null) true else null,
         actionText = currentSnackbarData?.visuals?.actionLabel,
-        timeout = duration?.toInt(),
+        timeout = timeoutMs,
         onAction = currentSnackbarData?.let { data -> { data.performAction() } },
         onClosed = currentSnackbarData?.let { data -> { data.dismiss() } },
         attrs = modifier.toAttrs()
