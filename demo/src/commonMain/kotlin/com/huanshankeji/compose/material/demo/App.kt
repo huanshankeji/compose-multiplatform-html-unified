@@ -18,7 +18,12 @@ import com.huanshankeji.compose.ui.Alignment
 import com.huanshankeji.compose.ui.Modifier
 
 internal enum class Selection {
-    A, B, C
+    A, B, C;
+
+    fun displayText(): String = buildString {
+        append(name)
+        repeat(7) { append(name.lowercase()) }
+    }
 }
 
 val listSize = 160.dp

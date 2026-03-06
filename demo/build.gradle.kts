@@ -40,10 +40,6 @@ kotlin {
             }
         }
         binaries.executable()
-
-        compilerOptions {
-            target.set("es2015")
-        }
     }
 
     sourceSets {

@@ -39,8 +39,13 @@ kotlin {
                 implementation("com.huanshankeji:compose-html-common:${DependencyVersions.huanshankejiComposeHtml}") {
                     exclude("org.jetbrains.kotlin")
                 }
+                implementation(compose.html.core)
             }
         }
+    }
+
+    compilerOptions {
+        optIn.add("com.huanshankeji.compose.html.material3.ExperimentalComposeHtmlMaterialApi")
     }
 }
 

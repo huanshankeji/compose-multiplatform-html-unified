@@ -48,8 +48,8 @@ private fun TextFieldContent(
             onDispose {}
         }
     }
-    leadingIcon?.invoke(PlatformModifier.attrsModifier { slot(MdTextFieldScope.Slot.LeadingIcon) }.toCommonModifier())
-    trailingIcon?.invoke(PlatformModifier.attrsModifier { slot(MdTextFieldScope.Slot.TrailingIcon) }.toCommonModifier())
+    nullableContentWithSlot(leadingIcon, MdTextFieldScope.Slot.LeadingIcon)
+    nullableContentWithSlot(trailingIcon, MdTextFieldScope.Slot.TrailingIcon)
 }
 
 

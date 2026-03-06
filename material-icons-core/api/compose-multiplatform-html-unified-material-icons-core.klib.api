@@ -79,6 +79,12 @@ final val com.huanshankeji.compose.material.icons.filled/Menu // com.huanshankej
 
     // Targets: [js]
     final fun (com.huanshankeji.compose.material.icons/Icons.Filled).<get-Menu>(): com.huanshankeji.compose.material.icons/Icon // com.huanshankeji.compose.material.icons.filled/Menu.<get-Menu>|<get-Menu>@com.huanshankeji.compose.material.icons.Icons.Filled(){}[0]
+final val com.huanshankeji.compose.material.icons.filled/Person // com.huanshankeji.compose.material.icons.filled/Person|@com.huanshankeji.compose.material.icons.Icons.Filled{}Person[0]
+    // Targets: [ios, wasmJs]
+    final fun (com.huanshankeji.compose.material.icons/Icons.Filled).<get-Person>(): androidx.compose.ui.graphics.vector/ImageVector // com.huanshankeji.compose.material.icons.filled/Person.<get-Person>|<get-Person>@com.huanshankeji.compose.material.icons.Icons.Filled(){}[0]
+
+    // Targets: [js]
+    final fun (com.huanshankeji.compose.material.icons/Icons.Filled).<get-Person>(): com.huanshankeji.compose.material.icons/Icon // com.huanshankeji.compose.material.icons.filled/Person.<get-Person>|<get-Person>@com.huanshankeji.compose.material.icons.Icons.Filled(){}[0]
 final val com.huanshankeji.compose.material.icons.filled/Refresh // com.huanshankeji.compose.material.icons.filled/Refresh|@com.huanshankeji.compose.material.icons.Icons.Filled{}Refresh[0]
     // Targets: [ios, wasmJs]
     final fun (com.huanshankeji.compose.material.icons/Icons.Filled).<get-Refresh>(): androidx.compose.ui.graphics.vector/ImageVector // com.huanshankeji.compose.material.icons.filled/Refresh.<get-Refresh>|<get-Refresh>@com.huanshankeji.compose.material.icons.Icons.Filled(){}[0]

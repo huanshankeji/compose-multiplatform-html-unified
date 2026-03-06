@@ -23,7 +23,7 @@ internal fun Modifier.toCommonIconToggleButtonAttrs(
     }
 
 internal fun MdIconButtonScope.slotEqSelectedModifier() =
-    PlatformModifier.attrsModifier { slotEqSelected() }.toCommonModifier()
+    PlatformModifier.attrsModifier { slot(MdIconButtonScope.Slot.Selected) }.toCommonModifier()
 
 private fun (@Composable () -> Unit).toCommonIconButtonContent(): @Composable MdIconButtonScope.() -> Unit = {
     Box { this@toCommonIconButtonContent() }

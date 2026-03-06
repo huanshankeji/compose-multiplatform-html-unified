@@ -4,6 +4,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.unit.dp
 import com.huanshankeji.androidx.lifecycle.viewmodel.compose.viewModel
 import com.huanshankeji.compose.ExtRecommendedApi
+import com.huanshankeji.compose.foundation.background
 import com.huanshankeji.compose.foundation.layout.*
 import com.huanshankeji.compose.foundation.rememberScrollState
 import com.huanshankeji.compose.foundation.text.KeyboardActions
@@ -13,10 +14,7 @@ import com.huanshankeji.compose.foundation.text.input.KeyboardCapitalization
 import com.huanshankeji.compose.foundation.text.input.KeyboardType
 import com.huanshankeji.compose.foundation.verticalScroll
 import com.huanshankeji.compose.material.icons.Icons
-import com.huanshankeji.compose.material.icons.filled.Add
-import com.huanshankeji.compose.material.icons.filled.ArrowDropDown
-import com.huanshankeji.compose.material.icons.filled.Menu
-import com.huanshankeji.compose.material.icons.filled.Remove
+import com.huanshankeji.compose.material.icons.filled.*
 import com.huanshankeji.compose.material3.*
 import com.huanshankeji.compose.material3.ext.*
 import com.huanshankeji.compose.material3.ext.Card
@@ -25,7 +23,11 @@ import com.huanshankeji.compose.material3.ext.OutlinedCard
 import com.huanshankeji.compose.material3.lazy.ext.List
 import com.huanshankeji.compose.material3.lazy.ext.ListItemComponents
 import com.huanshankeji.compose.ui.Modifier
+import com.huanshankeji.compose.ui.graphics.Color
+import kotlinx.coroutines.launch
 import com.huanshankeji.compose.material3.Button as RowScopeButton
+
+// TODO replace `println`s with snackbars when available
 
 @Composable
 fun Material3(/*modifier: Modifier = Modifier*/
@@ -166,7 +168,7 @@ fun Material3(/*modifier: Modifier = Modifier*/
             }
         }
 
-        Row {
+        Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
             Card { Text("card", contentPaddingModifier) }
             ElevatedCard { Text("elevated card", contentPaddingModifier) }
             OutlinedCard { Text("outlined card", contentPaddingModifier) }
@@ -192,7 +194,7 @@ fun Material3(/*modifier: Modifier = Modifier*/
         fun DropdownMenuContent(setSelection: (Selection?) -> Unit, close: () -> Unit) =
             (listOf(null) + Selection.entries).forEach {
                 DropdownMenuItemWithMaterialIcons(
-                    { modifier -> it?.let { Text(it.name, modifier) } },
+                    { modifier -> it?.let { Text(it.displayText(), modifier) } },
                     {
                         setSelection(it)
                         close()
@@ -202,29 +204,91 @@ fun Material3(/*modifier: Modifier = Modifier*/
                 )
             }
 
+        fun Selection?.valueJsDom(): String =
+            this?.name?.lowercase() ?: ""
+
+        @Composable
+        fun SelectMenuContent(setSelection: (Selection?) -> Unit, close: () -> Unit) =
+            (listOf(null) + Selection.entries).forEach {
+                SelectOptionWithMaterialIcons(
+                    { modifier -> it?.let { Text(it.displayText(), modifier) } },
+                    {
+                        setSelection(it)
+                        close()
+                    },
+                    it.valueJsDom(),
+                    leadingIcon = Icons.Filled.Add,
+                    trailingIcon = Icons.Filled.Remove,
+                )
+            }
+
+
         run {
-            val (expanded, setExpanded) = remember { mutableStateOf(false) }
-            val close = { setExpanded(false) }
             val (selection, setSelection) = remember { mutableStateOf<Selection?>(null) }
-            ExposedDropdownMenuBoxWithTextField(
-                expanded, setExpanded,
-                textFieldArgs = ExposedDropdownMenuBoxTextFieldArgs(
-                    selection?.name ?: "", label = "Please select"
-                ),
-                exposedDropdownMenuArgs = ExposedDropdownMenuArgs(expanded, close, close) {
+            val value = selection?.displayText() ?: ""
+            Text("Selected: $value")
+            val label = "Please select"
+            run {
+                val (expanded, setExpanded) = remember { mutableStateOf(false) }
+                val close = { setExpanded(false) }
+                ExposedDropdownMenuBoxWithTextField(
+                    expanded, setExpanded,
+                    textFieldArgs = ExposedDropdownMenuBoxTextFieldArgs(value, label = label),
+                    exposedDropdownMenuArgs = ExposedDropdownMenuArgs(expanded, close, close) {
+                        DropdownMenuContent(setSelection, close)
+                    }
+                )
+            }
+            run {
+                val (expanded, setExpanded) = remember { mutableStateOf(false) }
+                val close = { setExpanded(false) }
+                ExposedDropdownMenuBoxWithOutlinedTextField(
+                    expanded, setExpanded,
+                    textFieldArgs = ExposedDropdownMenuBoxTextFieldArgs(value, label = label),
+                    exposedDropdownMenuArgs = ExposedDropdownMenuArgs(expanded, close, close) {
+                        DropdownMenuContent(setSelection, close)
+                    }
+                )
+            }
+
+            // `valueJsDom` doesn't necessarily need to be the same as `value`. See its KDoc for details.
+            val valueJsDom = selection?.name ?: ""
+            // an alternative using `ordinal`
+            //val valueJsDom = selection?.run { ordinal.toString() } ?: ""
+            run {
+                val (expanded, setExpanded) = remember { mutableStateOf(false) }
+                val close = { setExpanded(false) }
+                FilledSelect(
+                    expanded, setExpanded,
+                    valueJsDom,
+                    textFieldArgs = SelectTextFieldArgs(value, label = label),
+                    menuArgs = SelectMenuArgs(expanded, close, close) {
+                        SelectMenuContent(setSelection, close)
+                    }
+                )
+            }
+            run {
+                val (expanded, setExpanded) = remember { mutableStateOf(false) }
+                val close = { setExpanded(false) }
+                OutlinedSelect(
+                    expanded, setExpanded,
+                    valueJsDom,
+                    textFieldArgs = SelectTextFieldArgs(value, label = label),
+                    menuArgs = SelectMenuArgs(expanded, close, close) {
+                        SelectMenuContent(setSelection, close)
+                    }
+                )
+            }
+
+            DropdownMenuBox {
+                var expanded by remember { mutableStateOf(false) }
+                val close = { expanded = false }
+                IconButton({ expanded = true }, Modifier.menuAnchorJsDom()) {
+                    Icon(Icons.Filled.ArrowDropDown, "Please select")
+                }
+                DropdownMenu(expanded, close, close) {
                     DropdownMenuContent(setSelection, close)
                 }
-            )
-        }
-        DropdownMenuBox {
-            var expanded by remember { mutableStateOf(false) }
-            val close = { expanded = false }
-            val (_, setSelection) = remember { mutableStateOf<Selection?>(null) }
-            IconButton({ expanded = true }, Modifier.menuAnchorJsDom()) {
-                Icon(Icons.Filled.ArrowDropDown, "Please select")
-            }
-            DropdownMenu(expanded, close, close) {
-                DropdownMenuContent(setSelection, close)
             }
         }
 
@@ -232,5 +296,243 @@ fun Material3(/*modifier: Modifier = Modifier*/
         LinearProgressIndicator({ 0.5f })
         CircularProgressIndicator()
         CircularProgressIndicator({ 0.5f })
+
+        // RadioButton
+        var radioSelection by remember { mutableStateOf(Selection.A) }
+
+        @Composable
+        fun RadioGroupContent() {
+            Selection.entries.forEach { selection ->
+                RadioButtonRow(
+                    radioSelection == selection,
+                    { radioSelection = selection },
+                    enabled = selection != Selection.C,
+                    radioButtonIdJsDom = selection.name.lowercase(),
+                ) {
+                    TaglessText(selection.displayText())
+                }
+            }
+        }
+
+        // This is only for the demo. Avoid using `Row`. See https://m3.material.io/components/radio-button/guidelines for details.
+        Row(Modifier.radioGroup(), horizontalArrangement = Arrangement.spacedBy(16.dp)) { RadioGroupContent() }
+        Column(Modifier.radioGroup(), verticalArrangement = Arrangement.spacedBy(16.dp)) { RadioGroupContent() }
+
+        // HorizontalDivider
+        HorizontalDivider()
+
+        // Slider
+        Column {
+            var sliderPosition by remember { mutableStateOf(0.5f) }
+            Text("Slider position: $sliderPosition")
+            var sliderChanging by remember { mutableStateOf(false) }
+            Text("Slider changing: $sliderChanging")
+            Slider(
+                value = sliderPosition,
+                onValueChange = {
+                    sliderChanging = true
+                    sliderPosition = it
+                },
+                onValueChangeFinished = {
+                    sliderChanging = false
+                }
+            )
+            var discreteSliderPosition by remember { mutableStateOf(0.5f) }
+            Text("Discrete slider position: $discreteSliderPosition")
+            Slider(
+                value = discreteSliderPosition,
+                onValueChange = { discreteSliderPosition = it },
+                steps = 3
+            )
+            var rangeSliderPosition by remember { mutableStateOf(0.25f..0.75f) }
+            Text("Range slider position: $rangeSliderPosition")
+            RangeSlider(
+                value = rangeSliderPosition,
+                onValueChange = { rangeSliderPosition = it }
+            )
+        }
+
+        // Badge
+        Row {
+            // not shown at the right position
+            Badge(content = "3")
+            Badge(content = "New")
+        }
+
+        // Chips - showing all types as per M3 design
+        var filterChipSelected by remember { mutableStateOf(false) }
+        var inputChipSelected by remember { mutableStateOf(false) }
+        Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
+            AssistChip(
+                onClick = { println("Assist chip clicked") },
+                label = "Assist",
+                leadingIcon = { modifier -> Icon(Icons.Default.Add, null, modifier) }
+            )
+            FilterChip(
+                selected = filterChipSelected,
+                onClick = { filterChipSelected = !filterChipSelected },
+                label = "Filter",
+                leadingIcon = if (filterChipSelected) { modifier -> Icon(Icons.Filled.Done, null, modifier) } else null
+            )
+            var showInputChip by remember { mutableStateOf(true) }
+            if (showInputChip)
+                InputChip(
+                    selected = inputChipSelected,
+                    onClick = { inputChipSelected = !inputChipSelected },
+                    label = "Input",
+                    avatar = { modifier -> Icon(Icons.Default.Person, null, modifier) },
+                    onRemove = {
+                        showInputChip = false
+                        println("Input chip removed")
+                    }
+                )
+            SuggestionChip(
+                onClick = { println("Suggestion chip clicked") },
+                label = "Suggestion"
+            )
+        }
+        Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
+            ElevatedAssistChip(
+                onClick = { println("Elevated assist chip clicked") },
+                label = "Elevated Assist",
+                leadingIcon = { modifier -> Icon(Icons.Default.Add, null, modifier) }
+            )
+            ElevatedFilterChip(
+                selected = filterChipSelected,
+                onClick = { filterChipSelected = !filterChipSelected },
+                label = "Elevated Filter",
+                leadingIcon = if (filterChipSelected) { modifier -> Icon(Icons.Filled.Done, null, modifier) } else null
+            )
+            ElevatedSuggestionChip(
+                onClick = { println("Elevated suggestion chip clicked") },
+                label = "Elevated Suggestion"
+            )
+        }
+
+        // Dialog
+        var isAlertDialogOpen by remember { mutableStateOf(false) }
+        Button(onClick = { isAlertDialogOpen = true }) {
+            Text("Show Alert Dialog")
+        }
+        AlertDialog(
+            isAlertDialogOpen,
+            { isAlertDialogOpen = false },
+            {
+                Button(onClick = { isAlertDialogOpen = false }) {
+                    Text("OK")
+                }
+            },
+            dismissButton = {
+                Button(onClick = { isAlertDialogOpen = false }) {
+                    Text("Cancel")
+                }
+            },
+            icon = { Icon(Icons.Default.Add, null, it) },
+            title = { Text("Alert Dialog", it) },
+            text = { Text("This is a demo alert dialog with headline, content, and action buttons.", it) }
+        )
+        var isSimpleDialogOpen by remember { mutableStateOf(false) }
+        Button(onClick = { isSimpleDialogOpen = true }) {
+            Text("Show Dialog")
+        }
+        SimpleDialog(isSimpleDialogOpen, { isSimpleDialogOpen = false }) {
+            TaglessText("Dialog")
+        }
+
+        // Tabs
+        var selectedTabIndex by remember { mutableStateOf(0) }
+        PrimaryTabRow(selectedTabIndex) {
+            PrimaryTab(
+                selectedTabIndex == 0,
+                { selectedTabIndex = 0 },
+                text = { Text("Tab 1") }
+            )
+            PrimaryTab(
+                selectedTabIndex == 1,
+                { selectedTabIndex = 1 },
+                text = { Text("Tab 2") },
+                icon = { modifier -> Icon(Icons.Default.Add, null, modifier) }
+            )
+            PrimaryTab(
+                selectedTabIndex == 2,
+                { selectedTabIndex = 2 },
+                text = { Text("Tab 3") }
+            )
+        }
+        SecondaryTabRow(selectedTabIndex) {
+            SecondaryTab(
+                selectedTabIndex == 0,
+                { selectedTabIndex = 0 },
+                text = { Text("Tab 1") }
+            )
+            SecondaryTab(
+                selectedTabIndex == 1,
+                { selectedTabIndex = 1 },
+                text = { Text("Tab 2") },
+                icon = { modifier -> Icon(Icons.Default.Add, null, modifier) }
+            )
+            SecondaryTab(
+                selectedTabIndex == 2,
+                { selectedTabIndex = 2 },
+                text = { Text("Tab 3") }
+            )
+        }
+        Text("Selected tab: ${selectedTabIndex + 1}", Modifier.padding(16.dp))
+
+        // Segmented Buttons - Single select with Selection enum
+        var selectedSegment by remember { mutableStateOf(Selection.A) }
+        SingleChoiceSegmentedButtonRow {
+            Selection.entries.forEachIndexed { index, selection ->
+                SegmentedButton(
+                    selectedSegment == selection,
+                    { selectedSegment = selection },
+                    SegmentedButtonDefaultShapeArgs(index, Selection.entries.size),
+                    label = selection.displayText()
+                )
+            }
+        }
+
+        // Segmented Buttons - Multi-select
+        val isIndexSelected = remember { mutableStateListOf(false, false, false) }
+        MultiChoiceSegmentedButtonRow {
+            Selection.entries.forEachIndexed { index, selection ->
+                SegmentedButton(
+                    isIndexSelected[index],
+                    { isIndexSelected[index] = it },
+                    SegmentedButtonDefaultShapeArgs(index, Selection.entries.size),
+                    label = selection.displayText()
+                )
+            }
+        }
+
+        // NavigationDrawer (simplified demo)
+        val drawerState = rememberDrawerState(DrawerValue.Closed)
+        val scope = rememberCoroutineScope()
+        Button(onClick = { scope.launch { drawerState.open() } }) {
+            Text("Open Drawer")
+        }
+        ModalNavigationDrawer(
+            {
+                // copied and adapted from https://developer.android.com/develop/ui/compose/components/drawer#example
+                ModalDrawerSheet {
+                    Text("Drawer title", modifier = Modifier.padding(16.dp))
+                    HorizontalDivider()
+                    /*
+                    NavigationDrawerItem(
+                        label = { Text(text = "Drawer Item") },
+                        selected = false,
+                        onClick = { TODO }
+                    )
+                    */
+                    // ...other drawer items
+                    Button(onClick = { scope.launch { drawerState.close() } }) {
+                        Text("Close")
+                    }
+                }
+            },
+            drawerState = drawerState
+        ) {
+            Text("Main Content", Modifier.fillMaxWidth().height(160.dp).background(Color.Gray))
+        }
     }
 }

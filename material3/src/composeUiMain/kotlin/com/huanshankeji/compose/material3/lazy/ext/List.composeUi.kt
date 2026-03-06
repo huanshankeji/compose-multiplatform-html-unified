@@ -6,8 +6,8 @@ import androidx.compose.foundation.lazy.LazyItemScope
 import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.material3.ListItem
 import androidx.compose.runtime.Composable
-import com.huanshankeji.compose.toContentWithoutModifier
-import com.huanshankeji.compose.toNullableContentWithoutModifier
+import com.huanshankeji.compose.ext.toContentWithoutModifier
+import com.huanshankeji.compose.ext.toNullableContentWithoutModifier
 import com.huanshankeji.compose.ui.Modifier
 
 actual class ListScope(val lazyListScope: LazyListScope) {

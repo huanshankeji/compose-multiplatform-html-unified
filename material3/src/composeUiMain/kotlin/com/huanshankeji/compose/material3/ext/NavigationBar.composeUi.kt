@@ -3,7 +3,7 @@ package com.huanshankeji.compose.material3.ext
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.foundation.layout.PlatformRowScope
-import com.huanshankeji.compose.toContentWithoutModifier
+import com.huanshankeji.compose.ext.toContentWithoutModifier
 import com.huanshankeji.compose.ui.Modifier
 
 @Composable

@@ -145,6 +145,12 @@ repositories {
 - Located in `jsMain` source sets
 - Requires CSS imports for Material Icons
 
+#### Supported Material 3 Components
+
+For an up-to-date list of supported unified component APIs, refer to README.md.
+
+When adding or aligning components, you can search in <https://m3.material.io/> to find the component first. On each component's overview page, you can usually find links or references to both its Jetpack Compose implementation (almost identical to Compose Multiplatform's Compose UI APIs) and its web/Material Web implementation.
+
 ### Development Patterns and Conventions
 
 #### API Structure
@@ -164,6 +170,21 @@ repositories {
 - **Expect/Actual Pattern**: Platform-specific implementations using Kotlin Multiplatform patterns
 - **Convention Plugins**: Custom build logic in `buildSrc` for consistency across modules
 - **Target Platforms**: Sophisticated setup targeting 6+ platforms with different implementation strategies
+
+**Component Organization Patterns:**
+1. **Main package** (`com.huanshankeji.compose.material3`): Components that can be unified following Compose UI APIs
+   - Mandatory parameters must be equivalent to those of the original Compose UI component
+   - Optional parameters should be a subset of those of the original Compose UI component
+   - Example: `RadioButton`, `Slider`, `AlertDialog`
+
+2. **Ext package** (`com.huanshankeji.compose.material3.ext`): Components with platform-specific APIs
+   - Use when unification would compromise usability or when platforms have fundamentally different UX patterns
+   - Especially when the JS DOM component only supports taking a text in an HTML attribute such as `value` as its content, while the Compose one takes a `@Composable` content block
+   - Example: `FilledSelect`, `OutlinedSelect` (different interaction models between ExposedDropdownMenuBox on Compose UI and native select on JS)
+
+3. **Labs annotations** instead of labs package:
+   - Mark JS implementations with `@MaterialWebLabsApi` when they depend on Material Web labs components
+   - Opt-in to `@MaterialWebLabsApi` if Compose UI visual effects can already be achieved with consistency on JS DOM
 
 ### Root Directory Files
 ```
