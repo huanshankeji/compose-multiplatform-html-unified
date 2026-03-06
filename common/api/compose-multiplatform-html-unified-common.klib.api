@@ -919,6 +919,9 @@ final fun (androidx.compose.foundation.layout/PaddingValues).com.huanshankeji.co
 final fun (androidx.compose.foundation.text/KeyboardActionScope).com.huanshankeji.compose.foundation.text/toCommonValue(): com.huanshankeji.compose.foundation.text/KeyboardActionScope // com.huanshankeji.compose.foundation.text/toCommonValue|toCommonValue@androidx.compose.foundation.text.KeyboardActionScope(){}[0]
 
 // Targets: [ios, wasmJs]
+final fun (androidx.compose.ui/Modifier).com.huanshankeji.compose.ui/toCommonModifier(): com.huanshankeji.compose.ui/Modifier.Impl // com.huanshankeji.compose.ui/toCommonModifier|toCommonModifier@androidx.compose.ui.Modifier(){}[0]
+
+// Targets: [ios, wasmJs]
 final fun (com.huanshankeji.compose.foundation.layout/IntrinsicSize).com.huanshankeji.compose.foundation.layout/toPlatformValue(): androidx.compose.foundation.layout/IntrinsicSize // com.huanshankeji.compose.foundation.layout/toPlatformValue|toPlatformValue@com.huanshankeji.compose.foundation.layout.IntrinsicSize(){}[0]
 
 // Targets: [ios, wasmJs]
@@ -970,10 +973,10 @@ final fun (kotlin/Function3<com.huanshankeji.compose.foundation.layout/ColumnSco
 final fun (kotlin/Function3<com.huanshankeji.compose.foundation.layout/RowScope, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>).com.huanshankeji.compose.foundation.layout/toPlatformRowScopeContent(): kotlin/Function3<androidx.compose.foundation.layout/RowScope, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit> // com.huanshankeji.compose.foundation.layout/toPlatformRowScopeContent|toPlatformRowScopeContent@kotlin.Function3<com.huanshankeji.compose.foundation.layout.RowScope,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>(){}[0]
 
 // Targets: [ios, wasmJs]
-final fun (kotlin/Function3<com.huanshankeji.compose.ui/Modifier, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>).com.huanshankeji.compose/toContentWithoutModifier(): kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit> // com.huanshankeji.compose/toContentWithoutModifier|toContentWithoutModifier@kotlin.Function3<com.huanshankeji.compose.ui.Modifier,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>(){}[0]
+final fun (kotlin/Function3<com.huanshankeji.compose.ui/Modifier, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>).com.huanshankeji.compose.ext/toContentWithoutModifier(): kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit> // com.huanshankeji.compose.ext/toContentWithoutModifier|toContentWithoutModifier@kotlin.Function3<com.huanshankeji.compose.ui.Modifier,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>(){}[0]
 
 // Targets: [ios, wasmJs]
-final fun (kotlin/Function3<com.huanshankeji.compose.ui/Modifier, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>?).com.huanshankeji.compose/toNullableContentWithoutModifier(): kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>? // com.huanshankeji.compose/toNullableContentWithoutModifier|toNullableContentWithoutModifier@kotlin.Function3<com.huanshankeji.compose.ui.Modifier,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>?(){}[0]
+final fun (kotlin/Function3<com.huanshankeji.compose.ui/Modifier, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>?).com.huanshankeji.compose.ext/toNullableContentWithoutModifier(): kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>? // com.huanshankeji.compose.ext/toNullableContentWithoutModifier|toNullableContentWithoutModifier@kotlin.Function3<com.huanshankeji.compose.ui.Modifier,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>?(){}[0]
 
 // Targets: [ios, wasmJs]
 final fun com.huanshankeji.compose.foundation/rememberScrollState(kotlin/Int, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int): androidx.compose.foundation/ScrollState // com.huanshankeji.compose.foundation/rememberScrollState|rememberScrollState(kotlin.Int;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]

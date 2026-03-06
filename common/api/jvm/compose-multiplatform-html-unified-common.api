@@ -1,8 +1,3 @@
-public final class com/huanshankeji/compose/Content_composeUiKt {
-	public static final fun toContentWithoutModifier (Lkotlin/jvm/functions/Function3;)Lkotlin/jvm/functions/Function2;
-	public static final fun toNullableContentWithoutModifier (Lkotlin/jvm/functions/Function3;)Lkotlin/jvm/functions/Function2;
-}
-
 public abstract interface annotation class com/huanshankeji/compose/ExperimentalApi : java/lang/annotation/Annotation {
 }
 
@@ -10,6 +5,11 @@ public abstract interface annotation class com/huanshankeji/compose/ExtRecommend
 }
 
 public abstract interface annotation class com/huanshankeji/compose/LikelyInconsistentApi : java/lang/annotation/Annotation {
+}
+
+public final class com/huanshankeji/compose/ext/ContentWithModifier_composeUiKt {
+	public static final fun toContentWithoutModifier (Lkotlin/jvm/functions/Function3;)Lkotlin/jvm/functions/Function2;
+	public static final fun toNullableContentWithoutModifier (Lkotlin/jvm/functions/Function3;)Lkotlin/jvm/functions/Function2;
 }
 
 public abstract class com/huanshankeji/compose/ext/LoadingState {
@@ -736,6 +736,10 @@ public final class com/huanshankeji/compose/ui/Modifier$Impl : com/huanshankeji/
 	public fun toString ()Ljava/lang/String;
 	public static fun toString-impl (Landroidx/compose/ui/Modifier;)Ljava/lang/String;
 	public final synthetic fun unbox-impl ()Landroidx/compose/ui/Modifier;
+}
+
+public final class com/huanshankeji/compose/ui/Modifier_composeUiKt {
+	public static final fun toCommonModifier (Landroidx/compose/ui/Modifier;)Landroidx/compose/ui/Modifier;
 }
 
 public final class com/huanshankeji/compose/ui/draw/Alpha_composeUiKt {

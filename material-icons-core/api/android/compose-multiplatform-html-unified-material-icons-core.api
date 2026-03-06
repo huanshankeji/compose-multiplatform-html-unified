@@ -71,6 +71,7 @@ public final class com/huanshankeji/compose/material/icons/filled/Icons_composeU
 	public static final fun getArrowDropDown (Lcom/huanshankeji/compose/material/icons/Icons$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
 	public static final fun getDone (Lcom/huanshankeji/compose/material/icons/Icons$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
 	public static final fun getMenu (Lcom/huanshankeji/compose/material/icons/Icons$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
+	public static final fun getPerson (Lcom/huanshankeji/compose/material/icons/Icons$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
 	public static final fun getRefresh (Lcom/huanshankeji/compose/material/icons/Icons$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
 	public static final fun getRemove (Lcom/huanshankeji/compose/material/icons/Icons$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
 	public static final fun getSearch (Lcom/huanshankeji/compose/material/icons/Icons$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
