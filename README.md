@@ -100,6 +100,7 @@ This project is still in development and has not reached a stable state. Some AP
 
 ##### `ext` components
 
+- Badge: `Badge` (deprecated)
 - Button: `Button` (`FilledButton`), `ElevatedButton`, `FilledTonalButton`, `OutlinedButton`, `TextButton`
 - Card: `Card` (`FilledCard`), `ElevatedCard`, `OutlinedCard`
 - Chip: `AssistChip`, `ElevatedAssistChip`, `FilterChip`, `ElevatedFilterChip`, `InputChip`, `SuggestionChip`,
