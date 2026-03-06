@@ -515,18 +515,18 @@ fun Material3(/*modifier: Modifier = Modifier*/
         )
         CenterAlignedTopAppBar(
             title = { Text("Center Aligned") },
-            navigationIcon = { IconButton({}) { Icon(Icons.Default.Menu, null) } },
-            actions = { IconButton({}) { Icon(Icons.Default.Search, null) } }
+            navigationIcon = { IconButton({ scope.launch { snackbarHostState.showSnackbar("Nav clicked") } }) { Icon(Icons.Default.Menu, null) } },
+            actions = { IconButton({ scope.launch { snackbarHostState.showSnackbar("Search clicked") } }) { Icon(Icons.Default.Search, null) } }
         )
         MediumTopAppBar(
             title = { Text("Medium") },
-            navigationIcon = { IconButton({}) { Icon(Icons.Default.Menu, null) } },
-            actions = { IconButton({}) { Icon(Icons.Default.Search, null) } }
+            navigationIcon = { IconButton({ scope.launch { snackbarHostState.showSnackbar("Nav clicked") } }) { Icon(Icons.Default.Menu, null) } },
+            actions = { IconButton({ scope.launch { snackbarHostState.showSnackbar("Search clicked") } }) { Icon(Icons.Default.Search, null) } }
         )
         LargeTopAppBar(
             title = { Text("Large") },
-            navigationIcon = { IconButton({}) { Icon(Icons.Default.Menu, null) } },
-            actions = { IconButton({}) { Icon(Icons.Default.Search, null) } }
+            navigationIcon = { IconButton({ scope.launch { snackbarHostState.showSnackbar("Nav clicked") } }) { Icon(Icons.Default.Menu, null) } },
+            actions = { IconButton({ scope.launch { snackbarHostState.showSnackbar("Search clicked") } }) { Icon(Icons.Default.Search, null) } }
         )
 
         // Snackbar demo
