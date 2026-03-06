@@ -26,6 +26,7 @@ kotlin {
                 api(cpnProject(project, ":common"))
                 api(cpnProject(project, ":material-icons-core"))
                 //compileOnly(compose.material) // for KDoc element links only
+                implementation(commonDependencies.kotlinx.coroutines.core())
             }
         }
         composeUiMain {
@@ -36,6 +37,9 @@ kotlin {
         jsMain {
             dependencies {
                 api("com.huanshankeji:compose-html-material3:${DependencyVersions.huanshankejiComposeHtml}") { exclude("org.jetbrains.kotlin") }
+                implementation("com.huanshankeji:compose-html-material3-maicol07-material-web-additions:${DependencyVersions.huanshankejiComposeHtml}") {
+                    exclude("org.jetbrains.kotlin")
+                }
                 implementation("com.huanshankeji:compose-html-common:${DependencyVersions.huanshankejiComposeHtml}") {
                     exclude("org.jetbrains.kotlin")
                 }
@@ -46,6 +50,7 @@ kotlin {
 
     compilerOptions {
         optIn.add("com.huanshankeji.compose.html.material3.ExperimentalComposeHtmlMaterialApi")
+        optIn.add("com.huanshankeji.compose.html.material3.maicol07.materialwebadditions.MaterialWebAdditionsApi")
     }
 }
 

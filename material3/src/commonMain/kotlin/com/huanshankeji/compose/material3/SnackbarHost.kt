@@ -1,12 +1,14 @@
 package com.huanshankeji.compose.material3
 
-/*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.Stable
+import com.huanshankeji.compose.ui.Modifier
+
 // copied and adapted from `SnackbarHost.kt` in `androidx.compose.material3`
 
 @Stable
-expect class SnackbarHostState {
-    var currentSnackbarData by mutableStateOf<SnackbarData?>(null)
-        private set
+expect class SnackbarHostState() {
+    val currentSnackbarData: SnackbarData?
 
     suspend fun showSnackbar(
         message: String,
@@ -23,7 +25,6 @@ expect class SnackbarHostState {
 expect fun SnackbarHost(
     hostState: SnackbarHostState,
     modifier: Modifier = Modifier,
-    snackbar: @Composable (SnackbarData) -> Unit = { Snackbar(it) }
 )
 
 @Stable
@@ -42,10 +43,9 @@ interface SnackbarData {
 }
 
 enum class SnackbarResult {
-   Dismissed, ActionPerformed
+    Dismissed, ActionPerformed
 }
 
 enum class SnackbarDuration {
     Short, Long, Indefinite
 }
-*/
