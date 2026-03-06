@@ -24,7 +24,7 @@ expect fun AlertDialog(
 /**
  * A simple dialog without the conventional components such as title, text, and buttons, showing just a [Card] overlay.
  * The corresponding Compose UI `Dialog` component is actually not in the `material3` package but in `androidx.compose.ui.window`.
- * Currently not completely visually consistent on both kinds of platforms. On Compose UI, it doesn't have a min width; while on JS DOM, it does.
+ * Currently not completely visually consistent on both kinds of platforms. On Compose UI, it doesn't have a min height; while on JS DOM, it does.
  */
 @Composable
 expect fun SimpleDialog(

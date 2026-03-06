@@ -82,18 +82,18 @@ This project is still in development and has not reached a stable state. Some AP
 - `Button` (`FilledButton`), `ElevatedButton`, `FilledTonalButton`, `OutlinedButton`, `TextButton`
 - `Card` (`FilledCard`), `ElevatedCard`, `OutlinedCard`
 - `Checkbox`
-- `AlertDialog`
+- `AlertDialog`, `SimpleDialog`
 - `HorizontalDivider`
 - `FloatingActionButton`, `SmallFloatingActionButton`, `LargeFloatingActionButton`, `ExtendedFloatingActionButton`
 - `Icon`
 - `IconButton`, `IconToggleButton`, `FilledIconButton`, `FilledIconToggleButton`, `FilledTonalIconButton`, `FilledTonalIconToggleButton`, `OutlinedIconButton`, `OutlinedIconToggleButton`
 - `LinearProgressIndicator`, `CircularProgressIndicator`
 - `RadioButton`
-- `NavigationDrawer`, `ModalNavigationDrawer` (deprecated)
+- `ModalNavigationDrawer` (deprecated)
 - `SingleChoiceSegmentedButtonRow`, `MultiChoiceSegmentedButtonRow`
-- `Slider`
+- `Slider`, `RangeSlider`
 - `Switch`
-- `TabRow`, `Tab`
+- `PrimaryTabRow`, `SecondaryTabRow` (tabs are in `ext`)
 - `Text`
 
 ##### `ext` components
@@ -110,6 +110,8 @@ This project is still in development and has not reached a stable state. Some AP
 - `FilledSelect`, `OutlinedSelect`, `SelectOption`
 - `MaterialText`, `TaglessText`
 - `TextField`, `OutlinedTextField`
+- `RadioButtonRow`, `radioGroup`
+- `PrimaryTab`, `SecondaryTab`
 
 ##### `lazy.ext` components
 

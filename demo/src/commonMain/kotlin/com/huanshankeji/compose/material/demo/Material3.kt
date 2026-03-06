@@ -304,10 +304,10 @@ fun Material3(/*modifier: Modifier = Modifier*/
         fun RadioGroupContent() {
             Selection.entries.forEach { selection ->
                 RadioButtonRow(
-                    selection.name.lowercase(),
                     radioSelection == selection,
                     { radioSelection = selection },
-                    enabled = selection != Selection.C
+                    enabled = selection != Selection.C,
+                    radioButtonIdJsDom = selection.name.lowercase(),
                 ) {
                     TaglessText(selection.displayText())
                 }
