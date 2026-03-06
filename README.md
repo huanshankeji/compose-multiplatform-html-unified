@@ -53,25 +53,25 @@ This project is still in development and has not reached a stable state. Some AP
 
 **Deprecation notice:** The Material 2 components are no longer maintained and published for release since v0.6.0, due to its decreasing popularity and the underlying KMDC library's incompatible Kotlin and Compose versions.
 
-- `Button`
-- `Card`
-- `Checkbox`
-- `Divider` (not working properly on JS yet)
-- `Icon`
-- `IconButton`
-- `Snackbar` (inconsistent, not recommended), `SnackBarHost` (recommended)
-- `Switch`
-- `Text`
+- Button: `Button`
+- Card: `Card`
+- Checkbox: `Checkbox`
+- Divider: `Divider` (not working properly on JS yet)
+- Icon: `Icon`
+- Icon button: `IconButton`
+- Snackbar: `Snackbar` (inconsistent, not recommended), `SnackBarHost` (recommended)
+- Switch: `Switch`
+- Text: `Text`
 
 ##### `ext` components
 
-- `Button`
-- `IconButton`
-- `RadioRow`, `RadioGroupRow`
-- `SwitchWithLabel`
-- `MaterialText`, `TaglessText`
-- `TextField`, `OutlinedTextField`
-- `TopAppBarScaffold`
+- Button: `Button`
+- Icon button: `IconButton`
+- Radio button: `RadioRow`, `RadioGroupRow`
+- Switch: `SwitchWithLabel`
+- Text: `MaterialText`, `TaglessText`
+- Text field: `TextField`, `OutlinedTextField`
+- Top app bar: `TopAppBarScaffold`
 
 ##### `lazy.ext` components
 
@@ -79,39 +79,45 @@ This project is still in development and has not reached a stable state. Some AP
 
 #### Material 3 components
 
-- `Button` (`FilledButton`), `ElevatedButton`, `FilledTonalButton`, `OutlinedButton`, `TextButton`
-- `Card` (`FilledCard`), `ElevatedCard`, `OutlinedCard`
-- `Checkbox`
-- `AlertDialog`, `SimpleDialog`
-- `HorizontalDivider`
-- `FloatingActionButton`, `SmallFloatingActionButton`, `LargeFloatingActionButton`, `ExtendedFloatingActionButton`
-- `Icon`
-- `IconButton`, `IconToggleButton`, `FilledIconButton`, `FilledIconToggleButton`, `FilledTonalIconButton`, `FilledTonalIconToggleButton`, `OutlinedIconButton`, `OutlinedIconToggleButton`
-- `LinearProgressIndicator`, `CircularProgressIndicator`
-- `RadioButton`
-- `ModalNavigationDrawer` (deprecated)
-- `SingleChoiceSegmentedButtonRow`, `MultiChoiceSegmentedButtonRow`
-- `Slider`, `RangeSlider`
-- `Switch`
-- `PrimaryTabRow`, `SecondaryTabRow` (tabs are in `ext`)
-- `Text`
+- Button: `Button` (`FilledButton`), `ElevatedButton`, `FilledTonalButton`, `OutlinedButton`, `TextButton`
+- Card: `Card` (`FilledCard`), `ElevatedCard`, `OutlinedCard`
+- Checkbox: `Checkbox`
+- Dialog: `AlertDialog`, `SimpleDialog`
+- Divider: `HorizontalDivider`
+- Floating action button: `FloatingActionButton`, `SmallFloatingActionButton`, `LargeFloatingActionButton`,
+  `ExtendedFloatingActionButton`
+- Icon: `Icon`
+- Icon button: `IconButton`, `IconToggleButton`, `FilledIconButton`, `FilledIconToggleButton`, `FilledTonalIconButton`,
+  `FilledTonalIconToggleButton`, `OutlinedIconButton`, `OutlinedIconToggleButton`
+- Navigation drawer: `ModalNavigationDrawer` (deprecated)
+- Progress indicator: `LinearProgressIndicator`, `CircularProgressIndicator`
+- Radio button: `RadioButton`
+- Segmented button: `SingleChoiceSegmentedButtonRow`, `MultiChoiceSegmentedButtonRow`
+- Slider: `Slider`, `RangeSlider`
+- Switch: `Switch`
+- Tab: `PrimaryTabRow`, `SecondaryTabRow` (tabs are in `ext`)
+- Text: `Text`
 
 ##### `ext` components
 
-- `Button` (`FilledButton`), `ElevatedButton`, `FilledTonalButton`, `OutlinedButton`, `TextButton`
-- `Card` (`FilledCard`), `ElevatedCard`, `OutlinedCard`
-- `AssistChip`, `ElevatedAssistChip`, `FilterChip`, `ElevatedFilterChip`, `InputChip`, `SuggestionChip`, `ElevatedSuggestionChip`
-- `DropdownMenu`, `DropdownMenuItem`
+- Button: `Button` (`FilledButton`), `ElevatedButton`, `FilledTonalButton`, `OutlinedButton`, `TextButton`
+- Card: `Card` (`FilledCard`), `ElevatedCard`, `OutlinedCard`
+- Chip: `AssistChip`, `ElevatedAssistChip`, `FilterChip`, `ElevatedFilterChip`, `InputChip`, `SuggestionChip`,
+  `ElevatedSuggestionChip`
+- Dropdown menu: `DropdownMenu`, `DropdownMenuItem`
   - `ExposedDropdownMenuBox`, `ExposedDropdownMenuBoxScope.ExposedDropdownMenuBoxTextField`, `ExposedDropdownMenuBoxScope.ExposedDropdownMenu`, `ExposedDropdownMenuBoxWithTextField`
-- `FloatingActionButton`, `SmallFloatingActionButton`, `LargeFloatingActionButton`, `ExtendedFloatingActionButton`
-- `IconButton`, `IconToggleButton`, `FilledIconButton`, `FilledIconToggleButton`, `FilledTonalIconButton`, `FilledTonalIconToggleButton`, `OutlinedIconButton`, `OutlinedIconToggleButton`
-- `NavigationBar`, `NavigationBarItem`
-- `SingleChoiceSegmentedButtonRowScope.SegmentedButton`, `MultiChoiceSegmentedButtonRowScope.SegmentedButton`
-- `FilledSelect`, `OutlinedSelect`, `SelectOption`
-- `MaterialText`, `TaglessText`
-- `TextField`, `OutlinedTextField`
-- `RadioButtonRow`, `radioGroup`
-- `PrimaryTab`, `SecondaryTab`
+- Floating action button: `FloatingActionButton`, `SmallFloatingActionButton`, `LargeFloatingActionButton`,
+  `ExtendedFloatingActionButton`
+- Icon button: `IconButton`, `IconToggleButton`, `FilledIconButton`, `FilledIconToggleButton`, `FilledTonalIconButton`,
+  `FilledTonalIconToggleButton`, `OutlinedIconButton`, `OutlinedIconToggleButton`
+- Navigation bar: `NavigationBar`, `NavigationBarItem`
+- Radio button: `RadioButtonRow`, `radioGroup`
+- Segmented button: `SingleChoiceSegmentedButtonRowScope.SegmentedButton`,
+  `MultiChoiceSegmentedButtonRowScope.SegmentedButton`
+- Select: `FilledSelect`, `OutlinedSelect`, `SelectOption`
+- Tab: `PrimaryTab`, `SecondaryTab`
+- Text: `MaterialText`, `TaglessText`
+- Text field: `TextField`, `OutlinedTextField`
 
 ##### `lazy.ext` components
 
