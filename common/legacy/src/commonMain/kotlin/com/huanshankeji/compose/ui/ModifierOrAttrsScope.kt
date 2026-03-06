@@ -14,7 +14,7 @@ inline fun <TElement : Element> modifierOrAttrs(noinline modifierOrAttrs: NotNul
     modifierOrAttrs
 
 operator fun <TElement : Element> NotNullModifierOrAttrs<TElement>.plus(other: ModifierOrAttrs<TElement>): ModifierOrAttrs<TElement> =
-    if (other === null) this
+    if (other == null) this
     else {
         {
             this@plus()

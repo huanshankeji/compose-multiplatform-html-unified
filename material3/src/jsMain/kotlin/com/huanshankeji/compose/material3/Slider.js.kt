@@ -23,7 +23,7 @@ actual fun Slider(
     enabled: Boolean,
     valueRange: ClosedFloatingPointRange<Float>,
     /*@IntRange(from = 0)*/ steps: Int,
-    onValueChangeFinished: (() -> Unit)?
+    onValueChangeFinished: (() -> Unit)?,
 ) =
     MdSlider(
         valueRange.start,
@@ -44,7 +44,7 @@ actual fun Slider(
             }
 
             onValueChangeFinished?.let { onChange { it() } }
-        }
+        },
     )
 
 @Composable
@@ -55,7 +55,7 @@ actual fun RangeSlider(
     enabled: Boolean,
     valueRange: ClosedFloatingPointRange<Float>,
     /*@IntRange(from = 0)*/ steps: Int,
-    onValueChangeFinished: (() -> Unit)?
+    onValueChangeFinished: (() -> Unit)?,
 ) =
     MdSlider(
         valueRange.start,

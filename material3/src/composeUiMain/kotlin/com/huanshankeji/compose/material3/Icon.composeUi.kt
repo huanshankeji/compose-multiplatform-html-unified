@@ -8,6 +8,6 @@ import com.huanshankeji.compose.ui.Modifier
 actual fun Icon(
     icon: Icon,
     contentDescription: String?,
-    modifier: Modifier
+    modifier: Modifier,
 ) =
     androidx.compose.material3.Icon(icon, contentDescription, modifier.platformModifier)

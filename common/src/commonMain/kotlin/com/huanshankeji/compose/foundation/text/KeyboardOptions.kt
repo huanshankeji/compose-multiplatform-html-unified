@@ -14,7 +14,7 @@ class KeyboardOptions(
     val autoCorrect: Boolean? = null,
     val keyboardType: KeyboardType? = null,
     val imeAction: ImeAction? = null,
-    val platformImeOptions: PlatformImeOptions? = null
+    val platformImeOptions: PlatformImeOptions? = null,
 ) {
     companion object {
         @Stable

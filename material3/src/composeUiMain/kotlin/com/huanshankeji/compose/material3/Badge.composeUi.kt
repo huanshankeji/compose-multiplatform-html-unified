@@ -7,8 +7,8 @@ import com.huanshankeji.compose.ui.Modifier
 @Composable
 actual fun Badge(
     modifier: Modifier,
-    content: String
+    content: String,
 ) =
     androidx.compose.material3.Badge(
-        modifier.platformModifier
+        modifier.platformModifier,
     ) { Text(content) }

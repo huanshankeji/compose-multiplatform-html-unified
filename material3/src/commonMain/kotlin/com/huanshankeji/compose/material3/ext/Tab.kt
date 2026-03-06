@@ -90,11 +90,11 @@ private fun TabRowWithPanels(
                 with(tabArgs) {
                     when (primaryOrSecondary) {
                         PrimaryOrSecondary.Primary -> PrimaryTab(
-                            selected, onClick, modifier, enabled, text, icon, tabIdJsDom, panelIdJsDom
+                            selected, onClick, modifier, enabled, text, icon, tabIdJsDom, panelIdJsDom,
                         )
 
                         PrimaryOrSecondary.Secondary -> SecondaryTab(
-                            selected, onClick, modifier, enabled, text, icon, tabIdJsDom, panelIdJsDom
+                            selected, onClick, modifier, enabled, text, icon, tabIdJsDom, panelIdJsDom,
                         )
                     }
                 }

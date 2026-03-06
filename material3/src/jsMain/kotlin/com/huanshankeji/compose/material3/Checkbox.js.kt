@@ -13,7 +13,7 @@ actual fun Checkbox(
     checked: Boolean,
     onCheckedChange: ((Boolean) -> Unit)?,
     modifier: Modifier,
-    enabled: Boolean
+    enabled: Boolean,
 ) =
     MdCheckbox(
         checked.isTrueOrNull(),
@@ -26,5 +26,5 @@ actual fun Checkbox(
 
             //onCheckedChange?.let { onClick { it(!checked) } }
             onCheckedChange?.let { onInput { it(!checked) } }
-        }
+        },
     )

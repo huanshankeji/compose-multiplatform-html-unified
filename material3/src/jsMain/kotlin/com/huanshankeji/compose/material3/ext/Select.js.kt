@@ -11,7 +11,7 @@ import org.jetbrains.compose.web.attributes.AttrsScope
 
 private fun mdSelectAttrs(
     modifier: Modifier,
-    menuArgs: SelectMenuArgs
+    menuArgs: SelectMenuArgs,
 ): AttrsScope<InternalSelectElement>.() -> Unit =
     modifier.toAttrs {
         /*
@@ -37,7 +37,7 @@ actual fun FilledSelect(
     valueJsDom: String,
     modifier: Modifier,
     textFieldArgs: SelectTextFieldArgs,
-    menuArgs: SelectMenuArgs
+    menuArgs: SelectMenuArgs,
 ) =
     MdFilledSelect(
         label = textFieldArgs.label,
@@ -46,7 +46,7 @@ actual fun FilledSelect(
         disabled = textFieldArgs.enabled.isFalseOrNull(),
         value = valueJsDom,
         clampMenuWidth = menuArgs.matchAnchorWidth,
-        attrs = mdSelectAttrs(modifier, menuArgs)
+        attrs = mdSelectAttrs(modifier, menuArgs),
     ) {
         menuArgs.content()
     }
@@ -58,7 +58,7 @@ actual fun OutlinedSelect(
     valueJsDom: String,
     modifier: Modifier,
     textFieldArgs: SelectTextFieldArgs,
-    menuArgs: SelectMenuArgs
+    menuArgs: SelectMenuArgs,
 ) =
     MdOutlinedSelect(
         label = textFieldArgs.label,
@@ -66,7 +66,7 @@ actual fun OutlinedSelect(
         error = textFieldArgs.isError.isTrueOrNull(),
         disabled = textFieldArgs.enabled.isFalseOrNull(),
         value = valueJsDom,
-        attrs = mdSelectAttrs(modifier, menuArgs)
+        attrs = mdSelectAttrs(modifier, menuArgs),
     ) {
         menuArgs.content()
     }

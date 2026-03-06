@@ -9,7 +9,7 @@ import com.huanshankeji.compose.ui.Modifier
 @Composable
 expect fun LinearProgressIndicator(
     progress: () -> Float,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 )
 
 /**
@@ -17,7 +17,7 @@ expect fun LinearProgressIndicator(
  */
 @Composable
 expect fun LinearProgressIndicator(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 )
 
 /**
@@ -26,7 +26,7 @@ expect fun LinearProgressIndicator(
 @Composable
 expect fun CircularProgressIndicator(
     progress: () -> Float,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 )
 
 /**
@@ -34,5 +34,5 @@ expect fun CircularProgressIndicator(
  */
 @Composable
 expect fun CircularProgressIndicator(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 )

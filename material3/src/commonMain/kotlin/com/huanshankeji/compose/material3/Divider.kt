@@ -11,5 +11,5 @@ import com.huanshankeji.compose.ui.Modifier
  */
 @Composable
 expect fun HorizontalDivider(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 )

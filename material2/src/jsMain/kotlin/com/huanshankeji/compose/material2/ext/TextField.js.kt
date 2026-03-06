@@ -28,7 +28,7 @@ fun CommonTextFieldWithMDCContentIcons(
     leadingIcon: MDCContent<MDCTextFieldScope>? = null,
     trailingIcon: MDCContent<MDCTextFieldScope>? = null,
     keyboardOptions: KeyboardOptions,
-    keyboardActions: KeyboardActions
+    keyboardActions: KeyboardActions,
 ) =
     MDCTextField(
         value,
@@ -41,7 +41,7 @@ fun CommonTextFieldWithMDCContentIcons(
             onInput { onValueChange(it.value) }
 
             attrsFrom(keyboardOptions, keyboardActions)
-        }
+        },
     )
 
 @Composable
@@ -55,7 +55,7 @@ fun CommonTextFieldWithIconsLikeComposeUi(
     leadingIcon: @Composable (() -> Unit)?,
     trailingIcon: @Composable (() -> Unit)?,
     keyboardOptions: KeyboardOptions,
-    keyboardActions: KeyboardActions
+    keyboardActions: KeyboardActions,
 ) =
     CommonTextFieldWithMDCContentIcons(
         value,
@@ -67,7 +67,7 @@ fun CommonTextFieldWithIconsLikeComposeUi(
         leadingIcon?.let { { it() } },
         trailingIcon?.let { { it() } },
         keyboardOptions,
-        keyboardActions
+        keyboardActions,
     )
 
 @Composable
@@ -81,7 +81,7 @@ fun CommonTextFieldWithMaterialIcons(
     leadingIcon: Icon?,
     trailingIcon: Icon?,
     keyboardOptions: KeyboardOptions,
-    keyboardActions: KeyboardActions
+    keyboardActions: KeyboardActions,
 ) =
     CommonTextFieldWithMDCContentIcons(
         value,
@@ -94,7 +94,7 @@ fun CommonTextFieldWithMaterialIcons(
         leadingIcon?.let { { MDCTextFieldLeadingIcon(attrs = { mdcIconWithStyle() }) { Text(it.name) } } },
         trailingIcon?.let { { MDCTextFieldTrailingIcon(attrs = { mdcIconWithStyle() }) { Text(it.name) } } },
         keyboardOptions,
-        keyboardActions
+        keyboardActions,
     )
 
 
@@ -109,7 +109,7 @@ actual fun TextField(
     trailingIcon: @Composable (() -> Unit)?,
     keyboardOptions: KeyboardOptions,
     keyboardActions: KeyboardActions,
-    singleLine: Boolean
+    singleLine: Boolean,
 ) =
     CommonTextFieldWithIconsLikeComposeUi(
         value,
@@ -121,7 +121,7 @@ actual fun TextField(
         leadingIcon,
         trailingIcon,
         keyboardOptions,
-        keyboardActions
+        keyboardActions,
     )
 
 @Composable
@@ -135,7 +135,7 @@ actual fun TextFieldWithMaterialIcons(
     trailingIcon: Icon?,
     keyboardOptions: KeyboardOptions,
     keyboardActions: KeyboardActions,
-    singleLine: Boolean
+    singleLine: Boolean,
 ) =
     CommonTextFieldWithMaterialIcons(
         value,
@@ -147,7 +147,7 @@ actual fun TextFieldWithMaterialIcons(
         leadingIcon,
         trailingIcon,
         keyboardOptions,
-        keyboardActions
+        keyboardActions,
     )
 
 
@@ -162,7 +162,7 @@ actual fun OutlinedTextField(
     trailingIcon: @Composable (() -> Unit)?,
     keyboardOptions: KeyboardOptions,
     keyboardActions: KeyboardActions,
-    singleLine: Boolean
+    singleLine: Boolean,
 ) =
     CommonTextFieldWithIconsLikeComposeUi(
         value,
@@ -174,7 +174,7 @@ actual fun OutlinedTextField(
         leadingIcon,
         trailingIcon,
         keyboardOptions,
-        keyboardActions
+        keyboardActions,
     )
 
 @Composable
@@ -188,7 +188,7 @@ actual fun OutlinedTextFieldWithMaterialIcons(
     trailingIcon: Icon?,
     keyboardOptions: KeyboardOptions,
     keyboardActions: KeyboardActions,
-    singleLine: Boolean
+    singleLine: Boolean,
 ) =
     CommonTextFieldWithMaterialIcons(
         value,
@@ -200,7 +200,7 @@ actual fun OutlinedTextFieldWithMaterialIcons(
         leadingIcon,
         trailingIcon,
         keyboardOptions,
-        keyboardActions
+        keyboardActions,
     )
 
 
@@ -213,7 +213,7 @@ actual fun TextArea(
     label: String?,
     keyboardOptions: KeyboardOptions,
     keyboardActions: KeyboardActions,
-    lines: Int
+    lines: Int,
 ) =
     MDCTextArea(
         value,

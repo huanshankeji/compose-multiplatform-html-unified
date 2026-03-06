@@ -13,7 +13,7 @@ expect fun ExposedDropdownMenuBox(
     expanded: Boolean,
     onExpandedChange: (Boolean) -> Unit,
     modifier: Modifier = Modifier,
-    content: @Composable ExposedDropdownMenuBoxScope.() -> Unit
+    content: @Composable ExposedDropdownMenuBoxScope.() -> Unit,
 )
 
 expect class ExposedDropdownMenuBoxScope {
@@ -21,7 +21,7 @@ expect class ExposedDropdownMenuBoxScope {
 
     /*
     abstract fun Modifier.exposedDropdownSize(
-        matchTextFieldWidth: Boolean = true
+        matchTextFieldWidth: Boolean = true,
     ): Modifier
     */
 
@@ -37,7 +37,7 @@ expect class ExposedDropdownMenuBoxScope {
         modifier: Modifier = Modifier,
         //scrollState: ScrollState = rememberScrollState(),
         matchAnchorWidthComposeUi: Boolean = true,
-        content: @Composable /*ColumnScope.*/() -> Unit
+        content: @Composable /*ColumnScope.*/() -> Unit,
     )
 
     //TODO for `DropdownMenuItem`: `contentPadding = ExposedDropdownMenuDefaults.ItemContentPadding`
@@ -50,7 +50,7 @@ fun ExposedDropdownMenuBoxWithTextField(
     modifier: Modifier = Modifier,
     textFieldArgs: ExposedDropdownMenuBoxTextFieldArgs,
     //scrollState: ScrollState = rememberScrollState(),
-    exposedDropdownMenuArgs: ExposedDropdownMenuArgs
+    exposedDropdownMenuArgs: ExposedDropdownMenuArgs,
 ) =
     // adapted from the examples in https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#ExposedDropdownMenuBox(kotlin.Boolean,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1)
     ExposedDropdownMenuBox(expanded, onExpandedChange, modifier) {
@@ -62,7 +62,7 @@ fun ExposedDropdownMenuBoxWithTextField(
                 onCloseJsDom,
                 this.modifier,
                 matchAnchorWidthComposeUi,
-                content
+                content,
             )
         }
     }
@@ -77,7 +77,7 @@ fun ExposedDropdownMenuBoxWithFilledTextField(
     modifier: Modifier = Modifier,
     textFieldArgs: ExposedDropdownMenuBoxTextFieldArgs,
     //scrollState: ScrollState = rememberScrollState(),
-    exposedDropdownMenuArgs: ExposedDropdownMenuArgs
+    exposedDropdownMenuArgs: ExposedDropdownMenuArgs,
 ) =
     ExposedDropdownMenuBoxWithTextField(expanded, onExpandedChange, modifier, textFieldArgs, exposedDropdownMenuArgs)
 
@@ -88,7 +88,7 @@ fun ExposedDropdownMenuBoxWithOutlinedTextField(
     modifier: Modifier = Modifier,
     textFieldArgs: ExposedDropdownMenuBoxTextFieldArgs,
     //scrollState: ScrollState = rememberScrollState(),
-    exposedDropdownMenuArgs: ExposedDropdownMenuArgs
+    exposedDropdownMenuArgs: ExposedDropdownMenuArgs,
 ) =
     // adapted from the examples in https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#ExposedDropdownMenuBox(kotlin.Boolean,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1)
     ExposedDropdownMenuBox(expanded, onExpandedChange, modifier) {
@@ -100,7 +100,7 @@ fun ExposedDropdownMenuBoxWithOutlinedTextField(
                 onCloseJsDom,
                 this.modifier,
                 matchAnchorWidthComposeUi,
-                content
+                content,
             )
         }
     }
@@ -129,14 +129,14 @@ class ExposedDropdownMenuBoxTextFieldArgs(
 @Composable
 expect fun ExposedDropdownMenuBoxScope.ExposedDropdownMenuBoxTextField(
     expanded: Boolean,
-    args: ExposedDropdownMenuBoxTextFieldArgs
+    args: ExposedDropdownMenuBoxTextFieldArgs,
 )
 // TODO Set `menuAnchor` on the icon too when the text field is editable and `MenuAnchorType.SecondaryEditable` is supported. See https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#ExposedDropdownMenuBox(kotlin.Boolean,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1).
 
 @Composable
 expect fun ExposedDropdownMenuBoxScope.ExposedDropdownMenuBoxOutlinedTextField(
     expanded: Boolean,
-    args: ExposedDropdownMenuBoxTextFieldArgs
+    args: ExposedDropdownMenuBoxTextFieldArgs,
 )
 
 interface ICommonExposedDropdownMenuArgs {
@@ -155,5 +155,5 @@ class ExposedDropdownMenuArgs(
     override val onCloseJsDom: () -> Unit,
     val modifier: Modifier = Modifier,
     val matchAnchorWidthComposeUi: Boolean = true,
-    override val content: @Composable /*ColumnScope.*/() -> Unit
+    override val content: @Composable /*ColumnScope.*/() -> Unit,
 ) : ICommonExposedDropdownMenuArgs

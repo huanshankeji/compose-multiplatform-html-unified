@@ -11,14 +11,14 @@ expect class ListScope {
         count: Int,
         key: ((index: Int) -> Any)? = null,
         contentType: (index: Int) -> Any? = { null },
-        itemContent: @Composable ItemScope.(index: Int) -> Unit
+        itemContent: @Composable ItemScope.(index: Int) -> Unit,
     )
 
     fun group(
         key: Any? = null,
         contentType: Any? = null,
         headerContent: @Composable HeaderScope.() -> Unit,
-        content: ListScope.() -> Unit
+        content: ListScope.() -> Unit,
     )
 
     @Composable
@@ -31,11 +31,11 @@ expect class HeaderScope
 
 class ListItemComponents(
     val text: @Composable () -> Unit,
-    val secondaryText: @Composable (() -> Unit)? = null
+    val secondaryText: @Composable (() -> Unit)? = null,
 ) {
     constructor(text: String, secondaryText: String? = null) : this(
         { TaglessText(text) },
-        secondaryText?.let { { TaglessText(it) } }
+        secondaryText?.let { { TaglessText(it) } },
     )
 }
 
@@ -50,7 +50,7 @@ fun ListScope.conventionalItems(
     count: Int,
     key: ((index: Int) -> Any)? = null,
     contentType: (index: Int) -> Any? = { null },
-    itemContent: (index: Int) -> ListItemComponents
+    itemContent: (index: Int) -> ListItemComponents,
 ) =
     items(count, key, contentType) { index ->
         ListItemContent(itemContent(index))

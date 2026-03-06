@@ -20,7 +20,7 @@ import com.huanshankeji.androidx.navigation.compose.ComposeNavigator.Destination
     override fun navigate(
         entries: List<NavBackStackEntry>,
         navOptions: NavOptions?,
-        navigatorExtras: Extras?
+        navigatorExtras: Extras?,
     ) {
         entries.forEach { entry ->
             state.pushWithTransition(entry)

@@ -9,24 +9,24 @@ import com.huanshankeji.compose.ui.graphics.Color
 
 @Stable
 actual fun Modifier.roundedCornerBackgroundAndOuterBorder(
-    border: BorderStroke, cornerRadius: Dp, backgroundColor: Color
+    border: BorderStroke, cornerRadius: Dp, backgroundColor: Color,
 ): Modifier =
     background(backgroundColor).roundedCornerOuterBorder(border, cornerRadius)
 
 @Stable
 actual fun Modifier.roundedCornerBackgroundAndOuterBorder(
-    border: BorderStroke, cornerRadiusPercent: Int, backgroundColor: Color
+    border: BorderStroke, cornerRadiusPercent: Int, backgroundColor: Color,
 ): Modifier =
     background(backgroundColor).roundedCornerOuterBorder(border, cornerRadiusPercent)
 
 @Stable
 actual fun Modifier.roundedCornerBackgroundAndOuterBorder(
-    width: Dp, borderColor: Color, cornerRadius: Dp, backgroundColor: Color
+    width: Dp, borderColor: Color, cornerRadius: Dp, backgroundColor: Color,
 ): Modifier =
     background(backgroundColor).roundedCornerOuterBorder(width, borderColor, cornerRadius)
 
 @Stable
 actual fun Modifier.roundedCornerBackgroundAndOuterBorder(
-    width: Dp, borderColor: Color, cornerRadiusPercent: Int, backgroundColor: Color
+    width: Dp, borderColor: Color, cornerRadiusPercent: Int, backgroundColor: Color,
 ): Modifier =
     background(backgroundColor).roundedCornerOuterBorder(width, borderColor, cornerRadiusPercent)

@@ -21,25 +21,25 @@ private fun Modifier.roundedCornerBackground(color: Color, cornerRadiusPercent: 
 
 @Stable
 actual fun Modifier.roundedCornerBackgroundAndOuterBorder(
-    border: BorderStroke, cornerRadius: Dp, backgroundColor: Color
+    border: BorderStroke, cornerRadius: Dp, backgroundColor: Color,
 ): Modifier =
     roundedCornerBackground(backgroundColor, cornerRadius).roundedCornerOuterBorder(border, cornerRadius)
 
 @Stable
 actual fun Modifier.roundedCornerBackgroundAndOuterBorder(
-    border: BorderStroke, cornerRadiusPercent: Int, backgroundColor: Color
+    border: BorderStroke, cornerRadiusPercent: Int, backgroundColor: Color,
 ): Modifier =
     roundedCornerBackground(backgroundColor, cornerRadiusPercent).roundedCornerOuterBorder(border, cornerRadiusPercent)
 
 @Stable
 actual fun Modifier.roundedCornerBackgroundAndOuterBorder(
-    width: Dp, borderColor: Color, cornerRadius: Dp, backgroundColor: Color
+    width: Dp, borderColor: Color, cornerRadius: Dp, backgroundColor: Color,
 ): Modifier =
     roundedCornerBackground(backgroundColor, cornerRadius).roundedCornerOuterBorder(width, borderColor, cornerRadius)
 
 @Stable
 actual fun Modifier.roundedCornerBackgroundAndOuterBorder(
-    width: Dp, borderColor: Color, cornerRadiusPercent: Int, backgroundColor: Color
+    width: Dp, borderColor: Color, cornerRadiusPercent: Int, backgroundColor: Color,
 ): Modifier =
     roundedCornerBackground(backgroundColor, cornerRadiusPercent)
         .roundedCornerOuterBorder(width, borderColor, cornerRadiusPercent)

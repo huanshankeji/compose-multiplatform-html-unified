@@ -25,7 +25,7 @@ expect fun TextField(
     trailingIcon: @Composable (() -> Unit)? = null,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
-    singleLine: Boolean = false
+    singleLine: Boolean = false,
 )
 
 /**
@@ -42,7 +42,7 @@ expect fun TextFieldWithMaterialIcons(
     trailingIcon: Icon? = null,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
-    singleLine: Boolean = false
+    singleLine: Boolean = false,
 )
 
 
@@ -61,7 +61,7 @@ expect fun OutlinedTextField(
     trailingIcon: @Composable (() -> Unit)? = null,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
-    singleLine: Boolean = false
+    singleLine: Boolean = false,
 )
 
 /**
@@ -78,7 +78,7 @@ expect fun OutlinedTextFieldWithMaterialIcons(
     trailingIcon: Icon? = null,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
-    singleLine: Boolean = false
+    singleLine: Boolean = false,
 )
 
 
@@ -91,5 +91,5 @@ expect fun TextArea(
     label: String? = null,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
-    lines: Int
+    lines: Int,
 )

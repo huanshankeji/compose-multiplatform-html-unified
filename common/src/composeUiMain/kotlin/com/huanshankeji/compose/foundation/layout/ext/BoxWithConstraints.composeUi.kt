@@ -13,10 +13,10 @@ import com.huanshankeji.compose.ui.Modifier
 actual fun BoxWithConstraints(
     modifier: Modifier,
     contentAlignment: Alignment,
-    content: @Composable BoxWithConstraintsScope.() -> Unit
+    content: @Composable BoxWithConstraintsScope.() -> Unit,
 ) =
     androidx.compose.foundation.layout.BoxWithConstraints(
-        modifier.platformModifier, contentAlignment.platformAlignment/*, false*/
+        modifier.platformModifier, contentAlignment.platformAlignment/*, false*/,
     ) {
         BoxWithConstraintsScopeImpl(this, maxWidth, maxHeight).content()
     }
@@ -25,5 +25,5 @@ actual fun BoxWithConstraints(
 class BoxWithConstraintsScopeImpl(
     override val platformBoxScope: BoxScope,
     override val maxWidth: Dp,
-    override val maxHeight: Dp
+    override val maxHeight: Dp,
 ) : BoxWithConstraintsScope

@@ -40,7 +40,7 @@ actual abstract class PaddingValues internal constructor() {
         @Stable
         val right: Dp,
         @Stable
-        val bottom: Dp
+        val bottom: Dp,
     ) : PaddingValues()
 }
 
@@ -65,5 +65,5 @@ internal class PaddingValuesImpl(
     @Stable
     val end: Dp,
     @Stable
-    val bottom: Dp
+    val bottom: Dp,
 ) : PaddingValues()

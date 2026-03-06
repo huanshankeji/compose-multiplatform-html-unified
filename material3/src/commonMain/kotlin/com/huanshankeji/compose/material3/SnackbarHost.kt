@@ -13,7 +13,7 @@ expect class SnackbarHostState {
         actionLabel: String? = null,
         withDismissAction: Boolean = false,
         duration: SnackbarDuration =
-            if (actionLabel == null) SnackbarDuration.Short else SnackbarDuration.Indefinite
+            if (actionLabel == null) SnackbarDuration.Short else SnackbarDuration.Indefinite,
     ): SnackbarResult
 
     suspend fun showSnackbar(visuals: SnackbarVisuals): SnackbarResult
@@ -23,7 +23,7 @@ expect class SnackbarHostState {
 expect fun SnackbarHost(
     hostState: SnackbarHostState,
     modifier: Modifier = Modifier,
-    snackbar: @Composable (SnackbarData) -> Unit = { Snackbar(it) }
+    snackbar: @Composable (SnackbarData) -> Unit = { Snackbar(it) },
 )
 
 @Stable

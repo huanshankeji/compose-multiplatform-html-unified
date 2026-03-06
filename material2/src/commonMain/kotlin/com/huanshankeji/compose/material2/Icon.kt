@@ -6,5 +6,5 @@ import com.huanshankeji.compose.ui.Modifier
 
 @Composable
 expect fun Icon(
-    icon: Icon, contentDescription: String?, modifier: Modifier = Modifier
+    icon: Icon, contentDescription: String?, modifier: Modifier = Modifier,
 )
