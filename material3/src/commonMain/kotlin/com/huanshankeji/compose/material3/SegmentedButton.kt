@@ -13,6 +13,8 @@ import com.huanshankeji.compose.ui.Modifier
  *
  * @see <a href="https://m3.material.io/components/segmented-buttons/overview">Material Design segmented buttons</a>
  * @see <a href="https://developer.android.com/develop/ui/compose/components/segmented-button">Compose segmented buttons</a>
+ *
+ * @param space currently only working on Compose UI.
  */
 @Composable
 expect fun SingleChoiceSegmentedButtonRow(
@@ -30,6 +32,8 @@ expect fun SingleChoiceSegmentedButtonRow(
  *
  * @see <a href="https://m3.material.io/components/segmented-buttons/overview">Material Design segmented buttons</a>
  * @see <a href="https://developer.android.com/develop/ui/compose/components/segmented-button">Compose segmented buttons</a>
+ *
+ * @param space currently only working on Compose UI.
  */
 @Composable
 expect fun MultiChoiceSegmentedButtonRow(
