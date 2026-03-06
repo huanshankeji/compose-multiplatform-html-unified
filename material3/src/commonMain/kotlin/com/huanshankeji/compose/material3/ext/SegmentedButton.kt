@@ -1,7 +1,6 @@
 package com.huanshankeji.compose.material3.ext
 
 import androidx.compose.runtime.Composable
-import com.huanshankeji.compose.material3.Icon
 import com.huanshankeji.compose.material3.MultiChoiceSegmentedButtonRowScope
 import com.huanshankeji.compose.material3.SegmentedButtonDefaultShapeArgs
 import com.huanshankeji.compose.material3.SingleChoiceSegmentedButtonRowScope
