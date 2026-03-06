@@ -27,12 +27,13 @@ import com.huanshankeji.compose.ui.graphics.Color
 import kotlinx.coroutines.launch
 import com.huanshankeji.compose.material3.Button as RowScopeButton
 
-// TODO replace `println`s with snackbars when available
-
 @Composable
 fun Material3(/*modifier: Modifier = Modifier*/
               viewModel: Material3ViewModel = viewModel { Material3ViewModel() }
 ) {
+    val snackbarHostState = remember { SnackbarHostState() }
+    val coroutineScope = rememberCoroutineScope()
+
     Column(Modifier.verticalScroll(rememberScrollState()).innerContentPadding(), Arrangement.spacedBy(16.dp)) {
         val count by viewModel.countState.collectAsState()
         val onClick: () -> Unit = { viewModel.countState.value++ }
@@ -144,7 +145,7 @@ fun Material3(/*modifier: Modifier = Modifier*/
                 KeyboardCapitalization.Words, true, imeAction = ImeAction.Search
             ),
             keyboardActions = KeyboardActions {
-                println("keyboard actions with: $text")
+                coroutineScope.launch { snackbarHostState.showSnackbar("Search: $text") }
             }
         )
         OutlinedTextField(text, { text = it }, label = label, placeholder = placeholder, lines = 2)
@@ -364,7 +365,7 @@ fun Material3(/*modifier: Modifier = Modifier*/
         var inputChipSelected by remember { mutableStateOf(false) }
         Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
             AssistChip(
-                onClick = { println("Assist chip clicked") },
+                onClick = { coroutineScope.launch { snackbarHostState.showSnackbar("Assist chip clicked") } },
                 label = "Assist",
                 leadingIcon = { modifier -> Icon(Icons.Default.Add, null, modifier) }
             )
@@ -383,17 +384,17 @@ fun Material3(/*modifier: Modifier = Modifier*/
                     avatar = { modifier -> Icon(Icons.Default.Person, null, modifier) },
                     onRemove = {
                         showInputChip = false
-                        println("Input chip removed")
+                        coroutineScope.launch { snackbarHostState.showSnackbar("Input chip removed") }
                     }
                 )
             SuggestionChip(
-                onClick = { println("Suggestion chip clicked") },
+                onClick = { coroutineScope.launch { snackbarHostState.showSnackbar("Suggestion chip clicked") } },
                 label = "Suggestion"
             )
         }
         Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
             ElevatedAssistChip(
-                onClick = { println("Elevated assist chip clicked") },
+                onClick = { coroutineScope.launch { snackbarHostState.showSnackbar("Elevated assist chip clicked") } },
                 label = "Elevated Assist",
                 leadingIcon = { modifier -> Icon(Icons.Default.Add, null, modifier) }
             )
@@ -404,7 +405,7 @@ fun Material3(/*modifier: Modifier = Modifier*/
                 leadingIcon = if (filterChipSelected) { modifier -> Icon(Icons.Filled.Done, null, modifier) } else null
             )
             ElevatedSuggestionChip(
-                onClick = { println("Elevated suggestion chip clicked") },
+                onClick = { coroutineScope.launch { snackbarHostState.showSnackbar("Elevated suggestion chip clicked") } },
                 label = "Elevated Suggestion"
             )
         }
@@ -507,8 +508,7 @@ fun Material3(/*modifier: Modifier = Modifier*/
 
         // NavigationDrawer (simplified demo)
         val drawerState = rememberDrawerState(DrawerValue.Closed)
-        val scope = rememberCoroutineScope()
-        Button(onClick = { scope.launch { drawerState.open() } }) {
+        Button(onClick = { coroutineScope.launch { drawerState.open() } }) {
             Text("Open Drawer")
         }
         ModalNavigationDrawer(
@@ -525,7 +525,7 @@ fun Material3(/*modifier: Modifier = Modifier*/
                     )
                     */
                     // ...other drawer items
-                    Button(onClick = { scope.launch { drawerState.close() } }) {
+                    Button(onClick = { coroutineScope.launch { drawerState.close() } }) {
                         Text("Close")
                     }
                 }
@@ -533,6 +533,81 @@ fun Material3(/*modifier: Modifier = Modifier*/
             drawerState = drawerState
         ) {
             Text("Main Content", Modifier.fillMaxWidth().height(160.dp).background(Color.Gray))
+        }
+
+        // Snackbar
+        HorizontalDivider()
+
+        // Standalone Snackbar (always visible)
+        Snackbar(
+            action = {
+                Button(onClick = { coroutineScope.launch { snackbarHostState.showSnackbar("Undo clicked") } }) { Text("Undo") }
+            }
+        ) {
+            Text("This is a standalone Snackbar")
+        }
+        Snackbar(
+            action = {
+                Button(onClick = { coroutineScope.launch { snackbarHostState.showSnackbar("OK clicked") } }) { Text("OK") }
+            },
+            actionOnNewLine = true
+        ) {
+            Text("Snackbar with action on new line")
+        }
+
+        // SnackbarHost triggered by buttons
+        Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
+            Button(onClick = {
+                coroutineScope.launch { snackbarHostState.showSnackbar("Snackbar message!") }
+            }) {
+                Text("Show Snackbar")
+            }
+            Button(onClick = {
+                coroutineScope.launch { snackbarHostState.showSnackbar("With action!", actionLabel = "Undo") }
+            }) {
+                Text("With Action")
+            }
+        }
+        SnackbarHost(snackbarHostState)
+
+        // TopAppBarScaffold
+        HorizontalDivider()
+
+        Box(Modifier.height(200.dp).fillMaxWidth()) {
+            TopAppBarScaffold(
+                title = { Text("Small Top App Bar") },
+                navigationIcon = {
+                    MaterialIconNavButton(
+                        onClick = { coroutineScope.launch { snackbarHostState.showSnackbar("Navigation clicked!") } },
+                        icon = Icons.Default.Menu,
+                        contentDescription = "Menu"
+                    )
+                },
+                actions = {
+                    MaterialIconActionButton(
+                        onClick = { coroutineScope.launch { snackbarHostState.showSnackbar("Action clicked!") } },
+                        icon = Icons.Default.Add,
+                        contentDescription = "Add"
+                    )
+                }
+            ) { innerPadding ->
+                Text("Scaffold content", Modifier.outerContentPadding())
+            }
+        }
+        Box(Modifier.height(200.dp).fillMaxWidth()) {
+            TopAppBarScaffold(
+                title = { Text("Center Aligned") },
+                topAppBarType = TopAppBarType.CenterAligned,
+                navigationIcon = {
+                    MaterialIconNavButton(
+                        onClick = {},
+                        icon = Icons.Default.Menu,
+                        contentDescription = "Menu"
+                    )
+                }
+            ) { innerPadding ->
+                Text("Center aligned top app bar", Modifier.outerContentPadding())
+            }
         }
     }
 }

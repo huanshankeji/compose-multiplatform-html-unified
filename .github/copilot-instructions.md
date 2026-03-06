@@ -210,6 +210,20 @@ settings.gradle.kts     # Project structure and dependency management
 4. **CI Simulation**: Test on multiple platforms if possible (the CI runs on Ubuntu, macOS, Windows)
 5. **Binary Compatibility**: The kotlinx binary compatibility validator will catch API breaks
 
+## Adding New Components
+
+When adding a new component to the library, follow these additional steps:
+
+1. **Add to Demo**: Every new component **must** be added to the Material 3 demo page (`demo/src/commonMain/kotlin/com/huanshankeji/compose/material/demo/Material3.kt`). This serves as both a visual test and a usage example. Add a clearly labelled section with realistic usage.
+
+2. **Visual Consistency**: After adding to the demo, compare the rendering between **Compose UI** (Wasm/JVM) and **JS DOM** platforms using the side-by-side demo (`./gradlew :compose-multiplatform-html-unified-demo:sideBySideBrowserDistribution`). Improve visual consistency as much as possible. Common areas to align:
+   - Component sizing and spacing
+   - Positioning of slots (icons, labels, actions)
+   - Color and shape treatment
+   - State handling (enabled/disabled/selected/error)
+
+3. Note that some platform differences are inherent to the underlying components (Material Web vs Compose UI) and cannot be fully eliminated. Document any known differences in KDoc or inline comments.
+
 ## Important Notes for Agents
 
 - **Trust These Instructions**: Only perform additional searches if information here is incomplete or incorrect
