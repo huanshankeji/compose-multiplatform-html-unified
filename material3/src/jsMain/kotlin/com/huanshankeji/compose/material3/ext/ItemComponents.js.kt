@@ -1,5 +1,3 @@
-// Also consider moving this file to the `ext` package because it involves `@Composable (Modifier) -> Unit`.
-
 package com.huanshankeji.compose.material3.ext
 
 import androidx.compose.runtime.Composable
