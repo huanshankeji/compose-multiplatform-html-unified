@@ -126,11 +126,13 @@ repositories {
 **Note**: All dependencies are available from standard repositories. If working with snapshot dependencies of other `com.huanshankeji` libraries, additional setup may be required as per organization instructions.
 
 #### Key Dependencies
-- **Kotlin**: 2.2.20 with Compose Compiler
-- **Compose Multiplatform**: 1.9.0
-- **Android Gradle Plugin**: 8.11.2  
-- **Kobweb**: 0.23.3 (now on Maven Central)
-- **Compose HTML Material**: 0.4.1-SNAPSHOT
+
+- **Kotlin**: 2.3.10 with Compose Compiler
+- **Compose Multiplatform**: 1.10.2
+- **Android Gradle Plugin**: version defined in `buildSrc/build.gradle.kts` (use a stable, officially released 8.x
+  version)
+- **Kobweb**: 0.24.0 (now on Maven Central)
+- **Compose HTML Material**: 0.5.0-SNAPSHOT
 - **Binary Compatibility Validator**: 0.18.1 (enabled)
 
 ### Platform-Specific Implementation Patterns

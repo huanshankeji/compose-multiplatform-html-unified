@@ -14,7 +14,7 @@ object DependencyVersions {
     const val composeMultiplatformMaterialIconsExtended = "1.7.3"
 
     // https://github.com/varabyte/kobweb/releases
-    val kobweb = "0.23.3"
+    val kobweb = "0.24.0"
     val huanshankejiComposeHtml = "0.5.0-SNAPSHOT" // TODO don't use a snapshot version in a main branch
 
     // https://github.com/mpetuska/kmdc/releases
