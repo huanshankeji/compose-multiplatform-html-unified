@@ -13,6 +13,8 @@ import com.huanshankeji.compose.ui.Modifier
  *
  * @see <a href="https://m3.material.io/components/tabs/overview">Material Design tabs</a>
  * @see androidx.compose.material3.Tab
+ *
+ * @param enabled currently only working on Compose UI.
  */
 @Composable
 expect fun PrimaryTab(
@@ -26,6 +28,9 @@ expect fun PrimaryTab(
     ariaControlsJsDom: String? = null,
 )
 
+/**
+ * @param enabled currently only working on Compose UI.
+ */
 @Composable
 expect fun SecondaryTab(
     selected: Boolean,

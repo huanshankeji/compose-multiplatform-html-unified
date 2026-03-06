@@ -18,7 +18,7 @@ actual fun PrimaryTab(
     selected: Boolean,
     onClick: () -> Unit,
     modifier: Modifier,
-    enabled: Boolean,
+    enabled: Boolean, // not passed here, not sure whether it's supported by `md-parimary-tab`
     text: @Composable (() -> Unit)?,
     icon: @Composable ((Modifier) -> Unit)?,
     idJsDom: String?,
@@ -43,7 +43,7 @@ actual fun SecondaryTab(
     selected: Boolean,
     onClick: () -> Unit,
     modifier: Modifier,
-    enabled: Boolean,
+    enabled: Boolean, // not passed here, not sure whether it's supported by `md-secondary-tab`
     text: @Composable (() -> Unit)?,
     icon: @Composable ((Modifier) -> Unit)?,
     idJsDom: String?,
