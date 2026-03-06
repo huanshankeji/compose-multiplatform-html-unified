@@ -188,6 +188,13 @@ When adding or aligning components, you can search in <https://m3.material.io/> 
    - Mark JS implementations with `@MaterialWebLabsApi` when they depend on Material Web labs components
    - Opt-in to `@MaterialWebLabsApi` if Compose UI visual effects can already be achieved with consistency on JS DOM
 
+#### Adding New Components
+
+When adding a new component:
+1. **Demo testing**: Add the component to the Material 3 demo page (`demo/src/commonMain/kotlin/.../Material3.kt`) to showcase the component and verify it works on all platforms
+2. **Visual consistency**: Improve visual consistency between Compose UI (Wasm JS Canvas) and JS DOM as much as possible. Build the side-by-side demo (`./gradlew :compose-multiplatform-html-unified-demo:sideBySideBrowserDistribution`) and compare the visual results on both platforms
+3. **README update**: Add the new component to the supported API catalog in README.md
+
 ### Root Directory Files
 ```
 .gitignore              # Standard exclusions plus .kotlin, local.properties  

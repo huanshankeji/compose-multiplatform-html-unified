@@ -27,12 +27,13 @@ import com.huanshankeji.compose.ui.graphics.Color
 import kotlinx.coroutines.launch
 import com.huanshankeji.compose.material3.Button as RowScopeButton
 
-// TODO replace `println`s with snackbars when available
-
 @Composable
 fun Material3(/*modifier: Modifier = Modifier*/
               viewModel: Material3ViewModel = viewModel { Material3ViewModel() }
 ) {
+    val snackbarHostState = remember { SnackbarHostState() }
+    val scope = rememberCoroutineScope()
+    Box {
     Column(Modifier.verticalScroll(rememberScrollState()).innerContentPadding(), Arrangement.spacedBy(16.dp)) {
         val count by viewModel.countState.collectAsState()
         val onClick: () -> Unit = { viewModel.countState.value++ }
@@ -364,7 +365,7 @@ fun Material3(/*modifier: Modifier = Modifier*/
         var inputChipSelected by remember { mutableStateOf(false) }
         Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
             AssistChip(
-                onClick = { println("Assist chip clicked") },
+                onClick = { scope.launch { snackbarHostState.showSnackbar("Assist chip clicked") } },
                 label = "Assist",
                 leadingIcon = { modifier -> Icon(Icons.Default.Add, null, modifier) }
             )
@@ -383,17 +384,17 @@ fun Material3(/*modifier: Modifier = Modifier*/
                     avatar = { modifier -> Icon(Icons.Default.Person, null, modifier) },
                     onRemove = {
                         showInputChip = false
-                        println("Input chip removed")
+                        scope.launch { snackbarHostState.showSnackbar("Input chip removed") }
                     }
                 )
             SuggestionChip(
-                onClick = { println("Suggestion chip clicked") },
+                onClick = { scope.launch { snackbarHostState.showSnackbar("Suggestion chip clicked") } },
                 label = "Suggestion"
             )
         }
         Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
             ElevatedAssistChip(
-                onClick = { println("Elevated assist chip clicked") },
+                onClick = { scope.launch { snackbarHostState.showSnackbar("Elevated assist chip clicked") } },
                 label = "Elevated Assist",
                 leadingIcon = { modifier -> Icon(Icons.Default.Add, null, modifier) }
             )
@@ -404,7 +405,7 @@ fun Material3(/*modifier: Modifier = Modifier*/
                 leadingIcon = if (filterChipSelected) { modifier -> Icon(Icons.Filled.Done, null, modifier) } else null
             )
             ElevatedSuggestionChip(
-                onClick = { println("Elevated suggestion chip clicked") },
+                onClick = { scope.launch { snackbarHostState.showSnackbar("Elevated suggestion chip clicked") } },
                 label = "Elevated Suggestion"
             )
         }
@@ -505,9 +506,45 @@ fun Material3(/*modifier: Modifier = Modifier*/
             }
         }
 
+        // TopAppBar demos
+        Text("Top App Bars:")
+        TopAppBar(
+            title = { Text("Small") },
+            navigationIcon = { IconButton({ scope.launch { snackbarHostState.showSnackbar("Nav clicked") } }) { Icon(Icons.Default.Menu, null) } },
+            actions = { IconButton({ scope.launch { snackbarHostState.showSnackbar("Search clicked") } }) { Icon(Icons.Default.Search, null) } }
+        )
+        CenterAlignedTopAppBar(
+            title = { Text("Center Aligned") },
+            navigationIcon = { IconButton({}) { Icon(Icons.Default.Menu, null) } },
+            actions = { IconButton({}) { Icon(Icons.Default.Search, null) } }
+        )
+        MediumTopAppBar(
+            title = { Text("Medium") },
+            navigationIcon = { IconButton({}) { Icon(Icons.Default.Menu, null) } },
+            actions = { IconButton({}) { Icon(Icons.Default.Search, null) } }
+        )
+        LargeTopAppBar(
+            title = { Text("Large") },
+            navigationIcon = { IconButton({}) { Icon(Icons.Default.Menu, null) } },
+            actions = { IconButton({}) { Icon(Icons.Default.Search, null) } }
+        )
+
+        // Snackbar demo
+        Button(onClick = { scope.launch { snackbarHostState.showSnackbar("This is a snackbar") } }) {
+            Text("Show Snackbar")
+        }
+        Button(onClick = {
+            scope.launch {
+                val result = snackbarHostState.showSnackbar("Snackbar with action", actionLabel = "Undo")
+                if (result == SnackbarResult.ActionPerformed)
+                    snackbarHostState.showSnackbar("Action performed")
+            }
+        }) {
+            Text("Show Snackbar with Action")
+        }
+
         // NavigationDrawer (simplified demo)
         val drawerState = rememberDrawerState(DrawerValue.Closed)
-        val scope = rememberCoroutineScope()
         Button(onClick = { scope.launch { drawerState.open() } }) {
             Text("Open Drawer")
         }
@@ -534,5 +571,7 @@ fun Material3(/*modifier: Modifier = Modifier*/
         ) {
             Text("Main Content", Modifier.fillMaxWidth().height(160.dp).background(Color.Gray))
         }
+    }
+    SnackbarHost(snackbarHostState)
     }
 }
