@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.ui.Modifier
 
 // TODO colors
+// The spacing between the radio button and the label is not proper or consistent on both platforms. If ever this needs to be fixed, refer to the Material 3 implementation.
 @Composable
 expect fun RadioRow(
     selected: Boolean,
