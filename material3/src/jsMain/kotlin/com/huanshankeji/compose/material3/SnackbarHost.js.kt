@@ -3,6 +3,7 @@ package com.huanshankeji.compose.material3
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.Stable
+import androidx.compose.runtime.key
 import com.huanshankeji.compose.html.material3.maicol07.materialwebadditions.MdSnackbar
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.toAttrs
@@ -50,21 +51,21 @@ actual fun SnackbarHost(
             delay(durationMillis)
             currentSnackbarData.dismiss()
         }
-    }
 
-    // not put in a conditional block to reduce DOM recomposition
-    // Don't use `onClosed`: the web component fires this event asynchronously after its close animation.
-    // When snackbars are shown in rapid succession, the `onClosed` from a previous snackbar fires
-    // after recomposition with new data, causing the callback to dismiss the next snackbar immediately.
-    // This creates a cascade where subsequent snackbars flash instead of showing for their full duration.
-    // Timing is managed solely by `LaunchedEffect` above to match Compose UI behavior.
-    MdSnackbar(
-        open = if (currentSnackbarData != null) true else null,
-        actionText = currentSnackbarData?.visuals?.actionLabel,
-        onAction = currentSnackbarData?.let { data -> { data.performAction() } },
-        attrs = modifier.toAttrs()
-    ) {
-        Text(currentSnackbarData?.visuals?.message ?: "")
+        // Use `key` to create a fresh MdSnackbar DOM element for each snackbar invocation.
+        // Without this, the web component's internal close animation state can prevent
+        // a new snackbar from appearing when the previous one was just dismissed,
+        // causing every other snackbar to be skipped in rapid succession.
+        key(currentSnackbarData) {
+            MdSnackbar(
+                open = true,
+                actionText = currentSnackbarData.visuals.actionLabel,
+                onAction = { currentSnackbarData.performAction() },
+                attrs = modifier.toAttrs(),
+            ) {
+                Text(currentSnackbarData.visuals.message)
+            }
+        }
     }
 }
 
