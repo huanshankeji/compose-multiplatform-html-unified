@@ -42,31 +42,26 @@ actual fun SnackbarHost(
 ) {
     val currentSnackbarData = hostState.currentSnackbarData
 
-    val durationMillis: Long?
     if (currentSnackbarData != null) {
-        durationMillis = currentSnackbarData.visuals.duration.toMillis()
+        val durationMillis = currentSnackbarData.visuals.duration.toMillis()
 
         // Make sure the snackbar is dismissed after its duration, similar to the M2 approach.
         LaunchedEffect(currentSnackbarData) {
             delay(durationMillis)
             currentSnackbarData.dismiss()
         }
-    } else {
-        durationMillis = null
     }
 
-    // Use null timeout for Indefinite duration to avoid Long.MAX_VALUE overflow when converting to Int.
-    val timeoutMs =
-        if (currentSnackbarData?.visuals?.duration == SnackbarDuration.Indefinite) null
-        else durationMillis?.toInt()
-
     // not put in a conditional block to reduce DOM recomposition
+    // Don't use `onClosed`: the web component fires this event asynchronously after its close animation.
+    // When snackbars are shown in rapid succession, the `onClosed` from a previous snackbar fires
+    // after recomposition with new data, causing the callback to dismiss the next snackbar immediately.
+    // This creates a cascade where subsequent snackbars flash instead of showing for their full duration.
+    // Timing is managed solely by `LaunchedEffect` above to match Compose UI behavior.
     MdSnackbar(
         open = if (currentSnackbarData != null) true else null,
         actionText = currentSnackbarData?.visuals?.actionLabel,
-        timeout = timeoutMs,
         onAction = currentSnackbarData?.let { data -> { data.performAction() } },
-        onClosed = currentSnackbarData?.let { data -> { data.dismiss() } },
         attrs = modifier.toAttrs()
     ) {
         Text(currentSnackbarData?.visuals?.message ?: "")
