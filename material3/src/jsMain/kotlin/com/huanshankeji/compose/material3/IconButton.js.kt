@@ -15,7 +15,7 @@ import org.jetbrains.compose.web.attributes.AttrsScope
 import org.w3c.dom.HTMLElement
 
 internal fun Modifier.toCommonIconToggleButtonAttrs(
-    checked: Boolean, onCheckedChange: (Boolean) -> Unit,
+    checked: Boolean, onCheckedChange: (Boolean) -> Unit
 ): AttrsScope<HTMLElement>.() -> Unit =
     toAttrs {
         // note that `onInput` is used here

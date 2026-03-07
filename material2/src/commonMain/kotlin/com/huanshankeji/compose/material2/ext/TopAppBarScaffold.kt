@@ -11,7 +11,7 @@ expect class NavigationIconScope {
 
     @Composable
     fun MaterialIconNavButton(
-        onClick: () -> Unit, modifier: Modifier = Modifier, icon: Icon, contentDescription: String?,
+        onClick: () -> Unit, modifier: Modifier = Modifier, icon: Icon, contentDescription: String?
     )
 }
 
@@ -21,7 +21,7 @@ expect class TopAppBarActionsScope {
 
     @Composable
     fun MaterialIconActionButton(
-        onClick: () -> Unit, modifier: Modifier = Modifier, icon: Icon, contentDescription: String?,
+        onClick: () -> Unit, modifier: Modifier = Modifier, icon: Icon, contentDescription: String?
     )
 }
 

@@ -42,7 +42,7 @@ actual class ExposedDropdownMenuBoxScope(val platformValue: androidx.compose.mat
 
 @Composable
 actual fun ExposedDropdownMenuBoxScope.ExposedDropdownMenuBoxTextField(
-    expanded: Boolean, args: ExposedDropdownMenuBoxTextFieldArgs,
+    expanded: Boolean, args: ExposedDropdownMenuBoxTextFieldArgs
 ) =
     with(args) {
         @OptIn(ExperimentalMaterial3Api::class)

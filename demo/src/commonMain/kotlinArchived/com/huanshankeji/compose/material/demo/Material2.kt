@@ -125,7 +125,7 @@ fun Material2(/*modifier: Modifier = Modifier*/) {
                         leadingIcon = Icons.Default.Add,
                         trailingIcon = Icons.Default.Menu,
                         keyboardOptions = KeyboardOptions(
-                            KeyboardCapitalization.Words, true, imeAction = ImeAction.Search,
+                            KeyboardCapitalization.Words, true, imeAction = ImeAction.Search
                         ),
                         keyboardActions = KeyboardActions {
                             println("keyboard actions with: $text")

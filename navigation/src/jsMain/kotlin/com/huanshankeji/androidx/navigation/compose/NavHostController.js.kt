@@ -15,7 +15,7 @@ actual fun NavController.currentBackStackEntryAsState(): State<NavBackStackEntry
 
 @Composable
 actual fun rememberNavController(
-    vararg navigators: Navigator<out NavDestination>,
+    vararg navigators: Navigator<out NavDestination>
 ): NavHostController {
     // `rememberSaveable` seems not needed here
     return remember {

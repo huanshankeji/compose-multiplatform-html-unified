@@ -39,7 +39,7 @@ actual class DropdownMenuBoxScope {
         content: @Composable () -> Unit,
     ) =
         androidx.compose.material3.DropdownMenu(
-            expanded, onDismissRequestComposeUi, modifier.platformModifier, offset,
+            expanded, onDismissRequestComposeUi, modifier.platformModifier, offset
         ) { content() }
 }
 

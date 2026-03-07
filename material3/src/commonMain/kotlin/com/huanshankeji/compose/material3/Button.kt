@@ -21,7 +21,7 @@ expect fun Button(
 
 @Deprecated(
     "This is a shortcut to `Button`. Use `Button` instead.",
-    ReplaceWith("Button(onClick, modifier, enabled, content)", "com.huanshankeji.compose.material3.Button"),
+    ReplaceWith("Button(onClick, modifier, enabled, content)", "com.huanshankeji.compose.material3.Button")
 )
 @Composable
 fun FilledButton(

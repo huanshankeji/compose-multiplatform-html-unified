@@ -50,7 +50,7 @@ actual fun Button(
     isTrailingIcon: Boolean,
     content: @Composable () -> Unit,
 ) = androidx.compose.material3.Button(
-    onClick, modifier.platformModifier, enabled, content = content.toRowScopeContent(icon, isTrailingIcon),
+    onClick, modifier.platformModifier, enabled, content = content.toRowScopeContent(icon, isTrailingIcon)
 )
 
 @Composable
@@ -62,7 +62,7 @@ actual fun ElevatedButton(
     isTrailingIcon: Boolean,
     content: @Composable () -> Unit,
 ) = androidx.compose.material3.ElevatedButton(
-    onClick, modifier.platformModifier, enabled, content = content.toRowScopeContent(icon, isTrailingIcon),
+    onClick, modifier.platformModifier, enabled, content = content.toRowScopeContent(icon, isTrailingIcon)
 )
 
 @Composable
@@ -75,7 +75,7 @@ actual fun FilledTonalButton(
     content: @Composable () -> Unit,
 ) =
     androidx.compose.material3.FilledTonalButton(
-        onClick, modifier.platformModifier, enabled, content = content.toRowScopeContent(icon, isTrailingIcon),
+        onClick, modifier.platformModifier, enabled, content = content.toRowScopeContent(icon, isTrailingIcon)
     )
 
 @Composable
@@ -88,7 +88,7 @@ actual fun OutlinedButton(
     content: @Composable () -> Unit,
 ) =
     androidx.compose.material3.OutlinedButton(
-        onClick, modifier.platformModifier, enabled, content = content.toRowScopeContent(icon, isTrailingIcon),
+        onClick, modifier.platformModifier, enabled, content = content.toRowScopeContent(icon, isTrailingIcon)
     )
 
 @Composable
@@ -101,5 +101,5 @@ actual fun TextButton(
     content: @Composable () -> Unit,
 ) =
     androidx.compose.material3.TextButton(
-        onClick, modifier.platformModifier, enabled, content = content.toRowScopeContent(icon, isTrailingIcon),
+        onClick, modifier.platformModifier, enabled, content = content.toRowScopeContent(icon, isTrailingIcon)
     )

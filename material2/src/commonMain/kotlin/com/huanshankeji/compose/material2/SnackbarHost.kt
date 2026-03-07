@@ -31,5 +31,5 @@ expect fun SnackbarHost(
     hostState: SnackbarHostState,
     modifier: Modifier = Modifier,
     //snackbar: @Composable (SnackbarData) -> Unit = { Snackbar(it) }
-    actionOnNewLine: Boolean = false // an additional parameter added because passing a custom `Snackbar` comopsable on JS is not supported,
+    actionOnNewLine: Boolean = false, // an additional parameter added because passing a custom `Snackbar` comopsable on JS is not supported
 )

@@ -36,5 +36,5 @@ actual fun ExtendedFloatingActionButton(
     content: @Composable RowScope.() -> Unit,
 ) =
     androidx.compose.material3.ExtendedFloatingActionButton(
-        onClick, modifier.platformModifier, content = content.toPlatformRowScopeContent(),
+        onClick, modifier.platformModifier, content = content.toPlatformRowScopeContent()
     )

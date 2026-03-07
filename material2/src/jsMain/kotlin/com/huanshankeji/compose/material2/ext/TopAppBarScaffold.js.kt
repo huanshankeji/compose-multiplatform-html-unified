@@ -39,7 +39,7 @@ actual class TopAppBarActionsScope(val mdcTopAppBarSectionScope: MDCTopAppBarSec
 
     @Composable
     actual fun MaterialIconActionButton(
-        onClick: () -> Unit, modifier: Modifier, icon: Icon, contentDescription: String?,
+        onClick: () -> Unit, modifier: Modifier, icon: Icon, contentDescription: String?
     ) =
         mdcTopAppBarSectionScope.ActionButton(attrs = modifier.toAttrs {
             onClick { onClick() }

@@ -31,7 +31,7 @@ actual fun FloatingActionButton(
     content: @Composable () -> Unit,
 ) =
     com.huanshankeji.compose.material3.ext.FloatingActionButton(
-        onClick, modifier, content.toBoxedContentWithModifier(),
+        onClick, modifier, content.toBoxedContentWithModifier()
     )
 
 @Composable
@@ -41,7 +41,7 @@ actual fun SmallFloatingActionButton(
     content: @Composable () -> Unit,
 ) =
     com.huanshankeji.compose.material3.ext.SmallFloatingActionButton(
-        onClick, modifier, content.toBoxedContentWithModifier(),
+        onClick, modifier, content.toBoxedContentWithModifier()
     )
 
 @Composable
@@ -51,7 +51,7 @@ actual fun LargeFloatingActionButton(
     content: @Composable () -> Unit,
 ) =
     com.huanshankeji.compose.material3.ext.LargeFloatingActionButton(
-        onClick, modifier, content.toBoxedContentWithModifier(),
+        onClick, modifier, content.toBoxedContentWithModifier()
     )
 
 @Composable

@@ -5,8 +5,8 @@ import com.huanshankeji.compose.ui.Modifier
 
 @Composable
 actual fun HorizontalDivider(
-    modifier: Modifier,
+    modifier: Modifier
 ) =
     androidx.compose.material3.HorizontalDivider(
-        modifier.platformModifier,
+        modifier.platformModifier
     )

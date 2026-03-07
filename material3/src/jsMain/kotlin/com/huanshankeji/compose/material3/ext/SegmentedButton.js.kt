@@ -22,7 +22,7 @@ private fun CommonSegmentedButton(
     modifier: Modifier,
     enabled: Boolean,
     icon: @Composable (() -> Unit)?,
-    label: String //@Composable () -> Unit,
+    label: String, //@Composable () -> Unit
 ) {
     val hasIcon = (icon != null).isTrueOrNull()
     MdOutlinedSegmentedButton(
@@ -57,7 +57,7 @@ actual fun SingleChoiceSegmentedButtonRowScope.SegmentedButton(
     modifier: Modifier,
     enabled: Boolean,
     icon: @Composable (() -> Unit)?,
-    label: String //@Composable () -> Unit,
+    label: String, //@Composable () -> Unit
 ) =
     CommonSegmentedButton(selected, onClick, defaultShapeArgs, modifier, enabled, icon, label)
 
@@ -70,7 +70,7 @@ actual fun MultiChoiceSegmentedButtonRowScope.SegmentedButton(
     modifier: Modifier,
     enabled: Boolean,
     icon: @Composable (() -> Unit)?,
-    label: String //@Composable () -> Unit,
+    label: String, //@Composable () -> Unit
 ) =
     CommonSegmentedButton(
         checked, { onCheckedChange(!checked) },

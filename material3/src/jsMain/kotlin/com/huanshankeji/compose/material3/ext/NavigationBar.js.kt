@@ -50,6 +50,6 @@ actual fun NavigationBarScope.NavigationBarItem(
     ) {
         selectedIcon(PlatformModifier.attrsModifier { slot(MdNavigationTabScope.Slot.ActiveIcon) }.toCommonModifier())
         unselectedIcon(
-            PlatformModifier.attrsModifier { slot(MdNavigationTabScope.Slot.InactiveIcon) }.toCommonModifier(),
+            PlatformModifier.attrsModifier { slot(MdNavigationTabScope.Slot.InactiveIcon) }.toCommonModifier()
         )
     }

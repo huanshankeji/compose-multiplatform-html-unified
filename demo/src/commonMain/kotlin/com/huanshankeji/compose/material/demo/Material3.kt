@@ -141,7 +141,7 @@ fun Material3(/*modifier: Modifier = Modifier*/
             suffix = suffix,
             supportingText = supportingText,
             keyboardOptions = KeyboardOptions(
-                KeyboardCapitalization.Words, true, imeAction = ImeAction.Search,
+                KeyboardCapitalization.Words, true, imeAction = ImeAction.Search
             ),
             keyboardActions = KeyboardActions {
                 println("keyboard actions with: $text")

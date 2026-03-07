@@ -56,7 +56,7 @@ actual fun PaddingValues(start: Dp, top: Dp, end: Dp, bottom: Dp): PaddingValues
 
 @Immutable
 internal class PaddingValuesImpl(
-    platformValue: PlatformPaddingValues,
+    platformValue: PlatformPaddingValues
 ) : PaddingValues(platformValue)
 
 fun PlatformPaddingValues.toCommonValue(): PaddingValues =

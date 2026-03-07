@@ -21,7 +21,7 @@ expect class ExposedDropdownMenuBoxScope {
 
     /*
     abstract fun Modifier.exposedDropdownSize(
-        matchTextFieldWidth: Boolean = true,
+        matchTextFieldWidth: Boolean = true
     ): Modifier
     */
 

@@ -19,7 +19,7 @@ expect fun SingleChoiceSegmentedButtonRowScope.SegmentedButton(
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
     icon: @Composable (() -> Unit)? = null,
-    label: String //@Composable () -> Unit,
+    label: String, //@Composable () -> Unit
 )
 
 /**
@@ -33,6 +33,6 @@ expect fun MultiChoiceSegmentedButtonRowScope.SegmentedButton(
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
     icon: @Composable (() -> Unit)? = null,
-    label: String //@Composable () -> Unit,
+    label: String, //@Composable () -> Unit
 )
 

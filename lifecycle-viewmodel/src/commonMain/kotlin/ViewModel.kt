@@ -47,7 +47,7 @@ expect inline fun <reified VM : ViewModel> viewModel(
     "Use the one with a `viewModelStoreOwner` parameter instead. " +
             "This function might be removed in the future. " +
             "If you call this function with a `key` argument, make sure you used a named argument " +
-            "so your source still compiles when this is removed.",
+            "so your source still compiles when this is removed."
 )
 @Composable
 inline fun <reified VM : ViewModel> viewModel(

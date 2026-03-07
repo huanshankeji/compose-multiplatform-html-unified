@@ -7,7 +7,7 @@ import com.huanshankeji.compose.ui.Modifier
 @ExperimentalApi
 fun SelectTextFieldArgs.toExposedDropdownMenuBoxTextFieldArgs() =
     ExposedDropdownMenuBoxTextFieldArgs(
-        valueComposeUi, onValueChangeComposeUi, enabled, true, true, label, supportingText, isError,
+        valueComposeUi, onValueChangeComposeUi, enabled, true, true, label, supportingText, isError
     )
 
 @ExperimentalApi

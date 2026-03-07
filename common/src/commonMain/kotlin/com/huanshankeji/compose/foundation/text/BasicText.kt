@@ -6,7 +6,7 @@ import com.huanshankeji.compose.ui.graphics.ColorProducer
 
 @Deprecated(
     "This is not needed as there in a `TaglessBasicText` composable. Use the one below.",
-    level = DeprecationLevel.HIDDEN,
+    level = DeprecationLevel.HIDDEN
 )
 @Composable
 fun BasicText(text: String) =

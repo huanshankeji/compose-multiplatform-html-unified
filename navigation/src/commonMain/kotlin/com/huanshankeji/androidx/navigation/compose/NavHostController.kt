@@ -10,5 +10,5 @@ expect fun NavController.currentBackStackEntryAsState(): State<NavBackStackEntry
 
 @Composable
 expect fun rememberNavController(
-    vararg navigators: Navigator<out NavDestination>,
+    vararg navigators: Navigator<out NavDestination>
 ): NavHostController

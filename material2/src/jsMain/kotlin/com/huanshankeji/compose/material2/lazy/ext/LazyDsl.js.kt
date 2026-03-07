@@ -21,7 +21,7 @@ import org.w3c.dom.HTMLUListElement
  * @see androidx.compose.foundation.lazy.LazyListScopeImpl
  */
 actual class ListScope(
-    val mdcListScope: MDCListScope<HTMLUListElement>,
+    val mdcListScope: MDCListScope<HTMLUListElement>
 ) {
     private val deferredComposableRunner = DeferredComposableRunner()
 

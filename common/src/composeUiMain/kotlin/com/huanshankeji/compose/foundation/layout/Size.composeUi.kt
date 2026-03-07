@@ -32,7 +32,7 @@ actual fun Modifier.heightIn(min: Dp, max: Dp): Modifier =
 
 @Stable
 actual fun Modifier.sizeIn(
-    minWidth: Dp, minHeight: Dp, maxWidth: Dp, maxHeight: Dp,
+    minWidth: Dp, minHeight: Dp, maxWidth: Dp, maxHeight: Dp
 ): Modifier =
     platformModify { sizeIn(minWidth, minHeight, maxWidth, maxHeight) }
 

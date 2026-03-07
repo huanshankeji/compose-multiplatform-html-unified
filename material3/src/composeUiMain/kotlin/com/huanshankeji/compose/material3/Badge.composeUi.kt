@@ -10,5 +10,5 @@ actual fun Badge(
     content: String,
 ) =
     androidx.compose.material3.Badge(
-        modifier.platformModifier,
+        modifier.platformModifier
     ) { Text(content) }

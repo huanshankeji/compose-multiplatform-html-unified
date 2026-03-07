@@ -85,7 +85,7 @@ actual class ExposedDropdownMenuBoxScope(
 
 @Composable
 actual fun ExposedDropdownMenuBoxScope.ExposedDropdownMenuBoxTextField(
-    expanded: Boolean, args: ExposedDropdownMenuBoxTextFieldArgs,
+    expanded: Boolean, args: ExposedDropdownMenuBoxTextFieldArgs
 ) =
     with(args) {
         // adapted from the `composeUi` one
