@@ -6,6 +6,7 @@ import com.huanshankeji.androidx.lifecycle.viewmodel.compose.viewModel
 import com.huanshankeji.compose.ExtRecommendedApi
 import com.huanshankeji.compose.foundation.background
 import com.huanshankeji.compose.foundation.layout.*
+import com.huanshankeji.compose.foundation.layout.ext.fillMaxSizeStretch
 import com.huanshankeji.compose.foundation.rememberScrollState
 import com.huanshankeji.compose.foundation.text.KeyboardActions
 import com.huanshankeji.compose.foundation.text.KeyboardOptions
@@ -22,6 +23,7 @@ import com.huanshankeji.compose.material3.ext.ElevatedCard
 import com.huanshankeji.compose.material3.ext.OutlinedCard
 import com.huanshankeji.compose.material3.lazy.ext.List
 import com.huanshankeji.compose.material3.lazy.ext.ListItemComponents
+import com.huanshankeji.compose.ui.Alignment
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.graphics.Color
 import kotlinx.coroutines.launch
@@ -33,10 +35,16 @@ fun Material3(/*modifier: Modifier = Modifier*/
 ) {
     val snackbarHostState = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
-    Box {
+    Box(Modifier.fillMaxSizeStretch()) {
     Column(Modifier.verticalScroll(rememberScrollState()).innerContentPadding(), Arrangement.spacedBy(16.dp)) {
         val count by viewModel.countState.collectAsState()
-        val onClick: () -> Unit = { viewModel.countState.value++ }
+        val onClick: () -> Unit = {
+            viewModel.countState.value++
+            val count = viewModel.countState.value
+            scope.launch {
+                snackbarHostState.showSnackbar("Count incremented to $count")
+            }
+        }
         val buttonContent: @Composable () -> Unit = {
             TaglessText(count.toString())
         }
@@ -572,6 +580,6 @@ fun Material3(/*modifier: Modifier = Modifier*/
             Text("Main Content", Modifier.fillMaxWidth().height(160.dp).background(Color.Gray))
         }
     }
-    SnackbarHost(snackbarHostState)
+    SnackbarHost(snackbarHostState, Modifier.align(Alignment.BottomCenter))
     }
 }
