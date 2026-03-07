@@ -167,6 +167,29 @@ When adding or aligning components, you can search in <https://m3.material.io/> 
 **Code Style:**
 - Follow [our Kotlin code style guide](https://github.com/huanshankeji/.github/blob/main/kotlin-code-style.md) for all Kotlin code contributions
 
+**Trailing Comma Conventions** (following Compose UI source conventions):
+- Add trailing commas to the **last parameter** of **multi-line** parameter/argument lists in Composable or Compose-related function **definitions and invocations**. This helps Git track fewer unnecessary changes when parameters are added/removed.
+- Do **NOT** add trailing commas when:
+  - All parameters/arguments are on a **single line** (trailing commas don't help Git tracking in this case)
+  - The function has only a **single parameter** on its own line
+  - The parameter list belongs to an **annotation** (e.g., `@Deprecated(...)`, `@RequiresOptIn(...)`)
+  - The construct is not Composable or Compose-related (e.g., plain data classes, utility functions)
+- When the last parameter has an **end-of-line comment**, place the comma **before** the comment:
+  ```kotlin
+  // Correct:
+  actionOnNewLine: Boolean = false, // comment
+  // Incorrect:
+  actionOnNewLine: Boolean = false // comment,
+  ```
+
+**Nullable Composable Type Conventions** (following Compose UI conventions):
+- Use `@Composable ((*) -> Unit)?` for nullable composable parameter types (Compose UI convention)
+- Not `(@Composable (*) -> Unit)?` (Compose HTML convention — do not use)
+- Exception: Extension function receivers require parentheses: `fun (@Composable (Modifier) -> Unit).foo()`
+
+**Null Check Conventions:**
+- Use `!= null` instead of `!== null` and `== null` instead of `=== null` (idiomatic Kotlin; the compiler auto-translates `== null` to referential equality)
+
 #### Architecture Notes
 - **Multi-module**: Each feature area is a separate Gradle subproject
 - **Expect/Actual Pattern**: Platform-specific implementations using Kotlin Multiplatform patterns

@@ -17,14 +17,14 @@ actual fun SingleChoiceSegmentedButtonRowScope.SegmentedButton(
     modifier: Modifier,
     enabled: Boolean,
     icon: @Composable (() -> Unit)?,
-    label: String //@Composable () -> Unit
+    label: String, //@Composable () -> Unit
 ) =
     platformScope.SegmentedButton(
         selected,
         onClick,
         SegmentedButtonDefaults.itemShape(
             defaultShapeArgs.index,
-            defaultShapeArgs.count
+            defaultShapeArgs.count,
         ),
         modifier.platformModifier,
         enabled,
@@ -41,14 +41,14 @@ actual fun MultiChoiceSegmentedButtonRowScope.SegmentedButton(
     modifier: Modifier,
     enabled: Boolean,
     icon: @Composable (() -> Unit)?,
-    label: String //@Composable () -> Unit
+    label: String, //@Composable () -> Unit
 ) =
     platformScope.SegmentedButton(
         checked,
         onCheckedChange,
         SegmentedButtonDefaults.itemShape(
             defaultShapeArgs.index,
-            defaultShapeArgs.count
+            defaultShapeArgs.count,
         ),
         modifier.platformModifier,
         enabled,

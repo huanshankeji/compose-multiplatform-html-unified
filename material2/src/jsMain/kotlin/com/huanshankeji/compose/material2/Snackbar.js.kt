@@ -36,7 +36,7 @@ actual fun Snackbar(
     modifier: Modifier,
     action: @Composable (() -> Unit)?,
     actionOnNewLine: Boolean,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) =
     CommonSnackbar(actionOnNewLine, true, null, modifier, null, {
         Label { content() }
@@ -53,7 +53,7 @@ internal fun CommonSnackbar(
     open: Boolean,
     timeoutMs: Int?,
     modifier: Modifier,
-    snackbarData: SnackbarDataCommonInterface?
+    snackbarData: SnackbarDataCommonInterface?,
 ) =
     CommonSnackbar(actionOnNewLine, open, timeoutMs, modifier, {
         snackbarData?.let { snackbarData -> onClosed { snackbarData.dismiss() } } // This event is not fired when the snackbar UI is not opened.
@@ -74,6 +74,6 @@ internal fun CommonSnackbar(
 actual fun Snackbar(
     snackbarData: SnackbarData,
     modifier: Modifier,
-    actionOnNewLine: Boolean
+    actionOnNewLine: Boolean,
 ) =
     CommonSnackbar(actionOnNewLine, true, null, modifier, snackbarData.platformValue)

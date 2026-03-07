@@ -14,7 +14,7 @@ actual fun Row(
     modifier: Modifier,
     horizontalArrangement: Arrangement.Horizontal,
     verticalAlignment: Alignment.Vertical,
-    content: @Composable RowScope.() -> Unit
+    content: @Composable RowScope.() -> Unit,
 ) {
     AddKobwebComposeStyleSheet()
     com.varabyte.kobweb.compose.foundation.layout.Row(
@@ -24,7 +24,7 @@ actual fun Row(
             .then(modifier.platformModifier),
         horizontalArrangement.platformValue,
         verticalAlignment.platformValue,
-        content = content.toPlatformRowScopeContent()
+        content = content.toPlatformRowScopeContent(),
     )
 }
 
@@ -40,7 +40,7 @@ actual interface RowScope {
     @Stable
     actual fun Modifier.weight(
         @FloatRange(from = 0.0, fromInclusive = false)
-        weight: Float
+        weight: Float,
     ): Modifier =
         with(platformValue) { platformModify { flexBasis0().weight(weight) } }
 

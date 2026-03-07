@@ -117,7 +117,7 @@ fun Material2(/*modifier: Modifier = Modifier*/) {
                         leadingIcon = Icons.Default.Add,
                         trailingIcon = Icons.Default.Menu,
                         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-                        singleLine = true
+                        singleLine = true,
                     )
                     OutlinedTextFieldWithMaterialIcons(
                         text, { text = it },
@@ -130,7 +130,7 @@ fun Material2(/*modifier: Modifier = Modifier*/) {
                         keyboardActions = KeyboardActions {
                             println("keyboard actions with: $text")
                         },
-                        singleLine = true
+                        singleLine = true,
                     )
                     TextArea(text, { text = it }, label = "Demo text field", lines = 3)
 

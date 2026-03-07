@@ -36,7 +36,7 @@ actual fun NavHost(
     modifier: Modifier,
     contentAlignment: Alignment,
     route: String?,
-    builder: NavGraphBuilder.() -> Unit
+    builder: NavGraphBuilder.() -> Unit,
 ) {
     NavHost(
         navController,
@@ -44,7 +44,7 @@ actual fun NavHost(
             navController.createGraph(startDestination, route, builder)
         },
         modifier,
-        contentAlignment
+        contentAlignment,
     )
 }
 
@@ -120,7 +120,7 @@ actual fun NavHost(
             // ViewModelStoreOwner and LifecycleOwner
             currentEntry?.LocalOwnersProvider(saveableStateHolder) {
                 (currentEntry.destination as ComposeNavigator.Destination).content(
-                    currentEntry
+                    currentEntry,
                 )
             }
             */

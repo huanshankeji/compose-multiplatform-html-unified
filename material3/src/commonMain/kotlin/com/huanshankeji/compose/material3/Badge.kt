@@ -19,5 +19,5 @@ import com.huanshankeji.compose.ui.Modifier
 @Composable
 expect fun Badge(
     modifier: Modifier = Modifier,
-    content: String
+    content: String,
 )

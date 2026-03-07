@@ -12,7 +12,7 @@ actual fun Slider(
     enabled: Boolean,
     valueRange: ClosedFloatingPointRange<Float>,
     @IntRange(from = 0) steps: Int,
-    onValueChangeFinished: (() -> Unit)?
+    onValueChangeFinished: (() -> Unit)?,
 ) =
     androidx.compose.material3.Slider(
         value,
@@ -21,7 +21,7 @@ actual fun Slider(
         enabled,
         valueRange,
         steps,
-        onValueChangeFinished
+        onValueChangeFinished,
     )
 
 @Composable
@@ -32,7 +32,7 @@ actual fun RangeSlider(
     enabled: Boolean,
     valueRange: ClosedFloatingPointRange<Float>,
     @IntRange(from = 0) steps: Int,
-    onValueChangeFinished: (() -> Unit)?
+    onValueChangeFinished: (() -> Unit)?,
 ) =
     androidx.compose.material3.RangeSlider(
         value,
@@ -41,5 +41,5 @@ actual fun RangeSlider(
         enabled,
         valueRange,
         steps,
-        onValueChangeFinished
+        onValueChangeFinished,
     )

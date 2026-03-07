@@ -10,6 +10,6 @@ actual fun SwitchWithLabel(
     onCheckedChange: ((Boolean) -> Unit)?,
     label: String,
     modifier: Modifier,
-    enabled: Boolean
+    enabled: Boolean,
 ) =
     CommonSwitch(checked, onCheckedChange, label, modifier, enabled)

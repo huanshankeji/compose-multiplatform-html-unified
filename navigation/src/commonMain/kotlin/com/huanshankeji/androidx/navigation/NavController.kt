@@ -20,7 +20,7 @@ expect class NavController {
     fun navigate(
         route: String,
         navOptions: NavOptions? = null,
-        navigatorExtras: Navigator.Extras? = null
+        navigatorExtras: Navigator.Extras? = null,
     )
 
     val currentBackStackEntry: NavBackStackEntry?

@@ -22,7 +22,7 @@ actual fun PrimaryTab(
         modifier.platformModifier,
         enabled,
         text,
-        icon.toNullableContentWithoutModifier()
+        icon.toNullableContentWithoutModifier(),
     )
 
 @Composable
@@ -42,7 +42,7 @@ actual fun SecondaryTab(
         modifier.platformModifier,
         enabled,
         text,
-        icon.toNullableContentWithoutModifier()
+        icon.toNullableContentWithoutModifier(),
     )
 
 @Composable

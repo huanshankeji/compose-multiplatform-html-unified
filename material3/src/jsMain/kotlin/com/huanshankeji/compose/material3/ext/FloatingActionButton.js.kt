@@ -14,7 +14,7 @@ private fun (@Composable (Modifier) -> Unit).toCommonMdFabContent(): @Composable
 actual fun FloatingActionButton(
     onClick: () -> Unit,
     modifier: Modifier,
-    content: @Composable (Modifier) -> Unit
+    content: @Composable (Modifier) -> Unit,
 ) =
     MdFab(attrs = modifier.toCommonButtonAttrs(onClick), content = content.toCommonMdFabContent())
 
@@ -22,7 +22,7 @@ actual fun FloatingActionButton(
 actual fun SmallFloatingActionButton(
     onClick: () -> Unit,
     modifier: Modifier,
-    content: @Composable (Modifier) -> Unit
+    content: @Composable (Modifier) -> Unit,
 ) =
     MdFab(size = "small", attrs = modifier.toCommonButtonAttrs(onClick), content = content.toCommonMdFabContent())
 
@@ -30,7 +30,7 @@ actual fun SmallFloatingActionButton(
 actual fun LargeFloatingActionButton(
     onClick: () -> Unit,
     modifier: Modifier,
-    content: @Composable (Modifier) -> Unit
+    content: @Composable (Modifier) -> Unit,
 ) =
     MdFab(size = "large", attrs = modifier.toCommonButtonAttrs(onClick), content = content.toCommonMdFabContent())
 
@@ -39,6 +39,6 @@ actual fun ExtendedFloatingActionButton(
     onClick: () -> Unit,
     modifier: Modifier,
     label: String,
-    content: @Composable ((Modifier) -> Unit)?
+    content: @Composable ((Modifier) -> Unit)?,
 ) =
     MdFab(label = label, attrs = modifier.toCommonButtonAttrs(onClick), content = content?.toCommonMdFabContent())

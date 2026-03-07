@@ -9,7 +9,7 @@ import com.huanshankeji.compose.ui.Modifier
 actual fun Button(
     onClick: () -> Unit,
     modifier: Modifier,
-    content: @Composable RowScope.() -> Unit
+    content: @Composable RowScope.() -> Unit,
 ) =
     androidx.compose.material.Button(onClick, modifier.platformModifier, content = content.toPlatformRowScopeContent())
 
@@ -17,22 +17,22 @@ actual fun Button(
 actual fun OutlinedButton(
     onClick: () -> Unit,
     modifier: Modifier,
-    content: @Composable RowScope.() -> Unit
+    content: @Composable RowScope.() -> Unit,
 ) =
     androidx.compose.material.OutlinedButton(
         onClick,
         modifier.platformModifier,
-        content = content.toPlatformRowScopeContent()
+        content = content.toPlatformRowScopeContent(),
     )
 
 @Composable
 actual fun TextButton(
     onClick: () -> Unit,
     modifier: Modifier,
-    content: @Composable RowScope.() -> Unit
+    content: @Composable RowScope.() -> Unit,
 ) =
     androidx.compose.material.TextButton(
         onClick,
         modifier.platformModifier,
-        content = content.toPlatformRowScopeContent()
+        content = content.toPlatformRowScopeContent(),
     )

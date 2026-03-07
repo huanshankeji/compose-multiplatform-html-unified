@@ -30,7 +30,7 @@ actual fun RadioButton(
         attrs = modifier.toAttrs {
             onClick?.let { onClick { it() } }
             // or use `input` and `change` events from https://github.com/material-components/material-web/blob/main/docs/components/radio.md#events?
-        }
+        },
     )
 
 
@@ -52,13 +52,13 @@ actual fun RadioButtonRow(
                 else disabled()
             }
             .then(modifierAfterSelectable.platformModifier)
-            .toAttrs()
+            .toAttrs(),
     ) {
         MdRadio(
             checked = selected.isTrueOrNull(),
             disabled = enabled.isFalseOrNull(),
             id = radioButtonIdJsDom,
-            attrs = radioButtonModifier.toAttrs()
+            attrs = radioButtonModifier.toAttrs(),
         )
         Label(radioButtonIdJsDom, {
             style {

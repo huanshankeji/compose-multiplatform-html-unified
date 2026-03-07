@@ -50,13 +50,13 @@ actual fun ModalNavigationDrawer(
     drawerContent: @Composable () -> Unit,
     modifier: Modifier,
     drawerState: DrawerState,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) =
     androidx.compose.material3.ModalNavigationDrawer(
         drawerContent,
         modifier.platformModifier,
         drawerState.platformValue,
-        content = content
+        content = content,
     )
 
 @Composable

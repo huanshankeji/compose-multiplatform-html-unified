@@ -9,22 +9,22 @@ import com.huanshankeji.compose.ui.Modifier
 actual fun SingleChoiceSegmentedButtonRow(
     modifier: Modifier,
     space: Dp?,
-    content: @Composable SingleChoiceSegmentedButtonRowScope.() -> Unit
+    content: @Composable SingleChoiceSegmentedButtonRowScope.() -> Unit,
 ) =
     androidx.compose.material3.SingleChoiceSegmentedButtonRow(
         modifier.platformModifier,
-        space ?: SegmentedButtonDefaults.BorderWidth
+        space ?: SegmentedButtonDefaults.BorderWidth,
     ) { SingleChoiceSegmentedButtonRowScope(this).content() }
 
 @Composable
 actual fun MultiChoiceSegmentedButtonRow(
     modifier: Modifier,
     space: Dp?,
-    content: @Composable MultiChoiceSegmentedButtonRowScope.() -> Unit
+    content: @Composable MultiChoiceSegmentedButtonRowScope.() -> Unit,
 ) =
     androidx.compose.material3.MultiChoiceSegmentedButtonRow(
         modifier.platformModifier,
-        space ?: SegmentedButtonDefaults.BorderWidth
+        space ?: SegmentedButtonDefaults.BorderWidth,
     ) {
         MultiChoiceSegmentedButtonRowScope(this).content()
     }

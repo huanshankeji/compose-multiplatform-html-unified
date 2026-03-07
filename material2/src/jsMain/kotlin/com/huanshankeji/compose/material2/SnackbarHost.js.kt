@@ -24,7 +24,7 @@ actual class SnackbarHostState(val platformValue: SnackbarHostStateCommonImpl) {
     actual suspend fun showSnackbar(
         message: String,
         actionLabel: String?,
-        duration: SnackbarDuration
+        duration: SnackbarDuration,
     ): SnackbarResult =
         platformValue.showSnackbar(message, actionLabel, duration)
 }
@@ -50,12 +50,12 @@ fun SnackbarDataCommonInterface.toCommonValue() =
 actual fun SnackbarHost(
     hostState: SnackbarHostState,
     modifier: Modifier,
-    actionOnNewLine: Boolean
+    actionOnNewLine: Boolean,
 ) {
     val currentSnackbarData = hostState.currentSnackbarData?.platformValue
 
     val duration: Long?
-    if (currentSnackbarData !== null) {
+    if (currentSnackbarData != null) {
         duration = currentSnackbarData.duration.toMillis()
 
         /**
@@ -79,7 +79,7 @@ actual fun SnackbarHost(
         duration = null
 
     // not put in a conditional block to reduce DOM recomposition
-    CommonSnackbar(actionOnNewLine, currentSnackbarData !== null, duration?.toInt(), modifier, currentSnackbarData)
+    CommonSnackbar(actionOnNewLine, currentSnackbarData != null, duration?.toInt(), modifier, currentSnackbarData)
 }
 
 internal fun SnackbarDuration.toMillis(

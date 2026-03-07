@@ -9,7 +9,7 @@ import com.huanshankeji.compose.ui.Modifier
 @Composable
 actual fun NavigationBar(
     modifier: Modifier,
-    content: @Composable NavigationBarScope.() -> Unit
+    content: @Composable NavigationBarScope.() -> Unit,
 ) =
     androidx.compose.material3.NavigationBar(modifier.platformModifier) {
         NavigationBarScope(this).content()
@@ -26,7 +26,7 @@ actual fun NavigationBarScope.NavigationBarItem(
     modifier: Modifier,
     enabled: Boolean,
     label: String?,
-    alwaysShowLabel: Boolean
+    alwaysShowLabel: Boolean,
 ) =
     rowScope.NavigationBarItem(
         selected,
@@ -35,5 +35,5 @@ actual fun NavigationBarScope.NavigationBarItem(
         modifier.platformModifier,
         enabled,
         label.toNullableTaglessText(),
-        alwaysShowLabel
+        alwaysShowLabel,
     )

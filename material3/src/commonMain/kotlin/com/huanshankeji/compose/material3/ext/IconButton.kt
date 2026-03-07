@@ -22,7 +22,7 @@ expect fun IconToggleButton(
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
     uncheckedContent: @Composable () -> Unit,
-    checkedContent: @Composable (Modifier) -> Unit
+    checkedContent: @Composable (Modifier) -> Unit,
 )
 
 @Composable
@@ -32,7 +32,7 @@ fun IconToggleButtonWithMaterialIcons(
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
     uncheckedIcon: Icon,
-    checkedIcon: Icon
+    checkedIcon: Icon,
 ) =
     IconToggleButton(
         checked,
@@ -40,7 +40,7 @@ fun IconToggleButtonWithMaterialIcons(
         modifier,
         enabled,
         uncheckedIcon.toUncheckedIconContent(),
-        checkedIcon.toCheckedIconContent()
+        checkedIcon.toCheckedIconContent(),
     )
 
 /**
@@ -53,7 +53,7 @@ expect fun FilledIconToggleButton(
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
     uncheckedContent: @Composable () -> Unit,
-    checkedContent: @Composable (Modifier) -> Unit
+    checkedContent: @Composable (Modifier) -> Unit,
 )
 
 @Composable
@@ -63,7 +63,7 @@ fun FilledIconToggleButtonWithMaterialIcons(
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
     uncheckedIcon: Icon,
-    checkedIcon: Icon
+    checkedIcon: Icon,
 ) =
     FilledIconToggleButton(
         checked,
@@ -71,7 +71,7 @@ fun FilledIconToggleButtonWithMaterialIcons(
         modifier,
         enabled,
         uncheckedIcon.toUncheckedIconContent(),
-        checkedIcon.toCheckedIconContent()
+        checkedIcon.toCheckedIconContent(),
     )
 
 /**
@@ -84,7 +84,7 @@ expect fun FilledTonalIconToggleButton(
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
     uncheckedContent: @Composable () -> Unit,
-    checkedContent: @Composable (Modifier) -> Unit
+    checkedContent: @Composable (Modifier) -> Unit,
 )
 
 @Composable
@@ -94,7 +94,7 @@ fun FilledTonalIconToggleButtonWithMaterialIcons(
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
     uncheckedIcon: Icon,
-    checkedIcon: Icon
+    checkedIcon: Icon,
 ) =
     FilledTonalIconToggleButton(
         checked,
@@ -102,7 +102,7 @@ fun FilledTonalIconToggleButtonWithMaterialIcons(
         modifier,
         enabled,
         uncheckedIcon.toUncheckedIconContent(),
-        checkedIcon.toCheckedIconContent()
+        checkedIcon.toCheckedIconContent(),
     )
 
 /**
@@ -115,7 +115,7 @@ expect fun OutlinedIconToggleButton(
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
     uncheckedContent: @Composable () -> Unit,
-    checkedContent: @Composable (Modifier) -> Unit
+    checkedContent: @Composable (Modifier) -> Unit,
 )
 
 @Composable
@@ -125,7 +125,7 @@ fun OutlinedIconToggleButtonWithMaterialIcons(
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
     uncheckedIcon: Icon,
-    checkedIcon: Icon
+    checkedIcon: Icon,
 ) =
     OutlinedIconToggleButton(
         checked,
@@ -133,5 +133,5 @@ fun OutlinedIconToggleButtonWithMaterialIcons(
         modifier,
         enabled,
         uncheckedIcon.toUncheckedIconContent(),
-        checkedIcon.toCheckedIconContent()
+        checkedIcon.toCheckedIconContent(),
     )

@@ -10,5 +10,5 @@ fun KeyboardOptions.toPlatformValue(): PlatformKeyboardOptions =
         autoCorrect ?: true,
         keyboardType.toPlatformValue(),
         imeAction.toPlatformValue(),
-        platformImeOptions?.platformValue
+        platformImeOptions?.platformValue,
     )

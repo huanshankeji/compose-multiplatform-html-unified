@@ -44,9 +44,9 @@ actual fun RadioButtonRow(
             selected = selected,
             enabled = enabled,
             role = Role.RadioButton,
-            onClick = onClick
+            onClick = onClick,
         ).then(modifierAfterSelectable.platformModifier),
-        verticalAlignment = Alignment.CenterVertically
+        verticalAlignment = Alignment.CenterVertically,
     ) {
         RadioButton(selected, null, radioButtonModifier.platformModifier) // no need to pass `enabled` here
         Spacer(PlatformModifier.width(16.dp))

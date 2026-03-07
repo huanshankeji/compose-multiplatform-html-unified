@@ -71,7 +71,7 @@ actual fun TextField(
     keyboardOptions: KeyboardOptions,
     keyboardActions: KeyboardActions,
     singleLine: Boolean,
-    lines: Int
+    lines: Int,
 ) =
     MdFilledTextField(
         enabled.isFalseOrNull(),
@@ -90,7 +90,7 @@ actual fun TextField(
         type = inputType(singleLine, lines),
 
         attrs = modifier.toTextFieldAttrs(onValueChange, keyboardOptions, keyboardActions),
-        content = TextFieldContent(value, leadingIcon, trailingIcon)
+        content = TextFieldContent(value, leadingIcon, trailingIcon),
     )
 
 
@@ -112,7 +112,7 @@ actual fun OutlinedTextField(
     keyboardOptions: KeyboardOptions,
     keyboardActions: KeyboardActions,
     singleLine: Boolean,
-    lines: Int
+    lines: Int,
 ) =
     MdOutlinedTextField(
         enabled.isFalseOrNull(),
@@ -131,5 +131,5 @@ actual fun OutlinedTextField(
         type = inputType(singleLine, lines),
 
         attrs = modifier.toTextFieldAttrs(onValueChange, keyboardOptions, keyboardActions),
-        content = TextFieldContent(value, leadingIcon, trailingIcon)
+        content = TextFieldContent(value, leadingIcon, trailingIcon),
     )

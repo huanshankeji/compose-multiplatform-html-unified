@@ -11,7 +11,7 @@ expect fun RadioRow(
     label: String,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
-    enabled: Boolean = true
+    enabled: Boolean = true,
 )
 
 @Composable

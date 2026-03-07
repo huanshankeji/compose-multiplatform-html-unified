@@ -16,7 +16,7 @@ actual fun PrimaryTabRow(
     PrimaryTabRow(
         selectedTabIndex,
         modifier.platformModifier,
-        tabs = tabs
+        tabs = tabs,
     )
 
 @Composable
@@ -28,7 +28,7 @@ actual fun SecondaryTabRow(
     SecondaryTabRow(
         selectedTabIndex,
         modifier.platformModifier,
-        tabs = tabs
+        tabs = tabs,
     )
 
 @Composable
@@ -40,7 +40,7 @@ actual fun PrimaryScrollableTabRow(
     PrimaryScrollableTabRow(
         selectedTabIndex,
         modifier.platformModifier,
-        tabs = tabs
+        tabs = tabs,
     )
 
 @Composable
@@ -52,5 +52,5 @@ actual fun SecondaryScrollableTabRow(
     SecondaryScrollableTabRow(
         selectedTabIndex,
         modifier.platformModifier,
-        tabs = tabs
+        tabs = tabs,
     )

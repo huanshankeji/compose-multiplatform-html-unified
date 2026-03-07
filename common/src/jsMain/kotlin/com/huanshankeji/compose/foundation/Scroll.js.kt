@@ -42,7 +42,7 @@ actual fun VerticalScrollBox(
     boxModifier: Modifier,
     contentModifier: Modifier,
     contentAlignment: Alignment,
-    content: @Composable BoxScope.() -> Unit
+    content: @Composable BoxScope.() -> Unit,
 ) =
     Box(boxModifier.verticalScroll(rememberScrollState())) {
         KobwebBox(contentModifier, contentAlignment, content)
@@ -53,7 +53,7 @@ actual fun HorizontalScrollBox(
     boxModifier: Modifier,
     contentModifier: Modifier,
     contentAlignment: Alignment,
-    content: @Composable BoxScope.() -> Unit
+    content: @Composable BoxScope.() -> Unit,
 ) =
     Box(boxModifier.horizontalScroll(rememberScrollState())) {
         KobwebBox(contentModifier, contentAlignment, content)

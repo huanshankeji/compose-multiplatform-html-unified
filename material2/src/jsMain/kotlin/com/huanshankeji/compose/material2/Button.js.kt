@@ -16,14 +16,14 @@ internal fun CommonButton(
     onClick: () -> Unit,
     buttonType: ButtonType,
     modifier: Modifier,
-    content: @Composable MDCButtonScope<HTMLButtonElement>.() -> Unit
+    content: @Composable MDCButtonScope<HTMLButtonElement>.() -> Unit,
 ) =
     MDCButton(
         buttonType.toMDCButtonType(),
         attrs = modifier.toAttrs {
             onClick { onClick() }
         },
-        content = content
+        content = content,
     )
 
 @Composable
@@ -31,7 +31,7 @@ private fun Button(
     onClick: () -> Unit,
     buttonType: ButtonType,
     modifier: Modifier,
-    content: @Composable RowScope.() -> Unit
+    content: @Composable RowScope.() -> Unit,
 ) =
     CommonButton(onClick, buttonType, modifier) {
         Row(content = content)
@@ -41,7 +41,7 @@ private fun Button(
 actual fun Button(
     onClick: () -> Unit,
     modifier: Modifier,
-    content: @Composable RowScope.() -> Unit
+    content: @Composable RowScope.() -> Unit,
 ) =
     Button(onClick, ButtonType.Contained, modifier, content)
 
@@ -49,7 +49,7 @@ actual fun Button(
 actual fun OutlinedButton(
     onClick: () -> Unit,
     modifier: Modifier,
-    content: @Composable RowScope.() -> Unit
+    content: @Composable RowScope.() -> Unit,
 ) =
     Button(onClick, ButtonType.Outlined, modifier, content)
 
@@ -57,6 +57,6 @@ actual fun OutlinedButton(
 actual fun TextButton(
     onClick: () -> Unit,
     modifier: Modifier,
-    content: @Composable RowScope.() -> Unit
+    content: @Composable RowScope.() -> Unit,
 ) =
     Button(onClick, ButtonType.Text, modifier, content)
