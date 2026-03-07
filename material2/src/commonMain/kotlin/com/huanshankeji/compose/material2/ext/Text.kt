@@ -31,3 +31,9 @@ expect fun TaglessText(text: String)
 @Composable
 fun SpanText(text: String, modifier: Modifier = Modifier, color: Color? = null) =
     Text(text, modifier, color)
+
+fun String.toTaglessText(): @Composable () -> Unit =
+    { TaglessText(this) }
+
+fun String?.toNullableTaglessText(): @Composable (() -> Unit)? =
+    this?.toTaglessText()

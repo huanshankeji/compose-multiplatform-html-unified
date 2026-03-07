@@ -48,7 +48,7 @@ import com.huanshankeji.androidx.navigation.compose.ComposeNavigator.Destination
     /*actual*/ class Destination /*actual constructor*/(
         navigator: ComposeNavigator,
         internal /*actual*/ val content:
-        @Composable /*AnimatedContentScope.*/(/*@JvmSuppressWildcards*/ NavBackStackEntry) -> Unit
+        @Composable /*AnimatedContentScope.*/(/*@JvmSuppressWildcards*/ NavBackStackEntry) -> Unit,
     ) : NavDestination(navigator)
 
     internal /*actual*/ companion object {
