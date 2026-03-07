@@ -39,10 +39,9 @@ fun Material3(/*modifier: Modifier = Modifier*/
     Column(Modifier.verticalScroll(rememberScrollState()).innerContentPadding(), Arrangement.spacedBy(16.dp)) {
         val count by viewModel.countState.collectAsState()
         val onClick: () -> Unit = {
-            viewModel.countState.value++
-            val count = viewModel.countState.value
+            val newCount = ++viewModel.countState.value
             scope.launch {
-                snackbarHostState.showSnackbar("Count incremented to $count")
+                snackbarHostState.showSnackbar("Count incremented to $newCount")
             }
         }
         val buttonContent: @Composable () -> Unit = {
