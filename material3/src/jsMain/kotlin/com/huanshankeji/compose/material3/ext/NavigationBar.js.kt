@@ -46,7 +46,7 @@ actual fun NavigationBarScope.NavigationBarItem(
         label,
         attrs = modifier.toAttrs {
             onClick { onClick() }
-        }
+        },
     ) {
         selectedIcon(PlatformModifier.attrsModifier { slot(MdNavigationTabScope.Slot.ActiveIcon) }.toCommonModifier())
         unselectedIcon(

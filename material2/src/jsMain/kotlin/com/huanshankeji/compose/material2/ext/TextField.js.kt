@@ -41,7 +41,7 @@ fun CommonTextFieldWithMDCContentIcons(
             onInput { onValueChange(it.value) }
 
             attrsFrom(keyboardOptions, keyboardActions)
-        }
+        },
     )
 
 @Composable

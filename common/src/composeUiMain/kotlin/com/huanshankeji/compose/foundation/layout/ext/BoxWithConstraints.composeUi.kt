@@ -16,7 +16,7 @@ actual fun BoxWithConstraints(
     content: @Composable BoxWithConstraintsScope.() -> Unit,
 ) =
     androidx.compose.foundation.layout.BoxWithConstraints(
-        modifier.platformModifier, contentAlignment.platformAlignment/*, false*/
+        modifier.platformModifier, contentAlignment.platformAlignment/*, false*/,
     ) {
         BoxWithConstraintsScopeImpl(this, maxWidth, maxHeight).content()
     }

@@ -14,7 +14,7 @@ actual fun NavGraphBuilder.composable(
     addDestination(
         ComposeNavigator.Destination(
             provider[ComposeNavigator.NAME],
-            content
+            content,
         ).apply {
             this.route = route
             arguments.forEach { (argumentName, argument) ->
@@ -23,6 +23,6 @@ actual fun NavGraphBuilder.composable(
             deepLinks.forEach { deepLink ->
                 addDeepLink(deepLink)
             }
-        }
+        },
     )
 }

@@ -30,7 +30,7 @@ actual fun RadioButton(
         attrs = modifier.toAttrs {
             onClick?.let { onClick { it() } }
             // or use `input` and `change` events from https://github.com/material-components/material-web/blob/main/docs/components/radio.md#events?
-        }
+        },
     )
 
 

@@ -6,7 +6,6 @@ import com.huanshankeji.compose.foundation.text.KeyboardOptions
 import com.huanshankeji.compose.foundation.text.toPlatformValue
 import com.huanshankeji.compose.material.icons.Icon
 import com.huanshankeji.compose.material2.Icon
-import com.huanshankeji.compose.material2.Text
 import com.huanshankeji.compose.ui.Modifier
 
 @Composable

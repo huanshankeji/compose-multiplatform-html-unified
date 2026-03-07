@@ -44,7 +44,7 @@ actual fun RadioButtonRow(
             selected = selected,
             enabled = enabled,
             role = Role.RadioButton,
-            onClick = onClick
+            onClick = onClick,
         ).then(modifierAfterSelectable.platformModifier),
         verticalAlignment = Alignment.CenterVertically,
     ) {

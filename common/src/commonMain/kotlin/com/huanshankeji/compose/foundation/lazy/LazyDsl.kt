@@ -45,7 +45,7 @@ inline fun <T> LazyListScope.items(
 ) = items(
     count = items.size,
     key = if (key != null) { index: Int -> key(items[index]) } else null,
-    contentType = { index: Int -> contentType(items[index]) }
+    contentType = { index: Int -> contentType(items[index]) },
 ) {
     itemContent(items[it])
 }
@@ -58,7 +58,7 @@ inline fun <T> LazyListScope.itemsIndexed(
 ) = items(
     count = items.size,
     key = if (key != null) { index: Int -> key(index, items[index]) } else null,
-    contentType = { index -> contentType(index, items[index]) }
+    contentType = { index -> contentType(index, items[index]) },
 ) {
     itemContent(it, items[it])
 }
@@ -71,7 +71,7 @@ inline fun <T> LazyListScope.items(
 ) = items(
     count = items.size,
     key = if (key != null) { index: Int -> key(items[index]) } else null,
-    contentType = { index: Int -> contentType(items[index]) }
+    contentType = { index: Int -> contentType(items[index]) },
 ) {
     itemContent(items[it])
 }
@@ -84,7 +84,7 @@ inline fun <T> LazyListScope.itemsIndexed(
 ) = items(
     count = items.size,
     key = if (key != null) { index: Int -> key(index, items[index]) } else null,
-    contentType = { index -> contentType(index, items[index]) }
+    contentType = { index -> contentType(index, items[index]) },
 ) {
     itemContent(it, items[it])
 }

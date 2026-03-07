@@ -68,7 +68,7 @@ actual fun PrimitiveTopAppBarScaffold(
                     align = MDCTopAppBarSectionAlign.End,
                     attrs = {
                         attr("role", "toolbar")
-                    }
+                    },
                 ) {
                     TopAppBarActionsScope(this).actions()
                 }

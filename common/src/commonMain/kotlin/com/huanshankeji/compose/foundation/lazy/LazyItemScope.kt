@@ -31,7 +31,7 @@ expect class LazyItemScope {
         animationSpec: FiniteAnimationSpec<IntOffset> = spring(
             stiffness = Spring.StiffnessMediumLow,
             visibilityThreshold = androidx.compose.ui.unit.IntOffset.VisibilityThreshold,
-        )
+        ),
     ): Modifier
     */
 }

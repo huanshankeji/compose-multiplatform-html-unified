@@ -31,7 +31,7 @@ actual class ListScope(val lazyListScope: LazyListScope) {
                     } ?: { trailingSupportingText(Modifier) }
                 } ?: end?.let { end ->
                     { end(Modifier) }
-                }
+                },
             )
         }
 

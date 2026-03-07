@@ -26,5 +26,5 @@ actual fun Checkbox(
 
             //onCheckedChange?.let { onClick { it(!checked) } }
             onCheckedChange?.let { onInput { it(!checked) } }
-        }
+        },
     )

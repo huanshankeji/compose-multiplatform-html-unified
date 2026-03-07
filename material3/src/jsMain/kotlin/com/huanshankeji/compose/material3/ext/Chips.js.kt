@@ -25,7 +25,7 @@ actual fun AssistChip(
         hasIcon = leadingIcon != null,
         attrs = modifier.toAttrs {
             onClick { onClick() }
-        }
+        },
     ) { nullableContentWithSlot(leadingIcon, Slot.Icon) }
 
 @Composable
@@ -43,7 +43,7 @@ actual fun ElevatedAssistChip(
         hasIcon = leadingIcon != null,
         attrs = modifier.toAttrs {
             onClick { onClick() }
-        }
+        },
     ) { nullableContentWithSlot(leadingIcon, Slot.Icon) }
 
 @Composable
@@ -62,7 +62,7 @@ actual fun FilterChip(
         hasIcon = leadingIcon != null,
         attrs = modifier.toAttrs {
             onClick { onClick() }
-        }
+        },
     ) { nullableContentWithSlot(leadingIcon, Slot.Icon) }
 
 @Composable
@@ -82,7 +82,7 @@ actual fun ElevatedFilterChip(
         hasIcon = leadingIcon != null,
         attrs = modifier.toAttrs {
             onClick { onClick() }
-        }
+        },
     ) { nullableContentWithSlot(leadingIcon, Slot.Icon) }
 
 @Composable
@@ -106,7 +106,7 @@ actual fun InputChip(
         onRemove = onRemove,
         attrs = modifier.toAttrs {
             onClick { onClick() }
-        }
+        },
     ) {
         // matches Compose UI's behavior where `avatar` shadows `leadingIcon`
         nullableContentWithSlot(avatar ?: leadingIcon, Slot.Icon)
@@ -126,7 +126,7 @@ actual fun SuggestionChip(
         hasIcon = icon != null,
         attrs = modifier.toAttrs {
             onClick { onClick() }
-        }
+        },
     ) { nullableContentWithSlot(icon, Slot.Icon) }
 
 @Composable
@@ -144,6 +144,6 @@ actual fun ElevatedSuggestionChip(
         hasIcon = icon != null,
         attrs = modifier.toAttrs {
             onClick { onClick() }
-        }
+        },
     ) { nullableContentWithSlot(icon, Slot.Icon) }
 

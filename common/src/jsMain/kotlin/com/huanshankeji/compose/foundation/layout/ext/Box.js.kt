@@ -26,7 +26,7 @@ fun KobwebBox(
     modifier: PlatformModifier = PlatformModifier,
     contentAlignment: PlatformAlignment = PlatformAlignment.TopStart,
     ref: ElementRefScope<HTMLElement>? = null,
-    content: @Composable PlatformBoxScope.() -> Unit = {}
+    content: @Composable PlatformBoxScope.() -> Unit = {},
 ) {
     AddKobwebComposeStyleSheet()
     Box(modifier, contentAlignment, ref, content)
@@ -36,7 +36,7 @@ fun KobwebBox(
 fun KobwebBox(
     modifier: CommonModifier = CommonModifier,
     contentAlignment: CommonAlignment,
-    content: @Composable CommonBoxScope.() -> Unit = {}
+    content: @Composable CommonBoxScope.() -> Unit = {},
 ) =
     KobwebBox(modifier.platformModifier, contentAlignment.platformValue) {
         BoxScope.Impl(this).content()

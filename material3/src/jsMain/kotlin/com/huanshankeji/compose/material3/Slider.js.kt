@@ -44,7 +44,7 @@ actual fun Slider(
             }
 
             onValueChangeFinished?.let { onChange { it() } }
-        }
+        },
     )
 
 @Composable

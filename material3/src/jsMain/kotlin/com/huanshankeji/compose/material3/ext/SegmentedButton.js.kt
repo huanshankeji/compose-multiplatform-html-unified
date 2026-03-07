@@ -33,7 +33,7 @@ private fun CommonSegmentedButton(
         hasIcon,
         modifier.toAttrs {
             onClick { onClick() }
-        }
+        },
     ) {
         icon?.let { iconContent ->
             Div({ slot(Slot.Icon) }) {

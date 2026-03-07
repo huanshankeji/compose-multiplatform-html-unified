@@ -24,7 +24,7 @@ actual fun SingleChoiceSegmentedButtonRowScope.SegmentedButton(
         onClick,
         SegmentedButtonDefaults.itemShape(
             defaultShapeArgs.index,
-            defaultShapeArgs.count
+            defaultShapeArgs.count,
         ),
         modifier.platformModifier,
         enabled,
@@ -48,7 +48,7 @@ actual fun MultiChoiceSegmentedButtonRowScope.SegmentedButton(
         onCheckedChange,
         SegmentedButtonDefaults.itemShape(
             defaultShapeArgs.index,
-            defaultShapeArgs.count
+            defaultShapeArgs.count,
         ),
         modifier.platformModifier,
         enabled,
