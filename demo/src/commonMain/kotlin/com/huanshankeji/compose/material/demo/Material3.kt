@@ -33,10 +33,22 @@ fun Material3(/*modifier: Modifier = Modifier*/
 ) {
     val snackbarHostState = remember { SnackbarHostState() }
     val coroutineScope = rememberCoroutineScope()
-
-    Column(Modifier.verticalScroll(rememberScrollState()).innerContentPadding(), Arrangement.spacedBy(16.dp)) {
+    TopAppBarScaffold(
+        title = { Text("Compose Multiplatform HTML Unified demo") },
+        navigationIcon = {
+            MaterialIconNavButton({}, icon = Icons.Default.Menu, contentDescription = "menu")
+        },
+        actions = {
+            MaterialIconActionButton({}, icon = Icons.Default.Search, contentDescription = "search")
+        },
+        snackbarHost = { SnackbarHost(snackbarHostState) }
+    ) { _ ->
+        Column(Modifier.verticalScroll(rememberScrollState()).innerContentPadding(), Arrangement.spacedBy(16.dp)) {
         val count by viewModel.countState.collectAsState()
-        val onClick: () -> Unit = { viewModel.countState.value++ }
+        val onClick: () -> Unit = {
+            val newCount = ++viewModel.countState.value
+            coroutineScope.launch { snackbarHostState.showSnackbar("Count incremented to $newCount") }
+        }
         val buttonContent: @Composable () -> Unit = {
             TaglessText(count.toString())
         }
@@ -555,22 +567,7 @@ fun Material3(/*modifier: Modifier = Modifier*/
             Text("Snackbar with action on new line")
         }
 
-        // SnackbarHost triggered by buttons
-        Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
-            Button(onClick = {
-                coroutineScope.launch { snackbarHostState.showSnackbar("Snackbar message!") }
-            }) {
-                Text("Show Snackbar")
-            }
-            Button(onClick = {
-                coroutineScope.launch { snackbarHostState.showSnackbar("With action!", actionLabel = "Undo") }
-            }) {
-                Text("With Action")
-            }
-        }
-        SnackbarHost(snackbarHostState)
-
-        // TopAppBarScaffold
+        // TopAppBarScaffold (nested demo)
         HorizontalDivider()
 
         Box(Modifier.height(200.dp).fillMaxWidth()) {
@@ -610,4 +607,5 @@ fun Material3(/*modifier: Modifier = Modifier*/
             }
         }
     }
+    } // end TopAppBarScaffold
 }
