@@ -16,7 +16,7 @@ actual fun TopAppBar(
         title,
         modifier.platformModifier,
         navigationIcon ?: {},
-        { actions() }
+        { actions() },
     )
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -31,7 +31,7 @@ actual fun CenterAlignedTopAppBar(
         title,
         modifier.platformModifier,
         navigationIcon ?: {},
-        { actions() }
+        { actions() },
     )
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -46,7 +46,7 @@ actual fun MediumTopAppBar(
         title,
         modifier.platformModifier,
         navigationIcon ?: {},
-        { actions() }
+        { actions() },
     )
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -61,5 +61,5 @@ actual fun LargeTopAppBar(
         title,
         modifier.platformModifier,
         navigationIcon ?: {},
-        { actions() }
+        { actions() },
     )
