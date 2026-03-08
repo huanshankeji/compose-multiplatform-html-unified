@@ -28,7 +28,7 @@ abstract class SnackbarHostStateCommonImpl {
         actionLabel: String? = null,
         withDismissAction: Boolean = false,
         duration: SnackbarDuration =
-            if (actionLabel == null) SnackbarDuration.Short else SnackbarDuration.Indefinite
+            if (actionLabel == null) SnackbarDuration.Short else SnackbarDuration.Indefinite,
     ): SnackbarResult =
         showSnackbar(SnackbarVisualsImpl(message, actionLabel, withDismissAction, duration))
 
@@ -51,13 +51,13 @@ abstract class SnackbarHostStateCommonImpl {
         override val message: String,
         override val actionLabel: String?,
         override val withDismissAction: Boolean,
-        override val duration: SnackbarDuration
+        override val duration: SnackbarDuration,
     ) : SnackbarVisuals
 
     @Stable
     private class SnackbarDataImpl(
         override val visuals: SnackbarVisuals,
-        private val continuation: CancellableContinuation<SnackbarResult>
+        private val continuation: CancellableContinuation<SnackbarResult>,
     ) : SnackbarData {
 
         override fun performAction() {
