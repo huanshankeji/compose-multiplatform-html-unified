@@ -518,22 +518,22 @@ fun Material3(/*modifier: Modifier = Modifier*/
         TopAppBar(
             title = { Text("Small") },
             navigationIcon = { IconButton({ scope.launch { snackbarHostState.showSnackbar("Nav clicked") } }) { Icon(Icons.Default.Menu, null) } },
-            actions = { IconButton({ scope.launch { snackbarHostState.showSnackbar("Search clicked") } }) { Icon(Icons.Default.Search, null) } }
+            actions = { IconButton({ scope.launch { snackbarHostState.showSnackbar("Search clicked") } }) { Icon(Icons.Default.Search, null) } },
         )
         CenterAlignedTopAppBar(
             title = { Text("Center Aligned") },
             navigationIcon = { IconButton({ scope.launch { snackbarHostState.showSnackbar("Nav clicked") } }) { Icon(Icons.Default.Menu, null) } },
-            actions = { IconButton({ scope.launch { snackbarHostState.showSnackbar("Search clicked") } }) { Icon(Icons.Default.Search, null) } }
+            actions = { IconButton({ scope.launch { snackbarHostState.showSnackbar("Search clicked") } }) { Icon(Icons.Default.Search, null) } },
         )
         MediumTopAppBar(
             title = { Text("Medium") },
             navigationIcon = { IconButton({ scope.launch { snackbarHostState.showSnackbar("Nav clicked") } }) { Icon(Icons.Default.Menu, null) } },
-            actions = { IconButton({ scope.launch { snackbarHostState.showSnackbar("Search clicked") } }) { Icon(Icons.Default.Search, null) } }
+            actions = { IconButton({ scope.launch { snackbarHostState.showSnackbar("Search clicked") } }) { Icon(Icons.Default.Search, null) } },
         )
         LargeTopAppBar(
             title = { Text("Large") },
             navigationIcon = { IconButton({ scope.launch { snackbarHostState.showSnackbar("Nav clicked") } }) { Icon(Icons.Default.Menu, null) } },
-            actions = { IconButton({ scope.launch { snackbarHostState.showSnackbar("Search clicked") } }) { Icon(Icons.Default.Search, null) } }
+            actions = { IconButton({ scope.launch { snackbarHostState.showSnackbar("Search clicked") } }) { Icon(Icons.Default.Search, null) } },
         )
 
         // Snackbar demo
