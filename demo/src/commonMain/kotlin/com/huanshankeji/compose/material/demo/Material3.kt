@@ -23,7 +23,6 @@ import com.huanshankeji.compose.material3.ext.ElevatedCard
 import com.huanshankeji.compose.material3.ext.OutlinedCard
 import com.huanshankeji.compose.material3.lazy.ext.List
 import com.huanshankeji.compose.material3.lazy.ext.ListItemComponents
-import com.huanshankeji.compose.ui.Alignment
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.graphics.Color
 import kotlinx.coroutines.launch
@@ -35,8 +34,7 @@ fun Material3(/*modifier: Modifier = Modifier*/
 ) {
     val snackbarHostState = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
-    Box(Modifier.fillMaxSizeStretch()) {
-    Column(Modifier.verticalScroll(rememberScrollState()).innerContentPadding(), Arrangement.spacedBy(16.dp)) {
+    Column(Modifier.fillMaxSizeStretch().verticalScroll(rememberScrollState()).innerContentPadding(), Arrangement.spacedBy(16.dp)) {
         val count by viewModel.countState.collectAsState()
         val onClick: () -> Unit = {
             val newCount = ++viewModel.countState.value
@@ -578,7 +576,6 @@ fun Material3(/*modifier: Modifier = Modifier*/
         ) {
             Text("Main Content", Modifier.fillMaxWidth().height(160.dp).background(Color.Gray))
         }
-    }
-    SnackbarHost(snackbarHostState, Modifier.align(Alignment.BottomCenter))
+        SnackbarHost(snackbarHostState)
     }
 }
