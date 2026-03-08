@@ -158,7 +158,7 @@ fun Material3(
                     KeyboardCapitalization.Words, true, imeAction = ImeAction.Search
                 ),
                 keyboardActions = KeyboardActions {
-                    println("keyboard actions with: $text")
+                    scope.launch { snackbarHostState.showSnackbar("keyboard actions with: $text") }
                 },
             )
             OutlinedTextField(text, { text = it }, label = label, placeholder = placeholder, lines = 2)
