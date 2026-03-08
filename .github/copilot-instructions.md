@@ -211,8 +211,6 @@ When adding or aligning components, you can search in <https://m3.material.io/> 
    - Mark JS implementations with `@MaterialWebLabsApi` when they depend on Material Web labs components
    - Opt-in to `@MaterialWebLabsApi` if Compose UI visual effects can already be achieved with consistency on JS DOM
 
-4. **README update**: Add the new component to the supported API catalog in README.md
-
 ## Adding New Components
 
 When adding a new component to the library, follow these additional steps:
@@ -226,6 +224,8 @@ When adding a new component to the library, follow these additional steps:
    - State handling (enabled/disabled/selected/error)
 
 3. Note that some platform differences are inherent to the underlying components (Material Web vs Compose UI) and cannot be fully eliminated. Document any known differences in KDoc or inline comments.
+
+4. **README update**: Add the new component to the supported API catalog in README.md
 
 ### Root Directory Files
 ```
