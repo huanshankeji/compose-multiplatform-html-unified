@@ -13,7 +13,7 @@ expect class SnackbarHostState() {
     suspend fun showSnackbar(
         message: String,
         actionLabel: String? = null,
-        duration: SnackbarDuration = SnackbarDuration.Short
+        duration: SnackbarDuration = SnackbarDuration.Short,
     ): SnackbarResult
 }
 
@@ -31,5 +31,5 @@ expect fun SnackbarHost(
     hostState: SnackbarHostState,
     modifier: Modifier = Modifier,
     //snackbar: @Composable (SnackbarData) -> Unit = { Snackbar(it) }
-    actionOnNewLine: Boolean = false // an additional parameter added because passing a custom `Snackbar` comopsable on JS is not supported
+    actionOnNewLine: Boolean = false, // an additional parameter added because passing a custom `Snackbar` comopsable on JS is not supported
 )

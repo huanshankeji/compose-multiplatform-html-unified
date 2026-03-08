@@ -15,7 +15,7 @@ actual fun NavHost(
     modifier: Modifier,
     contentAlignment: Alignment,
     route: String?,
-    builder: NavGraphBuilder.() -> Unit
+    builder: NavGraphBuilder.() -> Unit,
 ) =
     NavHost(
         navController,
@@ -23,7 +23,7 @@ actual fun NavHost(
         modifier.platformModifier,
         contentAlignment.platformAlignment,
         route,
-        builder = builder
+        builder = builder,
     )
 
 @Composable
@@ -31,6 +31,6 @@ actual fun NavHost(
     navController: NavHostController,
     graph: NavGraph,
     modifier: Modifier,
-    contentAlignment: Alignment
+    contentAlignment: Alignment,
 ) =
     NavHost(navController, graph, modifier.platformModifier, contentAlignment.platformAlignment)

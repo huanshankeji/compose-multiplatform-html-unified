@@ -18,7 +18,7 @@ fun SelectMenuArgs.toComposeUiExposedDropdownMenuArgs() =
         onCloseJsDom,
         Modifier,
         matchAnchorWidth ?: true,
-        content
+        content,
     )
 
 @Composable
@@ -28,14 +28,14 @@ actual fun FilledSelect(
     @Suppress("UNUSED_PARAMETER") valueJsDom: String,
     modifier: Modifier,
     textFieldArgs: SelectTextFieldArgs,
-    menuArgs: SelectMenuArgs
+    menuArgs: SelectMenuArgs,
 ) =
     ExposedDropdownMenuBoxWithFilledTextField(
         expandedComposeUi,
         onExpandedChangeComposeUi,
         modifier,
         textFieldArgs.toExposedDropdownMenuBoxTextFieldArgs(),
-        menuArgs.toComposeUiExposedDropdownMenuArgs()
+        menuArgs.toComposeUiExposedDropdownMenuArgs(),
     )
 
 @Composable
@@ -45,14 +45,14 @@ actual fun OutlinedSelect(
     @Suppress("UNUSED_PARAMETER") valueJsDom: String,
     modifier: Modifier,
     textFieldArgs: SelectTextFieldArgs,
-    menuArgs: SelectMenuArgs
+    menuArgs: SelectMenuArgs,
 ) =
     ExposedDropdownMenuBoxWithOutlinedTextField(
         expandedComposeUi,
         onExpandedChangeComposeUi,
         modifier,
         textFieldArgs.toExposedDropdownMenuBoxTextFieldArgs(),
-        menuArgs.toComposeUiExposedDropdownMenuArgs()
+        menuArgs.toComposeUiExposedDropdownMenuArgs(),
     )
 
 @Composable

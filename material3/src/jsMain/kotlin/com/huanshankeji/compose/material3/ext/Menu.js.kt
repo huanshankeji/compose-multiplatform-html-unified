@@ -49,7 +49,7 @@ internal fun CommonDropdownMenu(
             onClosing<SyntheticEvent<*>> { onCloseJsDom() }
 
             attrs?.invoke(this)
-        }, content = content
+        }, content = content,
     )
 
 internal fun AttrsScope<*>.refSetAnchorElementState(setAnchorElement: (HTMLElement?) -> Unit) =
@@ -69,7 +69,7 @@ internal /*inline*/ fun AttrsScope<MdMenuElement>.refSetMdMenuElementAnchorEleme
 //@Suppress("NOTHING_TO_INLINE")
 internal /*inline*/ fun mdMenuAttrs(
     anchorElement: HTMLElement?,
-    modifier: Modifier
+    modifier: Modifier,
 ): AttrsScope<MdMenuElement>.() -> Unit =
     {
         refSetMdMenuElementAnchorElement(anchorElement)
@@ -87,7 +87,7 @@ internal fun MdMenuBox(modifier: Modifier, content: @Composable ElementScope<HTM
             }
             modifier.toAttrs<AttrsScope<*>>()()
         },
-        content = content
+        content = content,
     )
 
 
@@ -98,7 +98,7 @@ actual fun DropdownMenu(
     onCloseJsDom: () -> Unit,
     modifier: Modifier,
     offset: DpOffset,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) =
     CommonDropdownMenu(expanded, onCloseJsDom, modifier.toAttrs(), offset) { content() }
 
@@ -118,7 +118,7 @@ actual class DropdownMenuBoxScope(anchorElementState: MutableState<HTMLElement?>
         onCloseJsDom: () -> Unit,
         modifier: Modifier,
         offset: DpOffset,
-        content: @Composable () -> Unit
+        content: @Composable () -> Unit,
     ) =
         CommonDropdownMenu(
             expanded, onCloseJsDom,
@@ -130,7 +130,7 @@ actual class DropdownMenuBoxScope(anchorElementState: MutableState<HTMLElement?>
                 }
 
                 modifier.platformModifier.toAttrs<AttrsScope<*>>()()
-            }, offset
+            }, offset,
         ) { content() }
 }
 
@@ -148,7 +148,7 @@ actual fun DropdownMenuItem(
     leadingIcon: @Composable ((Modifier) -> Unit)?,
     trailingIcon: @Composable ((Modifier) -> Unit)?,
     enabled: Boolean,
-    keepOpenJsDom: Boolean
+    keepOpenJsDom: Boolean,
 ) =
     MdMenuItem(
         enabled.isFalseOrNull(),

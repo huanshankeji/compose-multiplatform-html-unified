@@ -10,6 +10,6 @@ actual fun IconButton(
     onClick: () -> Unit,
     modifier: Modifier,
     icon: Icon,
-    contentDescription: String?
+    contentDescription: String?,
 ) =
     com.huanshankeji.compose.material2.IconButton(onClick, modifier) { Icon(icon, contentDescription) }

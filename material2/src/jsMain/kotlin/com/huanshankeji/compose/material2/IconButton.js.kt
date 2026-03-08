@@ -9,7 +9,7 @@ import dev.petuska.kmdc.icon.button.MDCIconButton
 actual fun IconButton(
     onClick: () -> Unit,
     modifier: Modifier,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) =
     MDCIconButton(attrs = modifier.toAttrs {
         onClick { onClick() }
@@ -21,7 +21,7 @@ actual fun IconToggleButton(
     checked: Boolean,
     onCheckedChange: (Boolean) -> Unit,
     modifier: Modifier,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) =
     // `MDCIconButtonToggle` is not a composable
     TODO() as Unit

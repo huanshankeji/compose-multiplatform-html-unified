@@ -12,13 +12,13 @@ actual fun Column(
     modifier: Modifier,
     verticalArrangement: Arrangement.Vertical,
     horizontalAlignment: Alignment.Horizontal,
-    content: @Composable ColumnScope.() -> Unit
+    content: @Composable ColumnScope.() -> Unit,
 ) =
     androidx.compose.foundation.layout.Column(
         modifier.platformModifier,
         verticalArrangement.platformValue,
         horizontalAlignment.platformHorizontal,
-        content.toCommonColumnScopeContent()
+        content.toCommonColumnScopeContent(),
     )
 
 
@@ -34,7 +34,7 @@ actual interface ColumnScope {
     @Stable
     actual fun Modifier.weight(
         @FloatRange(from = 0.0, fromInclusive = false)
-        weight: Float
+        weight: Float,
     ): Modifier =
         with(platformValue) { platformModify { weight(weight) } }
 

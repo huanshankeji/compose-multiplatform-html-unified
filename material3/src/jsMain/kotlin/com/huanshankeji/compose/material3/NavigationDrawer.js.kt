@@ -43,7 +43,7 @@ actual fun ModalNavigationDrawer(
     drawerContent: @Composable () -> Unit,
     modifier: Modifier,
     drawerState: DrawerState,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) =
     Div {
         MdNavigationDrawerModal(
@@ -58,6 +58,6 @@ actual fun ModalNavigationDrawer(
 @Composable
 actual fun ModalDrawerSheet(
     modifier: Modifier,
-    content: @Composable (ColumnScope.() -> Unit)
+    content: @Composable (ColumnScope.() -> Unit),
 ) =
     Card(modifier, content = content)

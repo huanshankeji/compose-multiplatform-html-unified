@@ -14,7 +14,7 @@ actual fun Modifier.width(intrinsicSize: IntrinsicSize): Modifier =
             when (intrinsicSize) {
                 IntrinsicSize.Min -> Width.MinContent
                 IntrinsicSize.Max -> Width.MaxContent
-            }
+            },
         )
     }
 
@@ -25,6 +25,6 @@ actual fun Modifier.height(intrinsicSize: IntrinsicSize): Modifier =
             when (intrinsicSize) {
                 IntrinsicSize.Min -> Height.MinContent
                 IntrinsicSize.Max -> Height.MaxContent
-            }
+            },
         )
     }

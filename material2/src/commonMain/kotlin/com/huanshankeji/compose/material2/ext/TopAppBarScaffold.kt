@@ -41,7 +41,7 @@ expect fun PrimitiveTopAppBarScaffold(
     navigationIcon: @Composable (NavigationIconScope.() -> Unit)? = null,
     actions: @Composable TopAppBarActionsScope.() -> Unit = {},
     contentModifier: Modifier = Modifier,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 )
 
 /**
@@ -70,5 +70,5 @@ expect fun TopAppBarScaffold(
     floatingActionButtonPosition: FabPosition = FabPosition.End,
     isFloatingActionButtonDockedComposeUi: Boolean = false,
     //isContentOverflowingOrExpandingJsDom: Boolean = true, // always overflows
-    content: @Composable (PaddingValues) -> Unit
+    content: @Composable (PaddingValues) -> Unit,
 )

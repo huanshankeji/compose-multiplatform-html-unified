@@ -9,7 +9,7 @@ actual fun Snackbar(
     modifier: Modifier,
     action: @Composable (() -> Unit)?,
     actionOnNewLine: Boolean,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) =
     PlatformSnackbar(modifier.platformModifier, action, actionOnNewLine, content = content)
 
@@ -17,6 +17,6 @@ actual fun Snackbar(
 actual fun Snackbar(
     snackbarData: SnackbarData,
     modifier: Modifier,
-    actionOnNewLine: Boolean
+    actionOnNewLine: Boolean,
 ) =
     PlatformSnackbar(snackbarData.platformValue, modifier.platformModifier, actionOnNewLine)

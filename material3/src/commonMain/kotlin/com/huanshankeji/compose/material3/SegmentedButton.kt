@@ -20,7 +20,7 @@ import com.huanshankeji.compose.ui.Modifier
 expect fun SingleChoiceSegmentedButtonRow(
     modifier: Modifier = Modifier,
     space: Dp? = null,
-    content: @Composable SingleChoiceSegmentedButtonRowScope.() -> Unit
+    content: @Composable SingleChoiceSegmentedButtonRowScope.() -> Unit,
 )
 
 /**
@@ -39,7 +39,7 @@ expect fun SingleChoiceSegmentedButtonRow(
 expect fun MultiChoiceSegmentedButtonRow(
     modifier: Modifier = Modifier,
     space: Dp? = null,
-    content: @Composable MultiChoiceSegmentedButtonRowScope.() -> Unit
+    content: @Composable MultiChoiceSegmentedButtonRowScope.() -> Unit,
 )
 
 /**

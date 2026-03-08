@@ -36,7 +36,7 @@ actual fun AlertDialog(
             dismissButton,
             icon.toNullableContentWithoutModifier(),
             title.toNullableContentWithoutModifier(),
-            text.toNullableContentWithoutModifier()
+            text.toNullableContentWithoutModifier(),
         )
 }
 

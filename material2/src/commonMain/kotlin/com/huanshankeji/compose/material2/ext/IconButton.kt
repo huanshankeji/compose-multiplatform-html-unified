@@ -9,5 +9,5 @@ expect fun IconButton(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     icon: Icon,
-    contentDescription: String?
+    contentDescription: String?,
 )

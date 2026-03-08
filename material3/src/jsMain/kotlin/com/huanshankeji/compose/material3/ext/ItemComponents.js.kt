@@ -18,7 +18,7 @@ fun IMdItemScope.contentFromComponents(
     supportingText: @Composable ((Modifier) -> Unit)? = null,
     trailingSupportingText: @Composable ((Modifier) -> Unit)? = null,
     container: @Composable ((Modifier) -> Unit)? = null,
-    overline: @Composable ((Modifier) -> Unit)? = null
+    overline: @Composable ((Modifier) -> Unit)? = null,
 ) {
     contentWithSlot(headline, Slot.Headline)
     nullableContentWithSlot(start, Slot.Start)

@@ -18,7 +18,7 @@ import org.w3c.dom.HTMLElement
 @Composable
 actual fun NavigationBar(
     modifier: Modifier,
-    content: @Composable NavigationBarScope.() -> Unit
+    content: @Composable NavigationBarScope.() -> Unit,
 ) =
     @OptIn(MaterialWebLabsApi::class)
     MdNavigationBar(attrs = modifier.toAttrs()) {
@@ -36,7 +36,7 @@ actual fun NavigationBarScope.NavigationBarItem(
     modifier: Modifier,
     enabled: Boolean,
     label: String?,
-    alwaysShowLabel: Boolean
+    alwaysShowLabel: Boolean,
 ) =
     @OptIn(MaterialWebLabsApi::class)
     MdNavigationTab(
@@ -46,7 +46,7 @@ actual fun NavigationBarScope.NavigationBarItem(
         label,
         attrs = modifier.toAttrs {
             onClick { onClick() }
-        }
+        },
     ) {
         selectedIcon(PlatformModifier.attrsModifier { slot(MdNavigationTabScope.Slot.ActiveIcon) }.toCommonModifier())
         unselectedIcon(

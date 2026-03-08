@@ -23,7 +23,7 @@ class SelectMenuArgs(
     override val onDismissRequestComposeUi: () -> Unit,
     override val onCloseJsDom: () -> Unit,
     val matchAnchorWidth: Boolean? = null,
-    override val content: @Composable /*ColumnScope.*/() -> Unit
+    override val content: @Composable /*ColumnScope.*/() -> Unit,
 ) : ICommonExposedDropdownMenuArgs
 
 /**
@@ -56,7 +56,7 @@ expect fun FilledSelect(
     modifier: Modifier = Modifier,
     textFieldArgs: SelectTextFieldArgs,
     //scrollState: ScrollState = rememberScrollState(),
-    menuArgs: SelectMenuArgs
+    menuArgs: SelectMenuArgs,
 )
 
 /**
@@ -74,7 +74,7 @@ expect fun OutlinedSelect(
     modifier: Modifier = Modifier,
     textFieldArgs: SelectTextFieldArgs,
     //scrollState: ScrollState = rememberScrollState(),
-    menuArgs: SelectMenuArgs
+    menuArgs: SelectMenuArgs,
 )
 
 /**

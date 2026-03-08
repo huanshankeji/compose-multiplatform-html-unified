@@ -8,7 +8,7 @@ import com.huanshankeji.compose.ui.Modifier
 @Composable
 expect fun Card(
     modifier: Modifier = Modifier,
-    content: @Composable ColumnScope.() -> Unit
+    content: @Composable ColumnScope.() -> Unit,
 )
 
 /**
@@ -17,7 +17,7 @@ expect fun Card(
 @Composable
 fun FilledCard(
     modifier: Modifier = Modifier,
-    content: @Composable ColumnScope.() -> Unit
+    content: @Composable ColumnScope.() -> Unit,
 ) =
     Card(modifier, content)
 
@@ -26,11 +26,11 @@ fun FilledCard(
 @Composable
 expect fun ElevatedCard(
     modifier: Modifier = Modifier,
-    content: @Composable ColumnScope.() -> Unit
+    content: @Composable ColumnScope.() -> Unit,
 )
 
 @Composable
 expect fun OutlinedCard(
     modifier: Modifier = Modifier,
-    content: @Composable ColumnScope.() -> Unit
+    content: @Composable ColumnScope.() -> Unit,
 )

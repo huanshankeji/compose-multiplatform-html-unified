@@ -24,7 +24,7 @@ fun <Slot : ISlot, SlotScopeT : SlotScope<Slot>> SlotScopeT.contentWithSlot(
 @ExperimentalApi
 @Composable
 fun <Slot : ISlot, SlotScopeT : SlotScope<Slot>> SlotScopeT.nullableContentWithSlot(
-    content: (@Composable (Modifier) -> Unit)?, slot: Slot
+    content: @Composable ((Modifier) -> Unit)?, slot: Slot
 ) =
     content?.let { contentWithSlot(it, slot) }
 
@@ -40,6 +40,6 @@ fun <Slot : ISlot, SlotScopeT : SlotScope<Slot>> SlotScopeT.toSlotContent(
 
 @ExperimentalApi
 fun <Slot : ISlot, SlotScopeT : SlotScope<Slot>> SlotScopeT.toNullableSlotContent(
-    content: (@Composable (Modifier) -> Unit)?, slot: Slot
-): (@Composable () -> Unit)? =
+    content: @Composable ((Modifier) -> Unit)?, slot: Slot
+): @Composable (() -> Unit)? =
     content?.let { toSlotContent(it, slot) }

@@ -14,7 +14,7 @@ import org.w3c.dom.HTMLElement
 actual fun SingleChoiceSegmentedButtonRow(
     modifier: Modifier,
     space: Dp?,
-    content: @Composable SingleChoiceSegmentedButtonRowScope.() -> Unit
+    content: @Composable SingleChoiceSegmentedButtonRowScope.() -> Unit,
 ) =
     MdOutlinedSegmentedButtonSet(attrs = modifier.toAttrs()) {
         SingleChoiceSegmentedButtonRowScope(this).content()
@@ -25,7 +25,7 @@ actual fun SingleChoiceSegmentedButtonRow(
 actual fun MultiChoiceSegmentedButtonRow(
     modifier: Modifier,
     space: Dp?,
-    content: @Composable MultiChoiceSegmentedButtonRowScope.() -> Unit
+    content: @Composable MultiChoiceSegmentedButtonRowScope.() -> Unit,
 ) =
     MdOutlinedSegmentedButtonSet(multiselect = true, attrs = modifier.toAttrs()) {
         MultiChoiceSegmentedButtonRowScope(this).content()

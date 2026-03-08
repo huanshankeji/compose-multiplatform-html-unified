@@ -8,7 +8,7 @@ actual fun IconButton(
     onClick: () -> Unit,
     modifier: Modifier,
     enabled: Boolean,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) =
     androidx.compose.material3.IconButton(onClick, modifier.platformModifier, enabled, content = content)
 
@@ -18,14 +18,14 @@ actual fun IconToggleButton(
     onCheckedChange: (Boolean) -> Unit,
     modifier: Modifier,
     enabled: Boolean,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) =
     androidx.compose.material3.IconToggleButton(
         checked,
         onCheckedChange,
         modifier.platformModifier,
         enabled,
-        content = content
+        content = content,
     )
 
 @Composable
@@ -33,7 +33,7 @@ actual fun FilledIconButton(
     onClick: () -> Unit,
     modifier: Modifier,
     enabled: Boolean,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) =
     androidx.compose.material3.FilledIconButton(onClick, modifier.platformModifier, enabled, content = content)
 
@@ -43,14 +43,14 @@ actual fun FilledIconToggleButton(
     onCheckedChange: (Boolean) -> Unit,
     modifier: Modifier,
     enabled: Boolean,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) =
     androidx.compose.material3.FilledIconToggleButton(
         checked,
         onCheckedChange,
         modifier.platformModifier,
         enabled,
-        content = content
+        content = content,
     )
 
 @Composable
@@ -58,7 +58,7 @@ actual fun FilledTonalIconButton(
     onClick: () -> Unit,
     modifier: Modifier,
     enabled: Boolean,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) =
     androidx.compose.material3.FilledTonalIconButton(onClick, modifier.platformModifier, enabled, content = content)
 
@@ -68,14 +68,14 @@ actual fun FilledTonalIconToggleButton(
     onCheckedChange: (Boolean) -> Unit,
     modifier: Modifier,
     enabled: Boolean,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) =
     androidx.compose.material3.FilledTonalIconToggleButton(
         checked,
         onCheckedChange,
         modifier.platformModifier,
         enabled,
-        content = content
+        content = content,
     )
 
 @Composable
@@ -83,7 +83,7 @@ actual fun OutlinedIconButton(
     onClick: () -> Unit,
     modifier: Modifier,
     enabled: Boolean,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) =
     androidx.compose.material3.OutlinedIconButton(onClick, modifier.platformModifier, enabled, content = content)
 
@@ -93,12 +93,12 @@ actual fun OutlinedIconToggleButton(
     onCheckedChange: (Boolean) -> Unit,
     modifier: Modifier,
     enabled: Boolean,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) =
     androidx.compose.material3.OutlinedIconToggleButton(
         checked,
         onCheckedChange,
         modifier.platformModifier,
         enabled,
-        content = content
+        content = content,
     )

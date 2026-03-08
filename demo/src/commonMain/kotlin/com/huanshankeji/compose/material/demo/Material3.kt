@@ -31,7 +31,7 @@ import com.huanshankeji.compose.material3.Button as RowScopeButton
 
 @Composable
 fun Material3(/*modifier: Modifier = Modifier*/
-              viewModel: Material3ViewModel = viewModel { Material3ViewModel() }
+              viewModel: Material3ViewModel = viewModel { Material3ViewModel() },
 ) {
     val snackbarHostState = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
@@ -84,19 +84,19 @@ fun Material3(/*modifier: Modifier = Modifier*/
         Row {
             IconToggleButtonWithMaterialIcons(
                 checked, onCheckedChange,
-                uncheckedIcon = Icons.Default.Remove, checkedIcon = Icons.Default.Add
+                uncheckedIcon = Icons.Default.Remove, checkedIcon = Icons.Default.Add,
             )
             FilledIconToggleButtonWithMaterialIcons(
                 checked, onCheckedChange,
-                uncheckedIcon = Icons.Default.Remove, checkedIcon = Icons.Default.Add
+                uncheckedIcon = Icons.Default.Remove, checkedIcon = Icons.Default.Add,
             )
             FilledTonalIconToggleButtonWithMaterialIcons(
                 checked, onCheckedChange,
-                uncheckedIcon = Icons.Default.Remove, checkedIcon = Icons.Default.Add
+                uncheckedIcon = Icons.Default.Remove, checkedIcon = Icons.Default.Add,
             )
             OutlinedIconToggleButtonWithMaterialIcons(
                 checked, onCheckedChange,
-                uncheckedIcon = Icons.Default.Remove, checkedIcon = Icons.Default.Add
+                uncheckedIcon = Icons.Default.Remove, checkedIcon = Icons.Default.Add,
             )
         }
         @OptIn(ExtRecommendedApi::class)
@@ -136,7 +136,7 @@ fun Material3(/*modifier: Modifier = Modifier*/
             prefix = prefix,
             suffix = suffix,
             supportingText = supportingText,
-            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
         )
         OutlinedTextFieldWithMaterialIcons(
             text,
@@ -153,7 +153,7 @@ fun Material3(/*modifier: Modifier = Modifier*/
             ),
             keyboardActions = KeyboardActions {
                 println("keyboard actions with: $text")
-            }
+            },
         )
         OutlinedTextField(text, { text = it }, label = label, placeholder = placeholder, lines = 2)
 
@@ -168,7 +168,7 @@ fun Material3(/*modifier: Modifier = Modifier*/
                     Icons.Default.Menu,
                     "Supporting text $index",
                     "Trailing supporting text $index",
-                    "Overline $index"
+                    "Overline $index",
                 )
             conventionalItem(content = content(""))
             conventionalItems(count) { index ->
@@ -188,13 +188,13 @@ fun Material3(/*modifier: Modifier = Modifier*/
                 selectedIndex == 0,
                 { selectedIndex = 0 },
                 Icons.Default.Add,
-                label = "Add"
+                label = "Add",
             )
             NavigationBarItemWithMaterialIcons(
                 selectedIndex == 1,
                 { selectedIndex = 1 },
                 Icons.Default.Remove,
-                label = "Remove"
+                label = "Remove",
             )
         }
 
@@ -208,7 +208,7 @@ fun Material3(/*modifier: Modifier = Modifier*/
                         close()
                     },
                     leadingIcon = Icons.Filled.Add,
-                    trailingIcon = Icons.Filled.Remove
+                    trailingIcon = Icons.Filled.Remove,
                 )
             }
 
@@ -244,7 +244,7 @@ fun Material3(/*modifier: Modifier = Modifier*/
                     textFieldArgs = ExposedDropdownMenuBoxTextFieldArgs(value, label = label),
                     exposedDropdownMenuArgs = ExposedDropdownMenuArgs(expanded, close, close) {
                         DropdownMenuContent(setSelection, close)
-                    }
+                    },
                 )
             }
             run {
@@ -255,7 +255,7 @@ fun Material3(/*modifier: Modifier = Modifier*/
                     textFieldArgs = ExposedDropdownMenuBoxTextFieldArgs(value, label = label),
                     exposedDropdownMenuArgs = ExposedDropdownMenuArgs(expanded, close, close) {
                         DropdownMenuContent(setSelection, close)
-                    }
+                    },
                 )
             }
 
@@ -272,7 +272,7 @@ fun Material3(/*modifier: Modifier = Modifier*/
                     textFieldArgs = SelectTextFieldArgs(value, label = label),
                     menuArgs = SelectMenuArgs(expanded, close, close) {
                         SelectMenuContent(setSelection, close)
-                    }
+                    },
                 )
             }
             run {
@@ -284,7 +284,7 @@ fun Material3(/*modifier: Modifier = Modifier*/
                     textFieldArgs = SelectTextFieldArgs(value, label = label),
                     menuArgs = SelectMenuArgs(expanded, close, close) {
                         SelectMenuContent(setSelection, close)
-                    }
+                    },
                 )
             }
 
@@ -343,20 +343,20 @@ fun Material3(/*modifier: Modifier = Modifier*/
                 },
                 onValueChangeFinished = {
                     sliderChanging = false
-                }
+                },
             )
             var discreteSliderPosition by remember { mutableStateOf(0.5f) }
             Text("Discrete slider position: $discreteSliderPosition")
             Slider(
                 value = discreteSliderPosition,
                 onValueChange = { discreteSliderPosition = it },
-                steps = 3
+                steps = 3,
             )
             var rangeSliderPosition by remember { mutableStateOf(0.25f..0.75f) }
             Text("Range slider position: $rangeSliderPosition")
             RangeSlider(
                 value = rangeSliderPosition,
-                onValueChange = { rangeSliderPosition = it }
+                onValueChange = { rangeSliderPosition = it },
             )
         }
 
@@ -374,13 +374,13 @@ fun Material3(/*modifier: Modifier = Modifier*/
             AssistChip(
                 onClick = { scope.launch { snackbarHostState.showSnackbar("Assist chip clicked") } },
                 label = "Assist",
-                leadingIcon = { modifier -> Icon(Icons.Default.Add, null, modifier) }
+                leadingIcon = { modifier -> Icon(Icons.Default.Add, null, modifier) },
             )
             FilterChip(
                 selected = filterChipSelected,
                 onClick = { filterChipSelected = !filterChipSelected },
                 label = "Filter",
-                leadingIcon = if (filterChipSelected) { modifier -> Icon(Icons.Filled.Done, null, modifier) } else null
+                leadingIcon = if (filterChipSelected) { modifier -> Icon(Icons.Filled.Done, null, modifier) } else null,
             )
             var showInputChip by remember { mutableStateOf(true) }
             if (showInputChip)
@@ -392,28 +392,28 @@ fun Material3(/*modifier: Modifier = Modifier*/
                     onRemove = {
                         showInputChip = false
                         scope.launch { snackbarHostState.showSnackbar("Input chip removed") }
-                    }
+                    },
                 )
             SuggestionChip(
                 onClick = { scope.launch { snackbarHostState.showSnackbar("Suggestion chip clicked") } },
-                label = "Suggestion"
+                label = "Suggestion",
             )
         }
         Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
             ElevatedAssistChip(
                 onClick = { scope.launch { snackbarHostState.showSnackbar("Elevated assist chip clicked") } },
                 label = "Elevated Assist",
-                leadingIcon = { modifier -> Icon(Icons.Default.Add, null, modifier) }
+                leadingIcon = { modifier -> Icon(Icons.Default.Add, null, modifier) },
             )
             ElevatedFilterChip(
                 selected = filterChipSelected,
                 onClick = { filterChipSelected = !filterChipSelected },
                 label = "Elevated Filter",
-                leadingIcon = if (filterChipSelected) { modifier -> Icon(Icons.Filled.Done, null, modifier) } else null
+                leadingIcon = if (filterChipSelected) { modifier -> Icon(Icons.Filled.Done, null, modifier) } else null,
             )
             ElevatedSuggestionChip(
                 onClick = { scope.launch { snackbarHostState.showSnackbar("Elevated suggestion chip clicked") } },
-                label = "Elevated Suggestion"
+                label = "Elevated Suggestion",
             )
         }
 
@@ -437,7 +437,7 @@ fun Material3(/*modifier: Modifier = Modifier*/
             },
             icon = { Icon(Icons.Default.Add, null, it) },
             title = { Text("Alert Dialog", it) },
-            text = { Text("This is a demo alert dialog with headline, content, and action buttons.", it) }
+            text = { Text("This is a demo alert dialog with headline, content, and action buttons.", it) },
         )
         var isSimpleDialogOpen by remember { mutableStateOf(false) }
         Button(onClick = { isSimpleDialogOpen = true }) {
@@ -453,36 +453,36 @@ fun Material3(/*modifier: Modifier = Modifier*/
             PrimaryTab(
                 selectedTabIndex == 0,
                 { selectedTabIndex = 0 },
-                text = { Text("Tab 1") }
+                text = { Text("Tab 1") },
             )
             PrimaryTab(
                 selectedTabIndex == 1,
                 { selectedTabIndex = 1 },
                 text = { Text("Tab 2") },
-                icon = { modifier -> Icon(Icons.Default.Add, null, modifier) }
+                icon = { modifier -> Icon(Icons.Default.Add, null, modifier) },
             )
             PrimaryTab(
                 selectedTabIndex == 2,
                 { selectedTabIndex = 2 },
-                text = { Text("Tab 3") }
+                text = { Text("Tab 3") },
             )
         }
         SecondaryTabRow(selectedTabIndex) {
             SecondaryTab(
                 selectedTabIndex == 0,
                 { selectedTabIndex = 0 },
-                text = { Text("Tab 1") }
+                text = { Text("Tab 1") },
             )
             SecondaryTab(
                 selectedTabIndex == 1,
                 { selectedTabIndex = 1 },
                 text = { Text("Tab 2") },
-                icon = { modifier -> Icon(Icons.Default.Add, null, modifier) }
+                icon = { modifier -> Icon(Icons.Default.Add, null, modifier) },
             )
             SecondaryTab(
                 selectedTabIndex == 2,
                 { selectedTabIndex = 2 },
-                text = { Text("Tab 3") }
+                text = { Text("Tab 3") },
             )
         }
         Text("Selected tab: ${selectedTabIndex + 1}", Modifier.padding(16.dp))
@@ -495,7 +495,7 @@ fun Material3(/*modifier: Modifier = Modifier*/
                     selectedSegment == selection,
                     { selectedSegment = selection },
                     SegmentedButtonDefaultShapeArgs(index, Selection.entries.size),
-                    label = selection.displayText()
+                    label = selection.displayText(),
                 )
             }
         }
@@ -508,7 +508,7 @@ fun Material3(/*modifier: Modifier = Modifier*/
                     isIndexSelected[index],
                     { isIndexSelected[index] = it },
                     SegmentedButtonDefaultShapeArgs(index, Selection.entries.size),
-                    label = selection.displayText()
+                    label = selection.displayText(),
                 )
             }
         }
@@ -565,7 +565,7 @@ fun Material3(/*modifier: Modifier = Modifier*/
                     NavigationDrawerItem(
                         label = { Text(text = "Drawer Item") },
                         selected = false,
-                        onClick = { TODO }
+                        onClick = { TODO },
                     )
                     */
                     // ...other drawer items
@@ -574,7 +574,7 @@ fun Material3(/*modifier: Modifier = Modifier*/
                     }
                 }
             },
-            drawerState = drawerState
+            drawerState = drawerState,
         ) {
             Text("Main Content", Modifier.fillMaxWidth().height(160.dp).background(Color.Gray))
         }

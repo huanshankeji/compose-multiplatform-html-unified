@@ -16,7 +16,7 @@ import com.varabyte.kobweb.compose.ui.attrsModifier
 actual fun BoxWithConstraints(
     modifier: Modifier,
     contentAlignment: Alignment,
-    content: @Composable BoxWithConstraintsScope.() -> Unit
+    content: @Composable BoxWithConstraintsScope.() -> Unit,
 ) {
     // `DpClientSize.unspecified` instead of null can be used by default to prevent the content from not rendering when `clientSize` is not set
     var clientSize by remember { mutableStateOf<ClientSize?>(null) }
@@ -54,7 +54,7 @@ actual fun BoxWithConstraints(
                 }
             }
             .then(modifier),
-        contentAlignment
+        contentAlignment,
     ) {
         clientSize?.let {
             // TODO extra conversions might be needed in some cases when converting to `dp`
@@ -67,7 +67,7 @@ actual fun BoxWithConstraints(
 class BoxWithConstraintsScopeImpl(
     override val platformBoxScope: BoxScope,
     override val maxWidth: Dp,
-    override val maxHeight: Dp
+    override val maxHeight: Dp,
 ) : BoxWithConstraintsScope
 
 private class ClientSize(val clientWidth: Int, val clientHeight: Int)

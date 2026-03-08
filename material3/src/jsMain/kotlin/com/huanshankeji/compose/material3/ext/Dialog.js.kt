@@ -47,7 +47,7 @@ actual fun SimpleDialog(
     MdDialog(
         open = isOpen.isTrueOrNull(),
         onCancel = onDismissRequest,
-        attrs = modifier.toAttrs()
+        attrs = modifier.toAttrs(),
     ) {
         Div(attrs { slot(Slot.Content) }) {
             content()
