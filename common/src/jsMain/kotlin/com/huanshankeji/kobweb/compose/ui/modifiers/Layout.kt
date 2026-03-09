@@ -20,8 +20,8 @@ import com.varabyte.kobweb.compose.ui.styleModifier
  * and causes content to be hidden in non-scrollable contexts.
  * The max constraints are instead applied in the `*Scroll` modifiers where they are actually needed.
  *
- * @see com.huanshankeji.compose.foundation.ext.css.verticalScroll
  * @see com.huanshankeji.compose.foundation.ext.css.horizontalScroll
+ * @see com.huanshankeji.compose.foundation.ext.css.verticalScroll
  */
 fun Modifier.imitateComposeUiLayout() =
     styleModifier {

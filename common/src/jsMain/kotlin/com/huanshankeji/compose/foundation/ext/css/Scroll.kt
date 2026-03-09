@@ -13,6 +13,8 @@ import org.jetbrains.compose.web.css.maxWidth
  * The max constraint is added here (rather than in `imitateComposeUiLayout`)
  * so that scroll containers have a definite max size to scroll within,
  * while non-scrollable layouts don't get their content hidden by the max constraint.
+ *
+ * @see com.huanshankeji.kobweb.compose.ui.modifiers.imitateComposeUiLayout
  */
 fun StyleScope.horizontalScroll() {
     maxWidth(cssWidthStretchValueBrowserDependent)
