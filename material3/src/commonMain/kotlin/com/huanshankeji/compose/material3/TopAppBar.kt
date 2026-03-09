@@ -4,6 +4,11 @@ import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.ui.Modifier
 
 /*
+https://developer.android.com/develop/ui/compose/components/app-bars
+https://kotlinlang.org/api/compose-multiplatform/material3/androidx.compose.material3/-top-app-bar.html
+ */
+
+/*
 When there is only one action button on JS DOM, the `slot` can be set directly to the `md-icon-button` element,
 so it would be conventional to make `navigationIcon` of type `@Composable ((Modifier) -> Unit)? = null` to be consistent with other components in this library.
 However, we don't do this for these app bar components to make the APIs more similar to the Compose UI ones, and also because visual consistency is fine here with a wrapping `div`.
