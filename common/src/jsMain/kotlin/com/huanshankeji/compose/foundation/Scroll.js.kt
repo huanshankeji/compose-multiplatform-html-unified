@@ -7,14 +7,26 @@ import com.huanshankeji.compose.foundation.ext.css.verticalScroll
 import com.huanshankeji.compose.foundation.layout.Box
 import com.huanshankeji.compose.foundation.layout.BoxScope
 import com.huanshankeji.compose.foundation.layout.ext.KobwebBox
+import com.huanshankeji.compose.foundation.layout.ext.cssHeightStretchValueBrowserDependent
 import com.huanshankeji.compose.ui.Alignment
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.PlatformModifier
 import com.huanshankeji.kobweb.compose.ui.modifiers.imitateComposeUiLayout
 import com.varabyte.kobweb.compose.ui.styleModifier
+import org.jetbrains.compose.web.css.maxHeight
 
+/**
+ * Applies `overflow-y: auto` and `max-height: stretch` (or browser-specific equivalent) so that
+ * the element scrolls vertically within the available height of its parent.
+ *
+ * The `max-height` constraint is applied here (rather than in [imitateComposeUiLayout]) to avoid
+ * hiding content in non-scrollable Column/Row/Box layouts.
+ */
 fun PlatformModifier.verticalScroll() =
-    styleModifier { verticalScroll() }
+    styleModifier {
+        maxHeight(cssHeightStretchValueBrowserDependent)
+        verticalScroll()
+    }
 
 fun PlatformModifier.horizontalScroll() =
     styleModifier { horizontalScroll() }
