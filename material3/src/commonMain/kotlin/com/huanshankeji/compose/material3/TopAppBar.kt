@@ -1,7 +1,13 @@
-package com.huanshankeji.compose.material3.ext
+package com.huanshankeji.compose.material3
 
 import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.ui.Modifier
+
+/*
+When there is only one action button on JS DOM, the `slot` can be set directly to the `md-icon-button` element,
+so it would be conventional to make `navigationIcon` of type `@Composable ((Modifier) -> Unit)? = null` to be consistent with other components in this library.
+However, we don't do this for these app bar components to make the APIs more similar to the Compose UI ones, and also because visual consistency is fine here with a wrapping `div`.
+ */
 
 /**
  * Small top app bar.
@@ -13,7 +19,9 @@ expect fun TopAppBar(
     title: @Composable () -> Unit,
     modifier: Modifier = Modifier,
     navigationIcon: @Composable (() -> Unit)? = null,
-    actions: @Composable () -> Unit = {},
+    actions: @Composable (() -> Unit)? = null,
+    // TODO also try aligning with `scrollBehavior` in Compose UI
+    stickyJsDom: Boolean = false,
 )
 
 /**
@@ -26,7 +34,8 @@ expect fun CenterAlignedTopAppBar(
     title: @Composable () -> Unit,
     modifier: Modifier = Modifier,
     navigationIcon: @Composable (() -> Unit)? = null,
-    actions: @Composable () -> Unit = {},
+    actions: @Composable (() -> Unit)? = null,
+    stickyJsDom: Boolean = false,
 )
 
 /**
@@ -39,7 +48,8 @@ expect fun MediumTopAppBar(
     title: @Composable () -> Unit,
     modifier: Modifier = Modifier,
     navigationIcon: @Composable (() -> Unit)? = null,
-    actions: @Composable () -> Unit = {},
+    actions: @Composable (() -> Unit)? = null,
+    stickyJsDom: Boolean = false,
 )
 
 /**
@@ -52,5 +62,6 @@ expect fun LargeTopAppBar(
     title: @Composable () -> Unit,
     modifier: Modifier = Modifier,
     navigationIcon: @Composable (() -> Unit)? = null,
-    actions: @Composable () -> Unit = {},
+    actions: @Composable (() -> Unit)? = null,
+    stickyJsDom: Boolean = false,
 )

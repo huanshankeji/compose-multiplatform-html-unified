@@ -199,7 +199,9 @@ When adding or aligning components, you can search in <https://m3.material.io/> 
 **Component Organization Patterns:**
 1. **Main package** (`com.huanshankeji.compose.material3`): Components that can be unified following Compose UI APIs
    - Mandatory parameters must be equivalent to those of the original Compose UI component
-   - Optional parameters should be a subset of those of the original Compose UI component
+   - Common optional parameters should have the same type
+       - An exception: nullability differences with same content semantics. Example: `content: (() -> Unit)? = null` and
+         `content: () -> Unit = {}` are considered equivalent.
    - Example: `RadioButton`, `Slider`, `AlertDialog`
 
 2. **Ext package** (`com.huanshankeji.compose.material3.ext`): Components with platform-specific APIs
