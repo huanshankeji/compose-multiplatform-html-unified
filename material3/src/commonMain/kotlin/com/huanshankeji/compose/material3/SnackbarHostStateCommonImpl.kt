@@ -5,14 +5,12 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import kotlinx.coroutines.CancellableContinuation
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
-import kotlinx.coroutines.yield
 import kotlin.coroutines.resume
 
-// copied and adapted from `SnackbarHostStateCommonImpl.kt` in `com.huanshankeji.compose.material2`
+// copied and adapted from `SnackbarHostStateCommonImpl.kt` in `com.huanshankeji.compose.material2` following `SnackbarHost.kt` in `androidx.compose.material3`
 
 @Stable
 abstract class SnackbarHostStateCommonImpl {
@@ -20,8 +18,11 @@ abstract class SnackbarHostStateCommonImpl {
     var currentSnackbarData by mutableStateOf<SnackbarData?>(null)
         private set
 
+    // TODO remove them if they are confirmed to be not needed
+    /*
     abstract val yieldUntilNext: Boolean
     abstract val delayMillisUntilNext: Long
+    */
 
     suspend fun showSnackbar(
         message: String,
@@ -40,9 +41,12 @@ abstract class SnackbarHostStateCommonImpl {
         } finally {
             currentSnackbarData = null
 
+            // TODO remove them if they are confirmed to be not needed
+            /*
             // a workaround to trigger recomposition when `currentSnackbarData` is set to `null`, resolving the issue that a series of continuous snackbars don't show
             if (yieldUntilNext) yield()
             delay(delayMillisUntilNext)
+            */
         }
     }
 

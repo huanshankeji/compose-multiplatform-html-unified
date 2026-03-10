@@ -26,39 +26,43 @@ actual class SnackbarHostState(val platformValue: PlatformSnackbarHostState) {
             .toCommonValue()
 
     actual suspend fun showSnackbar(visuals: SnackbarVisuals): SnackbarResult =
-        platformValue.showSnackbar(visuals.toPlatformValue()).toCommonValue()
+        platformValue.showSnackbar(visuals.platformValue).toCommonValue()
 }
 
-private class PlatformSnackbarDataWrapper(val platformValue: PlatformSnackbarData) : SnackbarData {
-    override val visuals: SnackbarVisuals
-        get() = platformValue.visuals.toCommonValue()
+@Stable
+actual class SnackbarVisuals(val platformValue: PlatformSnackbarVisuals) {
+    actual constructor(
+        message: String,
+        actionLabel: String?,
+        withDismissActionComposeUi: Boolean,
+        duration: SnackbarDuration,
+    ) : this(object : PlatformSnackbarVisuals {
+        override val message: String = message
+        override val actionLabel: String? = actionLabel
+        override val duration: PlatformSnackbarDuration = duration.toPlatformValue()
+        override val withDismissAction: Boolean = withDismissActionComposeUi
+    }) // can't just use `SnackbarVisualsImpl` here because it's private
 
-    override fun performAction() = platformValue.performAction()
-    override fun dismiss() = platformValue.dismiss()
-}
-
-fun PlatformSnackbarData.toCommonValue(): SnackbarData =
-    PlatformSnackbarDataWrapper(this)
-
-private class PlatformSnackbarVisualsWrapper(val platformValue: PlatformSnackbarVisuals) : SnackbarVisuals {
-    override val message: String get() = platformValue.message
-    override val actionLabel: String? get() = platformValue.actionLabel
-    override val withDismissAction: Boolean get() = platformValue.withDismissAction
-    override val duration: SnackbarDuration get() = platformValue.duration.toCommonValue()
+    actual val message: String = platformValue.message
+    actual val actionLabel: String? = platformValue.actionLabel
+    actual val withDismissActionComposeUi: Boolean = platformValue.withDismissAction
+    actual val duration: SnackbarDuration = platformValue.duration.toCommonValue()
 }
 
 fun PlatformSnackbarVisuals.toCommonValue(): SnackbarVisuals =
-    PlatformSnackbarVisualsWrapper(this)
+    SnackbarVisuals(this)
 
-private class CommonSnackbarVisualsWrapper(val commonValue: SnackbarVisuals) : PlatformSnackbarVisuals {
-    override val message: String get() = commonValue.message
-    override val actionLabel: String? get() = commonValue.actionLabel
-    override val withDismissAction: Boolean get() = commonValue.withDismissAction
-    override val duration: PlatformSnackbarDuration get() = commonValue.duration.toPlatformValue()
+@Stable
+actual class SnackbarData(val platformValue: PlatformSnackbarData) {
+    actual val visuals: SnackbarVisuals
+        get() = platformValue.visuals.toCommonValue()
+
+    actual fun performAction() = platformValue.performAction()
+    actual fun dismiss() = platformValue.dismiss()
 }
 
-fun SnackbarVisuals.toPlatformValue(): PlatformSnackbarVisuals =
-    CommonSnackbarVisualsWrapper(this)
+fun PlatformSnackbarData.toCommonValue(): SnackbarData =
+    SnackbarData(this)
 
 fun PlatformSnackbarResult.toCommonValue() =
     when (this) {
@@ -84,5 +88,10 @@ fun PlatformSnackbarDuration.toCommonValue() =
 actual fun SnackbarHost(
     hostState: SnackbarHostState,
     modifier: Modifier,
+    snackbar: @Composable (SnackbarData) -> Unit,
 ) =
-    androidx.compose.material3.SnackbarHost(hostState.platformValue, modifier.platformModifier)
+    androidx.compose.material3.SnackbarHost(
+        hostState.platformValue,
+        modifier.platformModifier,
+        snackbar = { snackbar(it.toCommonValue()) },
+    )

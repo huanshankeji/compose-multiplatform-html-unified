@@ -196,6 +196,17 @@ When adding or aligning components, you can search in <https://m3.material.io/> 
 - **Convention Plugins**: Custom build logic in `buildSrc` for consistency across modules
 - **Target Platforms**: Sophisticated setup targeting 6+ platforms with different implementation strategies
 
+**Use Expect Classes for Common Data Types:**
+
+- Use `expect class` instead of `interface` for types that users should **not** implement (e.g., `SnackbarVisuals`,
+  `SnackbarData` in Material 3). This prevents external implementations and ensures wrapping doesn't stack up when
+  converting to/from platform types.
+- Even when the corresponding type in `androidx.compose.material3` is an `interface`, use `expect class` here if the
+  type is always backed by a platform value and factory functions should delegate to platform implementations.
+- The `actual class` on Compose UI platforms wraps the platform value directly (e.g.,
+  `actual class SnackbarData(val platformValue: PlatformSnackbarData)`).
+- The `actual class` on JS platform copies and adapts the Compose UI implementations.
+
 **Component Organization Patterns:**
 1. **Main package** (`com.huanshankeji.compose.material3`): Components that can be unified following Compose UI APIs
    - Mandatory parameters must be equivalent to those of the original Compose UI component
