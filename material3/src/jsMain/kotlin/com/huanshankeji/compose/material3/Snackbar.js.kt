@@ -18,10 +18,12 @@ actual fun Snackbar(
 ) =
     with(snackbarData.visuals) {
         MdSnackbar(
-            // TODO Check whether we control the show state with this or an if statement.
             open = true,
+            fixed = true,
             actionText = actionLabel,
-            timeout = duration.toMillis(),
+            // Pass 0 for Indefinite to disable the web component's auto-close timeout, as
+            // dismissal is handled by the LaunchedEffect in SnackbarHost.
+            timeout = if (duration == SnackbarDuration.Indefinite) 0 else duration.toMillis(),
             onAction = { snackbarData.performAction() },
             attrs = modifier.toAttrs(),
         ) {

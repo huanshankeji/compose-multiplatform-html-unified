@@ -16,8 +16,7 @@ import kotlin.coroutines.resume
 actual class SnackbarHostState {
     private val mutex = Mutex()
 
-    var _currentSnackbarData by mutableStateOf<SnackbarData?>(null)
-        private set
+    private var _currentSnackbarData by mutableStateOf<SnackbarData?>(null)
     actual val currentSnackbarData get() = _currentSnackbarData
 
     actual suspend fun showSnackbar(
@@ -108,7 +107,6 @@ actual fun SnackbarHost(
     // Without this, the web component's internal close animation state can prevent
     // a new snackbar from appearing when the previous one was just dismissed,
     // causing every other snackbar to be skipped in rapid succession.
-    // TODO Not sure whether this breaks the correct behavior. Not verified yet because the code has compilation errors now.
     if (currentSnackbarData != null)
         key(currentSnackbarData) {
             snackbar(currentSnackbarData)
@@ -126,7 +124,6 @@ actual enum class SnackbarDuration {
 // simplified compared to the corresponding function in `androidx.compose.material3`
 internal fun SnackbarDuration.toMillis(): Long =
     when (this) {
-        // TODO Seems 0 or `null` can be used for JS.
         SnackbarDuration.Indefinite -> Long.MAX_VALUE
         SnackbarDuration.Long -> 10000L
         SnackbarDuration.Short -> 4000L
