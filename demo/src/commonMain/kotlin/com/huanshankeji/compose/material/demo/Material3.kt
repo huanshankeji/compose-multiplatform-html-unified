@@ -23,7 +23,6 @@ import com.huanshankeji.compose.material3.ext.ElevatedCard
 import com.huanshankeji.compose.material3.ext.OutlinedCard
 import com.huanshankeji.compose.material3.lazy.ext.List
 import com.huanshankeji.compose.material3.lazy.ext.ListItemComponents
-import com.huanshankeji.compose.ui.Alignment
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.graphics.Color
 import kotlinx.coroutines.launch
@@ -36,8 +35,35 @@ fun Material3(
 ) {
     val snackbarHostState = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
-    Box(Modifier.fillMaxSizeStretch()) {
-        Column(Modifier.verticalScroll(rememberScrollState()).innerContentPadding(), Arrangement.spacedBy(16.dp)) {
+    Scaffold(
+        Modifier.fillMaxSizeStretch(),
+        topBar = {
+            TopAppBar(
+                title = { Text("Material 3 Demo") },
+                navigationIcon = {
+                    IconButton(onClick = { scope.launch { snackbarHostState.showSnackbar("Nav clicked") } }) {
+                        Icon(Icons.Default.Menu, null)
+                    }
+                },
+                actions = {
+                    IconButton(onClick = { scope.launch { snackbarHostState.showSnackbar("Search clicked") } }) {
+                        Icon(Icons.Default.Search, null)
+                    }
+                },
+            )
+        },
+        snackbarHost = { SnackbarHost(snackbarHostState) },
+        floatingActionButton = {
+            FloatingActionButtonWithMaterialIcon(
+                onClick = { scope.launch { snackbarHostState.showSnackbar("FAB clicked") } },
+                icon = Icons.Default.Add,
+            )
+        },
+    ) { paddingValues ->
+        Column(
+            Modifier.padding(paddingValues).verticalScroll(rememberScrollState()).innerContentPadding(),
+            Arrangement.spacedBy(16.dp),
+        ) {
             val count by viewModel.countState.collectAsState()
             val onClick: () -> Unit = {
                 val newCount = ++viewModel.countState.value
@@ -661,6 +687,5 @@ fun Material3(
                 Text("Main Content", Modifier.fillMaxWidth().height(160.dp).background(Color.Gray))
             }
         }
-        SnackbarHost(snackbarHostState, Modifier.align(Alignment.BottomCenter))
     }
 }
