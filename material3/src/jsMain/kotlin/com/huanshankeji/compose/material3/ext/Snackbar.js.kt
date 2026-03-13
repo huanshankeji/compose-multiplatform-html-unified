@@ -12,6 +12,7 @@ import com.huanshankeji.compose.material3.toMillis
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.toAttrs
 import com.huanshankeji.compose.web.attributes.isTrueOrNull
+import com.varabyte.kobweb.compose.ui.styleModifier
 import org.jetbrains.compose.web.dom.Text
 
 @ExperimentalApi
@@ -33,9 +34,14 @@ fun CommonSnackbar(
         ) {
             Text(message)
             if (withDismissAction) {
-                // TODO The icon's color is incorrect. It should be white in a dark snackbar, instead it's black now.
-                // No need to pass the `onClick` callback
-                Icon(Icons.Default.Close, null, slotModifier(MdSnackbarScope.Slot.Icon))
+                // No need to pass the `onClick` callback as Material Web handles it via the icon slot.
+                // The icon color is explicitly set because `md-snackbar` doesn't style the `::slotted` icon.
+                Icon(
+                    Icons.Default.Close, null,
+                    slotModifier(MdSnackbarScope.Slot.Icon).platformModify {
+                        styleModifier { property("color", "var(--md-sys-color-inverse-on-surface)") }
+                    }
+                )
             }
         }
     }
