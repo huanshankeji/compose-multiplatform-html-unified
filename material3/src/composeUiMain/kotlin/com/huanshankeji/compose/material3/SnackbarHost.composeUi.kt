@@ -1,6 +1,5 @@
 package com.huanshankeji.compose.material3
 
-import androidx.compose.material3.SnackbarVisuals
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Stable
 import com.huanshankeji.compose.ui.Modifier
