@@ -18,10 +18,9 @@ actual fun Snackbar(
 ) =
     with(snackbarData.visuals) {
         MdSnackbar(
-            // TODO Check whether we control the show state with this or an if statement.
             open = true,
+            fixed = true,
             actionText = actionLabel,
-            timeout = duration.toMillis(),
             onAction = { snackbarData.performAction() },
             attrs = modifier.toAttrs(),
         ) {

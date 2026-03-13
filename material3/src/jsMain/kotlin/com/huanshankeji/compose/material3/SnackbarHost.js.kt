@@ -1,6 +1,7 @@
 package com.huanshankeji.compose.material3
 
 import androidx.compose.runtime.*
+import com.huanshankeji.compose.foundation.layout.Box
 import com.huanshankeji.compose.ui.Modifier
 import kotlinx.coroutines.CancellableContinuation
 import kotlinx.coroutines.delay
@@ -108,10 +109,11 @@ actual fun SnackbarHost(
     // Without this, the web component's internal close animation state can prevent
     // a new snackbar from appearing when the previous one was just dismissed,
     // causing every other snackbar to be skipped in rapid succession.
-    // TODO Not sure whether this breaks the correct behavior. Not verified yet because the code has compilation errors now.
     if (currentSnackbarData != null)
         key(currentSnackbarData) {
-            snackbar(currentSnackbarData)
+            Box(modifier) {
+                snackbar(currentSnackbarData)
+            }
         }
 }
 
