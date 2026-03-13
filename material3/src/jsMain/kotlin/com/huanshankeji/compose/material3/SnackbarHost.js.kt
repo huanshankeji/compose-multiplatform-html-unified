@@ -121,7 +121,9 @@ actual enum class SnackbarDuration {
     Short, Long, Indefinite
 }
 
-// simplified compared to the corresponding function in `androidx.compose.material3`
+// simplified compared to the corresponding function in `androidx.compose.material3`;
+// used for the LaunchedEffect delay, where Long.MAX_VALUE means "suspend indefinitely"
+// (note: Snackbar.js.kt uses 0 for the web component's timeout for Indefinite, which is a distinct concern)
 internal fun SnackbarDuration.toMillis(): Long =
     when (this) {
         SnackbarDuration.Indefinite -> Long.MAX_VALUE
