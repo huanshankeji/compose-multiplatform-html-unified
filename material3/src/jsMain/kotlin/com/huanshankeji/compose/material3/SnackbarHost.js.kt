@@ -101,13 +101,13 @@ actual fun SnackbarHost(
     // Without this, the web component's internal close animation state can prevent
     // a new snackbar from appearing when the previous one was just dismissed,
     // causing every other snackbar to be skipped in rapid succession.
-    // TODO Not sure whether this breaks the correct behavior. Not verified yet because the code has compilation errors now.
     Box(modifier) {
-        if (currentSnackbarData != null)
-        // TODO After looking at the semantics of `key`, its usage may be unnecessary here.
+        if (currentSnackbarData != null) {
+            // The `key` call is necessary here. Otherwise, the snackbar appearances after the first one don't show.
             key(currentSnackbarData) {
                 snackbar(currentSnackbarData)
             }
+        }
     }
 }
 
