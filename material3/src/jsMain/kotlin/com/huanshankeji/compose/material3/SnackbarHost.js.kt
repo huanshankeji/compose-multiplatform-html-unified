@@ -33,11 +33,6 @@ actual class SnackbarHostState {
     ): SnackbarResult =
         showSnackbar(SnackbarVisualsImpl(message, actionLabel, withDismissAction, duration))
 
-    // TODO remove this if it's confirmed to be not needed
-    /*
-    abstract val delayMillisUntilNext: Long
-    */
-
     actual suspend fun showSnackbar(visuals: SnackbarVisuals): SnackbarResult = mutex.withLock {
         try {
             return suspendCancellableCoroutine { continuation ->
@@ -45,13 +40,6 @@ actual class SnackbarHostState {
             }
         } finally {
             _currentSnackbarData = null
-
-            // TODO remove them if they are confirmed to be not needed
-            /*
-            // a workaround to trigger recomposition when `currentSnackbarData` is set to `null`, resolving the issue that a series of continuous snackbars don't show
-            yield()
-            delay(20)
-            */
         }
     }
 
@@ -134,8 +122,17 @@ actual enum class SnackbarDuration {
 // simplified compared to the corresponding function in `androidx.compose.material3`
 internal fun SnackbarDuration.toMillis(): Long =
     when (this) {
-        // TODO Seems 0 or `null` can be used for JS.
-        SnackbarDuration.Indefinite -> Long.MAX_VALUE
+        /*
+        `Long.MAX_VALUE` from Compose UI causes a bug that the snackbar doesn't show here.
+
+        Other values tried that don't work:
+        - `JsNumber.MAX_VALUE.toLong()`
+        - `JsNumber.MAX_VALUE.toLong() - 1`
+        - `Int.MAX_VALUE.toLong() + 1`
+
+        This is confirmed by that it uses JS `setTimeout` underneath (https://github.com/maicol07/material-web-additions/blob/096590484ce31dfb18d8e2d1998989ed933328e1/snackbar/internal/snackbar.ts#L102-L105) and the max value allowed is `Int.MAX_VALUE`.
+         */
+        SnackbarDuration.Indefinite -> Int.MAX_VALUE.toLong()
         SnackbarDuration.Long -> 10000L
         SnackbarDuration.Short -> 4000L
     }

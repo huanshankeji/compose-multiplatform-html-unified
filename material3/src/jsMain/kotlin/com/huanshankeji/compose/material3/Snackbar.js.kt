@@ -23,10 +23,12 @@ actual fun Snackbar(
             actionText = actionLabel,
             timeout = duration.toMillis(),
             onAction = { snackbarData.performAction() },
+            onClosed = { snackbarData.dismiss() },
             attrs = modifier.toAttrs(),
         ) {
             Text(message)
             if (withDismissAction) {
+                // TODO The icon's color is incorrect. It should be white in a dark snackbar, instead it's black now.
                 // No need to pass the `onClick` callback
                 Icon(Icons.Default.Close, null, slotModifier(MdSnackbarScope.Slot.Icon))
             }
