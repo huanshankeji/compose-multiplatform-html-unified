@@ -196,6 +196,30 @@ When adding or aligning components, you can search in <https://m3.material.io/> 
 - **Convention Plugins**: Custom build logic in `buildSrc` for consistency across modules
 - **Target Platforms**: Sophisticated setup targeting 6+ platforms with different implementation strategies
 
+**Use Expect/Actual Patterns for Common Data Types:**
+
+Choose the `expect` declaration based on the corresponding type in `androidx.compose.material3`:
+
+- **`expect interface`**: Use when the corresponding platform type is an `interface` (e.g., `SnackbarVisuals`,
+  `SnackbarData`). This avoids wrapping stacking up when converting to/from platform types:
+  - `actual typealias` on Compose UI platforms — the platform type directly satisfies the interface.
+  - `actual interface` on JS DOM platform — with local implementations (e.g., private inner classes within
+    `SnackbarHostState`).
+- **`expect enum class`**: Use when the corresponding platform type is an `enum class` (e.g., `SnackbarResult`,
+  `SnackbarDuration`):
+  - `actual typealias` on Compose UI platforms.
+  - `actual enum class` on JS DOM platform.
+- **`expect class`**: Use when the corresponding Compose UI type is a `class`, or when the common `expect` members
+  differ from the platform type due to design requirements caused by platform differences (e.g.,
+  `DropdownMenuBoxScope` includes `fun Modifier.menuAnchorJsDom()` which doesn't exist in the Compose UI counterpart),
+  or when the type cannot be actualized via typealias for other reasons (e.g., `SnackbarHostState` has default argument
+  values in its members):
+  - The `actual class` on Compose UI platforms wraps the platform value directly (e.g.,
+    `actual class SnackbarHostState(val platformValue: PlatformSnackbarHostState)`).
+  - The `actual class` on JS DOM platform provides its own implementation.
+
+Non-expect `class`, `interface`, or `enum class` can also be used for types not covered by the patterns above.
+
 **Component Organization Patterns:**
 1. **Main package** (`com.huanshankeji.compose.material3`): Components that can be unified following Compose UI APIs
    - Mandatory parameters must be equivalent to those of the original Compose UI component

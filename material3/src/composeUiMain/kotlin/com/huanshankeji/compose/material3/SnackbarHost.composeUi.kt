@@ -9,12 +9,22 @@ import androidx.compose.material3.SnackbarHostState as PlatformSnackbarHostState
 import androidx.compose.material3.SnackbarResult as PlatformSnackbarResult
 import androidx.compose.material3.SnackbarVisuals as PlatformSnackbarVisuals
 
+/*
+Can't refactor this to use typealias:
+
+```
+Default argument values inside expect declaration 'SnackbarHostState' are not allowed if it is actualized via typealias. Possible fix is to remove default argument values in members:
+expect suspend fun showSnackbar(message: String, actionLabel: String? = ..., withDismissAction: Boolean = ..., duration: SnackbarDuration = ...): SnackbarResult
+```
+ */
+//actual typealias SnackbarHostState = PlatformSnackbarHostState
+
 @Stable
 actual class SnackbarHostState(val platformValue: PlatformSnackbarHostState) {
     actual constructor() : this(PlatformSnackbarHostState())
 
     actual val currentSnackbarData: SnackbarData?
-        get() = platformValue.currentSnackbarData?.toCommonValue()
+        get() = platformValue.currentSnackbarData
 
     actual suspend fun showSnackbar(
         message: String,
@@ -22,67 +32,28 @@ actual class SnackbarHostState(val platformValue: PlatformSnackbarHostState) {
         withDismissAction: Boolean,
         duration: SnackbarDuration
     ): SnackbarResult =
-        platformValue.showSnackbar(message, actionLabel, withDismissAction, duration.toPlatformValue())
-            .toCommonValue()
+        platformValue.showSnackbar(message, actionLabel, withDismissAction, duration)
 
     actual suspend fun showSnackbar(visuals: SnackbarVisuals): SnackbarResult =
-        platformValue.showSnackbar(visuals.toPlatformValue()).toCommonValue()
+        platformValue.showSnackbar(visuals)
 }
 
-private class PlatformSnackbarDataWrapper(val platformValue: PlatformSnackbarData) : SnackbarData {
-    override val visuals: SnackbarVisuals
-        get() = platformValue.visuals.toCommonValue()
+actual typealias SnackbarVisuals = PlatformSnackbarVisuals
 
-    override fun performAction() = platformValue.performAction()
-    override fun dismiss() = platformValue.dismiss()
-}
+actual typealias SnackbarData = PlatformSnackbarData
 
-fun PlatformSnackbarData.toCommonValue(): SnackbarData =
-    PlatformSnackbarDataWrapper(this)
+actual typealias SnackbarResult = PlatformSnackbarResult
 
-private class PlatformSnackbarVisualsWrapper(val platformValue: PlatformSnackbarVisuals) : SnackbarVisuals {
-    override val message: String get() = platformValue.message
-    override val actionLabel: String? get() = platformValue.actionLabel
-    override val withDismissAction: Boolean get() = platformValue.withDismissAction
-    override val duration: SnackbarDuration get() = platformValue.duration.toCommonValue()
-}
-
-fun PlatformSnackbarVisuals.toCommonValue(): SnackbarVisuals =
-    PlatformSnackbarVisualsWrapper(this)
-
-private class CommonSnackbarVisualsWrapper(val commonValue: SnackbarVisuals) : PlatformSnackbarVisuals {
-    override val message: String get() = commonValue.message
-    override val actionLabel: String? get() = commonValue.actionLabel
-    override val withDismissAction: Boolean get() = commonValue.withDismissAction
-    override val duration: PlatformSnackbarDuration get() = commonValue.duration.toPlatformValue()
-}
-
-fun SnackbarVisuals.toPlatformValue(): PlatformSnackbarVisuals =
-    CommonSnackbarVisualsWrapper(this)
-
-fun PlatformSnackbarResult.toCommonValue() =
-    when (this) {
-        PlatformSnackbarResult.Dismissed -> SnackbarResult.Dismissed
-        PlatformSnackbarResult.ActionPerformed -> SnackbarResult.ActionPerformed
-    }
-
-fun SnackbarDuration.toPlatformValue() =
-    when (this) {
-        SnackbarDuration.Short -> PlatformSnackbarDuration.Short
-        SnackbarDuration.Long -> PlatformSnackbarDuration.Long
-        SnackbarDuration.Indefinite -> PlatformSnackbarDuration.Indefinite
-    }
-
-fun PlatformSnackbarDuration.toCommonValue() =
-    when (this) {
-        PlatformSnackbarDuration.Short -> SnackbarDuration.Short
-        PlatformSnackbarDuration.Long -> SnackbarDuration.Long
-        PlatformSnackbarDuration.Indefinite -> SnackbarDuration.Indefinite
-    }
+actual typealias SnackbarDuration = PlatformSnackbarDuration
 
 @Composable
 actual fun SnackbarHost(
     hostState: SnackbarHostState,
     modifier: Modifier,
+    snackbar: @Composable (SnackbarData) -> Unit,
 ) =
-    androidx.compose.material3.SnackbarHost(hostState.platformValue, modifier.platformModifier)
+    androidx.compose.material3.SnackbarHost(
+        hostState.platformValue,
+        modifier.platformModifier,
+        snackbar,
+    )
