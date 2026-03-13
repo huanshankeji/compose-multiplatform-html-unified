@@ -42,7 +42,15 @@ fun Material3(
             val onClick: () -> Unit = {
                 val newCount = ++viewModel.countState.value
                 scope.launch {
-                    snackbarHostState.showSnackbar("Count incremented to $newCount")
+                    val result = snackbarHostState.showSnackbar("Count incremented to $newCount", "action", true)
+                    println(
+                        when (result) {
+                            SnackbarResult.Dismissed -> "dismissed"
+                            SnackbarResult.ActionPerformed -> "action performed"
+                            // Only KTIJ complains and the code still compiles if this `else` branch is removed.
+                            else -> throw AssertionError()
+                        }
+                    )
                 }
             }
             val buttonContent: @Composable () -> Unit = {

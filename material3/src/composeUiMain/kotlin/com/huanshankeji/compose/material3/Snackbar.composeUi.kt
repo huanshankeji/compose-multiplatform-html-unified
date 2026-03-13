@@ -11,7 +11,10 @@ actual fun Snackbar(
     actionOnNewLine: Boolean,
 ) =
     Snackbar(
-        snackbarData.platformValue,
+        snackbarData,
         modifier.platformModifier,
         actionOnNewLine,
     )
+
+// TODO add a factory function or impl class if the user wants to call `Snackbar` directly
+//expect class SnackbarVisualsImpl()

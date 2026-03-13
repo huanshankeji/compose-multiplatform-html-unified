@@ -34,11 +34,9 @@ expect fun SnackbarHost(
     snackbar: @Composable (SnackbarData) -> Unit = { Snackbar(it) },
 )
 
-// TODO update this comment with the new `expect interface` design
 /*
-These types whose corresponding types are interfaces in `SnackbarHost.kt` in `androidx.compose.material3` are made expect classes because users should not be allowed to implement them.
-They should always wrap a platform type, so the wrapping wouldn't stack up when converting to and from platform types.
-Therefore, their factory functions should also always delegate to platform implementations.
+These types whose corresponding types are interfaces in `SnackbarHost.kt` in `androidx.compose.material3` are made expect interfaces.
+Their implementations should always delegate to platform implementations, so the wrapping wouldn't stack up when converting to and from platform types.
  */
 
 /*
@@ -46,31 +44,24 @@ This is only available in Material 3 `androidx.compose.material3`.
 It wraps the parameters of `SnackbarHostState.showSnackbar` with an additional `withDismissAction` parameter compared to Material 2.
  */
 @Stable
-expect class SnackbarVisuals(
-    message: String,
-    actionLabel: String?,
-    // TODO This could be supported on JS by showing an extra button.
-    withDismissActionComposeUi: Boolean,
-    duration: SnackbarDuration,
-) {
+expect interface SnackbarVisuals {
     val message: String
     val actionLabel: String?
-    val withDismissActionComposeUi: Boolean
+    val withDismissAction: Boolean
     val duration: SnackbarDuration
 }
 
 @Stable
-expect class SnackbarData {
+expect interface SnackbarData {
     val visuals: SnackbarVisuals
     fun performAction()
     fun dismiss()
 }
 
-// TODO `expect enum class` works now. Adopt this design to simplify and improve performance.
-/*expect*/ enum class SnackbarResult {
+expect enum class SnackbarResult {
     Dismissed, ActionPerformed
 }
 
-enum class SnackbarDuration {
+expect enum class SnackbarDuration {
     Short, Long, Indefinite
 }

@@ -1,28 +1,24 @@
 package com.huanshankeji.compose.material3
 
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.Stable
-import androidx.compose.runtime.key
+import androidx.compose.runtime.*
 import com.huanshankeji.compose.ui.Modifier
+import kotlinx.coroutines.CancellableContinuation
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.suspendCancellableCoroutine
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
+import kotlin.coroutines.resume
 
 // copied and adapted from `SnackbarHost.js.kt` in `com.huanshankeji.compose.material2`
 
+// copied and adapted from `SnackbarHostStateCommonImpl.kt` in `com.huanshankeji.compose.material2` following `SnackbarHost.kt` in `androidx.compose.material3`
 @Stable
-actual class SnackbarHostState(val commonImpl: SnackbarHostStateCommonImpl) {
-    actual constructor() : this(object : SnackbarHostStateCommonImpl() {
-        // TODO remove them if they are confirmed to be not needed
-        /*
-        override val yieldUntilNext: Boolean
-            get() = false
-        override val delayMillisUntilNext: Long
-            get() = 20 // for 60 Hz displays
-        */
-    })
+actual class SnackbarHostState {
+    private val mutex = Mutex()
 
-    actual val currentSnackbarData: SnackbarData?
-        get() = commonImpl.currentSnackbarData
+    var _currentSnackbarData by mutableStateOf<SnackbarData?>(null)
+        private set
+    actual val currentSnackbarData get() = _currentSnackbarData
 
     actual suspend fun showSnackbar(
         message: String,
@@ -30,32 +26,67 @@ actual class SnackbarHostState(val commonImpl: SnackbarHostStateCommonImpl) {
         withDismissAction: Boolean,
         duration: SnackbarDuration,
     ): SnackbarResult =
-        commonImpl.showSnackbar(message, actionLabel, withDismissAction, duration)
+        showSnackbar(SnackbarVisualsImpl(message, actionLabel, withDismissAction, duration))
 
-    actual suspend fun showSnackbar(visuals: SnackbarVisuals): SnackbarResult =
-        commonImpl.showSnackbar(visuals)
+    // TODO remove this if it's confirmed to be not needed
+    /*
+    abstract val delayMillisUntilNext: Long
+    */
+
+    actual suspend fun showSnackbar(visuals: SnackbarVisuals): SnackbarResult = mutex.withLock {
+        try {
+            return suspendCancellableCoroutine { continuation ->
+                _currentSnackbarData = SnackbarDataImpl(visuals, continuation)
+            }
+        } finally {
+            _currentSnackbarData = null
+
+            // TODO remove them if they are confirmed to be not needed
+            /*
+            // a workaround to trigger recomposition when `currentSnackbarData` is set to `null`, resolving the issue that a series of continuous snackbars don't show
+            yield()
+            delay(20)
+            */
+        }
+    }
+
+    @Stable
+    private class SnackbarVisualsImpl(
+        override val message: String,
+        override val actionLabel: String?,
+        override val withDismissAction: Boolean,
+        override val duration: SnackbarDuration,
+    ) : SnackbarVisuals
+
+    @Stable
+    private class SnackbarDataImpl(
+        override val visuals: SnackbarVisuals,
+        private val continuation: CancellableContinuation<SnackbarResult>,
+    ) : SnackbarData {
+
+        override fun performAction() {
+            if (continuation.isActive) continuation.resume(SnackbarResult.ActionPerformed)
+        }
+
+        override fun dismiss() {
+            if (continuation.isActive) continuation.resume(SnackbarResult.Dismissed)
+        }
+    }
 }
 
 @Stable
-actual class SnackbarVisuals actual constructor(
-    actual val message: String,
-    actual val actionLabel: String?,
-    actual val withDismissActionComposeUi: Boolean,
-    actual val duration: SnackbarDuration,
-)
+actual interface SnackbarVisuals {
+    actual val message: String
+    actual val actionLabel: String?
+    actual val withDismissAction: Boolean
+    actual val duration: SnackbarDuration
+}
 
-// TODO incomplete
 @Stable
-actual class SnackbarData(
-    actual val visuals: SnackbarVisuals,
-) {
-    actual fun performAction() {
-        TODO()
-    }
-
-    actual fun dismiss() {
-        TODO()
-    }
+actual interface SnackbarData {
+    actual val visuals: SnackbarVisuals
+    actual fun performAction()
+    actual fun dismiss()
 }
 
 @Composable
@@ -82,6 +113,14 @@ actual fun SnackbarHost(
         key(currentSnackbarData) {
             snackbar(currentSnackbarData)
         }
+}
+
+actual enum class SnackbarResult {
+    Dismissed, ActionPerformed
+}
+
+actual enum class SnackbarDuration {
+    Short, Long, Indefinite
 }
 
 // simplified compared to the corresponding function in `androidx.compose.material3`
