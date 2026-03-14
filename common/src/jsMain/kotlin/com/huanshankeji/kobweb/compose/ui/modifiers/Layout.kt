@@ -9,11 +9,11 @@ import com.varabyte.kobweb.compose.ui.styleModifier
 
 
 /**
- * A modifier for layouts to make them more consistent with the `androidx.compose` behavior.
+ * A modifier for layouts to make them more consistent with the Compose UI behavior.
  * `fit-content` is used for both `width` and `height` so the layout wraps its content tightly,
- * like the default behavior of `Column`, `Row`, and `Box` in `androidx.compose`.
+ * like the default behavior of `Column`, `Row`, and `Box` in Compose UI.
  *
- * Note: the max constraints (`max-width` and `max-height`) for imitating the `androidx.compose` behavior
+ * Note: the max constraints (`max-width` and `max-height`) for imitating the Compose UI behavior
  * of constraining content to parent bounds used to be applied here but are not now,
  * because `max-height: -webkit-fill-available` (and similar) causes overflowing content to be clipped
  * in layouts without `overflow: auto/scroll`, where the height is capped but there is no scroll

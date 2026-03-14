@@ -9,9 +9,15 @@ import com.huanshankeji.compose.ui.PlatformModifier
 import com.huanshankeji.kobweb.compose.ui.modifiers.imitateComposeUiLayout
 import com.varabyte.kobweb.compose.ui.styleModifier
 
+/**
+ * @see com.huanshankeji.compose.foundation.ext.css.verticalScroll
+ */
 fun PlatformModifier.verticalScroll() =
     styleModifier { verticalScroll() }
 
+/**
+ * @see com.huanshankeji.compose.foundation.ext.css.horizontalScroll
+ */
 fun PlatformModifier.horizontalScroll() =
     styleModifier { horizontalScroll() }
 
