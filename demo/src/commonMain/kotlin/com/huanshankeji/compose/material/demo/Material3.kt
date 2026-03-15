@@ -7,7 +7,7 @@ import com.huanshankeji.compose.ExtRecommendedApi
 import com.huanshankeji.compose.foundation.background
 import com.huanshankeji.compose.foundation.layout.*
 import com.huanshankeji.compose.foundation.layout.ext.VerticalScrollColumn
-import com.huanshankeji.compose.foundation.layout.ext.VerticalScrollColumn
+import com.huanshankeji.compose.foundation.layout.ext.fillMaxSizeStretch
 import com.huanshankeji.compose.foundation.text.KeyboardActions
 import com.huanshankeji.compose.foundation.text.KeyboardOptions
 import com.huanshankeji.compose.foundation.text.input.ImeAction
@@ -59,7 +59,9 @@ fun Material3(
             )
         },
     ) { paddingValues ->
-        VerticalScrollColumn(contentModifier = Modifier.innerContentPadding(), verticalArrangement = Arrangement.spacedBy(16.dp)) {
+        VerticalScrollColumn(
+            contentModifier = Modifier.innerContentPadding(), verticalArrangement = Arrangement.spacedBy(16.dp)
+        ) {
             val count by viewModel.countState.collectAsState()
             val onClick: () -> Unit = {
                 val newCount = ++viewModel.countState.value
@@ -89,7 +91,9 @@ fun Material3(
             }
             Row {
                 ButtonWithMaterialIcon(onClick, icon = Icons.Default.Add, content = buttonContent)
-                ButtonWithMaterialIcon(onClick, icon = Icons.Default.Add, isTrailingIcon = true, content = buttonContent)
+                ButtonWithMaterialIcon(
+                    onClick, icon = Icons.Default.Add, isTrailingIcon = true, content = buttonContent
+                )
             }
             val iconButtonContent: @Composable () -> Unit = {
                 Icon(Icons.Default.Add, null)
