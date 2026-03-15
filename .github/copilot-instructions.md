@@ -41,6 +41,14 @@
 ```
 **Note**: The project has "limited number of tests" according to CONTRIBUTING.md, but this validates what exists.
 
+> **If `check` fails solely due to `apiCheck` failures** (because public APIs have changed and the `.klib.api` files are out of date), do **not** run `apiDump` automatically. Instead, validate using:
+> ```bash
+> ./gradlew publishToMavenLocal
+> ./gradlew :compose-multiplatform-html-unified-demo:run        # interactive validation on desktop JVM
+> ./gradlew :compose-multiplatform-html-unified-demo:jsBrowserDevelopmentRun  # interactive validation in JS browser
+> ```
+> Then leave the `apiDump` step to the human developer to perform after reviewing API changes. The `demo` module supports JVM desktop (`run`), JS (`jsBrowserDevelopmentRun`), Android, iOS, and wasmJs targets.
+
 #### 4. Building Demo Applications
 ```bash
 # Build the side-by-side demo (used for GitHub Pages)
@@ -164,6 +172,20 @@ When adding or aligning components, you can search in <https://m3.material.io/> 
 - **Binary Compatibility**: Enforced via org.jetbrains.kotlinx.binary-compatibility-validator plugin
 - **Limited Testing**: Project acknowledges "limited number of tests"
 
+#### API Change Policy
+
+> **Do NOT run `apiDump` automatically** — even if `check` fails due to `apiCheck` failures (because public APIs have changed). Leave `apiDump` for the human developer to run after they have reviewed the API changes. Running `apiDump` automatically generates unnecessary Git-tracked churn before the developer has had a chance to review the API surface.
+>
+> Only run `apiDump` if you are **very confident** you have completely and correctly finished all the task goals and no further API edits from the developer will be needed.
+
+When `check` fails solely due to `apiCheck` failures, use the following commands for validation instead:
+```bash
+./gradlew publishToMavenLocal
+./gradlew :compose-multiplatform-html-unified-demo:run        # if the run task exists for desktop JVM
+./gradlew :compose-multiplatform-html-unified-demo:jsBrowserDevelopmentRun  # for JS browser
+```
+Then leave the `apiDump` step to the human developer to perform after reviewing API changes.
+
 **Code Style:**
 - Follow [our Kotlin code style guide](https://github.com/huanshankeji/.github/blob/main/kotlin-code-style.md) for all Kotlin code contributions
 
@@ -270,10 +292,11 @@ settings.gradle.kts     # Project structure and dependency management
 ## Validation Steps for Changes
 
 1. **Build Validation**: Run `./gradlew build` or `./gradlew publishToMavenLocal` to ensure libraries compile
-2. **Test Validation**: Run `./gradlew check` to validate existing tests pass  
+2. **Test Validation**: Run `./gradlew check` to validate existing tests pass. If `check` fails **solely** due to `apiCheck` failures, see the [API Change Policy](#api-change-policy) above — do **not** run `apiDump` automatically.
 3. **Demo Validation**: Build demo with `./gradlew :compose-multiplatform-html-unified-demo:sideBySideBrowserDistribution`
-4. **CI Simulation**: Test on multiple platforms if possible (the CI runs on Ubuntu, macOS, Windows)
-5. **Binary Compatibility**: The kotlinx binary compatibility validator will catch API breaks
+4. **Interactive Demo Validation**: Use `./gradlew :compose-multiplatform-html-unified-demo:run` (desktop JVM) or `./gradlew :compose-multiplatform-html-unified-demo:jsBrowserDevelopmentRun` (JS browser) to interactively validate Compose UI rendering
+5. **CI Simulation**: Test on multiple platforms if possible (the CI runs on Ubuntu, macOS, Windows)
+6. **Binary Compatibility**: The kotlinx binary compatibility validator will catch API breaks — run `./gradlew apiDump` **only** when you are very confident all task goals are complete and no further API edits will be needed
 
 ## Important Notes for Agents
 

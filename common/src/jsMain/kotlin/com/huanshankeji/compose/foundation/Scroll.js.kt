@@ -4,18 +4,20 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Stable
 import com.huanshankeji.compose.foundation.ext.css.horizontalScroll
 import com.huanshankeji.compose.foundation.ext.css.verticalScroll
-import com.huanshankeji.compose.foundation.layout.Box
-import com.huanshankeji.compose.foundation.layout.BoxScope
-import com.huanshankeji.compose.foundation.layout.ext.KobwebBox
-import com.huanshankeji.compose.ui.Alignment
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.PlatformModifier
 import com.huanshankeji.kobweb.compose.ui.modifiers.imitateComposeUiLayout
 import com.varabyte.kobweb.compose.ui.styleModifier
 
+/**
+ * @see com.huanshankeji.compose.foundation.ext.css.verticalScroll
+ */
 fun PlatformModifier.verticalScroll() =
     styleModifier { verticalScroll() }
 
+/**
+ * @see com.huanshankeji.compose.foundation.ext.css.horizontalScroll
+ */
 fun PlatformModifier.horizontalScroll() =
     styleModifier { horizontalScroll() }
 
@@ -36,25 +38,3 @@ actual fun Modifier.verticalScroll(state: ScrollState): Modifier =
 
 actual fun Modifier.horizontalScroll(state: ScrollState): Modifier =
     platformModify { horizontalScroll() }
-
-@Composable
-actual fun VerticalScrollBox(
-    boxModifier: Modifier,
-    contentModifier: Modifier,
-    contentAlignment: Alignment,
-    content: @Composable BoxScope.() -> Unit,
-) =
-    Box(boxModifier.verticalScroll(rememberScrollState())) {
-        KobwebBox(contentModifier, contentAlignment, content)
-    }
-
-@Composable
-actual fun HorizontalScrollBox(
-    boxModifier: Modifier,
-    contentModifier: Modifier,
-    contentAlignment: Alignment,
-    content: @Composable BoxScope.() -> Unit,
-) =
-    Box(boxModifier.horizontalScroll(rememberScrollState())) {
-        KobwebBox(contentModifier, contentAlignment, content)
-    }
