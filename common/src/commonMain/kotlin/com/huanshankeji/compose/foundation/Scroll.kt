@@ -23,7 +23,7 @@ expect class ScrollState
 
 const val SCROLL_MODIFIER_DEPRECATION_MESSAGE =
     "The scroll modifier does not produce completely consistent visual results on both platforms, " +
-            "and has a bug that it squeezes its content to size zero on JS DOM because of `maxWidth/Height(cssWidthStretchValueBrowserDependent)` used with `overflowY/X(Overflow.Auto)`, " +
+            "and has a bug that it squeezes its content (direct children) to size zero on JS DOM because of `maxWidth/Height(cssWidthStretchValueBrowserDependent)` used with `overflowY/X(Overflow.Auto)`, " +
             "which is then used by the layout components `Box`, `Column`, and `Row`. " +
             "Use `VerticalScrollContainer`, `VerticalScrollBox`, `VerticalScrollColumn` for vertical Scroll instead, " +
             "or `HorizontalScrollContainer`, `HorizontalScrollBox`, `HorizontalScrollRow` for horizontal Scroll instead, " +
