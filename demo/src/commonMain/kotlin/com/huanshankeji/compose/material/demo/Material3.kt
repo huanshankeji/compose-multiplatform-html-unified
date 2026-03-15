@@ -7,7 +7,6 @@ import com.huanshankeji.compose.ExtRecommendedApi
 import com.huanshankeji.compose.foundation.background
 import com.huanshankeji.compose.foundation.layout.*
 import com.huanshankeji.compose.foundation.layout.ext.VerticalScrollColumn
-import com.huanshankeji.compose.foundation.layout.ext.VerticalScrollColumn
 import com.huanshankeji.compose.foundation.text.KeyboardActions
 import com.huanshankeji.compose.foundation.text.KeyboardOptions
 import com.huanshankeji.compose.foundation.text.input.ImeAction
