@@ -6,13 +6,12 @@ import com.huanshankeji.androidx.lifecycle.viewmodel.compose.viewModel
 import com.huanshankeji.compose.ExtRecommendedApi
 import com.huanshankeji.compose.foundation.background
 import com.huanshankeji.compose.foundation.layout.*
-import com.huanshankeji.compose.foundation.rememberScrollState
+import com.huanshankeji.compose.foundation.layout.ext.VerticalScrollColumn
 import com.huanshankeji.compose.foundation.text.KeyboardActions
 import com.huanshankeji.compose.foundation.text.KeyboardOptions
 import com.huanshankeji.compose.foundation.text.input.ImeAction
 import com.huanshankeji.compose.foundation.text.input.KeyboardCapitalization
 import com.huanshankeji.compose.foundation.text.input.KeyboardType
-import com.huanshankeji.compose.foundation.verticalScroll
 import com.huanshankeji.compose.material.icons.Icons
 import com.huanshankeji.compose.material.icons.filled.*
 import com.huanshankeji.compose.material3.*
@@ -30,10 +29,13 @@ import com.huanshankeji.compose.material3.Button as RowScopeButton
 // TODO replace `println`s with snackbars when available
 
 @Composable
-fun Material3(/*modifier: Modifier = Modifier*/
-              viewModel: Material3ViewModel = viewModel { Material3ViewModel() },
+fun Material3(
+    /*modifier: Modifier = Modifier*/
+    viewModel: Material3ViewModel = viewModel { Material3ViewModel() },
 ) {
-    Column(Modifier.verticalScroll(rememberScrollState()).innerContentPadding(), Arrangement.spacedBy(16.dp)) {
+    VerticalScrollColumn(
+        contentModifier = Modifier.innerContentPadding(), verticalArrangement = Arrangement.spacedBy(16.dp)
+    ) {
         val count by viewModel.countState.collectAsState()
         val onClick: () -> Unit = { viewModel.countState.value++ }
         val buttonContent: @Composable () -> Unit = {
