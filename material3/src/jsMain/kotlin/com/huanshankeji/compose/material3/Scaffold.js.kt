@@ -46,7 +46,8 @@ actual fun Scaffold(
             floatingActionButton()
         }
 
-    // Scaffold container: flexbox column layout using stretch (not 100%) to avoid scrollbar overflow with padding/margin
+    // Scaffold container: flexbox column layout using stretch (not 100%) to avoid scrollbar overflow with padding/margin.
+    // overflow: hidden clips the top app bar web component's shadow/internal elements that extend beyond the scaffold bounds.
     Div(Modifier.fillMaxSizeStretch().then(modifier).toAttrs {
         style {
             display(DisplayStyle.Flex)
