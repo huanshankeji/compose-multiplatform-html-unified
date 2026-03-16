@@ -302,15 +302,14 @@ settings.gradle.kts     # Project structure and dependency management
 
 ### Visual Validation via JS DOM Demo (for AI agents)
 
-AI agents with browser automation (e.g., Playwright) can visually validate JS DOM rendering by building the demo distribution and serving it locally:
+AI agents with browser automation (e.g., Playwright) can visually validate JS DOM rendering using the Gradle development server:
 
-1. Build the JS demo: `./gradlew :compose-multiplatform-html-unified-demo:jsBrowserDistribution`
-2. Serve the output: `cd demo/build/dist/js/productionExecutable && python3 -m http.server 8080`
-3. Navigate to `http://localhost:8080` in the automated browser, interact with the UI (click buttons, trigger snackbars, etc.), and take screenshots to verify visual results.
+1. Run `./gradlew :compose-multiplatform-html-unified-demo:jsBrowserDevelopmentRun` — this builds and serves the JS demo at `http://localhost:8080`.
+2. Navigate to `http://localhost:8080` in the automated browser, interact with the UI (click buttons, trigger snackbars, etc.), and take screenshots to verify visual results.
 
 This allows the agent to iterate on fixes — making code changes, rebuilding the JS distribution, refreshing the browser, and verifying visual output — in a loop. Use this pattern to fix visual bugs and verify snackbar positioning, scrollbar behavior, layout issues, etc.
 
-**Note**: The JVM desktop demo (`./gradlew :compose-multiplatform-html-unified-demo:run`) requires a GUI display and cannot be run by headless AI agents. Only the JS DOM demo can be visually validated this way.
+**Note**: The JVM desktop demo (`./gradlew :compose-multiplatform-html-unified-demo:run`) requires a GUI display and cannot be run by headless AI agents. Only the JS DOM demo can be visually validated this way. When headless JVM desktop demo support becomes available in the future, use both platforms for visual validation.
 
 ## Important Notes for Agents
 
