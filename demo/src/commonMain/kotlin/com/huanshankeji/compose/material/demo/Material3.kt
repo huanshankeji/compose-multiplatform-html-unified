@@ -123,9 +123,7 @@ private fun ButtonsDemo(count: Int, onClick: () -> Unit) {
     }
     Row {
         ButtonWithMaterialIcon(onClick, icon = Icons.Default.Add, content = buttonContent)
-        ButtonWithMaterialIcon(
-            onClick, icon = Icons.Default.Add, isTrailingIcon = true, content = buttonContent
-        )
+        ButtonWithMaterialIcon(onClick, icon = Icons.Default.Add, isTrailingIcon = true, content = buttonContent)
     }
 }
 
@@ -485,11 +483,7 @@ private fun ChipsDemo(scope: CoroutineScope, snackbarHostState: SnackbarHostStat
             onClick = { filterChipSelected = !filterChipSelected },
             label = "Filter",
             leadingIcon = if (filterChipSelected) { modifier ->
-                Icon(
-                    Icons.Filled.Done,
-                    null,
-                    modifier
-                )
+                Icon(Icons.Filled.Done, null, modifier)
             } else null,
         )
         var showInputChip by remember { mutableStateOf(true) }
@@ -520,11 +514,7 @@ private fun ChipsDemo(scope: CoroutineScope, snackbarHostState: SnackbarHostStat
             onClick = { filterChipSelected = !filterChipSelected },
             label = "Elevated Filter",
             leadingIcon = if (filterChipSelected) { modifier ->
-                Icon(
-                    Icons.Filled.Done,
-                    null,
-                    modifier
-                )
+                Icon(Icons.Filled.Done, null, modifier)
             } else null,
         )
         ElevatedSuggestionChip(
