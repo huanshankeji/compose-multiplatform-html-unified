@@ -6,10 +6,7 @@ import com.huanshankeji.compose.foundation.layout.PaddingValues
 import com.huanshankeji.compose.foundation.layout.ext.fillMaxSizeStretch
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.toAttrs
-import com.varabyte.kobweb.compose.css.Overflow
 import com.varabyte.kobweb.compose.css.TextAlign
-import com.varabyte.kobweb.compose.css.overflowX
-import com.varabyte.kobweb.compose.css.overflowY
 import com.varabyte.kobweb.compose.css.textAlign
 import org.jetbrains.compose.web.css.*
 import org.jetbrains.compose.web.dom.Div
@@ -53,8 +50,6 @@ actual fun Scaffold(
             display(DisplayStyle.Flex)
             flexDirection(FlexDirection.Column)
             position(Position.Relative)
-            overflowX(Overflow.Hidden)
-            overflowY(Overflow.Hidden)
         }
     }) {
         topBar()

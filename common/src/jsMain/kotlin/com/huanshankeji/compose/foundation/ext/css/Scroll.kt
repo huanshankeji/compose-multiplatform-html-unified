@@ -19,9 +19,6 @@ import org.jetbrains.compose.web.css.maxWidth
 fun StyleScope.horizontalScroll() {
     maxWidth(cssWidthStretchValueBrowserDependent)
     overflowX(Overflow.Auto)
-    // When overflow-x is non-`visible`, `overflow-y: visible` computes to `auto` per CSS spec,
-    // which can cause unintended vertical scrollbars. Explicitly hide vertical overflow.
-    overflowY(Overflow.Hidden)
 }
 
 /**
@@ -31,7 +28,4 @@ fun StyleScope.verticalScroll() {
     maxHeight(cssHeightStretchValueBrowserDependent)
     //overflowY(Overflow.Scroll)
     overflowY(Overflow.Auto)
-    // When overflow-y is non-`visible`, `overflow-x: visible` computes to `auto` per CSS spec,
-    // which can cause unintended horizontal scrollbars. Explicitly hide horizontal overflow.
-    overflowX(Overflow.Hidden)
 }
