@@ -155,6 +155,8 @@ repositories {
 - Located in `jsMain` source sets
 - Requires CSS imports for Material Icons
 
+**`fillMax*Stretch` vs `fillMax*`**: On JS DOM, prefer `fillMaxWidthStretch()` / `fillMaxHeightStretch()` / `fillMaxSizeStretch()` over `fillMaxWidth()` / `fillMaxHeight()` / `fillMaxSize()` when there is no `fraction` parameter. The `fillMax*` modifiers set CSS `width`/`height: 100%`, which causes overflow (and unnecessary scrollbars) when the element or an ancestor has padding or margin. The `fillMax*Stretch` variants use the CSS `stretch` value (with `-webkit-fill-available` fallback), which correctly fills the available space without overflowing. Only use `fillMax*` with the `fraction` parameter when you need a fractional size (e.g., `fillMaxWidth(0.5f)`), as `fillMax*Stretch` does not support fractions.
+
 #### Supported Material 3 Components
 
 For an up-to-date list of supported unified component APIs, refer to README.md.
@@ -297,6 +299,18 @@ settings.gradle.kts     # Project structure and dependency management
 4. **Interactive Demo Validation**: Use `./gradlew :compose-multiplatform-html-unified-demo:run` (desktop JVM) or `./gradlew :compose-multiplatform-html-unified-demo:jsBrowserDevelopmentRun` (JS browser) to interactively validate Compose UI rendering
 5. **CI Simulation**: Test on multiple platforms if possible (the CI runs on Ubuntu, macOS, Windows)
 6. **Binary Compatibility**: The kotlinx binary compatibility validator will catch API breaks — run `./gradlew apiDump` **only** when you are very confident all task goals are complete and no further API edits will be needed
+
+### Visual Validation via JS DOM Demo (for AI agents)
+
+AI agents with browser automation (e.g., Playwright) can visually validate JS DOM rendering by building the demo distribution and serving it locally:
+
+1. Build the JS demo: `./gradlew :compose-multiplatform-html-unified-demo:jsBrowserDistribution`
+2. Serve the output: `cd demo/build/dist/js/productionExecutable && python3 -m http.server 8080`
+3. Navigate to `http://localhost:8080` in the automated browser, interact with the UI (click buttons, trigger snackbars, etc.), and take screenshots to verify visual results.
+
+This allows the agent to iterate on fixes — making code changes, rebuilding the JS distribution, refreshing the browser, and verifying visual output — in a loop. Use this pattern to fix visual bugs and verify snackbar positioning, scrollbar behavior, layout issues, etc.
+
+**Note**: The JVM desktop demo (`./gradlew :compose-multiplatform-html-unified-demo:run`) requires a GUI display and cannot be run by headless AI agents. Only the JS DOM demo can be visually validated this way.
 
 ## Important Notes for Agents
 
