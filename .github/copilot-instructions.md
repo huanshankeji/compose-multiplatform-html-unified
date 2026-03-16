@@ -300,16 +300,20 @@ settings.gradle.kts     # Project structure and dependency management
 5. **CI Simulation**: Test on multiple platforms if possible (the CI runs on Ubuntu, macOS, Windows)
 6. **Binary Compatibility**: The kotlinx binary compatibility validator will catch API breaks — run `./gradlew apiDump` **only** when you are very confident all task goals are complete and no further API edits will be needed
 
-### Visual Validation via JS DOM Demo (for AI agents)
+### Visual Validation via Browser Demos (for AI agents)
 
-AI agents with browser automation (e.g., Playwright) can visually validate JS DOM rendering using the Gradle development server:
+AI agents with browser automation (e.g., Playwright) can visually validate **both** JS DOM and Wasm JS (Compose UI) rendering using Gradle development servers:
 
-1. Run `./gradlew :compose-multiplatform-html-unified-demo:jsBrowserDevelopmentRun` — this builds and serves the JS demo at `http://localhost:8080`.
-2. Navigate to `http://localhost:8080` in the automated browser, interact with the UI (click buttons, trigger snackbars, etc.), and take screenshots to verify visual results.
+1. **JS DOM** (HTML/CSS rendering): Run `./gradlew :compose-multiplatform-html-unified-demo:jsBrowserDevelopmentRun` — serves at `http://localhost:8080`.
+2. **Wasm JS** (Compose UI canvas rendering): Run `./gradlew :compose-multiplatform-html-unified-demo:wasmJsBrowserDevelopmentRun` — serves at `http://localhost:8080`.
 
-This allows the agent to iterate on fixes — making code changes, rebuilding the JS distribution, refreshing the browser, and verifying visual output — in a loop. Use this pattern to fix visual bugs and verify snackbar positioning, scrollbar behavior, layout issues, etc.
+Navigate to `http://localhost:8080` in the automated browser, interact with the UI (click buttons, trigger snackbars, etc.), and take screenshots to verify visual results. Only run one at a time since they share the same port.
 
-**Note**: The JVM desktop demo (`./gradlew :compose-multiplatform-html-unified-demo:run`) requires a GUI display and cannot be run by headless AI agents. Only the JS DOM demo can be visually validated this way. When headless JVM desktop demo support becomes available in the future, use both platforms for visual validation.
+For the Wasm JS target, UI elements are rendered on a canvas inside a shadow DOM. To interact with them via Playwright, access accessibility nodes through `document.body.shadowRoot` and query `[role="button"]` etc.
+
+This allows the agent to iterate on fixes — making code changes, rebuilding, refreshing the browser, and verifying visual output — in a loop. Use this pattern to fix visual bugs and verify snackbar positioning, scrollbar behavior, layout issues, etc. **Use both targets** to compare visual consistency between JS DOM and Compose UI rendering.
+
+**Note**: The JVM desktop demo (`./gradlew :compose-multiplatform-html-unified-demo:run`) requires a GUI display and cannot be run by headless AI agents. Use the Wasm JS target for Compose UI visual validation instead. When headless JVM desktop demo support becomes available in the future, use it alongside the browser demos.
 
 ## Important Notes for Agents
 
