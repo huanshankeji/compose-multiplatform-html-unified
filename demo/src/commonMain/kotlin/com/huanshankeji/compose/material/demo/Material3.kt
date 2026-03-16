@@ -80,11 +80,14 @@ fun Material3(
             }
             val checked = viewModel.checkedState.collectAsState().value
             val onCheckedChange: (Boolean) -> Unit = { viewModel.checkedState.value = it }
+            val iconButtonContent: @Composable () -> Unit = {
+                Icon(Icons.Default.Add, null)
+            }
 
             ButtonsDemo(count, onClick)
-            IconButtonsDemo(onClick)
+            IconButtonsDemo(onClick, iconButtonContent)
             IconToggleButtonsDemo(checked, onCheckedChange)
-            FloatingActionButtonsDemo(onClick)
+            FloatingActionButtonsDemo(onClick, iconButtonContent)
             CheckboxAndSwitchDemo(checked, onCheckedChange)
             TextFieldsDemo(scope, snackbarHostState)
             ListDemo(count)
@@ -128,10 +131,7 @@ private fun ButtonsDemo(count: Int, onClick: () -> Unit) {
 }
 
 @Composable
-private fun IconButtonsDemo(onClick: () -> Unit) {
-    val iconButtonContent: @Composable () -> Unit = {
-        Icon(Icons.Default.Add, null)
-    }
+private fun IconButtonsDemo(onClick: () -> Unit, iconButtonContent: @Composable () -> Unit) {
     Row {
         IconButton(onClick, content = iconButtonContent)
         FilledIconButton(onClick, content = iconButtonContent)
@@ -174,10 +174,7 @@ private fun IconToggleButtonsDemo(checked: Boolean, onCheckedChange: (Boolean) -
 
 @OptIn(ExtRecommendedApi::class)
 @Composable
-private fun FloatingActionButtonsDemo(onClick: () -> Unit) {
-    val iconButtonContent: @Composable () -> Unit = {
-        Icon(Icons.Default.Add, null)
-    }
+private fun FloatingActionButtonsDemo(onClick: () -> Unit, iconButtonContent: @Composable () -> Unit) {
     Row {
         FloatingActionButton(onClick, content = iconButtonContent)
         SmallFloatingActionButton(onClick, content = iconButtonContent)

@@ -307,7 +307,9 @@ AI agents with browser automation (e.g., Playwright) can visually validate **bot
 1. **JS DOM** (HTML/CSS rendering): Run `./gradlew :compose-multiplatform-html-unified-demo:jsBrowserDevelopmentRun` — serves at `http://localhost:8080`.
 2. **Wasm JS** (Compose UI canvas rendering): Run `./gradlew :compose-multiplatform-html-unified-demo:wasmJsBrowserDevelopmentRun` — serves at `http://localhost:8080`.
 
-Navigate to `http://localhost:8080` in the automated browser, interact with the UI (click buttons, trigger snackbars, etc.), and take screenshots to verify visual results. Only run one at a time since they share the same port.
+Navigate to the URL shown in the Gradle task output in the automated browser, interact with the UI (click buttons, trigger snackbars, etc.), and take screenshots to verify visual results.
+
+Both targets can run simultaneously — when port 8080 is already taken, Gradle automatically assigns an alternative (e.g., 8081). Check the Gradle task output for the actual port each server is using.
 
 For the Wasm JS target, UI elements are rendered on a canvas inside a shadow DOM. To interact with them via Playwright, access accessibility nodes through `document.body.shadowRoot` and query `[role="button"]` etc.
 
