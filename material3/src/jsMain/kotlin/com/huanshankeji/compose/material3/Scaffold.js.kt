@@ -91,7 +91,7 @@ actual fun Scaffold(
             Div({
                 style {
                     position(Position.Absolute)
-                    // TODO not working properly with `FabPosition,Ebd`
+                    // TODO not working properly with `FabPosition.EndOverlay`
                     bottom(88.px)
                     left(0.px)
                     right(0.px)
