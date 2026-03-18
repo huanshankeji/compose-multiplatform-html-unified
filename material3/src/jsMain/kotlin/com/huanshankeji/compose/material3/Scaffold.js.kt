@@ -91,24 +91,15 @@ actual fun Scaffold(
             Div({
                 style {
                     position(Position.Absolute)
-                    // TODO not working properly with `FabPosition.EndOverlay`
+                    // TODO not working properly with `FabPosition,Ebd`
                     bottom(88.px)
                     left(0.px)
                     right(0.px)
                     display(DisplayStyle.Flex)
                     justifyContent(JustifyContent.Center)
-                    // TODO remove these if they are not needed
-                    property("pointer-events", "none")
-                    property("z-index", "10")
                 }
             }) {
-                Div({
-                    style {
-                        property("pointer-events", "auto")
-                    }
-                }) {
-                    snackbarHost()
-                }
+                snackbarHost()
             }
         }
 
