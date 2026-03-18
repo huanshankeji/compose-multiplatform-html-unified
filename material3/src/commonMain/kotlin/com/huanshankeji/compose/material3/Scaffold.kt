@@ -13,9 +13,6 @@ https://kotlinlang.org/api/compose-multiplatform/material3/androidx.compose.mate
 enum class FabPosition {
     Start, Center, End,
 
-    /**
-     * Not fully supported on JS DOM yet. Currently, it behaves the same as [End].
-     */
     EndOverlay
 }
 
