@@ -11,7 +11,12 @@ https://kotlinlang.org/api/compose-multiplatform/material3/androidx.compose.mate
 
 // copied and adapted from `FabPosition` in `androidx.compose.material3`
 enum class FabPosition {
-    Start, Center, End, EndOverlay
+    Start, Center, End,
+
+    /**
+     * Not fully supported on JS DOM yet. Currently, it behaves the same as [End].
+     */
+    EndOverlay
 }
 
 /**
@@ -31,6 +36,11 @@ enum class FabPosition {
  * @param floatingActionButtonPosition position of the FAB on the screen. See [FabPosition].
  * @param content content of the screen. The lambda receives a [PaddingValues] that should be applied to the content root
  * via [com.huanshankeji.compose.foundation.layout.padding] to properly offset top and bottom bars.
+ * Conventional values are 64 DP for top and bottom bars if they exist and 0 for horizontal padding on Compose UI,
+ * and 0 for all sides on JS DOM.
+ * According to the corresponding doc for `androidx.compose.material3.Scaffold`, if the content is scrollable,
+ * such values to be applied to "the child of the scroll, and not on the scroll itself".
+ *
  * @see androidx.compose.material3.Scaffold
  */
 @Composable

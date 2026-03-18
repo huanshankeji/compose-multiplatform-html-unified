@@ -8,6 +8,7 @@ import com.huanshankeji.compose.foundation.background
 import com.huanshankeji.compose.foundation.layout.*
 import com.huanshankeji.compose.foundation.layout.ext.VerticalScrollColumn
 import com.huanshankeji.compose.foundation.layout.ext.fillMaxSizeStretch
+import com.huanshankeji.compose.foundation.layout.ext.innerPadding
 import com.huanshankeji.compose.foundation.text.KeyboardActions
 import com.huanshankeji.compose.foundation.text.KeyboardOptions
 import com.huanshankeji.compose.foundation.text.input.ImeAction
@@ -52,6 +53,13 @@ fun Material3(
                 },
             )
         },
+        bottomBar = {
+            // https://developer.android.com/develop/ui/compose/components/scaffold#example
+            Text(
+                "Bottom app bar",
+                Modifier.fillMaxWidth().height(64.dp).background(Color.Gray),
+            )
+        },
         snackbarHost = { SnackbarHost(snackbarHostState) },
         floatingActionButton = {
             FloatingActionButtonWithMaterialIcon(
@@ -59,9 +67,12 @@ fun Material3(
                 icon = Icons.Default.Add,
             )
         },
+        //floatingActionButtonPosition = FabPosition.EndOverlay,
     ) { paddingValues ->
         VerticalScrollColumn(
-            contentModifier = Modifier.innerContentPadding(), verticalArrangement = Arrangement.spacedBy(16.dp)
+            // Chained padding modifiers work here because `paddingValues` are all 0 on JS DOM.
+            contentModifier = Modifier.innerPadding(paddingValues).innerContentPadding(),
+            verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             val count by viewModel.countState.collectAsState()
             val onClick: () -> Unit = {
