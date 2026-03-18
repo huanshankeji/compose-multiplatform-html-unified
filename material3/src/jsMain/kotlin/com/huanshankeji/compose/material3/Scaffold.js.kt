@@ -1,17 +1,20 @@
 package com.huanshankeji.compose.material3
 
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import com.huanshankeji.compose.foundation.ext.matchPositionRelativeParent
 import com.huanshankeji.compose.foundation.layout.PaddingValues
 import com.huanshankeji.compose.foundation.layout.ext.fillMaxSizeStretch
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.toAttrs
+import com.varabyte.kobweb.browser.dom.observers.ResizeObserver
 import com.varabyte.kobweb.compose.css.TextAlign
 import com.varabyte.kobweb.compose.css.textAlign
 import org.jetbrains.compose.web.css.*
 import org.jetbrains.compose.web.dom.Div
 
 // adapted from `TopAppBarScaffold.js.kt` in `com.huanshankeji.compose.material2.ext`
+
+private const val FAB_SPACING_PX = 16
 
 // TODO Can this be implemented using the `Box`, Column` wrappers instead of HTML and CSS primitives?
 @Composable
@@ -24,25 +27,59 @@ actual fun Scaffold(
     floatingActionButtonPosition: FabPosition,
     content: @Composable (PaddingValues) -> Unit,
 ) {
+    var fabHeight by remember { mutableStateOf(0) }
+    var bottomBarHeight by remember { mutableStateOf(0) }
+
     @Composable
     fun FabWithPosition() =
         Div({
             style {
                 position(Position.Absolute)
-                bottom(16.px)
+                bottom(FAB_SPACING_PX.px)
                 when (floatingActionButtonPosition) {
-                    FabPosition.Start -> left(16.px)
+                    FabPosition.Start -> left(FAB_SPACING_PX.px)
                     FabPosition.Center -> {
                         width(100.percent)
                         textAlign(TextAlign.Center)
                     }
 
-                    FabPosition.End, FabPosition.EndOverlay -> right(16.px)
+                    FabPosition.End, FabPosition.EndOverlay -> right(FAB_SPACING_PX.px)
+                }
+            }
+            ref { element ->
+                val resizeObserver = ResizeObserver { entries, _ ->
+                    fabHeight = entries.single().target.clientHeight
+                }
+                resizeObserver.observe(element)
+                onDispose {
+                    resizeObserver.disconnect()
+                    fabHeight = 0
                 }
             }
         }) {
             floatingActionButton()
         }
+
+    // Calculate snackbar bottom offset from the content area bottom,
+    // following Compose UI's ScaffoldLayout logic:
+    // - Without FAB: snackbar sits at the content area bottom (right above the bottom bar).
+    // - With FAB (non-EndOverlay): snackbar sits right above the FAB inside the content area.
+    // - With FAB (EndOverlay): snackbar sits above the FAB which overlays the bottom bar at the scaffold level.
+    val snackbarBottomPx = if (fabHeight > 0) {
+        if (floatingActionButtonPosition != FabPosition.EndOverlay) {
+            // FAB is inside the content area with its bottom at FAB_SPACING_PX from the content area bottom.
+            // Snackbar sits directly on top of the FAB.
+            FAB_SPACING_PX + fabHeight
+        } else {
+            // EndOverlay: FAB is at the scaffold level with its bottom at FAB_SPACING_PX from the scaffold bottom.
+            // FAB top from the scaffold bottom = FAB_SPACING_PX + fabHeight.
+            // Content area bottom from the scaffold bottom = bottomBarHeight.
+            // Snackbar bottom from the content area bottom = max(0, FAB top - content area bottom).
+            maxOf(0, FAB_SPACING_PX + fabHeight - bottomBarHeight)
+        }
+    } else {
+        0
+    }
 
     Div(Modifier.fillMaxSizeStretch().then(modifier).toAttrs {
         style {
@@ -85,14 +122,13 @@ actual fun Scaffold(
                 FabWithPosition()
             }
 
-            // Snackbar host: absolutely positioned at bottom center, above FAB, matching Compose UI Scaffold behavior.
-            // The bottom offset (88px) accounts for the FAB area: 16px (FAB bottom) + 56px (standard FAB height) + 16px (gap).
-            // TODO these values should be computed dynamically if the FAB size changes.
+            // Snackbar host: dynamically positioned based on the measured FAB height.
+            // Bottom offset is computed to place the snackbar right above the FAB (if present),
+            // or at the content area bottom (right above the bottom bar) when there is no FAB.
             Div({
                 style {
                     position(Position.Absolute)
-                    // TODO not working properly with `FabPosition.EndOverlay`
-                    bottom(88.px)
+                    bottom(snackbarBottomPx.px)
                     left(0.px)
                     right(0.px)
                     display(DisplayStyle.Flex)
@@ -103,7 +139,25 @@ actual fun Scaffold(
             }
         }
 
-        bottomBar()
+        if (floatingActionButtonPosition == FabPosition.EndOverlay) {
+            // Wrap the bottom bar to measure its height for EndOverlay snackbar positioning
+            Div({
+                ref { element ->
+                    val resizeObserver = ResizeObserver { entries, _ ->
+                        bottomBarHeight = entries.single().target.clientHeight
+                    }
+                    resizeObserver.observe(element)
+                    onDispose {
+                        resizeObserver.disconnect()
+                        bottomBarHeight = 0
+                    }
+                }
+            }) {
+                bottomBar()
+            }
+        } else {
+            bottomBar()
+        }
 
         // FAB for EndOverlay position: overlays bottom bar
         if (floatingActionButtonPosition == FabPosition.EndOverlay) {
