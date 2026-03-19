@@ -16,7 +16,7 @@ import org.jetbrains.compose.web.dom.Text
 
 @ExperimentalApi
 @Composable
-fun CommonSnackbar(
+internal fun CommonSnackbar(
     isOpen: Boolean,
     snackbarData: SnackbarData,
     modifier: Modifier,
