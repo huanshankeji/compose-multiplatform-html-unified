@@ -11,9 +11,7 @@ https://kotlinlang.org/api/compose-multiplatform/material3/androidx.compose.mate
 
 // copied and adapted from `FabPosition` in `androidx.compose.material3`
 enum class FabPosition {
-    Start, Center, End,
-
-    EndOverlay
+    Start, Center, End, EndOverlay
 }
 
 /**
