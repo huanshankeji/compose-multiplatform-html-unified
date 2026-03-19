@@ -12,13 +12,11 @@ import com.varabyte.kobweb.compose.css.textAlign
 import org.jetbrains.compose.web.css.*
 import org.jetbrains.compose.web.dom.Div
 
-// adapted from `TopAppBarScaffold.js.kt` in `com.huanshankeji.compose.material2.ext`
+// Adapted from `TopAppBarScaffold.js.kt` in `com.huanshankeji.compose.material2.ext`.
+// The majority of the code below has been adapted by Copilot to provide consistent visual results with Compose UI.
+// It's tested manually to verify that the visual effects match, but has not been reviewed line by line by a human reviewer.
 
 private const val FAB_SPACING_PX = 16
-
-// Matches the `SnackbarHostPadding` (8.dp) used in Compose UI's `SnackbarHost`,
-// which provides a visual gap between the snackbar and the nearest element below (bottom bar or FAB).
-private const val SNACKBAR_INSET_PX = 8
 
 // TODO Can this be implemented using the `Box`, Column` wrappers instead of HTML and CSS primitives?
 @Composable
@@ -66,24 +64,24 @@ actual fun Scaffold(
 
     // Calculate snackbar bottom offset from the content area bottom,
     // following Compose UI's ScaffoldLayout logic:
-    // - Without FAB: snackbar sits slightly above the content area bottom with an inset gap.
-    // - With FAB (non-EndOverlay): snackbar sits right above the FAB inside the content area.
-    // - With FAB (EndOverlay): snackbar sits above the FAB which overlays the bottom bar at the scaffold level.
+    // - Without FAB: snackbar sits above the content area bottom with a spacing gap.
+    // - With FAB (non-EndOverlay): snackbar sits above the FAB with a spacing gap inside the content area.
+    // - With FAB (EndOverlay): snackbar sits above the FAB (which overlays the bottom bar) with a spacing gap.
     val snackbarBottomPx = if (fabHeight > 0) {
         if (floatingActionButtonPosition != FabPosition.EndOverlay) {
             // FAB is inside the content area with its bottom at FAB_SPACING_PX from the content area bottom.
-            // Snackbar sits directly on top of the FAB.
-            FAB_SPACING_PX + fabHeight
+            // Snackbar sits above the FAB with a FAB_SPACING_PX gap.
+            FAB_SPACING_PX + fabHeight + FAB_SPACING_PX
         } else {
             // EndOverlay: FAB is at the scaffold level with its bottom at FAB_SPACING_PX from the scaffold bottom.
             // FAB top from the scaffold bottom = FAB_SPACING_PX + fabHeight.
             // Content area bottom from the scaffold bottom = bottomBarHeight.
-            // Snackbar bottom from the content area bottom = max(0, FAB top - content area bottom).
-            maxOf(0, FAB_SPACING_PX + fabHeight - bottomBarHeight)
+            // Snackbar bottom from the content area bottom = max(0, FAB top + gap - content area bottom).
+            maxOf(0, FAB_SPACING_PX + fabHeight + FAB_SPACING_PX - bottomBarHeight)
         }
     } else {
-        // No FAB: provide a small inset so the snackbar doesn't sit flush against the bottom bar.
-        SNACKBAR_INSET_PX
+        // No FAB: provide a spacing gap so the snackbar doesn't sit flush against the bottom bar.
+        FAB_SPACING_PX
     }
 
     Div(Modifier.fillMaxSizeStretch().then(modifier).toAttrs {
