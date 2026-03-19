@@ -5,8 +5,12 @@ import com.huanshankeji.compose.html.material3.maicol07.materialwebadditions.*
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.toAttrs
 import com.huanshankeji.compose.web.attributes.isTrueOrNull
+import com.varabyte.kobweb.compose.css.BoxSizing
+import com.varabyte.kobweb.compose.css.boxSizing
+import org.jetbrains.compose.web.attributes.AttrsScope
 import org.jetbrains.compose.web.css.StyleScope
 import org.jetbrains.compose.web.dom.Div
+import org.w3c.dom.HTMLElement
 
 @Composable
 private fun MdTopAppBarScope.TopAppBarContent(
@@ -27,7 +31,10 @@ private fun MdTopAppBarScope.TopAppBarContent(
 // but no `box-sizing: border-box`, causing the total width to overflow by 32px. This workaround fixes it.
 // See: https://github.com/maicol07/material-web-additions/blob/096590484ce31dfb18d8e2d1998989ed933328e1/top-app-bar/internal/_shared.scss#L10
 private val boxSizingBorderBoxStyleHandler: StyleScope.() -> Unit = {
-    property("box-sizing", "border-box")
+    boxSizing(BoxSizing.BorderBox)
+}
+private val boxSizingBorderBoxAttrs: AttrsScope<HTMLElement>.() -> Unit = {
+    style(boxSizingBorderBoxStyleHandler)
 }
 
 @Composable
@@ -40,7 +47,7 @@ actual fun TopAppBar(
 ) =
     MdSmallTopAppBar(
         stickyJsDom.isTrueOrNull(),
-        attrs = modifier.toAttrs { style(boxSizingBorderBoxStyleHandler) },
+        attrs = modifier.toAttrs(boxSizingBorderBoxAttrs),
     ) {
         TopAppBarContent(title, navigationIcon, actions)
     }
@@ -55,7 +62,7 @@ actual fun CenterAlignedTopAppBar(
 ) =
     MdCenterAlignedTopAppBar(
         stickyJsDom.isTrueOrNull(),
-        attrs = modifier.toAttrs { style(boxSizingBorderBoxStyleHandler) },
+        attrs = modifier.toAttrs(boxSizingBorderBoxAttrs),
     ) {
         TopAppBarContent(title, navigationIcon, actions)
     }
@@ -70,7 +77,7 @@ actual fun MediumTopAppBar(
 ) =
     MdMediumTopAppBar(
         stickyJsDom.isTrueOrNull(),
-        attrs = modifier.toAttrs { style(boxSizingBorderBoxStyleHandler) },
+        attrs = modifier.toAttrs(boxSizingBorderBoxAttrs),
     ) {
         TopAppBarContent(title, navigationIcon, actions)
     }
@@ -85,7 +92,7 @@ actual fun LargeTopAppBar(
 ) =
     MdLargeTopAppBar(
         stickyJsDom.isTrueOrNull(),
-        attrs = modifier.toAttrs { style(boxSizingBorderBoxStyleHandler) },
+        attrs = modifier.toAttrs(boxSizingBorderBoxAttrs),
     ) {
         TopAppBarContent(title, navigationIcon, actions)
     }
