@@ -16,6 +16,10 @@ import org.jetbrains.compose.web.dom.Div
 
 private const val FAB_SPACING_PX = 16
 
+// Matches the `SnackbarHostPadding` (8.dp) used in Compose UI's `SnackbarHost`,
+// which provides a visual gap between the snackbar and the nearest element below (bottom bar or FAB).
+private const val SNACKBAR_INSET_PX = 8
+
 // TODO Can this be implemented using the `Box`, Column` wrappers instead of HTML and CSS primitives?
 @Composable
 actual fun Scaffold(
@@ -62,7 +66,7 @@ actual fun Scaffold(
 
     // Calculate snackbar bottom offset from the content area bottom,
     // following Compose UI's ScaffoldLayout logic:
-    // - Without FAB: snackbar sits at the content area bottom (right above the bottom bar).
+    // - Without FAB: snackbar sits slightly above the content area bottom with an inset gap.
     // - With FAB (non-EndOverlay): snackbar sits right above the FAB inside the content area.
     // - With FAB (EndOverlay): snackbar sits above the FAB which overlays the bottom bar at the scaffold level.
     val snackbarBottomPx = if (fabHeight > 0) {
@@ -78,7 +82,8 @@ actual fun Scaffold(
             maxOf(0, FAB_SPACING_PX + fabHeight - bottomBarHeight)
         }
     } else {
-        0
+        // No FAB: provide a small inset so the snackbar doesn't sit flush against the bottom bar.
+        SNACKBAR_INSET_PX
     }
 
     Div(Modifier.fillMaxSizeStretch().then(modifier).toAttrs {
@@ -140,8 +145,14 @@ actual fun Scaffold(
         }
 
         if (floatingActionButtonPosition == FabPosition.EndOverlay) {
-            // Wrap the bottom bar to measure its height for EndOverlay snackbar positioning
+            // Wrap the bottom bar to measure its height for EndOverlay snackbar positioning.
+            // `display: flex` is needed so that children (e.g. inline `<span>` from `Text`) become flex items
+            // where CSS `width`/`height` properties apply, matching the behavior of the scaffold's flex column.
             Div({
+                style {
+                    display(DisplayStyle.Flex)
+                    flexDirection(FlexDirection.Column)
+                }
                 ref { element ->
                     val resizeObserver = ResizeObserver { entries, _ ->
                         bottomBarHeight = entries.single().target.clientHeight
