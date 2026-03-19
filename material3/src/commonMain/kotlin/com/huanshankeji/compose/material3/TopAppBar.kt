@@ -16,7 +16,7 @@ However, we don't do this for these app bar components to make the APIs more sim
 
 /**
  * Small top app bar.
- * @see <a href="https://m3.material.io/components/top-app-bar">Material Design top app bar</a>
+ * @see <a href="https://m3.material.io/components/app-bars/overview">Top app bar – Material Design 3</a>
  * @see androidx.compose.material3.TopAppBar
  */
 @Composable
@@ -31,7 +31,7 @@ expect fun TopAppBar(
 
 /**
  * Center-aligned top app bar.
- * @see <a href="https://m3.material.io/components/top-app-bar">Material Design top app bar</a>
+ * @see <a href="https://m3.material.io/components/app-bars/overview">Top app bar – Material Design 3</a>
  * @see androidx.compose.material3.CenterAlignedTopAppBar
  */
 @Composable
@@ -45,7 +45,7 @@ expect fun CenterAlignedTopAppBar(
 
 /**
  * Medium top app bar.
- * @see <a href="https://m3.material.io/components/top-app-bar">Material Design top app bar</a>
+ * @see <a href="https://m3.material.io/components/app-bars/overview">Top app bar – Material Design 3</a>
  * @see androidx.compose.material3.MediumTopAppBar
  */
 @Composable
@@ -59,7 +59,7 @@ expect fun MediumTopAppBar(
 
 /**
  * Large top app bar.
- * @see <a href="https://m3.material.io/components/top-app-bar">Material Design top app bar</a>
+ * @see <a href="https://m3.material.io/components/app-bars/overview">Top app bar – Material Design 3</a>
  * @see androidx.compose.material3.LargeTopAppBar
  */
 @Composable
