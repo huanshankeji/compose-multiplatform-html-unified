@@ -18,7 +18,7 @@ The majority of the code below has been adapted by Copilot to provide consistent
 It's tested manually to verify that the visual effects match, but has not been reviewed line by line by a human reviewer.
  */
 
-// TODO Can this be implemented using the `Box`, Column` wrappers instead of HTML and CSS primitives?
+// TODO Can this be implemented using the `Box`, `Column` wrappers instead of HTML and CSS primitives?
 
 private const val SCAFFOLD_SPACING_PX = 16
 private val scaffoldSpacingPx = SCAFFOLD_SPACING_PX.px
