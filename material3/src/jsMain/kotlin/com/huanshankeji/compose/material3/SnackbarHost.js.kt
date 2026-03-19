@@ -88,6 +88,7 @@ actual fun SnackbarHost(
     modifier: Modifier,
     snackbar: @Composable (SnackbarData) -> Unit,
 ) {
+    // Copied and adapted from `SnackbarHost` in `androidx.compose.material3`. Do not edit without referencing to the original corresponding implementation.
     val currentSnackbarData = hostState.currentSnackbarData
     LaunchedEffect(currentSnackbarData) {
         if (currentSnackbarData != null) {
