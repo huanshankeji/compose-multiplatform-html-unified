@@ -105,19 +105,7 @@ actual fun Scaffold(
                     matchPositionRelativeParent()
                 }
             }) {
-                /*
-                TODO See https://issues.chromium.org/issues/386052671. This can be removed when the issue is fixed,
-                 possibly by partially reverting commit fb269bdfa876bc63402c68a025325f42b8a8abec.
-                 This nested `Div` is here so that a child using `fillMaxSizeStretch` works properly.
-                 `fillMaxSizeStretch` seems buggy when used directly in the `position: absolute` parent.
-                 */
-                Div({
-                    style {
-                        height(100.percent)
-                    }
-                }) {
-                    content(PaddingValues())
-                }
+                content(PaddingValues())
             }
 
             // FAB for Start/Center/End positions: inside content area, above bottom bar
