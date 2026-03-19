@@ -155,6 +155,8 @@ repositories {
 - Located in `jsMain` source sets
 - Requires CSS imports for Material Icons
 
+**`fillMax*Stretch` vs `fillMax*`**: On JS DOM, prefer `fillMaxWidthStretch()` / `fillMaxHeightStretch()` / `fillMaxSizeStretch()` over `fillMaxWidth()` / `fillMaxHeight()` / `fillMaxSize()` when there is no `fraction` parameter. The `fillMax*` modifiers set CSS `width`/`height: 100%`, which causes overflow (and unnecessary scrollbars) when the element or an ancestor has padding or margin. The `fillMax*Stretch` variants use the CSS `stretch` value (with `-webkit-fill-available` fallback), which correctly fills the available space without overflowing. Only use `fillMax*` with the `fraction` parameter when you need a fractional size (e.g., `fillMaxWidth(0.5f)`), as `fillMax*Stretch` does not support fractions.
+
 #### Supported Material 3 Components
 
 For an up-to-date list of supported unified component APIs, refer to README.md.
@@ -218,10 +220,36 @@ Then leave the `apiDump` step to the human developer to perform after reviewing 
 - **Convention Plugins**: Custom build logic in `buildSrc` for consistency across modules
 - **Target Platforms**: Sophisticated setup targeting 6+ platforms with different implementation strategies
 
+**Use Expect/Actual Patterns for Common Data Types:**
+
+Choose the `expect` declaration based on the corresponding type in `androidx.compose.material3`:
+
+- **`expect interface`**: Use when the corresponding platform type is an `interface` (e.g., `SnackbarVisuals`,
+  `SnackbarData`). This avoids wrapping stacking up when converting to/from platform types:
+  - `actual typealias` on Compose UI platforms — the platform type directly satisfies the interface.
+  - `actual interface` on JS DOM platform — with local implementations (e.g., private inner classes within
+    `SnackbarHostState`).
+- **`expect enum class`**: Use when the corresponding platform type is an `enum class` (e.g., `SnackbarResult`,
+  `SnackbarDuration`):
+  - `actual typealias` on Compose UI platforms.
+  - `actual enum class` on JS DOM platform.
+- **`expect class`**: Use when the corresponding Compose UI type is a `class`, or when the common `expect` members
+  differ from the platform type due to design requirements caused by platform differences (e.g.,
+  `DropdownMenuBoxScope` includes `fun Modifier.menuAnchorJsDom()` which doesn't exist in the Compose UI counterpart),
+  or when the type cannot be actualized via typealias for other reasons (e.g., `SnackbarHostState` has default argument
+  values in its members):
+  - The `actual class` on Compose UI platforms wraps the platform value directly (e.g.,
+    `actual class SnackbarHostState(val platformValue: PlatformSnackbarHostState)`).
+  - The `actual class` on JS DOM platform provides its own implementation.
+
+Non-expect `class`, `interface`, or `enum class` can also be used for types not covered by the patterns above.
+
 **Component Organization Patterns:**
 1. **Main package** (`com.huanshankeji.compose.material3`): Components that can be unified following Compose UI APIs
    - Mandatory parameters must be equivalent to those of the original Compose UI component
-   - Optional parameters should be a subset of those of the original Compose UI component
+   - Common optional parameters should have the same type
+       - An exception: nullability differences with same content semantics. Example: `content: (() -> Unit)? = null` and
+         `content: () -> Unit = {}` are considered equivalent.
    - Example: `RadioButton`, `Slider`, `AlertDialog`
 
 2. **Ext package** (`com.huanshankeji.compose.material3.ext`): Components with platform-specific APIs
@@ -232,6 +260,22 @@ Then leave the `apiDump` step to the human developer to perform after reviewing 
 3. **Labs annotations** instead of labs package:
    - Mark JS implementations with `@MaterialWebLabsApi` when they depend on Material Web labs components
    - Opt-in to `@MaterialWebLabsApi` if Compose UI visual effects can already be achieved with consistency on JS DOM
+
+## Adding New Components
+
+When adding a new component to the library, follow these additional steps:
+
+1. **Add to Demo**: Every new component **must** be added to the Material 3 demo page (`demo/src/commonMain/kotlin/com/huanshankeji/compose/material/demo/Material3.kt`). This serves as both a visual test and a usage example. Add a clearly labelled section with realistic usage.
+
+2. **Visual Consistency**: After adding to the demo, compare the rendering between **Compose UI** (Wasm/JVM) and **JS DOM** platforms using the side-by-side demo (`./gradlew :compose-multiplatform-html-unified-demo:sideBySideBrowserDistribution`). Improve visual consistency as much as possible. Common areas to align:
+   - Component sizing and spacing
+   - Positioning of slots (icons, labels, actions)
+   - Color and shape treatment
+   - State handling (enabled/disabled/selected/error)
+
+3. Note that some platform differences are inherent to the underlying components (Material Web vs Compose UI) and cannot be fully eliminated. Document any known differences in KDoc or inline comments.
+
+4. **README update**: Add the new component to the supported API catalog in README.md
 
 ### Root Directory Files
 ```
@@ -255,6 +299,23 @@ settings.gradle.kts     # Project structure and dependency management
 4. **Interactive Demo Validation**: Use `./gradlew :compose-multiplatform-html-unified-demo:run` (desktop JVM) or `./gradlew :compose-multiplatform-html-unified-demo:jsBrowserDevelopmentRun` (JS browser) to interactively validate Compose UI rendering
 5. **CI Simulation**: Test on multiple platforms if possible (the CI runs on Ubuntu, macOS, Windows)
 6. **Binary Compatibility**: The kotlinx binary compatibility validator will catch API breaks — run `./gradlew apiDump` **only** when you are very confident all task goals are complete and no further API edits will be needed
+
+### Visual Validation via Browser Demos (for AI agents)
+
+AI agents with browser automation (e.g., Playwright) can visually validate **both** JS DOM and Wasm JS (Compose UI) rendering using Gradle development servers:
+
+1. **JS DOM** (HTML/CSS rendering): Run `./gradlew :compose-multiplatform-html-unified-demo:jsBrowserDevelopmentRun` — serves at `http://localhost:8080`.
+2. **Wasm JS** (Compose UI canvas rendering): Run `./gradlew :compose-multiplatform-html-unified-demo:wasmJsBrowserDevelopmentRun` — serves at `http://localhost:8080`.
+
+Navigate to the URL shown in the Gradle task output (typically `http://localhost:8080` unless that port is taken) in the automated browser, interact with the UI (click buttons, trigger snackbars, etc.), and take screenshots to verify visual results.
+
+Both targets can run simultaneously — when port 8080 is already taken, Gradle automatically assigns an alternative (e.g., 8081). Check the Gradle task output for the actual port each server is using.
+
+For the Wasm JS target, UI elements are rendered on a canvas inside a shadow DOM. To interact with them via Playwright, access accessibility nodes through `document.body.shadowRoot` and query `[role="button"]` etc.
+
+This allows the agent to iterate on fixes — making code changes, rebuilding, refreshing the browser, and verifying visual output — in a loop. Use this pattern to fix visual bugs and verify snackbar positioning, scrollbar behavior, layout issues, etc. **Use both targets** to compare visual consistency between JS DOM and Compose UI rendering.
+
+**Note**: The JVM desktop demo (`./gradlew :compose-multiplatform-html-unified-demo:run`) requires a GUI display and cannot be run by headless AI agents. Use the Wasm JS target for Compose UI visual validation instead. When headless JVM desktop demo support becomes available in the future, use it alongside the browser demos.
 
 ## Important Notes for Agents
 

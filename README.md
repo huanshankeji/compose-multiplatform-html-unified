@@ -94,6 +94,7 @@ This project is still in development and has not reached a stable state. Some AP
 - Radio button: `RadioButton`
 - Segmented button: `SingleChoiceSegmentedButtonRow`, `MultiChoiceSegmentedButtonRow`
 - Slider: `Slider`, `RangeSlider`
+- Snackbar: `SnackbarHost`, `SnackbarHostState`
 - Switch: `Switch`
 - Tab: `PrimaryTabRow`, `SecondaryTabRow` (tabs are in `ext`)
 - Text: `Text`
@@ -119,6 +120,7 @@ This project is still in development and has not reached a stable state. Some AP
 - Tab: `PrimaryTab`, `SecondaryTab`
 - Text: `MaterialText`, `TaglessText`
 - Text field: `TextField`, `OutlinedTextField`
+- Top app bar: `TopAppBar`, `CenterAlignedTopAppBar`, `MediumTopAppBar`, `LargeTopAppBar`
 
 ##### `lazy.ext` components
 

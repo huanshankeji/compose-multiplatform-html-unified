@@ -6,7 +6,6 @@ import com.huanshankeji.compose.html.material3.MdDialog
 import com.huanshankeji.compose.html.material3.MdDialogScope.Slot
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.toAttrs
-import com.huanshankeji.compose.web.attributes.attrs
 import com.huanshankeji.compose.web.attributes.isTrueOrNull
 import org.jetbrains.compose.web.dom.Div
 
@@ -49,7 +48,7 @@ actual fun SimpleDialog(
         onCancel = onDismissRequest,
         attrs = modifier.toAttrs(),
     ) {
-        Div(attrs { slot(Slot.Content) }) {
+        Div({ slot(Slot.Content) }) {
             content()
         }
     }
