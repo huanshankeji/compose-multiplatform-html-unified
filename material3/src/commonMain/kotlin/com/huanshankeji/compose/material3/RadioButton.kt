@@ -1,7 +1,6 @@
 package com.huanshankeji.compose.material3
 
 import androidx.compose.runtime.Composable
-import com.huanshankeji.compose.material3.ext.RadioButton
 import com.huanshankeji.compose.ui.Modifier
 
 /**
@@ -15,4 +14,4 @@ fun RadioButton(
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
 ) =
-    RadioButton(selected, onClick, modifier, enabled)
+    com.huanshankeji.compose.material3.ext.RadioButton(selected, onClick, modifier, enabled)
