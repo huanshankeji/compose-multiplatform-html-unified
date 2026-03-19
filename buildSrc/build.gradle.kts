@@ -10,10 +10,10 @@ repositories {
 }
 
 dependencies {
-    val kotlinVersion = "2.3.10"
+    val kotlinVersion = "2.3.20"
     implementation(kotlin("gradle-plugin", kotlinVersion))
     implementation("org.jetbrains.kotlin:compose-compiler-gradle-plugin:$kotlinVersion")
-    implementation("org.jetbrains.compose:compose-gradle-plugin:1.10.2")
+    implementation("org.jetbrains.compose:compose-gradle-plugin:1.10.3")
     implementation("com.huanshankeji.team:gradle-plugins:0.11.0") // don't use a snapshot version in a main branch
     // https://developer.android.com/build/releases/gradle-plugin, https://mvnrepository.com/artifact/com.android.tools.build/gradle
     implementation("com.android.tools.build:gradle:8.12.3")

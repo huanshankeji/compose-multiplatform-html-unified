@@ -21,6 +21,5 @@ object DependencyVersions {
     val kmdc = "0.1.2"
 
     // https://github.com/marella/material-symbols/releases
-    // The latest v0.40.9 is not available on npm. See https://www.npmjs.com/package/material-symbols and https://github.com/marella/material-symbols/issues/53 for more details.
-    val materialSymbols = "0.40.2"
+    val materialSymbols = "0.42.3"
 }
