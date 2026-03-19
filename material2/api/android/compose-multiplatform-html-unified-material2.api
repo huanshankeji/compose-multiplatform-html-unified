@@ -182,6 +182,7 @@ public final class com/huanshankeji/compose/material2/ext/TextKt {
 
 public final class com/huanshankeji/compose/material2/ext/Text_composeUiKt {
 	public static final fun TaglessText (Ljava/lang/String;Landroidx/compose/runtime/Composer;I)V
+	public static final fun toNullableTextComposable (Ljava/lang/String;)Lkotlin/jvm/functions/Function2;
 }
 
 public final class com/huanshankeji/compose/material2/ext/TopAppBarActionsScope {

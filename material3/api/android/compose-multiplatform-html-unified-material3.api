@@ -28,6 +28,31 @@ public final class com/huanshankeji/compose/material3/Checkbox_composeUiKt {
 	public static final fun Checkbox (ZLkotlin/jvm/functions/Function1;Lcom/huanshankeji/compose/ui/Modifier;ZLandroidx/compose/runtime/Composer;II)V
 }
 
+public final class com/huanshankeji/compose/material3/ComposableSingletons$Scaffold_composeUiKt {
+	public static final field INSTANCE Lcom/huanshankeji/compose/material3/ComposableSingletons$Scaffold_composeUiKt;
+	public fun <init> ()V
+	public final fun getLambda$-1064102247$compose_multiplatform_html_unified_material3_release ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-1452597367$compose_multiplatform_html_unified_material3_release ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$343336361$compose_multiplatform_html_unified_material3_release ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$365819626$compose_multiplatform_html_unified_material3_release ()Lkotlin/jvm/functions/Function2;
+}
+
+public final class com/huanshankeji/compose/material3/ComposableSingletons$SnackbarHost_composeUiKt {
+	public static final field INSTANCE Lcom/huanshankeji/compose/material3/ComposableSingletons$SnackbarHost_composeUiKt;
+	public fun <init> ()V
+	public final fun getLambda$747047739$compose_multiplatform_html_unified_material3_release ()Lkotlin/jvm/functions/Function3;
+}
+
+public final class com/huanshankeji/compose/material3/ComposableSingletons$TopAppBar_composeUiKt {
+	public static final field INSTANCE Lcom/huanshankeji/compose/material3/ComposableSingletons$TopAppBar_composeUiKt;
+	public fun <init> ()V
+	public final fun getLambda$-1279744876$compose_multiplatform_html_unified_material3_release ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-1837818860$compose_multiplatform_html_unified_material3_release ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-357696502$compose_multiplatform_html_unified_material3_release ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-359931808$compose_multiplatform_html_unified_material3_release ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$56449977$compose_multiplatform_html_unified_material3_release ()Lkotlin/jvm/functions/Function3;
+}
+
 public final class com/huanshankeji/compose/material3/Divider_composeUiKt {
 	public static final fun HorizontalDivider (Lcom/huanshankeji/compose/ui/Modifier;Landroidx/compose/runtime/Composer;II)V
 }
@@ -50,6 +75,16 @@ public final class com/huanshankeji/compose/material3/DrawerValue : java/lang/En
 	public static fun getEntries ()Lkotlin/enums/EnumEntries;
 	public static fun valueOf (Ljava/lang/String;)Lcom/huanshankeji/compose/material3/DrawerValue;
 	public static fun values ()[Lcom/huanshankeji/compose/material3/DrawerValue;
+}
+
+public final class com/huanshankeji/compose/material3/FabPosition : java/lang/Enum {
+	public static final field Center Lcom/huanshankeji/compose/material3/FabPosition;
+	public static final field End Lcom/huanshankeji/compose/material3/FabPosition;
+	public static final field EndOverlay Lcom/huanshankeji/compose/material3/FabPosition;
+	public static final field Start Lcom/huanshankeji/compose/material3/FabPosition;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/huanshankeji/compose/material3/FabPosition;
+	public static fun values ()[Lcom/huanshankeji/compose/material3/FabPosition;
 }
 
 public final class com/huanshankeji/compose/material3/FloatingActionButton_composeUiKt {
@@ -100,6 +135,11 @@ public final class com/huanshankeji/compose/material3/RadioButtonKt {
 	public static final fun RadioButton (ZLkotlin/jvm/functions/Function0;Lcom/huanshankeji/compose/ui/Modifier;ZLandroidx/compose/runtime/Composer;II)V
 }
 
+public final class com/huanshankeji/compose/material3/Scaffold_composeUiKt {
+	public static final fun Scaffold (Lcom/huanshankeji/compose/ui/Modifier;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lcom/huanshankeji/compose/material3/FabPosition;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
+	public static final fun toPlatformValue (Lcom/huanshankeji/compose/material3/FabPosition;)I
+}
+
 public final class com/huanshankeji/compose/material3/SegmentedButtonDefaultShapeArgs {
 	public static final field $stable I
 	public fun <init> (II)V
@@ -123,6 +163,25 @@ public final class com/huanshankeji/compose/material3/Slider_composeUiKt {
 	public static final fun Slider (FLkotlin/jvm/functions/Function1;Lcom/huanshankeji/compose/ui/Modifier;ZLkotlin/ranges/ClosedFloatingPointRange;ILkotlin/jvm/functions/Function0;Landroidx/compose/runtime/Composer;II)V
 }
 
+public final class com/huanshankeji/compose/material3/SnackbarHostState {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun <init> (Landroidx/compose/material3/SnackbarHostState;)V
+	public final fun getCurrentSnackbarData ()Landroidx/compose/material3/SnackbarData;
+	public final fun getPlatformValue ()Landroidx/compose/material3/SnackbarHostState;
+	public final fun showSnackbar (Landroidx/compose/material3/SnackbarVisuals;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun showSnackbar (Ljava/lang/String;Ljava/lang/String;ZLandroidx/compose/material3/SnackbarDuration;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun showSnackbar$default (Lcom/huanshankeji/compose/material3/SnackbarHostState;Ljava/lang/String;Ljava/lang/String;ZLandroidx/compose/material3/SnackbarDuration;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+}
+
+public final class com/huanshankeji/compose/material3/SnackbarHost_composeUiKt {
+	public static final fun SnackbarHost (Lcom/huanshankeji/compose/material3/SnackbarHostState;Lcom/huanshankeji/compose/ui/Modifier;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/huanshankeji/compose/material3/Snackbar_composeUiKt {
+	public static final fun Snackbar (Landroidx/compose/material3/SnackbarData;Lcom/huanshankeji/compose/ui/Modifier;ZLandroidx/compose/runtime/Composer;II)V
+}
+
 public final class com/huanshankeji/compose/material3/Switch_composeUiKt {
 	public static final fun Switch (ZLkotlin/jvm/functions/Function1;Lcom/huanshankeji/compose/ui/Modifier;ZLandroidx/compose/runtime/Composer;II)V
 }
@@ -136,6 +195,13 @@ public final class com/huanshankeji/compose/material3/Tab_composeUiKt {
 
 public final class com/huanshankeji/compose/material3/Text_composeUiKt {
 	public static final fun Text (Ljava/lang/String;Lcom/huanshankeji/compose/ui/Modifier;Lcom/huanshankeji/compose/ui/graphics/Color;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/huanshankeji/compose/material3/TopAppBar_composeUiKt {
+	public static final fun CenterAlignedTopAppBar (Lkotlin/jvm/functions/Function2;Lcom/huanshankeji/compose/ui/Modifier;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;ZLandroidx/compose/runtime/Composer;II)V
+	public static final fun LargeTopAppBar (Lkotlin/jvm/functions/Function2;Lcom/huanshankeji/compose/ui/Modifier;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;ZLandroidx/compose/runtime/Composer;II)V
+	public static final fun MediumTopAppBar (Lkotlin/jvm/functions/Function2;Lcom/huanshankeji/compose/ui/Modifier;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;ZLandroidx/compose/runtime/Composer;II)V
+	public static final fun TopAppBar (Lkotlin/jvm/functions/Function2;Lcom/huanshankeji/compose/ui/Modifier;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;ZLandroidx/compose/runtime/Composer;II)V
 }
 
 public final class com/huanshankeji/compose/material3/ext/ButtonKt {
@@ -314,6 +380,24 @@ public final class com/huanshankeji/compose/material3/ext/NavigationBar_composeU
 	public static final fun NavigationBarItem (Lcom/huanshankeji/compose/material3/ext/NavigationBarScope;ZLkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function3;Lcom/huanshankeji/compose/ui/Modifier;ZLjava/lang/String;ZLandroidx/compose/runtime/Composer;II)V
 }
 
+public abstract class com/huanshankeji/compose/material3/ext/OptionalSnackbarArgs {
+	public static final field $stable I
+}
+
+public final class com/huanshankeji/compose/material3/ext/OptionalSnackbarArgs$Closed : com/huanshankeji/compose/material3/ext/OptionalSnackbarArgs {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/huanshankeji/compose/material3/ext/OptionalSnackbarArgs$Closed;
+}
+
+public final class com/huanshankeji/compose/material3/ext/OptionalSnackbarArgs$Open : com/huanshankeji/compose/material3/ext/OptionalSnackbarArgs {
+	public static final field $stable I
+	public fun <init> (Landroidx/compose/material3/SnackbarData;Lcom/huanshankeji/compose/ui/Modifier;Z)V
+	public synthetic fun <init> (Landroidx/compose/material3/SnackbarData;Lcom/huanshankeji/compose/ui/Modifier;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getActionOnNewLine ()Z
+	public final fun getModifier ()Lcom/huanshankeji/compose/ui/Modifier;
+	public final fun getSnackbarData ()Landroidx/compose/material3/SnackbarData;
+}
+
 public final class com/huanshankeji/compose/material3/ext/PrimaryOrSecondary : java/lang/Enum {
 	public static final field Primary Lcom/huanshankeji/compose/material3/ext/PrimaryOrSecondary;
 	public static final field Secondary Lcom/huanshankeji/compose/material3/ext/PrimaryOrSecondary;
@@ -366,6 +450,10 @@ public final class com/huanshankeji/compose/material3/ext/Select_composeUiKt {
 	public static final fun SelectOption (Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function0;Ljava/lang/String;Lcom/huanshankeji/compose/ui/Modifier;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function3;ZLandroidx/compose/runtime/Composer;II)V
 	public static final fun toComposeUiExposedDropdownMenuArgs (Lcom/huanshankeji/compose/material3/ext/SelectMenuArgs;)Lcom/huanshankeji/compose/material3/ext/ExposedDropdownMenuArgs;
 	public static final fun toExposedDropdownMenuBoxTextFieldArgs (Lcom/huanshankeji/compose/material3/ext/SelectTextFieldArgs;)Lcom/huanshankeji/compose/material3/ext/ExposedDropdownMenuBoxTextFieldArgs;
+}
+
+public final class com/huanshankeji/compose/material3/ext/Snackbar_composeUiKt {
+	public static final fun Snackbar (Lcom/huanshankeji/compose/material3/ext/OptionalSnackbarArgs;Landroidx/compose/runtime/Composer;I)V
 }
 
 public final class com/huanshankeji/compose/material3/ext/TabAndPanelArgs {
