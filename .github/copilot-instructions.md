@@ -16,7 +16,7 @@
 ### Prerequisites
 - **JDK 17**: Required (as specified in GitHub Actions workflows)
 - **Network Access**: Required for initial builds to download Android Gradle Plugin and other dependencies
-- **Gradle 9.1.0**: Automatically handled by wrapper
+- **Gradle 9.4.1**: Automatically handled by wrapper
 
 **IMPORTANT**: Initial builds require internet access for dependency resolution. Once dependencies are cached, subsequent builds can use `--offline` flag if needed.
 
@@ -26,7 +26,7 @@
 
 #### 1. Basic Project Setup
 ```bash
-./gradlew --version  # Verify Gradle 9.1.0 and JDK 17
+./gradlew --version  # Verify Gradle and JDK
 ```
 
 #### 2. Publishing to Local Maven (Primary Development Command)
@@ -135,8 +135,8 @@ repositories {
 
 #### Key Dependencies
 
-- **Kotlin**: 2.3.10 with Compose Compiler
-- **Compose Multiplatform**: 1.10.2
+- **Kotlin**: 2.3.20 with Compose Compiler
+- **Compose Multiplatform**: 1.10.3
 - **Android Gradle Plugin**: version defined in `buildSrc/build.gradle.kts` (use a stable, officially released 8.x
   version)
 - **Kobweb**: 0.24.0 (now on Maven Central)
