@@ -1,5 +1,5 @@
 import com.huanshankeji.team.ShreckYe
-import com.huanshankeji.team.pomForTeamDefaultOpenSource
+import com.huanshankeji.team.setUpPomForTeamDefaultOpenSource
 
 plugins {
     `lib-conventions`
@@ -25,13 +25,15 @@ kotlin {
     }
 }
 
-publishing.publications.withType<MavenPublication> {
-    pomForTeamDefaultOpenSource(
-        project,
-        "Compose Multiplatform HTML Unified core Icon wrappers",
-        "Compose Multiplatform HTML Unified Design core Icon wrappers for `androidx.compose` and Compose HTML",
-        "2024"
-    ) {
-        ShreckYe()
+mavenPublishing {
+    pom {
+        setUpPomForTeamDefaultOpenSource(
+            project,
+            "Compose Multiplatform HTML Unified core Icon wrappers",
+            "Compose Multiplatform HTML Unified Design core Icon wrappers for `androidx.compose` and Compose HTML",
+            "2024"
+        ) {
+            ShreckYe()
+        }
     }
 }
