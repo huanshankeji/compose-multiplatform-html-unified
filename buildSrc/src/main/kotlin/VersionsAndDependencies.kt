@@ -15,7 +15,7 @@ object DependencyVersions {
 
     // https://github.com/varabyte/kobweb/releases
     val kobweb = "0.24.0"
-    val huanshankejiComposeHtml = "0.5.0-SNAPSHOT" // TODO don't use a snapshot version in a main branch
+    val huanshankejiComposeHtml = "0.5.0" // don't use a snapshot version in a main branch
 
     // https://github.com/mpetuska/kmdc/releases
     val kmdc = "0.1.2"

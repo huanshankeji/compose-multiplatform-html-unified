@@ -140,7 +140,7 @@ repositories {
 - **Android Gradle Plugin**: version defined in `buildSrc/build.gradle.kts` (use a stable, officially released 8.x
   version)
 - **Kobweb**: 0.24.0 (now on Maven Central)
-- **Compose HTML Material**: 0.5.0-SNAPSHOT
+- **Compose HTML Material**: 0.5.0
 - **Binary Compatibility Validator**: 0.18.1 (enabled)
 
 ### Platform-Specific Implementation Patterns
