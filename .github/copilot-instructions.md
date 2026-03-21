@@ -66,7 +66,7 @@
 
 #### Common Build Issues and Workarounds
 
-1. **Network Connectivity**: Initial builds require internet access for Android Gradle Plugin (8.11.2) and other dependencies. If build fails with network errors, ensure internet connectivity.
+1. **Network Connectivity**: Initial builds require internet access for Android Gradle Plugin (8.12.3) and other dependencies. If build fails with network errors, ensure internet connectivity.
 
 2. **Memory Issues**: If Wasm compilation fails with OOM, the memory is already optimized in gradle.properties.
 
