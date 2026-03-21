@@ -10,5 +10,5 @@ expect fun NavGraphBuilder.composable(
     route: String,
     arguments: List<NamedNavArgument> = emptyList(),
     deepLinks: List<NavDeepLink> = emptyList(),
-    content: @Composable /*AnimatedContentScope.*/(NavBackStackEntry) -> Unit
+    content: @Composable /*AnimatedContentScope.*/(NavBackStackEntry) -> Unit,
 )

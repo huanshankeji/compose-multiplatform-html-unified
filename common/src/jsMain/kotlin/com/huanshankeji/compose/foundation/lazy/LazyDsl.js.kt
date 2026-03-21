@@ -27,7 +27,7 @@ actual class LazyListScope {
     actual fun item(
         key: Any?,
         contentType: Any?,
-        content: @Composable LazyItemScope.() -> Unit
+        content: @Composable LazyItemScope.() -> Unit,
     ) =
         addComposable { LazyItemScope.content() }
 
@@ -35,7 +35,7 @@ actual class LazyListScope {
         count: Int,
         key: ((index: Int) -> Any)?,
         contentType: (index: Int) -> Any?,
-        itemContent: @Composable LazyItemScope.(index: Int) -> Unit
+        itemContent: @Composable LazyItemScope.(index: Int) -> Unit,
     ) =
         addComposable {
             repeat(count) { index ->
@@ -47,9 +47,9 @@ actual class LazyListScope {
 private fun commonLazyModifier(
     scrollPlatformModifier: PlatformModifier,
     contentPadding: PaddingValues?,
-    modifier: Modifier
+    modifier: Modifier,
 ) = scrollPlatformModifier.toCommonModifier().run {
-    if (contentPadding !== null) padding(contentPadding)
+    if (contentPadding != null) padding(contentPadding)
     else this
 }.then(modifier)
 
@@ -60,12 +60,12 @@ actual fun LazyRow(
     reverseLayout: Boolean, // This parameter is not used yet but affects the arrangement in the default argument of the corresponding `expect` function.
     horizontalArrangement: Arrangement.Horizontal,
     verticalAlignment: Alignment.Vertical,
-    content: LazyListScope.() -> Unit
+    content: LazyListScope.() -> Unit,
 ) =
     Row(
         commonLazyModifier(imitateComposeUiLayoutHorizontalScrollPlatformModifier, contentPadding, modifier),
         horizontalArrangement,
-        verticalAlignment
+        verticalAlignment,
     ) {
         LazyListScope().ComposableRun(content)
     }
@@ -77,12 +77,12 @@ actual fun LazyColumn(
     reverseLayout: Boolean, // This parameter is not used yet but affects the arrangement in the default argument of the corresponding `expect` function.
     verticalArrangement: Arrangement.Vertical,
     horizontalAlignment: Alignment.Horizontal,
-    content: LazyListScope.() -> Unit
+    content: LazyListScope.() -> Unit,
 ) =
     Column(
         commonLazyModifier(imitateComposeUiLayoutVerticalScrollPlatformModifier, contentPadding, modifier),
         verticalArrangement,
-        horizontalAlignment
+        horizontalAlignment,
     ) {
         LazyListScope().ComposableRun(content)
     }

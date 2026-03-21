@@ -46,7 +46,7 @@ kotlin {
         commonMain {
             dependencies {
                 implementation(compose.runtime)
-                implementation(cpnProject(project, ":material2"))
+                //implementation(cpnProject(project, ":material2"))
                 implementation(cpnProject(project, ":material3"))
                 implementation(cpnProject(project, ":navigation"))
                 /*

@@ -10,7 +10,7 @@ import com.huanshankeji.compose.ui.Modifier
 expect fun Box(
     modifier: Modifier = Modifier,
     contentAlignment: Alignment = Alignment.TopStart,
-    content: @Composable BoxScope.() -> Unit
+    content: @Composable BoxScope.() -> Unit,
 )
 
 @Composable

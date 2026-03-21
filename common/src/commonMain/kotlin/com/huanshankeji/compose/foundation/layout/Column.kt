@@ -12,7 +12,7 @@ expect fun Column(
     modifier: Modifier = Modifier,
     verticalArrangement: Arrangement.Vertical = Arrangement.Top,
     horizontalAlignment: Alignment.Horizontal = Alignment.Start,
-    content: @Composable ColumnScope.() -> Unit
+    content: @Composable ColumnScope.() -> Unit,
 )
 
 
@@ -28,7 +28,7 @@ expect interface ColumnScope {
     @Stable
     open fun Modifier.weight(
         @FloatRange(from = 0.0, fromInclusive = false)
-        weight: Float
+        weight: Float,
     ): Modifier
 
     @Stable

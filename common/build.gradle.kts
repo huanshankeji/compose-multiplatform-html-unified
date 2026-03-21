@@ -1,5 +1,5 @@
 import com.huanshankeji.team.ShreckYe
-import com.huanshankeji.team.pomForTeamDefaultOpenSource
+import com.huanshankeji.team.setUpPomForTeamDefaultOpenSource
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 
 plugins {
@@ -70,12 +70,15 @@ kotlin {
     }
 }
 
-publishing.publications.withType<MavenPublication> {
-    pomForTeamDefaultOpenSource(
-        project,
-        "Unified Compose Multiplatform common wrappers $FOR_COMPOSE_TARGETS_IN_TITLE",
-        "Common wrappers of components (including layouts) and modifiers $FOR_COMPOSE_TARGETS_IN_DESCRIPTION"
-    ) {
-        ShreckYe()
+mavenPublishing {
+    pom {
+        setUpPomForTeamDefaultOpenSource(
+            project,
+            "Unified Compose Multiplatform common wrappers $FOR_COMPOSE_TARGETS_IN_TITLE",
+            "Common wrappers of components (including layouts) and modifiers $FOR_COMPOSE_TARGETS_IN_DESCRIPTION",
+            "2023"
+        ) {
+            ShreckYe()
+        }
     }
 }

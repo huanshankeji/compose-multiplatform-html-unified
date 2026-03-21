@@ -7,7 +7,7 @@ import com.huanshankeji.compose.ui.Modifier
 expect fun IconButton(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 )
 
 /*
@@ -17,7 +17,7 @@ expect fun IconToggleButton(
     checked: Boolean,
     onCheckedChange: (Boolean) -> Unit,
     modifier: Modifier = Modifier,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 )
 */
 

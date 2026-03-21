@@ -55,7 +55,7 @@ actual fun PrimitiveTopAppBarScaffold(
     navigationIcon: @Composable (NavigationIconScope.() -> Unit)?,
     actions: @Composable TopAppBarActionsScope.() -> Unit,
     contentModifier: Modifier,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) =
     MDCTopAppBar {
         TopAppBar(topAppBarModifier.toAttrs()) {
@@ -68,7 +68,7 @@ actual fun PrimitiveTopAppBarScaffold(
                     align = MDCTopAppBarSectionAlign.End,
                     attrs = {
                         attr("role", "toolbar")
-                    }
+                    },
                 ) {
                     TopAppBarActionsScope(this).actions()
                 }
@@ -91,7 +91,7 @@ actual fun TopAppBarScaffold(
     floatingActionButton: @Composable (() -> Unit)?,
     floatingActionButtonPosition: FabPosition,
     isFloatingActionButtonDockedComposeUi: Boolean,
-    content: @Composable (PaddingValues) -> Unit
+    content: @Composable (PaddingValues) -> Unit,
 ) {
     @Composable
     fun fabWithPosition(floatingActionButton: @Composable (() -> Unit)) =
@@ -119,7 +119,7 @@ actual fun TopAppBarScaffold(
             topAppBarModifier,
             navigationIcon,
             actions,
-            Modifier.weight(1f).fillMaxWidthStretch()
+            Modifier.weight(1f).fillMaxWidthStretch(),
         ) {
             // This part has a lot of nested `Div`s but works. Do not change unless you are sure that expected behavior is not broken.
 

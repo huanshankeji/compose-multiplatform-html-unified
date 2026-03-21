@@ -10,3 +10,5 @@ expect val Icons.Filled.Remove: Icon
 expect val Icons.Filled.ArrowDropDown: Icon
 expect val Icons.Filled.Done: Icon
 expect val Icons.Filled.Refresh: Icon
+expect val Icons.Filled.Person: Icon
+expect val Icons.Filled.Close: Icon

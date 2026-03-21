@@ -1,8 +1,3 @@
-public final class com/huanshankeji/compose/Content_composeUiKt {
-	public static final fun toContentWithoutModifier (Lkotlin/jvm/functions/Function3;)Lkotlin/jvm/functions/Function2;
-	public static final fun toNullableContentWithoutModifier (Lkotlin/jvm/functions/Function3;)Lkotlin/jvm/functions/Function2;
-}
-
 public abstract interface annotation class com/huanshankeji/compose/ExperimentalApi : java/lang/annotation/Annotation {
 }
 
@@ -10,6 +5,11 @@ public abstract interface annotation class com/huanshankeji/compose/ExtRecommend
 }
 
 public abstract interface annotation class com/huanshankeji/compose/LikelyInconsistentApi : java/lang/annotation/Annotation {
+}
+
+public final class com/huanshankeji/compose/ext/ContentWithModifier_composeUiKt {
+	public static final fun toContentWithoutModifier (Lkotlin/jvm/functions/Function3;)Lkotlin/jvm/functions/Function2;
+	public static final fun toNullableContentWithoutModifier (Lkotlin/jvm/functions/Function3;)Lkotlin/jvm/functions/Function2;
 }
 
 public abstract class com/huanshankeji/compose/ext/LoadingState {
@@ -71,9 +71,13 @@ public final class com/huanshankeji/compose/foundation/OnClick_composeUiKt {
 	public static final fun clickable (Lcom/huanshankeji/compose/ui/Modifier;Lkotlin/jvm/functions/Function0;)Lcom/huanshankeji/compose/ui/Modifier;
 }
 
-public final class com/huanshankeji/compose/foundation/Scroll_composeUiKt {
+public final class com/huanshankeji/compose/foundation/ScrollKt {
+	public static final field SCROLL_MODIFIER_DEPRECATION_MESSAGE Ljava/lang/String;
 	public static final fun HorizontalScrollBox (Lcom/huanshankeji/compose/ui/Modifier;Lcom/huanshankeji/compose/ui/Modifier;Lcom/huanshankeji/compose/ui/Alignment;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
 	public static final fun VerticalScrollBox (Lcom/huanshankeji/compose/ui/Modifier;Lcom/huanshankeji/compose/ui/Modifier;Lcom/huanshankeji/compose/ui/Alignment;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/huanshankeji/compose/foundation/Scroll_composeUiKt {
 	public static final fun horizontalScroll (Lcom/huanshankeji/compose/ui/Modifier;Landroidx/compose/foundation/ScrollState;)Lcom/huanshankeji/compose/ui/Modifier;
 	public static final fun rememberScrollState (ILandroidx/compose/runtime/Composer;II)Landroidx/compose/foundation/ScrollState;
 	public static final fun verticalScroll (Lcom/huanshankeji/compose/ui/Modifier;Landroidx/compose/foundation/ScrollState;)Lcom/huanshankeji/compose/ui/Modifier;
@@ -97,6 +101,11 @@ public final class com/huanshankeji/compose/foundation/ext/Border_composeUiKt {
 
 public final class com/huanshankeji/compose/foundation/ext/MatchPositionRelativeParentJsOnly_composeUiKt {
 	public static final fun matchPositionRelativeParentJsDom (Lcom/huanshankeji/compose/ui/Modifier;)Lcom/huanshankeji/compose/ui/Modifier;
+}
+
+public final class com/huanshankeji/compose/foundation/ext/Scroll_composeUiKt {
+	public static final fun HorizontalScrollContainer (Lcom/huanshankeji/compose/ui/Modifier;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
+	public static final fun VerticalScrollContainer (Lcom/huanshankeji/compose/ui/Modifier;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
 }
 
 public final class com/huanshankeji/compose/foundation/layout/Arrangement {
@@ -365,6 +374,13 @@ public final class com/huanshankeji/compose/foundation/layout/ext/OuterPadding_c
 	public static synthetic fun outerPadding-VpY3zN4$default (Lcom/huanshankeji/compose/ui/Modifier;FFILjava/lang/Object;)Lcom/huanshankeji/compose/ui/Modifier;
 	public static final fun outerPadding-qDBjuR0 (Lcom/huanshankeji/compose/ui/Modifier;FFFF)Lcom/huanshankeji/compose/ui/Modifier;
 	public static synthetic fun outerPadding-qDBjuR0$default (Lcom/huanshankeji/compose/ui/Modifier;FFFFILjava/lang/Object;)Lcom/huanshankeji/compose/ui/Modifier;
+}
+
+public final class com/huanshankeji/compose/foundation/layout/ext/Scroll_composeUiKt {
+	public static final fun HorizontalScrollBox (Lcom/huanshankeji/compose/ui/Modifier;Lcom/huanshankeji/compose/ui/Modifier;Lcom/huanshankeji/compose/ui/Alignment;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
+	public static final fun HorizontalScrollRow (Lcom/huanshankeji/compose/ui/Modifier;Lcom/huanshankeji/compose/ui/Modifier;Lcom/huanshankeji/compose/foundation/layout/Arrangement$Horizontal;Lcom/huanshankeji/compose/ui/Alignment$Vertical;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
+	public static final fun VerticalScrollBox (Lcom/huanshankeji/compose/ui/Modifier;Lcom/huanshankeji/compose/ui/Modifier;Lcom/huanshankeji/compose/ui/Alignment;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
+	public static final fun VerticalScrollColumn (Lcom/huanshankeji/compose/ui/Modifier;Lcom/huanshankeji/compose/ui/Modifier;Lcom/huanshankeji/compose/foundation/layout/Arrangement$Vertical;Lcom/huanshankeji/compose/ui/Alignment$Horizontal;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
 }
 
 public final class com/huanshankeji/compose/foundation/layout/ext/Size_composeUiKt {
@@ -736,6 +752,10 @@ public final class com/huanshankeji/compose/ui/Modifier$Impl : com/huanshankeji/
 	public fun toString ()Ljava/lang/String;
 	public static fun toString-impl (Landroidx/compose/ui/Modifier;)Ljava/lang/String;
 	public final synthetic fun unbox-impl ()Landroidx/compose/ui/Modifier;
+}
+
+public final class com/huanshankeji/compose/ui/Modifier_composeUiKt {
+	public static final fun toCommonModifier (Landroidx/compose/ui/Modifier;)Landroidx/compose/ui/Modifier;
 }
 
 public final class com/huanshankeji/compose/ui/draw/Alpha_composeUiKt {

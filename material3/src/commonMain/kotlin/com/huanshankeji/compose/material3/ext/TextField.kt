@@ -54,7 +54,7 @@ fun TextFieldWithMaterialIcons(
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
     singleLine: Boolean = false,
-    lines: Int = 1
+    lines: Int = 1,
 ) =
     TextField(
         value,
@@ -73,7 +73,7 @@ fun TextFieldWithMaterialIcons(
         keyboardOptions,
         keyboardActions,
         singleLine,
-        lines
+        lines,
     )
 
 
@@ -99,7 +99,7 @@ expect fun OutlinedTextField(
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
     singleLine: Boolean = false,
-    lines: Int = 1
+    lines: Int = 1,
 )
 
 @Composable
@@ -120,7 +120,7 @@ fun OutlinedTextFieldWithMaterialIcons(
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
     singleLine: Boolean = false,
-    lines: Int = 1
+    lines: Int = 1,
 ) =
     OutlinedTextField(
         value,
@@ -139,5 +139,5 @@ fun OutlinedTextFieldWithMaterialIcons(
         keyboardOptions,
         keyboardActions,
         singleLine,
-        lines
+        lines,
     )

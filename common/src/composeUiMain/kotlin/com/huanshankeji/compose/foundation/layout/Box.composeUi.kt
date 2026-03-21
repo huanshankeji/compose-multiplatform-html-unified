@@ -14,7 +14,7 @@ import androidx.compose.foundation.layout.BoxScope as PlatformBoxScope
 actual fun Box(
     modifier: Modifier,
     contentAlignment: Alignment,
-    content: @Composable BoxScope.() -> Unit
+    content: @Composable BoxScope.() -> Unit,
 ) =
     PlatformBox(
         modifier.platformModifier,

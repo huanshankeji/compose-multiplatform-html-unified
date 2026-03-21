@@ -18,7 +18,12 @@ import com.huanshankeji.compose.ui.Alignment
 import com.huanshankeji.compose.ui.Modifier
 
 internal enum class Selection {
-    A, B, C
+    A, B, C;
+
+    fun displayText(): String = buildString {
+        append(name)
+        repeat(7) { append(name.lowercase()) }
+    }
 }
 
 val listSize = 160.dp
@@ -28,7 +33,7 @@ fun Modifier.innerContentPadding() = innerPadding(16.dp)
 val contentPaddingModifier = Modifier.outerContentPadding()
 
 enum class Screen {
-    Home, Common, Material2, Material3
+    Home, Common, /*Material2,*/ Material3
 }
 
 @Composable
@@ -38,7 +43,7 @@ fun App() {
         composable(Screen.Home.name) { Home(navController) }
         //fun subDemoModifier()
         composable(Screen.Common.name) { Common() }
-        composable(Screen.Material2.name) { Material2() }
+        //composable(Screen.Material2.name) { Material2() }
         composable(Screen.Material3.name) { Material3() }
     }
 }
@@ -50,9 +55,11 @@ fun Home(navController: NavHostController) {
             Button({ navController.navigate(Screen.Common.name) }) {
                 TaglessText("Common")
             }
+            /*
             Button({ navController.navigate(Screen.Material2.name) }) {
                 TaglessText("Material 2")
             }
+            */
             Button({ navController.navigate(Screen.Material3.name) }) {
                 TaglessText("Material 3")
             }

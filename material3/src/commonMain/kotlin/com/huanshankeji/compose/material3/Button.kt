@@ -16,7 +16,7 @@ expect fun Button(
     shape: Shape = ButtonDefaults.shape,
     colors: ButtonColors = ButtonDefaults.buttonColors(),
     */
-    content: @Composable RowScope.() -> Unit
+    content: @Composable RowScope.() -> Unit,
 )
 
 @Deprecated(
@@ -28,7 +28,7 @@ fun FilledButton(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
-    content: @Composable RowScope.() -> Unit
+    content: @Composable RowScope.() -> Unit,
 ) =
     Button(onClick, modifier, enabled, content)
 
@@ -37,7 +37,7 @@ expect fun ElevatedButton(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
-    content: @Composable RowScope.() -> Unit
+    content: @Composable RowScope.() -> Unit,
 )
 
 @Composable
@@ -45,7 +45,7 @@ expect fun FilledTonalButton(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
-    content: @Composable RowScope.() -> Unit
+    content: @Composable RowScope.() -> Unit,
 )
 
 @Composable
@@ -53,7 +53,7 @@ expect fun OutlinedButton(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
-    content: @Composable RowScope.() -> Unit
+    content: @Composable RowScope.() -> Unit,
 )
 
 @Composable
@@ -61,5 +61,5 @@ expect fun TextButton(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
-    content: @Composable RowScope.() -> Unit
+    content: @Composable RowScope.() -> Unit,
 )

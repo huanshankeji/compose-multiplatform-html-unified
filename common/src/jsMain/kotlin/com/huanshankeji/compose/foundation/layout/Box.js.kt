@@ -16,12 +16,12 @@ import com.varabyte.kobweb.compose.foundation.layout.BoxScope as PlatformBoxScop
 actual fun Box(
     modifier: Modifier,
     contentAlignment: Alignment,
-    content: @Composable BoxScope.() -> Unit
+    content: @Composable BoxScope.() -> Unit,
 ) =
     KobwebBox(
         PlatformModifier.imitateComposeUiLayout().toCommonModifier().then(modifier),
         contentAlignment,
-        content
+        content,
     )
 
 @Composable

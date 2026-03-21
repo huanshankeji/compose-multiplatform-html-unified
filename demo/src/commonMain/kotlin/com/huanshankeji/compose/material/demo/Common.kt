@@ -20,7 +20,7 @@ import com.huanshankeji.compose.ui.graphics.Color
 fun Common(/*modifier: Modifier = Modifier*/) {
     Column(
         Modifier.verticalScroll(rememberScrollState()).innerContentPadding(),
-        Arrangement.spacedBy(16.dp)
+        Arrangement.spacedBy(16.dp),
     ) {
         BasicText("basic text 1")
         BasicText("basic text 2")

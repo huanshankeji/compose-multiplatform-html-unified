@@ -93,7 +93,7 @@ expect fun Color(
     @IntRange(from = 0, to = 0xFF) red: Int,
     @IntRange(from = 0, to = 0xFF) green: Int,
     @IntRange(from = 0, to = 0xFF) blue: Int,
-    @IntRange(from = 0, to = 0xFF) alpha: Int = 0xFF
+    @IntRange(from = 0, to = 0xFF) alpha: Int = 0xFF,
 ): Color
 
 /*

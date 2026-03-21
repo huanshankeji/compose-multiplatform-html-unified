@@ -11,7 +11,7 @@ import com.huanshankeji.compose.ui.toAttrs
 actual fun Icon(
     icon: Icon,
     contentDescription: String?,
-    modifier: Modifier
+    modifier: Modifier,
 ) =
     MdIcon(attrs = modifier.toAttrs {
         contentDescription(contentDescription)
