@@ -28,10 +28,10 @@ val imitateComposeUiLayoutHorizontalScrollPlatformModifier =
 
 @Composable
 actual fun rememberScrollState(initial: Int): ScrollState =
-    ScrollState
+    ScrollState()
 
 @Stable
-actual object ScrollState
+actual class ScrollState
 
 actual fun Modifier.verticalScroll(state: ScrollState): Modifier =
     platformModify { verticalScroll() }

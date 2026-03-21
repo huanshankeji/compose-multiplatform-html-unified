@@ -10,6 +10,8 @@ import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.PlatformModifier
 import com.huanshankeji.compose.ui.toCommonModifier
 
+private val lazyItemScope = LazyItemScope()
+
 /*
 @LazyScopeMarker
 @JvmDefaultWithCompatibility
@@ -29,7 +31,7 @@ actual class LazyListScope {
         contentType: Any?,
         content: @Composable LazyItemScope.() -> Unit,
     ) =
-        addComposable { LazyItemScope.content() }
+        addComposable { lazyItemScope.content() }
 
     actual fun items(
         count: Int,
@@ -39,7 +41,7 @@ actual class LazyListScope {
     ) =
         addComposable {
             repeat(count) { index ->
-                LazyItemScope.itemContent(index)
+                lazyItemScope.itemContent(index)
             }
         }
 }
