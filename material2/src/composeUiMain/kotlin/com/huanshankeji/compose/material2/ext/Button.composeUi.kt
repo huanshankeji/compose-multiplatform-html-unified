@@ -13,7 +13,7 @@ actual fun Button(
     onClick: () -> Unit,
     buttonType: ButtonType,
     modifier: Modifier,
-    content: @Composable ButtonScope.() -> Unit
+    content: @Composable ButtonScope.() -> Unit,
 ) {
     val modifier = modifier.platformModifier
     val content: @Composable RowScope.() -> Unit = { ButtonScope(this).content() }

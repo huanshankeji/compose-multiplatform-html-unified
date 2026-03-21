@@ -31,6 +31,6 @@ fun renderComposableInBodyWithViewModelStoreOwner(
             LocalInternalViewModelStoreOwner provides SimpleViewModelStoreOwner(),
             content = {
                 content()
-            }
+            },
         )
     }

@@ -37,7 +37,7 @@ actual abstract class PaddingValues(val platformValue: PlatformPaddingValues) {
             left: Dp,
             top: Dp,
             right: Dp,
-            bottom: Dp
+            bottom: Dp,
         ) : this(PlatformPaddingValues.Absolute(left, top, right, bottom))
     }
 }

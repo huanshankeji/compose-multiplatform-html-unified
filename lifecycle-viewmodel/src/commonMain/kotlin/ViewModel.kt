@@ -33,14 +33,14 @@ expect fun <VM : ViewModel> viewModel(
     viewModelStoreOwner: ViewModelStoreOwner = defaultViewModelStoreOwner(),
     key: String? = null,
     factory: ViewModelProvider.Factory? = null,
-    extras: CreationExtras = viewModelStoreOwner.defaultCreationExtras()
+    extras: CreationExtras = viewModelStoreOwner.defaultCreationExtras(),
 ): VM
 
 @Composable
 expect inline fun <reified VM : ViewModel> viewModel(
     viewModelStoreOwner: ViewModelStoreOwner = defaultViewModelStoreOwner(),
     key: String? = null,
-    noinline initializer: CreationExtras.() -> VM
+    noinline initializer: CreationExtras.() -> VM,
 ): VM
 
 @Deprecated(
@@ -52,6 +52,6 @@ expect inline fun <reified VM : ViewModel> viewModel(
 @Composable
 inline fun <reified VM : ViewModel> viewModel(
     key: String? = null,
-    noinline initializer: CreationExtras.() -> VM
+    noinline initializer: CreationExtras.() -> VM,
 ): VM =
     viewModel(defaultViewModelStoreOwner(), key, initializer)

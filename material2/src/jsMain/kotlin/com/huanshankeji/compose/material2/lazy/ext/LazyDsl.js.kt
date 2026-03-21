@@ -40,7 +40,7 @@ actual class ListScope(
         count: Int,
         key: ((index: Int) -> Any)?,
         contentType: (index: Int) -> Any?,
-        itemContent: @Composable ItemScope.(index: Int) -> Unit
+        itemContent: @Composable ItemScope.(index: Int) -> Unit,
     ) = addComposable {
         repeat(count) { i ->
             mdcListScope.ListItem { ItemScope(this).itemContent(i) }
@@ -51,7 +51,7 @@ actual class ListScope(
         key: Any?,
         contentType: Any?,
         headerContent: @Composable HeaderScope.() -> Unit,
-        content: ListScope.() -> Unit
+        content: ListScope.() -> Unit,
     ) = deferredComposableRunner.addComposable {
         MDCListGroup {
             Subheader {

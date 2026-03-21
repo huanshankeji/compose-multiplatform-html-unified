@@ -38,7 +38,7 @@ expect fun Modifier.sizeIn(
     minWidth: Dp = Dp.Unspecified,
     minHeight: Dp = Dp.Unspecified,
     maxWidth: Dp = Dp.Unspecified,
-    maxHeight: Dp = Dp.Unspecified
+    maxHeight: Dp = Dp.Unspecified,
 ): Modifier
 
 /**

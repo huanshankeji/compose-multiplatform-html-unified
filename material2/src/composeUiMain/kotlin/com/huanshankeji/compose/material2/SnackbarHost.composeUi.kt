@@ -19,7 +19,7 @@ actual class SnackbarHostState(val platformValue: PlatformSnackbarHostState) {
     actual suspend fun showSnackbar(
         message: String,
         actionLabel: String?,
-        duration: SnackbarDuration
+        duration: SnackbarDuration,
     ): SnackbarResult =
         platformValue.showSnackbar(message, actionLabel, duration.toPlatformValue()).toCommonValue()
 }
@@ -68,7 +68,7 @@ fun PlatformSnackbarDuration.toCommonValue() =
 actual fun SnackbarHost(
     hostState: SnackbarHostState,
     modifier: Modifier,
-    actionOnNewLine: Boolean
+    actionOnNewLine: Boolean,
 ) =
     androidx.compose.material.SnackbarHost(hostState.platformValue, modifier.platformModifier) {
         Snackbar(it, actionOnNewLine = actionOnNewLine)

@@ -12,3 +12,5 @@ actual val Icons.Filled.Remove: Icon get() = PlatformIcons.Filled.Remove
 actual val Icons.Filled.ArrowDropDown: Icon get() = PlatformIcons.Filled.ArrowDropDown
 actual val Icons.Filled.Done: Icon get() = PlatformIcons.Filled.Done
 actual val Icons.Filled.Refresh: Icon get() = PlatformIcons.Filled.Refresh
+actual val Icons.Filled.Person: Icon get() = PlatformIcons.Filled.Person
+actual val Icons.Filled.Close: Icon get() = PlatformIcons.Filled.Close

@@ -13,7 +13,7 @@ actual fun Switch(
     checked: Boolean,
     onCheckedChange: ((Boolean) -> Unit)?,
     modifier: Modifier,
-    enabled: Boolean
+    enabled: Boolean,
 ) =
     MdSwitch(
         enabled.isFalseOrNull(),

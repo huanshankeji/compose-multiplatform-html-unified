@@ -1,9 +1,8 @@
 rootProject.name = "compose-multiplatform-html-unified"
 
 include("common") // TODO consider splitting into several modules including `foundation`, `ui`, etc. (#45)
-include("common:legacy")
 include("material-icons-core")
-include("material2")
+include("material2") // components broken with KMDC's old Kotlin and Compose dependencies, kept for reference purposes, not published
 include("material3")
 include("navigation")
 include("lifecycle-viewmodel")

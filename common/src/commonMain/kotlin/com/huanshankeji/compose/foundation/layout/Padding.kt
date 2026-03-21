@@ -78,7 +78,7 @@ expect abstract class PaddingValues {
         /*@Stable*/
         right: Dp = 0.dp,
         /*@Stable*/
-        bottom: Dp = 0.dp
+        bottom: Dp = 0.dp,
     ) : PaddingValues
 }
 

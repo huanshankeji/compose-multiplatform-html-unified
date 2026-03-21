@@ -14,7 +14,7 @@ actual fun Column(
     modifier: Modifier,
     verticalArrangement: Arrangement.Vertical,
     horizontalAlignment: Alignment.Horizontal,
-    content: @Composable ColumnScope.() -> Unit
+    content: @Composable ColumnScope.() -> Unit,
 ) {
     AddKobwebComposeStyleSheet()
     com.varabyte.kobweb.compose.foundation.layout.Column(
@@ -24,7 +24,7 @@ actual fun Column(
             .then(modifier.platformModifier),
         verticalArrangement.platformValue,
         horizontalAlignment.platformValue,
-        content = content.toCommonColumnScopeContent()
+        content = content.toCommonColumnScopeContent(),
     )
 }
 
@@ -40,7 +40,7 @@ actual interface ColumnScope {
     @Stable
     actual fun Modifier.weight(
         @FloatRange(from = 0.0, fromInclusive = false)
-        weight: Float
+        weight: Float,
     ): Modifier =
         // `flex-basis: 0` added to be consistent with the Compose UI behavior
         with(platformValue) { platformModify { flexBasis0().weight(weight) } }

@@ -8,14 +8,14 @@ import com.huanshankeji.compose.ui.Modifier
 expect fun FloatingActionButton(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
-    content: @Composable (Modifier) -> Unit
+    content: @Composable (Modifier) -> Unit,
 )
 
 @Composable
 fun FloatingActionButtonWithMaterialIcon(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
-    icon: Icon
+    icon: Icon,
 ) =
     FloatingActionButton(onClick, modifier, icon.toContentWithModifier())
 
@@ -23,14 +23,14 @@ fun FloatingActionButtonWithMaterialIcon(
 expect fun SmallFloatingActionButton(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
-    content: @Composable (Modifier) -> Unit
+    content: @Composable (Modifier) -> Unit,
 )
 
 @Composable
 fun SmallFloatingActionButtonWithMaterialIcon(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
-    icon: Icon
+    icon: Icon,
 ) =
     SmallFloatingActionButton(onClick, modifier, icon.toContentWithModifier())
 
@@ -38,14 +38,14 @@ fun SmallFloatingActionButtonWithMaterialIcon(
 expect fun LargeFloatingActionButton(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
-    content: @Composable (Modifier) -> Unit
+    content: @Composable (Modifier) -> Unit,
 )
 
 @Composable
 fun LargeFloatingActionButtonWithMaterialIcon(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
-    icon: Icon
+    icon: Icon,
 ) =
     LargeFloatingActionButton(onClick, modifier, icon.toContentWithModifier())
 
@@ -54,7 +54,7 @@ expect fun ExtendedFloatingActionButton(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     label: String,
-    content: @Composable ((Modifier) -> Unit)?
+    content: @Composable ((Modifier) -> Unit)?,
 )
 
 @Composable
@@ -62,6 +62,6 @@ fun ExtendedFloatingActionButtonWithMaterialIcon(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     label: String,
-    icon: Icon?
+    icon: Icon?,
 ) =
     ExtendedFloatingActionButton(onClick, modifier, label, icon.toNullableContentWithModifier())

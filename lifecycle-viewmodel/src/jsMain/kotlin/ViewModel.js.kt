@@ -28,27 +28,27 @@ actual fun <VM : ViewModel> viewModel(
     viewModelStoreOwner: ViewModelStoreOwner,
     key: String?,
     factory: ViewModelProvider.Factory?,
-    extras: CreationExtras
+    extras: CreationExtras,
 ): VM = viewModelStoreOwner.get(modelClass, key, factory, extras)
 
 @Composable
 actual inline fun <reified VM : ViewModel> viewModel(
     viewModelStoreOwner: ViewModelStoreOwner,
     key: String?,
-    noinline initializer: CreationExtras.() -> VM
+    noinline initializer: CreationExtras.() -> VM,
 ): VM = viewModel(
     VM::class,
     viewModelStoreOwner,
     key,
     viewModelFactory { initializer(initializer) },
-    viewModelStoreOwner.defaultCreationExtras()
+    viewModelStoreOwner.defaultCreationExtras(),
 )
 
 internal fun <VM : ViewModel> ViewModelStoreOwner.get(
     modelClass: KClass<VM>,
     key: String?,
     factory: ViewModelProvider.Factory?,
-    extras: CreationExtras
+    extras: CreationExtras,
 ): VM {
     val provider = if (factory != null) {
         ViewModelProvider.create(this.viewModelStore, factory, extras)

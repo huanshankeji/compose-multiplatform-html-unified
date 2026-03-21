@@ -1,6 +1,6 @@
 import com.huanshankeji.cpnProject
-import com.huanshankeji.team.`Shreck Ye`
-import com.huanshankeji.team.pomForTeamDefaultOpenSource
+import com.huanshankeji.team.ShreckYe
+import com.huanshankeji.team.setUpPomForTeamDefaultOpenSource
 
 plugins {
     `lib-conventions`
@@ -30,12 +30,15 @@ kotlin {
     }
 }
 
-publishing.publications.withType<MavenPublication> {
-    pomForTeamDefaultOpenSource(
-        project,
-        "Unified Compose Multiplatform ViewModel $FOR_COMPOSE_TARGETS_IN_TITLE",
-        "Unified wrappers of Compose Multiplatform ViewModel for $FOR_COMPOSE_TARGETS_IN_DESCRIPTION"
-    ) {
-        `Shreck Ye`()
+mavenPublishing {
+    pom {
+        setUpPomForTeamDefaultOpenSource(
+            project,
+            "Unified Compose Multiplatform ViewModel $FOR_COMPOSE_TARGETS_IN_TITLE",
+            "Unified wrappers of Compose Multiplatform ViewModel for $FOR_COMPOSE_TARGETS_IN_DESCRIPTION",
+            "2024"
+        ) {
+            ShreckYe()
+        }
     }
 }

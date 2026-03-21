@@ -51,25 +51,27 @@ This project is still in development and has not reached a stable state. Some AP
 
 #### Material 2 components
 
-- `Button`
-- `Card`
-- `Checkbox`
-- `Divider` (not working properly on JS yet)
-- `Icon`
-- `IconButton`
-- `Snackbar` (inconsistent, not recommended), `SnackBarHost` (recommended)
-- `Switch`
-- `Text`
+**Deprecation notice:** The Material 2 components are no longer maintained and published for release since v0.6.0, due to its decreasing popularity and the underlying KMDC library's incompatible Kotlin and Compose versions.
+
+- Button: `Button`
+- Card: `Card`
+- Checkbox: `Checkbox`
+- Divider: `Divider` (not working properly on JS yet)
+- Icon: `Icon`
+- Icon button: `IconButton`
+- Snackbar: `Snackbar` (inconsistent, not recommended), `SnackBarHost` (recommended)
+- Switch: `Switch`
+- Text: `Text`
 
 ##### `ext` components
 
-- `Button`
-- `IconButton`
-- `RadioRow`, `RadioGroupRow`
-- `SwitchWithLabel`
-- `MaterialText`, `TaglessText`
-- `TextField`, `OutlinedTextField`
-- `TopAppBarScaffold`
+- Button: `Button`
+- Icon button: `IconButton`
+- Radio button: `RadioRow`, `RadioGroupRow`
+- Switch: `SwitchWithLabel`
+- Text: `MaterialText`, `TaglessText`
+- Text field: `TextField`, `OutlinedTextField`
+- Top app bar: `TopAppBarScaffold`
 
 ##### `lazy.ext` components
 
@@ -77,27 +79,48 @@ This project is still in development and has not reached a stable state. Some AP
 
 #### Material 3 components
 
-- `Button` (`FilledButton`), `ElevatedButton`, `FilledTonalButton`, `OutlinedButton`, `TextButton`
-- `Card` (`FilledCard`), `ElevatedCard`, `OutlinedCard`
-- `Checkbox`
-- `FloatingActionButton`, `SmallFloatingActionButton`, `LargeFloatingActionButton`, `ExtendedFloatingActionButton`
-- `Icon`
-- `IconButton`, `IconToggleButton`, `FilledIconButton`, `FilledIconToggleButton`, `FilledTonalIconButton`, `FilledTonalIconToggleButton`, `OutlinedIconButton`, `OutlinedIconToggleButton`
-- `LinearProgressIndicator`, `CircularProgressIndicator`
-- `Switch`
-- `Text`
+- Button: `Button` (`FilledButton`), `ElevatedButton`, `FilledTonalButton`, `OutlinedButton`, `TextButton`
+- Card: `Card` (`FilledCard`), `ElevatedCard`, `OutlinedCard`
+- Checkbox: `Checkbox`
+- Dialog: `AlertDialog`, `SimpleDialog`
+- Divider: `HorizontalDivider`
+- Floating action button: `FloatingActionButton`, `SmallFloatingActionButton`, `LargeFloatingActionButton`,
+  `ExtendedFloatingActionButton`
+- Icon: `Icon`
+- Icon button: `IconButton`, `IconToggleButton`, `FilledIconButton`, `FilledIconToggleButton`, `FilledTonalIconButton`,
+  `FilledTonalIconToggleButton`, `OutlinedIconButton`, `OutlinedIconToggleButton`
+- Navigation drawer: `ModalNavigationDrawer` (deprecated)
+- Progress indicator: `LinearProgressIndicator`, `CircularProgressIndicator`
+- Radio button: `RadioButton`
+- Segmented button: `SingleChoiceSegmentedButtonRow`, `MultiChoiceSegmentedButtonRow`
+- Slider: `Slider`, `RangeSlider`
+- Snackbar: `SnackbarHost`, `SnackbarHostState`
+- Switch: `Switch`
+- Tab: `PrimaryTabRow`, `SecondaryTabRow` (tabs are in `ext`)
+- Text: `Text`
 
 ##### `ext` components
 
-- `Button` (`FilledButton`), `ElevatedButton`, `FilledTonalButton`, `OutlinedButton`, `TextButton`
-- `Card` (`FilledCard`), `ElevatedCard`, `OutlinedCard`
-- `DropdownMenu`, `DropdownMenuItem`
-  - `ExposedDropdownMenuBox`, `ExposedDropdownMenuBoxScope.ExposedDropdownMenuBoxTextField`, `ExposedDropdownMenuBoxScope.ExposedDropdownMenu`, `ExposedDropdownMenuWithTextField`
-- `FloatingActionButton`, `SmallFloatingActionButton`, `LargeFloatingActionButton`, `ExtendedFloatingActionButton`
-- `IconButton`, `IconToggleButton`, `FilledIconButton`, `FilledIconToggleButton`, `FilledTonalIconButton`, `FilledTonalIconToggleButton`, `OutlinedIconButton`, `OutlinedIconToggleButton`
-- `NavigationBar`, `NavigationBarItem`
-- `MaterialText`, `TaglessText`
-- `TextField`, `OutlinedTextField`
+- Badge: `Badge` (deprecated)
+- Button: `Button` (`FilledButton`), `ElevatedButton`, `FilledTonalButton`, `OutlinedButton`, `TextButton`
+- Card: `Card` (`FilledCard`), `ElevatedCard`, `OutlinedCard`
+- Chip: `AssistChip`, `ElevatedAssistChip`, `FilterChip`, `ElevatedFilterChip`, `InputChip`, `SuggestionChip`,
+  `ElevatedSuggestionChip`
+- Dropdown menu: `DropdownMenu`, `DropdownMenuItem`
+  - `ExposedDropdownMenuBox`, `ExposedDropdownMenuBoxScope.ExposedDropdownMenuBoxTextField`, `ExposedDropdownMenuBoxScope.ExposedDropdownMenu`, `ExposedDropdownMenuBoxWithTextField`
+- Floating action button: `FloatingActionButton`, `SmallFloatingActionButton`, `LargeFloatingActionButton`,
+  `ExtendedFloatingActionButton`
+- Icon button: `IconButton`, `IconToggleButton`, `FilledIconButton`, `FilledIconToggleButton`, `FilledTonalIconButton`,
+  `FilledTonalIconToggleButton`, `OutlinedIconButton`, `OutlinedIconToggleButton`
+- Navigation bar: `NavigationBar`, `NavigationBarItem`
+- Radio button: `RadioButtonRow`, `radioGroup`
+- Segmented button: `SingleChoiceSegmentedButtonRowScope.SegmentedButton`,
+  `MultiChoiceSegmentedButtonRowScope.SegmentedButton`
+- Select: `FilledSelect`, `OutlinedSelect`, `SelectOption`
+- Tab: `PrimaryTab`, `SecondaryTab`
+- Text: `MaterialText`, `TaglessText`
+- Text field: `TextField`, `OutlinedTextField`
+- Top app bar: `TopAppBar`, `CenterAlignedTopAppBar`, `MediumTopAppBar`, `LargeTopAppBar`
 
 ##### `lazy.ext` components
 
@@ -183,15 +206,6 @@ kotlin {
 ```
 
 View [all the artifacts on Maven Central](https://search.maven.org/search?q=g:com.huanshankeji%20AND%20a:compose-multiplatform-*).
-
-This project depends on [Kobweb](https://github.com/varabyte/kobweb) which is not published to Maven Central yet, so you have to add the following Maven repository:
-
-```kotlin
-repositories {
-    mavenCentral()
-    maven("https://us-central1-maven.pkg.dev/varabyte-repos/public")
-}
-```
 
 ### Material Symbols & Icons on JS
 

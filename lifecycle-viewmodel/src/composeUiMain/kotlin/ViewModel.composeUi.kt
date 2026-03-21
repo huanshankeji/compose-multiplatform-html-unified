@@ -23,7 +23,7 @@ actual fun <VM : ViewModel> viewModel(
     viewModelStoreOwner: ViewModelStoreOwner,
     key: String?,
     factory: ViewModelProvider.Factory?,
-    extras: CreationExtras
+    extras: CreationExtras,
 ): VM =
     composeUiViewModel(modelClass, viewModelStoreOwner, key, factory, extras)
 
@@ -31,6 +31,6 @@ actual fun <VM : ViewModel> viewModel(
 actual inline fun <reified VM : ViewModel> viewModel(
     viewModelStoreOwner: ViewModelStoreOwner,
     key: String?,
-    noinline initializer: CreationExtras.() -> VM
+    noinline initializer: CreationExtras.() -> VM,
 ): VM =
     composeUiViewModel(viewModelStoreOwner, key, initializer)

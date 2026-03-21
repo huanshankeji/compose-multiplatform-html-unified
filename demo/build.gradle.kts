@@ -10,7 +10,6 @@ kotlin {
     androidTarget()
 
     listOf(
-        iosX64(),
         iosArm64(),
         iosSimulatorArm64()
     ).forEach { iosTarget ->
@@ -47,7 +46,7 @@ kotlin {
         commonMain {
             dependencies {
                 implementation(compose.runtime)
-                implementation(cpnProject(project, ":material2"))
+                //implementation(cpnProject(project, ":material2"))
                 implementation(cpnProject(project, ":material3"))
                 implementation(cpnProject(project, ":navigation"))
                 /*

@@ -7,7 +7,7 @@ import com.huanshankeji.compose.ui.Modifier
 @Composable
 expect fun NavigationBar(
     modifier: Modifier = Modifier,
-    content: @Composable NavigationBarScope.() -> Unit
+    content: @Composable NavigationBarScope.() -> Unit,
 )
 
 expect class NavigationBarScope
@@ -43,5 +43,5 @@ fun NavigationBarScope.NavigationBarItemWithMaterialIcons(
         modifier,
         enabled,
         label,
-        alwaysShowLabel
+        alwaysShowLabel,
     )

@@ -8,10 +8,9 @@ plugins {
 }
 
 repositories {
-    //mavenLocal() // commented out so the build is always reproducible by others // put back if needed when depending on a snapshot
+    mavenLocal() // TODO comment out when not needed so the build is always reproducible by others
     mavenCentral()
     google()
-    maven("https://us-central1-maven.pkg.dev/varabyte-repos/public") // for Kobweb
 }
 
 group = "com.huanshankeji"
@@ -25,7 +24,6 @@ kotlin {
 
     //androidTarget()
 
-    iosX64()
     iosArm64()
     iosSimulatorArm64()
 
@@ -40,6 +38,10 @@ kotlin {
     js {
         // The project works without this, but it can be added to avoid potential issues.
         browser()
+
+        compilerOptions {
+            target.set("es2015")
+        }
     }
 
 
@@ -60,5 +62,6 @@ kotlin {
 
     compilerOptions {
         freeCompilerArgs.add("-Xexpect-actual-classes")
+        optIn.add("com.huanshankeji.compose.ExperimentalApi")
     }
 }

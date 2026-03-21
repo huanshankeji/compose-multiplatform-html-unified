@@ -54,7 +54,7 @@ actual /*value*/ class Color(val platformValue: PlatformColor) {
             hue: Float,
             saturation: Float,
             lightness: Float,
-            alpha: Float
+            alpha: Float,
         ): Color =
             Color(PlatformColor.hsl(hue, saturation, lightness, alpha))
     }
@@ -65,7 +65,7 @@ actual fun Color(
     red: Float,
     green: Float,
     blue: Float,
-    alpha: Float
+    alpha: Float,
 ): Color =
     Color(PlatformColor(red, green, blue, alpha))
 
@@ -82,7 +82,7 @@ actual fun Color(
     @IntRange(from = 0, to = 0xFF) red: Int,
     @IntRange(from = 0, to = 0xFF) green: Int,
     @IntRange(from = 0, to = 0xFF) blue: Int,
-    @IntRange(from = 0, to = 0xFF) alpha: Int
+    @IntRange(from = 0, to = 0xFF) alpha: Int,
 ): Color =
     Color(PlatformColor(red, green, blue, alpha))
 
