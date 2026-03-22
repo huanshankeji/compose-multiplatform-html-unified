@@ -28,10 +28,12 @@ val imitateComposeUiLayoutHorizontalScrollPlatformModifier =
 
 @Composable
 actual fun rememberScrollState(initial: Int): ScrollState =
-    ScrollState
+    ScrollState()
 
+
+// used to be `actual object`, but but Dokka fails with it
 @Stable
-actual object ScrollState
+actual class ScrollState
 
 actual fun Modifier.verticalScroll(state: ScrollState): Modifier =
     platformModify { verticalScroll() }
