@@ -213,7 +213,7 @@ See [the corresponding section in Compose HTML Material](https://github.com/huan
 
 ### Excluding Skiko from the JS DOM distribution
 
-If your app project has both `js` and `wasmJs` targets, the [Compose Gradle Plugin](https://github.com/JetBrains/compose-multiplatform) bundles [Skiko](https://github.com/JetBrains/skiko) runtime files (`skiko.mjs`, `skiko.wasm`, `skikod8.mjs`) into the JS DOM distribution by default. These files are unnecessary for the JS target since it uses DOM-based Compose HTML instead of rendering-based Compose UI.
+If your app project has both `js` and `wasmJs` targets, the [Compose Gradle Plugin](https://github.com/JetBrains/compose-multiplatform) bundles [Skiko](https://github.com/JetBrains/skiko) runtime files into the JS DOM distribution by default. These files (`skiko.mjs`, `skiko.wasm`, `skikod8.mjs`) are unnecessary for the JS target since it uses DOM-based Compose HTML instead of rendering-based Compose UI.
 
 To exclude them, add the following to your app project's `build.gradle.kts`:
 
