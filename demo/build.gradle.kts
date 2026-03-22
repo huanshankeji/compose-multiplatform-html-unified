@@ -89,6 +89,12 @@ compose {
             mainClass = "$`package`.MainKt"
         }
     }
+    web {
+        // Only configure Skiko for the wasmJs target which uses rendering-based Compose UI.
+        // The js target uses DOM-based Compose HTML and does not need Skiko.
+        @OptIn(ExperimentalWasmDsl::class)
+        targets(kotlin.wasmJs())
+    }
 }
 
 android {
