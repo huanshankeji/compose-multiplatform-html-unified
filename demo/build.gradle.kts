@@ -1,4 +1,5 @@
 import com.huanshankeji.cpnProject
+import org.gradle.language.jvm.tasks.ProcessResources
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 
 plugins {
@@ -114,6 +115,14 @@ android {
 
 val jsBrowserDistribution by tasks.getting(Sync::class)
 val wasmJsBrowserDistribution by tasks.getting(Sync::class)
+
+val skikoRuntimeForWebFileNames = setOf("skiko.mjs", "skiko.wasm", "skikod8.mjs")
+
+listOf("jsProcessResources", "jsTestProcessResources").forEach { taskName ->
+    tasks.named<ProcessResources>(taskName) {
+        exclude(skikoRuntimeForWebFileNames)
+    }
+}
 
 tasks.register<Sync>("sideBySideBrowserDistribution") {
     group = "kotlin browser"
