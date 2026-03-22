@@ -399,6 +399,22 @@ final class com.huanshankeji.compose.foundation.layout.ext/BoxWithConstraintsSco
     constructor <init>(com.varabyte.kobweb.compose.foundation.layout/BoxScope, androidx.compose.ui.unit/Dp, androidx.compose.ui.unit/Dp) // com.huanshankeji.compose.foundation.layout.ext/BoxWithConstraintsScopeImpl.<init>|<init>(com.varabyte.kobweb.compose.foundation.layout.BoxScope;androidx.compose.ui.unit.Dp;androidx.compose.ui.unit.Dp){}[0]
 }
 
+final class com.huanshankeji.compose.foundation.lazy/LazyItemScope { // com.huanshankeji.compose.foundation.lazy/LazyItemScope|null[0]
+    final fun (com.huanshankeji.compose.ui/Modifier).fillParentMaxHeight(kotlin/Float = ...): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.lazy/LazyItemScope.fillParentMaxHeight|fillParentMaxHeight@com.huanshankeji.compose.ui.Modifier(kotlin.Float){}[0]
+    final fun (com.huanshankeji.compose.ui/Modifier).fillParentMaxSize(kotlin/Float = ...): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.lazy/LazyItemScope.fillParentMaxSize|fillParentMaxSize@com.huanshankeji.compose.ui.Modifier(kotlin.Float){}[0]
+    final fun (com.huanshankeji.compose.ui/Modifier).fillParentMaxWidth(kotlin/Float = ...): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.lazy/LazyItemScope.fillParentMaxWidth|fillParentMaxWidth@com.huanshankeji.compose.ui.Modifier(kotlin.Float){}[0]
+
+    // Targets: [ios, wasmJs]
+    constructor <init>(androidx.compose.foundation.lazy/LazyItemScope) // com.huanshankeji.compose.foundation.lazy/LazyItemScope.<init>|<init>(androidx.compose.foundation.lazy.LazyItemScope){}[0]
+
+    // Targets: [ios, wasmJs]
+    final val platformValue // com.huanshankeji.compose.foundation.lazy/LazyItemScope.platformValue|{}platformValue[0]
+        final fun <get-platformValue>(): androidx.compose.foundation.lazy/LazyItemScope // com.huanshankeji.compose.foundation.lazy/LazyItemScope.platformValue.<get-platformValue>|<get-platformValue>(){}[0]
+
+    // Targets: [js]
+    constructor <init>() // com.huanshankeji.compose.foundation.lazy/LazyItemScope.<init>|<init>(){}[0]
+}
+
 final class com.huanshankeji.compose.foundation.lazy/LazyListScope { // com.huanshankeji.compose.foundation.lazy/LazyListScope|null[0]
     final fun item(kotlin/Any? = ..., kotlin/Any? = ..., kotlin/Function3<com.huanshankeji.compose.foundation.lazy/LazyItemScope, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>) // com.huanshankeji.compose.foundation.lazy/LazyListScope.item|item(kotlin.Any?;kotlin.Any?;kotlin.Function3<com.huanshankeji.compose.foundation.lazy.LazyItemScope,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>){}[0]
     final fun items(kotlin/Int, kotlin/Function1<kotlin/Int, kotlin/Any>? = ..., kotlin/Function1<kotlin/Int, kotlin/Any?> = ..., kotlin/Function4<com.huanshankeji.compose.foundation.lazy/LazyItemScope, kotlin/Int, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>) // com.huanshankeji.compose.foundation.lazy/LazyListScope.items|items(kotlin.Int;kotlin.Function1<kotlin.Int,kotlin.Any>?;kotlin.Function1<kotlin.Int,kotlin.Any?>;kotlin.Function4<com.huanshankeji.compose.foundation.lazy.LazyItemScope,kotlin.Int,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>){}[0]
@@ -909,18 +925,6 @@ final inline fun <#A: kotlin/Any?> (com.huanshankeji.compose.foundation.lazy/Laz
 final inline fun <#A: kotlin/Any?> (com.huanshankeji.compose.foundation.lazy/LazyListScope).com.huanshankeji.compose.foundation.lazy/itemsIndexed(kotlin/Array<#A>, noinline kotlin/Function2<kotlin/Int, #A, kotlin/Any>? = ..., crossinline kotlin/Function2<kotlin/Int, #A, kotlin/Any?> = ..., crossinline kotlin/Function5<com.huanshankeji.compose.foundation.lazy/LazyItemScope, kotlin/Int, #A, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>) // com.huanshankeji.compose.foundation.lazy/itemsIndexed|itemsIndexed@com.huanshankeji.compose.foundation.lazy.LazyListScope(kotlin.Array<0:0>;kotlin.Function2<kotlin.Int,0:0,kotlin.Any>?;kotlin.Function2<kotlin.Int,0:0,kotlin.Any?>;kotlin.Function5<com.huanshankeji.compose.foundation.lazy.LazyItemScope,kotlin.Int,0:0,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>){0§<kotlin.Any?>}[0]
 
 // Targets: [ios, wasmJs]
-final class com.huanshankeji.compose.foundation.lazy/LazyItemScope { // com.huanshankeji.compose.foundation.lazy/LazyItemScope|null[0]
-    constructor <init>(androidx.compose.foundation.lazy/LazyItemScope) // com.huanshankeji.compose.foundation.lazy/LazyItemScope.<init>|<init>(androidx.compose.foundation.lazy.LazyItemScope){}[0]
-
-    final val platformValue // com.huanshankeji.compose.foundation.lazy/LazyItemScope.platformValue|{}platformValue[0]
-        final fun <get-platformValue>(): androidx.compose.foundation.lazy/LazyItemScope // com.huanshankeji.compose.foundation.lazy/LazyItemScope.platformValue.<get-platformValue>|<get-platformValue>(){}[0]
-
-    final fun (com.huanshankeji.compose.ui/Modifier).fillParentMaxHeight(kotlin/Float = ...): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.lazy/LazyItemScope.fillParentMaxHeight|fillParentMaxHeight@com.huanshankeji.compose.ui.Modifier(kotlin.Float){}[0]
-    final fun (com.huanshankeji.compose.ui/Modifier).fillParentMaxSize(kotlin/Float = ...): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.lazy/LazyItemScope.fillParentMaxSize|fillParentMaxSize@com.huanshankeji.compose.ui.Modifier(kotlin.Float){}[0]
-    final fun (com.huanshankeji.compose.ui/Modifier).fillParentMaxWidth(kotlin/Float = ...): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.lazy/LazyItemScope.fillParentMaxWidth|fillParentMaxWidth@com.huanshankeji.compose.ui.Modifier(kotlin.Float){}[0]
-}
-
-// Targets: [ios, wasmJs]
 final fun (androidx.compose.foundation.layout/PaddingValues).com.huanshankeji.compose.foundation.layout/toCommonValue(): com.huanshankeji.compose.foundation.layout/PaddingValues // com.huanshankeji.compose.foundation.layout/toCommonValue|toCommonValue@androidx.compose.foundation.layout.PaddingValues(){}[0]
 
 // Targets: [ios, wasmJs]
@@ -1002,22 +1006,17 @@ final enum class com.huanshankeji.browser/Browser : kotlin/Enum<com.huanshankeji
 }
 
 // Targets: [js]
+final class com.huanshankeji.compose.foundation/ScrollState { // com.huanshankeji.compose.foundation/ScrollState|null[0]
+    constructor <init>() // com.huanshankeji.compose.foundation/ScrollState.<init>|<init>(){}[0]
+}
+
+// Targets: [js]
 final class com.huanshankeji.compose.ui.window/SimpleViewModelStoreOwner : androidx.lifecycle/ViewModelStoreOwner { // com.huanshankeji.compose.ui.window/SimpleViewModelStoreOwner|null[0]
     constructor <init>() // com.huanshankeji.compose.ui.window/SimpleViewModelStoreOwner.<init>|<init>(){}[0]
 
     final val viewModelStore // com.huanshankeji.compose.ui.window/SimpleViewModelStoreOwner.viewModelStore|{}viewModelStore[0]
         final fun <get-viewModelStore>(): androidx.lifecycle/ViewModelStore // com.huanshankeji.compose.ui.window/SimpleViewModelStoreOwner.viewModelStore.<get-viewModelStore>|<get-viewModelStore>(){}[0]
 }
-
-// Targets: [js]
-final object com.huanshankeji.compose.foundation.lazy/LazyItemScope { // com.huanshankeji.compose.foundation.lazy/LazyItemScope|null[0]
-    final fun (com.huanshankeji.compose.ui/Modifier).fillParentMaxHeight(kotlin/Float = ...): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.lazy/LazyItemScope.fillParentMaxHeight|fillParentMaxHeight@com.huanshankeji.compose.ui.Modifier(kotlin.Float){}[0]
-    final fun (com.huanshankeji.compose.ui/Modifier).fillParentMaxSize(kotlin/Float = ...): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.lazy/LazyItemScope.fillParentMaxSize|fillParentMaxSize@com.huanshankeji.compose.ui.Modifier(kotlin.Float){}[0]
-    final fun (com.huanshankeji.compose.ui/Modifier).fillParentMaxWidth(kotlin/Float = ...): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation.lazy/LazyItemScope.fillParentMaxWidth|fillParentMaxWidth@com.huanshankeji.compose.ui.Modifier(kotlin.Float){}[0]
-}
-
-// Targets: [js]
-final object com.huanshankeji.compose.foundation/ScrollState // com.huanshankeji.compose.foundation/ScrollState|null[0]
 
 // Targets: [js]
 final val com.huanshankeji.browser/browser // com.huanshankeji.browser/browser|{}browser[0]
