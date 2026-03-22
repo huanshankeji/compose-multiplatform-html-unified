@@ -32,7 +32,7 @@ actual fun rememberScrollState(initial: Int): ScrollState =
     remember { ScrollState() }
 
 
-// used to be `actual object`, but but Dokka fails with it
+// used to be `actual object`, but Dokka fails with it
 @Stable
 actual class ScrollState
 
