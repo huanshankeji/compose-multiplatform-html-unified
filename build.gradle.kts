@@ -11,6 +11,7 @@ plugins {
 
 val rootProjectName = rootProject.name
 val demoProjectName = "$rootProjectName-demo"
+val demoProject = project(demoProjectName)
 
 apiValidation {
     @OptIn(kotlinx.validation.ExperimentalBCVApi::class)
@@ -36,7 +37,7 @@ tasks.register<Sync>("generateSite") {
     from(dokkaGeneratePublicationHtml) {
         into("api-documentation")
     }
-    from(project(":$demoProjectName").tasks.named("sideBySideBrowserDistribution")) {
+    from(demoProject.tasks.named("sideBySideBrowserDistribution")) {
         into("demo")
     }
     from(layout.projectDirectory.dir("site"))
