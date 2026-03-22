@@ -1,4 +1,4 @@
-name: Deploy the demo and API documentation to GitHub Pages
+name: Deploy the demo to GitHub Pages
 
 on:
   push:
@@ -40,11 +40,8 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
 
-      - name: Build the demo distribution and generate API documentation with Gradle Wrapper
-        run: ./gradlew :compose-multiplatform-html-unified-demo:sideBySideBrowserDistribution dokkaGeneratePublicationHtml
-
-      - name: Copy the API documentation into the site
-        run: cp -r build/dokka/html demo/build/dist/sideBySide/productionExecutable/api
+      - name: Build the distribution with Gradle Wrapper
+        run: ./gradlew :compose-multiplatform-html-unified-demo:sideBySideBrowserDistribution
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
