@@ -36,7 +36,7 @@ expect class ItemScope
 /**
  * @param isInteractiveJsDom whether the item is interactive on JS DOM,
  * aka whether it shows effects when the mouse pointer hovers above it or when it gets clicked.
- * On the `androidx.compose` targets, use `Modifier.clickable` for the same effect.
+ * On the Compose UI targets, use `Modifier.clickable` for the same effect.
  */
 class ListItemComponents(
     val contentModifier: Modifier = Modifier,

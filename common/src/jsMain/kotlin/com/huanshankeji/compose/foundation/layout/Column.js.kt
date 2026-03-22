@@ -19,7 +19,7 @@ actual fun Column(
     AddKobwebComposeStyleSheet()
     com.varabyte.kobweb.compose.foundation.layout.Column(
         PlatformModifier
-            .imitateComposeUiLayout() // "fit-content" is added to make it consistent with the `androidx` one
+            .imitateComposeUiLayout() // "fit-content" is added to make it consistent with the Compose UI one
             .stylesFrom(verticalArrangement)
             .then(modifier.platformModifier),
         verticalArrangement.platformValue,
