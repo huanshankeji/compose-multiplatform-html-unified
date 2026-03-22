@@ -7,19 +7,20 @@ plugins {
     id("org.jetbrains.dokka")
 }
 
+val rootProjectName = rootProject.name
+val demoProjectName = "$rootProjectName-demo"
+
 apiValidation {
     @OptIn(kotlinx.validation.ExperimentalBCVApi::class)
     klib {
         enabled = true
     }
 
-    ignoredProjects += "compose-multiplatform-html-unified".let {
-        listOf("$it-demo")
-    }
+    ignoredProjects += listOf(demoProjectName)
 }
 
 dependencies {
-    subprojects.filter { it.name.startsWith(project.name) }.forEach {
+    subprojects.filter { it.name != demoProjectName }.forEach {
         dokka(it)
     }
 }
