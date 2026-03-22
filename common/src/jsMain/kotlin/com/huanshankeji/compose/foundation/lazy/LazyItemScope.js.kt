@@ -12,7 +12,7 @@ import com.huanshankeji.compose.ui.Modifier
 @LazyScopeMarker
 @JvmDefaultWithCompatibility
 */
-// used to be `actual object`, with which Dokka fails
+// used to be `actual object`, but Dokka fails with it
 actual class LazyItemScope {
     // I am not sure whether these implementations work perfectly.
 
