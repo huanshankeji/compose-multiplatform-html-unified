@@ -6,6 +6,11 @@ import com.huanshankeji.compose.foundation.text.KeyboardOptions
 import com.huanshankeji.compose.material.icons.Icon
 import com.huanshankeji.compose.ui.Modifier
 
+/*
+https://m3.material.io/components/text-fields/overview
+https://developer.android.com/develop/ui/compose/text/user-input
+ */
+
 /**
  * @param leadingIcon the [Modifier] parameter contains the attributes to be set on this icon on JS. You are supposed to pass this [Modifier] to the top-level composable that you invoke inside.
  * @param trailingIcon ditto.

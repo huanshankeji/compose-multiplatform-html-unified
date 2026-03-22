@@ -5,6 +5,11 @@ import com.huanshankeji.compose.ExtRecommendedApi
 import com.huanshankeji.compose.foundation.layout.RowScope
 import com.huanshankeji.compose.ui.Modifier
 
+/*
+https://m3.material.io/components/floating-action-button/overview
+https://developer.android.com/develop/ui/compose/components/fab
+ */
+
 @ExtRecommendedApi
 @Composable
 expect fun FloatingActionButton(

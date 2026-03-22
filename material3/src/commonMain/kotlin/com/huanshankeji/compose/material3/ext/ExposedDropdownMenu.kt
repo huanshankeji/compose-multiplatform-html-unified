@@ -4,6 +4,11 @@ import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.ExperimentalApi
 import com.huanshankeji.compose.ui.Modifier
 
+/*
+https://m3.material.io/components/menus/overview
+https://developer.android.com/develop/ui/compose/components/menu
+ */
+
 // still in the `ext` package because `content` doesn't take a `ColumnScope` receiver
 
 // copied and adapted from `ExposedDropdownMenu.kt` in `androidx.compose.material3`
