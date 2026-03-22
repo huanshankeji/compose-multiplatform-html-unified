@@ -29,7 +29,7 @@ actual class LazyListScope {
         contentType: Any?,
         content: @Composable LazyItemScope.() -> Unit,
     ) =
-        addComposable { LazyItemScope.content() }
+        addComposable { LazyItemScope().content() }
 
     actual fun items(
         count: Int,
@@ -39,7 +39,7 @@ actual class LazyListScope {
     ) =
         addComposable {
             repeat(count) { index ->
-                LazyItemScope.itemContent(index)
+                LazyItemScope().itemContent(index)
             }
         }
 }

@@ -12,7 +12,8 @@ import com.huanshankeji.compose.ui.Modifier
 @LazyScopeMarker
 @JvmDefaultWithCompatibility
 */
-actual object LazyItemScope {
+// used to be `actual object`, but Dokka fails with it
+actual class LazyItemScope {
     // I am not sure whether these implementations work perfectly.
 
     actual fun Modifier.fillParentMaxSize(

@@ -2,6 +2,7 @@ package com.huanshankeji.compose.foundation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Stable
+import androidx.compose.runtime.remember
 import com.huanshankeji.compose.foundation.ext.css.horizontalScroll
 import com.huanshankeji.compose.foundation.ext.css.verticalScroll
 import com.huanshankeji.compose.ui.Modifier
@@ -28,10 +29,12 @@ val imitateComposeUiLayoutHorizontalScrollPlatformModifier =
 
 @Composable
 actual fun rememberScrollState(initial: Int): ScrollState =
-    ScrollState
+    remember { ScrollState() }
 
+
+// used to be `actual object`, but Dokka fails with it
 @Stable
-actual object ScrollState
+actual class ScrollState
 
 actual fun Modifier.verticalScroll(state: ScrollState): Modifier =
     platformModify { verticalScroll() }
