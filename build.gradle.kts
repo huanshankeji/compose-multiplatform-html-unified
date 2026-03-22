@@ -1,3 +1,5 @@
+import org.jetbrains.dokka.gradle.tasks.DokkaGeneratePublicationTask
+
 tasks.wrapper {
     distributionType = Wrapper.DistributionType.ALL
 }
@@ -23,4 +25,19 @@ dependencies {
     subprojects.filter { it.name != demoProjectName }.forEach {
         dokka(it)
     }
+}
+
+val dokkaGeneratePublicationHtml by tasks.getting(DokkaGeneratePublicationTask::class)
+tasks.register<Sync>("generateSite") {
+    group = "site"
+
+    val destRootDir = layout.buildDirectory.dir("site")
+    into(destRootDir)
+    from(dokkaGeneratePublicationHtml) {
+        into("api-documentation")
+    }
+    from(project(":$demoProjectName").tasks.named("sideBySideBrowserDistribution")) {
+        into("demo")
+    }
+    from(layout.projectDirectory.dir("site"))
 }
