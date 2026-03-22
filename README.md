@@ -211,6 +211,20 @@ View [all the artifacts on Maven Central](https://search.maven.org/search?q=g:co
 
 See [the corresponding section in Compose HTML Material](https://github.com/huanshankeji/compose-html-material?tab=readme-ov-file#material-symbols--icons) for configuring Material Icons on JS.
 
+### Excluding Skiko from the JS DOM distribution
+
+If your app project has both `js` and `wasmJs` targets, the [Compose Gradle Plugin](https://github.com/JetBrains/compose-multiplatform) bundles [Skiko](https://github.com/JetBrains/skiko) runtime files (`skiko.mjs`, `skiko.wasm`, `skikod8.mjs`) into the JS DOM distribution by default. These files are unnecessary for the JS target since it uses DOM-based Compose HTML instead of rendering-based Compose UI.
+
+To exclude them, add the following to your app project's `build.gradle.kts`:
+
+```kotlin
+import org.gradle.language.jvm.tasks.ProcessResources
+
+tasks.named<ProcessResources>("jsProcessResources") {
+    exclude("skiko.mjs", "skiko.wasm", "skikod8.mjs")
+}
+```
+
 ## About Kobweb Silk
 
 The Kotlin/JS (Compose HTML) portion of this project depends on [Kobweb Compose](https://github.com/varabyte/kobweb/blob/main/frontend/kobweb-compose/README.md) of [Kobweb Silk](https://github.com/varabyte/kobweb?tab=readme-ov-file#silk) which is a UI layer built upon Compose HTML that provides `Modifier` (type-safe CSS API wrappers) and layout APIs. Here is a list of topics in their README.md that should be helpful when you use this library in Compose HTML, especially if you need to customize the components further on Kotlin/JS (Compose HTML):

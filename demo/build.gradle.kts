@@ -1,4 +1,5 @@
 import com.huanshankeji.cpnProject
+import org.gradle.language.jvm.tasks.ProcessResources
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 
 plugins {
@@ -89,12 +90,24 @@ compose {
             mainClass = "$`package`.MainKt"
         }
     }
-    web {
-        // Only configure Skiko for the wasmJs target which uses rendering-based Compose UI.
-        // The js target uses DOM-based Compose HTML and does not need Skiko.
-        @OptIn(ExperimentalWasmDsl::class)
-        targets(kotlin.wasmJs())
-    }
+}
+
+/*
+Exclude Skiko files from the JS DOM distribution.
+The Compose Gradle Plugin (`org.jetbrains.compose`) bundles Skiko runtime files for all `KotlinJsIrTarget` targets
+by default (see `configureWebApplication` in the plugin source). For the `js` target (DOM-based Compose HTML),
+Skiko is unnecessary and should be excluded.
+
+The deprecated `compose.web.targets()` API could restrict Skiko to specific targets, but both it and its suggested
+replacement `compose.platformTypes` are deprecated in a circular chain that leads to the Kotlin Compose Compiler
+Plugin (`org.jetbrains.kotlin.plugin.compose`), which only handles compiler configuration, not runtime bundling.
+There is no non-deprecated API for this in Compose Multiplatform 1.10.x.
+
+This Gradle-native workaround excludes the Skiko files directly from `jsProcessResources` instead.
+See https://github.com/huanshankeji/compose-multiplatform-html-unified/issues/34 for more details.
+*/
+tasks.named<ProcessResources>("jsProcessResources") {
+    exclude("skiko.mjs", "skiko.wasm", "skikod8.mjs")
 }
 
 android {
