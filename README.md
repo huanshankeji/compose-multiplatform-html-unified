@@ -136,7 +136,7 @@ The parameter names with suffixes such as "JsDom" or "ComposeUi" are platform-sp
 
 #### Material Icons
 
-The `com.huanshankeji.compose.material.icons.Icon` class delegates to both kinds of targets, but only a few Material Icons are added as PoC. You need to add your concrete icon implementations following the style of the existing ones in `com.huanshankeji.compose.material.icons` to use the icons you need. Track the progress of full icon support in [#4](/../../issues/4).
+The `com.huanshankeji.compose.material.icons.Icon` class delegates to both kinds of targets. All common Material Icons that exist in both `material-icons-extended` (v1.7.3) and [Material Symbols](https://github.com/marella/material-symbols) are supported, covering `Icons.Filled` and `Icons.AutoMirrored.Filled`.
 
 ### Modifiers
 
