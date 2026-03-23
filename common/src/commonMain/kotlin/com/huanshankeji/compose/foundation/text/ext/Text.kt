@@ -5,7 +5,8 @@ import com.huanshankeji.compose.foundation.text.BasicText
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.graphics.ColorProducer
 
-const val INLINE_TEXT_DEPRECATED_MESSAGE = "Both text with or without a `span` tag can be inline."
+const val INLINE_TEXT_DEPRECATED_MESSAGE =
+    "The word \"inline\" used here is inaccurate. Both text with or without a `span` tag can be inline in HTML terms."
 
 @Deprecated(INLINE_TEXT_DEPRECATED_MESSAGE, ReplaceWith("TaglessBasicText(text)"))
 @Composable
