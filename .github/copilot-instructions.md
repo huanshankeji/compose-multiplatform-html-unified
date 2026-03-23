@@ -5,7 +5,7 @@
 **Compose Multiplatform HTML Unified** is a Kotlin Multiplatform library that provides unified Compose Multiplatform wrappers of common and Material Design APIs for both **rendering-based Compose UI** (Android, desktop JVM, iOS, web Kotlin/Wasm) and **DOM-based Compose HTML**. This library was previously named "Compose Multiplatform Material".
 
 ### Repository Statistics
-- **Size**: Medium-large multiplatform project with ~15 modules
+- **Size**: Medium-large multiplatform project with ~8 modules (common, material-icons-core, material2, material3, navigation, lifecycle-viewmodel, demo, plus buildSrc)
 - **Language**: Kotlin (multiplatform)
 - **Build System**: Gradle with Kotlin DSL
 - **Target Platforms**: JVM, Android, iOS, JS (DOM), Wasm-JS (Canvas)
@@ -62,7 +62,9 @@
 ### Build Configuration Details
 
 #### Memory Requirements
-- **Gradle JVM**: 2GB memory allocated via `org.gradle.jvmargs=-Xmx2G` in gradle.properties (required for Wasm compilation)
+
+- **Gradle JVM**: 4GB memory allocated via `org.gradle.jvmargs=-Xmx4G` in gradle.properties (required for Wasm
+  compilation)
 
 #### Common Build Issues and Workarounds
 
@@ -84,7 +86,7 @@
 - Demo builds: 2-4 minutes
 
 **Common Issues**:
-- **Wasm Compilation**: Requires 2GB+ heap memory (pre-configured in gradle.properties)
+- **Wasm Compilation**: Requires 4GB+ heap memory (pre-configured in gradle.properties)
 - **Network Dependencies**: Initial builds require internet access for dependency resolution
 - **Platform-specific builds**: Some targets may be disabled on certain OS (use `--continue` flag)
 
@@ -94,7 +96,7 @@
 ```
 ├── common/                    # Core APIs, layouts, modifiers (foundation equivalent)
 ├── material-icons-core/       # Icon system core
-├── material2/                 # Material Design 2 components  
+├── material2/                 # Material Design 2 components (broken with KMDC's old dependencies, kept for reference, not published)
 ├── material3/                 # Material Design 3 components
 ├── navigation/               # Navigation support (experimental)
 ├── lifecycle-viewmodel/      # ViewModel support (experimental)
@@ -118,8 +120,10 @@ src/
 ├── androidMain/          # Android-specific implementations
 ├── jsMain/               # JS DOM implementations (Kobweb/HTML)
 ├── jvmMain/              # Desktop JVM implementations
+├── wasmJsMain/           # Wasm-JS specific implementations
 └── iosMain/              # iOS-specific implementations
 ```
+Not all modules have all source sets. For example, library modules typically have `commonMain`, `composeUiMain`, and `jsMain`, while the demo module has platform-specific source sets like `jvmMain`, `wasmJsMain`, and `iosMain`.
 
 ### Dependencies and External Integration
 
@@ -261,6 +265,22 @@ Non-expect `class`, `interface`, or `enum class` can also be used for types not 
    - Mark JS implementations with `@MaterialWebLabsApi` when they depend on Material Web labs components
    - Opt-in to `@MaterialWebLabsApi` if Compose UI visual effects can already be achieved with consistency on JS DOM
 
+**Platform-Limited Parameters:**
+Some parameters only work on certain platforms (typically only on Compose UI and not on JS DOM). When this is the case:
+- Document it in KDoc with `@param paramName currently only working on Compose UI.`
+- Add an inline comment in the JS DOM implementation explaining why it's not passed (e.g., `// not passed here, not sure whether it's supported by the underlying component`)
+- Examples: `enabled` in tabs, `space` in segmented button rows
+
+**"Copied and Adapted" Code:**
+Some implementations are carefully copied and adapted from `androidx.compose.material3` or other official Compose sources. These should have a comment like:
+```kotlin
+// Copied and adapted from `ComponentName` in `androidx.compose.material3`. Do not edit without referencing to the original corresponding implementation.
+```
+This prevents casual modifications that could break the carefully adapted logic.
+
+**Avoiding Duplicate Components:**
+Before adding a new component to the demo or a new wrapper, always search the existing codebase to verify it doesn't already exist. For example, if `List` with `ListItem` is already implemented via `ListScope.ListItem`, do not add a second `List` component. Check both the main package and the `ext` package.
+
 ## Adding New Components
 
 When adding a new component to the library, follow these additional steps:
@@ -280,6 +300,7 @@ When adding a new component to the library, follow these additional steps:
 ### Root Directory Files
 ```
 .gitignore              # Standard exclusions plus .kotlin, local.properties  
+AGENTS.md               # Points to copilot-instructions.md
 build.gradle.kts        # Root build file with binary compatibility validator
 CHANGELOG.md            # Detailed version history with breaking changes
 CODE_OF_CONDUCT.md      # Standard code of conduct
@@ -321,7 +342,7 @@ This allows the agent to iterate on fixes — making code changes, rebuilding, r
 
 - **Trust These Instructions**: Only perform additional searches if information here is incomplete or incorrect
 - **Network Dependency**: Initial builds require internet access for dependency resolution
-- **Memory Requirements**: Ensure adequate memory for Wasm compilation (2GB JVM heap configured)
+- **Memory Requirements**: Ensure adequate memory for Wasm compilation (4GB JVM heap configured)
 - **Limited Test Coverage**: Don't expect comprehensive test suites - focus on build and demo validation
 - **Platform Complexity**: This is a sophisticated multiplatform project with 6+ target platforms and complex expect/actual patterns
 

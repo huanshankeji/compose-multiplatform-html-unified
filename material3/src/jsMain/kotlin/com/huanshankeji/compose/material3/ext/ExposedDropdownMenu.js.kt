@@ -48,7 +48,7 @@ actual class ExposedDropdownMenuBoxScope(
                 //id(ANCHOR_ID) // An alternative approach by setting IDs. Duplicate IDs are semantically incorrect, however.
 
                 refSetAnchorElementState(anchorElementState.component2())
-                // only fired when `expanded` set to `true` to be consistent with the `androidx.compose` one behavior
+                // only fired when `expanded` set to `true` to be consistent with the Compose UI one behavior
                 if (!expanded)
                     onClick {
                         onExpandedChange(true)

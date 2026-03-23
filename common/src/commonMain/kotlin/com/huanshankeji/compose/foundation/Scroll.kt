@@ -35,7 +35,7 @@ See https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollTop.
  */
 /**
  * Note that if the component is a layout, for example a Material card,
- * it applies to the target as a whole on `androidx` targets, but applies to its content on JS DOM.
+ * it applies to the target as a whole on Compose UI targets, but applies to its content on JS DOM.
  * For consistency on different platforms, components such as [VerticalScrollContainer], [VerticalScrollBox], [VerticalScrollColumn] are recommended over this modifier.
  */
 @Deprecated(SCROLL_MODIFIER_DEPRECATION_MESSAGE)

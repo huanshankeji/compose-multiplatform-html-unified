@@ -45,7 +45,7 @@ internal fun CommonDropdownMenu(
                     it(false)
                 }
             }*/
-            //onClosing<SyntheticEvent<*>> { onDismissRequest() } // the `androidx.compose` one invokes `onDismissRequest` only when the menu is closed and an item is not selected.
+            //onClosing<SyntheticEvent<*>> { onDismissRequest() } // the Compose UI one invokes `onDismissRequest` only when the menu is closed and an item is not selected.
             onClosing<SyntheticEvent<*>> { onCloseJsDom() }
 
             attrs?.invoke(this)

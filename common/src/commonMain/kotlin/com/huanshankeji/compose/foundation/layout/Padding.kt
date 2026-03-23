@@ -35,8 +35,8 @@ expect fun Modifier.padding(start: Dp = 0.dp, top: Dp = 0.dp, end: Dp = 0.dp, bo
 expect fun Modifier.padding(horizontal: Dp = 0.dp, vertical: Dp = 0.dp): Modifier
 
 /**
- * Padding works differently on `androidx.compose` and CSS.
- * In `androidx.compose`, the `padding` modifier adds a layer of wrapper around the component, and [order of modifiers matters](https://developer.android.com/develop/ui/compose/modifiers#order-modifier-matters);
+ * Padding works differently on Compose UI and CSS.
+ * In Compose UI, the `padding` modifier adds a layer of wrapper around the component, and [order of modifiers matters](https://developer.android.com/develop/ui/compose/modifiers#order-modifier-matters);
  * while in CSS, this function delegates to the `margin` CSS properties.
  * @see outerPadding
  * @see innerPadding
