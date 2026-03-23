@@ -1,5 +1,6 @@
 import com.huanshankeji.cpnProject
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
+import org.jetbrains.kotlin.gradle.plugin.KotlinPlatformType
 
 plugins {
     `common-conventions`
@@ -79,6 +80,10 @@ kotlin {
             }
         }
     }
+    // To exclude the Skiko dependencies on JS, but it doesn't work.
+    composeCompiler {
+        targetKotlinPlatforms.set(KotlinPlatformType.entries - KotlinPlatformType.js)
+    }
 }
 
 val `package` = "$group.compose.material.demo"
@@ -88,12 +93,6 @@ compose {
         application {
             mainClass = "$`package`.MainKt"
         }
-    }
-    web {
-        // Only configure Skiko for the wasmJs target which uses rendering-based Compose UI.
-        // The js target uses DOM-based Compose HTML and does not need Skiko.
-        @OptIn(ExperimentalWasmDsl::class)
-        targets(kotlin.wasmJs())
     }
 }
 
