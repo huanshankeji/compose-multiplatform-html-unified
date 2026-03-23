@@ -62,7 +62,9 @@
 ### Build Configuration Details
 
 #### Memory Requirements
-- **Gradle JVM**: 4GB memory allocated via `org.gradle.jvmargs=-Xmx4G` in gradle.properties (required for Wasm compilation and Dokka)
+
+- **Gradle JVM**: 4GB memory allocated via `org.gradle.jvmargs=-Xmx4G` in gradle.properties (required for Wasm
+  compilation)
 
 #### Common Build Issues and Workarounds
 
