@@ -1,36 +1,11 @@
 import com.huanshankeji.cpnProject
-import org.gradle.language.jvm.tasks.ProcessResources
-import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 
 plugins {
     `common-conventions`
-    id("com.android.application")
 }
 
 kotlin {
-    androidTarget()
-
-    listOf(
-        iosArm64(),
-        iosSimulatorArm64()
-    ).forEach { iosTarget ->
-        iosTarget.binaries.framework {
-            baseName = "ComposeApp"
-            isStatic = true
-        }
-    }
-
     val outputFileName = "app.js"
-
-    @OptIn(ExperimentalWasmDsl::class)
-    wasmJs {
-        browser {
-            commonWebpackConfig {
-                this.outputFileName = outputFileName
-            }
-        }
-        binaries.executable()
-    }
 
     js {
         browser {
@@ -57,22 +32,6 @@ kotlin {
                 implementation(commonDependencies.kotlinx.coroutines.core())
             }
         }
-        composeUiMain {
-            dependencies {
-                implementation(compose.ui)
-            }
-        }
-        jvmMain {
-            dependencies {
-                implementation(compose.desktop.currentOs)
-            }
-        }
-        androidMain {
-            dependencies {
-                implementation(commonDependencies.androidx.activity.compose())
-                implementation(commonDependencies.androidx.compose.ui.module("tooling-preview"))
-            }
-        }
         jsMain {
             dependencies {
                 implementation(compose.html.core)
@@ -83,14 +42,6 @@ kotlin {
 }
 
 val `package` = "$group.compose.material.demo"
-
-compose {
-    desktop {
-        application {
-            mainClass = "$`package`.MainKt"
-        }
-    }
-}
 
 /*
 Exclude Skiko files from the JS DOM distribution.
@@ -108,41 +59,4 @@ See https://github.com/huanshankeji/compose-multiplatform-html-unified/issues/34
 */
 tasks.named<ProcessResources>("jsProcessResources") {
     exclude("skiko.mjs", "skiko.wasm", "skikod8.mjs")
-}
-
-android {
-    namespace = `package`
-
-    val sdk = androidSdkVersion
-    compileSdk = sdk
-
-    defaultConfig {
-        applicationId = `package`
-        minSdk = 24
-        targetSdk = sdk
-        versionName = version as String
-    }
-
-    buildFeatures {
-        compose = true
-    }
-    dependencies {
-        debugImplementation(compose.uiTooling)
-    }
-}
-
-val jsBrowserDistribution by tasks.getting(Sync::class)
-val wasmJsBrowserDistribution by tasks.getting(Sync::class)
-
-tasks.register<Sync>("sideBySideBrowserDistribution") {
-    group = "kotlin browser"
-
-    into(layout.buildDirectory.dir("dist/sideBySide/productionExecutable"))
-    from(jsBrowserDistribution) {
-        into("js-dom")
-    }
-    from(wasmJsBrowserDistribution) {
-        into("wasm-js-canvas")
-    }
-    from(projectDir.resolve("side-by-side-site"))
 }

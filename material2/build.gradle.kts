@@ -1,6 +1,4 @@
 import com.huanshankeji.cpnProject
-import com.huanshankeji.team.ShreckYe
-import com.huanshankeji.team.pomForTeamDefaultOpenSource
 
 plugins {
     `lib-conventions-without-publishing`
@@ -21,12 +19,6 @@ kotlin {
                 api(cpnProject(project, ":material-icons-core"))
                 //compileOnly(compose.material) // for KDoc element links only
                 implementation(commonDependencies.kotlinx.coroutines.core())
-            }
-        }
-        composeUiMain {
-            dependencies {
-                //implementation(compose.foundation) // not needed
-                implementation(compose.material)
             }
         }
         jsMain {

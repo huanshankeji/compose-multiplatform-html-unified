@@ -17,11 +17,6 @@ kotlin {
                 implementation(compose.runtime)
             }
         }
-        composeUiMain {
-            dependencies {
-                api("org.jetbrains.compose.material:material-icons-extended:${DependencyVersions.composeMultiplatformMaterialIconsExtended}")
-            }
-        }
     }
 }
 

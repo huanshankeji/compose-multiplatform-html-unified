@@ -1,6 +1,3 @@
-import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
-import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
-
 plugins {
     kotlin("multiplatform")
     kotlin("plugin.compose")
@@ -17,22 +14,6 @@ group = "com.huanshankeji"
 version = projectVersion
 
 kotlin {
-    // for Compose UI
-
-    jvm() // TODO: `jvm("desktop")`?
-    jvmToolchain(17)
-
-    //androidTarget()
-
-    iosArm64()
-    iosSimulatorArm64()
-
-    @OptIn(ExperimentalWasmDsl::class)
-    wasmJs {
-        browser()
-    }
-
-
     // for JS and HTML wrappers
 
     js {
@@ -41,20 +22,6 @@ kotlin {
 
         compilerOptions {
             target.set("es2015")
-        }
-    }
-
-
-
-    @OptIn(ExperimentalKotlinGradlePluginApi::class)
-    applyDefaultHierarchyTemplate {
-        common {
-            group("composeUi") {
-                withJvm()
-                withAndroidTarget()
-                group("ios")
-                withWasmJs()
-            }
         }
     }
 

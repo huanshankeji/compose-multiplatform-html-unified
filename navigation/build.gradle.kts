@@ -24,11 +24,6 @@ kotlin {
                 api(cpnProject(project, ":lifecycle-viewmodel"))
             }
         }
-        composeUiMain {
-            dependencies {
-                api(commonDependencies.jetbrainsAndroidx.navigation.compose())
-            }
-        }
     }
 }
 

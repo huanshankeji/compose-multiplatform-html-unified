@@ -22,11 +22,6 @@ kotlin {
                 api(cpnProject(project, ":common"))
             }
         }
-        composeUiMain {
-            dependencies {
-                api(commonDependencies.jetbrainsAndroidx.lifecycle.viewmodelCompose())
-            }
-        }
     }
 }
 

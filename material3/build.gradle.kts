@@ -29,11 +29,6 @@ kotlin {
                 implementation(commonDependencies.kotlinx.coroutines.core())
             }
         }
-        composeUiMain {
-            dependencies {
-                api(compose.material3)
-            }
-        }
         jsMain {
             dependencies {
                 api("com.huanshankeji:compose-html-material3:${DependencyVersions.huanshankejiComposeHtml}") { exclude("org.jetbrains.kotlin") }

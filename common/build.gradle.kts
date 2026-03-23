@@ -44,12 +44,6 @@ kotlin {
                 implementation("org.jetbrains.compose.annotation-internal:annotation:${DependencyVersions.composeMultiplatform}")
             }
         }
-        composeUiMain {
-            dependencies {
-                api(compose.foundation)
-                implementation(compose.ui)
-            }
-        }
         jsMain {
             dependencies {
                 api(compose.html.core)
