@@ -136,7 +136,12 @@ The parameter names with suffixes such as "JsDom" or "ComposeUi" are platform-sp
 
 #### Material Icons
 
-The `com.huanshankeji.compose.material.icons.Icon` class delegates to both kinds of targets. All common Material Icons that exist in both `material-icons-extended` (v1.7.3) and [Material Symbols](https://github.com/marella/material-symbols) are supported, covering `Icons.Filled` and `Icons.AutoMirrored.Filled`.
+There are two icon modules:
+
+- **`material-icons-core`**: Contains the core set of Material Icons (same icons as in `org.jetbrains.compose.material:material-icons-core`). Only `Filled` and `AutoMirrored.Filled` styles are supported.
+- **`material-icons-extended`**: Contains all common Material Icons that exist in both `org.jetbrains.compose.material:material-icons-extended` (v1.7.3) and [Material Symbols](https://github.com/marella/material-symbols). Only `Filled` and `AutoMirrored.Filled` styles are supported. Depends on `material-icons-core`.
+
+Note: The version of `org.jetbrains.compose.material:material-icons-extended` is pinned at 1.7.3 because [Compose officially recommends](https://developer.android.com/develop/ui/compose/graphics/images/material) using individual SVG/vector assets from [Google Fonts](https://fonts.google.com/icons) rather than adding the extended icon library as a dependency, as the latter significantly increases build time and artifact size. As such, these icon modules serve more for **prototyping purposes** currently. When using `material-icons-extended`, ensure that Proguard / R8 resource shrinking is enabled in production builds.
 
 ### Modifiers
 
