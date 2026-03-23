@@ -70,10 +70,10 @@ Miscellaneous changes:
 
 * make the demo UI friendly on mobile
 
-## v0.3.0 / 2024-5-10
+## v0.3.0 / 2024-05-10
 
 Support Material 3. See the Updated README.md for more details.
 
-## v0.2.0 / 2024-4-17
+## v0.2.0 / 2024-04-17
 
 The project now depends on Kobweb Silk on Kotlin/JS (Compose HTML) and there is a universal multiplatform interface for `Modifier`, scopes, etc. akin to those in `androidx.compose`. Obsolete code including `ModifierOrAttrsScope` is moved to a legacy module.
