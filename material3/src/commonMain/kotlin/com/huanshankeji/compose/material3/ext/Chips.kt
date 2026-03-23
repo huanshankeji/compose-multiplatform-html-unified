@@ -3,6 +3,12 @@ package com.huanshankeji.compose.material3.ext
 import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.ui.Modifier
 
+/*
+https://m3.material.io/components/chips/overview
+https://developer.android.com/develop/ui/compose/components/chip
+https://kotlinlang.org/api/compose-multiplatform/material3/androidx.compose.material3/-assist-chip.html
+ */
+
 /**
  * Material Design assist chip.
  *

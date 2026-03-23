@@ -4,6 +4,12 @@ import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.material.icons.Icon
 import com.huanshankeji.compose.ui.Modifier
 
+/*
+https://m3.material.io/components/buttons/overview
+https://developer.android.com/develop/ui/compose/components/button
+https://kotlinlang.org/api/compose-multiplatform/material3/androidx.compose.material3/-button.html
+ */
+
 /**
  * filled button
  * @param icon the [Modifier] parameter contains the attributes to be set on this icon on JS. You are supposed to pass this [Modifier] to the top-level composable that you invoke inside.

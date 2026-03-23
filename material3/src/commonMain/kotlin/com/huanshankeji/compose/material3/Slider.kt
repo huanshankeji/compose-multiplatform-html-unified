@@ -3,6 +3,12 @@ package com.huanshankeji.compose.material3
 import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.ui.Modifier
 
+/*
+https://m3.material.io/components/sliders/overview
+https://developer.android.com/develop/ui/compose/components/slider
+https://kotlinlang.org/api/compose-multiplatform/material3/androidx.compose.material3/-slider.html
+ */
+
 /**
  * Material Design slider.
  *

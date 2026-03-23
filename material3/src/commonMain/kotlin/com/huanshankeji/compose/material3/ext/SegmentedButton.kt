@@ -6,6 +6,12 @@ import com.huanshankeji.compose.material3.SegmentedButtonDefaultShapeArgs
 import com.huanshankeji.compose.material3.SingleChoiceSegmentedButtonRowScope
 import com.huanshankeji.compose.ui.Modifier
 
+/*
+https://m3.material.io/components/segmented-buttons/overview
+https://developer.android.com/develop/ui/compose/components/segmented-button
+https://kotlinlang.org/api/compose-multiplatform/material3/androidx.compose.material3/-segmented-button.html
+ */
+
 /**
  * Material Design segmented button.
  *

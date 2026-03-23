@@ -13,11 +13,6 @@ import androidx.compose.ui.unit.dp
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.PlatformModifier
 
-/*
-https://developer.android.com/develop/ui/compose/components/radio-button
-https://developer.android.com/develop/ui/compose/components/radio-button#create-basic
- */
-
 @Composable
 actual fun RadioButton(
     selected: Boolean,

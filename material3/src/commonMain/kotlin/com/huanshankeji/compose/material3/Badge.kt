@@ -3,6 +3,11 @@ package com.huanshankeji.compose.material3
 import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.ui.Modifier
 
+/*
+https://m3.material.io/components/badges/overview
+https://kotlinlang.org/api/compose-multiplatform/material3/androidx.compose.material3/-badge.html
+ */
+
 /**
  * Material Design badge.
  *
