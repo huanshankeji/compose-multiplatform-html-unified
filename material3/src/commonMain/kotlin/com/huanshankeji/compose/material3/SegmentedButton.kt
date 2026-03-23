@@ -4,6 +4,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.Dp
 import com.huanshankeji.compose.ui.Modifier
 
+/*
+https://kotlinlang.org/api/compose-multiplatform/material3/androidx.compose.material3/-single-choice-segmented-button-row.html
+ */
+
 /**
  * Material Design single-choice segmented button row.
  *

@@ -6,6 +6,7 @@ import com.huanshankeji.compose.ui.Modifier
 
 /*
 https://m3.material.io/styles/icons/overview
+https://kotlinlang.org/api/compose-multiplatform/material3/androidx.compose.material3/-icon.html
  */
 
 @Composable

@@ -5,6 +5,8 @@ import com.huanshankeji.compose.ui.Modifier
 
 /*
 https://m3.material.io/components/cards/overview
+https://developer.android.com/develop/ui/compose/components/card
+https://kotlinlang.org/api/compose-multiplatform/material3/androidx.compose.material3/-card.html
  */
 
 @Composable
