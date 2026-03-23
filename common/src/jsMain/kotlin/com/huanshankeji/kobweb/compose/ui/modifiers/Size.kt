@@ -13,7 +13,7 @@ fun Modifier.size(width: Width, height: Height): Modifier =
         height(height)
     }
 
-//TODO consider removing and inlining this
+// TODO consider removing and inlining this
 /**
  * Consider using [Modifier.imitateComposeUiLayout] instead when adding this for a layout.
  */

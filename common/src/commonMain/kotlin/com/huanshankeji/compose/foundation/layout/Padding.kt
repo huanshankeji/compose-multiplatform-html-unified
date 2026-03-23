@@ -8,7 +8,7 @@ import com.huanshankeji.compose.foundation.layout.ext.innerPadding
 import com.huanshankeji.compose.foundation.layout.ext.outerPadding
 import com.huanshankeji.compose.ui.Modifier
 
-private const val PADDING_DEPRECATED_MESSAGE = "Use `outerPadding` or checkout out `innerPadding` instead."
+private const val PADDING_DEPRECATED_MESSAGE = "Use `outerPadding` or check out `innerPadding` instead."
 
 private const val REPLACE_WITH_PACKAGE = "com.huanshankeji.compose.foundation.layout.ext"
 private const val OUTER_PADDING_REPLACE_WITH_IMPORT = "$REPLACE_WITH_PACKAGE.outerPadding"

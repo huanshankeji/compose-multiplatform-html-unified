@@ -46,7 +46,7 @@ expect class ExposedDropdownMenuBoxScope {
         content: @Composable /*ColumnScope.*/() -> Unit,
     )
 
-    //TODO for `DropdownMenuItem`: `contentPadding = ExposedDropdownMenuDefaults.ItemContentPadding`
+    // TODO for `DropdownMenuItem`: `contentPadding = ExposedDropdownMenuDefaults.ItemContentPadding`
 }
 
 @Composable
