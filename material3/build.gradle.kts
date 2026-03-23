@@ -24,7 +24,7 @@ kotlin {
             dependencies {
                 api(compose.runtime)
                 api(cpnProject(project, ":common"))
-                api(cpnProject(project, ":material-icons-core"))
+                api(cpnProject(project, ":material-icons:core"))
                 //compileOnly(compose.material) // for KDoc element links only
                 implementation(commonDependencies.kotlinx.coroutines.core())
             }

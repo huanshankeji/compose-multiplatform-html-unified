@@ -1,0 +1,47 @@
+package com.huanshankeji.compose.material.icons.filled
+
+import com.huanshankeji.compose.material.icons.Icon
+import com.huanshankeji.compose.material.icons.Icons
+
+expect val Icons.Filled.AccountBox: Icon
+expect val Icons.Filled.AccountCircle: Icon
+expect val Icons.Filled.Add: Icon
+expect val Icons.Filled.AddCircle: Icon
+expect val Icons.Filled.ArrowBack: Icon
+expect val Icons.Filled.ArrowDropDown: Icon
+expect val Icons.Filled.ArrowForward: Icon
+expect val Icons.Filled.Build: Icon
+expect val Icons.Filled.Call: Icon
+expect val Icons.Filled.Check: Icon
+expect val Icons.Filled.CheckCircle: Icon
+expect val Icons.Filled.Close: Icon
+expect val Icons.Filled.DateRange: Icon
+expect val Icons.Filled.Delete: Icon
+expect val Icons.Filled.Done: Icon
+expect val Icons.Filled.Edit: Icon
+expect val Icons.Filled.ExitToApp: Icon
+expect val Icons.Filled.Face: Icon
+expect val Icons.Filled.Favorite: Icon
+expect val Icons.Filled.Home: Icon
+expect val Icons.Filled.Info: Icon
+expect val Icons.Filled.KeyboardArrowDown: Icon
+expect val Icons.Filled.KeyboardArrowLeft: Icon
+expect val Icons.Filled.KeyboardArrowRight: Icon
+expect val Icons.Filled.KeyboardArrowUp: Icon
+expect val Icons.Filled.List: Icon
+expect val Icons.Filled.Lock: Icon
+expect val Icons.Filled.Menu: Icon
+expect val Icons.Filled.MoreVert: Icon
+expect val Icons.Filled.Notifications: Icon
+expect val Icons.Filled.Person: Icon
+expect val Icons.Filled.Place: Icon
+expect val Icons.Filled.PlayArrow: Icon
+expect val Icons.Filled.Refresh: Icon
+expect val Icons.Filled.Search: Icon
+expect val Icons.Filled.Send: Icon
+expect val Icons.Filled.Settings: Icon
+expect val Icons.Filled.Share: Icon
+expect val Icons.Filled.ShoppingCart: Icon
+expect val Icons.Filled.Star: Icon
+expect val Icons.Filled.ThumbUp: Icon
+expect val Icons.Filled.Warning: Icon

@@ -1,0 +1,117 @@
+public final class com/huanshankeji/compose/material/icons/Icons {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/huanshankeji/compose/material/icons/Icons;
+	public final fun getDefault ()Lcom/huanshankeji/compose/material/icons/Icons$Filled;
+}
+
+public final class com/huanshankeji/compose/material/icons/Icons$AutoMirrored {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/huanshankeji/compose/material/icons/Icons$AutoMirrored;
+	public final fun getDefault ()Lcom/huanshankeji/compose/material/icons/Icons$AutoMirrored$Filled;
+}
+
+public final class com/huanshankeji/compose/material/icons/Icons$AutoMirrored$Filled {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/huanshankeji/compose/material/icons/Icons$AutoMirrored$Filled;
+}
+
+public final class com/huanshankeji/compose/material/icons/Icons$AutoMirrored$Outlined {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/huanshankeji/compose/material/icons/Icons$AutoMirrored$Outlined;
+}
+
+public final class com/huanshankeji/compose/material/icons/Icons$AutoMirrored$Rounded {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/huanshankeji/compose/material/icons/Icons$AutoMirrored$Rounded;
+}
+
+public final class com/huanshankeji/compose/material/icons/Icons$AutoMirrored$Sharp {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/huanshankeji/compose/material/icons/Icons$AutoMirrored$Sharp;
+}
+
+public final class com/huanshankeji/compose/material/icons/Icons$AutoMirrored$TwoTone {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/huanshankeji/compose/material/icons/Icons$AutoMirrored$TwoTone;
+}
+
+public final class com/huanshankeji/compose/material/icons/Icons$Filled {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/huanshankeji/compose/material/icons/Icons$Filled;
+}
+
+public final class com/huanshankeji/compose/material/icons/Icons$Outlined {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/huanshankeji/compose/material/icons/Icons$Outlined;
+}
+
+public final class com/huanshankeji/compose/material/icons/Icons$Rounded {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/huanshankeji/compose/material/icons/Icons$Rounded;
+}
+
+public final class com/huanshankeji/compose/material/icons/Icons$Sharp {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/huanshankeji/compose/material/icons/Icons$Sharp;
+}
+
+public final class com/huanshankeji/compose/material/icons/Icons$TwoTone {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/huanshankeji/compose/material/icons/Icons$TwoTone;
+}
+
+public final class com/huanshankeji/compose/material/icons/automirrored/filled/Icons_composeUiKt {
+	public static final fun getArrowBack (Lcom/huanshankeji/compose/material/icons/Icons$AutoMirrored$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
+	public static final fun getArrowForward (Lcom/huanshankeji/compose/material/icons/Icons$AutoMirrored$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
+	public static final fun getExitToApp (Lcom/huanshankeji/compose/material/icons/Icons$AutoMirrored$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
+	public static final fun getKeyboardArrowLeft (Lcom/huanshankeji/compose/material/icons/Icons$AutoMirrored$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
+	public static final fun getKeyboardArrowRight (Lcom/huanshankeji/compose/material/icons/Icons$AutoMirrored$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
+	public static final fun getList (Lcom/huanshankeji/compose/material/icons/Icons$AutoMirrored$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
+	public static final fun getSend (Lcom/huanshankeji/compose/material/icons/Icons$AutoMirrored$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
+public final class com/huanshankeji/compose/material/icons/filled/Icons_composeUiKt {
+	public static final fun getAccountBox (Lcom/huanshankeji/compose/material/icons/Icons$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
+	public static final fun getAccountCircle (Lcom/huanshankeji/compose/material/icons/Icons$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
+	public static final fun getAdd (Lcom/huanshankeji/compose/material/icons/Icons$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
+	public static final fun getAddCircle (Lcom/huanshankeji/compose/material/icons/Icons$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
+	public static final fun getArrowBack (Lcom/huanshankeji/compose/material/icons/Icons$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
+	public static final fun getArrowDropDown (Lcom/huanshankeji/compose/material/icons/Icons$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
+	public static final fun getArrowForward (Lcom/huanshankeji/compose/material/icons/Icons$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
+	public static final fun getBuild (Lcom/huanshankeji/compose/material/icons/Icons$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
+	public static final fun getCall (Lcom/huanshankeji/compose/material/icons/Icons$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
+	public static final fun getCheck (Lcom/huanshankeji/compose/material/icons/Icons$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
+	public static final fun getCheckCircle (Lcom/huanshankeji/compose/material/icons/Icons$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
+	public static final fun getClose (Lcom/huanshankeji/compose/material/icons/Icons$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
+	public static final fun getDateRange (Lcom/huanshankeji/compose/material/icons/Icons$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
+	public static final fun getDelete (Lcom/huanshankeji/compose/material/icons/Icons$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
+	public static final fun getDone (Lcom/huanshankeji/compose/material/icons/Icons$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
+	public static final fun getEdit (Lcom/huanshankeji/compose/material/icons/Icons$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
+	public static final fun getExitToApp (Lcom/huanshankeji/compose/material/icons/Icons$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
+	public static final fun getFace (Lcom/huanshankeji/compose/material/icons/Icons$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
+	public static final fun getFavorite (Lcom/huanshankeji/compose/material/icons/Icons$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
+	public static final fun getHome (Lcom/huanshankeji/compose/material/icons/Icons$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
+	public static final fun getInfo (Lcom/huanshankeji/compose/material/icons/Icons$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
+	public static final fun getKeyboardArrowDown (Lcom/huanshankeji/compose/material/icons/Icons$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
+	public static final fun getKeyboardArrowLeft (Lcom/huanshankeji/compose/material/icons/Icons$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
+	public static final fun getKeyboardArrowRight (Lcom/huanshankeji/compose/material/icons/Icons$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
+	public static final fun getKeyboardArrowUp (Lcom/huanshankeji/compose/material/icons/Icons$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
+	public static final fun getList (Lcom/huanshankeji/compose/material/icons/Icons$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
+	public static final fun getLock (Lcom/huanshankeji/compose/material/icons/Icons$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
+	public static final fun getMenu (Lcom/huanshankeji/compose/material/icons/Icons$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
+	public static final fun getMoreVert (Lcom/huanshankeji/compose/material/icons/Icons$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
+	public static final fun getNotifications (Lcom/huanshankeji/compose/material/icons/Icons$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
+	public static final fun getPerson (Lcom/huanshankeji/compose/material/icons/Icons$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
+	public static final fun getPlace (Lcom/huanshankeji/compose/material/icons/Icons$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
+	public static final fun getPlayArrow (Lcom/huanshankeji/compose/material/icons/Icons$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
+	public static final fun getRefresh (Lcom/huanshankeji/compose/material/icons/Icons$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
+	public static final fun getSearch (Lcom/huanshankeji/compose/material/icons/Icons$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
+	public static final fun getSend (Lcom/huanshankeji/compose/material/icons/Icons$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
+	public static final fun getSettings (Lcom/huanshankeji/compose/material/icons/Icons$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
+	public static final fun getShare (Lcom/huanshankeji/compose/material/icons/Icons$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
+	public static final fun getShoppingCart (Lcom/huanshankeji/compose/material/icons/Icons$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
+	public static final fun getStar (Lcom/huanshankeji/compose/material/icons/Icons$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
+	public static final fun getThumbUp (Lcom/huanshankeji/compose/material/icons/Icons$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
+	public static final fun getWarning (Lcom/huanshankeji/compose/material/icons/Icons$Filled;)Landroidx/compose/ui/graphics/vector/ImageVector;
+}
+
