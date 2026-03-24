@@ -19,7 +19,11 @@ apiValidation {
         enabled = true
     }
 
-    ignoredProjects += listOf(demoProjectName)
+    ignoredProjects += listOf(
+        demoProjectName,
+        "$rootProjectName-material-icons-core",
+        "$rootProjectName-material-icons-extended",
+    )
 }
 
 dependencies {

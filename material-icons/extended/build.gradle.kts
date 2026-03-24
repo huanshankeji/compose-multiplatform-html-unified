@@ -28,7 +28,7 @@ mavenPublishing {
             project,
             "Compose Multiplatform HTML Unified extended Icon wrappers",
             "Compose Multiplatform HTML Unified Design extended Icon wrappers for `androidx.compose` and Compose HTML",
-            "2024"
+            "2026"
         ) {
             ShreckYe()
         }

@@ -52,7 +52,10 @@ fun App() {
 @Composable
 fun Home(navController: NavHostController) {
     Box(Modifier.fillMaxSizeStretch(), contentAlignment = Alignment.Center) {
-        Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
+        Column(
+            verticalArrangement = Arrangement.spacedBy(16.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
             Button({ navController.navigate(Screen.Common.name) }) {
                 TaglessText("Common")
             }
