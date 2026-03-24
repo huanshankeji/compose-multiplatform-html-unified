@@ -51,7 +51,12 @@ fun CommonStyledText(
     maxLines: Int,
     minLines: Int,
 ) =
-    Span(modifier.toAttrsWithTextStyles(color, fontSize, fontStyle, fontWeight, letterSpacing, textDecoration, textAlign, lineHeight, overflow, softWrap, maxLines, minLines)) {
+    Span(
+        modifier.toAttrsWithTextStyles(
+            color, fontSize, fontStyle, fontWeight, letterSpacing, textDecoration, textAlign,
+            lineHeight, overflow, softWrap, maxLines, minLines,
+        )
+    ) {
         Text(text)
     }
 
@@ -73,7 +78,12 @@ fun CommonStyledText(
     maxLines: Int,
     minLines: Int,
 ) =
-    Span(modifier.toAttrsWithTextStyles(color, fontSize, fontStyle, fontWeight, letterSpacing, textDecoration, textAlign, lineHeight, overflow, softWrap, maxLines, minLines)) {
+    Span(
+        modifier.toAttrsWithTextStyles(
+            color, fontSize, fontStyle, fontWeight, letterSpacing, textDecoration, textAlign,
+            lineHeight, overflow, softWrap, maxLines, minLines,
+        )
+    ) {
         AnnotatedStringText(text)
     }
 
@@ -103,6 +113,7 @@ private fun Modifier.toAttrsWithTextStyles(
             applyLineHeight(lineHeight)
             applyStyle(overflow, softWrap, maxLines)
             if (minLines > 1) {
+                // The CSS `lh` unit requires relatively modern browsers (Chrome 109+, Firefox 120+, Safari 16.4+).
                 property("min-height", "${minLines}lh")
             }
         }

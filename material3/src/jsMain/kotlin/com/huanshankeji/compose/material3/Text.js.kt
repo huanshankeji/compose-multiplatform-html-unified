@@ -37,7 +37,11 @@ actual fun Text(
     minLines: Int,
 ) =
     @OptIn(InternalComposeApi::class)
-    CommonStyledText(text, modifier, color, fontSize, fontStyle, fontWeight, letterSpacing, textDecoration, textAlign, lineHeight, overflow, softWrap, maxLines, minLines)
+    CommonStyledText(
+        text, modifier, color,
+        fontSize, fontStyle, fontWeight, letterSpacing, textDecoration, textAlign,
+        lineHeight, overflow, softWrap, maxLines, minLines,
+    )
 
 @Composable
 actual fun Text(
@@ -57,4 +61,8 @@ actual fun Text(
     minLines: Int,
 ) =
     @OptIn(InternalComposeApi::class)
-    CommonStyledText(text, modifier, color, fontSize, fontStyle, fontWeight, letterSpacing, textDecoration, textAlign, lineHeight, overflow, softWrap, maxLines, minLines)
+    CommonStyledText(
+        text, modifier, color,
+        fontSize, fontStyle, fontWeight, letterSpacing, textDecoration, textAlign,
+        lineHeight, overflow, softWrap, maxLines, minLines,
+    )

@@ -23,6 +23,7 @@ fun AnnotatedStringText(annotatedString: AnnotatedString) {
             if (start >= end) continue
 
             val segment = text.substring(start, end)
+            // Since segments are split at style range boundaries, checking full containment is correct here.
             val applicableStyles = annotatedString.spanStyles.filter { it.start <= start && it.end >= end }
 
             if (applicableStyles.isEmpty()) {

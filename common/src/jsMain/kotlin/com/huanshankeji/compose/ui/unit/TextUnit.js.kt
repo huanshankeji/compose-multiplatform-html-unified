@@ -9,7 +9,7 @@ import org.jetbrains.compose.web.css.px
 
 fun TextUnit.toCssValue(): CSSNumericValue<*> =
     when (type) {
-        TextUnitType.Sp -> value.px // Sp maps to CSS px, same as Dp
+        TextUnitType.Sp -> value.px // Sp maps to CSS px in JS DOM (like Dp, though Sp is semantically for text sizes)
         TextUnitType.Em -> value.em
         else -> throw IllegalArgumentException("Unspecified TextUnit cannot be converted to CSS")
     }
