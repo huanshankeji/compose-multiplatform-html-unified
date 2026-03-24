@@ -6,7 +6,7 @@ import org.jetbrains.compose.web.css.fontStyle
 
 // copied and adapted from `androidx.compose.ui.text.font.FontStyle`
 @Immutable
-actual value class FontStyle(val value: Int) {
+actual value class FontStyle internal actual constructor(internal actual val value: Int) {
     override fun toString(): String =
         when (this) {
             Normal -> "Normal"

@@ -1,12 +1,8 @@
 package com.huanshankeji.compose.foundation.text
 
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.InternalComposeApi
-import com.huanshankeji.compose.foundation.text.ext.CommonStyledText
 import com.huanshankeji.compose.ui.Modifier
-import com.huanshankeji.compose.ui.graphics.Color
 import com.huanshankeji.compose.ui.graphics.ColorProducer
-import com.huanshankeji.compose.ui.graphics.toAttrsWithColor
 import com.huanshankeji.compose.ui.text.AnnotatedString
 import com.huanshankeji.compose.ui.text.AnnotatedStringText
 import com.huanshankeji.compose.ui.text.style.TextOverflow
