@@ -551,6 +551,90 @@ final class com.huanshankeji.compose.ui.graphics/Color { // com.huanshankeji.com
     constructor <init>(com.varabyte.kobweb.compose.ui.graphics/Color) // com.huanshankeji.compose.ui.graphics/Color.<init>|<init>(com.varabyte.kobweb.compose.ui.graphics.Color){}[0]
 }
 
+final class com.huanshankeji.compose.ui.text/AnnotatedString { // com.huanshankeji.compose.ui.text/AnnotatedString|null[0]
+    constructor <init>(kotlin/String, kotlin.collections/List<com.huanshankeji.compose.ui.text/AnnotatedString.Range<com.huanshankeji.compose.ui.text/SpanStyle>> = ...) // com.huanshankeji.compose.ui.text/AnnotatedString.<init>|<init>(kotlin.String;kotlin.collections.List<com.huanshankeji.compose.ui.text.AnnotatedString.Range<com.huanshankeji.compose.ui.text.SpanStyle>>){}[0]
+
+    final val spanStyles // com.huanshankeji.compose.ui.text/AnnotatedString.spanStyles|{}spanStyles[0]
+        final fun <get-spanStyles>(): kotlin.collections/List<com.huanshankeji.compose.ui.text/AnnotatedString.Range<com.huanshankeji.compose.ui.text/SpanStyle>> // com.huanshankeji.compose.ui.text/AnnotatedString.spanStyles.<get-spanStyles>|<get-spanStyles>(){}[0]
+    final val text // com.huanshankeji.compose.ui.text/AnnotatedString.text|{}text[0]
+        final fun <get-text>(): kotlin/String // com.huanshankeji.compose.ui.text/AnnotatedString.text.<get-text>|<get-text>(){}[0]
+
+    final class <#A1: kotlin/Any?> Range { // com.huanshankeji.compose.ui.text/AnnotatedString.Range|null[0]
+        constructor <init>(#A1, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.ui.text/AnnotatedString.Range.<init>|<init>(1:0;kotlin.Int;kotlin.Int){}[0]
+
+        final val end // com.huanshankeji.compose.ui.text/AnnotatedString.Range.end|{}end[0]
+            final fun <get-end>(): kotlin/Int // com.huanshankeji.compose.ui.text/AnnotatedString.Range.end.<get-end>|<get-end>(){}[0]
+        final val item // com.huanshankeji.compose.ui.text/AnnotatedString.Range.item|{}item[0]
+            final fun <get-item>(): #A1 // com.huanshankeji.compose.ui.text/AnnotatedString.Range.item.<get-item>|<get-item>(){}[0]
+        final val start // com.huanshankeji.compose.ui.text/AnnotatedString.Range.start|{}start[0]
+            final fun <get-start>(): kotlin/Int // com.huanshankeji.compose.ui.text/AnnotatedString.Range.start.<get-start>|<get-start>(){}[0]
+    }
+
+    final class Builder { // com.huanshankeji.compose.ui.text/AnnotatedString.Builder|null[0]
+        constructor <init>(kotlin/Int = ...) // com.huanshankeji.compose.ui.text/AnnotatedString.Builder.<init>|<init>(kotlin.Int){}[0]
+
+        final val length // com.huanshankeji.compose.ui.text/AnnotatedString.Builder.length|{}length[0]
+            final fun <get-length>(): kotlin/Int // com.huanshankeji.compose.ui.text/AnnotatedString.Builder.length.<get-length>|<get-length>(){}[0]
+
+        final fun addStyle(com.huanshankeji.compose.ui.text/SpanStyle, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.ui.text/AnnotatedString.Builder.addStyle|addStyle(com.huanshankeji.compose.ui.text.SpanStyle;kotlin.Int;kotlin.Int){}[0]
+        final fun append(com.huanshankeji.compose.ui.text/AnnotatedString) // com.huanshankeji.compose.ui.text/AnnotatedString.Builder.append|append(com.huanshankeji.compose.ui.text.AnnotatedString){}[0]
+        final fun append(kotlin/Char) // com.huanshankeji.compose.ui.text/AnnotatedString.Builder.append|append(kotlin.Char){}[0]
+        final fun append(kotlin/String) // com.huanshankeji.compose.ui.text/AnnotatedString.Builder.append|append(kotlin.String){}[0]
+        final fun pop() // com.huanshankeji.compose.ui.text/AnnotatedString.Builder.pop|pop(){}[0]
+        final fun pop(kotlin/Int) // com.huanshankeji.compose.ui.text/AnnotatedString.Builder.pop|pop(kotlin.Int){}[0]
+        final fun pushStyle(com.huanshankeji.compose.ui.text/SpanStyle): kotlin/Int // com.huanshankeji.compose.ui.text/AnnotatedString.Builder.pushStyle|pushStyle(com.huanshankeji.compose.ui.text.SpanStyle){}[0]
+        final fun toAnnotatedString(): com.huanshankeji.compose.ui.text/AnnotatedString // com.huanshankeji.compose.ui.text/AnnotatedString.Builder.toAnnotatedString|toAnnotatedString(){}[0]
+    }
+
+    // Targets: [ios, wasmJs]
+    final fun toPlatformValue(): androidx.compose.ui.text/AnnotatedString // com.huanshankeji.compose.ui.text/AnnotatedString.toPlatformValue|toPlatformValue(){}[0]
+
+    // Targets: [js]
+    final fun equals(kotlin/Any?): kotlin/Boolean // com.huanshankeji.compose.ui.text/AnnotatedString.equals|equals(kotlin.Any?){}[0]
+
+    // Targets: [js]
+    final fun hashCode(): kotlin/Int // com.huanshankeji.compose.ui.text/AnnotatedString.hashCode|hashCode(){}[0]
+
+    // Targets: [js]
+    final fun toString(): kotlin/String // com.huanshankeji.compose.ui.text/AnnotatedString.toString|toString(){}[0]
+}
+
+final class com.huanshankeji.compose.ui.text/SpanStyle { // com.huanshankeji.compose.ui.text/SpanStyle|null[0]
+    final val color // com.huanshankeji.compose.ui.text/SpanStyle.color|{}color[0]
+        final fun <get-color>(): com.huanshankeji.compose.ui.graphics/Color? // com.huanshankeji.compose.ui.text/SpanStyle.color.<get-color>|<get-color>(){}[0]
+    final val fontSize // com.huanshankeji.compose.ui.text/SpanStyle.fontSize|{}fontSize[0]
+        final fun <get-fontSize>(): androidx.compose.ui.unit/TextUnit // com.huanshankeji.compose.ui.text/SpanStyle.fontSize.<get-fontSize>|<get-fontSize>(){}[0]
+    final val fontStyle // com.huanshankeji.compose.ui.text/SpanStyle.fontStyle|{}fontStyle[0]
+        // Targets: [ios, wasmJs]
+        final fun <get-fontStyle>(): androidx.compose.ui.text.font/FontStyle? // com.huanshankeji.compose.ui.text/SpanStyle.fontStyle.<get-fontStyle>|<get-fontStyle>(){}[0]
+
+        // Targets: [js]
+        final fun <get-fontStyle>(): com.huanshankeji.compose.ui.text.font/FontStyle? // com.huanshankeji.compose.ui.text/SpanStyle.fontStyle.<get-fontStyle>|<get-fontStyle>(){}[0]
+    final val fontWeight // com.huanshankeji.compose.ui.text/SpanStyle.fontWeight|{}fontWeight[0]
+        // Targets: [ios, wasmJs]
+        final fun <get-fontWeight>(): androidx.compose.ui.text.font/FontWeight? // com.huanshankeji.compose.ui.text/SpanStyle.fontWeight.<get-fontWeight>|<get-fontWeight>(){}[0]
+
+        // Targets: [js]
+        final fun <get-fontWeight>(): com.huanshankeji.compose.ui.text.font/FontWeight? // com.huanshankeji.compose.ui.text/SpanStyle.fontWeight.<get-fontWeight>|<get-fontWeight>(){}[0]
+    final val letterSpacing // com.huanshankeji.compose.ui.text/SpanStyle.letterSpacing|{}letterSpacing[0]
+        final fun <get-letterSpacing>(): androidx.compose.ui.unit/TextUnit // com.huanshankeji.compose.ui.text/SpanStyle.letterSpacing.<get-letterSpacing>|<get-letterSpacing>(){}[0]
+    final val textDecoration // com.huanshankeji.compose.ui.text/SpanStyle.textDecoration|{}textDecoration[0]
+        // Targets: [ios, wasmJs]
+        final fun <get-textDecoration>(): androidx.compose.ui.text.style/TextDecoration? // com.huanshankeji.compose.ui.text/SpanStyle.textDecoration.<get-textDecoration>|<get-textDecoration>(){}[0]
+
+        // Targets: [js]
+        final fun <get-textDecoration>(): com.huanshankeji.compose.ui.text.style/TextDecoration? // com.huanshankeji.compose.ui.text/SpanStyle.textDecoration.<get-textDecoration>|<get-textDecoration>(){}[0]
+
+    // Targets: [ios, wasmJs]
+    constructor <init>(com.huanshankeji.compose.ui.graphics/Color? = ..., androidx.compose.ui.unit/TextUnit = ..., androidx.compose.ui.text.font/FontWeight? = ..., androidx.compose.ui.text.font/FontStyle? = ..., androidx.compose.ui.unit/TextUnit = ..., androidx.compose.ui.text.style/TextDecoration? = ...) // com.huanshankeji.compose.ui.text/SpanStyle.<init>|<init>(com.huanshankeji.compose.ui.graphics.Color?;androidx.compose.ui.unit.TextUnit;androidx.compose.ui.text.font.FontWeight?;androidx.compose.ui.text.font.FontStyle?;androidx.compose.ui.unit.TextUnit;androidx.compose.ui.text.style.TextDecoration?){}[0]
+
+    // Targets: [ios, wasmJs]
+    final fun toPlatformValue(): androidx.compose.ui.text/SpanStyle // com.huanshankeji.compose.ui.text/SpanStyle.toPlatformValue|toPlatformValue(){}[0]
+
+    // Targets: [js]
+    constructor <init>(com.huanshankeji.compose.ui.graphics/Color? = ..., androidx.compose.ui.unit/TextUnit = ..., com.huanshankeji.compose.ui.text.font/FontWeight? = ..., com.huanshankeji.compose.ui.text.font/FontStyle? = ..., androidx.compose.ui.unit/TextUnit = ..., com.huanshankeji.compose.ui.text.style/TextDecoration? = ...) // com.huanshankeji.compose.ui.text/SpanStyle.<init>|<init>(com.huanshankeji.compose.ui.graphics.Color?;androidx.compose.ui.unit.TextUnit;com.huanshankeji.compose.ui.text.font.FontWeight?;com.huanshankeji.compose.ui.text.font.FontStyle?;androidx.compose.ui.unit.TextUnit;com.huanshankeji.compose.ui.text.style.TextDecoration?){}[0]
+}
+
 final value class com.huanshankeji.compose.foundation.text.input/ImeAction { // com.huanshankeji.compose.foundation.text.input/ImeAction|null[0]
     final fun equals(kotlin/Any?): kotlin/Boolean // com.huanshankeji.compose.foundation.text.input/ImeAction.equals|equals(kotlin.Any?){}[0]
     final fun hashCode(): kotlin/Int // com.huanshankeji.compose.foundation.text.input/ImeAction.hashCode|hashCode(){}[0]
@@ -807,6 +891,10 @@ final val com.huanshankeji.compose.foundation/com_huanshankeji_compose_foundatio
 final val com.huanshankeji.compose.runtime/com_huanshankeji_compose_runtime_DeferredComposableRunner$stableprop // com.huanshankeji.compose.runtime/com_huanshankeji_compose_runtime_DeferredComposableRunner$stableprop|#static{}com_huanshankeji_compose_runtime_DeferredComposableRunner$stableprop[0]
 final val com.huanshankeji.compose.ui.graphics/com_huanshankeji_compose_ui_graphics_Brush$stableprop // com.huanshankeji.compose.ui.graphics/com_huanshankeji_compose_ui_graphics_Brush$stableprop|#static{}com_huanshankeji_compose_ui_graphics_Brush$stableprop[0]
 final val com.huanshankeji.compose.ui.graphics/com_huanshankeji_compose_ui_graphics_Color$stableprop // com.huanshankeji.compose.ui.graphics/com_huanshankeji_compose_ui_graphics_Color$stableprop|#static{}com_huanshankeji_compose_ui_graphics_Color$stableprop[0]
+final val com.huanshankeji.compose.ui.text/com_huanshankeji_compose_ui_text_AnnotatedString$stableprop // com.huanshankeji.compose.ui.text/com_huanshankeji_compose_ui_text_AnnotatedString$stableprop|#static{}com_huanshankeji_compose_ui_text_AnnotatedString$stableprop[0]
+final val com.huanshankeji.compose.ui.text/com_huanshankeji_compose_ui_text_AnnotatedString_Builder$stableprop // com.huanshankeji.compose.ui.text/com_huanshankeji_compose_ui_text_AnnotatedString_Builder$stableprop|#static{}com_huanshankeji_compose_ui_text_AnnotatedString_Builder$stableprop[0]
+final val com.huanshankeji.compose.ui.text/com_huanshankeji_compose_ui_text_AnnotatedString_Range$stableprop // com.huanshankeji.compose.ui.text/com_huanshankeji_compose_ui_text_AnnotatedString_Range$stableprop|#static{}com_huanshankeji_compose_ui_text_AnnotatedString_Range$stableprop[0]
+final val com.huanshankeji.compose.ui.text/com_huanshankeji_compose_ui_text_SpanStyle$stableprop // com.huanshankeji.compose.ui.text/com_huanshankeji_compose_ui_text_SpanStyle$stableprop|#static{}com_huanshankeji_compose_ui_text_SpanStyle$stableprop[0]
 final val com.huanshankeji.compose.ui.unit.ext/com_huanshankeji_compose_ui_unit_ext_DpOrPercentage$stableprop // com.huanshankeji.compose.ui.unit.ext/com_huanshankeji_compose_ui_unit_ext_DpOrPercentage$stableprop|#static{}com_huanshankeji_compose_ui_unit_ext_DpOrPercentage$stableprop[0]
 final val com.huanshankeji.compose.ui.unit.ext/com_huanshankeji_compose_ui_unit_ext_DpOrPercentage_Dp$stableprop // com.huanshankeji.compose.ui.unit.ext/com_huanshankeji_compose_ui_unit_ext_DpOrPercentage_Dp$stableprop|#static{}com_huanshankeji_compose_ui_unit_ext_DpOrPercentage_Dp$stableprop[0]
 final val com.huanshankeji.compose.ui.unit.ext/com_huanshankeji_compose_ui_unit_ext_DpOrPercentage_Percentage$stableprop // com.huanshankeji.compose.ui.unit.ext/com_huanshankeji_compose_ui_unit_ext_DpOrPercentage_Percentage$stableprop|#static{}com_huanshankeji_compose_ui_unit_ext_DpOrPercentage_Percentage$stableprop[0]
@@ -903,7 +991,6 @@ final fun com.huanshankeji.compose.foundation.text.ext/SpanBasicText(kotlin/Stri
 final fun com.huanshankeji.compose.foundation.text.ext/TaglessBasicText(kotlin/String, androidx.compose.runtime/Composer?, kotlin/Int) // com.huanshankeji.compose.foundation.text.ext/TaglessBasicText|TaglessBasicText(kotlin.String;androidx.compose.runtime.Composer?;kotlin.Int){}[0]
 final fun com.huanshankeji.compose.foundation.text.input/com_huanshankeji_compose_foundation_text_input_PlatformImeOptions$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.foundation.text.input/com_huanshankeji_compose_foundation_text_input_PlatformImeOptions$stableprop_getter|com_huanshankeji_compose_foundation_text_input_PlatformImeOptions$stableprop_getter(){}[0]
 final fun com.huanshankeji.compose.foundation.text/BasicText(kotlin/String, androidx.compose.runtime/Composer?, kotlin/Int) // com.huanshankeji.compose.foundation.text/BasicText|BasicText(kotlin.String;androidx.compose.runtime.Composer?;kotlin.Int){}[0]
-final fun com.huanshankeji.compose.foundation.text/BasicText(kotlin/String, com.huanshankeji.compose.ui/Modifier?, com.huanshankeji.compose.ui.graphics/ColorProducer?, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.foundation.text/BasicText|BasicText(kotlin.String;com.huanshankeji.compose.ui.Modifier?;com.huanshankeji.compose.ui.graphics.ColorProducer?;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
 final fun com.huanshankeji.compose.foundation.text/com_huanshankeji_compose_foundation_text_KeyboardActionScope_DoNothingInstance$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.foundation.text/com_huanshankeji_compose_foundation_text_KeyboardActionScope_DoNothingInstance$stableprop_getter|com_huanshankeji_compose_foundation_text_KeyboardActionScope_DoNothingInstance$stableprop_getter(){}[0]
 final fun com.huanshankeji.compose.foundation.text/com_huanshankeji_compose_foundation_text_KeyboardOptions$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.foundation.text/com_huanshankeji_compose_foundation_text_KeyboardOptions$stableprop_getter|com_huanshankeji_compose_foundation_text_KeyboardOptions$stableprop_getter(){}[0]
 final fun com.huanshankeji.compose.foundation/HorizontalScrollBox(com.huanshankeji.compose.ui/Modifier?, com.huanshankeji.compose.ui/Modifier?, com.huanshankeji.compose.ui/Alignment?, kotlin/Function3<com.huanshankeji.compose.foundation.layout/BoxScope, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.foundation/HorizontalScrollBox|HorizontalScrollBox(com.huanshankeji.compose.ui.Modifier?;com.huanshankeji.compose.ui.Modifier?;com.huanshankeji.compose.ui.Alignment?;kotlin.Function3<com.huanshankeji.compose.foundation.layout.BoxScope,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
@@ -916,9 +1003,15 @@ final fun com.huanshankeji.compose.ui.graphics/Color(kotlin/Int, kotlin/Int, kot
 final fun com.huanshankeji.compose.ui.graphics/Color(kotlin/Long): com.huanshankeji.compose.ui.graphics/Color // com.huanshankeji.compose.ui.graphics/Color|Color(kotlin.Long){}[0]
 final fun com.huanshankeji.compose.ui.graphics/com_huanshankeji_compose_ui_graphics_Brush$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.ui.graphics/com_huanshankeji_compose_ui_graphics_Brush$stableprop_getter|com_huanshankeji_compose_ui_graphics_Brush$stableprop_getter(){}[0]
 final fun com.huanshankeji.compose.ui.graphics/com_huanshankeji_compose_ui_graphics_Color$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.ui.graphics/com_huanshankeji_compose_ui_graphics_Color$stableprop_getter|com_huanshankeji_compose_ui_graphics_Color$stableprop_getter(){}[0]
+final fun com.huanshankeji.compose.ui.text/buildAnnotatedString(kotlin/Function1<com.huanshankeji.compose.ui.text/AnnotatedString.Builder, kotlin/Unit>): com.huanshankeji.compose.ui.text/AnnotatedString // com.huanshankeji.compose.ui.text/buildAnnotatedString|buildAnnotatedString(kotlin.Function1<com.huanshankeji.compose.ui.text.AnnotatedString.Builder,kotlin.Unit>){}[0]
+final fun com.huanshankeji.compose.ui.text/com_huanshankeji_compose_ui_text_AnnotatedString$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.ui.text/com_huanshankeji_compose_ui_text_AnnotatedString$stableprop_getter|com_huanshankeji_compose_ui_text_AnnotatedString$stableprop_getter(){}[0]
+final fun com.huanshankeji.compose.ui.text/com_huanshankeji_compose_ui_text_AnnotatedString_Builder$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.ui.text/com_huanshankeji_compose_ui_text_AnnotatedString_Builder$stableprop_getter|com_huanshankeji_compose_ui_text_AnnotatedString_Builder$stableprop_getter(){}[0]
+final fun com.huanshankeji.compose.ui.text/com_huanshankeji_compose_ui_text_AnnotatedString_Range$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.ui.text/com_huanshankeji_compose_ui_text_AnnotatedString_Range$stableprop_getter|com_huanshankeji_compose_ui_text_AnnotatedString_Range$stableprop_getter(){}[0]
+final fun com.huanshankeji.compose.ui.text/com_huanshankeji_compose_ui_text_SpanStyle$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.ui.text/com_huanshankeji_compose_ui_text_SpanStyle$stableprop_getter|com_huanshankeji_compose_ui_text_SpanStyle$stableprop_getter(){}[0]
 final fun com.huanshankeji.compose.ui.unit.ext/com_huanshankeji_compose_ui_unit_ext_DpOrPercentage$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.ui.unit.ext/com_huanshankeji_compose_ui_unit_ext_DpOrPercentage$stableprop_getter|com_huanshankeji_compose_ui_unit_ext_DpOrPercentage$stableprop_getter(){}[0]
 final fun com.huanshankeji.compose.ui.unit.ext/com_huanshankeji_compose_ui_unit_ext_DpOrPercentage_Dp$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.ui.unit.ext/com_huanshankeji_compose_ui_unit_ext_DpOrPercentage_Dp$stableprop_getter|com_huanshankeji_compose_ui_unit_ext_DpOrPercentage_Dp$stableprop_getter(){}[0]
 final fun com.huanshankeji.compose.ui.unit.ext/com_huanshankeji_compose_ui_unit_ext_DpOrPercentage_Percentage$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.ui.unit.ext/com_huanshankeji_compose_ui_unit_ext_DpOrPercentage_Percentage$stableprop_getter|com_huanshankeji_compose_ui_unit_ext_DpOrPercentage_Percentage$stableprop_getter(){}[0]
+final inline fun (com.huanshankeji.compose.ui.text/AnnotatedString.Builder).com.huanshankeji.compose.ui.text/withStyle(com.huanshankeji.compose.ui.text/SpanStyle, crossinline kotlin/Function1<com.huanshankeji.compose.ui.text/AnnotatedString.Builder, kotlin/Unit>) // com.huanshankeji.compose.ui.text/withStyle|withStyle@com.huanshankeji.compose.ui.text.AnnotatedString.Builder(com.huanshankeji.compose.ui.text.SpanStyle;kotlin.Function1<com.huanshankeji.compose.ui.text.AnnotatedString.Builder,kotlin.Unit>){}[0]
 final inline fun <#A: kotlin/Any?> (com.huanshankeji.compose.foundation.lazy/LazyListScope).com.huanshankeji.compose.foundation.lazy/items(kotlin.collections/List<#A>, noinline kotlin/Function1<#A, kotlin/Any>? = ..., noinline kotlin/Function1<#A, kotlin/Any?> = ..., crossinline kotlin/Function4<com.huanshankeji.compose.foundation.lazy/LazyItemScope, #A, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>) // com.huanshankeji.compose.foundation.lazy/items|items@com.huanshankeji.compose.foundation.lazy.LazyListScope(kotlin.collections.List<0:0>;kotlin.Function1<0:0,kotlin.Any>?;kotlin.Function1<0:0,kotlin.Any?>;kotlin.Function4<com.huanshankeji.compose.foundation.lazy.LazyItemScope,0:0,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>){0§<kotlin.Any?>}[0]
 final inline fun <#A: kotlin/Any?> (com.huanshankeji.compose.foundation.lazy/LazyListScope).com.huanshankeji.compose.foundation.lazy/items(kotlin/Array<#A>, noinline kotlin/Function1<#A, kotlin/Any>? = ..., noinline kotlin/Function1<#A, kotlin/Any?> = ..., crossinline kotlin/Function4<com.huanshankeji.compose.foundation.lazy/LazyItemScope, #A, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>) // com.huanshankeji.compose.foundation.lazy/items|items@com.huanshankeji.compose.foundation.lazy.LazyListScope(kotlin.Array<0:0>;kotlin.Function1<0:0,kotlin.Any>?;kotlin.Function1<0:0,kotlin.Any?>;kotlin.Function4<com.huanshankeji.compose.foundation.lazy.LazyItemScope,0:0,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>){0§<kotlin.Any?>}[0]
 final inline fun <#A: kotlin/Any?> (com.huanshankeji.compose.foundation.lazy/LazyListScope).com.huanshankeji.compose.foundation.lazy/itemsIndexed(kotlin.collections/List<#A>, noinline kotlin/Function2<kotlin/Int, #A, kotlin/Any>? = ..., crossinline kotlin/Function2<kotlin/Int, #A, kotlin/Any?> = ..., crossinline kotlin/Function5<com.huanshankeji.compose.foundation.lazy/LazyItemScope, kotlin/Int, #A, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>) // com.huanshankeji.compose.foundation.lazy/itemsIndexed|itemsIndexed@com.huanshankeji.compose.foundation.lazy.LazyListScope(kotlin.collections.List<0:0>;kotlin.Function2<kotlin.Int,0:0,kotlin.Any>?;kotlin.Function2<kotlin.Int,0:0,kotlin.Any?>;kotlin.Function5<com.huanshankeji.compose.foundation.lazy.LazyItemScope,kotlin.Int,0:0,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>){0§<kotlin.Any?>}[0]
@@ -991,6 +1084,18 @@ final fun (kotlin/Function3<com.huanshankeji.compose.ui/Modifier, androidx.compo
 final fun (kotlin/Function3<com.huanshankeji.compose.ui/Modifier, androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>?).com.huanshankeji.compose.ext/toNullableContentWithoutModifier(): kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>? // com.huanshankeji.compose.ext/toNullableContentWithoutModifier|toNullableContentWithoutModifier@kotlin.Function3<com.huanshankeji.compose.ui.Modifier,androidx.compose.runtime.Composer,kotlin.Int,kotlin.Unit>?(){}[0]
 
 // Targets: [ios, wasmJs]
+final fun com.huanshankeji.compose.foundation.text/BasicText(com.huanshankeji.compose.ui.text/AnnotatedString, com.huanshankeji.compose.ui/Modifier?, androidx.compose.ui.text.style/TextOverflow, kotlin/Boolean, kotlin/Int, kotlin/Int, com.huanshankeji.compose.ui.graphics/ColorProducer?, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.foundation.text/BasicText|BasicText(com.huanshankeji.compose.ui.text.AnnotatedString;com.huanshankeji.compose.ui.Modifier?;androidx.compose.ui.text.style.TextOverflow;kotlin.Boolean;kotlin.Int;kotlin.Int;com.huanshankeji.compose.ui.graphics.ColorProducer?;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+
+// Targets: [ios, wasmJs]
+final fun com.huanshankeji.compose.foundation.text/BasicText(com.huanshankeji.compose.ui.text/AnnotatedString, com.huanshankeji.compose.ui/Modifier?, androidx.compose.ui.text.style/TextOverflow?, kotlin/Boolean, kotlin/Int, kotlin/Int, com.huanshankeji.compose.ui.graphics/ColorProducer?, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.foundation.text/BasicText|BasicText(com.huanshankeji.compose.ui.text.AnnotatedString;com.huanshankeji.compose.ui.Modifier?;androidx.compose.ui.text.style.TextOverflow?;kotlin.Boolean;kotlin.Int;kotlin.Int;com.huanshankeji.compose.ui.graphics.ColorProducer?;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+
+// Targets: [ios, wasmJs]
+final fun com.huanshankeji.compose.foundation.text/BasicText(kotlin/String, com.huanshankeji.compose.ui/Modifier?, androidx.compose.ui.text.style/TextOverflow, kotlin/Boolean, kotlin/Int, kotlin/Int, com.huanshankeji.compose.ui.graphics/ColorProducer?, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.foundation.text/BasicText|BasicText(kotlin.String;com.huanshankeji.compose.ui.Modifier?;androidx.compose.ui.text.style.TextOverflow;kotlin.Boolean;kotlin.Int;kotlin.Int;com.huanshankeji.compose.ui.graphics.ColorProducer?;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+
+// Targets: [ios, wasmJs]
+final fun com.huanshankeji.compose.foundation.text/BasicText(kotlin/String, com.huanshankeji.compose.ui/Modifier?, androidx.compose.ui.text.style/TextOverflow?, kotlin/Boolean, kotlin/Int, kotlin/Int, com.huanshankeji.compose.ui.graphics/ColorProducer?, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.foundation.text/BasicText|BasicText(kotlin.String;com.huanshankeji.compose.ui.Modifier?;androidx.compose.ui.text.style.TextOverflow?;kotlin.Boolean;kotlin.Int;kotlin.Int;com.huanshankeji.compose.ui.graphics.ColorProducer?;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+
+// Targets: [ios, wasmJs]
 final fun com.huanshankeji.compose.foundation/rememberScrollState(kotlin/Int, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int): androidx.compose.foundation/ScrollState // com.huanshankeji.compose.foundation/rememberScrollState|rememberScrollState(kotlin.Int;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
 
 // Targets: [js]
@@ -1011,11 +1116,138 @@ final class com.huanshankeji.compose.foundation/ScrollState { // com.huanshankej
 }
 
 // Targets: [js]
+final class com.huanshankeji.compose.ui.text.font/FontWeight : kotlin/Comparable<com.huanshankeji.compose.ui.text.font/FontWeight> { // com.huanshankeji.compose.ui.text.font/FontWeight|null[0]
+    constructor <init>(kotlin/Int) // com.huanshankeji.compose.ui.text.font/FontWeight.<init>|<init>(kotlin.Int){}[0]
+
+    final val weight // com.huanshankeji.compose.ui.text.font/FontWeight.weight|{}weight[0]
+        final fun <get-weight>(): kotlin/Int // com.huanshankeji.compose.ui.text.font/FontWeight.weight.<get-weight>|<get-weight>(){}[0]
+
+    final fun compareTo(com.huanshankeji.compose.ui.text.font/FontWeight): kotlin/Int // com.huanshankeji.compose.ui.text.font/FontWeight.compareTo|compareTo(com.huanshankeji.compose.ui.text.font.FontWeight){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // com.huanshankeji.compose.ui.text.font/FontWeight.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // com.huanshankeji.compose.ui.text.font/FontWeight.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // com.huanshankeji.compose.ui.text.font/FontWeight.toString|toString(){}[0]
+
+    final object Companion { // com.huanshankeji.compose.ui.text.font/FontWeight.Companion|null[0]
+        final val Black // com.huanshankeji.compose.ui.text.font/FontWeight.Companion.Black|{}Black[0]
+            final fun <get-Black>(): com.huanshankeji.compose.ui.text.font/FontWeight // com.huanshankeji.compose.ui.text.font/FontWeight.Companion.Black.<get-Black>|<get-Black>(){}[0]
+        final val Bold // com.huanshankeji.compose.ui.text.font/FontWeight.Companion.Bold|{}Bold[0]
+            final fun <get-Bold>(): com.huanshankeji.compose.ui.text.font/FontWeight // com.huanshankeji.compose.ui.text.font/FontWeight.Companion.Bold.<get-Bold>|<get-Bold>(){}[0]
+        final val ExtraBold // com.huanshankeji.compose.ui.text.font/FontWeight.Companion.ExtraBold|{}ExtraBold[0]
+            final fun <get-ExtraBold>(): com.huanshankeji.compose.ui.text.font/FontWeight // com.huanshankeji.compose.ui.text.font/FontWeight.Companion.ExtraBold.<get-ExtraBold>|<get-ExtraBold>(){}[0]
+        final val ExtraLight // com.huanshankeji.compose.ui.text.font/FontWeight.Companion.ExtraLight|{}ExtraLight[0]
+            final fun <get-ExtraLight>(): com.huanshankeji.compose.ui.text.font/FontWeight // com.huanshankeji.compose.ui.text.font/FontWeight.Companion.ExtraLight.<get-ExtraLight>|<get-ExtraLight>(){}[0]
+        final val Light // com.huanshankeji.compose.ui.text.font/FontWeight.Companion.Light|{}Light[0]
+            final fun <get-Light>(): com.huanshankeji.compose.ui.text.font/FontWeight // com.huanshankeji.compose.ui.text.font/FontWeight.Companion.Light.<get-Light>|<get-Light>(){}[0]
+        final val Medium // com.huanshankeji.compose.ui.text.font/FontWeight.Companion.Medium|{}Medium[0]
+            final fun <get-Medium>(): com.huanshankeji.compose.ui.text.font/FontWeight // com.huanshankeji.compose.ui.text.font/FontWeight.Companion.Medium.<get-Medium>|<get-Medium>(){}[0]
+        final val Normal // com.huanshankeji.compose.ui.text.font/FontWeight.Companion.Normal|{}Normal[0]
+            final fun <get-Normal>(): com.huanshankeji.compose.ui.text.font/FontWeight // com.huanshankeji.compose.ui.text.font/FontWeight.Companion.Normal.<get-Normal>|<get-Normal>(){}[0]
+        final val SemiBold // com.huanshankeji.compose.ui.text.font/FontWeight.Companion.SemiBold|{}SemiBold[0]
+            final fun <get-SemiBold>(): com.huanshankeji.compose.ui.text.font/FontWeight // com.huanshankeji.compose.ui.text.font/FontWeight.Companion.SemiBold.<get-SemiBold>|<get-SemiBold>(){}[0]
+        final val Thin // com.huanshankeji.compose.ui.text.font/FontWeight.Companion.Thin|{}Thin[0]
+            final fun <get-Thin>(): com.huanshankeji.compose.ui.text.font/FontWeight // com.huanshankeji.compose.ui.text.font/FontWeight.Companion.Thin.<get-Thin>|<get-Thin>(){}[0]
+        final val W100 // com.huanshankeji.compose.ui.text.font/FontWeight.Companion.W100|{}W100[0]
+            final fun <get-W100>(): com.huanshankeji.compose.ui.text.font/FontWeight // com.huanshankeji.compose.ui.text.font/FontWeight.Companion.W100.<get-W100>|<get-W100>(){}[0]
+        final val W200 // com.huanshankeji.compose.ui.text.font/FontWeight.Companion.W200|{}W200[0]
+            final fun <get-W200>(): com.huanshankeji.compose.ui.text.font/FontWeight // com.huanshankeji.compose.ui.text.font/FontWeight.Companion.W200.<get-W200>|<get-W200>(){}[0]
+        final val W300 // com.huanshankeji.compose.ui.text.font/FontWeight.Companion.W300|{}W300[0]
+            final fun <get-W300>(): com.huanshankeji.compose.ui.text.font/FontWeight // com.huanshankeji.compose.ui.text.font/FontWeight.Companion.W300.<get-W300>|<get-W300>(){}[0]
+        final val W400 // com.huanshankeji.compose.ui.text.font/FontWeight.Companion.W400|{}W400[0]
+            final fun <get-W400>(): com.huanshankeji.compose.ui.text.font/FontWeight // com.huanshankeji.compose.ui.text.font/FontWeight.Companion.W400.<get-W400>|<get-W400>(){}[0]
+        final val W500 // com.huanshankeji.compose.ui.text.font/FontWeight.Companion.W500|{}W500[0]
+            final fun <get-W500>(): com.huanshankeji.compose.ui.text.font/FontWeight // com.huanshankeji.compose.ui.text.font/FontWeight.Companion.W500.<get-W500>|<get-W500>(){}[0]
+        final val W600 // com.huanshankeji.compose.ui.text.font/FontWeight.Companion.W600|{}W600[0]
+            final fun <get-W600>(): com.huanshankeji.compose.ui.text.font/FontWeight // com.huanshankeji.compose.ui.text.font/FontWeight.Companion.W600.<get-W600>|<get-W600>(){}[0]
+        final val W700 // com.huanshankeji.compose.ui.text.font/FontWeight.Companion.W700|{}W700[0]
+            final fun <get-W700>(): com.huanshankeji.compose.ui.text.font/FontWeight // com.huanshankeji.compose.ui.text.font/FontWeight.Companion.W700.<get-W700>|<get-W700>(){}[0]
+        final val W800 // com.huanshankeji.compose.ui.text.font/FontWeight.Companion.W800|{}W800[0]
+            final fun <get-W800>(): com.huanshankeji.compose.ui.text.font/FontWeight // com.huanshankeji.compose.ui.text.font/FontWeight.Companion.W800.<get-W800>|<get-W800>(){}[0]
+        final val W900 // com.huanshankeji.compose.ui.text.font/FontWeight.Companion.W900|{}W900[0]
+            final fun <get-W900>(): com.huanshankeji.compose.ui.text.font/FontWeight // com.huanshankeji.compose.ui.text.font/FontWeight.Companion.W900.<get-W900>|<get-W900>(){}[0]
+    }
+}
+
+// Targets: [js]
+final class com.huanshankeji.compose.ui.text.style/TextDecoration { // com.huanshankeji.compose.ui.text.style/TextDecoration|null[0]
+    final val mask // com.huanshankeji.compose.ui.text.style/TextDecoration.mask|{}mask[0]
+        final fun <get-mask>(): kotlin/Int // com.huanshankeji.compose.ui.text.style/TextDecoration.mask.<get-mask>|<get-mask>(){}[0]
+
+    final fun contains(com.huanshankeji.compose.ui.text.style/TextDecoration): kotlin/Boolean // com.huanshankeji.compose.ui.text.style/TextDecoration.contains|contains(com.huanshankeji.compose.ui.text.style.TextDecoration){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // com.huanshankeji.compose.ui.text.style/TextDecoration.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // com.huanshankeji.compose.ui.text.style/TextDecoration.hashCode|hashCode(){}[0]
+    final fun plus(com.huanshankeji.compose.ui.text.style/TextDecoration): com.huanshankeji.compose.ui.text.style/TextDecoration // com.huanshankeji.compose.ui.text.style/TextDecoration.plus|plus(com.huanshankeji.compose.ui.text.style.TextDecoration){}[0]
+    final fun toString(): kotlin/String // com.huanshankeji.compose.ui.text.style/TextDecoration.toString|toString(){}[0]
+
+    final object Companion { // com.huanshankeji.compose.ui.text.style/TextDecoration.Companion|null[0]
+        final val LineThrough // com.huanshankeji.compose.ui.text.style/TextDecoration.Companion.LineThrough|{}LineThrough[0]
+            final fun <get-LineThrough>(): com.huanshankeji.compose.ui.text.style/TextDecoration // com.huanshankeji.compose.ui.text.style/TextDecoration.Companion.LineThrough.<get-LineThrough>|<get-LineThrough>(){}[0]
+        final val None // com.huanshankeji.compose.ui.text.style/TextDecoration.Companion.None|{}None[0]
+            final fun <get-None>(): com.huanshankeji.compose.ui.text.style/TextDecoration // com.huanshankeji.compose.ui.text.style/TextDecoration.Companion.None.<get-None>|<get-None>(){}[0]
+        final val Underline // com.huanshankeji.compose.ui.text.style/TextDecoration.Companion.Underline|{}Underline[0]
+            final fun <get-Underline>(): com.huanshankeji.compose.ui.text.style/TextDecoration // com.huanshankeji.compose.ui.text.style/TextDecoration.Companion.Underline.<get-Underline>|<get-Underline>(){}[0]
+
+        final fun combine(kotlin.collections/List<com.huanshankeji.compose.ui.text.style/TextDecoration>): com.huanshankeji.compose.ui.text.style/TextDecoration // com.huanshankeji.compose.ui.text.style/TextDecoration.Companion.combine|combine(kotlin.collections.List<com.huanshankeji.compose.ui.text.style.TextDecoration>){}[0]
+    }
+}
+
+// Targets: [js]
 final class com.huanshankeji.compose.ui.window/SimpleViewModelStoreOwner : androidx.lifecycle/ViewModelStoreOwner { // com.huanshankeji.compose.ui.window/SimpleViewModelStoreOwner|null[0]
     constructor <init>() // com.huanshankeji.compose.ui.window/SimpleViewModelStoreOwner.<init>|<init>(){}[0]
 
     final val viewModelStore // com.huanshankeji.compose.ui.window/SimpleViewModelStoreOwner.viewModelStore|{}viewModelStore[0]
         final fun <get-viewModelStore>(): androidx.lifecycle/ViewModelStore // com.huanshankeji.compose.ui.window/SimpleViewModelStoreOwner.viewModelStore.<get-viewModelStore>|<get-viewModelStore>(){}[0]
+}
+
+// Targets: [js]
+final value class com.huanshankeji.compose.ui.text.font/FontStyle { // com.huanshankeji.compose.ui.text.font/FontStyle|null[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // com.huanshankeji.compose.ui.text.font/FontStyle.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // com.huanshankeji.compose.ui.text.font/FontStyle.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // com.huanshankeji.compose.ui.text.font/FontStyle.toString|toString(){}[0]
+
+    final object Companion { // com.huanshankeji.compose.ui.text.font/FontStyle.Companion|null[0]
+        final val Italic // com.huanshankeji.compose.ui.text.font/FontStyle.Companion.Italic|{}Italic[0]
+            final fun <get-Italic>(): com.huanshankeji.compose.ui.text.font/FontStyle // com.huanshankeji.compose.ui.text.font/FontStyle.Companion.Italic.<get-Italic>|<get-Italic>(){}[0]
+        final val Normal // com.huanshankeji.compose.ui.text.font/FontStyle.Companion.Normal|{}Normal[0]
+            final fun <get-Normal>(): com.huanshankeji.compose.ui.text.font/FontStyle // com.huanshankeji.compose.ui.text.font/FontStyle.Companion.Normal.<get-Normal>|<get-Normal>(){}[0]
+    }
+}
+
+// Targets: [js]
+final value class com.huanshankeji.compose.ui.text.style/TextAlign { // com.huanshankeji.compose.ui.text.style/TextAlign|null[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // com.huanshankeji.compose.ui.text.style/TextAlign.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // com.huanshankeji.compose.ui.text.style/TextAlign.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // com.huanshankeji.compose.ui.text.style/TextAlign.toString|toString(){}[0]
+
+    final object Companion { // com.huanshankeji.compose.ui.text.style/TextAlign.Companion|null[0]
+        final val Center // com.huanshankeji.compose.ui.text.style/TextAlign.Companion.Center|{}Center[0]
+            final fun <get-Center>(): com.huanshankeji.compose.ui.text.style/TextAlign // com.huanshankeji.compose.ui.text.style/TextAlign.Companion.Center.<get-Center>|<get-Center>(){}[0]
+        final val End // com.huanshankeji.compose.ui.text.style/TextAlign.Companion.End|{}End[0]
+            final fun <get-End>(): com.huanshankeji.compose.ui.text.style/TextAlign // com.huanshankeji.compose.ui.text.style/TextAlign.Companion.End.<get-End>|<get-End>(){}[0]
+        final val Justify // com.huanshankeji.compose.ui.text.style/TextAlign.Companion.Justify|{}Justify[0]
+            final fun <get-Justify>(): com.huanshankeji.compose.ui.text.style/TextAlign // com.huanshankeji.compose.ui.text.style/TextAlign.Companion.Justify.<get-Justify>|<get-Justify>(){}[0]
+        final val Left // com.huanshankeji.compose.ui.text.style/TextAlign.Companion.Left|{}Left[0]
+            final fun <get-Left>(): com.huanshankeji.compose.ui.text.style/TextAlign // com.huanshankeji.compose.ui.text.style/TextAlign.Companion.Left.<get-Left>|<get-Left>(){}[0]
+        final val Right // com.huanshankeji.compose.ui.text.style/TextAlign.Companion.Right|{}Right[0]
+            final fun <get-Right>(): com.huanshankeji.compose.ui.text.style/TextAlign // com.huanshankeji.compose.ui.text.style/TextAlign.Companion.Right.<get-Right>|<get-Right>(){}[0]
+        final val Start // com.huanshankeji.compose.ui.text.style/TextAlign.Companion.Start|{}Start[0]
+            final fun <get-Start>(): com.huanshankeji.compose.ui.text.style/TextAlign // com.huanshankeji.compose.ui.text.style/TextAlign.Companion.Start.<get-Start>|<get-Start>(){}[0]
+    }
+}
+
+// Targets: [js]
+final value class com.huanshankeji.compose.ui.text.style/TextOverflow { // com.huanshankeji.compose.ui.text.style/TextOverflow|null[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // com.huanshankeji.compose.ui.text.style/TextOverflow.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // com.huanshankeji.compose.ui.text.style/TextOverflow.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // com.huanshankeji.compose.ui.text.style/TextOverflow.toString|toString(){}[0]
+
+    final object Companion { // com.huanshankeji.compose.ui.text.style/TextOverflow.Companion|null[0]
+        final val Clip // com.huanshankeji.compose.ui.text.style/TextOverflow.Companion.Clip|{}Clip[0]
+            final fun <get-Clip>(): com.huanshankeji.compose.ui.text.style/TextOverflow // com.huanshankeji.compose.ui.text.style/TextOverflow.Companion.Clip.<get-Clip>|<get-Clip>(){}[0]
+        final val Ellipsis // com.huanshankeji.compose.ui.text.style/TextOverflow.Companion.Ellipsis|{}Ellipsis[0]
+            final fun <get-Ellipsis>(): com.huanshankeji.compose.ui.text.style/TextOverflow // com.huanshankeji.compose.ui.text.style/TextOverflow.Companion.Ellipsis.<get-Ellipsis>|<get-Ellipsis>(){}[0]
+        final val Visible // com.huanshankeji.compose.ui.text.style/TextOverflow.Companion.Visible|{}Visible[0]
+            final fun <get-Visible>(): com.huanshankeji.compose.ui.text.style/TextOverflow // com.huanshankeji.compose.ui.text.style/TextOverflow.Companion.Visible.<get-Visible>|<get-Visible>(){}[0]
+    }
 }
 
 // Targets: [js]
@@ -1045,10 +1277,19 @@ final val com.huanshankeji.compose.foundation/imitateComposeUiLayoutVerticalScro
     final fun <get-imitateComposeUiLayoutVerticalScrollPlatformModifier>(): com.varabyte.kobweb.compose.ui/Modifier // com.huanshankeji.compose.foundation/imitateComposeUiLayoutVerticalScrollPlatformModifier.<get-imitateComposeUiLayoutVerticalScrollPlatformModifier>|<get-imitateComposeUiLayoutVerticalScrollPlatformModifier>(){}[0]
 
 // Targets: [js]
+final val com.huanshankeji.compose.ui.text.font/com_huanshankeji_compose_ui_text_font_FontWeight$stableprop // com.huanshankeji.compose.ui.text.font/com_huanshankeji_compose_ui_text_font_FontWeight$stableprop|#static{}com_huanshankeji_compose_ui_text_font_FontWeight$stableprop[0]
+
+// Targets: [js]
+final val com.huanshankeji.compose.ui.text.style/com_huanshankeji_compose_ui_text_style_TextDecoration$stableprop // com.huanshankeji.compose.ui.text.style/com_huanshankeji_compose_ui_text_style_TextDecoration$stableprop|#static{}com_huanshankeji_compose_ui_text_style_TextDecoration$stableprop[0]
+
+// Targets: [js]
 final val com.huanshankeji.compose.ui.window/com_huanshankeji_compose_ui_window_SimpleViewModelStoreOwner$stableprop // com.huanshankeji.compose.ui.window/com_huanshankeji_compose_ui_window_SimpleViewModelStoreOwner$stableprop|#static{}com_huanshankeji_compose_ui_window_SimpleViewModelStoreOwner$stableprop[0]
 
 // Targets: [js]
 final fun (androidx.compose.ui.unit/Dp).com.huanshankeji.compose.ui.unit/toPx(): org.jetbrains.compose.web.css/CSSSizeValue<org.jetbrains.compose.web.css/CSSUnit.px> // com.huanshankeji.compose.ui.unit/toPx|toPx@androidx.compose.ui.unit.Dp(){}[0]
+
+// Targets: [js]
+final fun (androidx.compose.ui.unit/TextUnit).com.huanshankeji.compose.ui.unit/toCssValue(): org.jetbrains.compose.web.css/CSSNumericValue<*> // com.huanshankeji.compose.ui.unit/toCssValue|toCssValue@androidx.compose.ui.unit.TextUnit(){}[0]
 
 // Targets: [js]
 final fun (com.huanshankeji.compose.foundation.text.input/KeyboardCapitalization).com.huanshankeji.compose.foundation.text.input/toAutoCapitalizeAttrValue(): kotlin/String // com.huanshankeji.compose.foundation.text.input/toAutoCapitalizeAttrValue|toAutoCapitalizeAttrValue@com.huanshankeji.compose.foundation.text.input.KeyboardCapitalization(){}[0]
@@ -1058,6 +1299,18 @@ final fun (com.huanshankeji.compose.foundation.text.input/KeyboardType).com.huan
 
 // Targets: [js]
 final fun (com.huanshankeji.compose.ui.graphics/ColorProducer?).com.huanshankeji.compose.ui.graphics/toNullableAttrs(): kotlin/Function1<org.jetbrains.compose.web.attributes/AttrsScope<*>, kotlin/Unit>? // com.huanshankeji.compose.ui.graphics/toNullableAttrs|toNullableAttrs@com.huanshankeji.compose.ui.graphics.ColorProducer?(){}[0]
+
+// Targets: [js]
+final fun (com.huanshankeji.compose.ui.text.font/FontStyle).com.huanshankeji.compose.ui.text.font/toCssValue(): kotlin/String // com.huanshankeji.compose.ui.text.font/toCssValue|toCssValue@com.huanshankeji.compose.ui.text.font.FontStyle(){}[0]
+
+// Targets: [js]
+final fun (com.huanshankeji.compose.ui.text.font/FontWeight).com.huanshankeji.compose.ui.text.font/toCssValue(): kotlin/Int // com.huanshankeji.compose.ui.text.font/toCssValue|toCssValue@com.huanshankeji.compose.ui.text.font.FontWeight(){}[0]
+
+// Targets: [js]
+final fun (com.huanshankeji.compose.ui.text.style/TextAlign).com.huanshankeji.compose.ui.text.style/toCssValue(): kotlin/String // com.huanshankeji.compose.ui.text.style/toCssValue|toCssValue@com.huanshankeji.compose.ui.text.style.TextAlign(){}[0]
+
+// Targets: [js]
+final fun (com.huanshankeji.compose.ui.text.style/TextDecoration).com.huanshankeji.compose.ui.text.style/toCssValue(): kotlin/String // com.huanshankeji.compose.ui.text.style/toCssValue|toCssValue@com.huanshankeji.compose.ui.text.style.TextDecoration(){}[0]
 
 // Targets: [js]
 final fun (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.foundation/horizontalScroll(com.huanshankeji.compose.foundation/ScrollState): com.huanshankeji.compose.ui/Modifier // com.huanshankeji.compose.foundation/horizontalScroll|horizontalScroll@com.huanshankeji.compose.ui.Modifier(com.huanshankeji.compose.foundation.ScrollState){}[0]
@@ -1135,6 +1388,33 @@ final fun (org.jetbrains.compose.web.css/StyleScope).com.huanshankeji.compose.fo
 final fun (org.jetbrains.compose.web.css/StyleScope).com.huanshankeji.compose.ui.graphics/applyStyle(com.huanshankeji.compose.ui.graphics/ColorProducer) // com.huanshankeji.compose.ui.graphics/applyStyle|applyStyle@org.jetbrains.compose.web.css.StyleScope(com.huanshankeji.compose.ui.graphics.ColorProducer){}[0]
 
 // Targets: [js]
+final fun (org.jetbrains.compose.web.css/StyleScope).com.huanshankeji.compose.ui.text.font/applyStyle(com.huanshankeji.compose.ui.text.font/FontStyle) // com.huanshankeji.compose.ui.text.font/applyStyle|applyStyle@org.jetbrains.compose.web.css.StyleScope(com.huanshankeji.compose.ui.text.font.FontStyle){}[0]
+
+// Targets: [js]
+final fun (org.jetbrains.compose.web.css/StyleScope).com.huanshankeji.compose.ui.text.font/applyStyle(com.huanshankeji.compose.ui.text.font/FontWeight) // com.huanshankeji.compose.ui.text.font/applyStyle|applyStyle@org.jetbrains.compose.web.css.StyleScope(com.huanshankeji.compose.ui.text.font.FontWeight){}[0]
+
+// Targets: [js]
+final fun (org.jetbrains.compose.web.css/StyleScope).com.huanshankeji.compose.ui.text.style/applyStyle(com.huanshankeji.compose.ui.text.style/TextAlign) // com.huanshankeji.compose.ui.text.style/applyStyle|applyStyle@org.jetbrains.compose.web.css.StyleScope(com.huanshankeji.compose.ui.text.style.TextAlign){}[0]
+
+// Targets: [js]
+final fun (org.jetbrains.compose.web.css/StyleScope).com.huanshankeji.compose.ui.text.style/applyStyle(com.huanshankeji.compose.ui.text.style/TextDecoration) // com.huanshankeji.compose.ui.text.style/applyStyle|applyStyle@org.jetbrains.compose.web.css.StyleScope(com.huanshankeji.compose.ui.text.style.TextDecoration){}[0]
+
+// Targets: [js]
+final fun (org.jetbrains.compose.web.css/StyleScope).com.huanshankeji.compose.ui.text.style/applyStyle(com.huanshankeji.compose.ui.text.style/TextOverflow, kotlin/Boolean, kotlin/Int) // com.huanshankeji.compose.ui.text.style/applyStyle|applyStyle@org.jetbrains.compose.web.css.StyleScope(com.huanshankeji.compose.ui.text.style.TextOverflow;kotlin.Boolean;kotlin.Int){}[0]
+
+// Targets: [js]
+final fun (org.jetbrains.compose.web.css/StyleScope).com.huanshankeji.compose.ui.text/applyStyle(com.huanshankeji.compose.ui.text/SpanStyle) // com.huanshankeji.compose.ui.text/applyStyle|applyStyle@org.jetbrains.compose.web.css.StyleScope(com.huanshankeji.compose.ui.text.SpanStyle){}[0]
+
+// Targets: [js]
+final fun (org.jetbrains.compose.web.css/StyleScope).com.huanshankeji.compose.ui.unit/applyFontSize(androidx.compose.ui.unit/TextUnit) // com.huanshankeji.compose.ui.unit/applyFontSize|applyFontSize@org.jetbrains.compose.web.css.StyleScope(androidx.compose.ui.unit.TextUnit){}[0]
+
+// Targets: [js]
+final fun (org.jetbrains.compose.web.css/StyleScope).com.huanshankeji.compose.ui.unit/applyLetterSpacing(androidx.compose.ui.unit/TextUnit) // com.huanshankeji.compose.ui.unit/applyLetterSpacing|applyLetterSpacing@org.jetbrains.compose.web.css.StyleScope(androidx.compose.ui.unit.TextUnit){}[0]
+
+// Targets: [js]
+final fun (org.jetbrains.compose.web.css/StyleScope).com.huanshankeji.compose.ui.unit/applyLineHeight(androidx.compose.ui.unit/TextUnit) // com.huanshankeji.compose.ui.unit/applyLineHeight|applyLineHeight@org.jetbrains.compose.web.css.StyleScope(androidx.compose.ui.unit.TextUnit){}[0]
+
+// Targets: [js]
 final fun <#A: org.jetbrains.compose.web.attributes/AttrsScope<org.w3c.dom/Element>> (com.huanshankeji.compose.ui/Modifier).com.huanshankeji.compose.ui/toAttrs(kotlin/Function1<#A, kotlin/Unit>? = ...): kotlin/Function1<#A, kotlin/Unit> // com.huanshankeji.compose.ui/toAttrs|toAttrs@com.huanshankeji.compose.ui.Modifier(kotlin.Function1<0:0,kotlin.Unit>?){0§<org.jetbrains.compose.web.attributes.AttrsScope<org.w3c.dom.Element>>}[0]
 
 // Targets: [js]
@@ -1153,6 +1433,24 @@ final fun com.huanshankeji.compose.foundation.layout/com_huanshankeji_compose_fo
 final fun com.huanshankeji.compose.foundation.text.ext/CommonBasicText(kotlin/String, com.huanshankeji.compose.ui/Modifier, com.huanshankeji.compose.ui.graphics/Color?, androidx.compose.runtime/Composer?, kotlin/Int) // com.huanshankeji.compose.foundation.text.ext/CommonBasicText|CommonBasicText(kotlin.String;com.huanshankeji.compose.ui.Modifier;com.huanshankeji.compose.ui.graphics.Color?;androidx.compose.runtime.Composer?;kotlin.Int){}[0]
 
 // Targets: [js]
+final fun com.huanshankeji.compose.foundation.text.ext/CommonStyledText(com.huanshankeji.compose.ui.text/AnnotatedString, com.huanshankeji.compose.ui/Modifier, com.huanshankeji.compose.ui.graphics/Color?, androidx.compose.ui.unit/TextUnit, com.huanshankeji.compose.ui.text.font/FontStyle?, com.huanshankeji.compose.ui.text.font/FontWeight?, androidx.compose.ui.unit/TextUnit, com.huanshankeji.compose.ui.text.style/TextDecoration?, com.huanshankeji.compose.ui.text.style/TextAlign?, androidx.compose.ui.unit/TextUnit, com.huanshankeji.compose.ui.text.style/TextOverflow, kotlin/Boolean, kotlin/Int, kotlin/Int, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.foundation.text.ext/CommonStyledText|CommonStyledText(com.huanshankeji.compose.ui.text.AnnotatedString;com.huanshankeji.compose.ui.Modifier;com.huanshankeji.compose.ui.graphics.Color?;androidx.compose.ui.unit.TextUnit;com.huanshankeji.compose.ui.text.font.FontStyle?;com.huanshankeji.compose.ui.text.font.FontWeight?;androidx.compose.ui.unit.TextUnit;com.huanshankeji.compose.ui.text.style.TextDecoration?;com.huanshankeji.compose.ui.text.style.TextAlign?;androidx.compose.ui.unit.TextUnit;com.huanshankeji.compose.ui.text.style.TextOverflow;kotlin.Boolean;kotlin.Int;kotlin.Int;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+
+// Targets: [js]
+final fun com.huanshankeji.compose.foundation.text.ext/CommonStyledText(kotlin/String, com.huanshankeji.compose.ui/Modifier, com.huanshankeji.compose.ui.graphics/Color?, androidx.compose.ui.unit/TextUnit, com.huanshankeji.compose.ui.text.font/FontStyle?, com.huanshankeji.compose.ui.text.font/FontWeight?, androidx.compose.ui.unit/TextUnit, com.huanshankeji.compose.ui.text.style/TextDecoration?, com.huanshankeji.compose.ui.text.style/TextAlign?, androidx.compose.ui.unit/TextUnit, com.huanshankeji.compose.ui.text.style/TextOverflow, kotlin/Boolean, kotlin/Int, kotlin/Int, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.foundation.text.ext/CommonStyledText|CommonStyledText(kotlin.String;com.huanshankeji.compose.ui.Modifier;com.huanshankeji.compose.ui.graphics.Color?;androidx.compose.ui.unit.TextUnit;com.huanshankeji.compose.ui.text.font.FontStyle?;com.huanshankeji.compose.ui.text.font.FontWeight?;androidx.compose.ui.unit.TextUnit;com.huanshankeji.compose.ui.text.style.TextDecoration?;com.huanshankeji.compose.ui.text.style.TextAlign?;androidx.compose.ui.unit.TextUnit;com.huanshankeji.compose.ui.text.style.TextOverflow;kotlin.Boolean;kotlin.Int;kotlin.Int;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+
+// Targets: [js]
+final fun com.huanshankeji.compose.foundation.text/BasicText(com.huanshankeji.compose.ui.text/AnnotatedString, com.huanshankeji.compose.ui/Modifier?, com.huanshankeji.compose.ui.text.style/TextOverflow, kotlin/Boolean, kotlin/Int, kotlin/Int, com.huanshankeji.compose.ui.graphics/ColorProducer?, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.foundation.text/BasicText|BasicText(com.huanshankeji.compose.ui.text.AnnotatedString;com.huanshankeji.compose.ui.Modifier?;com.huanshankeji.compose.ui.text.style.TextOverflow;kotlin.Boolean;kotlin.Int;kotlin.Int;com.huanshankeji.compose.ui.graphics.ColorProducer?;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+
+// Targets: [js]
+final fun com.huanshankeji.compose.foundation.text/BasicText(com.huanshankeji.compose.ui.text/AnnotatedString, com.huanshankeji.compose.ui/Modifier?, com.huanshankeji.compose.ui.text.style/TextOverflow?, kotlin/Boolean, kotlin/Int, kotlin/Int, com.huanshankeji.compose.ui.graphics/ColorProducer?, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.foundation.text/BasicText|BasicText(com.huanshankeji.compose.ui.text.AnnotatedString;com.huanshankeji.compose.ui.Modifier?;com.huanshankeji.compose.ui.text.style.TextOverflow?;kotlin.Boolean;kotlin.Int;kotlin.Int;com.huanshankeji.compose.ui.graphics.ColorProducer?;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+
+// Targets: [js]
+final fun com.huanshankeji.compose.foundation.text/BasicText(kotlin/String, com.huanshankeji.compose.ui/Modifier?, com.huanshankeji.compose.ui.text.style/TextOverflow, kotlin/Boolean, kotlin/Int, kotlin/Int, com.huanshankeji.compose.ui.graphics/ColorProducer?, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.foundation.text/BasicText|BasicText(kotlin.String;com.huanshankeji.compose.ui.Modifier?;com.huanshankeji.compose.ui.text.style.TextOverflow;kotlin.Boolean;kotlin.Int;kotlin.Int;com.huanshankeji.compose.ui.graphics.ColorProducer?;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+
+// Targets: [js]
+final fun com.huanshankeji.compose.foundation.text/BasicText(kotlin/String, com.huanshankeji.compose.ui/Modifier?, com.huanshankeji.compose.ui.text.style/TextOverflow?, kotlin/Boolean, kotlin/Int, kotlin/Int, com.huanshankeji.compose.ui.graphics/ColorProducer?, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.foundation.text/BasicText|BasicText(kotlin.String;com.huanshankeji.compose.ui.Modifier?;com.huanshankeji.compose.ui.text.style.TextOverflow?;kotlin.Boolean;kotlin.Int;kotlin.Int;com.huanshankeji.compose.ui.graphics.ColorProducer?;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
+
+// Targets: [js]
 final fun com.huanshankeji.compose.foundation/com_huanshankeji_compose_foundation_ScrollState$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.foundation/com_huanshankeji_compose_foundation_ScrollState$stableprop_getter|com_huanshankeji_compose_foundation_ScrollState$stableprop_getter(){}[0]
 
 // Targets: [js]
@@ -1160,6 +1458,15 @@ final fun com.huanshankeji.compose.foundation/rememberScrollState(kotlin/Int, an
 
 // Targets: [js]
 final fun com.huanshankeji.compose.ui.platform/findComposeDefaultViewModelStoreOwner(androidx.compose.runtime/Composer?, kotlin/Int): androidx.lifecycle/ViewModelStoreOwner? // com.huanshankeji.compose.ui.platform/findComposeDefaultViewModelStoreOwner|findComposeDefaultViewModelStoreOwner(androidx.compose.runtime.Composer?;kotlin.Int){}[0]
+
+// Targets: [js]
+final fun com.huanshankeji.compose.ui.text.font/com_huanshankeji_compose_ui_text_font_FontWeight$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.ui.text.font/com_huanshankeji_compose_ui_text_font_FontWeight$stableprop_getter|com_huanshankeji_compose_ui_text_font_FontWeight$stableprop_getter(){}[0]
+
+// Targets: [js]
+final fun com.huanshankeji.compose.ui.text.style/com_huanshankeji_compose_ui_text_style_TextDecoration$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.ui.text.style/com_huanshankeji_compose_ui_text_style_TextDecoration$stableprop_getter|com_huanshankeji_compose_ui_text_style_TextDecoration$stableprop_getter(){}[0]
+
+// Targets: [js]
+final fun com.huanshankeji.compose.ui.text/AnnotatedStringText(com.huanshankeji.compose.ui.text/AnnotatedString, androidx.compose.runtime/Composer?, kotlin/Int) // com.huanshankeji.compose.ui.text/AnnotatedStringText|AnnotatedStringText(com.huanshankeji.compose.ui.text.AnnotatedString;androidx.compose.runtime.Composer?;kotlin.Int){}[0]
 
 // Targets: [js]
 final fun com.huanshankeji.compose.ui.window/com_huanshankeji_compose_ui_window_SimpleViewModelStoreOwner$stableprop_getter(): kotlin/Int // com.huanshankeji.compose.ui.window/com_huanshankeji_compose_ui_window_SimpleViewModelStoreOwner$stableprop_getter|com_huanshankeji_compose_ui_window_SimpleViewModelStoreOwner$stableprop_getter(){}[0]

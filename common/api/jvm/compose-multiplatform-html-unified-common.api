@@ -432,7 +432,8 @@ public final class com/huanshankeji/compose/foundation/text/BasicTextKt {
 }
 
 public final class com/huanshankeji/compose/foundation/text/BasicText_composeUiKt {
-	public static final fun BasicText (Ljava/lang/String;Lcom/huanshankeji/compose/ui/Modifier;Lcom/huanshankeji/compose/ui/graphics/ColorProducer;Landroidx/compose/runtime/Composer;II)V
+	public static final fun BasicText-ll8wPH0 (Lcom/huanshankeji/compose/ui/text/AnnotatedString;Lcom/huanshankeji/compose/ui/Modifier;IZIILcom/huanshankeji/compose/ui/graphics/ColorProducer;Landroidx/compose/runtime/Composer;II)V
+	public static final fun BasicText-ll8wPH0 (Ljava/lang/String;Lcom/huanshankeji/compose/ui/Modifier;IZIILcom/huanshankeji/compose/ui/graphics/ColorProducer;Landroidx/compose/runtime/Composer;II)V
 }
 
 public abstract interface class com/huanshankeji/compose/foundation/text/KeyboardActionScope {
@@ -813,6 +814,60 @@ public final class com/huanshankeji/compose/ui/graphics/Color_composeUiKt {
 	public static final fun toNullablePlatformValue (Lcom/huanshankeji/compose/ui/graphics/ColorProducer;)Landroidx/compose/ui/graphics/ColorProducer;
 	public static final fun toPlatformValue (Lcom/huanshankeji/compose/ui/graphics/Color;)J
 	public static final fun toPlatformValue (Lcom/huanshankeji/compose/ui/graphics/ColorProducer;)Landroidx/compose/ui/graphics/ColorProducer;
+}
+
+public final class com/huanshankeji/compose/ui/text/AnnotatedString {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getSpanStyles ()Ljava/util/List;
+	public final fun getText ()Ljava/lang/String;
+	public final fun toPlatformValue ()Landroidx/compose/ui/text/AnnotatedString;
+}
+
+public final class com/huanshankeji/compose/ui/text/AnnotatedString$Builder {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun <init> (I)V
+	public synthetic fun <init> (IILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun addStyle (Lcom/huanshankeji/compose/ui/text/SpanStyle;II)V
+	public final fun append (C)V
+	public final fun append (Lcom/huanshankeji/compose/ui/text/AnnotatedString;)V
+	public final fun append (Ljava/lang/String;)V
+	public final fun getLength ()I
+	public final fun pop ()V
+	public final fun pop (I)V
+	public final fun pushStyle (Lcom/huanshankeji/compose/ui/text/SpanStyle;)I
+	public final fun toAnnotatedString ()Lcom/huanshankeji/compose/ui/text/AnnotatedString;
+}
+
+public final class com/huanshankeji/compose/ui/text/AnnotatedString$Range {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/Object;II)V
+	public final fun getEnd ()I
+	public final fun getItem ()Ljava/lang/Object;
+	public final fun getStart ()I
+}
+
+public final class com/huanshankeji/compose/ui/text/AnnotatedStringKt {
+	public static final fun withStyle (Lcom/huanshankeji/compose/ui/text/AnnotatedString$Builder;Lcom/huanshankeji/compose/ui/text/SpanStyle;Lkotlin/jvm/functions/Function1;)V
+}
+
+public final class com/huanshankeji/compose/ui/text/AnnotatedString_composeUiKt {
+	public static final fun buildAnnotatedString (Lkotlin/jvm/functions/Function1;)Lcom/huanshankeji/compose/ui/text/AnnotatedString;
+}
+
+public final class com/huanshankeji/compose/ui/text/SpanStyle {
+	public static final field $stable I
+	public synthetic fun <init> (Lcom/huanshankeji/compose/ui/graphics/Color;JLandroidx/compose/ui/text/font/FontWeight;Landroidx/compose/ui/text/font/FontStyle;JLandroidx/compose/ui/text/style/TextDecoration;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lcom/huanshankeji/compose/ui/graphics/Color;JLandroidx/compose/ui/text/font/FontWeight;Landroidx/compose/ui/text/font/FontStyle;JLandroidx/compose/ui/text/style/TextDecoration;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getColor ()Lcom/huanshankeji/compose/ui/graphics/Color;
+	public final fun getFontSize-XSAIIZE ()J
+	public final fun getFontStyle-4Lr2A7w ()Landroidx/compose/ui/text/font/FontStyle;
+	public final fun getFontWeight ()Landroidx/compose/ui/text/font/FontWeight;
+	public final fun getLetterSpacing-XSAIIZE ()J
+	public final fun getTextDecoration ()Landroidx/compose/ui/text/style/TextDecoration;
+	public final fun toPlatformValue ()Landroidx/compose/ui/text/SpanStyle;
 }
 
 public abstract class com/huanshankeji/compose/ui/unit/ext/DpOrPercentage {
