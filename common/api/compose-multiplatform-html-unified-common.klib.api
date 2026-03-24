@@ -993,6 +993,9 @@ final fun (kotlin/Function3<com.huanshankeji.compose.ui/Modifier, androidx.compo
 // Targets: [ios, wasmJs]
 final fun com.huanshankeji.compose.foundation/rememberScrollState(kotlin/Int, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int): androidx.compose.foundation/ScrollState // com.huanshankeji.compose.foundation/rememberScrollState|rememberScrollState(kotlin.Int;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]
 
+// Targets: [ios]
+final fun /test() // /test|test(){}[0]
+
 // Targets: [js]
 final enum class com.huanshankeji.browser/Browser : kotlin/Enum<com.huanshankeji.browser/Browser> { // com.huanshankeji.browser/Browser|null[0]
     enum entry Mozilla // com.huanshankeji.browser/Browser.Mozilla|null[0]
