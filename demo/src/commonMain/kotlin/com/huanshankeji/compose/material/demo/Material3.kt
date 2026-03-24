@@ -192,7 +192,7 @@ private fun FloatingActionButtonsDemo(onClick: () -> Unit, iconButtonContent: @C
         LargeFloatingActionButton(onClick, content = iconButtonContent)
         ExtendedFloatingActionButton(onClick) {
             iconButtonContent()
-            Text("Add")
+            Text("Add (incorrect usage)")
         }
     }
     Row {
