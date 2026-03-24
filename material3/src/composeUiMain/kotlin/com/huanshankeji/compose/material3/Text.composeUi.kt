@@ -8,16 +8,14 @@ import com.huanshankeji.compose.ui.graphics.toPlatformValue
 import com.huanshankeji.compose.ui.text.AnnotatedString
 import com.huanshankeji.compose.ui.text.font.FontStyle
 import com.huanshankeji.compose.ui.text.font.FontWeight
-import com.huanshankeji.compose.ui.text.font.toPlatformValue
 import com.huanshankeji.compose.ui.text.style.TextAlign
 import com.huanshankeji.compose.ui.text.style.TextDecoration
 import com.huanshankeji.compose.ui.text.style.TextOverflow
-import com.huanshankeji.compose.ui.text.style.toPlatformValue
-import com.huanshankeji.compose.ui.text.toPlatformValue
 
 /**
  * @see com.huanshankeji.compose.material3.ext.TaglessText
  */
+@Deprecated("Use the overload with more parameters.", level = DeprecationLevel.HIDDEN)
 @Composable
 actual fun Text(text: String, modifier: Modifier, color: Color?) =
     androidx.compose.material3.Text(text, modifier.platformModifier, color.toPlatformValue())
@@ -44,13 +42,13 @@ actual fun Text(
         modifier = modifier.platformModifier,
         color = color.toPlatformValue(),
         fontSize = fontSize,
-        fontStyle = fontStyle?.toPlatformValue(),
-        fontWeight = fontWeight?.toPlatformValue(),
+        fontStyle = fontStyle,
+        fontWeight = fontWeight,
         letterSpacing = letterSpacing,
-        textDecoration = textDecoration?.toPlatformValue(),
-        textAlign = textAlign?.toPlatformValue(),
+        textDecoration = textDecoration,
+        textAlign = textAlign,
         lineHeight = lineHeight,
-        overflow = overflow.toPlatformValue(),
+        overflow = overflow,
         softWrap = softWrap,
         maxLines = maxLines,
         minLines = minLines,
@@ -78,13 +76,13 @@ actual fun Text(
         modifier = modifier.platformModifier,
         color = color.toPlatformValue(),
         fontSize = fontSize,
-        fontStyle = fontStyle?.toPlatformValue(),
-        fontWeight = fontWeight?.toPlatformValue(),
+        fontStyle = fontStyle,
+        fontWeight = fontWeight,
         letterSpacing = letterSpacing,
-        textDecoration = textDecoration?.toPlatformValue(),
-        textAlign = textAlign?.toPlatformValue(),
+        textDecoration = textDecoration,
+        textAlign = textAlign,
         lineHeight = lineHeight,
-        overflow = overflow.toPlatformValue(),
+        overflow = overflow,
         softWrap = softWrap,
         maxLines = maxLines,
         minLines = minLines,

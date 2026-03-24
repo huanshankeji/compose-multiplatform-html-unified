@@ -1,16 +1,28 @@
 package com.huanshankeji.compose.ui.text
 
+import androidx.compose.ui.unit.TextUnit
+import com.huanshankeji.compose.ui.graphics.Color
 import com.huanshankeji.compose.ui.graphics.toPlatformValue
-import com.huanshankeji.compose.ui.text.font.toPlatformValue
-import com.huanshankeji.compose.ui.text.style.toPlatformValue
+import com.huanshankeji.compose.ui.text.font.FontStyle
+import com.huanshankeji.compose.ui.text.font.FontWeight
+import com.huanshankeji.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.SpanStyle as PlatformSpanStyle
 
-fun SpanStyle.toPlatformValue(): PlatformSpanStyle =
-    PlatformSpanStyle(
-        color = color.toPlatformValue(),
-        fontSize = fontSize,
-        fontWeight = fontWeight?.toPlatformValue(),
-        fontStyle = fontStyle?.toPlatformValue(),
-        letterSpacing = letterSpacing,
-        textDecoration = textDecoration?.toPlatformValue(),
-    )
+actual class SpanStyle actual constructor(
+    actual val color: Color?,
+    actual val fontSize: TextUnit,
+    actual val fontWeight: FontWeight?,
+    actual val fontStyle: FontStyle?,
+    actual val letterSpacing: TextUnit,
+    actual val textDecoration: TextDecoration?,
+) {
+    fun toPlatformValue(): PlatformSpanStyle =
+        PlatformSpanStyle(
+            color = color.toPlatformValue(),
+            fontSize = fontSize,
+            fontWeight = fontWeight,
+            fontStyle = fontStyle,
+            letterSpacing = letterSpacing,
+            textDecoration = textDecoration,
+        )
+}

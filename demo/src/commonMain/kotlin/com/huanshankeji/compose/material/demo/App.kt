@@ -53,7 +53,7 @@ fun Home(navController: NavHostController) {
     Box(Modifier.fillMaxSizeStretch(), contentAlignment = Alignment.Center) {
         Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
             Button({ navController.navigate(Screen.Common.name) }) {
-                TaglessText("Common")
+                TaglessText("Common (Foundation and UI)")
             }
             /*
             Button({ navController.navigate(Screen.Material2.name) }) {

@@ -2,6 +2,7 @@ package com.huanshankeji.compose.material.demo
 
 import androidx.compose.runtime.*
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.huanshankeji.compose.foundation.*
 import com.huanshankeji.compose.foundation.ext.outerBorder
 import com.huanshankeji.compose.foundation.ext.roundedCornerBackgroundAndOuterBorder
@@ -15,6 +16,13 @@ import com.huanshankeji.compose.foundation.text.BasicText
 import com.huanshankeji.compose.layout.ext.hidden
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.graphics.Color
+import com.huanshankeji.compose.ui.text.SpanStyle
+import com.huanshankeji.compose.ui.text.buildAnnotatedString
+import com.huanshankeji.compose.ui.text.font.FontStyle
+import com.huanshankeji.compose.ui.text.font.FontWeight
+import com.huanshankeji.compose.ui.text.style.TextDecoration
+import com.huanshankeji.compose.ui.text.style.TextOverflow
+import com.huanshankeji.compose.ui.text.withStyle
 
 @Composable
 fun Common(/*modifier: Modifier = Modifier*/) {
@@ -94,5 +102,39 @@ fun Common(/*modifier: Modifier = Modifier*/) {
             Spacer(Modifier.width(32.dp))
             BasicText("right to spacer")
         }
+
+        BasicTextStyledTextDemo()
     }
+}
+
+/**
+ * Styled text demo using foundation `BasicText`.
+ * Uses parameters common between `BasicText` and Material 3 `Text`.
+ */
+@Composable
+fun BasicTextStyledTextDemo() {
+    BasicText("BasicText overflow ellipsis", maxLines = 1, overflow = TextOverflow.Ellipsis)
+    val annotatedString = buildAnnotatedString {
+        append("Normal ")
+        withStyle(SpanStyle(fontWeight = FontWeight.Bold)) {
+            append("bold")
+        }
+        append(" ")
+        withStyle(SpanStyle(fontStyle = FontStyle.Italic)) {
+            append("italic")
+        }
+        append(" ")
+        withStyle(SpanStyle(color = Color.Red)) {
+            append("red")
+        }
+        append(" ")
+        withStyle(SpanStyle(textDecoration = TextDecoration.Underline)) {
+            append("underlined")
+        }
+        append(" ")
+        withStyle(SpanStyle(fontSize = 20.sp, fontWeight = FontWeight.Bold, color = Color.Blue)) {
+            append("big blue bold")
+        }
+    }
+    BasicText(annotatedString)
 }

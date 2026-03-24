@@ -24,4 +24,4 @@ expect fun TaglessBasicText(text: String)
  */
 @Composable
 fun SpanBasicText(text: String, modifier: Modifier = Modifier, color: ColorProducer? = null) =
-    BasicText(text, modifier, color)
+    BasicText(text, modifier, color = color)

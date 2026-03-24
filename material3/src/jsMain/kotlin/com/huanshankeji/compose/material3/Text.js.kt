@@ -14,6 +14,7 @@ import com.huanshankeji.compose.ui.text.style.TextAlign
 import com.huanshankeji.compose.ui.text.style.TextDecoration
 import com.huanshankeji.compose.ui.text.style.TextOverflow
 
+@Deprecated("Use the overload with more parameters.", level = DeprecationLevel.HIDDEN)
 @Composable
 actual fun Text(text: String, modifier: Modifier, color: Color?) =
     @OptIn(InternalComposeApi::class)

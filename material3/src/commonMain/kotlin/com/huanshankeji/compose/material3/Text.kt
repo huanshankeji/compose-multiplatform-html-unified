@@ -19,9 +19,18 @@ import com.huanshankeji.compose.ui.text.style.TextOverflow
  * such as `androidx.compose.material3.Text` and `org.jetbrains.compose.web.dom.Text`
  * if not careful.
  * [TaglessText] is recommended over this one when there is no custom [modifier].
+ *
+ * The following Compose UI `Text` parameters are not yet supported:
+ * - `autoSize: TextAutoSize?` — requires porting `TextAutoSize`
+ * - `fontFamily: FontFamily?` — requires porting `FontFamily`
+ * - `onTextLayout: ((TextLayoutResult) -> Unit)?` — requires porting `TextLayoutResult`
+ * - `style: TextStyle` — requires porting `TextStyle` and `LocalTextStyle`
+ * - `inlineContent: Map<String, InlineTextContent>` — AnnotatedString overload only; requires porting `InlineTextContent`
+ *
  * @see TaglessText
  * @see MaterialText
  */
+@Deprecated("Use the overload with more parameters.", level = DeprecationLevel.HIDDEN)
 @Composable
 expect fun Text(text: String, modifier: Modifier = Modifier, color: Color? = null)
 
@@ -33,6 +42,7 @@ expect fun Text(
     fontSize: TextUnit = TextUnit.Unspecified,
     fontStyle: FontStyle? = null,
     fontWeight: FontWeight? = null,
+    // fontFamily: FontFamily? = null,
     letterSpacing: TextUnit = TextUnit.Unspecified,
     textDecoration: TextDecoration? = null,
     textAlign: TextAlign? = null,
@@ -41,6 +51,9 @@ expect fun Text(
     softWrap: Boolean = true,
     maxLines: Int = Int.MAX_VALUE,
     minLines: Int = 1,
+    // autoSize: TextAutoSize? = null,
+    // onTextLayout: ((TextLayoutResult) -> Unit)? = null,
+    // style: TextStyle = LocalTextStyle.current,
 )
 
 @Composable
@@ -51,6 +64,7 @@ expect fun Text(
     fontSize: TextUnit = TextUnit.Unspecified,
     fontStyle: FontStyle? = null,
     fontWeight: FontWeight? = null,
+    // fontFamily: FontFamily? = null,
     letterSpacing: TextUnit = TextUnit.Unspecified,
     textDecoration: TextDecoration? = null,
     textAlign: TextAlign? = null,
@@ -59,4 +73,8 @@ expect fun Text(
     softWrap: Boolean = true,
     maxLines: Int = Int.MAX_VALUE,
     minLines: Int = 1,
+    // inlineContent: Map<String, InlineTextContent> = mapOf(),
+    // autoSize: TextAutoSize? = null,
+    // onTextLayout: (TextLayoutResult) -> Unit = {},
+    // style: TextStyle = LocalTextStyle.current,
 )
