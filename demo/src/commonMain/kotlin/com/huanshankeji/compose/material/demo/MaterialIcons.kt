@@ -31,7 +31,7 @@ private fun IconItem(name: String, icon: Icon) {
 }
 
 // TODO: use a flow layout when it's supported (#125)
-private const val ICONS_PER_ROW = 16
+private const val ICONS_PER_ROW = 8
 
 // TODO: make section titles bigger after text styling is supported (#23)
 @Composable
