@@ -25,9 +25,21 @@ This project is still in development and has not reached a stable state. Some AP
 
 ### Components
 
+#### About `ext` components (components in the `ext` packages)
+
+The components in the `ext` packages don't follow the `androidx.compose` APIs exactly, but rather provide wrappers that are more idiomatic and conventional on both kinds of targets, wrapping different APIs that can't be unified following the `androidx.compose` APIs.
+
+#### About parameter names
+
+The parameter names with suffixes such as "JsDom" or "ComposeUi" are platform-specific, and only apply on their respective platform(s), Compose HTML / JS DOM or Compose UI platforms.
+
 #### Foundation components
 
-Maven coordinate: `com.huanshankeji:compose-multiplatform-html-unified-common:$version` (also for modifiers and other APIs below)
+Maven coordinate (also for modifiers and other APIs below):
+
+```
+com.huanshankeji:compose-multiplatform-html-unified-common:$version
+```
 
 - `BasicText`
 
@@ -53,7 +65,11 @@ Maven coordinate: `com.huanshankeji:compose-multiplatform-html-unified-common:$v
 
 #### Material 2 components
 
-Maven coordinate: `com.huanshankeji:compose-multiplatform-html-unified-material2:$version`
+Maven coordinate:
+
+```
+com.huanshankeji:compose-multiplatform-html-unified-material2:$version
+```
 
 **Deprecation notice:** The Material 2 components are no longer maintained and published for release since v0.6.0, due to its decreasing popularity and the underlying KMDC library's incompatible Kotlin and Compose versions.
 
@@ -83,7 +99,11 @@ Maven coordinate: `com.huanshankeji:compose-multiplatform-html-unified-material2
 
 #### Material 3 components
 
-Maven coordinate: `com.huanshankeji:compose-multiplatform-html-unified-material3:$version`
+Maven coordinate:
+
+```
+com.huanshankeji:compose-multiplatform-html-unified-material3:$version
+```
 
 - Button: `Button` (`FilledButton`), `ElevatedButton`, `FilledTonalButton`, `OutlinedButton`, `TextButton`
 - Card: `Card` (`FilledCard`), `ElevatedCard`, `OutlinedCard`
@@ -132,17 +152,17 @@ Maven coordinate: `com.huanshankeji:compose-multiplatform-html-unified-material3
 
 - `List`/`LazyColumnList` (slightly visually inconsistent)
 
-#### About `ext` components (components in the `ext` packages)
-
-The components in the `ext` packages don't follow the `androidx.compose` APIs exactly, but rather provide wrappers that are more idiomatic and conventional on both kinds of targets, wrapping different APIs that can't be unified following the `androidx.compose` APIs.
-
-#### About parameter names
-
-The parameter names with suffixes such as "JsDom" or "ComposeUi" are platform-specific, and only apply on their respective platform(s), Compose HTML / JS DOM or Compose UI platforms.
-
 #### Material Icons
 
-Maven coordinates: `com.huanshankeji:compose-multiplatform-html-unified-material-icons-core:$version`, `com.huanshankeji:compose-multiplatform-html-unified-material-icons-extended:$version`
+Maven coordinates:
+
+```
+com.huanshankeji:compose-multiplatform-html-unified-material-icons-core:$version
+```
+
+```
+com.huanshankeji:compose-multiplatform-html-unified-material-icons-extended:$version
+```
 
 There are two icon modules:
 
@@ -184,13 +204,21 @@ See [the corresponding section in Compose HTML Material](https://github.com/huan
 
 ### ViewModel
 
-Maven coordinate: `com.huanshankeji:compose-multiplatform-html-unified-lifecycle-viewmodel:$version`
+Maven coordinate:
+
+```
+com.huanshankeji:compose-multiplatform-html-unified-lifecycle-viewmodel:$version
+```
 
 The ViewModel module currently supports a subset of the Compose ViewModel APIs. For ViewModel to work properly on Compose HTML / JS DOM, call `com.huanshankeji.compose.ui.window.renderComposableInBodyWithViewModelStoreOwner` instead of `org.jetbrains.compose.web.renderComposableInBody` on JS. These APIs are experimental now.
 
 ### Navigation
 
-Maven coordinate: `com.huanshankeji:compose-multiplatform-html-unified-navigation:$version`
+Maven coordinate:
+
+```
+com.huanshankeji:compose-multiplatform-html-unified-navigation:$version
+```
 
 The navigation module currently supports a small subset of the Compose Navigation APIs, which does not support transition or animation on Compose HTML / JS DOM. These APIs are also experimental now.
 
@@ -198,8 +226,8 @@ The navigation module currently supports a small subset of the Compose Navigatio
 
 Maven coordinate pattern:
 
-```kotlin
-"com.huanshankeji:compose-multiplatform-html-unified-$module:$version"
+```
+com.huanshankeji:compose-multiplatform-html-unified-$module:$version
 ```
 
 The specific Maven coordinates are listed in the sections above. For example, to depend on the Material 3 module with Gradle:
