@@ -36,13 +36,17 @@ private const val ICONS_PER_ROW = 8
 // TODO: make section titles bigger after text styling is supported (#23)
 @Composable
 private fun IconSection(title: String, icons: List<Pair<String, Icon>>, searchQuery: String) {
-    val filtered =
-        if (searchQuery.isBlank()) icons
-        else icons.filter { it.first.contains(searchQuery, ignoreCase = true) }
-    if (filtered.isNotEmpty()) {
+    val rows by remember(searchQuery, icons) {
+        derivedStateOf {
+            val filtered =
+                if (searchQuery.isBlank()) icons
+                else icons.filter { it.first.contains(searchQuery, ignoreCase = true) }
+            filtered.chunked(ICONS_PER_ROW)
+        }
+    }
+    if (rows.isNotEmpty()) {
         Text(title, modifier = contentPaddingModifier)
-        val chunked = filtered.chunked(ICONS_PER_ROW)
-        for (row in chunked)
+        for (row in rows)
             Row {
                 for ((name, icon) in row)
                     IconItem(name, icon)
