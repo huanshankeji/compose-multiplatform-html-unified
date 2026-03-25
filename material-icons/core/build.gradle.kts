@@ -18,7 +18,7 @@ kotlin {
         }
         composeUiMain {
             dependencies {
-                api("org.jetbrains.compose.material:material-icons-core:${DependencyVersions.composeMultiplatformMaterialIconsExtended}")
+                api("org.jetbrains.compose.material:material-icons-core:${DependencyVersions.composeMultiplatformMaterialIcons}")
             }
         }
     }
