@@ -13,8 +13,6 @@ expect val Icons.Filled.Accessible: Icon
 expect val Icons.Filled.AccessibleForward: Icon
 expect val Icons.Filled.AccountBalance: Icon
 expect val Icons.Filled.AccountBalanceWallet: Icon
-expect val Icons.Filled.AccountBox: Icon
-expect val Icons.Filled.AccountCircle: Icon
 expect val Icons.Filled.AccountTree: Icon
 expect val Icons.Filled.Adb: Icon
 expect val Icons.Filled.Add: Icon
@@ -24,7 +22,6 @@ expect val Icons.Filled.AddBox: Icon
 expect val Icons.Filled.AddBusiness: Icon
 expect val Icons.Filled.AddCard: Icon
 expect val Icons.Filled.AddChart: Icon
-expect val Icons.Filled.AddCircle: Icon
 expect val Icons.Filled.AddComment: Icon
 expect val Icons.Filled.AddHome: Icon
 expect val Icons.Filled.AddHomeWork: Icon
@@ -91,7 +88,6 @@ expect val Icons.Filled.AppsOutage: Icon
 expect val Icons.Filled.Architecture: Icon
 expect val Icons.Filled.Archive: Icon
 expect val Icons.Filled.AreaChart: Icon
-expect val Icons.Filled.ArrowBack: Icon
 expect val Icons.Filled.ArrowBackIos: Icon
 expect val Icons.Filled.ArrowBackIosNew: Icon
 expect val Icons.Filled.ArrowCircleDown: Icon
@@ -99,10 +95,8 @@ expect val Icons.Filled.ArrowCircleLeft: Icon
 expect val Icons.Filled.ArrowCircleRight: Icon
 expect val Icons.Filled.ArrowCircleUp: Icon
 expect val Icons.Filled.ArrowDownward: Icon
-expect val Icons.Filled.ArrowDropDown: Icon
 expect val Icons.Filled.ArrowDropDownCircle: Icon
 expect val Icons.Filled.ArrowDropUp: Icon
-expect val Icons.Filled.ArrowForward: Icon
 expect val Icons.Filled.ArrowForwardIos: Icon
 expect val Icons.Filled.ArrowLeft: Icon
 expect val Icons.Filled.ArrowOutward: Icon
@@ -237,7 +231,6 @@ expect val Icons.Filled.BrunchDining: Icon
 expect val Icons.Filled.Brush: Icon
 expect val Icons.Filled.BubbleChart: Icon
 expect val Icons.Filled.BugReport: Icon
-expect val Icons.Filled.Build: Icon
 expect val Icons.Filled.BuildCircle: Icon
 expect val Icons.Filled.Bungalow: Icon
 expect val Icons.Filled.BurstMode: Icon
@@ -253,7 +246,6 @@ expect val Icons.Filled.CalendarToday: Icon
 expect val Icons.Filled.CalendarViewDay: Icon
 expect val Icons.Filled.CalendarViewMonth: Icon
 expect val Icons.Filled.CalendarViewWeek: Icon
-expect val Icons.Filled.Call: Icon
 expect val Icons.Filled.CallEnd: Icon
 expect val Icons.Filled.CallMade: Icon
 expect val Icons.Filled.CallMerge: Icon
@@ -298,10 +290,8 @@ expect val Icons.Filled.ChangeCircle: Icon
 expect val Icons.Filled.ChangeHistory: Icon
 expect val Icons.Filled.Chat: Icon
 expect val Icons.Filled.ChatBubble: Icon
-expect val Icons.Filled.Check: Icon
 expect val Icons.Filled.CheckBox: Icon
 expect val Icons.Filled.CheckBoxOutlineBlank: Icon
-expect val Icons.Filled.CheckCircle: Icon
 expect val Icons.Filled.Checklist: Icon
 expect val Icons.Filled.ChecklistRtl: Icon
 expect val Icons.Filled.Checkroom: Icon
@@ -316,7 +306,6 @@ expect val Icons.Filled.CircleNotifications: Icon
 expect val Icons.Filled.CleanHands: Icon
 expect val Icons.Filled.CleaningServices: Icon
 expect val Icons.Filled.ClearAll: Icon
-expect val Icons.Filled.Close: Icon
 expect val Icons.Filled.CloseFullscreen: Icon
 expect val Icons.Filled.ClosedCaption: Icon
 expect val Icons.Filled.ClosedCaptionDisabled: Icon
@@ -416,11 +405,9 @@ expect val Icons.Filled.DataThresholding: Icon
 expect val Icons.Filled.DataUsage: Icon
 expect val Icons.Filled.Dataset: Icon
 expect val Icons.Filled.DatasetLinked: Icon
-expect val Icons.Filled.DateRange: Icon
 expect val Icons.Filled.Deblur: Icon
 expect val Icons.Filled.Deck: Icon
 expect val Icons.Filled.Dehaze: Icon
-expect val Icons.Filled.Delete: Icon
 expect val Icons.Filled.DeleteForever: Icon
 expect val Icons.Filled.DeleteSweep: Icon
 expect val Icons.Filled.DensityLarge: Icon
@@ -479,7 +466,6 @@ expect val Icons.Filled.Domain: Icon
 expect val Icons.Filled.DomainAdd: Icon
 expect val Icons.Filled.DomainDisabled: Icon
 expect val Icons.Filled.DomainVerification: Icon
-expect val Icons.Filled.Done: Icon
 expect val Icons.Filled.DoneAll: Icon
 expect val Icons.Filled.DoneOutline: Icon
 expect val Icons.Filled.DonutLarge: Icon
@@ -512,7 +498,6 @@ expect val Icons.Filled.Earbuds: Icon
 expect val Icons.Filled.EarbudsBattery: Icon
 expect val Icons.Filled.East: Icon
 expect val Icons.Filled.Eco: Icon
-expect val Icons.Filled.Edit: Icon
 expect val Icons.Filled.EditAttributes: Icon
 expect val Icons.Filled.EditCalendar: Icon
 expect val Icons.Filled.EditLocation: Icon
@@ -560,7 +545,6 @@ expect val Icons.Filled.EventBusy: Icon
 expect val Icons.Filled.EventNote: Icon
 expect val Icons.Filled.EventRepeat: Icon
 expect val Icons.Filled.EventSeat: Icon
-expect val Icons.Filled.ExitToApp: Icon
 expect val Icons.Filled.Expand: Icon
 expect val Icons.Filled.ExpandCircleDown: Icon
 expect val Icons.Filled.ExpandLess: Icon
@@ -576,7 +560,6 @@ expect val Icons.Filled.ExposurePlus2: Icon
 expect val Icons.Filled.ExposureZero: Icon
 expect val Icons.Filled.Extension: Icon
 expect val Icons.Filled.ExtensionOff: Icon
-expect val Icons.Filled.Face: Icon
 expect val Icons.Filled.Face2: Icon
 expect val Icons.Filled.Face3: Icon
 expect val Icons.Filled.Face4: Icon
@@ -590,7 +573,6 @@ expect val Icons.Filled.FamilyRestroom: Icon
 expect val Icons.Filled.FastForward: Icon
 expect val Icons.Filled.FastRewind: Icon
 expect val Icons.Filled.Fastfood: Icon
-expect val Icons.Filled.Favorite: Icon
 expect val Icons.Filled.Fax: Icon
 expect val Icons.Filled.FeaturedPlayList: Icon
 expect val Icons.Filled.FeaturedVideo: Icon
@@ -792,7 +774,6 @@ expect val Icons.Filled.Hive: Icon
 expect val Icons.Filled.Hls: Icon
 expect val Icons.Filled.HlsOff: Icon
 expect val Icons.Filled.HolidayVillage: Icon
-expect val Icons.Filled.Home: Icon
 expect val Icons.Filled.HomeMax: Icon
 expect val Icons.Filled.HomeMini: Icon
 expect val Icons.Filled.HomeRepairService: Icon
@@ -829,7 +810,6 @@ expect val Icons.Filled.ImportantDevices: Icon
 expect val Icons.Filled.Inbox: Icon
 expect val Icons.Filled.IncompleteCircle: Icon
 expect val Icons.Filled.IndeterminateCheckBox: Icon
-expect val Icons.Filled.Info: Icon
 expect val Icons.Filled.Input: Icon
 expect val Icons.Filled.InsertChart: Icon
 expect val Icons.Filled.InsertPageBreak: Icon
@@ -854,10 +834,6 @@ expect val Icons.Filled.Key: Icon
 expect val Icons.Filled.KeyOff: Icon
 expect val Icons.Filled.Keyboard: Icon
 expect val Icons.Filled.KeyboardAlt: Icon
-expect val Icons.Filled.KeyboardArrowDown: Icon
-expect val Icons.Filled.KeyboardArrowLeft: Icon
-expect val Icons.Filled.KeyboardArrowRight: Icon
-expect val Icons.Filled.KeyboardArrowUp: Icon
 expect val Icons.Filled.KeyboardBackspace: Icon
 expect val Icons.Filled.KeyboardCapslock: Icon
 expect val Icons.Filled.KeyboardCommandKey: Icon
@@ -907,7 +883,6 @@ expect val Icons.Filled.Link: Icon
 expect val Icons.Filled.LinkOff: Icon
 expect val Icons.Filled.LinkedCamera: Icon
 expect val Icons.Filled.Liquor: Icon
-expect val Icons.Filled.List: Icon
 expect val Icons.Filled.ListAlt: Icon
 expect val Icons.Filled.LiveHelp: Icon
 expect val Icons.Filled.LiveTv: Icon
@@ -938,7 +913,6 @@ expect val Icons.Filled.LocationCity: Icon
 expect val Icons.Filled.LocationDisabled: Icon
 expect val Icons.Filled.LocationOff: Icon
 expect val Icons.Filled.LocationSearching: Icon
-expect val Icons.Filled.Lock: Icon
 expect val Icons.Filled.LockClock: Icon
 expect val Icons.Filled.LockOpen: Icon
 expect val Icons.Filled.LockPerson: Icon
@@ -992,7 +966,6 @@ expect val Icons.Filled.MedicalServices: Icon
 expect val Icons.Filled.Medication: Icon
 expect val Icons.Filled.MeetingRoom: Icon
 expect val Icons.Filled.Memory: Icon
-expect val Icons.Filled.Menu: Icon
 expect val Icons.Filled.MenuBook: Icon
 expect val Icons.Filled.MenuOpen: Icon
 expect val Icons.Filled.Merge: Icon
@@ -1027,7 +1000,6 @@ expect val Icons.Filled.Moped: Icon
 expect val Icons.Filled.More: Icon
 expect val Icons.Filled.MoreHoriz: Icon
 expect val Icons.Filled.MoreTime: Icon
-expect val Icons.Filled.MoreVert: Icon
 expect val Icons.Filled.Mosque: Icon
 expect val Icons.Filled.MotionPhotosAuto: Icon
 expect val Icons.Filled.MotionPhotosOff: Icon
@@ -1104,7 +1076,6 @@ expect val Icons.Filled.NoteAlt: Icon
 expect val Icons.Filled.Notes: Icon
 expect val Icons.Filled.NotificationAdd: Icon
 expect val Icons.Filled.NotificationImportant: Icon
-expect val Icons.Filled.Notifications: Icon
 expect val Icons.Filled.NotificationsActive: Icon
 expect val Icons.Filled.NotificationsOff: Icon
 expect val Icons.Filled.NotificationsPaused: Icon
@@ -1159,7 +1130,6 @@ expect val Icons.Filled.PermDataSetting: Icon
 expect val Icons.Filled.PermMedia: Icon
 expect val Icons.Filled.PermPhoneMsg: Icon
 expect val Icons.Filled.PermScanWifi: Icon
-expect val Icons.Filled.Person: Icon
 expect val Icons.Filled.Person2: Icon
 expect val Icons.Filled.Person3: Icon
 expect val Icons.Filled.Person4: Icon
@@ -1206,9 +1176,7 @@ expect val Icons.Filled.PinEnd: Icon
 expect val Icons.Filled.PinInvoke: Icon
 expect val Icons.Filled.Pinch: Icon
 expect val Icons.Filled.PivotTableChart: Icon
-expect val Icons.Filled.Place: Icon
 expect val Icons.Filled.Plagiarism: Icon
-expect val Icons.Filled.PlayArrow: Icon
 expect val Icons.Filled.PlayCircle: Icon
 expect val Icons.Filled.PlayDisabled: Icon
 expect val Icons.Filled.PlayForWork: Icon
@@ -1285,7 +1253,6 @@ expect val Icons.Filled.Recycling: Icon
 expect val Icons.Filled.Redeem: Icon
 expect val Icons.Filled.Redo: Icon
 expect val Icons.Filled.ReduceCapacity: Icon
-expect val Icons.Filled.Refresh: Icon
 expect val Icons.Filled.RememberMe: Icon
 expect val Icons.Filled.Remove: Icon
 expect val Icons.Filled.RemoveDone: Icon
@@ -1374,14 +1341,12 @@ expect val Icons.Filled.ScubaDiving: Icon
 expect val Icons.Filled.Sd: Icon
 expect val Icons.Filled.SdCard: Icon
 expect val Icons.Filled.SdCardAlert: Icon
-expect val Icons.Filled.Search: Icon
 expect val Icons.Filled.SearchOff: Icon
 expect val Icons.Filled.Security: Icon
 expect val Icons.Filled.Segment: Icon
 expect val Icons.Filled.SelectAll: Icon
 expect val Icons.Filled.SelfImprovement: Icon
 expect val Icons.Filled.Sell: Icon
-expect val Icons.Filled.Send: Icon
 expect val Icons.Filled.SendAndArchive: Icon
 expect val Icons.Filled.SendTimeExtension: Icon
 expect val Icons.Filled.SensorDoor: Icon
@@ -1395,7 +1360,6 @@ expect val Icons.Filled.SentimentSatisfied: Icon
 expect val Icons.Filled.SentimentVeryDissatisfied: Icon
 expect val Icons.Filled.SentimentVerySatisfied: Icon
 expect val Icons.Filled.SetMeal: Icon
-expect val Icons.Filled.Settings: Icon
 expect val Icons.Filled.SettingsAccessibility: Icon
 expect val Icons.Filled.SettingsApplications: Icon
 expect val Icons.Filled.SettingsBackupRestore: Icon
@@ -1415,7 +1379,6 @@ expect val Icons.Filled.SettingsSystemDaydream: Icon
 expect val Icons.Filled.SettingsVoice: Icon
 expect val Icons.Filled.SevereCold: Icon
 expect val Icons.Filled.ShapeLine: Icon
-expect val Icons.Filled.Share: Icon
 expect val Icons.Filled.ShareLocation: Icon
 expect val Icons.Filled.Shield: Icon
 expect val Icons.Filled.ShieldMoon: Icon
@@ -1423,7 +1386,6 @@ expect val Icons.Filled.Shop: Icon
 expect val Icons.Filled.ShopTwo: Icon
 expect val Icons.Filled.ShoppingBag: Icon
 expect val Icons.Filled.ShoppingBasket: Icon
-expect val Icons.Filled.ShoppingCart: Icon
 expect val Icons.Filled.ShoppingCartCheckout: Icon
 expect val Icons.Filled.ShortText: Icon
 expect val Icons.Filled.ShowChart: Icon
@@ -1524,7 +1486,6 @@ expect val Icons.Filled.StackedBarChart: Icon
 expect val Icons.Filled.StackedLineChart: Icon
 expect val Icons.Filled.Stadium: Icon
 expect val Icons.Filled.Stairs: Icon
-expect val Icons.Filled.Star: Icon
 expect val Icons.Filled.StarHalf: Icon
 expect val Icons.Filled.StarRate: Icon
 expect val Icons.Filled.Stars: Icon
@@ -1625,7 +1586,6 @@ expect val Icons.Filled.Theaters: Icon
 expect val Icons.Filled.Thermostat: Icon
 expect val Icons.Filled.ThermostatAuto: Icon
 expect val Icons.Filled.ThumbDown: Icon
-expect val Icons.Filled.ThumbUp: Icon
 expect val Icons.Filled.ThumbsUpDown: Icon
 expect val Icons.Filled.Thunderstorm: Icon
 expect val Icons.Filled.Timelapse: Icon
@@ -1764,7 +1724,6 @@ expect val Icons.Filled.Vrpano: Icon
 expect val Icons.Filled.Wallet: Icon
 expect val Icons.Filled.Wallpaper: Icon
 expect val Icons.Filled.Warehouse: Icon
-expect val Icons.Filled.Warning: Icon
 expect val Icons.Filled.Wash: Icon
 expect val Icons.Filled.Watch: Icon
 expect val Icons.Filled.WatchOff: Icon

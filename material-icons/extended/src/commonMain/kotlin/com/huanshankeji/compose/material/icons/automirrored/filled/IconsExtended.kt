@@ -11,9 +11,7 @@ expect val Icons.AutoMirrored.Filled.AirplaneTicket: Icon
 expect val Icons.AutoMirrored.Filled.AlignHorizontalLeft: Icon
 expect val Icons.AutoMirrored.Filled.AlignHorizontalRight: Icon
 expect val Icons.AutoMirrored.Filled.AltRoute: Icon
-expect val Icons.AutoMirrored.Filled.ArrowBack: Icon
 expect val Icons.AutoMirrored.Filled.ArrowBackIos: Icon
-expect val Icons.AutoMirrored.Filled.ArrowForward: Icon
 expect val Icons.AutoMirrored.Filled.ArrowForwardIos: Icon
 expect val Icons.AutoMirrored.Filled.ArrowLeft: Icon
 expect val Icons.AutoMirrored.Filled.ArrowRight: Icon
@@ -43,7 +41,6 @@ expect val Icons.AutoMirrored.Filled.DirectionsWalk: Icon
 expect val Icons.AutoMirrored.Filled.DriveFileMove: Icon
 expect val Icons.AutoMirrored.Filled.Dvr: Icon
 expect val Icons.AutoMirrored.Filled.EventNote: Icon
-expect val Icons.AutoMirrored.Filled.ExitToApp: Icon
 expect val Icons.AutoMirrored.Filled.FactCheck: Icon
 expect val Icons.AutoMirrored.Filled.FeaturedPlayList: Icon
 expect val Icons.AutoMirrored.Filled.FeaturedVideo: Icon
@@ -62,8 +59,6 @@ expect val Icons.AutoMirrored.Filled.Grading: Icon
 expect val Icons.AutoMirrored.Filled.Help: Icon
 expect val Icons.AutoMirrored.Filled.HelpCenter: Icon
 expect val Icons.AutoMirrored.Filled.Input: Icon
-expect val Icons.AutoMirrored.Filled.KeyboardArrowLeft: Icon
-expect val Icons.AutoMirrored.Filled.KeyboardArrowRight: Icon
 expect val Icons.AutoMirrored.Filled.KeyboardBackspace: Icon
 expect val Icons.AutoMirrored.Filled.KeyboardReturn: Icon
 expect val Icons.AutoMirrored.Filled.KeyboardTab: Icon
@@ -72,7 +67,6 @@ expect val Icons.AutoMirrored.Filled.LabelImportant: Icon
 expect val Icons.AutoMirrored.Filled.LabelOff: Icon
 expect val Icons.AutoMirrored.Filled.LastPage: Icon
 expect val Icons.AutoMirrored.Filled.LibraryBooks: Icon
-expect val Icons.AutoMirrored.Filled.List: Icon
 expect val Icons.AutoMirrored.Filled.ListAlt: Icon
 expect val Icons.AutoMirrored.Filled.LiveHelp: Icon
 expect val Icons.AutoMirrored.Filled.Login: Icon
@@ -111,7 +105,6 @@ expect val Icons.AutoMirrored.Filled.Rule: Icon
 expect val Icons.AutoMirrored.Filled.ScheduleSend: Icon
 expect val Icons.AutoMirrored.Filled.ScreenShare: Icon
 expect val Icons.AutoMirrored.Filled.Segment: Icon
-expect val Icons.AutoMirrored.Filled.Send: Icon
 expect val Icons.AutoMirrored.Filled.SendAndArchive: Icon
 expect val Icons.AutoMirrored.Filled.ShortText: Icon
 expect val Icons.AutoMirrored.Filled.ShowChart: Icon

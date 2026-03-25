@@ -143,6 +143,10 @@ There are two icon modules:
 
 Note: The version of `org.jetbrains.compose.material:material-icons-extended` is pinned at 1.7.3 because [Compose officially recommends](https://developer.android.com/develop/ui/compose/graphics/images/material) using individual SVG/vector assets from [Google Fonts](https://fonts.google.com/icons) rather than adding the extended icon library as a dependency, as the latter significantly increases build time and artifact size. As such, these icon modules serve more for **prototyping purposes** currently. When using `material-icons-extended`, ensure that Proguard / R8 resource shrinking is enabled in production builds.
 
+##### Material Symbols & Icons on JS
+
+See [the corresponding section in Compose HTML Material](https://github.com/huanshankeji/compose-html-material?tab=readme-ov-file#material-symbols--icons) for configuring Material Icons on JS.
+
 ### Modifiers
 
 - `alpha`
@@ -211,10 +215,6 @@ kotlin {
 ```
 
 View [all the artifacts on Maven Central](https://search.maven.org/search?q=g:com.huanshankeji%20AND%20a:compose-multiplatform-*).
-
-### Material Symbols & Icons on JS
-
-See [the corresponding section in Compose HTML Material](https://github.com/huanshankeji/compose-html-material?tab=readme-ov-file#material-symbols--icons) for configuring Material Icons on JS.
 
 ## About Kobweb Silk
 

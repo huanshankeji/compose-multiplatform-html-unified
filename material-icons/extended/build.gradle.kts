@@ -8,10 +8,15 @@ plugins {
 
 kotlin {
     sourceSets {
+        /*
+        Use `api`. See:
+        https://github.com/JetBrains/compose-multiplatform-core/blob/v1.7.3/compose/material/material-icons-extended/build.gradle
+        https://android.googlesource.com/platform/frameworks/support/+/refs/heads/androidx-main/compose/material/material-icons-extended/build.gradle
+        */
         commonMain {
             dependencies {
                 implementation(compose.runtime)
-                api(cpnProject(project, ":material-icons:core"))
+                api(cpnProject(project, ":material-icons:core")) // TODO restore after verifying that `Add` in this module (with `TODO()` in Compose UI impl) doesn't resolve from `core`
             }
         }
         composeUiMain {

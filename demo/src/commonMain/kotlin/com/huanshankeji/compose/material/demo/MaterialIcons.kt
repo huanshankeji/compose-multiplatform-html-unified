@@ -13,7 +13,7 @@ import com.huanshankeji.compose.material.icons.Icon
 import com.huanshankeji.compose.material.icons.Icons
 import com.huanshankeji.compose.material.icons.filled.*
 import com.huanshankeji.compose.material3.*
-import com.huanshankeji.compose.material3.ext.OutlinedTextFieldWithMaterialIcons
+import com.huanshankeji.compose.material3.ext.OutlinedTextField
 import com.huanshankeji.compose.ui.Alignment
 import com.huanshankeji.compose.ui.Modifier
 
@@ -63,23 +63,29 @@ fun MaterialIcons() {
         topBar = {
             TopAppBar(
                 title = {
-                    OutlinedTextFieldWithMaterialIcons(
+                    OutlinedTextField(
                         value = searchQuery,
                         onValueChange = { searchQuery = it },
                         modifier = Modifier.fillMaxWidthStretch(),
                         label = "Search icons",
-                        leadingIcon = Icons.Filled.Search,
-                        trailingIcon = if (searchQuery.isNotEmpty()) Icons.Filled.Close else null,
+                        leadingIcon = { modifier -> Icon(Icons.Filled.Search, null, modifier) },
+                        trailingIcon = if (searchQuery.isNotEmpty()) {
+                            { modifier ->
+                                IconButton(onClick = { searchQuery = "" }, modifier = modifier) {
+                                    Icon(Icons.Filled.Close, "Clear")
+                                }
+                            }
+                        } else null,
                     )
                 },
             )
         },
     ) { paddingValues ->
         VerticalScrollColumn(Modifier.fillMaxSizeStretch().innerPadding(paddingValues)) {
-            IconSection("`material-icons-core` Filled", coreFilledIconNamePairs, searchQuery)
-            IconSection("`material-icons-core` AutoMirrored Filled", coreAutoMirroredFilledIconNamePairs, searchQuery)
-            IconSection("`material-icons-extended` Filled", extendedOnlyFilledIconNamePairs, searchQuery)
-            IconSection("`material-icons-extended` AutoMirrored Filled", extendedOnlyAutoMirroredFilledIconNamePairs, searchQuery)
+            IconSection("`material-icons-core` `Filled`", coreFilledIconNamePairs, searchQuery)
+            IconSection("`material-icons-core` `AutoMirrored.Filled`", coreAutoMirroredFilledIconNamePairs, searchQuery)
+            IconSection("`material-icons-extended` `Filled`", extendedOnlyFilledIconNamePairs, searchQuery)
+            IconSection("`material-icons-extended` `AutoMirrored.Filled`", extendedOnlyAutoMirroredFilledIconNamePairs, searchQuery)
         }
     }
 }
