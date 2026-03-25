@@ -15,7 +15,7 @@ kotlin {
         commonMain {
             dependencies {
                 implementation(compose.runtime)
-                api(cpnProject(project, ":material-icons:core")) // TODO restore after verifying that `Add` in this module (with `TODO()` in Compose UI impl) doesn't resolve from `core`
+                api(cpnProject(project, ":material-icons:core"))
             }
         }
         composeUiMain {

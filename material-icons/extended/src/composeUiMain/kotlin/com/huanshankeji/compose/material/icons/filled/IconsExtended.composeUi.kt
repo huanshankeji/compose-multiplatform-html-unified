@@ -17,7 +17,6 @@ actual val Icons.Filled.AccountBalance: Icon get() = PlatformIcons.Filled.Accoun
 actual val Icons.Filled.AccountBalanceWallet: Icon get() = PlatformIcons.Filled.AccountBalanceWallet
 actual val Icons.Filled.AccountTree: Icon get() = PlatformIcons.Filled.AccountTree
 actual val Icons.Filled.Adb: Icon get() = PlatformIcons.Filled.Adb
-actual val Icons.Filled.Add: Icon get() = TODO() // PlatformIcons.Filled.Add
 actual val Icons.Filled.AddAPhoto: Icon get() = PlatformIcons.Filled.AddAPhoto
 actual val Icons.Filled.AddAlert: Icon get() = PlatformIcons.Filled.AddAlert
 actual val Icons.Filled.AddBox: Icon get() = PlatformIcons.Filled.AddBox

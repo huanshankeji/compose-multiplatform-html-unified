@@ -15,7 +15,6 @@ expect val Icons.Filled.AccountBalance: Icon
 expect val Icons.Filled.AccountBalanceWallet: Icon
 expect val Icons.Filled.AccountTree: Icon
 expect val Icons.Filled.Adb: Icon
-expect val Icons.Filled.Add: Icon
 expect val Icons.Filled.AddAPhoto: Icon
 expect val Icons.Filled.AddAlert: Icon
 expect val Icons.Filled.AddBox: Icon
