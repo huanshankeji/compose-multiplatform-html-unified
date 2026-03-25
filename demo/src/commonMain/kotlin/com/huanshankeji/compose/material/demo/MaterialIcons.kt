@@ -36,6 +36,7 @@ private const val ICONS_PER_ROW = 8
 // TODO: make section titles bigger after text styling is supported (#23)
 @Composable
 private fun IconSection(title: String, icons: List<Pair<String, Icon>>, searchQuery: String) {
+    // There is a lagging issue on JS DOM here. See #127 for more details. `remember` `derivedStateOf` seems to have slightly improved performance but the issue still persists as tested.
     val rows by remember(searchQuery, icons) {
         derivedStateOf {
             val filtered =
