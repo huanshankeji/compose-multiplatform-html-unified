@@ -33,7 +33,7 @@ fun Modifier.innerContentPadding() = innerPadding(16.dp)
 val contentPaddingModifier = Modifier.outerContentPadding()
 
 enum class Screen {
-    Home, Common, /*Material2,*/ Material3
+    Home, Common, /*Material2,*/ Material3, MaterialIcons
 }
 
 @Composable
@@ -45,13 +45,17 @@ fun App() {
         composable(Screen.Common.name) { Common() }
         //composable(Screen.Material2.name) { Material2() }
         composable(Screen.Material3.name) { Material3() }
+        composable(Screen.MaterialIcons.name) { MaterialIcons() }
     }
 }
 
 @Composable
 fun Home(navController: NavHostController) {
     Box(Modifier.fillMaxSizeStretch(), contentAlignment = Alignment.Center) {
-        Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
+        Column(
+            verticalArrangement = Arrangement.spacedBy(16.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
             Button({ navController.navigate(Screen.Common.name) }) {
                 TaglessText("Common (Foundation and UI)")
             }
@@ -62,6 +66,9 @@ fun Home(navController: NavHostController) {
             */
             Button({ navController.navigate(Screen.Material3.name) }) {
                 TaglessText("Material 3")
+            }
+            Button({ navController.navigate(Screen.MaterialIcons.name) }) {
+                TaglessText("Material Icons (Material 3)")
             }
         }
     }
