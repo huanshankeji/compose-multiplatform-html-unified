@@ -11,7 +11,7 @@ object DependencyVersions {
 
     // https://slack-chats.kotlinlang.org/t/27579160/after-updating-to-1-8-0-rc01-package-androidx-compose-materi
     // https://github.com/JetBrains/compose-multiplatform/releases/tag/v1.8.0-rc01
-    const val composeMultiplatformMaterialIconsExtended = "1.7.3"
+    const val composeMultiplatformMaterialIcons = "1.7.3"
 
     // https://github.com/varabyte/kobweb/releases
     val kobweb = "0.24.0"

@@ -25,7 +25,21 @@ This project is still in development and has not reached a stable state. Some AP
 
 ### Components
 
+#### About `ext` components (components in the `ext` packages)
+
+The components in the `ext` packages don't follow the `androidx.compose` APIs exactly, but rather provide wrappers that are more idiomatic and conventional on both kinds of targets, wrapping different APIs that can't be unified following the `androidx.compose` APIs.
+
+#### About parameter names
+
+The parameter names with suffixes such as "JsDom" or "ComposeUi" are platform-specific, and only apply on their respective platform(s), Compose HTML / JS DOM or Compose UI platforms.
+
 #### Foundation components
+
+Maven coordinate (also for modifiers and other APIs below):
+
+```
+com.huanshankeji:compose-multiplatform-html-unified-common:$version
+```
 
 - `BasicText`
 
@@ -50,6 +64,12 @@ This project is still in development and has not reached a stable state. Some AP
 - `LazyRow` (via flexbox on JS, based on Kobweb)
 
 #### Material 2 components
+
+Maven coordinate:
+
+```
+com.huanshankeji:compose-multiplatform-html-unified-material2:$version
+```
 
 **Deprecation notice:** The Material 2 components are no longer maintained and published for release since v0.6.0, due to its decreasing popularity and the underlying KMDC library's incompatible Kotlin and Compose versions.
 
@@ -78,6 +98,12 @@ This project is still in development and has not reached a stable state. Some AP
 - `List`/`LazyColumnList` (visually inconsistent for now)
 
 #### Material 3 components
+
+Maven coordinate:
+
+```
+com.huanshankeji:compose-multiplatform-html-unified-material3:$version
+```
 
 - Button: `Button` (`FilledButton`), `ElevatedButton`, `FilledTonalButton`, `OutlinedButton`, `TextButton`
 - Card: `Card` (`FilledCard`), `ElevatedCard`, `OutlinedCard`
@@ -126,17 +152,28 @@ This project is still in development and has not reached a stable state. Some AP
 
 - `List`/`LazyColumnList` (slightly visually inconsistent)
 
-#### About `ext` components (components in the `ext` packages)
-
-The components in the `ext` packages don't follow the `androidx.compose` APIs exactly, but rather provide wrappers that are more idiomatic and conventional on both kinds of targets, wrapping different APIs that can't be unified following the `androidx.compose` APIs.
-
-#### About parameter names
-
-The parameter names with suffixes such as "JsDom" or "ComposeUi" are platform-specific, and only apply on their respective platform(s), Compose HTML / JS DOM or Compose UI platforms.
-
 #### Material Icons
 
-The `com.huanshankeji.compose.material.icons.Icon` class delegates to both kinds of targets, but only a few Material Icons are added as PoC. You need to add your concrete icon implementations following the style of the existing ones in `com.huanshankeji.compose.material.icons` to use the icons you need. Track the progress of full icon support in [#4](/../../issues/4).
+Maven coordinates:
+
+```
+com.huanshankeji:compose-multiplatform-html-unified-material-icons-core:$version
+```
+
+```
+com.huanshankeji:compose-multiplatform-html-unified-material-icons-extended:$version
+```
+
+There are two icon modules:
+
+- **`material-icons-core`**: Contains the core set of Material Icons (same icons as in `org.jetbrains.compose.material:material-icons-core`). Only `Filled` and `AutoMirrored.Filled` styles are supported.
+- **`material-icons-extended`**: Contains all common Material Icons that exist in both `org.jetbrains.compose.material:material-icons-extended` (v1.7.3) and [Material Symbols](https://github.com/marella/material-symbols). Only `Filled` and `AutoMirrored.Filled` styles are supported. Depends on `material-icons-core`.
+
+Note: The version of `org.jetbrains.compose.material:material-icons-extended` is pinned at 1.7.3 because [Compose officially recommends](https://developer.android.com/develop/ui/compose/graphics/images/material) using individual SVG/vector assets from [Google Fonts](https://fonts.google.com/icons) rather than adding the extended icon library as a dependency, as the latter significantly increases build time and artifact size. As such, these icon modules serve more for **prototyping purposes** currently. When using `material-icons-extended`, ensure that Proguard / R8 resource shrinking is enabled in production builds.
+
+##### Material Symbols & Icons on JS
+
+See [the corresponding section in Compose HTML Material](https://github.com/huanshankeji/compose-html-material?tab=readme-ov-file#material-symbols--icons) for configuring Material Icons on JS.
 
 ### Modifiers
 
@@ -167,30 +204,33 @@ The `com.huanshankeji.compose.material.icons.Icon` class delegates to both kinds
 
 ### ViewModel
 
+Maven coordinate:
+
+```
+com.huanshankeji:compose-multiplatform-html-unified-lifecycle-viewmodel:$version
+```
+
 The ViewModel module currently supports a subset of the Compose ViewModel APIs. For ViewModel to work properly on Compose HTML / JS DOM, call `com.huanshankeji.compose.ui.window.renderComposableInBodyWithViewModelStoreOwner` instead of `org.jetbrains.compose.web.renderComposableInBody` on JS. These APIs are experimental now.
 
 ### Navigation
+
+Maven coordinate:
+
+```
+com.huanshankeji:compose-multiplatform-html-unified-navigation:$version
+```
 
 The navigation module currently supports a small subset of the Compose Navigation APIs, which does not support transition or animation on Compose HTML / JS DOM. These APIs are also experimental now.
 
 ## Add to your dependencies
 
-Maven coordinate:
+Maven coordinate pattern:
 
-```kotlin
-"com.huanshankeji:compose-multiplatform-html-unified-$module:$version"
+```
+com.huanshankeji:compose-multiplatform-html-unified-$module:$version
 ```
 
-More specifically:
-
-```kotlin
-"com.huanshankeji:compose-multiplatform-html-unified-common:$version"
-"com.huanshankeji:compose-multiplatform-html-unified-material-icons-core:$version"
-"com.huanshankeji:compose-multiplatform-html-unified-material2:$version"
-"com.huanshankeji:compose-multiplatform-html-unified-material3:$version"
-```
-
-For example, to depend on the Material 3 module with Gradle:
+The specific Maven coordinates are listed in the sections above. For example, to depend on the Material 3 module with Gradle:
 
 ```kotlin
 kotlin {
@@ -206,10 +246,6 @@ kotlin {
 ```
 
 View [all the artifacts on Maven Central](https://search.maven.org/search?q=g:com.huanshankeji%20AND%20a:compose-multiplatform-*).
-
-### Material Symbols & Icons on JS
-
-See [the corresponding section in Compose HTML Material](https://github.com/huanshankeji/compose-html-material?tab=readme-ov-file#material-symbols--icons) for configuring Material Icons on JS.
 
 ## About Kobweb Silk
 
