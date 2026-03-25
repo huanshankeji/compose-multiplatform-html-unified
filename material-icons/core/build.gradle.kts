@@ -10,7 +10,6 @@ kotlin {
         /*
         Use `implementation`. See:
         https://github.com/JetBrains/compose-multiplatform-core/blob/v1.7.3/compose/material/material-icons-core/build.gradle
-        https://android.googlesource.com/platform/frameworks/support/+/refs/heads/androidx-main/compose/material/material-icons-core/build.gradle
         */
         commonMain {
             dependencies {

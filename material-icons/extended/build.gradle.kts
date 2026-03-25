@@ -11,7 +11,6 @@ kotlin {
         /*
         Use `api`. See:
         https://github.com/JetBrains/compose-multiplatform-core/blob/v1.7.3/compose/material/material-icons-extended/build.gradle
-        https://android.googlesource.com/platform/frameworks/support/+/refs/heads/androidx-main/compose/material/material-icons-extended/build.gradle
         */
         commonMain {
             dependencies {
