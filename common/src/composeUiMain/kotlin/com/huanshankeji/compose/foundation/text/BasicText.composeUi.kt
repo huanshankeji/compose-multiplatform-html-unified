@@ -19,8 +19,8 @@ actual fun BasicText(
     color: ColorProducer?,
 ) =
     PlatformBasicText(
-        text = text,
-        modifier = modifier.platformModifier,
+        text,
+        modifier.platformModifier,
         overflow = overflow,
         softWrap = softWrap,
         maxLines = maxLines,
@@ -39,8 +39,8 @@ actual fun BasicText(
     color: ColorProducer?,
 ) =
     PlatformBasicText(
-        text = text.toPlatformValue(),
-        modifier = modifier.platformModifier,
+        text.toPlatformValue(),
+        modifier.platformModifier,
         overflow = overflow,
         softWrap = softWrap,
         maxLines = maxLines,
