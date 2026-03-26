@@ -24,7 +24,7 @@ import com.huanshankeji.compose.ui.text.style.TextOverflow
  * - `autoSize: TextAutoSize?` — requires porting `TextAutoSize`
  * - `fontFamily: FontFamily?` — requires porting `FontFamily`
  * - `onTextLayout: ((TextLayoutResult) -> Unit)?` — requires porting `TextLayoutResult`
- * - `style: TextStyle` — requires porting `TextStyle` and `LocalTextStyle`
+ * - `style: TextStyle` — requires porting `TextStyle` and `LocalTextStyle` (see #131); on JS DOM, `TextStyle` could enable mapping Material Design typography roles to semantic HTML elements (e.g., heading styles → `<h1>`–`<h6>`, body styles → `<p>`) for better HTML semantics (see also #17 for `MaterialTheme` support)
  * - `inlineContent: Map<String, InlineTextContent>` — AnnotatedString overload only; requires porting `InlineTextContent`
  *
  * @see TaglessText
@@ -53,7 +53,7 @@ expect fun Text(
     minLines: Int = 1,
     // autoSize: TextAutoSize? = null,
     // onTextLayout: ((TextLayoutResult) -> Unit)? = null,
-    // style: TextStyle = LocalTextStyle.current,
+    // style: TextStyle = LocalTextStyle.current, // #131
 )
 
 @Composable
@@ -76,5 +76,5 @@ expect fun Text(
     // inlineContent: Map<String, InlineTextContent> = mapOf(),
     // autoSize: TextAutoSize? = null,
     // onTextLayout: (TextLayoutResult) -> Unit = {},
-    // style: TextStyle = LocalTextStyle.current,
+    // style: TextStyle = LocalTextStyle.current, // #131
 )

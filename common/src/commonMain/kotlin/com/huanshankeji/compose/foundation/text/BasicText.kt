@@ -16,7 +16,7 @@ fun BasicText(text: String) =
 
 /**
  * The following Compose UI `BasicText` parameters are not yet supported:
- * - `style: TextStyle` — requires porting `TextStyle`
+ * - `style: TextStyle` — requires porting `TextStyle` (see #131)
  * - `onTextLayout: ((TextLayoutResult) -> Unit)?` — requires porting `TextLayoutResult`
  * - `autoSize: TextAutoSize?` — requires porting `TextAutoSize`
  */
@@ -29,7 +29,7 @@ expect fun BasicText(
     maxLines: Int = Int.MAX_VALUE,
     minLines: Int = 1,
     color: ColorProducer? = null,
-    // style: TextStyle = TextStyle.Default,
+    // style: TextStyle = TextStyle.Default, // #131
     // onTextLayout: ((TextLayoutResult) -> Unit)? = null,
     // autoSize: TextAutoSize? = null,
 )
@@ -43,7 +43,7 @@ expect fun BasicText(
     maxLines: Int = Int.MAX_VALUE,
     minLines: Int = 1,
     color: ColorProducer? = null,
-    // style: TextStyle = TextStyle.Default,
+    // style: TextStyle = TextStyle.Default, // #131
     // onTextLayout: ((TextLayoutResult) -> Unit)? = null,
     // inlineContent: Map<String, InlineTextContent> = mapOf(),
     // autoSize: TextAutoSize? = null,

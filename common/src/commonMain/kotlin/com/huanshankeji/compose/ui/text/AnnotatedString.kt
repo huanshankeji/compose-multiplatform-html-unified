@@ -6,7 +6,7 @@ import androidx.compose.runtime.Immutable
  * Initially supported subset of `androidx.compose.ui.text.AnnotatedString`.
  *
  * The following Compose UI features are not yet supported:
- * - `paragraphStyles: List<Range<ParagraphStyle>>` — requires porting `ParagraphStyle`;
+ * - `paragraphStyles: List<Range<ParagraphStyle>>` — requires porting `ParagraphStyle` (see #131);
  *   CSS paragraph styling differs significantly from Compose UI's paragraph model.
  *   On JS DOM, using `<p>` HTML elements to wrap paragraph ranges could enable
  *   paragraph-level styling (e.g., `textAlign`, `textIndent`, `lineHeight`) more naturally

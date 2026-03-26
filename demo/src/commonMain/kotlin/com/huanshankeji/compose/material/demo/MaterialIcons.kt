@@ -47,7 +47,8 @@ private fun IconSection(title: String, icons: List<Pair<String, Icon>>, searchQu
         }
     }
     if (rows.isNotEmpty()) {
-        // h2-like styling: browser default h2 is ~1.5em (24px) and bold
+        // h2-like styling: browser default h2 is ~1.5em (24px) and bold.
+        // TODO: use `style = MaterialTheme.typography.headlineMedium` when `TextStyle` (#131) and `MaterialTheme` (#17) are supported
         Text(title, modifier = contentPaddingModifier, fontSize = 24.sp, fontWeight = FontWeight.Bold)
         for (row in rows)
             Row {
