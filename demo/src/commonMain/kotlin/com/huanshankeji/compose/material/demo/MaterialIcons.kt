@@ -18,6 +18,7 @@ import com.huanshankeji.compose.material3.*
 import com.huanshankeji.compose.material3.ext.OutlinedTextField
 import com.huanshankeji.compose.ui.Alignment
 import com.huanshankeji.compose.ui.Modifier
+import com.huanshankeji.compose.ui.text.font.FontWeight
 import com.huanshankeji.compose.ui.text.style.TextAlign
 
 @Composable
@@ -46,7 +47,8 @@ private fun IconSection(title: String, icons: List<Pair<String, Icon>>, searchQu
         }
     }
     if (rows.isNotEmpty()) {
-        Text(title, modifier = contentPaddingModifier, fontSize = 18.sp)
+        // h2-like styling: browser default h2 is ~1.5em (24px) and bold
+        Text(title, modifier = contentPaddingModifier, fontSize = 24.sp, fontWeight = FontWeight.Bold)
         for (row in rows)
             Row {
                 for ((name, icon) in row)
