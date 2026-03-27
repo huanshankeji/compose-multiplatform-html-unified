@@ -13,7 +13,7 @@ import org.jetbrains.compose.web.css.minHeight
 import org.jetbrains.compose.web.dom.Span
 import org.jetbrains.compose.web.dom.Text
 
-// TODO Check `com.varabyte.kobweb.silk.components.text.SpanText` again. Use it if it it's better, otherwise, copy its GitHub permalink here and explain way.
+// TODO Check `com.varabyte.kobweb.silk.components.text.SpanText` again. Use it if it's better; otherwise, copy its GitHub permalink here and explain why.
 /*
 When using `com.varabyte.kobweb.silk.components.text.SpanText`:
 > You can't access SilkTheme before first calling SilkApp
