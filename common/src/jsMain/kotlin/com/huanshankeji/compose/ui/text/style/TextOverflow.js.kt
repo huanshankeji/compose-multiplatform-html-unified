@@ -3,7 +3,6 @@ package com.huanshankeji.compose.ui.text.style
 import androidx.compose.runtime.Immutable
 import com.varabyte.kobweb.compose.css.*
 import org.jetbrains.compose.web.css.StyleScope
-import org.jetbrains.compose.web.css.whiteSpace
 import com.varabyte.kobweb.compose.css.TextOverflow as CssTextOverflow
 
 // copied and adapted from `androidx.compose.ui.text.style.TextOverflow`
@@ -26,7 +25,6 @@ actual value class TextOverflow internal constructor(internal val value: Int) {
 
 fun StyleScope.applyStyle(textOverflow: TextOverflow, softWrap: Boolean, maxLines: Int) {
     if (!softWrap) {
-        whiteSpace("nowrap")
         whiteSpace(WhiteSpace.NoWrap)
     }
     when (textOverflow) {
