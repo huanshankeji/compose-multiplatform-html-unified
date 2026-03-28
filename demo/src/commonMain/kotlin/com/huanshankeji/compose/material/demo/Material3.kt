@@ -2,6 +2,7 @@ package com.huanshankeji.compose.material.demo
 
 import androidx.compose.runtime.*
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.huanshankeji.androidx.lifecycle.viewmodel.compose.viewModel
 import com.huanshankeji.compose.ExtRecommendedApi
 import com.huanshankeji.compose.foundation.background
@@ -25,6 +26,14 @@ import com.huanshankeji.compose.material3.lazy.ext.List
 import com.huanshankeji.compose.material3.lazy.ext.ListItemComponents
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.graphics.Color
+import com.huanshankeji.compose.ui.text.SpanStyle
+import com.huanshankeji.compose.ui.text.buildAnnotatedString
+import com.huanshankeji.compose.ui.text.font.FontStyle
+import com.huanshankeji.compose.ui.text.font.FontWeight
+import com.huanshankeji.compose.ui.text.style.TextAlign
+import com.huanshankeji.compose.ui.text.style.TextDecoration
+import com.huanshankeji.compose.ui.text.style.TextOverflow
+import com.huanshankeji.compose.ui.text.withStyle
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import com.huanshankeji.compose.material3.Button as RowScopeButton
@@ -116,6 +125,7 @@ fun Material3(
             SegmentedButtonsDemo()
             TopAppBarsDemo(scope, snackbarHostState)
             SnackbarDemo(scope, snackbarHostState)
+            StyledTextDemo()
             NavigationDrawerDemo(scope)
         }
     }
@@ -734,5 +744,56 @@ private fun NavigationDrawerDemo(scope: CoroutineScope) {
         drawerState = drawerState,
     ) {
         Text("Main Content", Modifier.fillMaxWidth().height(160.dp).background(Color.Gray))
+    }
+}
+
+@Composable
+private fun StyledTextDemo() {
+    Text("Styled text demo", fontWeight = FontWeight.Bold, fontSize = 20.sp)
+    Column {
+        Text("Bold text", fontWeight = FontWeight.Bold)
+        Text("Italic text", fontStyle = FontStyle.Italic)
+        Text("Large text (24sp)", fontSize = 24.sp)
+        Text("Red colored text", color = Color.Red)
+        Text("Underlined text", textDecoration = TextDecoration.Underline)
+        Text("Line-through text", textDecoration = TextDecoration.LineThrough)
+        Text("Center aligned text", Modifier.fillMaxWidth(), textAlign = TextAlign.Center)
+        Text(
+            "Bold italic underlined",
+            fontWeight = FontWeight.Bold,
+            fontStyle = FontStyle.Italic,
+            textDecoration = TextDecoration.Underline,
+        )
+        Text(
+            "This is a very long text that should be clipped with ellipsis when it overflows the available width of the container element",
+            maxLines = 1,
+            overflow = TextOverflow.Ellipsis,
+        )
+    }
+    Text("AnnotatedString demo", fontWeight = FontWeight.Bold, fontSize = 20.sp)
+    Column {
+        val annotatedString = buildAnnotatedString {
+            append("Normal ")
+            withStyle(SpanStyle(fontWeight = FontWeight.Bold)) {
+                append("bold")
+            }
+            append(" ")
+            withStyle(SpanStyle(fontStyle = FontStyle.Italic)) {
+                append("italic")
+            }
+            append(" ")
+            withStyle(SpanStyle(color = Color.Red)) {
+                append("red")
+            }
+            append(" ")
+            withStyle(SpanStyle(textDecoration = TextDecoration.Underline)) {
+                append("underlined")
+            }
+            append(" ")
+            withStyle(SpanStyle(fontSize = 20.sp, fontWeight = FontWeight.Bold, color = Color.Blue)) {
+                append("big blue bold")
+            }
+        }
+        Text(annotatedString)
     }
 }

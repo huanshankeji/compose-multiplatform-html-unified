@@ -1,0 +1,55 @@
+package com.huanshankeji.compose.ui.text.style
+
+import androidx.compose.runtime.Immutable
+import com.varabyte.kobweb.compose.css.*
+import org.jetbrains.compose.web.css.StyleScope
+import com.varabyte.kobweb.compose.css.TextOverflow as CssTextOverflow
+
+// copied and adapted from `androidx.compose.ui.text.style.TextOverflow`
+@Immutable
+actual value class TextOverflow internal constructor(internal val value: Int) {
+    override fun toString(): String =
+        when (this) {
+            Clip -> "Clip"
+            Ellipsis -> "Ellipsis"
+            Visible -> "Visible"
+            else -> "Invalid"
+        }
+
+    actual companion object {
+        actual val Clip = TextOverflow(1)
+        actual val Ellipsis = TextOverflow(2)
+        actual val Visible = TextOverflow(3)
+    }
+}
+
+fun StyleScope.applyStyle(textOverflow: TextOverflow, softWrap: Boolean, maxLines: Int) {
+    if (!softWrap) {
+        whiteSpace(WhiteSpace.NoWrap)
+    }
+    when (textOverflow) {
+        TextOverflow.Clip -> {
+            overflow(Overflow.Hidden)
+            textOverflow(CssTextOverflow.Clip)
+        }
+
+        TextOverflow.Ellipsis -> {
+            overflow(Overflow.Hidden)
+            textOverflow(CssTextOverflow.Ellipsis)
+        }
+
+        TextOverflow.Visible -> {
+            // no overflow clipping
+        }
+    }
+
+    // Note: `-webkit-line-clamp` requires `overflow: hidden` and `display: -webkit-box` to function,
+    // so `TextOverflow.Visible` effectively degrades to `Clip` when `maxLines` is set on JS DOM.
+    // There is no CSS way to both limit visible lines and allow text to overflow beyond its bounds.
+    if (maxLines != Int.MAX_VALUE) {
+        property("display", "-webkit-box")
+        property("-webkit-line-clamp", "$maxLines")
+        property("-webkit-box-orient", "vertical")
+        overflow(Overflow.Hidden)
+    }
+}

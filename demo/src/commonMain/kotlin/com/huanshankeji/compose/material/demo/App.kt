@@ -57,7 +57,7 @@ fun Home(navController: NavHostController) {
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Button({ navController.navigate(Screen.Common.name) }) {
-                TaglessText("Common")
+                TaglessText("Common (Foundation and UI)")
             }
             /*
             Button({ navController.navigate(Screen.Material2.name) }) {

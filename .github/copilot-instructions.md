@@ -271,6 +271,27 @@ Some parameters only work on certain platforms (typically only on Compose UI and
 - Add an inline comment in the JS DOM implementation explaining why it's not passed (e.g., `// not passed here, not sure whether it's supported by the underlying component`)
 - Examples: `enabled` in tabs, `space` in segmented button rows
 
+**Unsupported Compose UI Parameters:**
+When a common API cannot support all parameters from the corresponding Compose UI API (e.g., because a required type has
+not been ported yet, or because there is no equivalent on JS DOM), add the unsupported parameters as **commented-out
+lines** in the common `expect` declaration, with a brief reason in a comment explaining why each is not yet supported.
+Also list them in a KDoc block at the top of the declaration. This makes it easy to see what's missing and why, and
+serves as a reference for future implementation.
+```kotlin
+/**
+ * The following Compose UI parameters are not yet supported:
+ * - `fontFamily: FontFamily?` — requires porting `FontFamily`
+ * - `onTextLayout: ((TextLayoutResult) -> Unit)?` — requires porting `TextLayoutResult`
+ */
+@Composable
+expect fun Text(
+    text: String,
+    modifier: Modifier = Modifier,
+    // fontFamily: FontFamily? = null,
+    // onTextLayout: ((TextLayoutResult) -> Unit)? = null,
+)
+```
+
 **"Copied and Adapted" Code:**
 Some implementations are carefully copied and adapted from `androidx.compose.material3` or other official Compose sources. These should have a comment like:
 ```kotlin
