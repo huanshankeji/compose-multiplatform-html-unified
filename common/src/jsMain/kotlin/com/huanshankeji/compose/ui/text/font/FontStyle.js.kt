@@ -1,11 +1,9 @@
 package com.huanshankeji.compose.ui.text.font
 
-import androidx.compose.runtime.Immutable
 import org.jetbrains.compose.web.css.StyleScope
 import org.jetbrains.compose.web.css.fontStyle
 
-// copied and adapted from `androidx.compose.ui.text.font.FontStyle`
-@Immutable
+// Copied and adapted from `FontStyle` in `androidx.compose.ui.text.font`. Do not edit without referencing to the original corresponding implementation.
 actual value class FontStyle private actual constructor(actual val value: Int) {
     override fun toString(): String =
         when (this) {
@@ -14,18 +12,20 @@ actual value class FontStyle private actual constructor(actual val value: Int) {
             else -> "Invalid"
         }
 
+    fun toCssValue(): String =
+        when (this) {
+            Normal -> "normal"
+            Italic -> "italic"
+            else -> throw AssertionError()
+        }
+
     actual companion object {
         actual val Normal = FontStyle(0)
         actual val Italic = FontStyle(1)
+
+        actual fun values(): List<FontStyle> = listOf(Normal, Italic)
     }
 }
-
-fun FontStyle.toCssValue(): String =
-    when (this) {
-        FontStyle.Normal -> "normal"
-        FontStyle.Italic -> "italic"
-        else -> "normal"
-    }
 
 fun StyleScope.applyStyle(fontStyle: FontStyle) {
     fontStyle(fontStyle.toCssValue())
