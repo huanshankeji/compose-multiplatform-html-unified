@@ -1,19 +1,54 @@
 package com.huanshankeji.compose.ui.text.font
 
 import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.Stable
+import kotlin.math.roundToInt
 import org.jetbrains.compose.web.css.StyleScope
 import org.jetbrains.compose.web.css.fontWeight
 
-// copied and adapted from `androidx.compose.ui.text.font.FontWeight`
+// Copied and adapted from `FontWeight` in `androidx.compose.ui.text.font`. Do not edit without referencing to the original corresponding implementation.
 @Immutable
 actual class FontWeight actual constructor(actual val weight: Int) : Comparable<FontWeight> {
-    actual override fun compareTo(other: FontWeight): Int =
+
+    actual companion object {
+        @Stable actual val W100 = FontWeight(100)
+        @Stable actual val W200 = FontWeight(200)
+        @Stable actual val W300 = FontWeight(300)
+        @Stable actual val W400 = FontWeight(400)
+        @Stable actual val W500 = FontWeight(500)
+        @Stable actual val W600 = FontWeight(600)
+        @Stable actual val W700 = FontWeight(700)
+        @Stable actual val W800 = FontWeight(800)
+        @Stable actual val W900 = FontWeight(900)
+
+        @Stable actual val Thin = W100
+        @Stable actual val ExtraLight = W200
+        @Stable actual val Light = W300
+        @Stable actual val Normal = W400
+        @Stable actual val Medium = W500
+        @Stable actual val SemiBold = W600
+        @Stable actual val Bold = W700
+        @Stable actual val ExtraBold = W800
+        @Stable actual val Black = W900
+
+        internal val values: List<FontWeight> =
+            listOf(W100, W200, W300, W400, W500, W600, W700, W800, W900)
+    }
+
+    init {
+        require(weight in 1..1000) {
+            "Font weight can be in range [1, 1000]. Current value: $weight"
+        }
+    }
+
+    actual override operator fun compareTo(other: FontWeight): Int =
         weight.compareTo(other.weight)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is FontWeight) return false
-        return weight == other.weight
+        if (weight != other.weight) return false
+        return true
     }
 
     override fun hashCode(): Int =
@@ -22,31 +57,14 @@ actual class FontWeight actual constructor(actual val weight: Int) : Comparable<
     override fun toString(): String =
         "FontWeight(weight=$weight)"
 
-    actual companion object {
-        actual val Thin = FontWeight(100)
-        actual val ExtraLight = FontWeight(200)
-        actual val Light = FontWeight(300)
-        actual val Normal = FontWeight(400)
-        actual val Medium = FontWeight(500)
-        actual val SemiBold = FontWeight(600)
-        actual val Bold = FontWeight(700)
-        actual val ExtraBold = FontWeight(800)
-        actual val Black = FontWeight(900)
-
-        actual val W100 = Thin
-        actual val W200 = ExtraLight
-        actual val W300 = Light
-        actual val W400 = Normal
-        actual val W500 = Medium
-        actual val W600 = SemiBold
-        actual val W700 = Bold
-        actual val W800 = ExtraBold
-        actual val W900 = Black
-    }
+    fun toCssValue(): Int =
+        weight
 }
 
-fun FontWeight.toCssValue(): Int =
-    weight
+actual fun lerp(start: FontWeight, stop: FontWeight, fraction: Float): FontWeight {
+    val weight = ((1 - fraction) * start.weight + fraction * stop.weight).roundToInt().coerceIn(1, 1000)
+    return FontWeight(weight)
+}
 
 fun StyleScope.applyStyle(fontWeight: FontWeight) {
     fontWeight(fontWeight.toCssValue())

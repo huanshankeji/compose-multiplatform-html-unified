@@ -1,32 +1,35 @@
 package com.huanshankeji.compose.ui.text.font
 
 import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.Stable
 
 @Immutable
 expect class FontWeight(weight: Int) : Comparable<FontWeight> {
     val weight: Int
 
-    override fun compareTo(other: FontWeight): Int
-
     companion object {
-        val Thin: FontWeight
-        val ExtraLight: FontWeight
-        val Light: FontWeight
-        val Normal: FontWeight
-        val Medium: FontWeight
-        val SemiBold: FontWeight
-        val Bold: FontWeight
-        val ExtraBold: FontWeight
-        val Black: FontWeight
+        @Stable val W100: FontWeight
+        @Stable val W200: FontWeight
+        @Stable val W300: FontWeight
+        @Stable val W400: FontWeight
+        @Stable val W500: FontWeight
+        @Stable val W600: FontWeight
+        @Stable val W700: FontWeight
+        @Stable val W800: FontWeight
+        @Stable val W900: FontWeight
 
-        val W100: FontWeight
-        val W200: FontWeight
-        val W300: FontWeight
-        val W400: FontWeight
-        val W500: FontWeight
-        val W600: FontWeight
-        val W700: FontWeight
-        val W800: FontWeight
-        val W900: FontWeight
+        @Stable val Thin: FontWeight
+        @Stable val ExtraLight: FontWeight
+        @Stable val Light: FontWeight
+        @Stable val Normal: FontWeight
+        @Stable val Medium: FontWeight
+        @Stable val SemiBold: FontWeight
+        @Stable val Bold: FontWeight
+        @Stable val ExtraBold: FontWeight
+        @Stable val Black: FontWeight
     }
+
+    override fun compareTo(other: FontWeight): Int
 }
+
+expect fun lerp(start: FontWeight, stop: FontWeight, fraction: Float): FontWeight
