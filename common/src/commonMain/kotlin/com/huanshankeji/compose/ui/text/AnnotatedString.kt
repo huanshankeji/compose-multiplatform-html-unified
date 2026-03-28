@@ -24,6 +24,9 @@ expect class AnnotatedString(
     val text: String
     val spanStyles: List<Range<SpanStyle>>
 
+    operator fun plus(other: AnnotatedString): AnnotatedString
+    // subSequence(range: TextRange) — requires porting TextRange
+
     @Immutable
     class Range<T> {
         val item: T

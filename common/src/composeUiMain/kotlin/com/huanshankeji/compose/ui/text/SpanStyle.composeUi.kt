@@ -6,6 +6,7 @@ import com.huanshankeji.compose.ui.graphics.toPlatformValue
 import com.huanshankeji.compose.ui.text.font.FontStyle
 import com.huanshankeji.compose.ui.text.font.FontWeight
 import com.huanshankeji.compose.ui.text.style.TextDecoration
+import androidx.compose.ui.graphics.Color as PlatformColor
 import androidx.compose.ui.text.SpanStyle as PlatformSpanStyle
 
 actual class SpanStyle actual constructor(
@@ -16,6 +17,15 @@ actual class SpanStyle actual constructor(
     actual val letterSpacing: TextUnit,
     actual val textDecoration: TextDecoration?,
 ) {
+    constructor(platformValue: PlatformSpanStyle) : this(
+        color = if (platformValue.color == PlatformColor.Unspecified) null else Color(platformValue.color),
+        fontSize = platformValue.fontSize,
+        fontWeight = platformValue.fontWeight,
+        fontStyle = platformValue.fontStyle,
+        letterSpacing = platformValue.letterSpacing,
+        textDecoration = platformValue.textDecoration,
+    )
+
     fun toPlatformValue(): PlatformSpanStyle =
         PlatformSpanStyle(
             color = color.toPlatformValue(),

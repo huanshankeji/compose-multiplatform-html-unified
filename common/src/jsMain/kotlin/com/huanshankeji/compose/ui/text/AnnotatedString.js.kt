@@ -1,6 +1,7 @@
 package com.huanshankeji.compose.ui.text
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.Stable
 import org.jetbrains.compose.web.dom.Span
 import org.jetbrains.compose.web.dom.Text
 
@@ -24,6 +25,14 @@ actual class AnnotatedString actual constructor(
         result = 31 * result + spanStyles.hashCode()
         return result
     }
+
+    @Stable
+    actual operator fun plus(other: AnnotatedString): AnnotatedString =
+        with(Builder()) {
+            append(this@AnnotatedString)
+            append(other)
+            toAnnotatedString()
+        }
 
     actual class Range<T> actual constructor(
         actual val item: T,
