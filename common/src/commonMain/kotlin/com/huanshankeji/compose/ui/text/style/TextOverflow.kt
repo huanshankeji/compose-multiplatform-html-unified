@@ -1,12 +1,18 @@
 package com.huanshankeji.compose.ui.text.style
 
-import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.Stable
 
-@Immutable
+/**
+ * The following Compose UI `TextOverflow` values are not yet supported:
+ * - `StartEllipsis` — no direct CSS equivalent; would need JavaScript intervention
+ * - `MiddleEllipsis` — no direct CSS equivalent; would need JavaScript intervention
+ */
 expect value class TextOverflow internal constructor(internal val value: Int) {
     companion object {
-        val Clip: TextOverflow
-        val Ellipsis: TextOverflow
-        val Visible: TextOverflow
+        @Stable val Clip: TextOverflow
+        @Stable val Ellipsis: TextOverflow
+        @Stable val Visible: TextOverflow
+        // StartEllipsis — no direct CSS equivalent; would need JavaScript intervention
+        // MiddleEllipsis — no direct CSS equivalent; would need JavaScript intervention
     }
 }
