@@ -119,16 +119,15 @@ fun AnnotatedStringText(annotatedString: AnnotatedString) {
             rangesByStart[start]?.let { toAdd -> activeStyles.addAll(toAdd) }
 
             val segment = text.substring(start, end)
-            val applicableStyles = activeStyles.toList()
 
-            if (applicableStyles.isEmpty()) {
+            if (activeStyles.isEmpty()) {
                 Text(segment)
             } else {
                 Span({
                     style {
                         // Apply styles sorted by start ascending, end descending (outer first, inner last)
                         // so inner/narrower styles override outer ones for the same CSS property.
-                        for (range in applicableStyles.sortedWith(compareBy<AnnotatedString.Range<SpanStyle>> { it.start }.thenByDescending { it.end })) {
+                        for (range in activeStyles.sortedWith(compareBy<AnnotatedString.Range<SpanStyle>> { it.start }.thenByDescending { it.end })) {
                             applyStyle(range.item)
                         }
                     }
