@@ -1,23 +1,22 @@
 package com.huanshankeji.compose.material3
 
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.InternalComposeApi
 import androidx.compose.ui.unit.TextUnit
-import com.huanshankeji.compose.foundation.text.ext.CommonBasicText
-import com.huanshankeji.compose.foundation.text.ext.CommonStyledText
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.graphics.Color
+import com.huanshankeji.compose.ui.graphics.toAttrsWithColor
 import com.huanshankeji.compose.ui.text.AnnotatedString
 import com.huanshankeji.compose.ui.text.font.FontStyle
 import com.huanshankeji.compose.ui.text.font.FontWeight
 import com.huanshankeji.compose.ui.text.style.TextAlign
 import com.huanshankeji.compose.ui.text.style.TextDecoration
 import com.huanshankeji.compose.ui.text.style.TextOverflow
+import org.jetbrains.compose.web.dom.Span
+import org.jetbrains.compose.web.dom.Text
 
 /*
- * Implementation note: Material 3 `Text` on JS DOM currently delegates to `CommonStyledText`,
- * which renders using `<span>` elements. See the comment in `Text.js.kt` in the foundation
- * `text.ext` package for detailed rationale on `<span>` vs alternative HTML elements.
+ * Implementation note: Material 3 `Text` on JS DOM renders using `<span>` elements.
+ * See `CommonText.js.kt` in this package for the shared implementation.
  *
  * For Material 3 `Text` specifically, using `<h1>`–`<h6>` or `<p>` elements could be
  * more semantically appropriate when a `TextStyle` parameter is supported (see #131):
@@ -36,8 +35,7 @@ import com.huanshankeji.compose.ui.text.style.TextOverflow
 @Deprecated("Use the overload with more parameters.", level = DeprecationLevel.HIDDEN)
 @Composable
 actual fun Text(text: String, modifier: Modifier, color: Color?) =
-    @OptIn(InternalComposeApi::class)
-    CommonBasicText(text, modifier, color)
+    Span(modifier.toAttrsWithColor(color)) { Text(text) }
 
 @Composable
 actual fun Text(
@@ -56,8 +54,7 @@ actual fun Text(
     maxLines: Int,
     minLines: Int,
 ) =
-    @OptIn(InternalComposeApi::class)
-    CommonStyledText(
+    CommonText(
         text, modifier, color,
         fontSize, fontStyle, fontWeight, letterSpacing, textDecoration, textAlign,
         lineHeight, overflow, softWrap, maxLines, minLines,
@@ -80,8 +77,7 @@ actual fun Text(
     maxLines: Int,
     minLines: Int,
 ) =
-    @OptIn(InternalComposeApi::class)
-    CommonStyledText(
+    CommonText(
         text, modifier, color,
         fontSize, fontStyle, fontWeight, letterSpacing, textDecoration, textAlign,
         lineHeight, overflow, softWrap, maxLines, minLines,

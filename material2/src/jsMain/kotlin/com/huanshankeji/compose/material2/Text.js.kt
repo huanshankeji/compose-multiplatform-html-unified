@@ -9,4 +9,5 @@ import com.huanshankeji.compose.ui.graphics.Color
 @Composable
 actual fun Text(text: String, modifier: Modifier, color: Color?) =
     @OptIn(InternalComposeApi::class)
+    @Suppress("DEPRECATION")
     CommonBasicText(text, modifier, color)

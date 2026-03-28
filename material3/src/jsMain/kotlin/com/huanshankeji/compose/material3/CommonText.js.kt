@@ -1,11 +1,9 @@
-package com.huanshankeji.compose.foundation.text.ext
+package com.huanshankeji.compose.material3
 
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.InternalComposeApi
 import androidx.compose.ui.unit.TextUnit
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.graphics.Color
-import com.huanshankeji.compose.ui.graphics.toAttrsWithColor
 import com.huanshankeji.compose.ui.text.AnnotatedString
 import com.huanshankeji.compose.ui.text.AnnotatedStringText
 import com.huanshankeji.compose.ui.text.font.FontStyle
@@ -24,54 +22,8 @@ import org.jetbrains.compose.web.css.color
 import org.jetbrains.compose.web.dom.Span
 import org.jetbrains.compose.web.dom.Text
 
-@Suppress("DEPRECATION")
 @Composable
-actual fun TaglessBasicText(text: String) =
-    Text(text)
-
-/*
- * Implementation note: text is rendered using `<span>` elements on JS DOM.
- *
- * Alternative HTML elements were considered:
- * - `<h1>`–`<h6>`: Semantic heading elements. More conventional for heading text in HTML
- *   but Compose UI `Text` has no concept of heading level, and headings have built-in
- *   browser margins and block display that could break layouts.
- * - `<p>`: Paragraph element. More conventional for body text, and being block-level
- *   it would make `text-align` work naturally. However, `<p>` has default margins and
- *   block display behavior that differs from Compose UI's `Text` which is inline-positioned.
- *
- * `<span>` is used as the default because:
- * 1. It's inline, matching Compose UI `Text`'s positioning behavior (no extra margins or line breaks).
- * 2. It doesn't impose semantic meaning (heading, paragraph) that Compose UI `Text` doesn't have.
- * 3. CSS text styling properties are the same regardless of element type, so no additional
- *    Compose UI parameters are enabled by using alternative elements.
- *
- * Note: `text-align` on an inline `<span>` only takes effect when the element is made block-level
- * (e.g., via `fillMaxWidth` or when `maxLines` is set which adds `display: -webkit-box`).
- * This is consistent with Compose UI where `textAlign` only has visible effect when the `Text`
- * component is wider than its content.
- *
- * Future consideration: heading or paragraph composables (e.g., `HeadingText`, `ParagraphText`)
- * could be added as alternatives that render as `<h1>`–`<h6>` or `<p>` on JS DOM for
- * better HTML semantics and accessibility, while rendering as styled `Text` on Compose UI.
- */
-
-@Deprecated(
-    "Moved to the Material 3 module. Use `com.huanshankeji.compose.material3.Text` instead.",
-    level = DeprecationLevel.WARNING
-)
-@InternalComposeApi
-@Composable
-fun CommonBasicText(text: String, modifier: Modifier, color: Color?) =
-    Span(modifier.toAttrsWithColor(color)) { Text(text) }
-
-@Deprecated(
-    "Moved to the Material 3 module as `CommonText`. Use `com.huanshankeji.compose.material3.Text` instead.",
-    level = DeprecationLevel.WARNING
-)
-@InternalComposeApi
-@Composable
-fun CommonStyledText(
+internal fun CommonText(
     text: String,
     modifier: Modifier,
     color: Color?,
@@ -96,13 +48,8 @@ fun CommonStyledText(
         Text(text)
     }
 
-@Deprecated(
-    "Moved to the Material 3 module as `CommonText`. Use `com.huanshankeji.compose.material3.Text` instead.",
-    level = DeprecationLevel.WARNING
-)
-@InternalComposeApi
 @Composable
-fun CommonStyledText(
+internal fun CommonText(
     text: AnnotatedString,
     modifier: Modifier,
     color: Color?,
@@ -127,7 +74,6 @@ fun CommonStyledText(
         AnnotatedStringText(text)
     }
 
-// Kept as it's still used by the deprecated `CommonStyledText` functions above.
 private fun Modifier.toAttrsWithTextStyles(
     textColor: Color?,
     fontSize: TextUnit,

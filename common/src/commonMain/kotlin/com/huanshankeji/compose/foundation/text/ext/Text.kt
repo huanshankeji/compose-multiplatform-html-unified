@@ -11,17 +11,26 @@ const val INLINE_TEXT_DEPRECATED_MESSAGE =
 @Deprecated(INLINE_TEXT_DEPRECATED_MESSAGE, ReplaceWith("TaglessBasicText(text)"))
 @Composable
 fun InlineBasicText(text: String) =
+    @Suppress("DEPRECATION")
     TaglessBasicText(text)
 
 /**
  * Delegates to raw text without any tag element on JS / Compose HTML.
  */
+@Deprecated(
+    "Use `BasicText` instead, which now supports all text styling parameters.",
+    ReplaceWith("BasicText(text)", "com.huanshankeji.compose.foundation.text.BasicText")
+)
 @Composable
 expect fun TaglessBasicText(text: String)
 
 /**
  * An alias for [BasicText].
  */
+@Deprecated(
+    "Use `BasicText` instead, which now supports all text styling parameters.",
+    ReplaceWith("BasicText(text, modifier, color = color)", "com.huanshankeji.compose.foundation.text.BasicText")
+)
 @Composable
 fun SpanBasicText(text: String, modifier: Modifier = Modifier, color: ColorProducer? = null) =
     BasicText(text, modifier, color = color)
