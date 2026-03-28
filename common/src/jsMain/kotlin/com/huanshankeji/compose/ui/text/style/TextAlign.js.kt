@@ -1,12 +1,10 @@
 package com.huanshankeji.compose.ui.text.style
 
-import androidx.compose.runtime.Immutable
 import org.jetbrains.compose.web.css.StyleScope
 import org.jetbrains.compose.web.css.textAlign
 
-// copied and adapted from `androidx.compose.ui.text.style.TextAlign`
-@Immutable
-actual value class TextAlign internal constructor(internal val value: Int) {
+// Copied and adapted from `TextAlign` in `androidx.compose.ui.text.style`. Do not edit without referencing to the original corresponding implementation.
+actual value class TextAlign internal constructor(actual val value: Int) {
     override fun toString(): String =
         when (this) {
             Left -> "Left"
@@ -18,6 +16,17 @@ actual value class TextAlign internal constructor(internal val value: Int) {
             else -> "Invalid"
         }
 
+    fun toCssValue(): String =
+        when (this) {
+            Left -> "left"
+            Right -> "right"
+            Center -> "center"
+            Justify -> "justify"
+            Start -> "start"
+            End -> "end"
+            else -> throw AssertionError()
+        }
+
     actual companion object {
         actual val Left = TextAlign(1)
         actual val Right = TextAlign(2)
@@ -25,20 +34,10 @@ actual value class TextAlign internal constructor(internal val value: Int) {
         actual val Justify = TextAlign(4)
         actual val Start = TextAlign(5)
         actual val End = TextAlign(6)
+
+        actual fun values(): List<TextAlign> = listOf(Left, Right, Center, Justify, Start, End)
     }
 }
 
-fun TextAlign.toCssValue(): String =
-    when (this) {
-        TextAlign.Left -> "left"
-        TextAlign.Right -> "right"
-        TextAlign.Center -> "center"
-        TextAlign.Justify -> "justify"
-        TextAlign.Start -> "start"
-        TextAlign.End -> "end"
-        else -> "start"
-    }
-
-fun StyleScope.applyStyle(textAlign: TextAlign) {
+fun StyleScope.applyStyle(textAlign: TextAlign) =
     textAlign(textAlign.toCssValue())
-}
