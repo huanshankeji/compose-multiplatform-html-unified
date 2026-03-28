@@ -101,21 +101,34 @@ fun AnnotatedStringText(annotatedString: AnnotatedString) {
             breakpoints.add(range.end)
         }
         val breakpointList = breakpoints.sorted()
+
+        // Precompute active styles per segment using a sweep-line approach
+        // to avoid O(N_segments * N_ranges) filtering.
+        val ranges = annotatedString.spanStyles
+        val rangesByStart = ranges.groupBy { it.start }
+        val rangesByEnd = ranges.groupBy { it.end }
+        val activeStyles = mutableListOf<AnnotatedString.Range<SpanStyle>>()
+
         for (i in 0 until breakpointList.size - 1) {
             val start = breakpointList[i]
             val end = breakpointList[i + 1]
             if (start >= end) continue
 
+            // Update active styles: remove ranges ending at this breakpoint, add ranges starting here.
+            rangesByEnd[start]?.let { toRemove -> activeStyles.removeAll(toRemove) }
+            rangesByStart[start]?.let { toAdd -> activeStyles.addAll(toAdd) }
+
             val segment = text.substring(start, end)
-            // Since segments are split at style range boundaries, checking full containment is correct here.
-            val applicableStyles = annotatedString.spanStyles.filter { it.start <= start && it.end >= end }
+            val applicableStyles = activeStyles.toList()
 
             if (applicableStyles.isEmpty()) {
                 Text(segment)
             } else {
                 Span({
                     style {
-                        for (range in applicableStyles) {
+                        // Apply styles sorted by start ascending, end descending (outer first, inner last)
+                        // so inner/narrower styles override outer ones for the same CSS property.
+                        for (range in applicableStyles.sortedWith(compareBy<AnnotatedString.Range<SpanStyle>> { it.start }.thenByDescending { it.end })) {
                             applyStyle(range.item)
                         }
                     }
