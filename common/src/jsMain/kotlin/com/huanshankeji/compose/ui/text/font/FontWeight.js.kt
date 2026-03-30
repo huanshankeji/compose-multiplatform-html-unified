@@ -36,6 +36,7 @@ actual class FontWeight actual constructor(actual val weight: Int) : Comparable<
     }
 
     init {
+        // `requirePrecondition` used in Compose UI code
         require(weight in 1..1000) {
             "Font weight can be in range [1, 1000]. Current value: $weight"
         }
