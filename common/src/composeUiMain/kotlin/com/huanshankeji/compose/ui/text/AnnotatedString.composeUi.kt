@@ -40,6 +40,7 @@ actual class AnnotatedString(val platformValue: PlatformAnnotatedString) {
 
     fun toPlatformValue(): PlatformAnnotatedString = platformValue
 
+    @Immutable
     actual class Range<T> actual constructor(
         actual val item: T,
         actual val start: Int,
