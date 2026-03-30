@@ -24,7 +24,6 @@ import org.jetbrains.compose.web.css.color
 import org.jetbrains.compose.web.dom.Span
 import org.jetbrains.compose.web.dom.Text
 
-@Suppress("DEPRECATION")
 @Composable
 actual fun TaglessBasicText(text: String) =
     Text(text)
