@@ -27,6 +27,5 @@ actual value class FontStyle private actual constructor(actual val value: Int) {
         }
 }
 
-fun StyleScope.applyStyle(fontStyle: FontStyle) {
+fun StyleScope.applyStyle(fontStyle: FontStyle) =
     fontStyle(fontStyle.toCssValue())
-}

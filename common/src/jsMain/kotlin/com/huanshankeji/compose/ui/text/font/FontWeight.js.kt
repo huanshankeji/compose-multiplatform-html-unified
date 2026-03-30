@@ -67,6 +67,5 @@ actual fun lerp(start: FontWeight, stop: FontWeight, fraction: Float): FontWeigh
     return FontWeight(weight)
 }
 
-fun StyleScope.applyStyle(fontWeight: FontWeight) {
+fun StyleScope.applyStyle(fontWeight: FontWeight) =
     fontWeight(fontWeight.toCssValue())
-}

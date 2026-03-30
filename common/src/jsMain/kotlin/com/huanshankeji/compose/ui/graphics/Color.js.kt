@@ -96,9 +96,8 @@ actual fun Color.luminance(): Float =
 actual fun Color.toArgb(): Int =
     platformValue.toRgb().value
 
-fun StyleScope.applyStyle(color: ColorProducer) {
+fun StyleScope.applyStyle(color: ColorProducer) =
     color(color().platformValue)
-}
 
 
 // TODO context receivers
