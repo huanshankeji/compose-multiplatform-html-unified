@@ -70,21 +70,6 @@ actual class AnnotatedString(val platformValue: PlatformAnnotatedString) {
             platformBuilder.append(text.platformValue)
         }
 
-        actual fun pushStyle(style: SpanStyle): Int =
-            platformBuilder.pushStyle(style.toPlatformValue())
-
-        actual fun pop() {
-            platformBuilder.pop()
-        }
-
-        actual fun pop(index: Int) {
-            platformBuilder.pop(index)
-        }
-
-        actual fun addStyle(style: SpanStyle, start: Int, end: Int) {
-            platformBuilder.addStyle(style.toPlatformValue(), start, end)
-        }
-
         actual fun toAnnotatedString(): AnnotatedString =
             AnnotatedString(platformBuilder.toAnnotatedString())
     }
@@ -92,3 +77,15 @@ actual class AnnotatedString(val platformValue: PlatformAnnotatedString) {
 
 actual fun buildAnnotatedString(builder: AnnotatedString.Builder.() -> Unit): AnnotatedString =
     AnnotatedString.Builder().apply(builder).toAnnotatedString()
+
+actual inline fun <R : Any> AnnotatedString.Builder.withStyle(
+    style: SpanStyle,
+    block: AnnotatedString.Builder.() -> R,
+): R {
+    val index = platformBuilder.pushStyle(style.toPlatformValue())
+    return try {
+        block(this)
+    } finally {
+        platformBuilder.pop(index)
+    }
+}

@@ -9,6 +9,13 @@ import androidx.compose.runtime.Immutable
  * and also it's not really needed now, so the class doesn't implement [CharSequence] for now.
  * Possibly a `toCharSequence()` extension function could be added if needed in the future.
  *
+ * On JS DOM, the `AnnotatedString` uses a nestable tree/node design where `withStyle` calls
+ * map naturally to nested HTML `<span>` elements, rather than replicating the Compose UI
+ * range-based (`spanStyles: List<Range>`) design. This avoids the unnecessary complexity of
+ * converting ranges to segments and back to `<span>` tags. As a consequence, `pushStyle`,
+ * `addStyle`, and `pop` are not provided; use `withStyle` instead.
+ * See commit c368592 for the previous revision that replicated the Compose UI design.
+ *
  * The following Compose UI features are not yet supported:
  * - `paragraphStyles: List<Range<ParagraphStyle>>` — requires porting `ParagraphStyle` (see #131);
  *   CSS paragraph styling differs significantly from Compose UI's paragraph model.
@@ -18,6 +25,8 @@ import androidx.compose.runtime.Immutable
  *   at paragraph boundaries. This is feasible but adds complexity to the JS DOM rendering.
  * - `getStringAnnotations` / `getTtsAnnotations` / `getUrlAnnotations` — annotation-based APIs require more complex infrastructure
  * - `AnnotatedString.Builder.pushStringAnnotation` / `pushTtsAnnotation` / `pushUrlAnnotation` — annotation push APIs
+ * - `AnnotatedString.Builder.pushStyle` / `addStyle` / `pop` — use `withStyle` instead;
+ *   on JS DOM the tree/node design makes these unnecessary (see above)
  */
 @Immutable
 expect class AnnotatedString(
@@ -53,11 +62,6 @@ expect class AnnotatedString(
         fun append(char: Char)
         fun append(text: AnnotatedString)
 
-        fun pushStyle(style: SpanStyle): Int
-        fun pop()
-        fun pop(index: Int)
-        fun addStyle(style: SpanStyle, start: Int, end: Int)
-
         fun toAnnotatedString(): AnnotatedString
     }
 }
@@ -70,17 +74,8 @@ expect fun buildAnnotatedString(builder: AnnotatedString.Builder.() -> Unit): An
  * @param style [SpanStyle] to be applied
  * @param block function to be executed
  * @return result of the [block]
- * @see AnnotatedString.Builder.pushStyle
- * @see AnnotatedString.Builder.pop
  */
-inline fun <R : Any> AnnotatedString.Builder.withStyle(
+expect inline fun <R : Any> AnnotatedString.Builder.withStyle(
     style: SpanStyle,
     block: AnnotatedString.Builder.() -> R,
-): R {
-    val index = pushStyle(style)
-    return try {
-        block(this)
-    } finally {
-        pop(index)
-    }
-}
+): R

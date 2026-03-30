@@ -316,6 +316,13 @@ These implementations should have a comment like:
 ```
 This prevents casual modifications that could break the carefully adapted logic.
 
+**Exceptions to Compose UI Design Replication:**
+In some cases, the JS DOM implementation may intentionally deviate from the Compose UI internal design
+when the HTML/CSS platform provides a more natural mapping. For example, `AnnotatedString.Builder` on
+JS DOM uses a nestable tree/node design (mapping `withStyle` calls to nested `<span>` elements) instead
+of replicating the Compose UI range-based (`pushStyle`/`addStyle`/`pop`) design. When such exceptions
+are made, document the rationale in the source file and note the commit of the dropped design for reference.
+
 **CSS Style Shortcuts:**
 In JS DOM implementations, prefer type-safe CSS extension shortcuts over raw `property()` calls. For example:
 - Use `overflow(Overflow.Hidden)` instead of `property("overflow", "hidden")`
