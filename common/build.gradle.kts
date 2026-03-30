@@ -48,7 +48,7 @@ kotlin {
         composeUiMain {
             dependencies {
                 api(compose.foundation)
-                implementation(compose.ui)
+                api(compose.ui)
             }
         }
         jsMain {

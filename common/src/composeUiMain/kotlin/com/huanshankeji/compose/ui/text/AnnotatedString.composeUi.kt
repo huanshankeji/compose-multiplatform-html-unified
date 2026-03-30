@@ -4,26 +4,16 @@ import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
 import androidx.compose.ui.text.buildAnnotatedString as platformBuildAnnotatedString
 import androidx.compose.ui.text.AnnotatedString as PlatformAnnotatedString
+import androidx.compose.ui.text.withStyle as platformWithStyle
+
+// TODO try typealias
+//actual typealias AnnotatedString = PlatformAnnotatedString
+
+// TODO try value class
 
 @Immutable
 actual class AnnotatedString(val platformValue: PlatformAnnotatedString) {
-    actual constructor(
-        text: String,
-        spanStyles: List<Range<SpanStyle>>,
-    ) : this(
-        platformBuildAnnotatedString {
-            append(text)
-            for (range in spanStyles) {
-                addStyle(range.item.toPlatformValue(), range.start, range.end)
-            }
-        }
-    )
-
     actual val text: String get() = platformValue.text
-    actual val spanStyles: List<Range<SpanStyle>>
-        get() = platformValue.spanStyles.map {
-            Range(SpanStyle(it.item), it.start, it.end)
-        }
 
     @Stable
     actual operator fun plus(other: AnnotatedString): AnnotatedString =
@@ -38,54 +28,36 @@ actual class AnnotatedString(val platformValue: PlatformAnnotatedString) {
 
     override fun hashCode(): Int = platformValue.hashCode()
 
-    fun toPlatformValue(): PlatformAnnotatedString = platformValue
+    actual class Builder(val platformValue: PlatformAnnotatedString.Builder) {
+        /*actual*/ constructor(capacity: Int) : this(PlatformAnnotatedString.Builder(capacity))
 
-    @Immutable
-    actual class Range<T> actual constructor(
-        actual val item: T,
-        actual val start: Int,
-        actual val end: Int,
-    )
-
-    actual class Builder(val platformBuilder: PlatformAnnotatedString.Builder) {
-        actual constructor(capacity: Int) : this(PlatformAnnotatedString.Builder(capacity))
-
-        /** Create a [Builder] instance using the given [String]. */
         actual constructor(text: String) : this(PlatformAnnotatedString.Builder(text))
 
-        /** Create a [Builder] instance using the given [AnnotatedString]. */
         actual constructor(text: AnnotatedString) : this(PlatformAnnotatedString.Builder(text.platformValue))
 
-        actual val length: Int get() = platformBuilder.length
+        /*actual*/ val length: Int get() = platformValue.length
 
-        actual fun append(text: String) {
-            platformBuilder.append(text)
-        }
+        actual fun append(text: String) =
+            platformValue.append(text)
 
-        actual fun append(char: Char) {
-            platformBuilder.append(char)
-        }
+        actual fun append(char: Char) =
+            Builder(platformValue.append(char))
 
-        actual fun append(text: AnnotatedString) {
-            platformBuilder.append(text.platformValue)
-        }
+        actual fun append(text: AnnotatedString) =
+            platformValue.append(text.platformValue)
 
         actual fun toAnnotatedString(): AnnotatedString =
-            AnnotatedString(platformBuilder.toAnnotatedString())
+            AnnotatedString(platformValue.toAnnotatedString())
     }
 }
 
 actual fun buildAnnotatedString(builder: AnnotatedString.Builder.() -> Unit): AnnotatedString =
-    AnnotatedString.Builder().apply(builder).toAnnotatedString()
+    AnnotatedString(platformBuildAnnotatedString { AnnotatedString.Builder(this).builder() })
 
 actual inline fun <R : Any> AnnotatedString.Builder.withStyle(
     style: SpanStyle,
     block: AnnotatedString.Builder.() -> R,
-): R {
-    val index = platformBuilder.pushStyle(style.toPlatformValue())
-    return try {
-        block(this)
-    } finally {
-        platformBuilder.pop(index)
+): R =
+    platformValue.platformWithStyle(style.toPlatformValue()) {
+        AnnotatedString.Builder(this).block()
     }
-}

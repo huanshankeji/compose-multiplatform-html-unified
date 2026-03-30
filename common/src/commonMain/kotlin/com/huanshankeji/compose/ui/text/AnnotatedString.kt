@@ -14,7 +14,7 @@ import androidx.compose.runtime.Immutable
  * range-based (`spanStyles: List<Range>`) design. This avoids the unnecessary complexity of
  * converting ranges to segments and back to `<span>` tags. As a consequence, `pushStyle`,
  * `addStyle`, and `pop` are not provided; use `withStyle` instead.
- * See commit c368592 for the previous revision that replicated the Compose UI design.
+ * See commit d7d71c38ff888738e06871d1d8662c8556c508b5 for the previous revision that replicated the Compose UI design.
  *
  * The following Compose UI features are not yet supported:
  * - `paragraphStyles: List<Range<ParagraphStyle>>` — requires porting `ParagraphStyle` (see #131);
@@ -29,37 +29,26 @@ import androidx.compose.runtime.Immutable
  *   on JS DOM the tree/node design makes these unnecessary (see above)
  */
 @Immutable
-expect class AnnotatedString(
-    text: String,
-    spanStyles: List<Range<SpanStyle>> = emptyList(),
-    // paragraphStyles: List<Range<ParagraphStyle>> = emptyList(),
-) /* : CharSequence */ {
+expect class AnnotatedString {
     val text: String
-    val spanStyles: List<Range<SpanStyle>>
 
     operator fun plus(other: AnnotatedString): AnnotatedString
     // subSequence(range: TextRange) — requires porting TextRange
 
-    @Immutable
-    class Range<T> {
-        val item: T
-        val start: Int
-        val end: Int
-
-        constructor(item: T, start: Int, end: Int)
-    }
-
-    class Builder(capacity: Int = 16) {
+    class Builder {
         /** Create a [Builder] instance using the given [String]. */
         constructor(text: String)
 
         /** Create a [Builder] instance using the given [AnnotatedString]. */
         constructor(text: AnnotatedString)
 
-        val length: Int
+        // Implement if needed.
+        //val length: Int
 
         fun append(text: String)
-        fun append(char: Char)
+
+        // This returns a `Builder` to be consistent with the Compose UI API which extends it from `Appendable`.
+        fun append(char: Char): Builder
         fun append(text: AnnotatedString)
 
         fun toAnnotatedString(): AnnotatedString

@@ -3,36 +3,51 @@ package com.huanshankeji.compose.ui.text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
+import androidx.compose.ui.util.fastJoinToString
 import com.huanshankeji.compose.ui.text.AnnotatedString.Builder
+import com.huanshankeji.compose.ui.text.AnnotatedString.Node
 import org.jetbrains.compose.web.dom.Span
 import org.jetbrains.compose.web.dom.Text
+import com.huanshankeji.compose.InternalApi
 
 /**
  * JS DOM implementation of AnnotatedString using a nestable tree/node design.
  *
- * Each `withStyle` call creates a child [Node.StyledNode] with its style, mapping 1:1 to
+ * Each `withStyle` call creates a child [Node.Styled] with its style, mapping 1:1 to
  * nested HTML `<span>` tags. This avoids the unnecessary complexity of the Compose UI
  * range-based (`spanStyles: List<Range>`) design, which would require converting ranges
  * to segments and back to `<span>` tags. As a trade-off, interleaving span ranges are
  * not supported on JS DOM (they are rarely used in practice).
  *
- * See commit c368592 for the previous revision that replicated the Compose UI range-based design.
+ * See commit d7d71c38ff888738e06871d1d8662c8556c508b5 for the previous revision that replicated the Compose UI range-based design.
  */
 @Immutable
-actual class AnnotatedString actual constructor(
-    actual val text: String,
-    actual val spanStyles: List<Range<SpanStyle>>,
-) {
-    /**
-     * Internal tree representation populated by [Builder] when using `withStyle`.
-     * Each node is either a text leaf or a styled container with children.
-     */
-    internal var rootNodes: List<Node> = emptyList()
-        private set
+actual class AnnotatedString(val nodes: Nodes) {
+    @InternalApi
+    value class Nodes(val nodeList: List<Node>) {
+        fun text(): String =
+            nodeList.fastJoinToString("") { it.text() }
 
-    internal constructor(text: String, rootNodes: List<Node>) : this(text, emptyList<Range<SpanStyle>>()) {
-        this.rootNodes = rootNodes
+        @Suppress("NOTHING_TO_INLINE")
+        inline operator fun plus(other: Nodes): Nodes =
+            Nodes(nodeList + other.nodeList)
     }
+
+    @InternalApi
+    sealed class Node {
+        abstract fun text(): String
+
+        data class Text(val text: String) : Node() {
+            override fun text(): String = text
+        }
+
+        data class Styled(val style: SpanStyle, val children: Nodes) : Node() {
+            override fun text(): String =
+                children.text()
+        }
+    }
+
+    actual val text: String get() = nodes.text()
 
     override fun toString(): String =
         text
@@ -40,37 +55,14 @@ actual class AnnotatedString actual constructor(
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (other !is AnnotatedString) return false
-        if (text != other.text) return false
-        if (spanStyles != other.spanStyles) return false
-        return true
+        return nodes == other.nodes
     }
 
-    override fun hashCode(): Int {
-        var result = text.hashCode()
-        result = 31 * result + spanStyles.hashCode()
-        return result
-    }
+    override fun hashCode(): Int = nodes.hashCode()
 
     @Stable
     actual operator fun plus(other: AnnotatedString): AnnotatedString =
-        with(Builder()) {
-            append(this@AnnotatedString)
-            append(other)
-            toAnnotatedString()
-        }
-
-    /** Internal node type for tree-based rendering. */
-    internal sealed class Node {
-        class TextNode(val text: String) : Node()
-        class StyledNode(val style: SpanStyle, val children: List<Node>) : Node()
-    }
-
-    @Immutable
-    actual class Range<T> actual constructor(
-        actual val item: T,
-        actual val start: Int,
-        actual val end: Int,
-    )
+        AnnotatedString(nodes + other.nodes)
 
     /**
      * Builder for AnnotatedString.
@@ -78,73 +70,46 @@ actual class AnnotatedString actual constructor(
      * Uses a tree of [Node]s where `withStyle` pushes/pops node levels,
      * mapping 1:1 to nested HTML `<span>` tags in the rendered output.
      */
-    actual class Builder actual constructor(capacity: Int) /*: Appendable*/ {
-        private val text = StringBuilder(capacity)
-        private val nodeStack = mutableListOf<MutableList<Node>>()
-        private var currentNodes = mutableListOf<Node>()
-
+    actual /*value*/ class Builder(val mutableNodeList: MutableList<Node> = mutableListOf()) /*: Appendable*/ {
         /** Create a [Builder] instance using the given [String]. */
-        actual constructor(text: String) : this() {
-            append(text)
-        }
+        actual constructor(text: String) : this(mutableListOf(Node.Text(text)))
 
         /** Create a [Builder] instance using the given [AnnotatedString]. */
-        actual constructor(text: AnnotatedString) : this() {
-            append(text)
-        }
+        actual constructor(text: AnnotatedString) : this(text.nodes.nodeList.toMutableList())
 
-        actual val length: Int get() = text.length
+        //actual val length: Int get() = text.length
 
         actual fun append(text: String) {
-            this.text.append(text)
-            currentNodes.add(Node.TextNode(text))
+            mutableNodeList.add(Node.Text(text))
         }
 
-        actual fun append(char: Char) {
-            text.append(char)
-            currentNodes.add(Node.TextNode(char.toString()))
-        }
+        actual fun append(char: Char) =
+            apply { append(char.toString()) }
 
         actual fun append(text: AnnotatedString) {
-            this.text.append(text.text)
-            if (text.rootNodes.isNotEmpty()) {
-                currentNodes.addAll(text.rootNodes)
-            } else {
-                currentNodes.add(Node.TextNode(text.text))
-            }
+            mutableNodeList.addAll(text.nodes.nodeList)
         }
 
-        @PublishedApi
-        internal fun pushStyle(style: SpanStyle) {
-            nodeStack.add(currentNodes)
-            currentNodes = mutableListOf()
-        }
-
-        @PublishedApi
-        internal fun popStyle(style: SpanStyle) {
-            val children = currentNodes
-            currentNodes = nodeStack.removeLast()
-            currentNodes.add(Node.StyledNode(style, children))
-        }
+        fun toNodes() =
+            Nodes(mutableNodeList.toList())
 
         actual fun toAnnotatedString(): AnnotatedString =
-            AnnotatedString(text.toString(), currentNodes.toList())
+            AnnotatedString(toNodes())
     }
 }
+
 
 actual fun buildAnnotatedString(builder: Builder.() -> Unit): AnnotatedString =
     Builder().apply(builder).toAnnotatedString()
 
-actual inline fun <R : Any> AnnotatedString.Builder.withStyle(
+actual inline fun <R : Any> Builder.withStyle(
     style: SpanStyle,
-    block: AnnotatedString.Builder.() -> R,
+    block: Builder.() -> R,
 ): R {
-    pushStyle(style)
-    return try {
-        block(this)
-    } finally {
-        popStyle(style)
-    }
+    val childBuilder = Builder()
+    val result = childBuilder.block()
+    mutableNodeList.add(Node.Styled(style, childBuilder.toNodes()))
+    return result
 }
 
 
@@ -152,20 +117,16 @@ actual inline fun <R : Any> AnnotatedString.Builder.withStyle(
  * Renders an [AnnotatedString] as composable HTML content using nested `<span>` elements.
  */
 @Composable
-fun AnnotatedStringText(annotatedString: AnnotatedString) {
-    if (annotatedString.rootNodes.isNotEmpty()) {
-        RenderNodes(annotatedString.rootNodes)
-    } else {
-        Text(annotatedString.text)
-    }
-}
+fun AnnotatedStringText(annotatedString: AnnotatedString) =
+    RenderNodes(annotatedString.nodes)
 
+@InternalApi
 @Composable
-private fun RenderNodes(nodes: List<AnnotatedString.Node>) {
-    for (node in nodes) {
+fun RenderNodes(nodes: AnnotatedString.Nodes) {
+    for (node in nodes.nodeList)
         when (node) {
-            is AnnotatedString.Node.TextNode -> Text(node.text)
-            is AnnotatedString.Node.StyledNode -> {
+            is Node.Text -> Text(node.text)
+            is Node.Styled -> {
                 Span({
                     style { applyStyle(node.style) }
                 }) {
@@ -173,5 +134,4 @@ private fun RenderNodes(nodes: List<AnnotatedString.Node>) {
                 }
             }
         }
-    }
 }

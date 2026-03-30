@@ -72,7 +72,7 @@ actual fun Text(
     minLines: Int,
 ) =
     androidx.compose.material3.Text(
-        text = text.toPlatformValue(),
+        text = text.platformValue,
         modifier = modifier.platformModifier,
         color = color.toPlatformValue(),
         fontSize = fontSize,
