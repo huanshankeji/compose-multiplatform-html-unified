@@ -12,19 +12,19 @@ actual value class FontStyle private actual constructor(actual val value: Int) {
             else -> "Invalid"
         }
 
-    fun toCssValue(): String =
-        when (this) {
-            Normal -> "normal"
-            Italic -> "italic"
-            else -> throw AssertionError()
-        }
-
     actual companion object {
         actual val Normal = FontStyle(0)
         actual val Italic = FontStyle(1)
 
         actual fun values(): List<FontStyle> = listOf(Normal, Italic)
     }
+
+    fun toCssValue(): String =
+        when (this) {
+            Normal -> "normal"
+            Italic -> "italic"
+            else -> throw AssertionError()
+        }
 }
 
 fun StyleScope.applyStyle(fontStyle: FontStyle) {

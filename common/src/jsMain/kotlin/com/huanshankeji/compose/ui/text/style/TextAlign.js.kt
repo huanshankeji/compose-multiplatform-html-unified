@@ -16,17 +16,6 @@ actual value class TextAlign internal constructor(actual val value: Int) {
             else -> "Invalid"
         }
 
-    fun toCssValue(): String =
-        when (this) {
-            Left -> "left"
-            Right -> "right"
-            Center -> "center"
-            Justify -> "justify"
-            Start -> "start"
-            End -> "end"
-            else -> throw AssertionError()
-        }
-
     actual companion object {
         actual val Left = TextAlign(1)
         actual val Right = TextAlign(2)
@@ -37,6 +26,17 @@ actual value class TextAlign internal constructor(actual val value: Int) {
 
         actual fun values(): List<TextAlign> = listOf(Left, Right, Center, Justify, Start, End)
     }
+
+    fun toCssValue(): String =
+        when (this) {
+            Left -> "left"
+            Right -> "right"
+            Center -> "center"
+            Justify -> "justify"
+            Start -> "start"
+            End -> "end"
+            else -> throw AssertionError()
+        }
 }
 
 fun StyleScope.applyStyle(textAlign: TextAlign) =
