@@ -24,8 +24,8 @@ import androidx.compose.runtime.Immutable
  *   than on `<span>`, but this would require splitting the text into paragraph elements
  *   at paragraph boundaries. This is feasible but adds complexity to the JS DOM rendering.
  * - `getStringAnnotations` / `getTtsAnnotations` / `getUrlAnnotations` — annotation-based APIs require more complex infrastructure
- * - `AnnotatedString.Builder.pushStringAnnotation` / `pushTtsAnnotation` / `pushUrlAnnotation` — annotation push APIs
- * - `AnnotatedString.Builder.pushStyle` / `addStyle` / `pop` — use `withStyle` instead;
+ * - `AnnotatedStringBuilder.pushStringAnnotation` / `pushTtsAnnotation` / `pushUrlAnnotation` — annotation push APIs
+ * - `AnnotatedStringBuilder.pushStyle` / `addStyle` / `pop` — use `withStyle` instead;
  *   on JS DOM the tree/node design makes these unnecessary (see above)
  */
 @Immutable
@@ -34,30 +34,40 @@ expect class AnnotatedString {
 
     operator fun plus(other: AnnotatedString): AnnotatedString
     // subSequence(range: TextRange) — requires porting TextRange
-
-    class Builder {
-        /** Create a [Builder] instance using the given [String]. */
-        constructor(text: String)
-
-        /** Create a [Builder] instance using the given [AnnotatedString]. */
-        constructor(text: AnnotatedString)
-
-        // Implement if needed.
-        //val length: Int
-
-        fun append(text: String)
-
-        // This returns a `Builder` to be consistent with the Compose UI API which extends it from `Appendable`.
-        fun append(char: Char): Builder
-        fun append(text: AnnotatedString)
-
-        fun toAnnotatedString(): AnnotatedString
-    }
 }
 
-expect fun buildAnnotatedString(builder: AnnotatedString.Builder.() -> Unit): AnnotatedString
+/**
+ * Builder for creating [AnnotatedString] instances with styled text.
+ *
+ * This is a top-level class (rather than nested inside [AnnotatedString]) to allow
+ * `actual typealias AnnotatedString = PlatformAnnotatedString` on Compose UI platforms,
+ * working around a Kotlin limitation where nested classes of expect classes cannot be
+ * resolved through typealiases from consuming modules.
+ *
+ * Corresponds to `androidx.compose.ui.text.AnnotatedString.Builder`.
+ */
+expect class AnnotatedStringBuilder {
+    /** Create an [AnnotatedStringBuilder] instance using the given [String]. */
+    constructor(text: String)
 
-expect inline fun <R : Any> AnnotatedString.Builder.withStyle(
+    /** Create an [AnnotatedStringBuilder] instance using the given [AnnotatedString]. */
+    constructor(text: AnnotatedString)
+
+    // Implement if needed.
+    //val length: Int
+
+    fun append(text: String)
+
+    // This returns an `AnnotatedStringBuilder` to be consistent with the Compose UI API which extends it from `Appendable`.
+    fun append(char: Char): AnnotatedStringBuilder
+    fun append(text: AnnotatedString)
+
+    fun toAnnotatedString(): AnnotatedString
+}
+
+expect fun buildAnnotatedString(builder: AnnotatedStringBuilder.() -> Unit): AnnotatedString
+
+expect inline fun <R : Any> AnnotatedStringBuilder.withStyle(
     style: SpanStyle,
-    block: AnnotatedString.Builder.() -> R,
+    block: AnnotatedStringBuilder.() -> R,
 ): R

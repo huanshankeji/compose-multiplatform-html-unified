@@ -4,8 +4,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
 import androidx.compose.ui.util.fastJoinToString
-import com.huanshankeji.compose.ui.text.AnnotatedString.Builder
-import com.huanshankeji.compose.ui.text.AnnotatedString.Node
 import org.jetbrains.compose.web.dom.Span
 import org.jetbrains.compose.web.dom.Text
 import com.huanshankeji.compose.InternalApi
@@ -63,52 +61,52 @@ actual class AnnotatedString(val nodes: Nodes) {
     @Stable
     actual operator fun plus(other: AnnotatedString): AnnotatedString =
         AnnotatedString(nodes + other.nodes)
+}
 
-    /**
-     * Builder for AnnotatedString.
-     *
-     * Uses a tree of [Node]s where `withStyle` pushes/pops node levels,
-     * mapping 1:1 to nested HTML `<span>` tags in the rendered output.
-     */
-    actual /*value*/ class Builder(val mutableNodeList: MutableList<Node> = mutableListOf()) /*: Appendable*/ {
-        /** Create a [Builder] instance using the given [String]. */
-        actual constructor(text: String) : this(mutableListOf(Node.Text(text)))
+/**
+ * Builder for AnnotatedString.
+ *
+ * Uses a tree of [AnnotatedString.Node]s where `withStyle` pushes/pops node levels,
+ * mapping 1:1 to nested HTML `<span>` tags in the rendered output.
+ */
+actual /*value*/ class AnnotatedStringBuilder(val mutableNodeList: MutableList<AnnotatedString.Node> = mutableListOf()) /*: Appendable*/ {
+    /** Create an [AnnotatedStringBuilder] instance using the given [String]. */
+    actual constructor(text: String) : this(mutableListOf(AnnotatedString.Node.Text(text)))
 
-        /** Create a [Builder] instance using the given [AnnotatedString]. */
-        actual constructor(text: AnnotatedString) : this(text.nodes.nodeList.toMutableList())
+    /** Create an [AnnotatedStringBuilder] instance using the given [AnnotatedString]. */
+    actual constructor(text: AnnotatedString) : this(text.nodes.nodeList.toMutableList())
 
-        //actual val length: Int get() = text.length
+    //actual val length: Int get() = text.length
 
-        actual fun append(text: String) {
-            mutableNodeList.add(Node.Text(text))
-        }
-
-        actual fun append(char: Char) =
-            apply { append(char.toString()) }
-
-        actual fun append(text: AnnotatedString) {
-            mutableNodeList.addAll(text.nodes.nodeList)
-        }
-
-        fun toNodes() =
-            Nodes(mutableNodeList.toList())
-
-        actual fun toAnnotatedString(): AnnotatedString =
-            AnnotatedString(toNodes())
+    actual fun append(text: String) {
+        mutableNodeList.add(AnnotatedString.Node.Text(text))
     }
+
+    actual fun append(char: Char) =
+        apply { append(char.toString()) }
+
+    actual fun append(text: AnnotatedString) {
+        mutableNodeList.addAll(text.nodes.nodeList)
+    }
+
+    fun toNodes() =
+        AnnotatedString.Nodes(mutableNodeList.toList())
+
+    actual fun toAnnotatedString(): AnnotatedString =
+        AnnotatedString(toNodes())
 }
 
 
-actual fun buildAnnotatedString(builder: Builder.() -> Unit): AnnotatedString =
-    Builder().apply(builder).toAnnotatedString()
+actual fun buildAnnotatedString(builder: AnnotatedStringBuilder.() -> Unit): AnnotatedString =
+    AnnotatedStringBuilder().apply(builder).toAnnotatedString()
 
-actual inline fun <R : Any> Builder.withStyle(
+actual inline fun <R : Any> AnnotatedStringBuilder.withStyle(
     style: SpanStyle,
-    block: Builder.() -> R,
+    block: AnnotatedStringBuilder.() -> R,
 ): R {
-    val childBuilder = Builder()
+    val childBuilder = AnnotatedStringBuilder()
     val result = childBuilder.block()
-    mutableNodeList.add(Node.Styled(style, childBuilder.toNodes()))
+    mutableNodeList.add(AnnotatedString.Node.Styled(style, childBuilder.toNodes()))
     return result
 }
 
@@ -125,8 +123,8 @@ fun AnnotatedStringText(annotatedString: AnnotatedString) =
 fun RenderNodes(nodes: AnnotatedString.Nodes) {
     for (node in nodes.nodeList)
         when (node) {
-            is Node.Text -> Text(node.text)
-            is Node.Styled -> {
+            is AnnotatedString.Node.Text -> Text(node.text)
+            is AnnotatedString.Node.Styled -> {
                 Span({
                     style { applyStyle(node.style) }
                 }) {

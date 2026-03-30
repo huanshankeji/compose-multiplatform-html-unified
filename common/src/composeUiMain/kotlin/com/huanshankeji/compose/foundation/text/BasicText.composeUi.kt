@@ -39,7 +39,7 @@ actual fun BasicText(
     color: ColorProducer?,
 ) =
     PlatformBasicText(
-        text.platformValue,
+        text,
         modifier.platformModifier,
         overflow = overflow,
         softWrap = softWrap,
