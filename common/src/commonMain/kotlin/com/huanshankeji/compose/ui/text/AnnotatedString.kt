@@ -57,13 +57,6 @@ expect class AnnotatedString {
 
 expect fun buildAnnotatedString(builder: AnnotatedString.Builder.() -> Unit): AnnotatedString
 
-/**
- * Pushes [style] to the [AnnotatedString.Builder], executes [block] and then pops the [style].
- *
- * @param style [SpanStyle] to be applied
- * @param block function to be executed
- * @return result of the [block]
- */
 expect inline fun <R : Any> AnnotatedString.Builder.withStyle(
     style: SpanStyle,
     block: AnnotatedString.Builder.() -> R,
