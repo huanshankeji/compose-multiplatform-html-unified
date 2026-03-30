@@ -62,7 +62,7 @@ actual class FontWeight actual constructor(actual val weight: Int) : Comparable<
 }
 
 actual fun lerp(start: FontWeight, stop: FontWeight, fraction: Float): FontWeight {
-    val weight = ((1 - fraction) * start.weight + fraction * stop.weight).roundToInt().coerceIn(1, 1000)
+    val weight = androidx.compose.ui.util.lerp(start.weight, stop.weight, fraction).coerceIn(1, 1000)
     return FontWeight(weight)
 }
 

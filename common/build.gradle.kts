@@ -42,6 +42,7 @@ kotlin {
                 */
                 api("org.jetbrains.compose.ui:ui-unit:${DependencyVersions.composeMultiplatform}")
                 implementation("org.jetbrains.compose.annotation-internal:annotation:${DependencyVersions.composeMultiplatform}")
+                implementation("org.jetbrains.compose.ui:ui-util:${DependencyVersions.composeMultiplatform}")
             }
         }
         composeUiMain {
