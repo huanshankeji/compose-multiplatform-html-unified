@@ -41,6 +41,12 @@ expect class AnnotatedString(
     }
 
     class Builder(capacity: Int = 16) {
+        /** Create a [Builder] instance using the given [String]. */
+        constructor(text: String)
+
+        /** Create a [Builder] instance using the given [AnnotatedString]. */
+        constructor(text: AnnotatedString)
+
         val length: Int
 
         fun append(text: String)
@@ -58,11 +64,23 @@ expect class AnnotatedString(
 
 expect fun buildAnnotatedString(builder: AnnotatedString.Builder.() -> Unit): AnnotatedString
 
-inline fun AnnotatedString.Builder.withStyle(
+/**
+ * Pushes [style] to the [AnnotatedString.Builder], executes [block] and then pops the [style].
+ *
+ * @param style [SpanStyle] to be applied
+ * @param block function to be executed
+ * @return result of the [block]
+ * @see AnnotatedString.Builder.pushStyle
+ * @see AnnotatedString.Builder.pop
+ */
+inline fun <R : Any> AnnotatedString.Builder.withStyle(
     style: SpanStyle,
-    crossinline block: AnnotatedString.Builder.() -> Unit,
-) {
+    block: AnnotatedString.Builder.() -> R,
+): R {
     val index = pushStyle(style)
-    block()
-    pop(index)
+    return try {
+        block(this)
+    } finally {
+        pop(index)
+    }
 }

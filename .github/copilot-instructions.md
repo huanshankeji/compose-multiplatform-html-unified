@@ -302,7 +302,8 @@ source code** — copy the relevant parts and adapt them for the common/JS DOM i
 from scratch, as this leads to inconsistencies in API surface, member ordering, and behavior.
 
 The original Compose UI source for a given version can be found on GitHub, e.g.:
-`https://raw.githubusercontent.com/JetBrains/compose-multiplatform-core/v1.10.3/compose/ui/ui-text/src/commonMain/kotlin/androidx/compose/ui/text/style/TextDecoration.kt`
+`https://raw.githubusercontent.com/JetBrains/compose-multiplatform-core/v<COMPOSE_MULTIPLATFORM_VERSION>/compose/ui/ui-text/src/commonMain/kotlin/androidx/compose/ui/text/style/TextDecoration.kt`
+where `<COMPOSE_MULTIPLATFORM_VERSION>` should match the Compose Multiplatform version used by this project (see `buildSrc/build.gradle.kts` for the current version).
 
 When copying and adapting, ensure:
 1. The supported APIs match the original source (same names, types, and semantics).

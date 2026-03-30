@@ -50,6 +50,12 @@ actual class AnnotatedString(val platformValue: PlatformAnnotatedString) {
     actual class Builder(val platformBuilder: PlatformAnnotatedString.Builder) {
         actual constructor(capacity: Int) : this(PlatformAnnotatedString.Builder(capacity))
 
+        /** Create a [Builder] instance using the given [String]. */
+        actual constructor(text: String) : this(PlatformAnnotatedString.Builder(text))
+
+        /** Create a [Builder] instance using the given [AnnotatedString]. */
+        actual constructor(text: AnnotatedString) : this(PlatformAnnotatedString.Builder(text.platformValue))
+
         actual val length: Int get() = platformBuilder.length
 
         actual fun append(text: String) {
