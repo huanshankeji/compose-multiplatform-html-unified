@@ -20,6 +20,7 @@ import com.huanshankeji.compose.ui.unit.applyFontSize
 import com.huanshankeji.compose.ui.unit.applyLetterSpacing
 import com.huanshankeji.compose.ui.unit.applyLineHeight
 import org.jetbrains.compose.web.css.color
+import org.jetbrains.compose.web.css.minHeight
 import org.jetbrains.compose.web.dom.Span
 import org.jetbrains.compose.web.dom.Text
 
@@ -105,7 +106,7 @@ private fun CommonText(
                 applyStyle(overflow, softWrap, maxLines)
                 if (minLines > 1) {
                     // The CSS `lh` unit requires relatively modern browsers (Chrome 109+, Firefox 120+, Safari 16.4+).
-                    property("min-height", "${minLines}lh")
+                    minHeight("${minLines}lh")
                 }
             }
         }

@@ -30,7 +30,7 @@ actual fun TaglessBasicText(text: String) =
     Text(text)
 
 @Deprecated(
-    "Moved to the Material 3 module. Use `com.huanshankeji.compose.material3.Text` instead.",
+    "Only used by deprecated functions now.",
     level = DeprecationLevel.WARNING
 )
 @InternalComposeApi
