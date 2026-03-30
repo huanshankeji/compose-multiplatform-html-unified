@@ -1,10 +1,12 @@
 package com.huanshankeji.compose.ui.text
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
 import org.jetbrains.compose.web.dom.Span
 import org.jetbrains.compose.web.dom.Text
 
+@Immutable
 actual class AnnotatedString actual constructor(
     actual val text: String,
     actual val spanStyles: List<Range<SpanStyle>>,

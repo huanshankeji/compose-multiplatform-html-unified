@@ -1,9 +1,11 @@
 package com.huanshankeji.compose.ui.text
 
+import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
 import androidx.compose.ui.text.buildAnnotatedString as platformBuildAnnotatedString
 import androidx.compose.ui.text.AnnotatedString as PlatformAnnotatedString
 
+@Immutable
 actual class AnnotatedString(val platformValue: PlatformAnnotatedString) {
     actual constructor(
         text: String,

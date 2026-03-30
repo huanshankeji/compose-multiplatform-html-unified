@@ -5,6 +5,10 @@ import androidx.compose.runtime.Immutable
 /**
  * Initially supported subset of `androidx.compose.ui.text.AnnotatedString`.
  *
+ * The original corresponding Compose UI class implements [CharSequence] but it would be inefficient to implement here with the wrapping,
+ * and also it's not really needed now, so the class doesn't implement [CharSequence] for now.
+ * Possibly a `toCharSequence()` extension function could be added if needed in the future.
+ *
  * The following Compose UI features are not yet supported:
  * - `paragraphStyles: List<Range<ParagraphStyle>>` — requires porting `ParagraphStyle` (see #131);
  *   CSS paragraph styling differs significantly from Compose UI's paragraph model.
@@ -20,7 +24,7 @@ expect class AnnotatedString(
     text: String,
     spanStyles: List<Range<SpanStyle>> = emptyList(),
     // paragraphStyles: List<Range<ParagraphStyle>> = emptyList(),
-) {
+) /* : CharSequence */ {
     val text: String
     val spanStyles: List<Range<SpanStyle>>
 
