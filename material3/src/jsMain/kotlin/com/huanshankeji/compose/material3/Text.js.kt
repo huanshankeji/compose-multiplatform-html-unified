@@ -26,7 +26,7 @@ import org.jetbrains.compose.web.dom.Text
 
 /*
  * Implementation note: Material 3 `Text` on JS DOM renders using `<span>` elements.
- * See `CommonText.js.kt` in this package for the shared implementation.
+ * See `CommonText` for the shared implementation.
  *
  * For Material 3 `Text` specifically, using `<h1>`–`<h6>` or `<p>` elements could be
  * more semantically appropriate when a `TextStyle` parameter is supported (see #131):
