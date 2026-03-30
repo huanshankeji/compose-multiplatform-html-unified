@@ -2,6 +2,8 @@ package com.huanshankeji.compose.ui.text.style
 
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
+import androidx.compose.ui.util.fastFold
+import androidx.compose.ui.util.fastJoinToString
 import org.jetbrains.compose.web.css.StyleScope
 import org.jetbrains.compose.web.css.textDecorationLine
 
@@ -15,7 +17,7 @@ actual class TextDecoration internal constructor(actual val mask: Int) {
         @Stable actual val LineThrough: TextDecoration = TextDecoration(0x2)
 
         actual fun combine(decorations: List<TextDecoration>): TextDecoration {
-            val mask = decorations.fold(0) { acc, decoration -> acc or decoration.mask }
+            val mask = decorations.fastFold(0) { acc, decoration -> acc or decoration.mask }
             return TextDecoration(mask)
         }
 
@@ -42,6 +44,7 @@ actual class TextDecoration internal constructor(actual val mask: Int) {
         if (mask == 0) {
             return "TextDecoration.None"
         }
+
         val values: MutableList<String> = mutableListOf()
         if ((mask and Underline.mask) != 0) {
             values.add("Underline")
@@ -49,10 +52,10 @@ actual class TextDecoration internal constructor(actual val mask: Int) {
         if ((mask and LineThrough.mask) != 0) {
             values.add("LineThrough")
         }
-        if (values.size == 1) {
+        if ((values.size == 1)) {
             return "TextDecoration.${values[0]}"
         }
-        return "TextDecoration[${values.joinToString(separator = ", ")}]"
+        return "TextDecoration[${values.fastJoinToString(separator = ", ")}]"
     }
 
     override fun equals(other: Any?): Boolean {
