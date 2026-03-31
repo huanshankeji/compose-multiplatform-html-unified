@@ -21,5 +21,5 @@ object DependencyVersions {
     val kmdc = "0.1.2"
 
     // https://github.com/marella/material-symbols/releases
-    val materialSymbols = "0.42.3"
+    val materialSymbols = "0.43.0"
 }

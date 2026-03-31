@@ -2970,10 +2970,10 @@ material-icons@^1.13.12:
   resolved "https://registry.yarnpkg.com/material-icons/-/material-icons-1.13.14.tgz#65ae8693550b9f789036bd4cf29e775f1bd389ed"
   integrity sha512-kZOfc7xCC0rAT8Q3DQixYAeT+tBqZnxkseQtp2bxBxz7q5pMAC+wmit7vJn1g/l7wRU+HEPq23gER4iPjGs5Cg==
 
-material-symbols@0.42.3:
-  version "0.42.3"
-  resolved "https://registry.yarnpkg.com/material-symbols/-/material-symbols-0.42.3.tgz#f091baefe9a40ffffbb82e33417bef493534497b"
-  integrity sha512-SUI+JHDmUchm3hhyISRiB2aoXdR1z/lMZ2r1O3gf5vlDk1HQey8QcyDEQFDQUyNOkz2Sedu6D67ojEOFDoo6Wg==
+material-symbols@0.43.0:
+  version "0.43.0"
+  resolved "https://registry.yarnpkg.com/material-symbols/-/material-symbols-0.43.0.tgz#190106665045c9d7cc8a2e00cde7a709d24d49ce"
+  integrity sha512-40zgnHCv6d+Nx/9WQ6vhZitQoqtntgZNXN1YJGyn1NJRQLoB7lWWD8vpu/i68nKtZs8OxHyMudBEkS2mrUHiqQ==
 
 math-intrinsics@^1.1.0:
   version "1.1.0"
