@@ -90,7 +90,7 @@ private fun CommonText(
     softWrap: Boolean,
     maxLines: Int,
     minLines: Int,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) =
     Span(
         modifier.toAttrs {

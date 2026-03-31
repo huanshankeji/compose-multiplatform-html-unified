@@ -2,7 +2,6 @@ package com.huanshankeji.compose.material.demo
 
 import androidx.compose.runtime.*
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.huanshankeji.compose.foundation.*
 import com.huanshankeji.compose.foundation.ext.outerBorder
 import com.huanshankeji.compose.foundation.ext.roundedCornerBackgroundAndOuterBorder
@@ -14,16 +13,9 @@ import com.huanshankeji.compose.foundation.lazy.LazyListScope
 import com.huanshankeji.compose.foundation.lazy.LazyRow
 import com.huanshankeji.compose.foundation.text.BasicText
 import com.huanshankeji.compose.layout.ext.hidden
-import com.huanshankeji.compose.material3.Text
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.graphics.Color
-import com.huanshankeji.compose.ui.text.SpanStyle
-import com.huanshankeji.compose.ui.text.buildAnnotatedString
-import com.huanshankeji.compose.ui.text.font.FontStyle
-import com.huanshankeji.compose.ui.text.font.FontWeight
-import com.huanshankeji.compose.ui.text.style.TextDecoration
 import com.huanshankeji.compose.ui.text.style.TextOverflow
-import com.huanshankeji.compose.ui.text.withStyle
 
 @Composable
 fun Common(/*modifier: Modifier = Modifier*/) {
