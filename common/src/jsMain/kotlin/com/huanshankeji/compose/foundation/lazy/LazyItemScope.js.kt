@@ -12,24 +12,25 @@ import com.huanshankeji.compose.ui.Modifier
 @LazyScopeMarker
 @JvmDefaultWithCompatibility
 */
-actual object LazyItemScope {
+// used to be `actual object`, but Dokka fails with it
+actual class LazyItemScope {
     // I am not sure whether these implementations work perfectly.
 
     actual fun Modifier.fillParentMaxSize(
         @FloatRange(from = 0.0, to = 1.0)
-        fraction: Float
+        fraction: Float,
     ): Modifier =
         fillMaxSize(fraction)
 
     actual fun Modifier.fillParentMaxWidth(
         @FloatRange(from = 0.0, to = 1.0)
-        fraction: Float
+        fraction: Float,
     ): Modifier =
         fillMaxWidth(fraction)
 
     actual fun Modifier.fillParentMaxHeight(
         @FloatRange(from = 0.0, to = 1.0)
-        fraction: Float
+        fraction: Float,
     ): Modifier =
         fillMaxHeight(fraction)
 }

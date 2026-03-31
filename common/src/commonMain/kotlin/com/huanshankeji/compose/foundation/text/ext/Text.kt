@@ -5,7 +5,8 @@ import com.huanshankeji.compose.foundation.text.BasicText
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.graphics.ColorProducer
 
-const val INLINE_TEXT_DEPRECATED_MESSAGE = "Both text with or without a `span` ta can be inline."
+const val INLINE_TEXT_DEPRECATED_MESSAGE =
+    "The word \"inline\" used here is inaccurate. Both text with or without a `span` tag can be inline in HTML terms."
 
 @Deprecated(INLINE_TEXT_DEPRECATED_MESSAGE, ReplaceWith("TaglessBasicText(text)"))
 @Composable
@@ -21,6 +22,10 @@ expect fun TaglessBasicText(text: String)
 /**
  * An alias for [BasicText].
  */
+@Deprecated(
+    "This alias is unnecessary now. Just use `BasicText` instead, which now supports all text styling parameters.",
+    ReplaceWith("BasicText(text, modifier, color = color)", "com.huanshankeji.compose.foundation.text.BasicText")
+)
 @Composable
 fun SpanBasicText(text: String, modifier: Modifier = Modifier, color: ColorProducer? = null) =
-    BasicText(text, modifier, color)
+    BasicText(text, modifier, color = color)

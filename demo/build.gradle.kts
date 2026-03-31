@@ -10,7 +10,6 @@ kotlin {
     androidTarget()
 
     listOf(
-        iosX64(),
         iosArm64(),
         iosSimulatorArm64()
     ).forEach { iosTarget ->
@@ -47,8 +46,9 @@ kotlin {
         commonMain {
             dependencies {
                 implementation(compose.runtime)
-                implementation(cpnProject(project, ":material2"))
+                //implementation(cpnProject(project, ":material2"))
                 implementation(cpnProject(project, ":material3"))
+                implementation(cpnProject(project, ":material-icons:extended"))
                 implementation(cpnProject(project, ":navigation"))
                 /*
                 see https://github.com/JetBrains/compose-multiplatform-core/blob/476d43b99a27696d12ef087e8028d90789645ba7/compose/ui/ui/build.gradle#L54
@@ -113,8 +113,8 @@ android {
     }
 }
 
-val jsBrowserDistribution by tasks.getting(Copy::class)
-val wasmJsBrowserDistribution by tasks.getting(Copy::class)
+val jsBrowserDistribution by tasks.getting(Sync::class)
+val wasmJsBrowserDistribution by tasks.getting(Sync::class)
 
 tasks.register<Sync>("sideBySideBrowserDistribution") {
     group = "kotlin browser"

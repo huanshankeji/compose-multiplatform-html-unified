@@ -53,7 +53,7 @@ actual fun PrimitiveTopAppBarScaffold(
     navigationIcon: @Composable (NavigationIconScope.() -> Unit)?,
     actions: @Composable TopAppBarActionsScope.() -> Unit,
     contentModifier: Modifier,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) =
     TopAppBarScaffold(title, topAppBarModifier, navigationIcon, actions) {
         Box(contentModifier.platformModifier) { content() }
@@ -70,7 +70,7 @@ actual fun TopAppBarScaffold(
     floatingActionButton: @Composable (() -> Unit)?,
     floatingActionButtonPosition: FabPosition,
     isFloatingActionButtonDockedComposeUi: Boolean,
-    content: @Composable (PaddingValues) -> Unit
+    content: @Composable (PaddingValues) -> Unit,
 ) =
     Scaffold(
         topBar = {
@@ -85,5 +85,5 @@ actual fun TopAppBarScaffold(
             ?: { androidx.compose.material.SnackbarHost(it) },
         floatingActionButton = floatingActionButton ?: {},
         floatingActionButtonPosition = floatingActionButtonPosition.toPlatformValue(),
-        isFloatingActionButtonDocked = isFloatingActionButtonDockedComposeUi
+        isFloatingActionButtonDocked = isFloatingActionButtonDockedComposeUi,
     ) { content(it.toCommonValue()) }

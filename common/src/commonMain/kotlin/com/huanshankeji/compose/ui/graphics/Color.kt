@@ -93,7 +93,7 @@ expect fun Color(
     @IntRange(from = 0, to = 0xFF) red: Int,
     @IntRange(from = 0, to = 0xFF) green: Int,
     @IntRange(from = 0, to = 0xFF) blue: Int,
-    @IntRange(from = 0, to = 0xFF) alpha: Int = 0xFF
+    @IntRange(from = 0, to = 0xFF) alpha: Int = 0xFF,
 ): Color
 
 /*
@@ -111,6 +111,7 @@ expect fun Color.luminance(): Float
 @ColorInt
 expect fun Color.toArgb(): Int
 
+// TODO Consider always delegating to platform implementations too here.
 fun interface ColorProducer {
     operator fun invoke(): Color
 }

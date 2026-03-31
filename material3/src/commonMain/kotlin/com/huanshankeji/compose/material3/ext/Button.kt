@@ -4,6 +4,12 @@ import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.material.icons.Icon
 import com.huanshankeji.compose.ui.Modifier
 
+/*
+https://m3.material.io/components/buttons/overview
+https://developer.android.com/develop/ui/compose/components/button
+https://kotlinlang.org/api/compose-multiplatform/material3/androidx.compose.material3/-button.html
+ */
+
 /**
  * filled button
  * @param icon the [Modifier] parameter contains the attributes to be set on this icon on JS. You are supposed to pass this [Modifier] to the top-level composable that you invoke inside.
@@ -15,7 +21,7 @@ expect fun Button(
     enabled: Boolean = true,
     icon: @Composable ((Modifier) -> Unit)? = null,
     isTrailingIcon: Boolean = false,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 )
 
 @Composable
@@ -25,7 +31,7 @@ fun ButtonWithMaterialIcon(
     enabled: Boolean = true,
     icon: Icon?,
     isTrailingIcon: Boolean = false,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) =
     Button(
         onClick,
@@ -33,7 +39,7 @@ fun ButtonWithMaterialIcon(
         enabled,
         icon.toNullableContentWithModifier(),
         isTrailingIcon,
-        content
+        content,
     )
 
 /**
@@ -46,7 +52,7 @@ fun FilledButton(
     enabled: Boolean = true,
     icon: @Composable ((Modifier) -> Unit)? = null,
     isTrailingIcon: Boolean = false,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) =
     Button(onClick, modifier, enabled, icon, isTrailingIcon, content)
 
@@ -57,7 +63,7 @@ expect fun ElevatedButton(
     enabled: Boolean = true,
     icon: @Composable ((Modifier) -> Unit)? = null,
     isTrailingIcon: Boolean = false,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 )
 
 @Composable
@@ -67,7 +73,7 @@ fun ElevatedButtonWithMaterialIcon(
     enabled: Boolean = true,
     icon: Icon?,
     isTrailingIcon: Boolean = false,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) =
     ElevatedButton(
         onClick,
@@ -75,7 +81,7 @@ fun ElevatedButtonWithMaterialIcon(
         enabled,
         icon.toNullableContentWithModifier(),
         isTrailingIcon,
-        content
+        content,
     )
 
 @Composable
@@ -85,7 +91,7 @@ expect fun FilledTonalButton(
     enabled: Boolean = true,
     icon: @Composable ((Modifier) -> Unit)? = null,
     isTrailingIcon: Boolean = false,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 )
 
 @Composable
@@ -95,7 +101,7 @@ fun FilledTonalButtonWithMaterialIcon(
     enabled: Boolean = true,
     icon: Icon?,
     isTrailingIcon: Boolean = false,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) =
     FilledTonalButton(
         onClick,
@@ -103,7 +109,7 @@ fun FilledTonalButtonWithMaterialIcon(
         enabled,
         icon.toNullableContentWithModifier(),
         isTrailingIcon,
-        content
+        content,
     )
 
 @Composable
@@ -113,7 +119,7 @@ expect fun OutlinedButton(
     enabled: Boolean = true,
     icon: @Composable ((Modifier) -> Unit)? = null,
     isTrailingIcon: Boolean = false,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 )
 
 @Composable
@@ -123,7 +129,7 @@ fun OutlinedButtonWithMaterialIcon(
     enabled: Boolean = true,
     icon: Icon?,
     isTrailingIcon: Boolean = false,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) =
     OutlinedButton(
         onClick,
@@ -131,7 +137,7 @@ fun OutlinedButtonWithMaterialIcon(
         enabled,
         icon.toNullableContentWithModifier(),
         isTrailingIcon,
-        content
+        content,
     )
 
 @Composable
@@ -141,7 +147,7 @@ expect fun TextButton(
     enabled: Boolean = true,
     icon: @Composable ((Modifier) -> Unit)? = null,
     isTrailingIcon: Boolean = false,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 )
 
 @Composable
@@ -151,7 +157,7 @@ fun TextButtonWithMaterialIcon(
     enabled: Boolean = true,
     icon: Icon?,
     isTrailingIcon: Boolean = false,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) =
     TextButton(
         onClick,
@@ -159,5 +165,5 @@ fun TextButtonWithMaterialIcon(
         enabled,
         icon.toNullableContentWithModifier(),
         isTrailingIcon,
-        content
+        content,
     )

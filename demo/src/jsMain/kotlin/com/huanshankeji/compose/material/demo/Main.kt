@@ -1,9 +1,12 @@
 package com.huanshankeji.compose.material.demo
 
-import com.huanshankeji.compose.html.material3.require
-import org.jetbrains.compose.web.renderComposableInBody
+import com.huanshankeji.compose.ui.window.renderComposableInBodyWithViewModelStoreOwner
+
+@JsModule("material-symbols/outlined.css")
+private external object MaterialSymbolsOutlinedImport
 
 fun main() {
-    require("material-symbols/outlined.css")
-    renderComposableInBody { App() }
+    MaterialSymbolsOutlinedImport
+    //renderComposableInBody { App() } // "No ViewModelStoreOwner was provided via LocalViewModelStoreOwner"
+    renderComposableInBodyWithViewModelStoreOwner { App() }
 }

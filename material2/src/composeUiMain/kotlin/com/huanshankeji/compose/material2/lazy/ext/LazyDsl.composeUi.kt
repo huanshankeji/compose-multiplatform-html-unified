@@ -16,7 +16,7 @@ actual class ListScope(val platformValue: PlatformLazyListScope) {
         count: Int,
         key: ((index: Int) -> Any)?,
         contentType: (index: Int) -> Any?,
-        itemContent: @Composable ItemScope.(index: Int) -> Unit
+        itemContent: @Composable ItemScope.(index: Int) -> Unit,
     ) =
         platformValue.items(count, key, contentType) { ItemScope(this).itemContent(it) }
 
@@ -24,7 +24,7 @@ actual class ListScope(val platformValue: PlatformLazyListScope) {
         key: Any?,
         contentType: Any?,
         headerContent: @Composable HeaderScope.() -> Unit,
-        content: ListScope.() -> Unit
+        content: ListScope.() -> Unit,
     ) {
         @OptIn(ExperimentalFoundationApi::class)
         platformValue.stickyHeader(key, contentType) { HeaderScope(this).headerContent() }

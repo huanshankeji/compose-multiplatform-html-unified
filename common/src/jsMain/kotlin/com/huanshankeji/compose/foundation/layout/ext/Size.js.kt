@@ -10,7 +10,7 @@ import com.varabyte.kobweb.compose.ui.styleModifier
 import org.jetbrains.compose.web.css.StyleScope
 
 private const val CSS_STRETCH_VALUE = "stretch" // This does not work on Chrome.
-private const val CSS_WEBKIT_STRETCH_VALUE = "-webkit-fill-available"
+private const val CSS_WEBKIT_STRETCH_VALUE = "-webkit-fill-available" // This actually works on FireFox too as tested.
 private const val CSS_MOZ_STRETCH_VALUE = "-moz-available"
 val cssWidthStretchValueBrowserDependent =
     when (browser) {

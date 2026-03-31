@@ -41,7 +41,7 @@ expect fun PrimitiveTopAppBarScaffold(
     navigationIcon: @Composable (NavigationIconScope.() -> Unit)? = null,
     actions: @Composable TopAppBarActionsScope.() -> Unit = {},
     contentModifier: Modifier = Modifier,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 )
 
 /**
@@ -55,7 +55,7 @@ expect fun PrimitiveTopAppBarScaffold(
  * ```
  *
  * @param snackbarHost `androidx.compose.material.Scaffold` has a `SnackbarHostState` parameter for this lambda, but `androidx.compose.material3.Scaffold` doesn't. Therefore, we think this is probably a design flaw and don't provide the parameter.
- * @param isFloatingActionButtonDockedComposeUi available on `androidx.compose` targets only.
+ * @param isFloatingActionButtonDockedComposeUi available on Compose UI targets only.
 // * @param isContentOverflowingOrExpandingJs available on JS DOM only.
  */
 @Composable
@@ -70,5 +70,5 @@ expect fun TopAppBarScaffold(
     floatingActionButtonPosition: FabPosition = FabPosition.End,
     isFloatingActionButtonDockedComposeUi: Boolean = false,
     //isContentOverflowingOrExpandingJsDom: Boolean = true, // always overflows
-    content: @Composable (PaddingValues) -> Unit
+    content: @Composable (PaddingValues) -> Unit,
 )

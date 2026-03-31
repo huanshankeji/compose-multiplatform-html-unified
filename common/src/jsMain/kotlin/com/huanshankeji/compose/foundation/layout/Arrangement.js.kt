@@ -9,7 +9,6 @@ import com.huanshankeji.compose.ui.unit.toPx
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.ui.styleModifier
 import org.jetbrains.compose.web.css.StyleScope
-import org.jetbrains.compose.web.css.gap
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement as PlatformArrangement
 
 @Immutable
@@ -73,11 +72,7 @@ actual object Arrangement {
 
     @Stable
     actual fun spacedBy(space: Dp): HorizontalOrVertical =
-        object : HorizontalOrVertical.FromStyleImpl() {
-            override fun StyleScope.styles() {
-                gap(space.toPx())
-            }
-        }
+        HorizontalOrVertical.Impl(PlatformArrangement.spacedBy(space.toPx()))
 }
 
 fun PlatformModifier.stylesFrom(arrangement: CommonArrangement) =

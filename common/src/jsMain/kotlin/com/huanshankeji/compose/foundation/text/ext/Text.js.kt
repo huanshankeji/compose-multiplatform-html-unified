@@ -12,6 +12,10 @@ import org.jetbrains.compose.web.dom.Text
 actual fun TaglessBasicText(text: String) =
     Text(text)
 
+@Deprecated(
+    "Only used by deprecated functions now.",
+    level = DeprecationLevel.WARNING
+)
 @InternalComposeApi
 @Composable
 fun CommonBasicText(text: String, modifier: Modifier, color: Color?) =

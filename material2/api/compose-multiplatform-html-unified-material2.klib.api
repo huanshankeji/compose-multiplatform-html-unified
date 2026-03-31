@@ -1,6 +1,6 @@
 // Klib ABI Dump
-// Targets: [iosArm64, iosSimulatorArm64, iosX64, js, wasmJs]
-// Alias: ios => [iosArm64, iosSimulatorArm64, iosX64]
+// Targets: [iosArm64, iosSimulatorArm64, js, wasmJs]
+// Alias: ios => [iosArm64, iosSimulatorArm64]
 // Rendering settings:
 // - Signature version: 2
 // - Show manifest properties: true
@@ -309,6 +309,9 @@ final fun (com.huanshankeji.compose.material2.ext/FabPosition).com.huanshankeji.
 
 // Targets: [ios, wasmJs]
 final fun (com.huanshankeji.compose.material2/SnackbarDuration).com.huanshankeji.compose.material2/toPlatformValue(): androidx.compose.material/SnackbarDuration // com.huanshankeji.compose.material2/toPlatformValue|toPlatformValue@com.huanshankeji.compose.material2.SnackbarDuration(){}[0]
+
+// Targets: [ios, wasmJs]
+final fun (kotlin/String?).com.huanshankeji.compose.material2.ext/toNullableTextComposable(): kotlin/Function2<androidx.compose.runtime/Composer, kotlin/Int, kotlin/Unit>? // com.huanshankeji.compose.material2.ext/toNullableTextComposable|toNullableTextComposable@kotlin.String?(){}[0]
 
 // Targets: [ios, wasmJs]
 final fun com.huanshankeji.compose.material2.ext/IconButton(kotlin/Function0<kotlin/Unit>, com.huanshankeji.compose.ui/Modifier?, androidx.compose.ui.graphics.vector/ImageVector, kotlin/String?, androidx.compose.runtime/Composer?, kotlin/Int, kotlin/Int) // com.huanshankeji.compose.material2.ext/IconButton|IconButton(kotlin.Function0<kotlin.Unit>;com.huanshankeji.compose.ui.Modifier?;androidx.compose.ui.graphics.vector.ImageVector;kotlin.String?;androidx.compose.runtime.Composer?;kotlin.Int;kotlin.Int){}[0]

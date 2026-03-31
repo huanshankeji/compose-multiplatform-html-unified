@@ -34,3 +34,6 @@ actual interface Modifier {
         override val platformModifier = PlatformModifier
     }
 }
+
+fun PlatformModifier.toCommonModifier() =
+    Modifier.Impl(this)

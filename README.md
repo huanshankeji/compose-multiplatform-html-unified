@@ -17,7 +17,7 @@ The Compose HTML / JS DOM source is mainly based on [Kobweb Silk](https://github
 
 ## References and limitations
 
-Complete visual consistency across different platforms is not guaranteed. See [the side-by-side demo site](https://huanshankeji.github.io/compose-multiplatform-html-unified/) for the visual effects and their differences.
+Complete visual consistency across different platforms is not guaranteed. See [the side-by-side demo site](https://huanshankeji.github.io/compose-multiplatform-html-unified/demo/) for the visual effects and their differences.
 
 This project is still in development and has not reached a stable state. Some APIs are subject to change and there is no detailed documentation yet. Check out [the demo project source](demo) on how to use the components in addition to the sections below.
 
@@ -25,7 +25,21 @@ This project is still in development and has not reached a stable state. Some AP
 
 ### Components
 
+#### About `ext` components (components in the `ext` packages)
+
+The components in the `ext` packages don't follow the `androidx.compose` APIs exactly, but rather provide wrappers that are more idiomatic and conventional on both kinds of targets, wrapping different APIs that can't be unified following the `androidx.compose` APIs.
+
+#### About parameter names
+
+The parameter names with suffixes such as "JsDom" or "ComposeUi" are platform-specific, and only apply on their respective platform(s), Compose HTML / JS DOM or Compose UI platforms.
+
 #### Foundation components
+
+Maven coordinate (also for modifiers and other APIs below):
+
+```
+com.huanshankeji:compose-multiplatform-html-unified-common:$version
+```
 
 - `BasicText`
 
@@ -51,25 +65,33 @@ This project is still in development and has not reached a stable state. Some AP
 
 #### Material 2 components
 
-- `Button`
-- `Card`
-- `Checkbox`
-- `Divider` (not working properly on JS yet)
-- `Icon`
-- `IconButton`
-- `Snackbar` (inconsistent, not recommended), `SnackBarHost` (recommended)
-- `Switch`
-- `Text`
+Maven coordinate:
+
+```
+com.huanshankeji:compose-multiplatform-html-unified-material2:$version
+```
+
+**Deprecation notice:** The Material 2 components are no longer maintained and published for release since v0.6.0, due to its decreasing popularity and the underlying KMDC library's incompatible Kotlin and Compose versions.
+
+- Button: `Button`
+- Card: `Card`
+- Checkbox: `Checkbox`
+- Divider: `Divider` (not working properly on JS yet)
+- Icon: `Icon`
+- Icon button: `IconButton`
+- Snackbar: `Snackbar` (inconsistent, not recommended), `SnackBarHost` (recommended)
+- Switch: `Switch`
+- Text: `Text`
 
 ##### `ext` components
 
-- `Button`
-- `IconButton`
-- `RadioRow`, `RadioGroupRow`
-- `SwitchWithLabel`
-- `MaterialText`, `TaglessText`
-- `TextField`, `OutlinedTextField`
-- `TopAppBarScaffold`
+- Button: `Button`
+- Icon button: `IconButton`
+- Radio button: `RadioRow`, `RadioGroupRow`
+- Switch: `SwitchWithLabel`
+- Text: `MaterialText`, `TaglessText`
+- Text field: `TextField`, `OutlinedTextField`
+- Top app bar: `TopAppBarScaffold`
 
 ##### `lazy.ext` components
 
@@ -77,43 +99,81 @@ This project is still in development and has not reached a stable state. Some AP
 
 #### Material 3 components
 
-- `Button` (`FilledButton`), `ElevatedButton`, `FilledTonalButton`, `OutlinedButton`, `TextButton`
-- `Card` (`FilledCard`), `ElevatedCard`, `OutlinedCard`
-- `Checkbox`
-- `FloatingActionButton`, `SmallFloatingActionButton`, `LargeFloatingActionButton`, `ExtendedFloatingActionButton`
-- `Icon`
-- `IconButton`, `IconToggleButton`, `FilledIconButton`, `FilledIconToggleButton`, `FilledTonalIconButton`, `FilledTonalIconToggleButton`, `OutlinedIconButton`, `OutlinedIconToggleButton`
-- `LinearProgressIndicator`, `CircularProgressIndicator`
-- `Switch`
-- `Text`
+Maven coordinate:
+
+```
+com.huanshankeji:compose-multiplatform-html-unified-material3:$version
+```
+
+- Button: `Button` (`FilledButton`), `ElevatedButton`, `FilledTonalButton`, `OutlinedButton`, `TextButton`
+- Card: `Card` (`FilledCard`), `ElevatedCard`, `OutlinedCard`
+- Checkbox: `Checkbox`
+- Dialog: `AlertDialog`, `SimpleDialog`
+- Divider: `HorizontalDivider`
+- Floating action button: `FloatingActionButton`, `SmallFloatingActionButton`, `LargeFloatingActionButton`,
+  `ExtendedFloatingActionButton`
+- Icon: `Icon`
+- Icon button: `IconButton`, `IconToggleButton`, `FilledIconButton`, `FilledIconToggleButton`, `FilledTonalIconButton`,
+  `FilledTonalIconToggleButton`, `OutlinedIconButton`, `OutlinedIconToggleButton`
+- Navigation drawer: `ModalNavigationDrawer` (deprecated)
+- Progress indicator: `LinearProgressIndicator`, `CircularProgressIndicator`
+- Radio button: `RadioButton`
+- Segmented button: `SingleChoiceSegmentedButtonRow`, `MultiChoiceSegmentedButtonRow`
+- Slider: `Slider`, `RangeSlider`
+- Snackbar: `SnackbarHost`, `SnackbarHostState`
+- Switch: `Switch`
+- Tab: `PrimaryTabRow`, `SecondaryTabRow` (tabs are in `ext`)
+- Text: `Text`
 
 ##### `ext` components
 
-- `Button` (`FilledButton`), `ElevatedButton`, `FilledTonalButton`, `OutlinedButton`, `TextButton`
-- `Card` (`FilledCard`), `ElevatedCard`, `OutlinedCard`
-- `DropdownMenu`, `DropdownMenuItem`
-  - `ExposedDropdownMenuBox`, `ExposedDropdownMenuBoxScope.ExposedDropdownMenuBoxTextField`, `ExposedDropdownMenuBoxScope.ExposedDropdownMenu`, `ExposedDropdownMenuWithTextField`
-- `FloatingActionButton`, `SmallFloatingActionButton`, `LargeFloatingActionButton`, `ExtendedFloatingActionButton`
-- `IconButton`, `IconToggleButton`, `FilledIconButton`, `FilledIconToggleButton`, `FilledTonalIconButton`, `FilledTonalIconToggleButton`, `OutlinedIconButton`, `OutlinedIconToggleButton`
-- `NavigationBar`, `NavigationBarItem`
-- `MaterialText`, `TaglessText`
-- `TextField`, `OutlinedTextField`
+- Badge: `Badge` (deprecated)
+- Button: `Button` (`FilledButton`), `ElevatedButton`, `FilledTonalButton`, `OutlinedButton`, `TextButton`
+- Card: `Card` (`FilledCard`), `ElevatedCard`, `OutlinedCard`
+- Chip: `AssistChip`, `ElevatedAssistChip`, `FilterChip`, `ElevatedFilterChip`, `InputChip`, `SuggestionChip`,
+  `ElevatedSuggestionChip`
+- Dropdown menu: `DropdownMenu`, `DropdownMenuItem`
+  - `ExposedDropdownMenuBox`, `ExposedDropdownMenuBoxScope.ExposedDropdownMenuBoxTextField`, `ExposedDropdownMenuBoxScope.ExposedDropdownMenu`, `ExposedDropdownMenuBoxWithTextField`
+- Floating action button: `FloatingActionButton`, `SmallFloatingActionButton`, `LargeFloatingActionButton`,
+  `ExtendedFloatingActionButton`
+- Icon button: `IconButton`, `IconToggleButton`, `FilledIconButton`, `FilledIconToggleButton`, `FilledTonalIconButton`,
+  `FilledTonalIconToggleButton`, `OutlinedIconButton`, `OutlinedIconToggleButton`
+- Navigation bar: `NavigationBar`, `NavigationBarItem`
+- Radio button: `RadioButtonRow`, `radioGroup`
+- Segmented button: `SingleChoiceSegmentedButtonRowScope.SegmentedButton`,
+  `MultiChoiceSegmentedButtonRowScope.SegmentedButton`
+- Select: `FilledSelect`, `OutlinedSelect`, `SelectOption`
+- Tab: `PrimaryTab`, `SecondaryTab`
+- Text: `MaterialText`, `TaglessText`
+- Text field: `TextField`, `OutlinedTextField`
+- Top app bar: `TopAppBar`, `CenterAlignedTopAppBar`, `MediumTopAppBar`, `LargeTopAppBar`
 
 ##### `lazy.ext` components
 
 - `List`/`LazyColumnList` (slightly visually inconsistent)
 
-#### About `ext` components (components in the `ext` packages)
-
-The components in the `ext` packages don't follow the `androidx.compose` APIs exactly, but rather provide wrappers that are more idiomatic and conventional on both kinds of targets, wrapping different APIs that can't be unified following the `androidx.compose` APIs.
-
-#### About parameter names
-
-The parameter names with suffixes such as "JsDom" or "ComposeUi" are platform-specific, and only apply on their respective platform(s), Compose HTML / JS DOM or Compose UI platforms.
-
 #### Material Icons
 
-The `com.huanshankeji.compose.material.icons.Icon` class delegates to both kinds of targets, but only a few Material Icons are added as PoC. You need to add your concrete icon implementations following the style of the existing ones in `com.huanshankeji.compose.material.icons` to use the icons you need. Track the progress of full icon support in [#4](/../../issues/4).
+Maven coordinates:
+
+```
+com.huanshankeji:compose-multiplatform-html-unified-material-icons-core:$version
+```
+
+```
+com.huanshankeji:compose-multiplatform-html-unified-material-icons-extended:$version
+```
+
+There are two icon modules:
+
+- **`material-icons-core`**: Contains the core set of Material Icons (same icons as in `org.jetbrains.compose.material:material-icons-core`). Only `Filled` and `AutoMirrored.Filled` styles are supported.
+- **`material-icons-extended`**: Contains all common Material Icons that exist in both `org.jetbrains.compose.material:material-icons-extended` (v1.7.3) and [Material Symbols](https://github.com/marella/material-symbols). Only `Filled` and `AutoMirrored.Filled` styles are supported. Depends on `material-icons-core`.
+
+Note: The version of `org.jetbrains.compose.material:material-icons-extended` is pinned at 1.7.3 because [Compose officially recommends](https://developer.android.com/develop/ui/compose/graphics/images/material) using individual SVG/vector assets from [Google Fonts](https://fonts.google.com/icons) rather than adding the extended icon library as a dependency, as the latter significantly increases build time and artifact size. As such, these icon modules serve more for **prototyping purposes** currently. When using `material-icons-extended`, ensure that Proguard / R8 resource shrinking is enabled in production builds.
+
+##### Material Symbols & Icons on JS
+
+See [the corresponding section in Compose HTML Material](https://github.com/huanshankeji/compose-html-material?tab=readme-ov-file#material-symbols--icons) for configuring Material Icons on JS.
 
 ### Modifiers
 
@@ -132,6 +192,7 @@ The `com.huanshankeji.compose.material.icons.Icon` class delegates to both kinds
 
 - `outerBorder`
 - `roundedCornerBackgroundAndOuterBorder`
+- `outerPadding`, `innerPadding`
 
 ### Other APIs
 
@@ -143,34 +204,33 @@ The `com.huanshankeji.compose.material.icons.Icon` class delegates to both kinds
 
 ### ViewModel
 
-The ViewModel module currently supports a small subset of the Compose ViewModel APIs, and delegates to raw UI state on
-Compose HTML / JS DOM. These APIs are highly experimental now.
+Maven coordinate:
+
+```
+com.huanshankeji:compose-multiplatform-html-unified-lifecycle-viewmodel:$version
+```
+
+The ViewModel module currently supports a subset of the Compose ViewModel APIs. For ViewModel to work properly on Compose HTML / JS DOM, call `com.huanshankeji.compose.ui.window.renderComposableInBodyWithViewModelStoreOwner` instead of `org.jetbrains.compose.web.renderComposableInBody` on JS. These APIs are experimental now.
 
 ### Navigation
 
-The navigation module currently supports a small subset of the Compose Navigation APIs, which does not support
-transition or animation on Compose HTML / JS DOM. These APIs are also highly experimental now.
-See [CMP-4966](https://youtrack.jetbrains.com/issue/CMP-4966) for a bug to avoid. Also, ViewModel-related functions
-are not implemented yet on Compose HTML / JS DOM.
+Maven coordinate:
+
+```
+com.huanshankeji:compose-multiplatform-html-unified-navigation:$version
+```
+
+The navigation module currently supports a small subset of the Compose Navigation APIs, which does not support transition or animation on Compose HTML / JS DOM. These APIs are also experimental now.
 
 ## Add to your dependencies
 
-Maven coordinate:
+Maven coordinate pattern:
 
-```kotlin
-"com.huanshankeji:compose-multiplatform-html-unified-$module:$version"
+```
+com.huanshankeji:compose-multiplatform-html-unified-$module:$version
 ```
 
-More specifically:
-
-```kotlin
-"com.huanshankeji:compose-multiplatform-html-unified-common:$version"
-"com.huanshankeji:compose-multiplatform-html-unified-material-icons-core:$version"
-"com.huanshankeji:compose-multiplatform-html-unified-material2:$version"
-"com.huanshankeji:compose-multiplatform-html-unified-material3:$version"
-```
-
-For example, to depend on the Material 3 module with Gradle:
+The specific Maven coordinates are listed in the sections above. For example, to depend on the Material 3 module with Gradle:
 
 ```kotlin
 kotlin {
@@ -186,19 +246,6 @@ kotlin {
 ```
 
 View [all the artifacts on Maven Central](https://search.maven.org/search?q=g:com.huanshankeji%20AND%20a:compose-multiplatform-*).
-
-This project depends on [Kobweb](https://github.com/varabyte/kobweb) which is not published to Maven Central yet, so you have to add the following Maven repository:
-
-```kotlin
-repositories {
-    mavenCentral()
-    maven("https://us-central1-maven.pkg.dev/varabyte-repos/public")
-}
-```
-
-### Material Symbols & Icons on JS
-
-See [the corresponding section in Compose HTML Material](https://github.com/huanshankeji/compose-html-material?tab=readme-ov-file#material-symbols--icons) for configuring Material Icons on JS.
 
 ## About Kobweb Silk
 

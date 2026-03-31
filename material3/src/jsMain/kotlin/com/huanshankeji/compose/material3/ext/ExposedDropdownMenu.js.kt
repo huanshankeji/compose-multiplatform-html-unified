@@ -19,7 +19,7 @@ actual fun ExposedDropdownMenuBox(
     expanded: Boolean,
     onExpandedChange: (Boolean) -> Unit,
     modifier: Modifier,
-    content: @Composable ExposedDropdownMenuBoxScope.() -> Unit
+    content: @Composable ExposedDropdownMenuBoxScope.() -> Unit,
 ) =
     MdMenuBox(modifier) {
         ExposedDropdownMenuBoxScope(remember { mutableStateOf(null) }, expanded, onExpandedChange).content()
@@ -48,7 +48,7 @@ actual class ExposedDropdownMenuBoxScope(
                 //id(ANCHOR_ID) // An alternative approach by setting IDs. Duplicate IDs are semantically incorrect, however.
 
                 refSetAnchorElementState(anchorElementState.component2())
-                // only fired when `expanded` set to `true` to be consistent with the `androidx.compose` one behavior
+                // only fired when `expanded` set to `true` to be consistent with the Compose UI one behavior
                 if (!expanded)
                     onClick {
                         onExpandedChange(true)
@@ -62,7 +62,8 @@ actual class ExposedDropdownMenuBoxScope(
         onDismissRequestComposeUi: () -> Unit,
         onCloseJsDom: () -> Unit,
         modifier: Modifier,
-        content: @Composable () -> Unit
+        matchAnchorWidthComposeUi: Boolean,
+        content: @Composable () -> Unit,
     ) =
         CommonDropdownMenu(
             //ANCHOR_ID, // An alternative approach by setting IDs. Duplicate IDs are semantically incorrect, however.
@@ -92,11 +93,37 @@ actual fun ExposedDropdownMenuBoxScope.ExposedDropdownMenuBoxTextField(
             modifier = Modifier.menuAnchor(/*MenuAnchorType.PrimaryNotEditable*/),
             value = value,
             onValueChange = onValueChange,
+            enabled = enabled,
             readOnly = readOnly,
             singleLine = singleLine,
             label = label,
             trailingIcon = { modifier ->
                 Icon(Icons.Filled.ArrowDropDown, null, if (expanded) modifier.rotate(180f) else modifier)
-            }
+            },
+            supportingText = supportingText,
+            isError = isError,
+        )
+    }
+
+@Composable
+actual fun ExposedDropdownMenuBoxScope.ExposedDropdownMenuBoxOutlinedTextField(
+    expanded: Boolean,
+    args: ExposedDropdownMenuBoxTextFieldArgs,
+) =
+    with(args) {
+        // adapted from the `composeUi` one
+        OutlinedTextField(
+            modifier = Modifier.menuAnchor(/*MenuAnchorType.PrimaryNotEditable*/),
+            value = value,
+            onValueChange = onValueChange,
+            enabled = enabled,
+            readOnly = readOnly,
+            singleLine = singleLine,
+            label = label,
+            trailingIcon = { modifier ->
+                Icon(Icons.Filled.ArrowDropDown, null, if (expanded) modifier.rotate(180f) else modifier)
+            },
+            supportingText = supportingText,
+            isError = isError,
         )
     }

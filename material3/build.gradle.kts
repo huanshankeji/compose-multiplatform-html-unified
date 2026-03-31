@@ -1,6 +1,6 @@
 import com.huanshankeji.cpnProject
-import com.huanshankeji.team.`Shreck Ye`
-import com.huanshankeji.team.pomForTeamDefaultOpenSource
+import com.huanshankeji.team.ShreckYe
+import com.huanshankeji.team.setUpPomForTeamDefaultOpenSource
 
 plugins {
     `lib-conventions`
@@ -24,8 +24,9 @@ kotlin {
             dependencies {
                 api(compose.runtime)
                 api(cpnProject(project, ":common"))
-                api(cpnProject(project, ":material-icons-core"))
+                api(cpnProject(project, ":material-icons:core"))
                 //compileOnly(compose.material) // for KDoc element links only
+                implementation(commonDependencies.kotlinx.coroutines.core())
             }
         }
         composeUiMain {
@@ -35,19 +36,33 @@ kotlin {
         }
         jsMain {
             dependencies {
-                api("com.huanshankeji:compose-html-material3:${DependencyVersions.huanshankejiComposeHtml}")
-                implementation("com.huanshankeji:compose-html-common:${DependencyVersions.huanshankejiComposeHtml}")
+                api("com.huanshankeji:compose-html-material3:${DependencyVersions.huanshankejiComposeHtml}") { exclude("org.jetbrains.kotlin") }
+                implementation("com.huanshankeji:compose-html-material3-maicol07-material-web-additions:${DependencyVersions.huanshankejiComposeHtml}") {
+                    exclude("org.jetbrains.kotlin")
+                }
+                implementation("com.huanshankeji:compose-html-common:${DependencyVersions.huanshankejiComposeHtml}") {
+                    exclude("org.jetbrains.kotlin")
+                }
+                implementation(compose.html.core)
             }
         }
     }
+
+    compilerOptions {
+        optIn.add("com.huanshankeji.compose.html.material3.ExperimentalComposeHtmlMaterialApi")
+        optIn.add("com.huanshankeji.compose.html.material3.maicol07.materialwebadditions.MaterialWebAdditionsApi")
+    }
 }
 
-publishing.publications.withType<MavenPublication> {
-    pomForTeamDefaultOpenSource(
-        project,
-        "Unified Compose Material 3 wrappers $FOR_COMPOSE_TARGETS_IN_TITLE",
-        "Unified Material Design 3 component wrappers $FOR_COMPOSE_TARGETS_IN_DESCRIPTION"
-    ) {
-        `Shreck Ye`()
+mavenPublishing {
+    pom {
+        setUpPomForTeamDefaultOpenSource(
+            project,
+            "Unified Compose Material 3 wrappers $FOR_COMPOSE_TARGETS_IN_TITLE",
+            "Unified Material Design 3 component wrappers $FOR_COMPOSE_TARGETS_IN_DESCRIPTION",
+            "2024"
+        ) {
+            ShreckYe()
+        }
     }
 }

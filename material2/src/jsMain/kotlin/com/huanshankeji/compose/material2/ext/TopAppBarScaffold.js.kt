@@ -55,7 +55,7 @@ actual fun PrimitiveTopAppBarScaffold(
     navigationIcon: @Composable (NavigationIconScope.() -> Unit)?,
     actions: @Composable TopAppBarActionsScope.() -> Unit,
     contentModifier: Modifier,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) =
     MDCTopAppBar {
         TopAppBar(topAppBarModifier.toAttrs()) {
@@ -68,7 +68,7 @@ actual fun PrimitiveTopAppBarScaffold(
                     align = MDCTopAppBarSectionAlign.End,
                     attrs = {
                         attr("role", "toolbar")
-                    }
+                    },
                 ) {
                     TopAppBarActionsScope(this).actions()
                 }
@@ -91,7 +91,7 @@ actual fun TopAppBarScaffold(
     floatingActionButton: @Composable (() -> Unit)?,
     floatingActionButtonPosition: FabPosition,
     isFloatingActionButtonDockedComposeUi: Boolean,
-    content: @Composable (PaddingValues) -> Unit
+    content: @Composable (PaddingValues) -> Unit,
 ) {
     @Composable
     fun fabWithPosition(floatingActionButton: @Composable (() -> Unit)) =
@@ -119,8 +119,10 @@ actual fun TopAppBarScaffold(
             topAppBarModifier,
             navigationIcon,
             actions,
-            Modifier.weight(1f).fillMaxWidthStretch()
+            Modifier.weight(1f).fillMaxWidthStretch(),
         ) {
+            // This part has a lot of nested `Div`s but works. Do not change unless you are sure that expected behavior is not broken.
+
             // The content gets hidden behind the top app bar if this div is not added.
             Div({
                 style {
@@ -134,9 +136,17 @@ actual fun TopAppBarScaffold(
                         //overflow(Overflow.Auto) // This seems not needed. TODO remove if confirmed to be not needed
                     }
                 }) {
-                    // see `ScaffoldLayoutWithMeasureFix`
-                    val innerPadding = PaddingValues()
-                    content(innerPadding)
+                    // TODO See https://issues.chromium.org/issues/386052671. This can be removed when the issue is fixed, possibly by partially reverting commit fb269bdfa876bc63402c68a025325f42b8a8abec.
+                    // This nested `Div` is here so that a child using `fillMaxSizeStretch` works properly. `fillMaxSizeStretch` seems buggy when used directly in the `position: absolute` parent.
+                    Div({
+                        style {
+                            height(100.percent)
+                        }
+                    }) {
+                        // see `ScaffoldLayoutWithMeasureFix`
+                        val innerPadding = PaddingValues()
+                        content(innerPadding)
+                    }
                 }
 
                 floatingActionButton?.let { fabWithPosition(it) }

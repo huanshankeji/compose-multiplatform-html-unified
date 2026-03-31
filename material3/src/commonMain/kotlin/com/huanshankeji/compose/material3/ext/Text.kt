@@ -21,6 +21,7 @@ fun InlineText(text: String) =
 /**
  * Delegates to raw text without any element on JS / Compose HTML.
  * @see com.huanshankeji.compose.foundation.text.ext.TaglessBasicText
+ * @see Text
  */
 @Composable
 expect fun TaglessText(text: String)

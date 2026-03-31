@@ -3,10 +3,16 @@ package com.huanshankeji.compose.material3.ext
 import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.ui.Modifier
 
+/*
+https://m3.material.io/components/cards/overview
+https://developer.android.com/develop/ui/compose/components/card
+https://kotlinlang.org/api/compose-multiplatform/material3/androidx.compose.material3/-card.html
+ */
+
 @Composable
 expect fun Card(
     modifier: Modifier = Modifier,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 )
 
 /**
@@ -15,18 +21,18 @@ expect fun Card(
 @Composable
 fun FilledCard(
     modifier: Modifier = Modifier,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) =
     Card(modifier, content)
 
 @Composable
 expect fun ElevatedCard(
     modifier: Modifier = Modifier,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 )
 
 @Composable
 expect fun OutlinedCard(
     modifier: Modifier = Modifier,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 )

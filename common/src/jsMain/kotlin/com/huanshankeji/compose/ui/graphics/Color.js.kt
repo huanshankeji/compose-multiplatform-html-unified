@@ -60,7 +60,7 @@ actual /*value*/ class Color(val platformValue: PlatformColor) {
             hue: Float,
             saturation: Float,
             lightness: Float,
-            alpha: Float
+            alpha: Float,
         ): Color =
             Color(PlatformColor.hsla(hue, saturation, lightness, alpha))
     }
@@ -83,7 +83,7 @@ actual fun Color(
     @IntRange(from = 0, to = 0xFF) red: Int,
     @IntRange(from = 0, to = 0xFF) green: Int,
     @IntRange(from = 0, to = 0xFF) blue: Int,
-    @IntRange(from = 0, to = 0xFF) alpha: Int
+    @IntRange(from = 0, to = 0xFF) alpha: Int,
 ): Color =
     Color(PlatformColor.rgba(red, green, blue, alpha))
 
@@ -96,8 +96,15 @@ actual fun Color.luminance(): Float =
 actual fun Color.toArgb(): Int =
     platformValue.toRgb().value
 
-fun StyleScope.applyStyle(color: ColorProducer) {
+fun StyleScope.applyStyle(color: ColorProducer) =
     color(color().platformValue)
+
+fun StyleScope.applyStyle(color: Color?) {
+    color?.let { color(it.platformValue) }
+}
+
+fun StyleScope.applyStyle(color: ColorProducer?) {
+    color?.let { applyStyle(it) }
 }
 
 

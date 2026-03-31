@@ -1,5 +1,5 @@
-import com.huanshankeji.team.`Shreck Ye`
-import com.huanshankeji.team.pomForTeamDefaultOpenSource
+import com.huanshankeji.team.ShreckYe
+import com.huanshankeji.team.setUpPomForTeamDefaultOpenSource
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 
 plugins {
@@ -16,8 +16,8 @@ kotlin {
                     group("ios")
                     withWasmJs()
                 }
+                withAndroidTarget()
             }
-            withAndroidTarget()
         }
     }
 
@@ -42,31 +42,44 @@ kotlin {
                 */
                 api("org.jetbrains.compose.ui:ui-unit:${DependencyVersions.composeMultiplatform}")
                 implementation("org.jetbrains.compose.annotation-internal:annotation:${DependencyVersions.composeMultiplatform}")
+                implementation("org.jetbrains.compose.ui:ui-util:${DependencyVersions.composeMultiplatform}")
             }
         }
         composeUiMain {
             dependencies {
                 api(compose.foundation)
-                implementation(compose.ui)
+                api(compose.ui)
             }
         }
         jsMain {
             dependencies {
                 api(compose.html.core)
                 // see: https://github.com/varabyte/kobweb/blob/main/frontend/kobweb-compose/build.gradle.kts
-                api("com.varabyte.kobweb:kobweb-compose:${DependencyVersions.kobweb}")
-                implementation("com.huanshankeji:compose-html-common:${DependencyVersions.huanshankejiComposeHtml}")
+                api("com.varabyte.kobweb:kobweb-compose:${DependencyVersions.kobweb}") { exclude("org.jetbrains.kotlin") }
+                implementation("com.huanshankeji:compose-html-common:${DependencyVersions.huanshankejiComposeHtml}") {
+                    exclude("org.jetbrains.kotlin")
+                }
+
+                /*
+                The UI module depends on the lifecycle module to use `androidx.lifecycle.ViewModelStoreOwner`.
+                See https://github.com/JetBrains/compose-multiplatform-core/blob/jb-main/compose/ui/ui/build.gradle#L87.
+                This is actually only needed for JS DOM.
+                 */
+                implementation(commonDependencies.jetbrainsAndroidx.lifecycle.viewmodel())
             }
         }
     }
 }
 
-publishing.publications.withType<MavenPublication> {
-    pomForTeamDefaultOpenSource(
-        project,
-        "Unified Compose Multiplatform common wrappers $FOR_COMPOSE_TARGETS_IN_TITLE",
-        "Common wrappers of components (including layouts) and modifiers $FOR_COMPOSE_TARGETS_IN_DESCRIPTION"
-    ) {
-        `Shreck Ye`()
+mavenPublishing {
+    pom {
+        setUpPomForTeamDefaultOpenSource(
+            project,
+            "Unified Compose Multiplatform common wrappers $FOR_COMPOSE_TARGETS_IN_TITLE",
+            "Common wrappers of components (including layouts) and modifiers $FOR_COMPOSE_TARGETS_IN_DESCRIPTION",
+            "2023"
+        ) {
+            ShreckYe()
+        }
     }
 }

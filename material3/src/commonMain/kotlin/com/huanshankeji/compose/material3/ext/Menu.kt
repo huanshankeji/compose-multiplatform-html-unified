@@ -6,6 +6,13 @@ import androidx.compose.ui.unit.dp
 import com.huanshankeji.compose.material.icons.Icon
 import com.huanshankeji.compose.ui.Modifier
 
+/*
+https://m3.material.io/components/menus/overview
+https://developer.android.com/develop/ui/compose/components/menu
+https://developer.android.com/develop/ui/compose/components/menu#create-basic
+https://kotlinlang.org/api/compose-multiplatform/material3/androidx.compose.material3/-dropdown-menu.html
+ */
+
 internal val defaultDpOffset = DpOffset(0.dp, 0.dp)
 
 /**
@@ -20,7 +27,7 @@ expect fun DropdownMenu(
     modifier: Modifier = Modifier,
     offset: DpOffset = defaultDpOffset,
     //scrollState: ScrollState = rememberScrollState(),
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 )
 
 expect class DropdownMenuBoxScope {
@@ -39,7 +46,7 @@ expect class DropdownMenuBoxScope {
         modifier: Modifier = Modifier,
         offset: DpOffset = defaultDpOffset,
         //scrollState: ScrollState = rememberScrollState(),
-        content: @Composable () -> Unit
+        content: @Composable () -> Unit,
     )
 }
 
@@ -47,7 +54,8 @@ expect class DropdownMenuBoxScope {
 expect fun DropdownMenuBox(content: @Composable DropdownMenuBoxScope.() -> Unit)
 
 /**
- * @param keepOpenJsDom set to `true` for completely consistent behavior on JS to `androidx.compose`. However, if you set the `expanded` state to false in [onClick], doing this is unnecessary.
+ * @param text corresponds to the `headline` slot on JS DOM in Material Web.
+ * @param keepOpenJsDom set to `true` for completely consistent behavior on JS DOM to Compose UI. However, if you set the `expanded` state to false in [onClick], doing this is unnecessary.
  */
 @Composable
 expect fun DropdownMenuItem(
@@ -58,6 +66,7 @@ expect fun DropdownMenuItem(
     trailingIcon: @Composable ((Modifier) -> Unit)? = null,
     enabled: Boolean = true,
     keepOpenJsDom: Boolean = false
+    //selectedJsDom: Boolean = false
 )
 
 @Composable
@@ -67,7 +76,7 @@ fun DropdownMenuItemWithMaterialIcons(
     modifier: Modifier = Modifier,
     leadingIcon: Icon? = null,
     trailingIcon: Icon? = null,
-    enabled: Boolean = true
+    enabled: Boolean = true,
 ) =
     DropdownMenuItem(
         text,
@@ -75,5 +84,5 @@ fun DropdownMenuItemWithMaterialIcons(
         modifier,
         leadingIcon.toNullableContentWithModifier(),
         trailingIcon.toNullableContentWithModifier(),
-        enabled
+        enabled,
     )

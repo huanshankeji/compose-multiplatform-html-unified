@@ -1,9 +1,10 @@
 package com.huanshankeji.compose.material3.ext
 
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.DpOffset
-import com.huanshankeji.compose.toContentWithoutModifier
-import com.huanshankeji.compose.toNullableContentWithoutModifier
+import com.huanshankeji.compose.ext.toContentWithoutModifier
+import com.huanshankeji.compose.ext.toNullableContentWithoutModifier
 import com.huanshankeji.compose.ui.Modifier
 
 @Composable
@@ -13,13 +14,13 @@ actual fun DropdownMenu(
     onCloseJsDom: () -> Unit,
     modifier: Modifier,
     offset: DpOffset,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) =
     androidx.compose.material3.DropdownMenu(
         expanded,
         onDismissRequestComposeUi,
         modifier.platformModifier,
-        offset
+        offset,
     ) {
         content()
     }
@@ -35,7 +36,7 @@ actual class DropdownMenuBoxScope {
         onCloseJsDom: () -> Unit,
         modifier: Modifier,
         offset: DpOffset,
-        content: @Composable () -> Unit
+        content: @Composable () -> Unit,
     ) =
         androidx.compose.material3.DropdownMenu(
             expanded, onDismissRequestComposeUi, modifier.platformModifier, offset
@@ -46,6 +47,24 @@ actual class DropdownMenuBoxScope {
 actual fun DropdownMenuBox(content: @Composable DropdownMenuBoxScope.() -> Unit) =
     // There is currently no extra `Box` wrapping the content yet. Consider adding one. See https://stackoverflow.com/a/68728525/5082913.
     DropdownMenuBoxScope().content()
+
+@Composable
+internal fun CommonDropdownMenuItem(
+    text: @Composable ((Modifier) -> Unit),
+    onClick: () -> Unit,
+    modifier: Modifier,
+    leadingIcon: @Composable ((Modifier) -> Unit)?,
+    trailingIcon: @Composable ((Modifier) -> Unit)?,
+    enabled: Boolean,
+) =
+    DropdownMenuItem(
+        text.toContentWithoutModifier(),
+        onClick,
+        modifier.platformModifier,
+        leadingIcon.toNullableContentWithoutModifier(),
+        trailingIcon.toNullableContentWithoutModifier(),
+        enabled,
+    )
 
 /**
  * @param onClick you are supposed to set the `expanded` state of the parent [DropdownMenu] or [ExposedDropdownMenuBoxScope.ExposedDropdownMenu] to `false` in this callback to ensure consistency on JS.
@@ -58,13 +77,7 @@ actual fun DropdownMenuItem(
     leadingIcon: @Composable ((Modifier) -> Unit)?,
     trailingIcon: @Composable ((Modifier) -> Unit)?,
     enabled: Boolean,
-    keepOpenJsDom: Boolean
+    keepOpenJsDom: Boolean,
 ) =
-    androidx.compose.material3.DropdownMenuItem(
-        text.toContentWithoutModifier(),
-        onClick,
-        modifier.platformModifier,
-        leadingIcon.toNullableContentWithoutModifier(),
-        trailingIcon.toNullableContentWithoutModifier(),
-        enabled
-    )
+    CommonDropdownMenuItem(text, onClick, modifier, leadingIcon, trailingIcon, enabled)
+

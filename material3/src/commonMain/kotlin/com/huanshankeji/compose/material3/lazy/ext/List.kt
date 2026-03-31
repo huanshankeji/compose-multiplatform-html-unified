@@ -3,6 +3,7 @@ package com.huanshankeji.compose.material3.lazy.ext
 import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.foundation.ext.matchPositionRelativeParentJsDom
 import com.huanshankeji.compose.material.icons.Icon
+import com.huanshankeji.compose.material3.ext.ItemComponents
 import com.huanshankeji.compose.material3.ext.toNullableContentWithModifier
 import com.huanshankeji.compose.material3.ext.toNullableTextWithModifier
 import com.huanshankeji.compose.material3.ext.toTextWithModifier
@@ -18,7 +19,7 @@ expect class ListScope {
         count: Int,
         key: ((index: Int) -> Any)? = null,
         contentType: (index: Int) -> Any? = { null },
-        itemContent: @Composable ItemScope.(index: Int) -> Unit
+        itemContent: @Composable ItemScope.(index: Int) -> Unit,
     )
 
     // the word "conventional" added to avoid clashing with `items`
@@ -26,7 +27,7 @@ expect class ListScope {
         count: Int,
         key: ((index: Int) -> Any)? = null,
         contentType: (index: Int) -> Any? = { null },
-        itemContent: (index: Int) -> ListItemComponents
+        itemContent: (index: Int) -> ListItemComponents,
     )
 }
 
@@ -35,18 +36,18 @@ expect class ItemScope
 /**
  * @param isInteractiveJsDom whether the item is interactive on JS DOM,
  * aka whether it shows effects when the mouse pointer hovers above it or when it gets clicked.
- * On the `androidx.compose` targets, use `Modifier.clickable` for the same effect.
+ * On the Compose UI targets, use `Modifier.clickable` for the same effect.
  */
 class ListItemComponents(
     val contentModifier: Modifier = Modifier,
     val isInteractiveJsDom: Boolean,
-    val headline: @Composable (Modifier) -> Unit,
-    val start: @Composable ((Modifier) -> Unit)? = null,
-    val end: @Composable ((Modifier) -> Unit)? = null,
-    val supportingText: @Composable ((Modifier) -> Unit)? = null,
-    val trailingSupportingText: @Composable ((Modifier) -> Unit)? = null,
-    val overline: @Composable ((Modifier) -> Unit)? = null
-) {
+    override val headline: @Composable (Modifier) -> Unit,
+    override val start: @Composable ((Modifier) -> Unit)? = null,
+    override val end: @Composable ((Modifier) -> Unit)? = null,
+    override val supportingText: @Composable ((Modifier) -> Unit)? = null,
+    override val trailingSupportingText: @Composable ((Modifier) -> Unit)? = null,
+    override val overline: @Composable ((Modifier) -> Unit)? = null,
+) : ItemComponents {
     constructor(
         contentModifier: Modifier = Modifier,
         isInteractiveJsDom: Boolean,
@@ -55,7 +56,7 @@ class ListItemComponents(
         end: Icon? = null,
         supportingText: String? = null,
         trailingSupportingText: String? = null,
-        overline: String? = null
+        overline: String? = null,
     ) : this(
         contentModifier,
         isInteractiveJsDom,
@@ -64,8 +65,11 @@ class ListItemComponents(
         end.toNullableContentWithModifier(),
         supportingText.toNullableTextWithModifier(),
         trailingSupportingText.toNullableTextWithModifier(),
-        overline.toNullableTextWithModifier()
+        overline.toNullableTextWithModifier(),
     )
+
+    // temporarily not added to the property list because I didn't see its conventional usages in the Material Web docs
+    override val container: @Composable ((Modifier) -> Unit)? get() = null
 }
 
 /**

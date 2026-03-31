@@ -4,17 +4,14 @@ import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.html.material3.MdButtonScope
 import com.huanshankeji.compose.material3.*
 import com.huanshankeji.compose.ui.Modifier
-import com.huanshankeji.compose.ui.PlatformModifier
-import com.huanshankeji.compose.ui.toCommonModifier
-import com.varabyte.kobweb.compose.ui.attrsModifier
 
 private fun (@Composable () -> Unit).toMdButtonScopeContent(
-    icon: @Composable ((Modifier) -> Unit)?
+    icon: @Composable ((Modifier) -> Unit)?,
 ): @Composable MdButtonScope.() -> Unit = {
     // see https://github.com/material-components/material-web/blob/main/docs/components/button.md#icon
 
     this@toMdButtonScopeContent()
-    icon?.invoke(PlatformModifier.attrsModifier { slotEqIcon() }.toCommonModifier())
+    nullableContentWithSlot(icon, MdButtonScope.Slot.Icon)
 }
 
 
@@ -25,7 +22,7 @@ actual fun Button(
     enabled: Boolean,
     icon: @Composable ((Modifier) -> Unit)?,
     isTrailingIcon: Boolean,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) =
     CommonButton(onClick, modifier, enabled, isTrailingIcon, content.toMdButtonScopeContent(icon))
 
@@ -37,7 +34,7 @@ actual fun ElevatedButton(
     enabled: Boolean,
     icon: @Composable ((Modifier) -> Unit)?,
     isTrailingIcon: Boolean,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) =
     CommonElevatedButton(onClick, modifier, enabled, isTrailingIcon, content.toMdButtonScopeContent(icon))
 
@@ -48,7 +45,7 @@ actual fun FilledTonalButton(
     enabled: Boolean,
     icon: @Composable ((Modifier) -> Unit)?,
     isTrailingIcon: Boolean,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) =
     CommonFilledTonalButton(onClick, modifier, enabled, isTrailingIcon, content.toMdButtonScopeContent(icon))
 
@@ -59,7 +56,7 @@ actual fun OutlinedButton(
     enabled: Boolean,
     icon: @Composable ((Modifier) -> Unit)?,
     isTrailingIcon: Boolean,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) =
     CommonOutlinedButton(onClick, modifier, enabled, isTrailingIcon, content.toMdButtonScopeContent(icon))
 
@@ -70,6 +67,6 @@ actual fun TextButton(
     enabled: Boolean,
     icon: @Composable ((Modifier) -> Unit)?,
     isTrailingIcon: Boolean,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) =
     CommonTextButton(onClick, modifier, enabled, isTrailingIcon, content.toMdButtonScopeContent(icon))

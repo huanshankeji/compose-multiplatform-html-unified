@@ -11,11 +11,9 @@ import androidx.compose.ui.semantics.Role
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.PlatformModifier
 
-// https://developer.android.com/reference/kotlin/androidx/compose/material/package-summary#RadioButton(kotlin.Boolean,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.material.RadioButtonColors)
-
 @Composable
 actual fun RadioRow(selected: Boolean, label: String, onClick: () -> Unit, modifier: Modifier, enabled: Boolean) =
-    Row(Modifier.platformModifier.selectable(selected, enabled, Role.RadioButton, onClick)) {
+    Row(Modifier.platformModifier.selectable(selected, enabled, Role.RadioButton, null, onClick)) {
         RadioButton(selected, null)
         Text(label)
     }

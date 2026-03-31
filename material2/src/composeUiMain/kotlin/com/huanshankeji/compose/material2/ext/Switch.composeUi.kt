@@ -12,7 +12,7 @@ actual fun SwitchWithLabel(
     onCheckedChange: ((Boolean) -> Unit)?,
     label: String,
     modifier: Modifier,
-    enabled: Boolean
+    enabled: Boolean,
 ) =
     Row(modifier) {
         Switch(checked, onCheckedChange, enabled = enabled)

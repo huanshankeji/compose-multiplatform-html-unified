@@ -17,7 +17,7 @@ expect fun BoxWithConstraints(
     modifier: Modifier = Modifier,
     contentAlignment: Alignment = Alignment.TopStart,
     //propagateMinConstraints: Boolean = false,
-    content: @Composable /*@UiComposable*/ BoxWithConstraintsScope.() -> Unit
+    content: @Composable /*@UiComposable*/ BoxWithConstraintsScope.() -> Unit,
 )
 
 @Stable
