@@ -24,13 +24,13 @@ fun BasicText(text: String) =
 expect fun BasicText(
     text: String,
     modifier: Modifier = Modifier,
+    // style: TextStyle = TextStyle.Default, // #131
+    // onTextLayout: ((TextLayoutResult) -> Unit)? = null,
     overflow: TextOverflow = TextOverflow.Clip,
     softWrap: Boolean = true,
     maxLines: Int = Int.MAX_VALUE,
     minLines: Int = 1,
     color: ColorProducer? = null,
-    // style: TextStyle = TextStyle.Default, // #131
-    // onTextLayout: ((TextLayoutResult) -> Unit)? = null,
     // autoSize: TextAutoSize? = null,
 )
 
@@ -38,13 +38,13 @@ expect fun BasicText(
 expect fun BasicText(
     text: AnnotatedString,
     modifier: Modifier = Modifier,
+    // style: TextStyle = TextStyle.Default, // #131
+    // onTextLayout: ((TextLayoutResult) -> Unit)? = null,
     overflow: TextOverflow = TextOverflow.Clip,
     softWrap: Boolean = true,
     maxLines: Int = Int.MAX_VALUE,
     minLines: Int = 1,
-    color: ColorProducer? = null,
-    // style: TextStyle = TextStyle.Default, // #131
-    // onTextLayout: ((TextLayoutResult) -> Unit)? = null,
     // inlineContent: Map<String, InlineTextContent> = mapOf(),
+    color: ColorProducer? = null,
     // autoSize: TextAutoSize? = null,
 )
