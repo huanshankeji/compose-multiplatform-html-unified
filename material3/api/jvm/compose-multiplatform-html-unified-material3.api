@@ -195,7 +195,7 @@ public final class com/huanshankeji/compose/material3/Tab_composeUiKt {
 
 public final class com/huanshankeji/compose/material3/Text_composeUiKt {
 	public static final synthetic fun Text (Ljava/lang/String;Lcom/huanshankeji/compose/ui/Modifier;Lcom/huanshankeji/compose/ui/graphics/Color;Landroidx/compose/runtime/Composer;II)V
-	public static final fun Text-qju5LXc (Lcom/huanshankeji/compose/ui/text/AnnotatedString;Lcom/huanshankeji/compose/ui/Modifier;Lcom/huanshankeji/compose/ui/graphics/Color;JLandroidx/compose/ui/text/font/FontStyle;Landroidx/compose/ui/text/font/FontWeight;JLandroidx/compose/ui/text/style/TextDecoration;Landroidx/compose/ui/text/style/TextAlign;JIZIILandroidx/compose/runtime/Composer;III)V
+	public static final fun Text-qju5LXc (Landroidx/compose/ui/text/AnnotatedString;Lcom/huanshankeji/compose/ui/Modifier;Lcom/huanshankeji/compose/ui/graphics/Color;JLandroidx/compose/ui/text/font/FontStyle;Landroidx/compose/ui/text/font/FontWeight;JLandroidx/compose/ui/text/style/TextDecoration;Landroidx/compose/ui/text/style/TextAlign;JIZIILandroidx/compose/runtime/Composer;III)V
 	public static final fun Text-qju5LXc (Ljava/lang/String;Lcom/huanshankeji/compose/ui/Modifier;Lcom/huanshankeji/compose/ui/graphics/Color;JLandroidx/compose/ui/text/font/FontStyle;Landroidx/compose/ui/text/font/FontWeight;JLandroidx/compose/ui/text/style/TextDecoration;Landroidx/compose/ui/text/style/TextAlign;JIZIILandroidx/compose/runtime/Composer;III)V
 }
 
