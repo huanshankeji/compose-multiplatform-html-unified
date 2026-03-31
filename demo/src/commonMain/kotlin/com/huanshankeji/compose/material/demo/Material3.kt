@@ -767,8 +767,6 @@ private fun StyledTextDemo() {
             overflow = TextOverflow.Ellipsis,
         )
     }
-    Text("AnnotatedString demo", fontWeight = FontWeight.Bold, fontSize = 20.sp)
-    Column {
-        Text(demoAnnotatedString)
-    }
+    Text("`AnnotatedString` demo:", fontWeight = FontWeight.Bold, fontSize = 20.sp)
+    Text(demoAnnotatedString)
 }

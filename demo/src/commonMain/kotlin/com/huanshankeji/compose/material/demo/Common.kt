@@ -14,6 +14,7 @@ import com.huanshankeji.compose.foundation.lazy.LazyListScope
 import com.huanshankeji.compose.foundation.lazy.LazyRow
 import com.huanshankeji.compose.foundation.text.BasicText
 import com.huanshankeji.compose.layout.ext.hidden
+import com.huanshankeji.compose.material3.Text
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.graphics.Color
 import com.huanshankeji.compose.ui.text.SpanStyle
@@ -113,28 +114,9 @@ fun Common(/*modifier: Modifier = Modifier*/) {
  */
 @Composable
 fun BasicTextStyledTextDemo() {
-    BasicText("BasicText overflow ellipsis", maxLines = 1, overflow = TextOverflow.Ellipsis)
-    val annotatedString = buildAnnotatedString {
-        append("Normal ")
-        withStyle(SpanStyle(fontWeight = FontWeight.Bold)) {
-            append("bold")
-        }
-        append(" ")
-        withStyle(SpanStyle(fontStyle = FontStyle.Italic)) {
-            append("italic")
-        }
-        append(" ")
-        withStyle(SpanStyle(color = Color.Red)) {
-            append("red")
-        }
-        append(" ")
-        withStyle(SpanStyle(textDecoration = TextDecoration.Underline)) {
-            append("underlined")
-        }
-        append(" ")
-        withStyle(SpanStyle(fontSize = 20.sp, fontWeight = FontWeight.Bold, color = Color.Blue)) {
-            append("big blue bold")
-        }
+    Column {
+        BasicText("BasicText overflow ellipsis", maxLines = 1, overflow = TextOverflow.Ellipsis)
+        BasicText("`AnnotatedString` demo:")
+        BasicText(demoAnnotatedString)
     }
-    BasicText(annotatedString)
 }
