@@ -30,8 +30,7 @@ actual class SpanStyle(val platformValue: PlatformSpanStyle) {
         )
     )
 
-    actual val color: Color?
-        get() = platformValue.color.let { if (it == PlatformColor.Unspecified) null else Color(it) }
+    actual val color: Color? = Color(platformValue.color)
     actual val fontSize: TextUnit get() = platformValue.fontSize
     actual val fontWeight: FontWeight? get() = platformValue.fontWeight
     actual val fontStyle: FontStyle? get() = platformValue.fontStyle
