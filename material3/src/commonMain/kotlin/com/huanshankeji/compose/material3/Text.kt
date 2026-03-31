@@ -39,6 +39,7 @@ expect fun Text(
     text: String,
     modifier: Modifier = Modifier,
     color: Color? = null,
+    // autoSize: TextAutoSize? = null,
     fontSize: TextUnit = TextUnit.Unspecified,
     fontStyle: FontStyle? = null,
     fontWeight: FontWeight? = null,
@@ -51,7 +52,6 @@ expect fun Text(
     softWrap: Boolean = true,
     maxLines: Int = Int.MAX_VALUE,
     minLines: Int = 1,
-    // autoSize: TextAutoSize? = null,
     // onTextLayout: ((TextLayoutResult) -> Unit)? = null,
     // style: TextStyle = LocalTextStyle.current, // #131
 )
@@ -61,6 +61,7 @@ expect fun Text(
     text: AnnotatedString,
     modifier: Modifier = Modifier,
     color: Color? = null,
+    // autoSize: TextAutoSize? = null,
     fontSize: TextUnit = TextUnit.Unspecified,
     fontStyle: FontStyle? = null,
     fontWeight: FontWeight? = null,
@@ -74,7 +75,6 @@ expect fun Text(
     maxLines: Int = Int.MAX_VALUE,
     minLines: Int = 1,
     // inlineContent: Map<String, InlineTextContent> = mapOf(),
-    // autoSize: TextAutoSize? = null,
     // onTextLayout: (TextLayoutResult) -> Unit = {},
     // style: TextStyle = LocalTextStyle.current, // #131
 )

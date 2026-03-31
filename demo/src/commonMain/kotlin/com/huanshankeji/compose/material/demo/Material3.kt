@@ -26,14 +26,11 @@ import com.huanshankeji.compose.material3.lazy.ext.List
 import com.huanshankeji.compose.material3.lazy.ext.ListItemComponents
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.graphics.Color
-import com.huanshankeji.compose.ui.text.SpanStyle
-import com.huanshankeji.compose.ui.text.buildAnnotatedString
 import com.huanshankeji.compose.ui.text.font.FontStyle
 import com.huanshankeji.compose.ui.text.font.FontWeight
 import com.huanshankeji.compose.ui.text.style.TextAlign
 import com.huanshankeji.compose.ui.text.style.TextDecoration
 import com.huanshankeji.compose.ui.text.style.TextOverflow
-import com.huanshankeji.compose.ui.text.withStyle
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import com.huanshankeji.compose.material3.Button as RowScopeButton
@@ -772,28 +769,6 @@ private fun StyledTextDemo() {
     }
     Text("AnnotatedString demo", fontWeight = FontWeight.Bold, fontSize = 20.sp)
     Column {
-        val annotatedString = buildAnnotatedString {
-            append("Normal ")
-            withStyle(SpanStyle(fontWeight = FontWeight.Bold)) {
-                append("bold")
-            }
-            append(" ")
-            withStyle(SpanStyle(fontStyle = FontStyle.Italic)) {
-                append("italic")
-            }
-            append(" ")
-            withStyle(SpanStyle(color = Color.Red)) {
-                append("red")
-            }
-            append(" ")
-            withStyle(SpanStyle(textDecoration = TextDecoration.Underline)) {
-                append("underlined")
-            }
-            append(" ")
-            withStyle(SpanStyle(fontSize = 20.sp, fontWeight = FontWeight.Bold, color = Color.Blue)) {
-                append("big blue bold")
-            }
-        }
-        Text(annotatedString)
+        Text(demoAnnotatedString)
     }
 }

@@ -3,13 +3,13 @@ package com.huanshankeji.compose.foundation.text
 import androidx.compose.runtime.Composable
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.graphics.ColorProducer
+import com.huanshankeji.compose.ui.graphics.applyStyle
 import com.huanshankeji.compose.ui.text.AnnotatedString
 import com.huanshankeji.compose.ui.text.AnnotatedStringText
 import com.huanshankeji.compose.ui.text.style.TextOverflow
+import com.huanshankeji.compose.ui.text.style.applyMinLines
 import com.huanshankeji.compose.ui.text.style.applyStyle
 import com.huanshankeji.compose.ui.toAttrs
-import org.jetbrains.compose.web.css.color
-import org.jetbrains.compose.web.css.minHeight
 import org.jetbrains.compose.web.dom.Span
 import org.jetbrains.compose.web.dom.Text
 
@@ -31,10 +31,9 @@ private fun CommonBasicText(
 ) =
     Span(modifier.toAttrs {
         style {
-            color?.let { color(it().platformValue) }
+            applyStyle(color)
             applyStyle(overflow, softWrap, maxLines)
-            if (minLines > 1)
-                minHeight("${minLines}lh")
+            applyMinLines(minLines)
         }
     }) { content() }
 

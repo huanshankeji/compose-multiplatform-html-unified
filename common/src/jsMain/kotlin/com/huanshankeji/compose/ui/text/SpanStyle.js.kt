@@ -3,6 +3,7 @@ package com.huanshankeji.compose.ui.text
 import androidx.compose.runtime.Immutable
 import androidx.compose.ui.unit.TextUnit
 import com.huanshankeji.compose.ui.graphics.Color
+import com.huanshankeji.compose.ui.graphics.applyStyle as applyColorStyle
 import com.huanshankeji.compose.ui.text.font.FontStyle
 import com.huanshankeji.compose.ui.text.font.FontWeight
 import com.huanshankeji.compose.ui.text.font.applyStyle
@@ -11,7 +12,6 @@ import com.huanshankeji.compose.ui.text.style.applyStyle
 import com.huanshankeji.compose.ui.unit.applyFontSize
 import com.huanshankeji.compose.ui.unit.applyLetterSpacing
 import org.jetbrains.compose.web.css.StyleScope
-import org.jetbrains.compose.web.css.color
 
 @Immutable
 actual class SpanStyle actual constructor(
@@ -24,7 +24,7 @@ actual class SpanStyle actual constructor(
 )
 
 fun StyleScope.applyStyle(spanStyle: SpanStyle) {
-    spanStyle.color?.let { color(it.platformValue) }
+    applyColorStyle(spanStyle.color)
     applyFontSize(spanStyle.fontSize)
     spanStyle.fontWeight?.let { applyStyle(it) }
     spanStyle.fontStyle?.let { applyStyle(it) }

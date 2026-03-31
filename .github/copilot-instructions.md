@@ -291,7 +291,10 @@ This makes it easy to see what's missing and why, and serves as a reference for 
 expect fun Text(
     text: String,
     modifier: Modifier = Modifier,
+    fontWeight: FontWeight? = null,
     // fontFamily: FontFamily? = null,
+    letterSpacing: TextUnit = TextUnit.Unspecified,
+    maxLines: Int = Int.MAX_VALUE,
     // onTextLayout: ((TextLayoutResult) -> Unit)? = null,
 )
 ```

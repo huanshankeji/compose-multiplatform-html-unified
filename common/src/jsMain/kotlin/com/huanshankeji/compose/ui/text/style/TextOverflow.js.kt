@@ -3,6 +3,7 @@ package com.huanshankeji.compose.ui.text.style
 import androidx.compose.runtime.Stable
 import com.varabyte.kobweb.compose.css.*
 import org.jetbrains.compose.web.css.StyleScope
+import org.jetbrains.compose.web.css.minHeight
 import com.varabyte.kobweb.compose.css.TextOverflow as CssTextOverflow
 
 // Copied and adapted from `TextOverflow` in `androidx.compose.ui.text.style`. Do not edit without referencing to the original corresponding implementation.
@@ -71,4 +72,10 @@ fun StyleScope.applyStyle(textOverflow: TextOverflow, softWrap: Boolean, maxLine
         property("-webkit-box-orient", "vertical")
         overflow(Overflow.Hidden)
     }
+}
+
+fun StyleScope.applyMinLines(minLines: Int) {
+    if (minLines > 1)
+        // The CSS `lh` unit requires relatively modern browsers (Chrome 109+, Firefox 120+, Safari 16.4+).
+        minHeight("${minLines}lh")
 }

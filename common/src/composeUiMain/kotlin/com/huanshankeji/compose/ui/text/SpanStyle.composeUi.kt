@@ -11,24 +11,15 @@ import androidx.compose.ui.graphics.Color as PlatformColor
 import androidx.compose.ui.text.SpanStyle as PlatformSpanStyle
 
 @Immutable
-actual class SpanStyle actual constructor(
-    actual val color: Color?,
-    actual val fontSize: TextUnit,
-    actual val fontWeight: FontWeight?,
-    actual val fontStyle: FontStyle?,
-    actual val letterSpacing: TextUnit,
-    actual val textDecoration: TextDecoration?,
-) {
-    constructor(platformValue: PlatformSpanStyle) : this(
-        color = if (platformValue.color == PlatformColor.Unspecified) null else Color(platformValue.color),
-        fontSize = platformValue.fontSize,
-        fontWeight = platformValue.fontWeight,
-        fontStyle = platformValue.fontStyle,
-        letterSpacing = platformValue.letterSpacing,
-        textDecoration = platformValue.textDecoration,
-    )
-
-    fun toPlatformValue(): PlatformSpanStyle =
+actual class SpanStyle(val platformValue: PlatformSpanStyle) {
+    actual constructor(
+        color: Color?,
+        fontSize: TextUnit,
+        fontWeight: FontWeight?,
+        fontStyle: FontStyle?,
+        letterSpacing: TextUnit,
+        textDecoration: TextDecoration?,
+    ) : this(
         PlatformSpanStyle(
             color = color.toPlatformValue(),
             fontSize = fontSize,
@@ -37,4 +28,13 @@ actual class SpanStyle actual constructor(
             letterSpacing = letterSpacing,
             textDecoration = textDecoration,
         )
+    )
+
+    actual val color: Color?
+        get() = platformValue.color.let { if (it == PlatformColor.Unspecified) null else Color(it) }
+    actual val fontSize: TextUnit get() = platformValue.fontSize
+    actual val fontWeight: FontWeight? get() = platformValue.fontWeight
+    actual val fontStyle: FontStyle? get() = platformValue.fontStyle
+    actual val letterSpacing: TextUnit get() = platformValue.letterSpacing
+    actual val textDecoration: TextDecoration? get() = platformValue.textDecoration
 }

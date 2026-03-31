@@ -5,6 +5,9 @@ import androidx.compose.ui.unit.TextUnitType
 import org.jetbrains.compose.web.css.CSSNumericValue
 import org.jetbrains.compose.web.css.StyleScope
 import org.jetbrains.compose.web.css.em
+import org.jetbrains.compose.web.css.fontSize
+import org.jetbrains.compose.web.css.letterSpacing
+import org.jetbrains.compose.web.css.lineHeight
 import org.jetbrains.compose.web.css.px
 
 fun TextUnit.toCssValue(): CSSNumericValue<*> =
@@ -16,15 +19,15 @@ fun TextUnit.toCssValue(): CSSNumericValue<*> =
 
 fun StyleScope.applyFontSize(textUnit: TextUnit) {
     if (textUnit != TextUnit.Unspecified)
-        property("font-size", textUnit.toCssValue())
+        fontSize(textUnit.toCssValue())
 }
 
 fun StyleScope.applyLetterSpacing(textUnit: TextUnit) {
     if (textUnit != TextUnit.Unspecified)
-        property("letter-spacing", textUnit.toCssValue())
+        letterSpacing(textUnit.toCssValue())
 }
 
 fun StyleScope.applyLineHeight(textUnit: TextUnit) {
     if (textUnit != TextUnit.Unspecified)
-        property("line-height", textUnit.toCssValue())
+        lineHeight(textUnit.toCssValue())
 }

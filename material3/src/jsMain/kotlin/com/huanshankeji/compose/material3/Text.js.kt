@@ -6,6 +6,7 @@ import androidx.compose.ui.unit.TextUnit
 import com.huanshankeji.compose.foundation.text.ext.CommonBasicText
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.graphics.Color
+import com.huanshankeji.compose.ui.graphics.applyStyle as applyColorStyle
 import com.huanshankeji.compose.ui.text.AnnotatedString
 import com.huanshankeji.compose.ui.text.AnnotatedStringText
 import com.huanshankeji.compose.ui.text.font.FontStyle
@@ -14,13 +15,12 @@ import com.huanshankeji.compose.ui.text.font.applyStyle
 import com.huanshankeji.compose.ui.text.style.TextAlign
 import com.huanshankeji.compose.ui.text.style.TextDecoration
 import com.huanshankeji.compose.ui.text.style.TextOverflow
+import com.huanshankeji.compose.ui.text.style.applyMinLines
 import com.huanshankeji.compose.ui.text.style.applyStyle
 import com.huanshankeji.compose.ui.toAttrs
 import com.huanshankeji.compose.ui.unit.applyFontSize
 import com.huanshankeji.compose.ui.unit.applyLetterSpacing
 import com.huanshankeji.compose.ui.unit.applyLineHeight
-import org.jetbrains.compose.web.css.color
-import org.jetbrains.compose.web.css.minHeight
 import org.jetbrains.compose.web.dom.Span
 import org.jetbrains.compose.web.dom.Text
 
@@ -95,7 +95,7 @@ private fun CommonText(
     Span(
         modifier.toAttrs {
             style {
-                color?.let { color(it.platformValue) }
+                applyColorStyle(color)
                 applyFontSize(fontSize)
                 fontStyle?.let { applyStyle(it) }
                 fontWeight?.let { applyStyle(it) }
@@ -104,10 +104,7 @@ private fun CommonText(
                 textAlign?.let { applyStyle(it) }
                 applyLineHeight(lineHeight)
                 applyStyle(overflow, softWrap, maxLines)
-                if (minLines > 1) {
-                    // The CSS `lh` unit requires relatively modern browsers (Chrome 109+, Firefox 120+, Safari 16.4+).
-                    minHeight("${minLines}lh")
-                }
+                applyMinLines(minLines)
             }
         }
     ) {

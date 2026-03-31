@@ -15,4 +15,4 @@ actual inline fun <R : Any> AnnotatedStringBuilder.withStyle(
     style: SpanStyle,
     block: AnnotatedStringBuilder.() -> R,
 ): R =
-    platformWithStyle(style.toPlatformValue(), block)
+    platformWithStyle(style.platformValue, block)

@@ -10,27 +10,10 @@ import com.huanshankeji.compose.foundation.layout.Arrangement
 import com.huanshankeji.compose.foundation.layout.Box
 import com.huanshankeji.compose.foundation.layout.Column
 import com.huanshankeji.compose.foundation.layout.ext.fillMaxSizeStretch
-import com.huanshankeji.compose.foundation.layout.ext.innerPadding
-import com.huanshankeji.compose.foundation.layout.ext.outerPadding
 import com.huanshankeji.compose.material3.Button
 import com.huanshankeji.compose.material3.ext.TaglessText
 import com.huanshankeji.compose.ui.Alignment
 import com.huanshankeji.compose.ui.Modifier
-
-internal enum class Selection {
-    A, B, C;
-
-    fun displayText(): String = buildString {
-        append(name)
-        repeat(7) { append(name.lowercase()) }
-    }
-}
-
-val listSize = 160.dp
-
-fun Modifier.outerContentPadding() = outerPadding(16.dp)
-fun Modifier.innerContentPadding() = innerPadding(16.dp)
-val contentPaddingModifier = Modifier.outerContentPadding()
 
 enum class Screen {
     Home, Common, /*Material2,*/ Material3, MaterialIcons

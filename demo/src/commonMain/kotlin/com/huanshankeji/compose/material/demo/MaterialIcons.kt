@@ -19,7 +19,6 @@ import com.huanshankeji.compose.material3.ext.OutlinedTextField
 import com.huanshankeji.compose.ui.Alignment
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.text.font.FontWeight
-import com.huanshankeji.compose.ui.text.style.TextAlign
 
 @Composable
 private fun IconItem(name: String, icon: Icon) {
@@ -28,7 +27,7 @@ private fun IconItem(name: String, icon: Icon) {
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Icon(icon, name)
-        Text(name, modifier = Modifier.fillMaxWidthStretch(), textAlign = TextAlign.Center)
+        Text(name)
     }
 }
 
@@ -47,7 +46,6 @@ private fun IconSection(title: String, icons: List<Pair<String, Icon>>, searchQu
         }
     }
     if (rows.isNotEmpty()) {
-        // h2-like styling: browser default h2 is ~1.5em (24px) and bold.
         // TODO: use `style = MaterialTheme.typography.headlineMedium` when `TextStyle` (#131) and `MaterialTheme` (#17) are supported
         Text(title, modifier = contentPaddingModifier, fontSize = 24.sp, fontWeight = FontWeight.Bold)
         for (row in rows)

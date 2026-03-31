@@ -99,6 +99,14 @@ actual fun Color.toArgb(): Int =
 fun StyleScope.applyStyle(color: ColorProducer) =
     color(color().platformValue)
 
+fun StyleScope.applyStyle(color: Color?) {
+    color?.let { color(it.platformValue) }
+}
+
+fun StyleScope.applyStyle(color: ColorProducer?) {
+    color?.let { applyStyle(it) }
+}
+
 
 // TODO context receivers
 fun Modifier.toAttrsWithColor(color: Color?): AttrsScope<*>.() -> Unit =
