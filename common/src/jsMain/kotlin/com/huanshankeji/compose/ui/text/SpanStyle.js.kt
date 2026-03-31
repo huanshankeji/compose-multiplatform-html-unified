@@ -1,5 +1,6 @@
 package com.huanshankeji.compose.ui.text
 
+import androidx.compose.runtime.Immutable
 import androidx.compose.ui.unit.TextUnit
 import com.huanshankeji.compose.ui.graphics.Color
 import com.huanshankeji.compose.ui.text.font.FontStyle
@@ -12,6 +13,7 @@ import com.huanshankeji.compose.ui.unit.applyLetterSpacing
 import org.jetbrains.compose.web.css.StyleScope
 import org.jetbrains.compose.web.css.color
 
+@Immutable
 actual class SpanStyle actual constructor(
     actual val color: Color?,
     actual val fontSize: TextUnit,

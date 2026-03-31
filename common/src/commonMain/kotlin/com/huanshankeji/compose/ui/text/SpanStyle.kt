@@ -23,26 +23,24 @@ import com.huanshankeji.compose.ui.text.style.TextDecoration
  * - `drawStyle: DrawStyle?` — requires porting `DrawStyle`; no direct CSS equivalent
  */
 @Immutable
-expect class SpanStyle {
-    constructor(
-        color: Color? = null,
-        fontSize: TextUnit = TextUnit.Unspecified,
-        fontWeight: FontWeight? = null,
-        fontStyle: FontStyle? = null,
-        letterSpacing: TextUnit = TextUnit.Unspecified,
-        textDecoration: TextDecoration? = null,
-        // fontSynthesis: FontSynthesis? = null,
-        // fontFamily: FontFamily? = null,
-        // fontFeatureSettings: String? = null,
-        // baselineShift: BaselineShift? = null,
-        // textGeometricTransform: TextGeometricTransform? = null,
-        // localeList: LocaleList? = null,
-        // background: Color = Color.Unspecified,
-        // shadow: Shadow? = null,
-        // platformStyle: PlatformSpanStyle? = null,
-        // drawStyle: DrawStyle? = null,
-    )
-
+expect class SpanStyle(
+    color: Color? = null,
+    fontSize: TextUnit = TextUnit.Unspecified,
+    fontWeight: FontWeight? = null,
+    fontStyle: FontStyle? = null,
+    letterSpacing: TextUnit = TextUnit.Unspecified,
+    textDecoration: TextDecoration? = null,
+    // fontSynthesis: FontSynthesis? = null,
+    // fontFamily: FontFamily? = null,
+    // fontFeatureSettings: String? = null,
+    // baselineShift: BaselineShift? = null,
+    // textGeometricTransform: TextGeometricTransform? = null,
+    // localeList: LocaleList? = null,
+    // background: Color = Color.Unspecified,
+    // shadow: Shadow? = null,
+    // platformStyle: PlatformSpanStyle? = null,
+    // drawStyle: DrawStyle? = null,
+) {
     val color: Color?
     val fontSize: TextUnit
     val fontWeight: FontWeight?
