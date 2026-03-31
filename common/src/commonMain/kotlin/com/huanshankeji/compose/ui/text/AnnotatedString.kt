@@ -34,6 +34,9 @@ expect class AnnotatedString {
 
     operator fun plus(other: AnnotatedString): AnnotatedString
     // subSequence(range: TextRange) — requires porting TextRange
+
+    // This doesn't work either
+    //typealias Builder = AnnotatedStringBuilder
 }
 
 /**
