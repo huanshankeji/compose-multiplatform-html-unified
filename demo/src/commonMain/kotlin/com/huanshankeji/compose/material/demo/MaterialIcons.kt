@@ -19,15 +19,16 @@ import com.huanshankeji.compose.material3.ext.OutlinedTextField
 import com.huanshankeji.compose.ui.Alignment
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.text.font.FontWeight
+import com.huanshankeji.compose.ui.text.style.TextAlign
 
 @Composable
 private fun IconItem(name: String, icon: Icon) {
     Column(
         Modifier.width(80.dp).innerContentPadding(),
-        horizontalAlignment = Alignment.CenterHorizontally,
+        horizontalAlignment = Alignment.CenterHorizontally, // needed for the `Icon`
     ) {
         Icon(icon, name)
-        Text(name)
+        Text(name, modifier = Modifier.fillMaxWidthStretch(), textAlign = TextAlign.Center)
     }
 }
 
