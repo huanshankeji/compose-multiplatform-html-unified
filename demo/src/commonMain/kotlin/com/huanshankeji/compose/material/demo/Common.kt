@@ -15,6 +15,7 @@ import com.huanshankeji.compose.foundation.text.BasicText
 import com.huanshankeji.compose.layout.ext.hidden
 import com.huanshankeji.compose.ui.Modifier
 import com.huanshankeji.compose.ui.graphics.Color
+import com.huanshankeji.compose.ui.text.style.TextOverflow
 
 @Composable
 fun Common(/*modifier: Modifier = Modifier*/) {
@@ -94,5 +95,20 @@ fun Common(/*modifier: Modifier = Modifier*/) {
             Spacer(Modifier.width(32.dp))
             BasicText("right to spacer")
         }
+
+        BasicTextStyledTextDemo()
+    }
+}
+
+/**
+ * Styled text demo using foundation `BasicText`.
+ * Uses parameters common between `BasicText` and Material 3 `Text`.
+ */
+@Composable
+fun BasicTextStyledTextDemo() {
+    Column {
+        BasicText("BasicText overflow ellipsis", maxLines = 1, overflow = TextOverflow.Ellipsis)
+        BasicText("`AnnotatedString` demo:")
+        BasicText(demoAnnotatedString)
     }
 }

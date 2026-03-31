@@ -271,12 +271,69 @@ Some parameters only work on certain platforms (typically only on Compose UI and
 - Add an inline comment in the JS DOM implementation explaining why it's not passed (e.g., `// not passed here, not sure whether it's supported by the underlying component`)
 - Examples: `enabled` in tabs, `space` in segmented button rows
 
-**"Copied and Adapted" Code:**
-Some implementations are carefully copied and adapted from `androidx.compose.material3` or other official Compose sources. These should have a comment like:
+**Unsupported Compose UI APIs:**
+When a common API cannot support all parameters, values, or members from the corresponding Compose UI API (e.g., because
+a required type has not been ported yet, or because there is no equivalent on JS DOM), add the unsupported items as
+**commented-out lines** in the common `expect` declaration, with a brief reason in a comment explaining why each is not
+yet supported. Also list them in a KDoc block at the top of the declaration. This applies to:
+- **Parameters** of composable functions or constructors
+- **Values/constants** in companion objects (e.g., unsupported `TextOverflow.StartEllipsis`)
+- **Member functions** or properties that cannot yet be unified
+
+This makes it easy to see what's missing and why, and serves as a reference for future implementation.
 ```kotlin
-// Copied and adapted from `ComponentName` in `androidx.compose.material3`. Do not edit without referencing to the original corresponding implementation.
+/**
+ * The following Compose UI parameters are not yet supported:
+ * - `fontFamily: FontFamily?` — requires porting `FontFamily`
+ * - `onTextLayout: ((TextLayoutResult) -> Unit)?` — requires porting `TextLayoutResult`
+ */
+@Composable
+expect fun Text(
+    text: String,
+    modifier: Modifier = Modifier,
+    fontWeight: FontWeight? = null,
+    // fontFamily: FontFamily? = null,
+    letterSpacing: TextUnit = TextUnit.Unspecified,
+    maxLines: Int = Int.MAX_VALUE,
+    // onTextLayout: ((TextLayoutResult) -> Unit)? = null,
+)
+```
+
+**"Copied and Adapted" Code:**
+When adding new common types or APIs that correspond to Compose UI types, always **start from the original Compose UI
+source code** — copy the relevant parts and adapt them for the common/JS DOM implementation. Do not write implementations
+from scratch, as this leads to inconsistencies in API surface, member ordering, and behavior.
+
+The original Compose UI source for a given version can be found on GitHub, e.g.:
+`https://raw.githubusercontent.com/JetBrains/compose-multiplatform-core/v<COMPOSE_MULTIPLATFORM_VERSION>/compose/ui/ui-text/src/commonMain/kotlin/androidx/compose/ui/text/style/TextDecoration.kt`
+where `<COMPOSE_MULTIPLATFORM_VERSION>` should match the Compose Multiplatform version used by this project (see `buildSrc/build.gradle.kts` for the current version).
+
+When copying and adapting, ensure:
+1. The supported APIs match the original source (same names, types, and semantics).
+2. The definition order is consistent with the original.
+3. Unsupported APIs are documented per the pattern above.
+
+These implementations should have a comment like:
+```kotlin
+// Copied and adapted from `ComponentName` in `androidx.compose.ui.text.style`. Do not edit without referencing to the original corresponding implementation.
 ```
 This prevents casual modifications that could break the carefully adapted logic.
+
+**Exceptions to Compose UI Design Replication:**
+In some cases, the JS DOM implementation may intentionally deviate from the Compose UI internal design
+when the HTML/CSS platform provides a more natural mapping. For example, `AnnotatedString.Builder` on
+JS DOM uses a nestable tree/node design (mapping `withStyle` calls to nested `<span>` elements) instead
+of replicating the Compose UI range-based (`pushStyle`/`addStyle`/`pop`) design. When such exceptions
+are made, document the rationale in the source file and note the commit of the dropped design for reference.
+
+**CSS Style Shortcuts:**
+In JS DOM implementations, prefer type-safe CSS extension shortcuts over raw `property()` calls. For example:
+- Use `overflow(Overflow.Hidden)` instead of `property("overflow", "hidden")`
+- Use `minHeight("${minLines}lh")` instead of `property("min-height", "${minLines}lh")`
+- These shortcuts may come from Compose HTML, Kobweb, or
+  [compose-html-common](https://github.com/huanshankeji/compose-html-material/tree/main/compose-html-common).
+  If a type-safe shortcut does not exist, using `property()` is acceptable but should be noted for potential
+  future contribution to upstream libraries.
 
 **Avoiding Duplicate Components:**
 Before adding a new component to the demo or a new wrapper, always search the existing codebase to verify it doesn't already exist. For example, if `List` with `ListItem` is already implemented via `ListScope.ListItem`, do not add a second `List` component. Check both the main package and the `ext` package.

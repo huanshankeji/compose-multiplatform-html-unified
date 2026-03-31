@@ -63,5 +63,6 @@ kotlin {
     compilerOptions {
         freeCompilerArgs.add("-Xexpect-actual-classes")
         optIn.add("com.huanshankeji.compose.ExperimentalApi")
+        optIn.add("com.huanshankeji.compose.InternalApi")
     }
 }

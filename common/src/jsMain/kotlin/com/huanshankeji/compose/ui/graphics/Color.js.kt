@@ -96,8 +96,15 @@ actual fun Color.luminance(): Float =
 actual fun Color.toArgb(): Int =
     platformValue.toRgb().value
 
-fun StyleScope.applyStyle(color: ColorProducer) {
+fun StyleScope.applyStyle(color: ColorProducer) =
     color(color().platformValue)
+
+fun StyleScope.applyStyle(color: Color?) {
+    color?.let { color(it.platformValue) }
+}
+
+fun StyleScope.applyStyle(color: ColorProducer?) {
+    color?.let { applyStyle(it) }
 }
 
 

@@ -22,6 +22,10 @@ expect fun TaglessBasicText(text: String)
 /**
  * An alias for [BasicText].
  */
+@Deprecated(
+    "This alias is unnecessary now. Just use `BasicText` instead, which now supports all text styling parameters.",
+    ReplaceWith("BasicText(text, modifier, color = color)", "com.huanshankeji.compose.foundation.text.BasicText")
+)
 @Composable
 fun SpanBasicText(text: String, modifier: Modifier = Modifier, color: ColorProducer? = null) =
-    BasicText(text, modifier, color)
+    BasicText(text, modifier, color = color)

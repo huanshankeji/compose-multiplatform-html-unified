@@ -4,6 +4,9 @@ public abstract interface annotation class com/huanshankeji/compose/Experimental
 public abstract interface annotation class com/huanshankeji/compose/ExtRecommendedApi : java/lang/annotation/Annotation {
 }
 
+public abstract interface annotation class com/huanshankeji/compose/InternalApi : java/lang/annotation/Annotation {
+}
+
 public abstract interface annotation class com/huanshankeji/compose/LikelyInconsistentApi : java/lang/annotation/Annotation {
 }
 
@@ -432,7 +435,8 @@ public final class com/huanshankeji/compose/foundation/text/BasicTextKt {
 }
 
 public final class com/huanshankeji/compose/foundation/text/BasicText_composeUiKt {
-	public static final fun BasicText (Ljava/lang/String;Lcom/huanshankeji/compose/ui/Modifier;Lcom/huanshankeji/compose/ui/graphics/ColorProducer;Landroidx/compose/runtime/Composer;II)V
+	public static final fun BasicText-ll8wPH0 (Landroidx/compose/ui/text/AnnotatedString;Lcom/huanshankeji/compose/ui/Modifier;IZIILcom/huanshankeji/compose/ui/graphics/ColorProducer;Landroidx/compose/runtime/Composer;II)V
+	public static final fun BasicText-ll8wPH0 (Ljava/lang/String;Lcom/huanshankeji/compose/ui/Modifier;IZIILcom/huanshankeji/compose/ui/graphics/ColorProducer;Landroidx/compose/runtime/Composer;II)V
 }
 
 public abstract interface class com/huanshankeji/compose/foundation/text/KeyboardActionScope {
@@ -813,6 +817,34 @@ public final class com/huanshankeji/compose/ui/graphics/Color_composeUiKt {
 	public static final fun toNullablePlatformValue (Lcom/huanshankeji/compose/ui/graphics/ColorProducer;)Landroidx/compose/ui/graphics/ColorProducer;
 	public static final fun toPlatformValue (Lcom/huanshankeji/compose/ui/graphics/Color;)J
 	public static final fun toPlatformValue (Lcom/huanshankeji/compose/ui/graphics/ColorProducer;)Landroidx/compose/ui/graphics/ColorProducer;
+}
+
+public final class com/huanshankeji/compose/ui/text/AnnotatedString_composeUiKt {
+	public static final fun buildAnnotatedString (Lkotlin/jvm/functions/Function1;)Landroidx/compose/ui/text/AnnotatedString;
+	public static final fun withStyle (Landroidx/compose/ui/text/AnnotatedString$Builder;Lcom/huanshankeji/compose/ui/text/SpanStyle;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
+}
+
+public final class com/huanshankeji/compose/ui/text/SpanStyle {
+	public static final field $stable I
+	public fun <init> (Landroidx/compose/ui/text/SpanStyle;)V
+	public synthetic fun <init> (Lcom/huanshankeji/compose/ui/graphics/Color;JLandroidx/compose/ui/text/font/FontWeight;Landroidx/compose/ui/text/font/FontStyle;JLandroidx/compose/ui/text/style/TextDecoration;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lcom/huanshankeji/compose/ui/graphics/Color;JLandroidx/compose/ui/text/font/FontWeight;Landroidx/compose/ui/text/font/FontStyle;JLandroidx/compose/ui/text/style/TextDecoration;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getColor ()Lcom/huanshankeji/compose/ui/graphics/Color;
+	public final fun getFontSize-XSAIIZE ()J
+	public final fun getFontStyle-4Lr2A7w ()Landroidx/compose/ui/text/font/FontStyle;
+	public final fun getFontWeight ()Landroidx/compose/ui/text/font/FontWeight;
+	public final fun getLetterSpacing-XSAIIZE ()J
+	public final fun getPlatformValue ()Landroidx/compose/ui/text/SpanStyle;
+	public final fun getTextDecoration ()Landroidx/compose/ui/text/style/TextDecoration;
+}
+
+public final class com/huanshankeji/compose/ui/text/font/FontWeight_composeUiKt {
+	public static final fun lerp (Landroidx/compose/ui/text/font/FontWeight;Landroidx/compose/ui/text/font/FontWeight;F)Landroidx/compose/ui/text/font/FontWeight;
+}
+
+public final class com/huanshankeji/compose/ui/text/style/TextAlignKt {
+	public static final fun isSpecified-aXe7zB0 (I)Z
+	public static final fun takeOrElse-BvjSTJw (ILkotlin/jvm/functions/Function0;)I
 }
 
 public abstract class com/huanshankeji/compose/ui/unit/ext/DpOrPercentage {

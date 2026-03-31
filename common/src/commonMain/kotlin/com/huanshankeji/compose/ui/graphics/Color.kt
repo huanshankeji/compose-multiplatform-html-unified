@@ -111,6 +111,7 @@ expect fun Color.luminance(): Float
 @ColorInt
 expect fun Color.toArgb(): Int
 
+// TODO Consider always delegating to platform implementations too here.
 fun interface ColorProducer {
     operator fun invoke(): Color
 }
