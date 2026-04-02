@@ -63,6 +63,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Remove the `iosX64` targets.
 - Support ES2015 compilation target for JS DOM by replacing `require()` with ES module imports.
 - Use `Arrangement.spacedBy` from Kobweb (commit 53ff09f4d2aacfa7ec82c6afb6cfb352e8cc5e3a).
+- Add reference links to component files and move existing ones to `commonMain` (#117).
 
 ### Deprecated
 
