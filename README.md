@@ -115,7 +115,7 @@ com.huanshankeji:compose-multiplatform-html-unified-material3:$version
 - Icon: `Icon`
 - Icon button: `IconButton`, `IconToggleButton`, `FilledIconButton`, `FilledIconToggleButton`, `FilledTonalIconButton`,
   `FilledTonalIconToggleButton`, `OutlinedIconButton`, `OutlinedIconToggleButton`
-- Navigation drawer: `ModalNavigationDrawer` (deprecated)
+- Navigation drawer: `ModalNavigationDrawer` (deprecated, may be replaced with navigation rails in the future)
 - Progress indicator: `LinearProgressIndicator`, `CircularProgressIndicator`
 - Radio button: `RadioButton`
 - Segmented button: `SingleChoiceSegmentedButtonRow`, `MultiChoiceSegmentedButtonRow`
