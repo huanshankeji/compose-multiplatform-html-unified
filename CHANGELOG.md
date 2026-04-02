@@ -18,7 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 #### Material 3
 
-- Add unified wrapper components for remaining Material 3 components based on [Compose HTML Material](https://github.com/huanshankeji/compose-html-material) [PR #20](https://github.com/huanshankeji/compose-html-material/pull/20), [PR #32](https://github.com/huanshankeji/compose-html-material/pull/32) (which depends on [maicol07/material-web-additions](https://github.com/maicol07/material-web-additions)), and [PR #21](https://github.com/huanshankeji/compose-html-material/pull/21) (#70, #72):
+- Add unified wrapper components for remaining Material 3 components based on [Compose HTML Material](https://github.com/huanshankeji/compose-html-material) [PR #21](https://github.com/huanshankeji/compose-html-material/pull/21) and [PR #32](https://github.com/huanshankeji/compose-html-material/pull/32) (which depends on [maicol07/material-web-additions](https://github.com/maicol07/material-web-additions)) (#70, #72):
   - badge: `Badge` (deprecated) in `ext`
   - chip: `AssistChip`, `FilterChip`, `InputChip`, `SuggestionChip` (and elevated variants) in `ext`
   - dialog: `AlertDialog` and `SimpleDialog`
