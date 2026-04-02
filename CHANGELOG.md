@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.6.0] - 2026-03-31
+
 ### Added
 
 #### Common
@@ -177,4 +179,5 @@ Support Material 3. See the Updated README.md for more details.
 
 The project now depends on Kobweb Silk on Kotlin/JS (Compose HTML) and there is a universal multiplatform interface for `Modifier`, scopes, etc. akin to those in `androidx.compose`. Obsolete code including `ModifierOrAttrsScope` is moved to a legacy module.
 
-[Unreleased]: https://github.com/huanshankeji/compose-multiplatform-html-unified/compare/v0.5.0...HEAD
+[Unreleased]: https://github.com/huanshankeji/compose-multiplatform-html-unified/compare/v0.6.0...HEAD
+[0.6.0]: https://github.com/huanshankeji/compose-multiplatform-html-unified/compare/v0.5.0...v0.6.0
