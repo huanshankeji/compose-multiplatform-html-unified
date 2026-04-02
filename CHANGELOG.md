@@ -87,9 +87,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 #### Changed
 
-- Enable Gradle Configuration Cache (f0017ee).
+- Enable Gradle Configuration Cache (commit f0017ee475477c566d8a04d9280d8cd8d3052ee7).
 - Bump Dokka to 2.1.0 (#43).
-- Enable `kotlin.native.enableKlibsCrossCompilation` (624955d).
+- Enable `kotlin.native.enableKlibsCrossCompilation` (commit 624955ddec49db603af36d52930d4a1417729059).
 - Refactor CI to use extracted actions (#57).
 - Port Maven publishing migration (#113).
 - Code clean-up: nullable composable patterns, null equality, trailing commas (#93).
