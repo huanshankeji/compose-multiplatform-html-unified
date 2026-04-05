@@ -27,7 +27,7 @@ apiValidation {
 }
 
 dependencies {
-    subprojects.filter { it.name != demoProjectName }.forEach {
+    subprojects.filter { it.name != demoProjectName && it.buildFile.exists() }.forEach {
         dokka(it)
     }
 }
