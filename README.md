@@ -60,8 +60,8 @@ com.huanshankeji:compose-multiplatform-html-unified-common:$version
 
 ##### Lazy
 
-- `LazyColumn` (via flexbox on JS, based on Kobweb)
-- `LazyRow` (via flexbox on JS, based on Kobweb)
+- `LazyColumn` (via flexbox on JS, based on Kobweb, only "lazy" on Compose UI but works fine for JS DOM)
+- `LazyRow` (via flexbox on JS, based on Kobweb, only "lazy" on Compose UI but works fine for JS DOM)
 
 #### Material 2 components
 
@@ -95,7 +95,7 @@ com.huanshankeji:compose-multiplatform-html-unified-material2:$version
 
 ##### `lazy.ext` components
 
-- `List`/`LazyColumnList` (visually inconsistent for now)
+- `List`/`LazyColumnList` (visually inconsistent for now, only "lazy" on Compose UI but works fine for JS DOM)
 
 #### Material 3 components
 
