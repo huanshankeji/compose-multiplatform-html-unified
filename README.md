@@ -46,6 +46,7 @@ com.huanshankeji:compose-multiplatform-html-unified-common:$version
 ##### `ext` components
 
 - `TaglessBasicText`
+- `VerticalScrollContainer`, `HorizontalScrollContainer`
 
 ##### Layouts
 
@@ -57,6 +58,8 @@ com.huanshankeji:compose-multiplatform-html-unified-common:$version
 ###### `ext` layouts
 
 - `BoxWithConstraints`
+- `VerticalScrollBox`, `HorizontalScrollBox`
+- `VerticalScrollColumn`, `HorizontalScrollRow`
 
 ##### Lazy
 
@@ -105,10 +108,10 @@ Maven coordinate:
 com.huanshankeji:compose-multiplatform-html-unified-material3:$version
 ```
 
+- Badge: `Badge` (deprecated)
 - Button: `Button` (`FilledButton`), `ElevatedButton`, `FilledTonalButton`, `OutlinedButton`, `TextButton`
 - Card: `Card` (`FilledCard`), `ElevatedCard`, `OutlinedCard`
 - Checkbox: `Checkbox`
-- Dialog: `AlertDialog`, `SimpleDialog`
 - Divider: `HorizontalDivider`
 - Floating action button: `FloatingActionButton`, `SmallFloatingActionButton`, `LargeFloatingActionButton`,
   `ExtendedFloatingActionButton`
@@ -118,22 +121,27 @@ com.huanshankeji:compose-multiplatform-html-unified-material3:$version
 - Navigation drawer: `ModalNavigationDrawer` (deprecated, may be replaced with navigation rails in the future)
 - Progress indicator: `LinearProgressIndicator`, `CircularProgressIndicator`
 - Radio button: `RadioButton`
+- Scaffold: `Scaffold`
 - Segmented button: `SingleChoiceSegmentedButtonRow`, `MultiChoiceSegmentedButtonRow`
 - Slider: `Slider`, `RangeSlider`
-- Snackbar: `SnackbarHost`, `SnackbarHostState`
+- Snackbar: `Snackbar`, `SnackbarHost`, `SnackbarHostState`
 - Switch: `Switch`
-- Tab: `PrimaryTabRow`, `SecondaryTabRow` (tabs are in `ext`)
+- Tab: `PrimaryTabRow`, `SecondaryTabRow`, `PrimaryScrollableTabRow`, `SecondaryScrollableTabRow` (tabs are in `ext`)
 - Text: `Text`
+- Top app bar: `TopAppBar`, `CenterAlignedTopAppBar`, `MediumTopAppBar`, `LargeTopAppBar`
 
 ##### `ext` components
 
-- Badge: `Badge` (deprecated)
 - Button: `Button` (`FilledButton`), `ElevatedButton`, `FilledTonalButton`, `OutlinedButton`, `TextButton`
 - Card: `Card` (`FilledCard`), `ElevatedCard`, `OutlinedCard`
 - Chip: `AssistChip`, `ElevatedAssistChip`, `FilterChip`, `ElevatedFilterChip`, `InputChip`, `SuggestionChip`,
   `ElevatedSuggestionChip`
-- Dropdown menu: `DropdownMenu`, `DropdownMenuItem`
-  - `ExposedDropdownMenuBox`, `ExposedDropdownMenuBoxScope.ExposedDropdownMenuBoxTextField`, `ExposedDropdownMenuBoxScope.ExposedDropdownMenu`, `ExposedDropdownMenuBoxWithTextField`
+- Dialog: `AlertDialog`, `SimpleDialog`
+- Dropdown menu: `DropdownMenu` (deprecated), `DropdownMenuItem`, `DropdownMenuBox`, `DropdownMenuBoxScope.DropdownMenu`
+  - `ExposedDropdownMenuBox`, `ExposedDropdownMenuBoxScope.ExposedDropdownMenuBoxTextField`,
+    `ExposedDropdownMenuBoxScope.ExposedDropdownMenuBoxOutlinedTextField`,
+    `ExposedDropdownMenuBoxScope.ExposedDropdownMenu`, `ExposedDropdownMenuBoxWithTextField`,
+    `ExposedDropdownMenuBoxWithOutlinedTextField`
 - Floating action button: `FloatingActionButton`, `SmallFloatingActionButton`, `LargeFloatingActionButton`,
   `ExtendedFloatingActionButton`
 - Icon button: `IconButton`, `IconToggleButton`, `FilledIconButton`, `FilledIconToggleButton`, `FilledTonalIconButton`,
@@ -146,7 +154,6 @@ com.huanshankeji:compose-multiplatform-html-unified-material3:$version
 - Tab: `PrimaryTab`, `SecondaryTab`
 - Text: `MaterialText`, `TaglessText`
 - Text field: `TextField`, `OutlinedTextField`
-- Top app bar: `TopAppBar`, `CenterAlignedTopAppBar`, `MediumTopAppBar`, `LargeTopAppBar`
 
 ##### `lazy.ext` components
 
@@ -178,29 +185,49 @@ See [the corresponding section in Compose HTML Material](https://github.com/huan
 ### Modifiers
 
 - `alpha`
+- `rotate`
 - size modifiers
   - `size`, `sizeIn`, `fillMaxSize`
   - `width`, `widthIn`, `fillMaxWidth`
   - `height`, `heightIn`, `fillMaxHeight`
+  - `wrapContentWidth`, `wrapContentHeight`, `wrapContentSize`
+- intrinsic size modifiers: `width(IntrinsicSize)`, `height(IntrinsicSize)`
 - `padding`
 - `background`
 - `border` (visually inconsistent)
-- `onClick`
-- `verticalScroll`, `horizontalScroll` (`ScrollState` not supported on JS yet)
+- `clickable`
+- `onClick` (deprecated, use `clickable`)
+- `verticalScroll`, `horizontalScroll` (deprecated, use scroll containers/layouts in `ext` instead)
+- scope modifiers
+  - `BoxScope`: `align`
+  - `RowScope`: `weight`, `align`
+  - `ColumnScope`: `weight`, `align`
+  - `LazyItemScope`: `fillParentMaxSize`, `fillParentMaxWidth`, `fillParentMaxHeight`
 
 #### `ext` modifiers
 
+- `fillMaxWidthStretch`, `fillMaxHeightStretch`, `fillMaxSizeStretch`
 - `outerBorder`
+- `roundedCornerOuterBorder`
 - `roundedCornerBackgroundAndOuterBorder`
 - `outerPadding`, `innerPadding`
+- `hidden` (`reserveSpace`, `invisible`)
+- `matchPositionRelativeParentJsDom`
 
 ### Other APIs
 
 - `Alignment`
 - `Arrangement`
+- `BorderStroke`
+- `Color`
+- `IntrinsicSize`
 - `KeyboardOptions`
 - `KeyboardActions`
 - `PaddingValues`
+- `ScrollState`, `rememberScrollState`
+- text: `AnnotatedString`, `SpanStyle`, `buildAnnotatedString`
+- text style: `TextAlign`, `TextDecoration`, `TextOverflow`
+- font: `FontWeight`, `FontStyle`
 
 ### ViewModel
 
