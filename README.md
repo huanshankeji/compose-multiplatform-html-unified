@@ -108,7 +108,7 @@ Maven coordinate:
 com.huanshankeji:compose-multiplatform-html-unified-material3:$version
 ```
 
-- Badge: `Badge` (deprecated)
+- Badge: `Badge` (deprecated, not displayed correctly on JS DOM)
 - Button: `Button` (`FilledButton`), `ElevatedButton`, `FilledTonalButton`, `OutlinedButton`, `TextButton`
 - Card: `Card` (`FilledCard`), `ElevatedCard`, `OutlinedCard`
 - Checkbox: `Checkbox`
@@ -197,7 +197,7 @@ See [the corresponding section in Compose HTML Material](https://github.com/huan
 - `border` (visually inconsistent)
 - `clickable`
 - `onClick` (deprecated, use `clickable`)
-- `verticalScroll`, `horizontalScroll` (deprecated, use scroll containers/layouts in `ext` instead)
+- `verticalScroll`, `horizontalScroll` (deprecated, use `VerticalScrollContainer`/`VerticalScrollBox`/`VerticalScrollColumn` or `HorizontalScrollContainer`/`HorizontalScrollBox`/`HorizontalScrollRow` in `ext` instead)
 - scope modifiers
   - `BoxScope`: `align`
   - `RowScope`: `weight`, `align`
