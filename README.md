@@ -224,7 +224,7 @@ See [the corresponding section in Compose HTML Material](https://github.com/huan
 - `KeyboardOptions`
 - `KeyboardActions`
 - `PaddingValues`
-- `ScrollState`, `rememberScrollState`
+- `ScrollState`, `rememberScrollState` (not fully supported yet and delegates to empty state on JS DOM)
 - text: `AnnotatedString`, `SpanStyle`, `buildAnnotatedString`
 - text style: `TextAlign`, `TextDecoration`, `TextOverflow`
 - font: `FontWeight`, `FontStyle`
