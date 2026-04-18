@@ -50,8 +50,10 @@ fun StyleScope.applyStyle(textOverflow: TextOverflow, softWrap: Boolean, maxLine
 
     when (textOverflow) {
         TextOverflow.Clip -> {
-            overflow(Overflow.Hidden)
-            textOverflow(CssTextOverflow.Clip)
+            // Don't apply `overflow: hidden` here.
+            // `text-overflow: clip` is the CSS default, and `overflow: hidden` on a blockified span
+            // (in a flex container with `gap`) causes the height to collapse, clipping the text.
+            // When `maxLines` is constrained, the `-webkit-line-clamp` block below already applies `overflow: hidden`.
         }
 
         TextOverflow.Ellipsis -> {
