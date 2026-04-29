@@ -13,7 +13,9 @@ kotlin {
         compileSdk = androidSdkVersion
     }
 
-    // Explicitly connect androidMain to the composeUiMain intermediate source set
+    // Explicitly connect androidMain to the composeUiMain intermediate source set,
+    // as `withAndroidTarget()` in `applyDefaultHierarchyTemplate` doesn't recognize the
+    // Android target created by the `com.android.kotlin.multiplatform.library` plugin.
     sourceSets.androidMain {
         dependsOn(sourceSets.getByName("composeUiMain"))
     }
