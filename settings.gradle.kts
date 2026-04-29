@@ -8,6 +8,7 @@ include("material3")
 include("navigation")
 include("lifecycle-viewmodel")
 include("demo")
+include("demo-android-app")
 
 fun ProjectDescriptor.setProjectConcatenatedNames(prefix: String) {
     name = prefix + name
