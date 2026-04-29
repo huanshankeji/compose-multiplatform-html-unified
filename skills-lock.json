@@ -5,6 +5,12 @@
       "source": "huanshankeji/kotlin-skills",
       "sourceType": "github",
       "computedHash": "d5173ec93bdf44b3eda8c4ccf1f4e59ce9eb8fad43187dc781bdd8050d62db8e"
+    },
+    "kotlin-tooling-agp9-migration": {
+      "source": "kotlin/kotlin-agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/kotlin-tooling-agp9-migration/SKILL.md",
+      "computedHash": "0d1198cb007e6238f7fc8b3d2999ad0186cabf057950a3b21b6f5c19559a735e"
     }
   }
 }
