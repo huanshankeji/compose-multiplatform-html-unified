@@ -1,9 +1,9 @@
 import com.huanshankeji.cpnProject
 import com.huanshankeji.team.ShreckYe
-import com.huanshankeji.team.pomForTeamDefaultOpenSource
+import com.huanshankeji.team.setUpPomForTeamDefaultOpenSource
 
 plugins {
-    `lib-conventions-without-publishing`
+    `lib-conventions`
 }
 
 kotlin {
@@ -42,15 +42,15 @@ kotlin {
     }
 }
 
-/*
-publishing.publications.withType<MavenPublication> {
-    pomForTeamDefaultOpenSource(
-        project,
-        "Unified Compose Material 2 wrappers $FOR_COMPOSE_TARGETS_IN_TITLE",
-        "Unified Material Design 2 component wrappers $FOR_COMPOSE_TARGETS_IN_DESCRIPTION",
-        "2023"
-    ) {
-        ShreckYe()
+mavenPublishing {
+    pom {
+        setUpPomForTeamDefaultOpenSource(
+            project,
+            "Unified Compose Material 2 wrappers $FOR_COMPOSE_TARGETS_IN_TITLE",
+            "Unified Material Design 2 component wrappers $FOR_COMPOSE_TARGETS_IN_DESCRIPTION",
+            "2023"
+        ) {
+            ShreckYe()
+        }
     }
 }
-*/
