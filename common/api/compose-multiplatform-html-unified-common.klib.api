@@ -686,6 +686,12 @@ sealed class <#A: out kotlin/Any?, #B: out kotlin/Any?> com.huanshankeji.compose
 
         final val error // com.huanshankeji.compose.ext/LoadingState.Error.error|{}error[0]
             final fun <get-error>(): #A1 // com.huanshankeji.compose.ext/LoadingState.Error.error.<get-error>|<get-error>(){}[0]
+
+        final fun component1(): #A1 // com.huanshankeji.compose.ext/LoadingState.Error.component1|component1(){}[0]
+        final fun copy(#A1 = ...): com.huanshankeji.compose.ext/LoadingState.Error<#A1> // com.huanshankeji.compose.ext/LoadingState.Error.copy|copy(1:0){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // com.huanshankeji.compose.ext/LoadingState.Error.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // com.huanshankeji.compose.ext/LoadingState.Error.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // com.huanshankeji.compose.ext/LoadingState.Error.toString|toString(){}[0]
     }
 
     final class <#A1: out kotlin/Any?> Loaded : com.huanshankeji.compose.ext/LoadingState<#A1, kotlin/Nothing> { // com.huanshankeji.compose.ext/LoadingState.Loaded|null[0]
@@ -693,6 +699,12 @@ sealed class <#A: out kotlin/Any?, #B: out kotlin/Any?> com.huanshankeji.compose
 
         final val value // com.huanshankeji.compose.ext/LoadingState.Loaded.value|{}value[0]
             final fun <get-value>(): #A1 // com.huanshankeji.compose.ext/LoadingState.Loaded.value.<get-value>|<get-value>(){}[0]
+
+        final fun component1(): #A1 // com.huanshankeji.compose.ext/LoadingState.Loaded.component1|component1(){}[0]
+        final fun copy(#A1 = ...): com.huanshankeji.compose.ext/LoadingState.Loaded<#A1> // com.huanshankeji.compose.ext/LoadingState.Loaded.copy|copy(1:0){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // com.huanshankeji.compose.ext/LoadingState.Loaded.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // com.huanshankeji.compose.ext/LoadingState.Loaded.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // com.huanshankeji.compose.ext/LoadingState.Loaded.toString|toString(){}[0]
     }
 
     final object Loading : com.huanshankeji.compose.ext/LoadingState<kotlin/Nothing, kotlin/Nothing> // com.huanshankeji.compose.ext/LoadingState.Loading|null[0]

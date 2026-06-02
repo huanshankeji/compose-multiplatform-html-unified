@@ -20,7 +20,7 @@
 
 **IMPORTANT**: Initial builds require internet access for dependency resolution. Once dependencies are cached, subsequent builds can use `--offline` flag if needed.
 
-**IMPORTANT**: If the project uses snapshot dependencies of other `com.huanshankeji` libraries, especially in a branch other than `main` such as `dev`, refer to the setup instructions at <https://github.com/huanshankeji/.github/blob/main/dev-instructions.md#about-snapshot-dependencies-of-our-library-projects>.
+**IMPORTANT**: If the project uses snapshot dependencies of other `com.huanshankeji` libraries, especially in a branch other than `main` such as `dev`, refer to the setup instructions at <https://github.com/huanshankeji/.github/blob/main/docs/dev-instructions.md#publish-snapshot-dependencies-of-our-library-projects-to-maven-local>.
 
 ### Build Commands (In Order)
 
@@ -193,7 +193,7 @@ When `check` fails solely due to `apiCheck` failures, use the following commands
 Then leave the `apiDump` step to the human developer to perform after reviewing API changes.
 
 **Code Style:**
-- Follow [our Kotlin code style guide](https://github.com/huanshankeji/.github/blob/main/kotlin-code-style.md) for all Kotlin code contributions
+- Follow [our Kotlin code style guide](https://github.com/huanshankeji/.github/blob/main/docs/kotlin-code-style.md) for all Kotlin code contributions
 
 **Trailing Comma Conventions** (following Compose UI source conventions):
 - Add trailing commas to the **last parameter** of **multi-line** parameter/argument lists in Composable or Compose-related function **definitions and invocations**. This helps Git track fewer unnecessary changes when parameters are added/removed.

@@ -17,7 +17,7 @@ The Compose HTML / JS DOM source is mainly based on [Kobweb Silk](https://github
 
 ## References and limitations
 
-Complete visual consistency across different platforms is not guaranteed. See [the side-by-side demo site](https://huanshankeji.github.io/compose-multiplatform-html-unified/demo/) for the visual effects and their differences.
+Complete visual consistency across different platforms is not guaranteed. See [**the side-by-side demo site**](https://huanshankeji.github.io/compose-multiplatform-html-unified/demo/) for the visual effects and their differences.
 
 This project is still in development and has not reached a stable state. Some APIs are subject to change and there is no detailed documentation yet. Check out [the demo project source](demo) on how to use the components in addition to the sections below.
 
@@ -46,6 +46,7 @@ com.huanshankeji:compose-multiplatform-html-unified-common:$version
 ##### `ext` components
 
 - `TaglessBasicText`
+- `VerticalScrollContainer`, `HorizontalScrollContainer`
 
 ##### Layouts
 
@@ -57,11 +58,13 @@ com.huanshankeji:compose-multiplatform-html-unified-common:$version
 ###### `ext` layouts
 
 - `BoxWithConstraints`
+- `VerticalScrollBox`, `HorizontalScrollBox`
+- `VerticalScrollColumn`, `HorizontalScrollRow`
 
 ##### Lazy
 
-- `LazyColumn` (via flexbox on JS, based on Kobweb)
-- `LazyRow` (via flexbox on JS, based on Kobweb)
+- `LazyColumn` (via flexbox on JS, based on Kobweb, only "lazy" on Compose UI but works fine for JS DOM)
+- `LazyRow` (via flexbox on JS, based on Kobweb, only "lazy" on Compose UI but works fine for JS DOM)
 
 #### Material 2 components
 
@@ -95,7 +98,7 @@ com.huanshankeji:compose-multiplatform-html-unified-material2:$version
 
 ##### `lazy.ext` components
 
-- `List`/`LazyColumnList` (visually inconsistent for now)
+- `List`/`LazyColumnList` (visually inconsistent for now, only "lazy" on Compose UI but works fine for JS DOM)
 
 #### Material 3 components
 
@@ -105,10 +108,10 @@ Maven coordinate:
 com.huanshankeji:compose-multiplatform-html-unified-material3:$version
 ```
 
+- Badge: `Badge` (deprecated, not displayed correctly on JS DOM)
 - Button: `Button` (`FilledButton`), `ElevatedButton`, `FilledTonalButton`, `OutlinedButton`, `TextButton`
 - Card: `Card` (`FilledCard`), `ElevatedCard`, `OutlinedCard`
 - Checkbox: `Checkbox`
-- Dialog: `AlertDialog`, `SimpleDialog`
 - Divider: `HorizontalDivider`
 - Floating action button: `FloatingActionButton`, `SmallFloatingActionButton`, `LargeFloatingActionButton`,
   `ExtendedFloatingActionButton`
@@ -118,22 +121,27 @@ com.huanshankeji:compose-multiplatform-html-unified-material3:$version
 - Navigation drawer: `ModalNavigationDrawer` (deprecated, may be replaced with navigation rails in the future)
 - Progress indicator: `LinearProgressIndicator`, `CircularProgressIndicator`
 - Radio button: `RadioButton`
+- Scaffold: `Scaffold`
 - Segmented button: `SingleChoiceSegmentedButtonRow`, `MultiChoiceSegmentedButtonRow`
 - Slider: `Slider`, `RangeSlider`
-- Snackbar: `SnackbarHost`, `SnackbarHostState`
+- Snackbar: `Snackbar`, `SnackbarHost`, `SnackbarHostState`
 - Switch: `Switch`
-- Tab: `PrimaryTabRow`, `SecondaryTabRow` (tabs are in `ext`)
+- Tab: `PrimaryTabRow`, `SecondaryTabRow`, `PrimaryScrollableTabRow`, `SecondaryScrollableTabRow` (tabs are in `ext`)
 - Text: `Text`
+- Top app bar: `TopAppBar`, `CenterAlignedTopAppBar`, `MediumTopAppBar`, `LargeTopAppBar`
 
 ##### `ext` components
 
-- Badge: `Badge` (deprecated)
 - Button: `Button` (`FilledButton`), `ElevatedButton`, `FilledTonalButton`, `OutlinedButton`, `TextButton`
 - Card: `Card` (`FilledCard`), `ElevatedCard`, `OutlinedCard`
 - Chip: `AssistChip`, `ElevatedAssistChip`, `FilterChip`, `ElevatedFilterChip`, `InputChip`, `SuggestionChip`,
   `ElevatedSuggestionChip`
-- Dropdown menu: `DropdownMenu`, `DropdownMenuItem`
-  - `ExposedDropdownMenuBox`, `ExposedDropdownMenuBoxScope.ExposedDropdownMenuBoxTextField`, `ExposedDropdownMenuBoxScope.ExposedDropdownMenu`, `ExposedDropdownMenuBoxWithTextField`
+- Dialog: `AlertDialog`, `SimpleDialog`
+- Dropdown menu: `DropdownMenu` (deprecated), `DropdownMenuItem`, `DropdownMenuBox`, `DropdownMenuBoxScope.DropdownMenu`
+  - `ExposedDropdownMenuBox`, `ExposedDropdownMenuBoxScope.ExposedDropdownMenuBoxTextField`,
+    `ExposedDropdownMenuBoxScope.ExposedDropdownMenuBoxOutlinedTextField`,
+    `ExposedDropdownMenuBoxScope.ExposedDropdownMenu`, `ExposedDropdownMenuBoxWithTextField`,
+    `ExposedDropdownMenuBoxWithOutlinedTextField`
 - Floating action button: `FloatingActionButton`, `SmallFloatingActionButton`, `LargeFloatingActionButton`,
   `ExtendedFloatingActionButton`
 - Icon button: `IconButton`, `IconToggleButton`, `FilledIconButton`, `FilledIconToggleButton`, `FilledTonalIconButton`,
@@ -146,7 +154,6 @@ com.huanshankeji:compose-multiplatform-html-unified-material3:$version
 - Tab: `PrimaryTab`, `SecondaryTab`
 - Text: `MaterialText`, `TaglessText`
 - Text field: `TextField`, `OutlinedTextField`
-- Top app bar: `TopAppBar`, `CenterAlignedTopAppBar`, `MediumTopAppBar`, `LargeTopAppBar`
 
 ##### `lazy.ext` components
 
@@ -178,29 +185,49 @@ See [the corresponding section in Compose HTML Material](https://github.com/huan
 ### Modifiers
 
 - `alpha`
+- `rotate`
 - size modifiers
   - `size`, `sizeIn`, `fillMaxSize`
   - `width`, `widthIn`, `fillMaxWidth`
   - `height`, `heightIn`, `fillMaxHeight`
+  - `wrapContentWidth`, `wrapContentHeight`, `wrapContentSize`
+- intrinsic size modifiers: `width(IntrinsicSize)`, `height(IntrinsicSize)`
 - `padding`
 - `background`
 - `border` (visually inconsistent)
-- `onClick`
-- `verticalScroll`, `horizontalScroll` (`ScrollState` not supported on JS yet)
+- `clickable`
+- `onClick` (deprecated, use `clickable`)
+- `verticalScroll`, `horizontalScroll` (deprecated, use `VerticalScrollContainer`/`VerticalScrollBox`/`VerticalScrollColumn` or `HorizontalScrollContainer`/`HorizontalScrollBox`/`HorizontalScrollRow` in `ext` instead)
+- scope modifiers
+  - `BoxScope`: `align`
+  - `RowScope`: `weight`, `align`
+  - `ColumnScope`: `weight`, `align`
+  - `LazyItemScope`: `fillParentMaxSize`, `fillParentMaxWidth`, `fillParentMaxHeight`
 
 #### `ext` modifiers
 
+- `fillMaxWidthStretch`, `fillMaxHeightStretch`, `fillMaxSizeStretch`
 - `outerBorder`
+- `roundedCornerOuterBorder`
 - `roundedCornerBackgroundAndOuterBorder`
 - `outerPadding`, `innerPadding`
+- `hidden` (`reserveSpace`, `invisible`)
+- `matchPositionRelativeParentJsDom`
 
 ### Other APIs
 
 - `Alignment`
 - `Arrangement`
+- `BorderStroke`
+- `Color`
+- `IntrinsicSize`
 - `KeyboardOptions`
 - `KeyboardActions`
 - `PaddingValues`
+- `ScrollState`, `rememberScrollState` (not fully supported yet and delegates to empty state on JS DOM)
+- text: `AnnotatedString`, `SpanStyle`, `buildAnnotatedString`
+- text style: `TextAlign`, `TextDecoration`, `TextOverflow`
+- font: `FontWeight`, `FontStyle`
 
 ### ViewModel
 

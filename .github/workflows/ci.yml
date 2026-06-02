@@ -22,6 +22,7 @@ jobs:
           jdk-versions: 17-temurin
 
   dependency-submission:
+    if: github.ref == 'refs/heads/main'
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]

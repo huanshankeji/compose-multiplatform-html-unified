@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "skills": {
+    "kotlin-debugging-unresolved-reference-file-clash": {
+      "source": "huanshankeji/kotlin-skills",
+      "sourceType": "github",
+      "computedHash": "d5173ec93bdf44b3eda8c4ccf1f4e59ce9eb8fad43187dc781bdd8050d62db8e"
+    }
+  }
+}
