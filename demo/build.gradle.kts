@@ -3,11 +3,22 @@ import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 
 plugins {
     `common-conventions`
-    id("com.android.application")
+    id("com.android.kotlin.multiplatform.library")
 }
 
 kotlin {
-    androidTarget()
+    android {
+        namespace = "$group.compose.material.demo"
+
+        compileSdk = androidSdkVersion
+    }
+
+    // Explicitly connect androidMain to the composeUiMain intermediate source set,
+    // as `withAndroidTarget()` in `applyDefaultHierarchyTemplate` doesn't recognize the
+    // Android target created by the `com.android.kotlin.multiplatform.library` plugin.
+    sourceSets.androidMain {
+        dependsOn(sourceSets.getByName("composeUiMain"))
+    }
 
     listOf(
         iosArm64(),
@@ -89,27 +100,6 @@ compose {
         application {
             mainClass = "$`package`.MainKt"
         }
-    }
-}
-
-android {
-    namespace = `package`
-
-    val sdk = androidSdkVersion
-    compileSdk = sdk
-
-    defaultConfig {
-        applicationId = `package`
-        minSdk = 24
-        targetSdk = sdk
-        versionName = version as String
-    }
-
-    buildFeatures {
-        compose = true
-    }
-    dependencies {
-        debugImplementation(compose.uiTooling)
     }
 }
 

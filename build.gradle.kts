@@ -11,6 +11,7 @@ plugins {
 
 val rootProjectName = rootProject.name
 val demoProjectName = "$rootProjectName-demo"
+val demoAndroidAppProjectName = "$rootProjectName-demo-android-app"
 val demoProject = project(demoProjectName)
 
 apiValidation {
@@ -21,13 +22,14 @@ apiValidation {
 
     ignoredProjects += listOf(
         demoProjectName,
+        demoAndroidAppProjectName,
         "$rootProjectName-material-icons-core",
         "$rootProjectName-material-icons-extended",
     )
 }
 
 dependencies {
-    subprojects.filter { it.name != demoProjectName && it.buildFile.exists() }.forEach {
+    subprojects.filter { it.name != demoProjectName && it.name != demoAndroidAppProjectName && it.buildFile.exists() }.forEach {
         dokka(it)
     }
 }
