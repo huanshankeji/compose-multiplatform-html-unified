@@ -31,26 +31,26 @@ public final class com/huanshankeji/compose/material3/Checkbox_composeUiKt {
 public final class com/huanshankeji/compose/material3/ComposableSingletons$Scaffold_composeUiKt {
 	public static final field INSTANCE Lcom/huanshankeji/compose/material3/ComposableSingletons$Scaffold_composeUiKt;
 	public fun <init> ()V
-	public final fun getLambda$-1064102247$compose_multiplatform_html_unified_material3_release ()Lkotlin/jvm/functions/Function2;
-	public final fun getLambda$-1452597367$compose_multiplatform_html_unified_material3_release ()Lkotlin/jvm/functions/Function2;
-	public final fun getLambda$343336361$compose_multiplatform_html_unified_material3_release ()Lkotlin/jvm/functions/Function2;
-	public final fun getLambda$365819626$compose_multiplatform_html_unified_material3_release ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-1064102247$com_huanshankeji_compose_multiplatform_html_unified_material3_release ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-1452597367$com_huanshankeji_compose_multiplatform_html_unified_material3_release ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$343336361$com_huanshankeji_compose_multiplatform_html_unified_material3_release ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$365819626$com_huanshankeji_compose_multiplatform_html_unified_material3_release ()Lkotlin/jvm/functions/Function2;
 }
 
 public final class com/huanshankeji/compose/material3/ComposableSingletons$SnackbarHost_composeUiKt {
 	public static final field INSTANCE Lcom/huanshankeji/compose/material3/ComposableSingletons$SnackbarHost_composeUiKt;
 	public fun <init> ()V
-	public final fun getLambda$747047739$compose_multiplatform_html_unified_material3_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda$747047739$com_huanshankeji_compose_multiplatform_html_unified_material3_release ()Lkotlin/jvm/functions/Function3;
 }
 
 public final class com/huanshankeji/compose/material3/ComposableSingletons$TopAppBar_composeUiKt {
 	public static final field INSTANCE Lcom/huanshankeji/compose/material3/ComposableSingletons$TopAppBar_composeUiKt;
 	public fun <init> ()V
-	public final fun getLambda$-1279744876$compose_multiplatform_html_unified_material3_release ()Lkotlin/jvm/functions/Function2;
-	public final fun getLambda$-1837818860$compose_multiplatform_html_unified_material3_release ()Lkotlin/jvm/functions/Function2;
-	public final fun getLambda$-357696502$compose_multiplatform_html_unified_material3_release ()Lkotlin/jvm/functions/Function2;
-	public final fun getLambda$-359931808$compose_multiplatform_html_unified_material3_release ()Lkotlin/jvm/functions/Function2;
-	public final fun getLambda$56449977$compose_multiplatform_html_unified_material3_release ()Lkotlin/jvm/functions/Function3;
+	public final fun getLambda$-1279744876$com_huanshankeji_compose_multiplatform_html_unified_material3_release ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-1837818860$com_huanshankeji_compose_multiplatform_html_unified_material3_release ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-357696502$com_huanshankeji_compose_multiplatform_html_unified_material3_release ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$-359931808$com_huanshankeji_compose_multiplatform_html_unified_material3_release ()Lkotlin/jvm/functions/Function2;
+	public final fun getLambda$56449977$com_huanshankeji_compose_multiplatform_html_unified_material3_release ()Lkotlin/jvm/functions/Function3;
 }
 
 public final class com/huanshankeji/compose/material3/Divider_composeUiKt {

@@ -1,7 +1,10 @@
 import com.huanshankeji.CommonDependencies
 import org.jetbrains.compose.ComposeBuildConfig
 
-val projectVersion = "0.6.0-SNAPSHOT"
+val projectBaseVersion = "0.6.0"
+
+val gradleCommonPluginsVersion =
+    "0.13.0-dev-commit-dcac1d6c7871d46082c1fc71b411077daa199c6f"
 
 val commonDependencies = CommonDependencies()
 
@@ -15,7 +18,7 @@ object DependencyVersions {
 
     // https://github.com/varabyte/kobweb/releases
     val kobweb = "0.24.0"
-    val huanshankejiComposeHtml = "0.5.0" // don't use a snapshot version in a main branch
+    val huanshankejiComposeHtml = "0.5.0"
 
     // https://github.com/mpetuska/kmdc/releases
     val kmdc = "0.1.2"
