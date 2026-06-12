@@ -4,33 +4,10 @@ on:
   workflow_dispatch:
   push:
     branches: ["*"]
-#  pull_request:
-#    branches: [ "*" ]
 
 jobs:
-  check:
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
-    runs-on: ${{ matrix.os }}
-    permissions:
-      contents: read
-
-    steps:
-      - uses: huanshankeji/.github/actions/gradle-test-and-check@v0.2.0
-        with:
-          jdk-versions: 17-temurin
-
-  dependency-submission:
-    if: github.ref == 'refs/heads/main'
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
-    runs-on: ${{ matrix.os }}
-    permissions:
-      contents: write
-
-    steps:
-      - uses: huanshankeji/.github/actions/gradle-dependency-submission@v0.2.0
-        with:
-          jdk-versions: 17-temurin
+  ci:
+    uses: huanshankeji/.github/.github/workflows/ci.yml@improve-cross-repo-dependency
+    with:
+      jdk-versions: 17-temurin
+      runs-on: macos-latest

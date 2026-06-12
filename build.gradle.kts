@@ -5,26 +5,15 @@ tasks.wrapper {
 }
 
 plugins {
-    id("org.jetbrains.kotlinx.binary-compatibility-validator") version "0.18.1"
     id("org.jetbrains.dokka")
+    id("com.huanshankeji.team.root-project-conventions")
+    id("com.android.library") apply false
+    id("com.android.application") apply false
 }
 
 val rootProjectName = rootProject.name
 val demoProjectName = "$rootProjectName-demo"
 val demoProject = project(demoProjectName)
-
-apiValidation {
-    @OptIn(kotlinx.validation.ExperimentalBCVApi::class)
-    klib {
-        enabled = true
-    }
-
-    ignoredProjects += listOf(
-        demoProjectName,
-        "$rootProjectName-material-icons-core",
-        "$rootProjectName-material-icons-extended",
-    )
-}
 
 dependencies {
     subprojects.filter { it.name != demoProjectName && it.buildFile.exists() }.forEach {

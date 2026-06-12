@@ -1,9 +1,19 @@
+pluginManagement {
+    repositories {
+        mavenLocal()
+        gradlePluginPortal()
+        google()
+    }
+}
+
+apply(from = "gradle/dependency-repositories.gradle.kts")
+
 rootProject.name = "compose-multiplatform-html-unified"
 
-include("common") // TODO consider splitting into several modules including `foundation`, `ui`, etc. (#45)
+include("common")
 include("material-icons:core")
 include("material-icons:extended")
-include("material2") // components broken with KMDC's old Kotlin and Compose dependencies, kept for reference purposes, not published
+include("material2")
 include("material3")
 include("navigation")
 include("lifecycle-viewmodel")
@@ -15,25 +25,3 @@ fun ProjectDescriptor.setProjectConcatenatedNames(prefix: String) {
         child.setProjectConcatenatedNames("$name-")
 }
 rootProject.setProjectConcatenatedNames("")
-
-/*
-// This seems not needed.
-pluginManagement {
-    repositories {
-        //mavenLocal()
-        gradlePluginPortal()
-        google()
-        mavenCentral()
-    }
-}
-*/
-
-// This is needed for Kotlin Native.
-dependencyResolutionManagement {
-    @Suppress("UnstableApiUsage")
-    repositories {
-        mavenLocal()
-        mavenCentral()
-        google()
-    }
-}
