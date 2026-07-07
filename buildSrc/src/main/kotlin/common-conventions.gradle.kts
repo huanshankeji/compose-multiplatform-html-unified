@@ -1,3 +1,4 @@
+import com.huanshankeji.gitversioning.projectVersionFromGitProvider
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 
@@ -12,6 +13,8 @@ repositories {
     mavenCentral()
     google()
 }
+
+version = projectVersionFromGitProvider(projectBaseVersion).get()
 
 kotlin {
     jvm()
