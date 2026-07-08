@@ -10,7 +10,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Enable `com.huanshankeji.base-settings-conventions` from gradle-common's thin `:kotlin-common-settings-gradle-plugins` module (replaces direct Foojay application and the temporary workaround).
-- Pin gradle-common to `0.12.0-dev-commit-55b05c18844ec9f2326792a8f473a53d9d142d68` (huanshankeji/gradle-common#71).
+- Update gradle-common dependency coordinates to the reorganized artifact IDs (`kotlin-common-project-gradle-plugins`, `com.huanshankeji.team:project-gradle-plugins`).
+- Pin gradle-common to `0.12.0-dev-commit-886b259d9654fe9dc5907bea75a622439b08c83a` (huanshankeji/gradle-common#71).
 
 ## [0.6.0] - 2026-03-31
 

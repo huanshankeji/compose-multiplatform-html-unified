@@ -11,7 +11,7 @@ pluginManagement {
                 maven {
                     // Resolves gradle-common plugins when they are not in mavenLocal().
                     // Mirrors gradle-common credential resolution; its APIs cannot be called from settings.gradle.kts:
-                    // https://github.com/huanshankeji/gradle-common/blob/main/kotlin-common-gradle-plugins/src/main/kotlin/com/huanshankeji/github/packages/maven/GithubPackagesMavenRegistry.kt
+                    // https://github.com/huanshankeji/gradle-common/blob/main/kotlin-common/project-gradle-plugins/src/main/kotlin/com/huanshankeji/github/packages/maven/GithubPackagesMavenRegistry.kt
                     url = uri("https://maven.pkg.github.com/huanshankeji/gradle-common")
                     credentials {
                         with(providers) {
@@ -30,7 +30,7 @@ pluginManagement {
 
 plugins {
     id("com.huanshankeji.base-settings-conventions") version
-        "0.12.0-dev-commit-55b05c18844ec9f2326792a8f473a53d9d142d68"
+        "0.12.0-dev-commit-886b259d9654fe9dc5907bea75a622439b08c83a"
 }
 
 apply(from = "gradle/dependency-repositories.gradle.kts")
