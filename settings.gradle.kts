@@ -29,12 +29,8 @@ pluginManagement {
 }
 
 plugins {
-    // `base-settings-conventions` is disabled: resolving it pulls gradle-common settings plugins
-    // that depend on Gradle 9.6 APIs, which breaks AGP 8.13.x on Gradle 9.6+ until AGP is upgraded.
-    // Stay on Gradle 9.5.1 and apply Foojay directly until then.
-    // id("com.huanshankeji.base-settings-conventions") version
-    //     "0.12.0-dev-commit-99eef7d1f0a66457d59584439a68fd3cf5cac1cb"
-    id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
+    id("com.huanshankeji.base-settings-conventions") version
+        "0.12.0-dev-commit-55b05c18844ec9f2326792a8f473a53d9d142d68"
 }
 
 apply(from = "gradle/dependency-repositories.gradle.kts")

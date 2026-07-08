@@ -4,7 +4,7 @@ import org.jetbrains.compose.ComposeBuildConfig
 val projectBaseVersion = "0.6.0"
 
 val gradleCommonPluginsVersion =
-    "0.12.0-dev-commit-99eef7d1f0a66457d59584439a68fd3cf5cac1cb"
+    "0.12.0-dev-commit-55b05c18844ec9f2326792a8f473a53d9d142d68"
 
 val commonDependencies = CommonDependencies()
 
