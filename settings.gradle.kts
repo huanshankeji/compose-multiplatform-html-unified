@@ -11,7 +11,7 @@ pluginManagement {
                 maven {
                     // Resolves gradle-common plugins when they are not in mavenLocal().
                     // Mirrors gradle-common credential resolution; its APIs cannot be called from settings.gradle.kts:
-                    // https://github.com/huanshankeji/gradle-common/blob/main/kotlin-common/project-gradle-plugins/src/main/kotlin/com/huanshankeji/github/packages/maven/GithubPackagesMavenRegistry.kt
+                    // https://github.com/huanshankeji/gradle-common/blob/main/kotlin-common/gradle-library/src/main/kotlin/com/huanshankeji/github/packages/maven/GithubPackagesMavenRegistry.kt
                     url = uri("https://maven.pkg.github.com/huanshankeji/gradle-common")
                     credentials {
                         with(providers) {
@@ -29,11 +29,18 @@ pluginManagement {
 }
 
 plugins {
-    id("com.huanshankeji.base-settings-conventions") version
-        "0.12.0-dev-commit-886b259d9654fe9dc5907bea75a622439b08c83a"
+    val gradleCommonPluginsVersion =
+        "0.12.0-dev-commit-3cea14e1372c03acedfe3dda0079095cdc5ccf11"
+    id("com.huanshankeji.base-settings-conventions") version gradleCommonPluginsVersion
+    id("com.huanshankeji.team.gitversioning.public-open-source-dependency-repositories") version gradleCommonPluginsVersion
 }
 
-apply(from = "gradle/dependency-repositories.gradle.kts")
+publicOpenSourceDependencyRepositories {
+    google()
+    huanshankejiMavenLocal()
+    githubPackages("compose-html-material")
+    mavenCentralExcludingHuanshankejiNonStable()
+}
 
 rootProject.name = "compose-multiplatform-html-unified"
 

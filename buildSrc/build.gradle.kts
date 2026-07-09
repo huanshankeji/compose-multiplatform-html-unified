@@ -9,7 +9,7 @@ repositories {
 }
 
 val gradleCommonPluginsVersion =
-    "0.12.0-dev-commit-886b259d9654fe9dc5907bea75a622439b08c83a"
+    "0.12.0-dev-commit-3cea14e1372c03acedfe3dda0079095cdc5ccf11"
 
 dependencies {
     implementation(kotlin("gradle-plugin", "2.4.0"))
