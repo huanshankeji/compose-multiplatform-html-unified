@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Enable `com.huanshankeji.base-settings-conventions` and `com.huanshankeji.team.gitversioning.public-open-source-dependency-repositories` from gradle-common's thin settings modules.
+- Update gradle-common dependency coordinates to the reorganized artifact IDs (`kotlin-common-project-gradle-plugins`, `com.huanshankeji.team:project-gradle-plugins`).
+- Pin gradle-common to `0.12.0-dev-commit-3cea14e1372c03acedfe3dda0079095cdc5ccf11` (huanshankeji/gradle-common#71).
+
 ## [0.6.0] - 2026-03-31
 
 ### Added

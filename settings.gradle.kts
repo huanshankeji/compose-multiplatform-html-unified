@@ -11,7 +11,7 @@ pluginManagement {
                 maven {
                     // Resolves gradle-common plugins when they are not in mavenLocal().
                     // Mirrors gradle-common credential resolution; its APIs cannot be called from settings.gradle.kts:
-                    // https://github.com/huanshankeji/gradle-common/blob/main/kotlin-common-gradle-plugins/src/main/kotlin/com/huanshankeji/github/packages/maven/GithubPackagesMavenRegistry.kt
+                    // https://github.com/huanshankeji/gradle-common/blob/main/kotlin-common/gradle-library/src/main/kotlin/com/huanshankeji/github/packages/maven/GithubPackagesMavenRegistry.kt
                     url = uri("https://maven.pkg.github.com/huanshankeji/gradle-common")
                     credentials {
                         with(providers) {
@@ -29,11 +29,8 @@ pluginManagement {
 }
 
 plugins {
-    // Resolving these plugins pulls gradle-common settings plugins
-    // that depend on Gradle 9.6 APIs, which breaks AGP 8.13.x on Gradle 9.6+ until AGP is upgraded.
-    // Stay on Gradle 9.5.1 and apply Foojay directly until then.
     val gradleCommonPluginsVersion =
-        "0.12.0-dev-commit-948dfb3cd06e16ccd15ab9c8fc37a78826cfba87"
+        "0.12.0-dev-commit-3cea14e1372c03acedfe3dda0079095cdc5ccf11"
     id("com.huanshankeji.base-settings-conventions") version gradleCommonPluginsVersion
     id("com.huanshankeji.team.gitversioning.public-open-source-dependency-repositories") version gradleCommonPluginsVersion
 }
