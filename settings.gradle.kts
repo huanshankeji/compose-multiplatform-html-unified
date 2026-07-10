@@ -29,16 +29,15 @@ pluginManagement {
 }
 
 plugins {
-    val gradleCommonPluginsVersion = "0.12.0-dev-commit-f15a12dc7b88c26b01f44a54b0e2291b1c41f80e"
+    val gradleCommonPluginsVersion = "0.12.0-dev-commit-916286b26dcfaec3636e27447385c96da6d8ca92"
     id("com.huanshankeji.base-settings-conventions") version gradleCommonPluginsVersion
     id("com.huanshankeji.team.gitversioning.public-open-source-dependency-repositories") version gradleCommonPluginsVersion
 }
 
 publicOpenSourceDependencyRepositories {
+    mavenCentralExcludingHuanshankeji()
     google()
-    huanshankejiMavenLocal()
     githubPackages("compose-html-material")
-    mavenCentralExcludingHuanshankejiNonStable()
 }
 
 rootProject.name = "compose-multiplatform-html-unified"
