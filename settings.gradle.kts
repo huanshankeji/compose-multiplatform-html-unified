@@ -1,3 +1,10 @@
+@file:OptIn(com.huanshankeji.GradleCommonExperimentalApi::class)
+
+import com.huanshankeji.artifacts.googleWithContentFiltering
+import com.huanshankeji.artifacts.mavenRepositoryHandlerContext
+import com.huanshankeji.team.artifacts.mavenCentralExcludingHuanshankeji
+import com.huanshankeji.team.gitversioning.opensourcemavenconvention.githubpackages.huanshankejiGithubPackagesOpenSourceMavenConventionProjectRepositories
+
 pluginManagement {
     repositories {
         gradlePluginPortal()
@@ -21,22 +28,39 @@ pluginManagement {
                 }
             }
             filter {
-                includeVersionByRegex("com\\.huanshankeji", ".*", ".*-dev-commit-[0-9a-f]+.*")
+                includeVersionByRegex("""com\.huanshankeji(\..+)?""", ".*", """.*-dev-commit-[0-9a-f]+.*""")
             }
         }
     }
 }
 
-plugins {
-    val gradleCommonPluginsVersion = "0.12.0-dev-commit-ac3e42c6941a896568c6eab78cfbb9c9f0ce50bf"
-    id("com.huanshankeji.base-settings-conventions") version gradleCommonPluginsVersion
-    id("com.huanshankeji.team.gitversioning.public-open-source-dependency-repositories") version gradleCommonPluginsVersion
+buildscript {
+    val gradleCommonPluginsVersion =
+        "0.12.0-dev-commit-656d3d5f54d76c571b79f96ecc236cb54b013f50"
+    dependencies {
+        classpath("com.huanshankeji.team:settings-gradle-plugins:$gradleCommonPluginsVersion")
+    }
 }
 
-publicOpenSourceDependencyRepositories {
-    mavenCentralExcludingHuanshankeji()
-    google()
-    githubPackages("compose-html-material")
+plugins {
+    val gradleCommonPluginsVersion =
+        "0.12.0-dev-commit-656d3d5f54d76c571b79f96ecc236cb54b013f50"
+    id("com.huanshankeji.base-settings-conventions") version gradleCommonPluginsVersion
+}
+
+@Suppress("UnstableApiUsage")
+dependencyResolutionManagement {
+    repositories {
+        mavenCentralExcludingHuanshankeji()
+        googleWithContentFiltering()
+        mavenRepositoryHandlerContext(providers, ::uri) {
+            // compose-html-material also publishes compose-html-common / compose-html-material*
+            huanshankejiGithubPackagesOpenSourceMavenConventionProjectRepositories(
+                "compose-html-material",
+                moduleRegex = """compose-html-.*""",
+            )
+        }
+    }
 }
 
 rootProject.name = "compose-multiplatform-html-unified"
