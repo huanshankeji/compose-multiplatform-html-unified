@@ -9,11 +9,6 @@ plugins {
     id("org.jetbrains.compose")
 }
 
-repositories {
-    mavenCentral()
-    google()
-}
-
 version = projectVersionFromGitProvider(projectBaseVersion).get()
 
 kotlin {
