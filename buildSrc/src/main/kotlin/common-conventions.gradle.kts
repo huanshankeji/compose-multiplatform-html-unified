@@ -9,7 +9,7 @@ plugins {
     id("org.jetbrains.compose")
 }
 
-version = projectVersionFromGitProvider(projectBaseVersion).get()
+version = providers.projectVersionFromGitProvider(projectBaseVersion).get()
 
 kotlin {
     jvm()
