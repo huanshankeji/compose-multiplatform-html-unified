@@ -3,7 +3,7 @@ import com.huanshankeji.team.ShreckYe
 import com.huanshankeji.team.setUpPomForTeamDefaultOpenSource
 
 plugins {
-    `lib-conventions`
+    `lib-conventions-without-abi-validation`
 }
 
 kotlin {
