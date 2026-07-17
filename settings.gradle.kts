@@ -1,5 +1,6 @@
 @file:OptIn(com.huanshankeji.GradleCommonExperimentalApi::class)
 
+import com.huanshankeji.setProjectConcatenatedNames
 import com.huanshankeji.artifacts.googleWithContentFiltering
 import com.huanshankeji.artifacts.mavenRepositoryHandlerContext
 import com.huanshankeji.team.artifacts.mavenCentralExcludingHuanshankeji
@@ -48,9 +49,4 @@ include("navigation")
 include("lifecycle-viewmodel")
 include("demo")
 
-fun ProjectDescriptor.setProjectConcatenatedNames(prefix: String) {
-    name = prefix + name
-    for (child in children)
-        child.setProjectConcatenatedNames("$name-")
-}
-rootProject.setProjectConcatenatedNames("")
+setProjectConcatenatedNames()
