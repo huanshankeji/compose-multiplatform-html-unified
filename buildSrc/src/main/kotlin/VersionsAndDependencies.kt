@@ -2,6 +2,7 @@ import com.huanshankeji.CommonDependencies
 import org.jetbrains.compose.ComposeBuildConfig
 
 val projectBaseVersion = "0.6.0"
+val isRelease = false
 
 val commonDependencies = CommonDependencies()
 

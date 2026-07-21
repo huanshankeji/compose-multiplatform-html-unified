@@ -1,4 +1,4 @@
-import com.huanshankeji.gitversioning.devCommitVersionProvider
+import com.huanshankeji.gitversioning.devCommitOrReleaseVersionProvider
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 
@@ -9,7 +9,7 @@ plugins {
     id("org.jetbrains.compose")
 }
 
-version = providers.devCommitVersionProvider(projectBaseVersion).get()
+version = providers.devCommitOrReleaseVersionProvider(projectBaseVersion, isRelease).get()
 
 kotlin {
     jvm()

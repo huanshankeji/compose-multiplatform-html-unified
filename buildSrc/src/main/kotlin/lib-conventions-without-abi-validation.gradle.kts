@@ -1,7 +1,10 @@
 plugins {
     id("lib-conventions-without-publishing")
     id("com.huanshankeji.team.with-group")
-    id("com.huanshankeji.team.github.packages.maven.publish")
+    id("com.huanshankeji.team.gitversioning.opensourceconvention.githubpackages.publish")
     id("dokka-convention")
-    id("com.huanshankeji.maven-central-publish-conventions")
+}
+
+gitVersioningOpenSourceConventionGithubPackagesPublish {
+    signAllPublicationsIfRelease(isRelease)
 }
