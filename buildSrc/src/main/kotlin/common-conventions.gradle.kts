@@ -12,8 +12,12 @@ plugins {
 version = providers.devCommitOrReleaseVersionProvider(projectBaseVersion, isRelease).get()
 
 kotlin {
-    jvm()
+    // for Compose UI
+
+    jvm() // TODO: `jvm("desktop")`?
     jvmToolchain(17)
+
+    //androidTarget()
 
     iosArm64()
     iosSimulatorArm64()
@@ -23,13 +27,19 @@ kotlin {
         browser()
     }
 
+
+    // for JS and HTML wrappers
+
     js {
+        // The project works without this, but it can be added to avoid potential issues.
         browser()
 
         compilerOptions {
             target.set("es2015")
         }
     }
+
+
 
     @OptIn(ExperimentalKotlinGradlePluginApi::class)
     applyDefaultHierarchyTemplate {
@@ -42,6 +52,8 @@ kotlin {
             }
         }
     }
+
+
 
     compilerOptions {
         freeCompilerArgs.add("-Xexpect-actual-classes")

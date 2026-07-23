@@ -7,6 +7,15 @@ kotlin {
     androidTarget {
         publishLibraryVariants("release", "debug")
     }
+
+    /*
+    sourceSets {
+        val composeUiMain by creating { dependsOn(commonMain.get()) }
+        jvmMain { dependsOn(composeUiMain) }
+        iosMain { dependsOn(composeUiMain) }
+        named("wasmJsMain") { dependsOn(composeUiMain) }
+    }
+    */
 }
 
 android {
