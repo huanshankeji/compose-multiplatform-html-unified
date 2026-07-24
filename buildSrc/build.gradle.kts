@@ -1,5 +1,3 @@
-import org.gradle.api.artifacts.dsl.RepositoryHandler
-
 plugins {
     `kotlin-dsl`
 }
@@ -16,10 +14,10 @@ dependencies {
     implementation(kotlin("gradle-plugin", kotlinVersion))
     implementation("org.jetbrains.kotlin:compose-compiler-gradle-plugin:$kotlinVersion")
     implementation("org.jetbrains.compose:compose-gradle-plugin:1.10.3")
+    implementation("com.huanshankeji:common-gradle-dependencies:0.10.0-20251024")
     implementation("com.huanshankeji.team:project-gradle-plugins:$gradleCommonPluginsVersion")
     // https://developer.android.com/build/releases/gradle-plugin, https://mvnrepository.com/artifact/com.android.tools.build/gradle
     implementation("com.android.tools.build:gradle:8.13.2")
-    implementation("com.huanshankeji:common-gradle-dependencies:0.10.0-20251024")
 }
 
 /*
