@@ -1,5 +1,10 @@
+import org.jetbrains.kotlin.gradle.dsl.abi.ExperimentalAbiValidation
+
 plugins {
-    id("lib-conventions-without-publishing")
-    id("dokka-convention")
-    id("com.huanshankeji.maven-central-publish-conventions")
+    id("lib-conventions-without-abi-validation")
+}
+
+kotlin {
+    @OptIn(ExperimentalAbiValidation::class)
+    abiValidation()
 }

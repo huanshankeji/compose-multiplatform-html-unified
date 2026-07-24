@@ -1,30 +1,13 @@
 import org.jetbrains.dokka.gradle.tasks.DokkaGeneratePublicationTask
 
-tasks.wrapper {
-    distributionType = Wrapper.DistributionType.ALL
-}
-
 plugins {
-    id("org.jetbrains.kotlinx.binary-compatibility-validator") version "0.18.1"
     id("org.jetbrains.dokka")
+    id("com.huanshankeji.root-project-conventions")
 }
 
 val rootProjectName = rootProject.name
 val demoProjectName = "$rootProjectName-demo"
 val demoProject = project(demoProjectName)
-
-apiValidation {
-    @OptIn(kotlinx.validation.ExperimentalBCVApi::class)
-    klib {
-        enabled = true
-    }
-
-    ignoredProjects += listOf(
-        demoProjectName,
-        "$rootProjectName-material-icons-core",
-        "$rootProjectName-material-icons-extended",
-    )
-}
 
 dependencies {
     subprojects.filter { it.name != demoProjectName && it.buildFile.exists() }.forEach {

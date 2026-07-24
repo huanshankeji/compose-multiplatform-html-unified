@@ -1,20 +1,15 @@
+import com.huanshankeji.gitversioning.devCommitOrReleaseVersionProvider
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 
 plugins {
+    id("com.huanshankeji.team.with-group")
     kotlin("multiplatform")
     kotlin("plugin.compose")
     id("org.jetbrains.compose")
 }
 
-repositories {
-    mavenLocal() // TODO comment out when not needed so the build is always reproducible by others
-    mavenCentral()
-    google()
-}
-
-group = "com.huanshankeji"
-version = projectVersion
+version = providers.devCommitOrReleaseVersionProvider(projectBaseVersion, isRelease).get()
 
 kotlin {
     // for Compose UI

@@ -2,20 +2,31 @@ plugins {
     `kotlin-dsl`
 }
 
-repositories {
-    mavenLocal() // TODO comment out when not needed so the build is always reproducible by others
-    gradlePluginPortal()
-    google()
-    mavenCentral()
-}
+apply(from = "../gradle/classpath-bootstrap.gradle.kts")
+@Suppress("UNCHECKED_CAST")
+(extra["repositories"] as RepositoryHandler.() -> Unit)(repositories)
+
+
+val kotlinVersion = "2.4.0"
+val gradleCommonPluginsVersion = extra["gradleCommonPluginsVersion"]
 
 dependencies {
-    val kotlinVersion = "2.3.20"
     implementation(kotlin("gradle-plugin", kotlinVersion))
     implementation("org.jetbrains.kotlin:compose-compiler-gradle-plugin:$kotlinVersion")
     implementation("org.jetbrains.compose:compose-gradle-plugin:1.10.3")
-    implementation("com.huanshankeji.team:gradle-plugins:0.11.0") // don't use a snapshot version in a main branch
+    implementation("com.huanshankeji:common-gradle-dependencies:0.10.0-20251024")
+    implementation("com.huanshankeji.team:project-gradle-plugins:$gradleCommonPluginsVersion")
     // https://developer.android.com/build/releases/gradle-plugin, https://mvnrepository.com/artifact/com.android.tools.build/gradle
     implementation("com.android.tools.build:gradle:8.13.2")
-    implementation("com.huanshankeji:common-gradle-dependencies:0.10.0-20251024") // don't use a snapshot version in a main branch
 }
+
+/*
+kotlin {
+    compilerOptions {
+        optIn.addAll(
+            "com.huanshankeji.GradleCommonExperimentalApi",
+        )
+        //freeCompilerArgs.add("-Xcontext-parameters")
+    }
+}
+*/

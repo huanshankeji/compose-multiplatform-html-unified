@@ -148,7 +148,9 @@ public final class com/huanshankeji/compose/foundation/layout/Arrangement$Horizo
 }
 
 public abstract interface class com/huanshankeji/compose/foundation/layout/Arrangement$HorizontalOrVertical : com/huanshankeji/compose/foundation/layout/Arrangement$Horizontal, com/huanshankeji/compose/foundation/layout/Arrangement$Vertical {
+	public synthetic fun getPlatformValue ()Landroidx/compose/foundation/layout/Arrangement$Horizontal;
 	public abstract fun getPlatformValue ()Landroidx/compose/foundation/layout/Arrangement$HorizontalOrVertical;
+	public synthetic fun getPlatformValue ()Landroidx/compose/foundation/layout/Arrangement$Vertical;
 }
 
 public final class com/huanshankeji/compose/foundation/layout/Arrangement$HorizontalOrVertical$Impl : com/huanshankeji/compose/foundation/layout/Arrangement$HorizontalOrVertical {
