@@ -1,5 +1,6 @@
 plugins {
     id("common-conventions")
+    id("com.huanshankeji.kotlin-multiplatform-conventional-targets")
     id("com.android.library")
 }
 

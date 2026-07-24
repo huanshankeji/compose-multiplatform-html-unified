@@ -3,8 +3,6 @@ import org.jetbrains.dokka.gradle.tasks.DokkaGeneratePublicationTask
 plugins {
     id("org.jetbrains.dokka")
     id("com.huanshankeji.root-project-conventions")
-    id("com.android.library") apply false
-    id("com.android.application") apply false
 }
 
 val rootProjectName = rootProject.name
