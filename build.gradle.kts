@@ -6,11 +6,12 @@ plugins {
 }
 
 val rootProjectName = rootProject.name
-val demoProjectName = "$rootProjectName-demo"
-val demoProject = project(demoProjectName)
+val nonLibraryProjectNameSuffixes = setOf("demo", "androidApp", "desktopApp", "webApp")
+val nonLibraryProjectNames = nonLibraryProjectNameSuffixes.map { "$rootProjectName-$it" }.toSet()
+val webAppProject = project("$rootProjectName-webApp")
 
 dependencies {
-    subprojects.filter { it.name != demoProjectName && it.buildFile.exists() }.forEach {
+    subprojects.filter { it.name !in nonLibraryProjectNames && it.buildFile.exists() }.forEach {
         dokka(it)
     }
 }
@@ -24,7 +25,7 @@ tasks.register<Sync>("generateSite") {
     from(dokkaGeneratePublicationHtml) {
         into("api-documentation")
     }
-    from(demoProject.tasks.named("sideBySideBrowserDistribution")) {
+    from(webAppProject.tasks.named("sideBySideBrowserDistribution")) {
         into("demo")
     }
     from(layout.projectDirectory.dir("site"))

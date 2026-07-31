@@ -1,6 +1,7 @@
 import com.huanshankeji.gitversioning.devCommitOrReleaseVersionProvider
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
+import org.jetbrains.kotlin.gradle.plugin.KotlinPlatformType
 
 plugins {
     id("com.huanshankeji.team.with-group")
@@ -16,8 +17,6 @@ kotlin {
 
     jvm() // TODO: `jvm("desktop")`?
     jvmToolchain(17)
-
-    //androidTarget()
 
     iosArm64()
     iosSimulatorArm64()
@@ -46,7 +45,8 @@ kotlin {
         common {
             group("composeUi") {
                 withJvm()
-                withAndroidTarget()
+                // New AGP KMP Android target is not a KotlinAndroidTarget; withAndroidTarget() does not match it.
+                withCompilations { it.platformType == KotlinPlatformType.androidJvm }
                 group("ios")
                 withWasmJs()
             }

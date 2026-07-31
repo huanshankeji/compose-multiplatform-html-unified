@@ -1,13 +1,16 @@
 import com.huanshankeji.cpnProject
-import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 
 plugins {
     `common-conventions`
-    id("com.android.application")
+    id("com.android.kotlin.multiplatform.library")
 }
 
 kotlin {
-    androidTarget()
+    android {
+        namespace = defaultAndroidNamespace()
+        compileSdk = androidSdkVersion
+        minSdk = androidMinSdkVersion
+    }
 
     listOf(
         iosArm64(),
@@ -19,34 +22,10 @@ kotlin {
         }
     }
 
-    val outputFileName = "app.js"
-
-    @OptIn(ExperimentalWasmDsl::class)
-    wasmJs {
-        browser {
-            commonWebpackConfig {
-                this.outputFileName = outputFileName
-            }
-        }
-        binaries.executable()
-    }
-
-    js {
-        browser {
-            commonWebpackConfig {
-                cssSupport { enabled.set(true) }
-                scssSupport { enabled.set(true) }
-                this.outputFileName = outputFileName
-            }
-        }
-        binaries.executable()
-    }
-
     sourceSets {
         commonMain {
             dependencies {
                 implementation(compose.runtime)
-                //implementation(cpnProject(project, ":material2"))
                 implementation(cpnProject(project, ":material3"))
                 implementation(cpnProject(project, ":material-icons:extended"))
                 implementation(cpnProject(project, ":navigation"))
@@ -62,69 +41,10 @@ kotlin {
                 implementation(compose.ui)
             }
         }
-        jvmMain {
-            dependencies {
-                implementation(compose.desktop.currentOs)
-            }
-        }
-        androidMain {
-            dependencies {
-                implementation(commonDependencies.androidx.activity.compose())
-                implementation(commonDependencies.androidx.compose.ui.module("tooling-preview"))
-            }
-        }
         jsMain {
             dependencies {
                 implementation(compose.html.core)
-                implementation(npm("material-symbols", DependencyVersions.materialSymbols))
             }
         }
     }
-}
-
-val `package` = "$group.compose.material.demo"
-
-compose {
-    desktop {
-        application {
-            mainClass = "$`package`.MainKt"
-        }
-    }
-}
-
-android {
-    namespace = `package`
-
-    val sdk = androidSdkVersion
-    compileSdk = sdk
-
-    defaultConfig {
-        applicationId = `package`
-        minSdk = 24
-        targetSdk = sdk
-        versionName = version as String
-    }
-
-    buildFeatures {
-        compose = true
-    }
-    dependencies {
-        debugImplementation(compose.uiTooling)
-    }
-}
-
-val jsBrowserDistribution by tasks.getting(Sync::class)
-val wasmJsBrowserDistribution by tasks.getting(Sync::class)
-
-tasks.register<Sync>("sideBySideBrowserDistribution") {
-    group = "kotlin browser"
-
-    into(layout.buildDirectory.dir("dist/sideBySide/productionExecutable"))
-    from(jsBrowserDistribution) {
-        into("js-dom")
-    }
-    from(wasmJsBrowserDistribution) {
-        into("wasm-js-canvas")
-    }
-    from(projectDir.resolve("side-by-side-site"))
 }

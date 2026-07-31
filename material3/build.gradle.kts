@@ -4,16 +4,9 @@ import com.huanshankeji.team.setUpPomForTeamDefaultOpenSource
 
 plugins {
     `lib-conventions`
-    //id("com.android.library")
 }
 
 kotlin {
-    /*
-    androidTarget {
-        publishLibraryVariants("release", "debug")
-    }
-    */
-
     sourceSets {
         /*
         Use `api`. See:

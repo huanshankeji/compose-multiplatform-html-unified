@@ -48,5 +48,8 @@ include("material3")
 include("navigation")
 include("lifecycle-viewmodel")
 include("demo")
+include("androidApp")
+include("desktopApp")
+include("webApp")
 
 setProjectConcatenatedNames()
