@@ -59,19 +59,3 @@ kotlin {
         }
     }
 }
-
-val jsBrowserDistribution by tasks.getting(Sync::class)
-val wasmJsBrowserDistribution by tasks.getting(Sync::class)
-
-tasks.register<Sync>("sideBySideBrowserDistribution") {
-    group = "kotlin browser"
-
-    into(layout.buildDirectory.dir("dist/sideBySide/productionExecutable"))
-    from(jsBrowserDistribution) {
-        into("js-dom")
-    }
-    from(wasmJsBrowserDistribution) {
-        into("wasm-js-canvas")
-    }
-    from(projectDir.resolve("side-by-side-site"))
-}

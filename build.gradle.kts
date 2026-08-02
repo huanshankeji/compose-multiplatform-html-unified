@@ -7,7 +7,6 @@ plugins {
 }
 
 val demoProject = project(getConcatenatedProjectNamePath(":demo"))
-val demoWebAppProject = project(getConcatenatedProjectNamePath(":demo:webApp"))
 
 dependencies {
     subprojects.filter { it !in demoProject.allprojects && it.buildFile.exists() }.forEach {
@@ -24,7 +23,7 @@ tasks.register<Sync>("generateSite") {
     from(dokkaGeneratePublicationHtml) {
         into("api-documentation")
     }
-    from(demoWebAppProject.tasks.named("sideBySideBrowserDistribution")) {
+    from(demoProject.tasks.named("sideBySideBrowserDistribution")) {
         into("demo")
     }
     from(layout.projectDirectory.dir("site"))
