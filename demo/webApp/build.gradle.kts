@@ -40,13 +40,13 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                implementation(cpnProject(project, ":demo"))
+                implementation(cpnProject(project, ":demo:shared"))
                 implementation(compose.runtime)
             }
         }
         jsMain {
             dependencies {
-                // Entry point uses APIs from `:common` that are not re-exported by `:demo`.
+                // Entry point uses APIs from `:common` that are not re-exported by `:demo:shared`.
                 implementation(cpnProject(project, ":common"))
                 implementation(compose.html.core)
                 implementation(npm("material-symbols", DependencyVersions.materialSymbols))

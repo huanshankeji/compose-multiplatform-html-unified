@@ -6,9 +6,9 @@ plugins {
 }
 
 val rootProjectName = rootProject.name
-val nonLibraryProjectNameSuffixes = setOf("demo", "androidApp", "desktopApp", "webApp")
+val nonLibraryProjectNameSuffixes = setOf("demo", "demo-shared", "demo-androidApp", "demo-desktopApp", "demo-webApp")
 val nonLibraryProjectNames = nonLibraryProjectNameSuffixes.map { "$rootProjectName-$it" }.toSet()
-val webAppProject = project("$rootProjectName-webApp")
+val webAppProject = project(":$rootProjectName-demo:$rootProjectName-demo-webApp")
 
 dependencies {
     subprojects.filter { it.name !in nonLibraryProjectNames && it.buildFile.exists() }.forEach {

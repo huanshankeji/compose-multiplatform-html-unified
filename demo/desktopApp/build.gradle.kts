@@ -15,7 +15,7 @@ kotlin {
 }
 
 dependencies {
-    implementation(cpnProject(project, ":demo"))
+    implementation(cpnProject(project, ":demo:shared"))
     implementation(compose.desktop.currentOs)
 }
 

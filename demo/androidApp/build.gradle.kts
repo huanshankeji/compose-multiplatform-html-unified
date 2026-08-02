@@ -29,7 +29,7 @@ android {
 }
 
 dependencies {
-    implementation(cpnProject(project, ":demo"))
+    implementation(cpnProject(project, ":demo:shared"))
     implementation(commonDependencies.androidx.activity.compose())
     implementation(commonDependencies.androidx.compose.ui.module("tooling-preview"))
     debugImplementation(compose.uiTooling)
