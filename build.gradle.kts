@@ -1,3 +1,4 @@
+import com.huanshankeji.getConcatenatedProjectNamePath
 import org.jetbrains.dokka.gradle.tasks.DokkaGeneratePublicationTask
 
 plugins {
@@ -5,13 +6,11 @@ plugins {
     id("org.jetbrains.dokka")
 }
 
-val rootProjectName = rootProject.name
-val nonLibraryProjectNameSuffixes = setOf("demo", "demo-shared", "demo-androidApp", "demo-desktopApp", "demo-webApp")
-val nonLibraryProjectNames = nonLibraryProjectNameSuffixes.map { "$rootProjectName-$it" }.toSet()
-val webAppProject = project(":$rootProjectName-demo:$rootProjectName-demo-webApp")
+val demoProject = project(getConcatenatedProjectNamePath(":demo"))
+val demoWebAppProject = project(getConcatenatedProjectNamePath(":demo:webApp"))
 
 dependencies {
-    subprojects.filter { it.name !in nonLibraryProjectNames && it.buildFile.exists() }.forEach {
+    subprojects.filter { it !in demoProject.allprojects && it.buildFile.exists() }.forEach {
         dokka(it)
     }
 }
@@ -25,7 +24,7 @@ tasks.register<Sync>("generateSite") {
     from(dokkaGeneratePublicationHtml) {
         into("api-documentation")
     }
-    from(webAppProject.tasks.named("sideBySideBrowserDistribution")) {
+    from(demoWebAppProject.tasks.named("sideBySideBrowserDistribution")) {
         into("demo")
     }
     from(layout.projectDirectory.dir("site"))
