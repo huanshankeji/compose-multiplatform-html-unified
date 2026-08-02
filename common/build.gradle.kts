@@ -1,7 +1,7 @@
+import com.android.build.api.withAndroid
 import com.huanshankeji.team.ShreckYe
 import com.huanshankeji.team.setUpPomForTeamDefaultOpenSource
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
-import org.jetbrains.kotlin.gradle.plugin.KotlinPlatformType
 
 plugins {
     `lib-conventions`
@@ -17,8 +17,8 @@ kotlin {
                     group("ios")
                     withWasmJs()
                 }
-                // New AGP KMP Android target is not a KotlinAndroidTarget; withAndroidTarget() does not match it.
-                withCompilations { it.platformType == KotlinPlatformType.androidJvm }
+                // KT-80409. Android Studio Android view still omits androidMain; Project view and navigation work.
+                withAndroid()
             }
         }
     }

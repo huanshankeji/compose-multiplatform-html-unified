@@ -1,7 +1,7 @@
+import com.android.build.api.withAndroid
 import com.huanshankeji.gitversioning.devCommitOrReleaseVersionProvider
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
-import org.jetbrains.kotlin.gradle.plugin.KotlinPlatformType
 
 plugins {
     id("com.huanshankeji.team.with-group")
@@ -46,8 +46,8 @@ kotlin {
         common {
             group("composeUi") {
                 withJvm()
-                // New AGP KMP Android target is not a KotlinAndroidTarget; withAndroidTarget() does not match it.
-                withCompilations { it.platformType == KotlinPlatformType.androidJvm }
+                // KT-80409. Android Studio Android view still omits androidMain; Project view and navigation work.
+                withAndroid()
                 group("ios")
                 withWasmJs()
             }
