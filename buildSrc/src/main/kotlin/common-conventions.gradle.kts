@@ -6,6 +6,7 @@ import org.jetbrains.kotlin.gradle.plugin.KotlinPlatformType
 plugins {
     id("com.huanshankeji.team.with-group")
     kotlin("multiplatform")
+    id("com.huanshankeji.kotlin-multiplatform-conventional-targets")
     kotlin("plugin.compose")
     id("org.jetbrains.compose")
 }

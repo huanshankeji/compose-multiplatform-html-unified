@@ -1,17 +1,10 @@
 import com.huanshankeji.cpnProject
 
 plugins {
-    `common-conventions`
-    id("com.android.kotlin.multiplatform.library")
+    `lib-conventions-without-publishing`
 }
 
 kotlin {
-    android {
-        namespace = defaultAndroidNamespace()
-        compileSdk = androidSdkVersion
-        minSdk = androidMinSdkVersion
-    }
-
     listOf(
         iosArm64(),
         iosSimulatorArm64()
