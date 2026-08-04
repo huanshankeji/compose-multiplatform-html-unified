@@ -1,4 +1,4 @@
-package com.huanshankeji.compose.material.demo
+package com.huanshankeji.compose.multiplatformhtmlunified.demo
 
 import com.huanshankeji.compose.ui.window.renderComposableInBodyWithViewModelStoreOwner
 
