@@ -1,3 +1,5 @@
+// This script is now only applied in `lib-conventions-without-publishing` now. Consider inlining and removing it if necessary.
+
 import com.android.build.api.withAndroid
 import com.huanshankeji.gitversioning.devCommitOrReleaseVersionProvider
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
