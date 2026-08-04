@@ -1,5 +1,5 @@
 plugins {
-    id("common-conventions")
+    id("multiplatform-conventions")
     id("com.android.kotlin.multiplatform.library")
 }
 

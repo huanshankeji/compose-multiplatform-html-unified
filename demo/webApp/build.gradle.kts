@@ -1,15 +1,10 @@
 import com.huanshankeji.cpnProject
-import com.huanshankeji.gitversioning.devCommitOrReleaseVersionProvider
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 
 plugins {
-    id("com.huanshankeji.team.with-group")
+    `base-conventions`
     kotlin("multiplatform")
-    kotlin("plugin.compose")
-    id("org.jetbrains.compose")
 }
-
-version = providers.devCommitOrReleaseVersionProvider(projectBaseVersion, isRelease).get()
 
 kotlin {
     jvmToolchain(17)

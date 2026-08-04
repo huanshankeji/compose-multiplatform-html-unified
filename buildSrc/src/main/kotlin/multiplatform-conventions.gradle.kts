@@ -1,19 +1,14 @@
 // This script is now only applied in `lib-conventions-without-publishing` now. Consider inlining and removing it if necessary.
 
 import com.android.build.api.withAndroid
-import com.huanshankeji.gitversioning.devCommitOrReleaseVersionProvider
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 
 plugins {
-    id("com.huanshankeji.team.with-group")
+    id("base-conventions")
     kotlin("multiplatform")
     id("com.huanshankeji.kotlin-multiplatform-conventional-targets")
-    kotlin("plugin.compose")
-    id("org.jetbrains.compose")
 }
-
-version = providers.devCommitOrReleaseVersionProvider(projectBaseVersion, isRelease).get()
 
 kotlin {
     // for Compose UI

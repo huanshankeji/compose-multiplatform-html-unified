@@ -1,16 +1,11 @@
 import com.huanshankeji.cpnProject
-import com.huanshankeji.gitversioning.devCommitOrReleaseVersionProvider
 
 plugins {
-    id("com.huanshankeji.team.with-group")
+    `base-conventions`
     id("com.android.application")
-    kotlin("plugin.compose")
-    id("org.jetbrains.compose")
 }
 
-version = providers.devCommitOrReleaseVersionProvider(projectBaseVersion, isRelease).get()
-
-val `package` = "$group.compose.material.demo"
+val `package` = demoPackage()
 
 android {
     namespace = `package`
