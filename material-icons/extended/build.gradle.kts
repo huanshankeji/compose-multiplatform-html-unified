@@ -24,6 +24,11 @@ kotlin {
             }
         }
     }
+
+    android {
+        // Sources share `…material.icons` with `:material-icons:core`; `.extended` keeps AGP namespaces unique.
+        namespace = "com.huanshankeji.compose.material.icons.extended"
+    }
 }
 
 mavenPublishing {

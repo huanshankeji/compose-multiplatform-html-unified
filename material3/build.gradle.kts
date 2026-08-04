@@ -4,16 +4,9 @@ import com.huanshankeji.team.setUpPomForTeamDefaultOpenSource
 
 plugins {
     `lib-conventions`
-    //id("com.android.library")
 }
 
 kotlin {
-    /*
-    androidTarget {
-        publishLibraryVariants("release", "debug")
-    }
-    */
-
     sourceSets {
         /*
         Use `api`. See:
@@ -46,6 +39,10 @@ kotlin {
                 implementation(compose.html.core)
             }
         }
+    }
+
+    android {
+        namespace = "com.huanshankeji.compose.material3"
     }
 
     compilerOptions {

@@ -1,23 +1,20 @@
-import com.huanshankeji.gitversioning.devCommitOrReleaseVersionProvider
+// This script is now only applied in `lib-conventions-without-publishing` now. Consider inlining and removing it if necessary.
+
+import com.android.build.api.withAndroid
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 
 plugins {
-    id("com.huanshankeji.team.with-group")
+    id("base-compose-conventions")
     kotlin("multiplatform")
-    kotlin("plugin.compose")
-    id("org.jetbrains.compose")
+    id("com.huanshankeji.kotlin-multiplatform-conventional-targets")
 }
-
-version = providers.devCommitOrReleaseVersionProvider(projectBaseVersion, isRelease).get()
 
 kotlin {
     // for Compose UI
 
     jvm() // TODO: `jvm("desktop")`?
     jvmToolchain(17)
-
-    //androidTarget()
 
     iosArm64()
     iosSimulatorArm64()
@@ -46,7 +43,8 @@ kotlin {
         common {
             group("composeUi") {
                 withJvm()
-                withAndroidTarget()
+                // KT-80409. Android Studio Android view still omits androidMain; Project view and navigation work.
+                withAndroid()
                 group("ios")
                 withWasmJs()
             }

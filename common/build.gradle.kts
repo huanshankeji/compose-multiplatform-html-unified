@@ -1,3 +1,4 @@
+import com.android.build.api.withAndroid
 import com.huanshankeji.team.ShreckYe
 import com.huanshankeji.team.setUpPomForTeamDefaultOpenSource
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
@@ -16,7 +17,8 @@ kotlin {
                     group("ios")
                     withWasmJs()
                 }
-                withAndroidTarget()
+                // KT-80409. Android Studio Android view still omits androidMain; Project view and navigation work.
+                withAndroid()
             }
         }
     }
@@ -68,6 +70,10 @@ kotlin {
                 implementation(commonDependencies.jetbrainsAndroidx.lifecycle.viewmodel())
             }
         }
+    }
+
+    android {
+        namespace = "com.huanshankeji.compose"
     }
 }
 

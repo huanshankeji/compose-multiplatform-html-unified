@@ -28,6 +28,10 @@ kotlin {
             }
         }
     }
+
+    android {
+        namespace = "com.huanshankeji.androidx.lifecycle.viewmodel.compose"
+    }
 }
 
 mavenPublishing {
