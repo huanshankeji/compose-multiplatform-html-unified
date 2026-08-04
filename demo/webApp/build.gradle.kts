@@ -36,14 +36,13 @@ kotlin {
         commonMain {
             dependencies {
                 implementation(cpnProject(project, ":demo:shared"))
-                implementation(compose.runtime)
             }
         }
+        // dep(s) kept here in the app module instead of in `shared`, following the AGP 9 KMP template and migration skill
         jsMain {
             dependencies {
-                // Entry point uses APIs from `:common` that are not re-exported by `:demo:shared`.
+                // Entry point uses `renderComposableInBodyWithViewModelStoreOwner` from `:common`, which is not re-exported by `:demo:shared`.
                 implementation(cpnProject(project, ":common"))
-                implementation(compose.html.core)
                 implementation(npm("material-symbols", DependencyVersions.materialSymbols))
             }
         }

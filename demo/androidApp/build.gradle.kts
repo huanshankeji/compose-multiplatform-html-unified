@@ -5,14 +5,20 @@ plugins {
     id("com.android.application")
 }
 
-val `package` = demoPackage()
+dependencies {
+    implementation(cpnProject(project, ":demo:shared"))
+    // dep(s) kept here in the app module instead of in `shared`, following the AGP 9 KMP template and migration skill
+    implementation(commonDependencies.androidx.activity.compose())
+    implementation(commonDependencies.androidx.compose.ui.module("tooling-preview"))
+    debugImplementation(compose.uiTooling)
+}
 
 android {
-    namespace = `package`
+    namespace = DEMO_PACKAGE
     compileSdk = androidSdkVersion
 
     defaultConfig {
-        applicationId = `package`
+        applicationId = DEMO_PACKAGE
         minSdk = androidMinSdkVersion
         targetSdk = androidSdkVersion
         versionName = version as String
@@ -21,11 +27,4 @@ android {
     buildFeatures {
         compose = true
     }
-}
-
-dependencies {
-    implementation(cpnProject(project, ":demo:shared"))
-    implementation(commonDependencies.androidx.activity.compose())
-    implementation(commonDependencies.androidx.compose.ui.module("tooling-preview"))
-    debugImplementation(compose.uiTooling)
 }
