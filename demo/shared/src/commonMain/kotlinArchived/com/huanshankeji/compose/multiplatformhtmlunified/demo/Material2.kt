@@ -1,4 +1,4 @@
-package com.huanshankeji.compose.material.demo
+package com.huanshankeji.compose.multiplatformhtmlunified.demo
 
 import androidx.compose.runtime.*
 import androidx.compose.ui.unit.dp

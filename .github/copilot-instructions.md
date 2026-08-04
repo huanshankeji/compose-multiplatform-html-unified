@@ -343,7 +343,7 @@ Before adding a new component to the demo or a new wrapper, always search the ex
 
 When adding a new component to the library, follow these additional steps:
 
-1. **Add to Demo**: Every new component **must** be added to the Material 3 demo page (`demo/src/commonMain/kotlin/com/huanshankeji/compose/material/demo/Material3.kt`). This serves as both a visual test and a usage example. Add a clearly labelled section with realistic usage.
+1. **Add to Demo**: Every new component **must** be added to the Material 3 demo page (`demo/shared/src/commonMain/kotlin/com/huanshankeji/compose/multiplatformhtmlunified/demo/Material3.kt`). This serves as both a visual test and a usage example. Add a clearly labelled section with realistic usage.
 
 2. **Visual Consistency**: After adding to the demo, compare the rendering between **Compose UI** (Wasm/JVM) and **JS DOM** platforms using the side-by-side demo (`./gradlew :compose-multiplatform-html-unified-demo:sideBySideBrowserDistribution`). Improve visual consistency as much as possible. Common areas to align:
    - Component sizing and spacing

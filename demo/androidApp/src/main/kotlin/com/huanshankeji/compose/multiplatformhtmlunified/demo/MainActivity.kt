@@ -1,4 +1,4 @@
-package com.huanshankeji.compose.material.demo
+package com.huanshankeji.compose.multiplatformhtmlunified.demo
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 #### Changed
 
+- Rename the demo module code package from `com.huanshankeji.compose.material.demo` to `com.huanshankeji.compose.multiplatformhtmlunified.demo` (#151).
 - Enable `com.huanshankeji.base-settings-conventions` and `com.huanshankeji.team.gitversioning.public-open-source-dependency-repositories` from gradle-common's thin settings modules.
 - Update gradle-common dependency coordinates to the reorganized artifact IDs (`kotlin-common-project-gradle-plugins`, `com.huanshankeji.team:project-gradle-plugins`).
 
