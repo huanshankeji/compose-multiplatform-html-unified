@@ -106,7 +106,7 @@
 
 ### Key Configuration Files
 - **buildSrc/src/main/kotlin/VersionsAndDependencies.kt**: All dependency versions
-- **buildSrc/src/main/kotlin/base-conventions.gradle.kts**: Shared base build configuration (group, Compose, version)
+- **buildSrc/src/main/kotlin/base-compose-conventions.gradle.kts**: Shared base Compose build configuration (group, Compose, version)
 - **buildSrc/src/main/kotlin/multiplatform-conventions.gradle.kts**: Shared KMP library build configuration
 - **buildSrc/src/main/kotlin/lib-conventions.gradle.kts**: Library-specific configuration
 - **gradle.properties**: JVM memory settings for Gradle (increase if OOM occurs) and Kotlin MPP configuration

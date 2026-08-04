@@ -2,7 +2,7 @@ import com.huanshankeji.cpnProject
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 
 plugins {
-    `base-conventions`
+    `base-compose-conventions`
     kotlin("multiplatform")
 }
 

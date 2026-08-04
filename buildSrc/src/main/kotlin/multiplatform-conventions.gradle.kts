@@ -5,7 +5,7 @@ import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 
 plugins {
-    id("base-conventions")
+    id("base-compose-conventions")
     kotlin("multiplatform")
     id("com.huanshankeji.kotlin-multiplatform-conventional-targets")
 }
