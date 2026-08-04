@@ -71,6 +71,10 @@ kotlin {
             }
         }
     }
+
+    android {
+        namespace = "com.huanshankeji.compose"
+    }
 }
 
 mavenPublishing {

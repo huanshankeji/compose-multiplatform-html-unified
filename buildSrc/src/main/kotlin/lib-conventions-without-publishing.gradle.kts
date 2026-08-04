@@ -5,7 +5,6 @@ plugins {
 
 kotlin {
     android {
-        namespace = defaultAndroidNamespace()
         compileSdk = androidSdkVersion
         minSdk = androidMinSdkVersion
     }

@@ -40,6 +40,10 @@ kotlin {
             }
         }
     }
+
+    android {
+        namespace = "com.huanshankeji.compose.material2"
+    }
 }
 
 /*

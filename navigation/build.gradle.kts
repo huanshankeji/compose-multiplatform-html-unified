@@ -30,6 +30,10 @@ kotlin {
             }
         }
     }
+
+    android {
+        namespace = "com.huanshankeji.androidx.navigation.compose"
+    }
 }
 
 mavenPublishing {

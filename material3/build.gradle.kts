@@ -41,6 +41,10 @@ kotlin {
         }
     }
 
+    android {
+        namespace = "com.huanshankeji.compose.material3"
+    }
+
     compilerOptions {
         optIn.add("com.huanshankeji.compose.html.material3.ExperimentalComposeHtmlMaterialApi")
         optIn.add("com.huanshankeji.compose.html.material3.maicol07.materialwebadditions.MaterialWebAdditionsApi")

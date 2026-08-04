@@ -41,4 +41,9 @@ kotlin {
             }
         }
     }
+
+    android {
+        // Sources use `DEMO_PACKAGE` like `:demo:androidApp`; `.shared` keeps AGP namespaces unique.
+        namespace = "$DEMO_PACKAGE.shared"
+    }
 }
