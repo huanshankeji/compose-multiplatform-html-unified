@@ -1,8 +1,9 @@
 import com.huanshankeji.cpnProject
 
 plugins {
-    `base-compose-conventions`
+    `base-conventions`
     kotlin("jvm")
+    `compose-multiplatform`
 }
 
 kotlin {

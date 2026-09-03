@@ -1,8 +1,15 @@
 import com.huanshankeji.CommonDependencies
+import com.huanshankeji.gitversioning.devCommitOrReleaseVersionProvider
+import org.gradle.api.provider.ProviderFactory
 import org.jetbrains.compose.ComposeBuildConfig
 
 val projectBaseVersion = "0.6.0"
 val isRelease = false
+
+fun ProviderFactory.projectVersion(): String =
+    devCommitOrReleaseVersionProvider(projectBaseVersion, isRelease).get()
+
+val androidVersionCode = 1
 
 val commonDependencies = CommonDependencies()
 

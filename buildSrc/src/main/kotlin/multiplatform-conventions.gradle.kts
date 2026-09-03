@@ -5,9 +5,9 @@ import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 
 plugins {
-    id("base-compose-conventions")
-    kotlin("multiplatform")
-    id("com.huanshankeji.kotlin-multiplatform-conventional-targets")
+    id("base-conventions")
+    id("com.huanshankeji.kotlin-multiplatform-conventional-targets") // kotlin("multiplatform")
+    id("compose-multiplatform")
 }
 
 kotlin {
@@ -30,10 +30,6 @@ kotlin {
     js {
         // The project works without this, but it can be added to avoid potential issues.
         browser()
-
-        compilerOptions {
-            target.set("es2015")
-        }
     }
 
 

@@ -1,8 +1,13 @@
 import com.huanshankeji.cpnProject
 
 plugins {
-    `base-compose-conventions`
+    /*
+    Per the Kotlin Multiplatform Wizard project template and Android conventions,
+    there is no need to apply the Compose Multiplatform plugin or set Gradle `group` and `version`
+    for an Android application module.
+    */
     id("com.android.application")
+    kotlin("plugin.compose")
 }
 
 dependencies {
@@ -10,7 +15,7 @@ dependencies {
     // dep(s) kept here in the app module instead of in `shared`, following the AGP 9 KMP template and migration skill
     implementation(commonDependencies.androidx.activity.compose())
     implementation(commonDependencies.androidx.compose.ui.module("tooling-preview"))
-    debugImplementation(compose.uiTooling)
+    debugImplementation(commonDependencies.androidx.compose.ui.module("tooling"))
 }
 
 android {
@@ -21,10 +26,7 @@ android {
         applicationId = DEMO_PACKAGE
         minSdk = androidMinSdkVersion
         targetSdk = androidSdkVersion
-        versionName = version as String
-    }
-
-    buildFeatures {
-        compose = true
+        versionCode = androidVersionCode
+        versionName = providers.projectVersion()
     }
 }
