@@ -6,7 +6,7 @@ import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 
 plugins {
     id("base-conventions")
-    id("com.huanshankeji.kotlin-multiplatform-conventional-targets") // kotlin("multiplatform")
+    id("com.huanshankeji.kotlin-multiplatform-js-browser-conventions") // kotlin("multiplatform")
     id("compose-multiplatform")
 }
 
