@@ -1,0 +1,19 @@
+.github/workflows/git-ai.yaml
+  s_98acc4697efc09::t_2cacf80f951ce3 1-26
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "3d8e4737c1dee70517cfe6747b494c8c267eee59",
+  "prompts": {},
+  "sessions": {
+    "s_98acc4697efc09": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a1520b-97dc-7a02-b7da-91b8e9995f87",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "Yongshun Ye <shreckye@gmail.com>"
+    }
+  }
+}
