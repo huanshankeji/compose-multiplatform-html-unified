@@ -1,4 +1,5 @@
 import com.huanshankeji.CommonDependencies
+import com.huanshankeji.CommonVersions
 import com.huanshankeji.gitversioning.devCommitOrReleaseVersionProvider
 import org.gradle.api.provider.ProviderFactory
 import org.jetbrains.compose.ComposeBuildConfig
@@ -11,7 +12,7 @@ fun ProviderFactory.projectVersion(): String =
 
 val androidVersionCode = 1
 
-val commonDependencies = CommonDependencies()
+val commonDependencies = CommonDependencies(CommonVersions(kotlin = "2.4.21"))
 
 object DependencyVersions {
     const val composeMultiplatform = ComposeBuildConfig.composeVersion // for "ui-unit"
