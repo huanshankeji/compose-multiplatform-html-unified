@@ -1,0 +1,23 @@
+CHANGELOG.md
+  s_bf009a948ebcf0::t_1e81e57a06ef78 15
+material3/api/android/compose-multiplatform-html-unified-material3.api
+  s_bf009a948ebcf0::t_b6655d40a8464b 34-37,43,49-53
+buildSrc/src/main/kotlin/VersionsAndDependencies.kt
+  s_bf009a948ebcf0::t_87aa9294b57e46 14
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "dca28bfe0473d29fc6da0fd7de72c52ab14d6d94",
+  "prompts": {},
+  "sessions": {
+    "s_bf009a948ebcf0": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a18544-2619-71c1-93c3-c22d3ede65f3",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "Yongshun Ye <shreckye@gmail.com>"
+    }
+  }
+}
