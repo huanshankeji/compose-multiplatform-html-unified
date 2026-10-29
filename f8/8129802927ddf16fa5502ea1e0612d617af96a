@@ -1,0 +1,19 @@
+CHANGELOG.md
+  s_bf009a948ebcf0::t_299ff84ae983b2 15-16
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "f88129802927ddf16fa5502ea1e0612d617af96a",
+  "prompts": {},
+  "sessions": {
+    "s_bf009a948ebcf0": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a18544-2619-71c1-93c3-c22d3ede65f3",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "Yongshun Ye <shreckye@gmail.com>"
+    }
+  }
+}
