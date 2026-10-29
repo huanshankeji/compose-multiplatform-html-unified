@@ -10,11 +10,11 @@ val demoProject = project(getConcatenatedProjectNamePath(":demo"))
 
 dependencies {
     subprojects.filter { it !in demoProject.allprojects && it.buildFile.exists() }.forEach {
-        dokka(it)
+        dokka(project(it.path))
     }
 }
 
-val dokkaGeneratePublicationHtml by tasks.getting(DokkaGeneratePublicationTask::class)
+val dokkaGeneratePublicationHtml = tasks.named<DokkaGeneratePublicationTask>("dokkaGeneratePublicationHtml")
 tasks.register<Sync>("generateSite") {
     group = "site"
 

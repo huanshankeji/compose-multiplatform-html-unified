@@ -11,6 +11,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 #### Changed
 
+- Upgrade Android Gradle plugin to 9.5.0.
+- Upgrade Kotlin to 2.4.21 and Gradle to 9.8.2 and migrate deprecated Gradle DSL usage.
+- JVM/Android: Add a compiler-generated public no-argument `KeyboardOptions` constructor. Android: Rename compiler-generated Compose getters by dropping the `_release` suffix used in 0.6.0.
 - Rename the demo module code package from `com.huanshankeji.compose.material.demo` to `com.huanshankeji.compose.multiplatformhtmlunified.demo` (#151).
 - Enable `com.huanshankeji.base-settings-conventions` and `com.huanshankeji.team.gitversioning.public-open-source-dependency-repositories` from gradle-common's thin settings modules.
 - Update gradle-common dependency coordinates to the reorganized artifact IDs (`kotlin-common-project-gradle-plugins`, `com.huanshankeji.team:project-gradle-plugins`).

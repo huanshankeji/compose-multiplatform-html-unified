@@ -7,7 +7,7 @@ apply(from = "../gradle/classpath-bootstrap.gradle.kts")
 (extra["repositories"] as RepositoryHandler.() -> Unit)(repositories)
 
 
-val kotlinVersion = "2.4.0"
+val kotlinVersion = "2.4.21"
 val gradleCommonPluginsVersion = extra["gradleCommonPluginsVersion"]
 
 dependencies {
@@ -17,7 +17,7 @@ dependencies {
     implementation("com.huanshankeji:common-gradle-dependencies:0.10.0-20251024")
     implementation("com.huanshankeji.team:project-gradle-plugins:$gradleCommonPluginsVersion")
     // https://developer.android.com/build/releases/gradle-plugin, https://mvnrepository.com/artifact/com.android.tools.build/gradle
-    implementation("com.android.tools.build:gradle:9.3.2")
+    implementation("com.android.tools.build:gradle:9.5.0")
 }
 
 /*
