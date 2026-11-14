@@ -1,0 +1,16 @@
+gradle.properties
+  h_6630c9ca8bc8dc 10
+demo/androidApp/build.gradle.kts
+  h_6630c9ca8bc8dc 32-34
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "a6f1ff8d8c899a9c9258a53d6e9c13202f2db1d2",
+  "prompts": {},
+  "humans": {
+    "h_6630c9ca8bc8dc": {
+      "author": "Yongshun Ye <shreckye@gmail.com>"
+    }
+  }
+}
