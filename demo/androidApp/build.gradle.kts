@@ -1,5 +1,3 @@
-import com.android.build.api.variant.ApplicationAndroidComponentsExtension
-import com.android.build.api.variant.HostTestBuilder
 import com.huanshankeji.cpnProject
 
 plugins {
@@ -20,19 +18,12 @@ dependencies {
     debugImplementation(commonDependencies.androidx.compose.ui.module("tooling"))
 }
 
-extensions.configure<ApplicationAndroidComponentsExtension> {
-    beforeVariants { variant ->
-        variant.hostTests[HostTestBuilder.UNIT_TEST_TYPE]?.enable = true
-    }
-}
-
 android {
     namespace = DEMO_PACKAGE
     compileSdk = androidSdkVersion
 
-    testOptions {
-        unitTests.isIncludeAndroidResources = true
-    }
+    // AGP 9.5 Preview workaround; remove with the matching unit-test property when fixed.
+    testOptions.unitTests.isIncludeAndroidResources = true
 
     defaultConfig {
         applicationId = DEMO_PACKAGE
