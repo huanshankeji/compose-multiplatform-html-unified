@@ -29,4 +29,7 @@ android {
         versionCode = androidVersionCode
         versionName = providers.projectVersion()
     }
+
+    // AGP 9.5 Preview workaround; remove with the matching unit-test property when fixed.
+    testOptions.unitTests.isIncludeAndroidResources = true
 }
