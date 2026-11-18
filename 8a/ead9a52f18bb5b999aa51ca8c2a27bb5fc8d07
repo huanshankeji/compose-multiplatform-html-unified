@@ -1,0 +1,24 @@
+AGENTS.md
+  s_a34e313e4b4bbb::t_b8a09b916f3814 1-28
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "8aead9a52f18bb5b999aa51ca8c2a27bb5fc8d07",
+  "prompts": {},
+  "humans": {
+    "h_6630c9ca8bc8dc": {
+      "author": "Yongshun Ye <shreckye@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_a34e313e4b4bbb": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a1ee25-dd0e-7633-911e-cb077f3944ac",
+        "model": "gpt-6.2-sol"
+      },
+      "human_author": "Yongshun Ye <shreckye@gmail.com>"
+    }
+  }
+}
