@@ -1,5 +1,7 @@
 # Repository Guidelines
 
+Before working in this repository, **load and read** the [Huanshankeji general agent instructions](https://github.com/huanshankeji/.github/blob/main/docs/general-agent-instructions.md) as the required organization-wide baseline. A skipped or failed load, or an unread document, is a blocking error until the document is in context and has been read.
+
 ## Project Structure
 
 This Kotlin Multiplatform library exposes shared APIs for rendering-based Compose UI and DOM-based Compose HTML. `common/` contains foundation and UI wrappers. `material2/`, `material3/`, `material-icons/{core,extended}/`, `navigation/`, and `lifecycle-viewmodel/` provide additional APIs. `buildSrc/` holds shared Gradle conventions.
