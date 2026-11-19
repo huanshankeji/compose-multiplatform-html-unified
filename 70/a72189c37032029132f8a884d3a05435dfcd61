@@ -1,0 +1,19 @@
+AGENTS.md
+  s_5902c0f9dcc206::t_75688bd033a7da 37
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "70a72189c37032029132f8a884d3a05435dfcd61",
+  "prompts": {},
+  "sessions": {
+    "s_5902c0f9dcc206": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a1f559-15e4-7173-8999-b9ca82cb633e",
+        "model": "gpt-6.2-sol"
+      },
+      "human_author": "Yongshun Ye <shreckye@gmail.com>"
+    }
+  }
+}
