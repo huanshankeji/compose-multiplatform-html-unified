@@ -27,13 +27,13 @@ Review and include intentional updates to the tracked [JS](kotlin-js-store/yarn.
 
 ## Unified APIs
 
-When adding or aligning a Material 3 component, use the [Material Design 3 component guidance](https://m3.material.io/components/) to find its Jetpack Compose and Material Web references where available.
+For Material 3 work, see the [Material 3 module AGENTS.md](material3/AGENTS.md).
 
 - Put shared APIs and `expect` declarations in `commonMain`. Delegate to Compose UI in `composeUiMain` and implement the DOM side in `jsMain` using Compose HTML and its wrappers. Check each module's source-set hierarchy before choosing where to put an implementation. Follow platform file suffixes such as `Button.composeUi.kt` and `Button.js.kt`.
 - Mirror the upstream Compose UI type shape when choosing an `expect interface`, `expect enum class`, or `expect class`. Use a Compose UI type alias when the platform type satisfies the common declaration. Wrap the platform type when the common API needs extra members or defaults. Implement the JS type locally. Use an ordinary common type when no platform-specific implementation is needed.
 - Search both the main and `ext` packages and the existing demos before adding a wrapper. In `com.huanshankeji.compose.material3`, keep mandatory parameters equivalent to Compose UI and match common optional types, allowing equivalent slot defaults such as a nullable slot and an empty lambda. Use `ext` when differences in platform UX or content models require a different API, as with native select versus Compose UI dropdowns.
 - Keep platform suffixes such as `JsDom` and `ComposeUi` for platform-specific parameters. Explain platform limits in KDoc and document skipped parameters at the implementation site. List unsupported upstream parameters, constants or members and their reasons in the common API's KDoc. Use `@MaterialWebLabsApi` for JS implementations backed by Material Web Labs. Opt in within a unified wrapper when it can provide consistent behavior on both backends.
-- When adapting Compose UI code, start from source matching the project's Compose version. Preserve supported names, types, semantics and declaration order. Add a source reference in a `Copied and adapted` comment. When a DOM implementation deliberately diverges, explain why and record the relevant commit when replacing an earlier design, as in [AnnotatedString](common/src/jsMain/kotlin/com/huanshankeji/compose/ui/text/AnnotatedString.js.kt).
+- When adapting Compose UI code, start from the [Compose Multiplatform Core sources](https://github.com/JetBrains/compose-multiplatform-core) for the project's Compose version. Preserve supported names, types, semantics and declaration order. Add a source reference in a `Copied and adapted` comment. When a DOM implementation deliberately diverges, explain why and record the relevant commit when replacing an earlier design, as in [AnnotatedString](common/src/jsMain/kotlin/com/huanshankeji/compose/ui/text/AnnotatedString.js.kt).
 
 ## Kotlin Style and Naming
 
