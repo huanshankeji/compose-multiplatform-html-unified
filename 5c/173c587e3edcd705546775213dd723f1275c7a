@@ -1,0 +1,34 @@
+AGENTS.md
+  s_825837ac8eb2cc::t_aa18e75050e6b7 19,22
+  s_825837ac8eb2cc::t_21d39eb54ded78 30-31
+  s_825837ac8eb2cc::t_62dde34c5520a6 17,20,44
+  s_825837ac8eb2cc::t_8b7e01d5501da6 9-10,18,25,28,32-37,40-43,50
+  s_825837ac8eb2cc::t_71c47983d875af 48-49
+  s_825837ac8eb2cc::t_4a049f5f63a9eb 52
+  s_825837ac8eb2cc::t_4e06c22aac91ca 29
+  s_825837ac8eb2cc::t_fc95a23738969c 51
+docs/archive/AGENTS.md
+  s_825837ac8eb2cc::t_4beeb28dec0710 1
+  s_825837ac8eb2cc::t_0d05bf3747efce 3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "5c173c587e3edcd705546775213dd723f1275c7a",
+  "prompts": {},
+  "humans": {
+    "h_6630c9ca8bc8dc": {
+      "author": "Yongshun Ye <shreckye@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_825837ac8eb2cc": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a1edf8-6692-70c3-bc5e-1ff3f7db49f9",
+        "model": "gpt-6.2-sol"
+      },
+      "human_author": "Yongshun Ye <shreckye@gmail.com>"
+    }
+  }
+}
