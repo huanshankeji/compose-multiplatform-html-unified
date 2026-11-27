@@ -1,15 +1,14 @@
 import com.huanshankeji.cpnProject
+import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
+import org.jetbrains.kotlin.konan.target.Family
 
 plugins {
     `lib-conventions-without-publishing`
 }
 
 kotlin {
-    listOf(
-        iosArm64(),
-        iosSimulatorArm64()
-    ).forEach { iosTarget ->
-        iosTarget.binaries.framework {
+    targets.withType<KotlinNativeTarget>().matching { it.konanTarget.family == Family.IOS }.all {
+        binaries.framework {
             baseName = "ComposeApp"
             isStatic = true
         }
